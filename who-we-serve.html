@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Who We Serve — Hero HomeReach™ | Colorado Hero Homebuyer Programs</title>
+  <meta name="description" content="Hero HomeReach™ serves Colorado educators, first responders, healthcare workers, and military members. Find out which homeownership programs are available for your profession.">
+  <meta name="keywords" content="teacher homebuyer programs Colorado, first responder mortgage assistance Colorado, nurse homebuyer grants, veteran home programs Colorado, hero homeownership Colorado">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --navy:        #0C2D5E;
+  --mid-navy:    #1A4A8A;
+  --gold:        #C9973A;
+  --bright-gold: #EAB84A;
+  --white:       #F5F7FA;
+  --near-black:  #1C1C1E;
+  --green:       #1A6B4A;
+  --warm-gray:   #D3D1C7;
+  --font-head:   'Playfair Display', Georgia, serif;
+  --font-body:   'Inter', system-ui, sans-serif;
+  --max-w:       1140px;
+  --nav-h:       76px;
+  --radius:      10px;
+  --transition:  all 0.22s ease;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--font-body); font-size: 17px; line-height: 1.7; color: var(--near-black); background: var(--white); -webkit-font-smoothing: antialiased; }
+img { display: block; max-width: 100%; }
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+button { font-family: inherit; cursor: pointer; border: none; background: none; }
+h1, h2, h3, h4 { font-family: var(--font-head); font-weight: 700; color: var(--navy); line-height: 1.15; }
+p { margin-bottom: 16px; }
+p:last-child { margin-bottom: 0; }
+
+.container { max-width: var(--max-w); margin: 0 auto; padding: 0 32px; }
+@media (max-width: 768px) { .container { padding: 0 20px; } }
+
+/* ── BUTTONS ── */
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: var(--font-body); font-weight: 700; font-size: 15px;
+  padding: 16px 32px; border-radius: var(--radius);
+  transition: var(--transition); white-space: nowrap;
+}
+.btn-gold { background: var(--gold); color: var(--navy); box-shadow: 0 4px 20px rgba(201,151,58,0.3); }
+.btn-gold:hover { background: var(--bright-gold); transform: translateY(-2px); }
+.btn-navy { background: var(--navy); color: #fff; }
+.btn-navy:hover { background: var(--mid-navy); transform: translateY(-2px); }
+.btn-white { background: #fff; color: var(--navy); }
+.btn-white:hover { background: var(--white); transform: translateY(-2px); }
+.btn-arrow::after { content: '→'; font-size: 17px; transition: transform 0.2s; }
+.btn-arrow:hover::after { transform: translateX(4px); }
+.btn-sm { padding: 11px 22px; font-size: 13px; }
+
+/* ════════════════════════════════
+   NAVIGATION
+════════════════════════════════ */
+#nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 999;
+  height: var(--nav-h);
+  background: rgba(12, 45, 94, 0.97);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(201,151,58,0.2);
+  box-shadow: 0 2px 24px rgba(0,0,0,0.15);
+  display: flex; align-items: center;
+}
+.nav-inner {
+  width: 100%; max-width: var(--max-w);
+  margin: 0 auto; padding: 0 32px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.nav-logo { display: flex; align-items: center; gap: 12px; }
+.nav-wordmark { font-family: var(--font-head); font-size: 22px; font-weight: 700; color: #fff; }
+.nav-wordmark span { color: var(--gold); }
+.nav-tm { font-size: 12px; vertical-align: super; color: var(--gold); }
+.nav-links { display: flex; align-items: center; gap: 32px; }
+.nav-links a { font-size: 14px; font-weight: 500; color: rgba(255,255,255,0.8); transition: var(--transition); }
+.nav-links a:hover { color: #fff; }
+.nav-links a.active { color: var(--bright-gold); }
+.nav-cta .btn { padding: 11px 22px; font-size: 14px; }
+.nav-hamburger { display: none; flex-direction: column; gap: 5px; padding: 8px; cursor: pointer; }
+.nav-hamburger span { display: block; width: 24px; height: 2px; background: #fff; border-radius: 2px; }
+#mobile-nav {
+  position: fixed; inset: 0; z-index: 998;
+  background: var(--navy);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: 28px;
+  opacity: 0; pointer-events: none; transition: opacity 0.3s;
+}
+#mobile-nav.open { opacity: 1; pointer-events: all; }
+#mobile-nav a { font-family: var(--font-head); font-size: 28px; font-weight: 700; color: #fff; }
+#mobile-nav a:hover { color: var(--gold); }
+@media (max-width: 900px) {
+  .nav-links, .nav-cta { display: none; }
+  .nav-hamburger { display: flex; }
+}
+
+/* ════════════════════════════════
+   PAGE HERO
+════════════════════════════════ */
+#page-hero {
+  background: var(--navy);
+  padding: calc(var(--nav-h) + 64px) 0 80px;
+  position: relative; overflow: hidden;
+}
+#page-hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image: repeating-linear-gradient(
+    45deg, rgba(201,151,58,0.03) 0px,
+    rgba(201,151,58,0.03) 1px, transparent 1px, transparent 60px
+  );
+}
+#page-hero::after {
+  content: '';
+  position: absolute; bottom: 0; left: 0; right: 0; height: 80px;
+  background: linear-gradient(to bottom, transparent, var(--white));
+}
+.page-hero-inner { position: relative; z-index: 2; text-align: center; max-width: 760px; margin: 0 auto; }
+.page-eyebrow {
+  display: inline-flex; align-items: center; gap: 10px; justify-content: center;
+  font-size: 11px; font-weight: 700; letter-spacing: 0.2em;
+  text-transform: uppercase; color: var(--gold); margin-bottom: 20px;
+}
+.page-eyebrow::before { content: ''; display: block; width: 28px; height: 2px; background: var(--gold); }
+.page-hero-inner h1 { color: #fff; font-size: clamp(32px, 4.5vw, 54px); margin-bottom: 20px; }
+.page-hero-inner h1 span { color: var(--gold); font-style: italic; }
+.page-hero-inner .lead { color: rgba(255,255,255,0.72); font-size: 18px; max-width: 580px; margin: 0 auto 40px; }
+
+/* ════════════════════════════════
+   AUDIENCE SELECTOR CARDS
+════════════════════════════════ */
+#audience-select {
+  background: var(--white);
+  padding: 64px 0;
+  border-bottom: 1px solid var(--warm-gray);
+}
+.select-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+.select-card {
+  background: #fff;
+  border: 2px solid var(--warm-gray);
+  border-radius: var(--radius);
+  padding: 28px 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: var(--transition);
+  text-decoration: none;
+  display: block;
+}
+.select-card:hover {
+  border-color: var(--gold);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 32px rgba(12,45,94,0.12);
+}
+.select-emoji { font-size: 40px; margin-bottom: 12px; display: block; }
+.select-title {
+  font-family: var(--font-head); font-size: 18px; font-weight: 700;
+  color: var(--navy); margin-bottom: 6px;
+}
+.select-sub { font-size: 12px; color: #888; line-height: 1.5; }
+.select-arrow {
+  display: inline-flex; align-items: center; gap: 4px;
+  margin-top: 14px; font-size: 12px; font-weight: 700;
+  color: var(--gold); transition: gap 0.2s;
+}
+.select-card:hover .select-arrow { gap: 8px; }
+
+/* ════════════════════════════════
+   AUDIENCE SECTIONS — SHARED
+════════════════════════════════ */
+.audience-section {
+  padding: 96px 0;
+  position: relative;
+  overflow: hidden;
+}
+.audience-section:nth-child(odd) { background: #fff; }
+.audience-section:nth-child(even) { background: var(--white); }
+
+/* Dark hero variant */
+.audience-section.dark {
+  background: var(--navy);
+}
+
+.audience-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 72px; align-items: center;
+}
+.audience-grid.reverse { direction: rtl; }
+.audience-grid.reverse > * { direction: ltr; }
+
+/* Audience label badge */
+.audience-label {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-size: 11px; font-weight: 700; letter-spacing: 0.2em;
+  text-transform: uppercase; margin-bottom: 16px;
+}
+.audience-label.gold { color: var(--gold); }
+.audience-label.gold::before { content: ''; display: block; width: 28px; height: 2px; background: var(--gold); }
+.audience-label.white { color: rgba(255,255,255,0.6); }
+.audience-label.white::before { content: ''; display: block; width: 28px; height: 2px; background: rgba(255,255,255,0.4); }
+
+.audience-content h2 { font-size: clamp(28px, 3.5vw, 42px); margin-bottom: 16px; }
+.audience-content h2.white { color: #fff; }
+.audience-content .lead { font-size: 17px; color: #555; margin-bottom: 24px; }
+.audience-content .lead.white { color: rgba(255,255,255,0.72); }
+
+/* Who qualifies list */
+.who-qualifies {
+  background: rgba(12,45,94,0.04);
+  border: 1px solid var(--warm-gray);
+  border-radius: 8px; padding: 16px 20px;
+  margin-bottom: 24px;
+}
+.who-qualifies.dark-bg {
+  background: rgba(255,255,255,0.05);
+  border-color: rgba(201,151,58,0.2);
+}
+.wq-title {
+  font-size: 11px; font-weight: 700; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--gold); margin-bottom: 10px;
+}
+.wq-list { display: flex; flex-wrap: wrap; gap: 8px; }
+.wq-tag {
+  font-size: 12px; font-weight: 600;
+  background: #fff; color: var(--navy);
+  border: 1px solid var(--warm-gray);
+  border-radius: 20px; padding: 4px 12px;
+}
+.wq-tag.dark { background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.85); border-color: rgba(255,255,255,0.15); }
+
+/* Emotional driver quote */
+.hero-quote {
+  position: relative;
+  padding: 20px 20px 20px 28px;
+  border-left: 4px solid var(--gold);
+  background: rgba(201,151,58,0.06);
+  border-radius: 0 8px 8px 0;
+  font-size: 16px; font-style: italic;
+  color: var(--near-black); margin-bottom: 24px;
+  line-height: 1.6;
+}
+.hero-quote.dark-bg {
+  background: rgba(201,151,58,0.08);
+  color: rgba(255,255,255,0.85);
+}
+
+/* Program pills */
+.program-pills { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 28px; }
+.prog-pill {
+  display: flex; align-items: center; gap: 6px;
+  background: #fff; border: 1px solid var(--warm-gray);
+  border-radius: 20px; padding: 6px 14px;
+  font-size: 12px; font-weight: 600; color: var(--navy);
+  box-shadow: 0 1px 4px rgba(12,45,94,0.06);
+}
+.prog-pill::before { content: '✓'; color: var(--green); font-weight: 800; }
+.prog-pill.dark { background: rgba(255,255,255,0.07); border-color: rgba(255,255,255,0.15); color: rgba(255,255,255,0.85); }
+.prog-pill.dark::before { color: var(--bright-gold); }
+
+/* Stats card */
+.audience-stats {
+  background: var(--navy);
+  border-radius: var(--radius);
+  padding: 32px;
+  box-shadow: 0 8px 40px rgba(12,45,94,0.2);
+}
+.audience-stats.light {
+  background: #fff;
+  border: 1px solid var(--warm-gray);
+  box-shadow: 0 4px 24px rgba(12,45,94,0.08);
+}
+.audience-stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 24px; }
+.audience-stat {}
+.stat-num {
+  font-family: var(--font-head); font-size: 36px; font-weight: 900;
+  color: var(--gold); line-height: 1;
+}
+.audience-stats.light .stat-num { color: var(--navy); }
+.stat-label { font-size: 12px; color: rgba(255,255,255,0.55); margin-top: 4px; }
+.audience-stats.light .stat-label { color: #888; }
+
+/* Objection busters */
+.objection-list { margin-top: 20px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); }
+.audience-stats.light .objection-list { border-top-color: var(--warm-gray); }
+.objection-title { font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
+.objection-item { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 10px; font-size: 13px; }
+.obj-myth { color: rgba(255,255,255,0.45); text-decoration: line-through; flex: 1; }
+.audience-stats.light .obj-myth { color: #aaa; }
+.obj-truth { color: rgba(255,255,255,0.85); flex: 1; }
+.audience-stats.light .obj-truth { color: var(--near-black); }
+.obj-icon { flex-shrink: 0; font-size: 14px; }
+
+/* ════════════════════════════════
+   SHARED PROGRAM CALLOUT BOX
+════════════════════════════════ */
+.program-callout {
+  border-radius: var(--radius);
+  padding: 28px;
+  margin-top: 8px;
+}
+.program-callout.navy-bg {
+  background: var(--navy);
+  border: 1px solid rgba(201,151,58,0.25);
+}
+.program-callout.white-bg {
+  background: #fff;
+  border: 1px solid var(--warm-gray);
+  box-shadow: 0 4px 20px rgba(12,45,94,0.08);
+}
+.pc-title { font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
+.pc-row { display: flex; justify-content: space-between; align-items: flex-start; padding: 9px 0; border-bottom: 1px solid rgba(255,255,255,0.07); font-size: 13px; }
+.program-callout.white-bg .pc-row { border-bottom-color: var(--warm-gray); }
+.pc-name { color: rgba(255,255,255,0.75); }
+.program-callout.white-bg .pc-name { color: #555; }
+.pc-name small { display: block; font-size: 11px; color: rgba(255,255,255,0.35); margin-top: 2px; }
+.program-callout.white-bg .pc-name small { color: #aaa; }
+.pc-val { font-weight: 700; color: var(--bright-gold); white-space: nowrap; margin-left: 12px; }
+.program-callout.white-bg .pc-val { color: var(--navy); }
+.pc-total { display: flex; justify-content: space-between; align-items: center; padding: 14px 0 0; margin-top: 8px; border-top: 2px solid rgba(201,151,58,0.4); }
+.pc-total-label { font-weight: 700; color: #fff; font-size: 14px; }
+.program-callout.white-bg .pc-total-label { color: var(--navy); }
+.pc-total-val { font-family: var(--font-head); font-size: 30px; font-weight: 900; color: var(--gold); }
+.pc-note { font-size: 11px; color: rgba(255,255,255,0.3); margin-top: 8px; line-height: 1.5; }
+.program-callout.white-bg .pc-note { color: #aaa; }
+
+/* ════════════════════════════════
+   DIVIDER BANNER
+════════════════════════════════ */
+.section-divider-banner {
+  background: var(--gold);
+  padding: 20px 0;
+  text-align: center;
+}
+.section-divider-banner p {
+  font-size: 15px; font-weight: 700; color: var(--navy);
+  margin: 0; letter-spacing: 0.02em;
+}
+
+/* ════════════════════════════════
+   CTA SECTION
+════════════════════════════════ */
+#final-cta {
+  background: var(--navy); padding: 96px 0;
+  position: relative; overflow: hidden;
+  text-align: center;
+}
+#final-cta::before {
+  content: '';
+  position: absolute; top: -100px; right: -100px;
+  width: 500px; height: 500px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(201,151,58,0.1) 0%, transparent 70%);
+}
+.final-cta-inner { position: relative; z-index: 2; }
+.final-cta-inner h2 { color: #fff; font-size: clamp(28px, 3.5vw, 44px); margin-bottom: 16px; }
+.final-cta-inner h2 span { color: var(--gold); font-style: italic; }
+.final-cta-inner p { color: rgba(255,255,255,0.7); font-size: 18px; max-width: 520px; margin: 0 auto 40px; }
+.cta-reassurance { display: flex; align-items: center; justify-content: center; gap: 28px; flex-wrap: wrap; margin-top: 28px; }
+.cta-reassurance-item { display: flex; align-items: center; gap: 6px; font-size: 13px; color: rgba(255,255,255,0.55); }
+.cta-reassurance-item::before { content: '✓'; color: var(--green); font-weight: 800; }
+
+/* ════════════════════════════════
+   FOOTER
+════════════════════════════════ */
+#footer { background: #080f1c; padding: 64px 0 32px; border-top: 1px solid rgba(201,151,58,0.15); }
+.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
+.footer-brand .wordmark { font-family: var(--font-head); font-size: 24px; font-weight: 700; color: #fff; margin-bottom: 16px; }
+.footer-brand .wordmark span { color: var(--gold); }
+.footer-brand p { font-size: 14px; color: rgba(255,255,255,0.45); line-height: 1.7; max-width: 280px; }
+.footer-col-title { font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
+.footer-col a { display: block; font-size: 14px; color: rgba(255,255,255,0.5); margin-bottom: 10px; transition: color 0.2s; }
+.footer-col a:hover { color: rgba(255,255,255,0.85); }
+.footer-bottom { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; padding-top: 32px; border-top: 1px solid rgba(255,255,255,0.06); }
+.footer-copy { font-size: 12px; color: rgba(255,255,255,0.3); }
+.footer-legal { display: flex; gap: 24px; }
+.footer-legal a { font-size: 12px; color: rgba(255,255,255,0.3); transition: color 0.2s; }
+.footer-legal a:hover { color: rgba(255,255,255,0.6); }
+
+/* ── ANIMATIONS ── */
+.fade-up { opacity: 0; transform: translateY(28px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.fade-up.visible { opacity: 1; transform: translateY(0); }
+.fade-up.delay-1 { transition-delay: 0.1s; }
+.fade-up.delay-2 { transition-delay: 0.2s; }
+.fade-up.delay-3 { transition-delay: 0.3s; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .select-grid { grid-template-columns: repeat(2, 1fr); }
+  .audience-grid, .audience-grid.reverse { grid-template-columns: 1fr; direction: ltr; gap: 40px; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+  .cta-reassurance { flex-direction: column; align-items: center; }
+}
+@media (max-width: 500px) {
+  .select-grid { grid-template-columns: 1fr 1fr; }
+  .audience-stat-grid { grid-template-columns: 1fr 1fr; }
+  .footer-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- ════════════ NAV ════════════ -->
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="logo-mark_transparent.png" alt="Hero HomeReach Shield" style="width:48px; height:48px; object-fit:contain;">
+      <div><div class="nav-wordmark">Hero <span>HomeReach</span><sup class="nav-tm">™</sup></div></div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="programs.html">Programs</a></li>
+      <li><a href="who-we-serve.html" class="active">Who We Serve</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="blog/">Resources</a></li>
+      <li><a href="https://guide.herohomereach.com" target="_blank" style="color:var(--bright-gold); font-weight:700;">Free Guide</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="contact.html" class="btn btn-gold btn-arrow">Book Free Consultation</a>
+    </div>
+    <div class="nav-hamburger" id="hamburger" onclick="toggleMobileNav()">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+<div id="mobile-nav">
+  <a href="programs.html" onclick="toggleMobileNav()">Programs</a>
+  <a href="who-we-serve.html" onclick="toggleMobileNav()">Who We Serve</a>
+  <a href="about.html" onclick="toggleMobileNav()">About</a>
+  <a href="blog/" onclick="toggleMobileNav()">Resources</a>
+  <a href="https://guide.herohomereach.com" target="_blank" style="color:var(--bright-gold);" onclick="toggleMobileNav()">Free Guide</a>
+  <a href="contact.html" class="btn btn-gold" style="margin-top:16px;" onclick="toggleMobileNav()">Book Free Consultation</a>
+</div>
+
+
+<!-- ════════════ PAGE HERO ════════════ -->
+<section id="page-hero">
+  <div class="container">
+    <div class="page-hero-inner">
+      <div class="page-eyebrow">Your Profession. Your Programs.</div>
+      <h1>Built for the People Who <span>Show Up Every Day</span></h1>
+      <p class="lead">Colorado has created real homeownership programs for the heroes who keep our communities running. Find your profession below and see exactly what's available to you.</p>
+      <div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
+        <a href="#educators" class="btn btn-gold btn-sm">🎓 Educators</a>
+        <a href="#first-responders" class="btn btn-white btn-sm">🚒 First Responders</a>
+        <a href="#healthcare" class="btn btn-white btn-sm">🏥 Healthcare Workers</a>
+        <a href="#military" class="btn btn-white btn-sm">🎖️ Military Members</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════ AUDIENCE SELECTOR ════════════ -->
+<section id="audience-select">
+  <div class="container">
+    <div style="text-align:center; margin-bottom:40px;">
+      <p style="font-size:13px; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color:var(--gold); margin-bottom:8px;">Find Your Path</p>
+      <h2 style="font-size:28px;">Who Are You?</h2>
+    </div>
+    <div class="select-grid">
+      <a href="#educators" class="select-card fade-up">
+        <span class="select-emoji">🎓</span>
+        <div class="select-title">Educators</div>
+        <div class="select-sub">Teachers · Administrators · School Staff · Counselors</div>
+        <div class="select-arrow">See your programs →</div>
+      </a>
+      <a href="#first-responders" class="select-card fade-up delay-1">
+        <span class="select-emoji">🚒</span>
+        <div class="select-title">First Responders</div>
+        <div class="select-sub">Police · Firefighters · EMTs · Paramedics · Dispatchers</div>
+        <div class="select-arrow">See your programs →</div>
+      </a>
+      <a href="#healthcare" class="select-card fade-up delay-2">
+        <span class="select-emoji">🏥</span>
+        <div class="select-title">Healthcare Workers</div>
+        <div class="select-sub">Nurses · Doctors · Technicians · Hospital & Clinic Staff</div>
+        <div class="select-arrow">See your programs →</div>
+      </a>
+      <a href="#military" class="select-card fade-up delay-3">
+        <span class="select-emoji">🎖️</span>
+        <div class="select-title">Military Members</div>
+        <div class="select-sub">Active Duty · Veterans · Military Spouses · Reservists</div>
+        <div class="select-arrow">See your programs →</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════ EDUCATORS ════════════ -->
+<section class="audience-section" id="educators" style="background:#fff;">
+  <div class="container">
+    <div class="audience-grid">
+
+      <div class="audience-content fade-up">
+        <div class="audience-label gold">🎓 Educators</div>
+        <h2>You Shape Every Future.<br>Let's Secure Yours.</h2>
+        <p class="lead">Colorado teachers are among the most underserved homebuyers in the state — and among the most eligible for assistance. The programs exist. Most educators just don't know they qualify.</p>
+
+        <div class="who-qualifies">
+          <div class="wq-title">Who Qualifies</div>
+          <div class="wq-list">
+            <span class="wq-tag">Pre-K–12 Teachers</span>
+            <span class="wq-tag">School Administrators</span>
+            <span class="wq-tag">School Counselors</span>
+            <span class="wq-tag">Special Education Staff</span>
+            <span class="wq-tag">Para-educators</span>
+            <span class="wq-tag">School Support Staff</span>
+          </div>
+        </div>
+
+        <div class="hero-quote">
+          "I assumed my salary meant I couldn't afford to buy in Colorado. Turns out I qualified for over $40,000 in combined assistance. We closed in 60 days."
+          <div style="font-style:normal; font-size:13px; color:#888; margin-top:8px; font-weight:600;">— 3rd Grade Teacher, Castle Rock CO</div>
+        </div>
+
+        <div class="program-pills">
+          <span class="prog-pill">Teacher Next Door Grant ($8K)</span>
+          <span class="prog-pill">Teacher Next Door DPA ($15K)</span>
+          <span class="prog-pill">Chenoa Fund (5% forgivable)</span>
+          <span class="prog-pill">CHFA FirstGen (up to $25K)</span>
+          <span class="prog-pill">HUD Good Neighbor Next Door</span>
+          <span class="prog-pill">MetroDPA (up to 6%)</span>
+        </div>
+
+        <div style="display:flex; gap:12px; flex-wrap:wrap;">
+          <a href="contact.html" class="btn btn-gold btn-arrow">Book Free Educator Consultation</a>
+          <a href="programs.html#hero-programs" class="btn btn-outline-navy btn-sm" style="border:2px solid var(--navy); color:var(--navy);">See All Programs →</a>
+        </div>
+      </div>
+
+      <div class="fade-up delay-2">
+        <div class="program-callout navy-bg">
+          <div class="pc-title">Maximum Stack — Colorado Teacher · $400K FHA</div>
+          <div class="pc-row">
+            <div class="pc-name">Teacher Next Door Grant<small>True grant · covers $1K min. contribution</small></div>
+            <div class="pc-val">$8,000</div>
+          </div>
+          <div class="pc-row">
+            <div class="pc-name">Teacher Next Door DPA<small>Additional down payment assistance</small></div>
+            <div class="pc-val">$15,000</div>
+          </div>
+          <div class="pc-row">
+            <div class="pc-name">Chenoa Fund (5%)<small>Covers 3.5% FHA down · forgiven after 36 payments</small></div>
+            <div class="pc-val">$20,000</div>
+          </div>
+          <div class="pc-row" style="border-bottom:none;">
+            <div class="pc-name">Seller Concessions (6% FHA max)<small>Covers all closing costs &amp; pre-paids</small></div>
+            <div class="pc-val">$24,000</div>
+          </div>
+          <div class="pc-total">
+            <div class="pc-total-label">Total Assistance</div>
+            <div class="pc-total-val">$67,000</div>
+          </div>
+          <div class="pc-note">Result: $0 out-of-pocket at closing. *Based on $400K FHA purchase. Eligibility varies.</div>
+        </div>
+
+        <div style="background:rgba(26,107,74,0.08); border:1px solid rgba(26,107,74,0.2); border-radius:8px; padding:16px 20px; margin-top:16px;">
+          <div style="font-size:12px; font-weight:700; color:var(--green); text-transform:uppercase; letter-spacing:0.12em; margin-bottom:6px;">Income Limit Note</div>
+          <div style="font-size:13px; color:#555;">Most Castle Rock teachers qualify easily — MetroDPA allows up to <strong>$210,150</strong> household income. CHFA FirstGen up to <strong>$174,440</strong>. Teacher Next Door and Chenoa have <strong>no income limits</strong>.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="section-divider-banner">
+  <div class="container">
+    <p>Every hero profession has a different combination of programs. Book a free consultation to find your exact stack. →</p>
+  </div>
+</div>
+
+
+<!-- ════════════ FIRST RESPONDERS ════════════ -->
+<section class="audience-section dark" id="first-responders">
+  <div class="container">
+    <div class="audience-grid reverse">
+
+      <div class="audience-content fade-up">
+        <div class="audience-label white">🚒 First Responders</div>
+        <h2 class="white">You Run Toward the Fire.<br><span style="color:var(--gold); font-style:italic;">We'll Run the Numbers.</span></h2>
+        <p class="lead white">You don't have time to research 12 different programs. That's exactly why Hero HomeReach™ exists. We find your stack, you pick a time for a call.</p>
+
+        <div class="who-qualifies dark-bg">
+          <div class="wq-title">Who Qualifies</div>
+          <div class="wq-list">
+            <span class="wq-tag dark">Police Officers</span>
+            <span class="wq-tag dark">Firefighters</span>
+            <span class="wq-tag dark">EMTs</span>
+            <span class="wq-tag dark">Paramedics</span>
+            <span class="wq-tag dark">Dispatchers</span>
+            <span class="wq-tag dark">Sheriff Deputies</span>
+            <span class="wq-tag dark">Corrections Officers</span>
+          </div>
+        </div>
+
+        <div class="hero-quote dark-bg">
+          "I had no idea there were programs specifically for first responders. Between MetroDPA and the Teacher Next Door — which also covers officers — we got into our home with almost nothing down."
+          <div style="font-style:normal; font-size:13px; color:rgba(255,255,255,0.45); margin-top:8px; font-weight:600;">— Police Officer, Colorado Springs CO</div>
+        </div>
+
+        <div class="program-pills">
+          <span class="prog-pill dark">MetroDPA — 6% forgiven</span>
+          <span class="prog-pill dark">Teacher Next Door (covers officers)</span>
+          <span class="prog-pill dark">HUD Good Neighbor Next Door</span>
+          <span class="prog-pill dark">NeighborhoodLIFT ($15K)</span>
+          <span class="prog-pill dark">CO Community Hero Program</span>
+          <span class="prog-pill dark">Homes for Heroes rebate</span>
+        </div>
+
+        <a href="contact.html" class="btn btn-gold btn-arrow">Book Free First Responder Consultation</a>
+      </div>
+
+      <div class="fade-up delay-2">
+        <div class="audience-stats">
+          <div class="audience-stat-grid">
+            <div class="audience-stat">
+              <div class="stat-num">6%</div>
+              <div class="stat-label">MetroDPA — fully forgiven after 3 years</div>
+            </div>
+            <div class="audience-stat">
+              <div class="stat-num">$15K</div>
+              <div class="stat-label">NeighborhoodLIFT flat grant</div>
+            </div>
+            <div class="audience-stat">
+              <div class="stat-num">50%</div>
+              <div class="stat-label">HUD GNND discount — only $100 down</div>
+            </div>
+            <div class="audience-stat">
+              <div class="stat-num">$0</div>
+              <div class="stat-label">Out-of-pocket possible with right stack</div>
+            </div>
+          </div>
+          <div class="objection-list">
+            <div class="objection-title">Common Myths — Busted</div>
+            <div class="objection-item">
+              <span class="obj-icon">✗</span>
+              <span class="obj-myth">"My income is too high to qualify"</span>
+            </div>
+            <div class="objection-item">
+              <span class="obj-icon">✓</span>
+              <span class="obj-truth" style="color:var(--bright-gold);">MetroDPA allows up to $210,150 household income</span>
+            </div>
+            <div class="objection-item" style="margin-top:8px;">
+              <span class="obj-icon">✗</span>
+              <span class="obj-myth">"I don't have time to figure this out"</span>
+            </div>
+            <div class="objection-item">
+              <span class="obj-icon">✓</span>
+              <span class="obj-truth" style="color:var(--bright-gold);">One 30-minute call — we do all the research</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════ HEALTHCARE WORKERS ════════════ -->
+<section class="audience-section" id="healthcare" style="background:var(--white);">
+  <div class="container">
+    <div class="audience-grid">
+
+      <div class="audience-content fade-up">
+        <div class="audience-label gold">🏥 Healthcare Workers</div>
+        <h2>You Spend Every Day<br>Taking Care of Others.</h2>
+        <p class="lead">It's time someone took care of you. Colorado healthcare professionals are often surprised to find out how many programs apply directly to their profession — even if they recently moved here.</p>
+
+        <div class="who-qualifies">
+          <div class="wq-title">Who Qualifies</div>
+          <div class="wq-list">
+            <span class="wq-tag">Registered Nurses (RN)</span>
+            <span class="wq-tag">Licensed Practical Nurses (LPN)</span>
+            <span class="wq-tag">CNAs</span>
+            <span class="wq-tag">Doctors & Physicians</span>
+            <span class="wq-tag">Medical Technicians</span>
+            <span class="wq-tag">Radiologists</span>
+            <span class="wq-tag">Physical Therapists</span>
+            <span class="wq-tag">Hospital & Clinic Staff</span>
+          </div>
+        </div>
+
+        <div class="hero-quote">
+          "I moved to Colorado as a travel nurse and assumed I couldn't buy yet. Hero HomeReach found two programs I qualified for immediately. We closed 90 days after I arrived."
+          <div style="font-style:normal; font-size:13px; color:#888; margin-top:8px; font-weight:600;">— ICU Nurse, Aurora CO</div>
+        </div>
+
+        <div class="program-pills">
+          <span class="prog-pill">Teacher Next Door (covers nurses)</span>
+          <span class="prog-pill">Chenoa Fund — no income limits</span>
+          <span class="prog-pill">MetroDPA — 6% forgiven</span>
+          <span class="prog-pill">CO Community Hero Program</span>
+          <span class="prog-pill">CHFA programs (FICO 620+)</span>
+          <span class="prog-pill">Homes for Heroes rebate</span>
+        </div>
+
+        <div style="display:flex; gap:12px; flex-wrap:wrap;">
+          <a href="contact.html" class="btn btn-gold btn-arrow">Book Free Healthcare Consultation</a>
+        </div>
+      </div>
+
+      <div class="fade-up delay-2">
+        <div class="audience-stats light">
+          <div class="audience-stat-grid">
+            <div class="audience-stat">
+              <div class="stat-num" style="color:var(--navy);">No</div>
+              <div class="stat-label" style="color:#666;">Income limits on Chenoa Fund &amp; TND</div>
+            </div>
+            <div class="audience-stat">
+              <div class="stat-num" style="color:var(--navy);">600+</div>
+              <div class="stat-label" style="color:#666;">Minimum FICO for Chenoa Fund</div>
+            </div>
+            <div class="audience-stat">
+              <div class="stat-num" style="color:var(--navy);">36</div>
+              <div class="stat-label" style="color:#666;">On-time payments to fully forgive Chenoa</div>
+            </div>
+            <div class="audience-stat">
+              <div class="stat-num" style="color:var(--navy);">$8K</div>
+              <div class="stat-label" style="color:#666;">Teacher Next Door true grant — also covers nurses</div>
+            </div>
+          </div>
+          <div class="objection-list" style="border-top-color:var(--warm-gray);">
+            <div class="objection-title">Common Myths — Busted</div>
+            <div class="objection-item">
+              <span class="obj-icon">✗</span>
+              <span class="obj-myth" style="color:#aaa;">"I just moved here — I can't buy yet"</span>
+            </div>
+            <div class="objection-item">
+              <span class="obj-icon">✓</span>
+              <span class="obj-truth">No residency requirement on most programs</span>
+            </div>
+            <div class="objection-item" style="margin-top:8px;">
+              <span class="obj-icon">✗</span>
+              <span class="obj-myth" style="color:#aaa;">"Student loans disqualify me"</span>
+            </div>
+            <div class="objection-item">
+              <span class="obj-icon">✓</span>
+              <span class="obj-truth">Many programs work around student debt DTI</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════ MILITARY MEMBERS ════════════ -->
+<section class="audience-section dark" id="military">
+  <div class="container">
+    <div class="audience-grid reverse">
+
+      <div class="audience-content fade-up">
+        <div class="audience-label white">🎖️ Military Members</div>
+        <h2 class="white">You Already Have the VA Loan.<br><span style="color:var(--gold); font-style:italic;">Here's What Stacks On Top.</span></h2>
+        <p class="lead white">Most military members know about VA loans. What they don't know is that Colorado's state and local programs can often be stacked on top of VA benefits — adding thousands more in assistance.</p>
+
+        <div class="who-qualifies dark-bg">
+          <div class="wq-title">Who Qualifies</div>
+          <div class="wq-list">
+            <span class="wq-tag dark">Active Duty</span>
+            <span class="wq-tag dark">Veterans</span>
+            <span class="wq-tag dark">Military Spouses</span>
+            <span class="wq-tag dark">National Guard</span>
+            <span class="wq-tag dark">Army Reservists</span>
+            <span class="wq-tag dark">Honorably Discharged</span>
+          </div>
+        </div>
+
+        <div class="hero-quote dark-bg">
+          "I thought my VA loan was the only benefit available to me. Hero HomeReach showed me how to stack Colorado programs on top of it. We ended up with over $20,000 in additional assistance I didn't even know existed."
+          <div style="font-style:normal; font-size:13px; color:rgba(255,255,255,0.45); margin-top:8px; font-weight:600;">— Army Veteran, Colorado Springs CO</div>
+        </div>
+
+        <div class="program-pills">
+          <span class="prog-pill dark">VA Loan — 0% down</span>
+          <span class="prog-pill dark">CHFA Programs (stacks with VA)</span>
+          <span class="prog-pill dark">MetroDPA — 6% forgiven</span>
+          <span class="prog-pill dark">Teacher Next Door (covers military)</span>
+          <span class="prog-pill dark">NeighborhoodLIFT ($15K)</span>
+          <span class="prog-pill dark">CO Community Hero Program</span>
+          <span class="prog-pill dark">HUD Good Neighbor Next Door</span>
+          <span class="prog-pill dark">Homes for Heroes rebate</span>
+        </div>
+
+        <a href="contact.html" class="btn btn-gold btn-arrow">Book Free Military Consultation</a>
+      </div>
+
+      <div class="fade-up delay-2">
+        <div class="audience-stats">
+          <div class="audience-stat-grid">
+            <div class="audience-stat">
+              <div class="stat-num">0%</div>
+              <div class="stat-label">Down payment required with VA loan</div>
+            </div>
+            <div class="audience-stat">
+              <div class="stat-num">4%</div>
+              <div class="stat-label">Max seller concessions on VA loans</div>
+            </div>
+            <div class="audience-stat">
+              <div class="stat-num">$15K+</div>
+              <div class="stat-label">Additional Colorado grants stackable with VA</div>
+            </div>
+            <div class="audience-stat">
+              <div class="stat-num">Stack</div>
+              <div class="stat-label">VA + state programs = maximum benefit</div>
+            </div>
+          </div>
+          <div class="objection-list">
+            <div class="objection-title">Common Myths — Busted</div>
+            <div class="objection-item">
+              <span class="obj-icon">✗</span>
+              <span class="obj-myth">"VA loan is all I need / can get"</span>
+            </div>
+            <div class="objection-item">
+              <span class="obj-icon">✓</span>
+              <span class="obj-truth" style="color:var(--bright-gold);">Colorado grants can stack on top of VA benefits</span>
+            </div>
+            <div class="objection-item" style="margin-top:8px;">
+              <span class="obj-icon">✗</span>
+              <span class="obj-myth">"I move too much to buy a home"</span>
+            </div>
+            <div class="objection-item">
+              <span class="obj-icon">✓</span>
+              <span class="obj-truth" style="color:var(--bright-gold);">If Colorado is your base — programs are waiting for you</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════ FINAL CTA ════════════ -->
+<section id="final-cta">
+  <div class="container">
+    <div class="final-cta-inner fade-up">
+      <div style="font-size:11px; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:var(--bright-gold); margin-bottom:16px;">Free · 30 Minutes · Zero Obligation</div>
+      <h2>Find Out <span>Exactly What You've Earned</span></h2>
+      <p>Book your free Hero HomeReach™ consultation. We'll map every program available for your profession and show you your maximum combined benefit — at zero cost to you.</p>
+      <a href="contact.html" class="btn btn-gold btn-arrow" style="font-size:17px; padding:18px 40px;">Book My Free Consultation</a>
+      <div class="cta-reassurance">
+        <div class="cta-reassurance-item">Completely free</div>
+        <div class="cta-reassurance-item">No lender pressure</div>
+        <div class="cta-reassurance-item">Colorado-specific guidance</div>
+        <div class="cta-reassurance-item">30 minutes or less</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════ FOOTER ════════════ -->
+<footer id="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="wordmark">Hero <span>HomeReach</span>™</div>
+        <p>Free homeownership guidance for Colorado's educators, first responders, healthcare workers, and military members. No jargon. No pressure. Built for heroes.</p>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Site</div>
+        <a href="programs.html">Programs</a>
+        <a href="who-we-serve.html">Who We Serve</a>
+        <a href="about.html">About</a>
+        <a href="blog/">Resources</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Heroes</div>
+        <a href="#educators">Educators</a>
+        <a href="#first-responders">First Responders</a>
+        <a href="#healthcare">Healthcare Workers</a>
+        <a href="#military">Military Members</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Start Here</div>
+        <a href="contact.html">Book Free Consultation</a>
+        <a href="programs.html">Explore Programs</a>
+        <a href="blog/">Read Resources</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2026 Hero HomeReach™. All rights reserved. Colorado Homeownership Guidance.</div>
+      <div class="footer-legal">
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Use</a>
+        <a href="disclaimer.html">Disclaimer</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+<script>
+function toggleMobileNav() {
+  document.getElementById('mobile-nav').classList.toggle('open');
+}
+
+// Scroll animations
+const fadeEls = document.querySelectorAll('.fade-up');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); }
+  });
+}, { threshold: 0.1 });
+fadeEls.forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
