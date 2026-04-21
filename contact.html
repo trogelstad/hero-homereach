@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book a Free Consultation — Hero HomeReach™</title>
+  <meta name="description" content="Book your free 30-minute Hero HomeReach™ consultation. Discover every Colorado homeownership program you qualify for. No pressure, no obligation.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Calendly -->
+  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+  <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+
+<style>
+:root {
+  --navy:        #0C2D5E;
+  --mid-navy:    #1A4A8A;
+  --gold:        #C9973A;
+  --bright-gold: #EAB84A;
+  --white:       #F5F7FA;
+  --near-black:  #1C1C1E;
+  --green:       #1A6B4A;
+  --warm-gray:   #D3D1C7;
+  --font-head:   'Playfair Display', Georgia, serif;
+  --font-body:   'Inter', system-ui, sans-serif;
+  --max-w:       1140px;
+  --nav-h:       76px;
+  --radius:      10px;
+  --transition:  all 0.22s ease;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--font-body); font-size: 17px; line-height: 1.7; color: var(--near-black); background: var(--white); -webkit-font-smoothing: antialiased; }
+img { display: block; max-width: 100%; }
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+button { font-family: inherit; cursor: pointer; border: none; background: none; }
+h1, h2, h3, h4 { font-family: var(--font-head); font-weight: 700; color: var(--navy); line-height: 1.15; }
+
+.container { max-width: var(--max-w); margin: 0 auto; padding: 0 32px; }
+@media (max-width: 768px) { .container { padding: 0 20px; } }
+
+/* ── BUTTONS ── */
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: var(--font-body); font-weight: 700; font-size: 15px;
+  padding: 16px 32px; border-radius: var(--radius);
+  transition: var(--transition); white-space: nowrap;
+}
+.btn-gold { background: var(--gold); color: var(--navy); box-shadow: 0 4px 20px rgba(201,151,58,0.3); }
+.btn-gold:hover { background: var(--bright-gold); transform: translateY(-2px); }
+.btn-navy { background: var(--navy); color: #fff; }
+.btn-navy:hover { background: var(--mid-navy); transform: translateY(-2px); }
+
+/* ════════════════════════════════
+   NAVIGATION
+════════════════════════════════ */
+#nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 999;
+  height: var(--nav-h);
+  background: rgba(12, 45, 94, 0.97);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(201,151,58,0.2);
+  box-shadow: 0 2px 24px rgba(0,0,0,0.15);
+  display: flex; align-items: center;
+}
+.nav-inner {
+  width: 100%; max-width: var(--max-w);
+  margin: 0 auto; padding: 0 32px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.nav-logo { display: flex; align-items: center; gap: 12px; }
+.nav-wordmark { font-family: var(--font-head); font-size: 22px; font-weight: 700; color: #fff; }
+.nav-wordmark span { color: var(--gold); }
+.nav-tm { font-size: 12px; vertical-align: super; color: var(--gold); }
+.nav-links { display: flex; align-items: center; gap: 36px; }
+.nav-links a { font-size: 14px; font-weight: 500; color: rgba(255,255,255,0.8); transition: var(--transition); }
+.nav-links a:hover, .nav-links a.active { color: var(--bright-gold); }
+.nav-cta .btn { padding: 11px 22px; font-size: 14px; }
+.nav-hamburger { display: none; flex-direction: column; gap: 5px; padding: 8px; cursor: pointer; }
+.nav-hamburger span { display: block; width: 24px; height: 2px; background: #fff; border-radius: 2px; }
+#mobile-nav {
+  position: fixed; inset: 0; z-index: 998;
+  background: var(--navy);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: 32px;
+  opacity: 0; pointer-events: none; transition: opacity 0.3s;
+}
+#mobile-nav.open { opacity: 1; pointer-events: all; }
+#mobile-nav a { font-family: var(--font-head); font-size: 32px; font-weight: 700; color: #fff; }
+#mobile-nav a:hover { color: var(--gold); }
+@media (max-width: 900px) {
+  .nav-links, .nav-cta { display: none; }
+  .nav-hamburger { display: flex; }
+}
+
+/* ════════════════════════════════
+   PAGE HERO
+════════════════════════════════ */
+#page-hero {
+  background: var(--navy);
+  padding: calc(var(--nav-h) + 56px) 0 64px;
+  position: relative; overflow: hidden;
+}
+#page-hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image: repeating-linear-gradient(
+    45deg,
+    rgba(201,151,58,0.03) 0px, rgba(201,151,58,0.03) 1px,
+    transparent 1px, transparent 60px
+  );
+}
+#page-hero::after {
+  content: '';
+  position: absolute; bottom: 0; left: 0; right: 0; height: 80px;
+  background: linear-gradient(to bottom, transparent, var(--white));
+}
+.page-hero-inner {
+  position: relative; z-index: 2;
+  text-align: center; max-width: 700px; margin: 0 auto;
+}
+.page-eyebrow {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-size: 11px; font-weight: 700; letter-spacing: 0.2em;
+  text-transform: uppercase; color: var(--gold); margin-bottom: 20px;
+}
+.page-eyebrow::before { content: ''; display: block; width: 28px; height: 2px; background: var(--gold); }
+.page-hero-inner h1 { color: #fff; font-size: clamp(32px, 4vw, 50px); margin-bottom: 16px; }
+.page-hero-inner h1 span { color: var(--gold); font-style: italic; }
+.page-hero-inner p { color: rgba(255,255,255,0.7); font-size: 18px; max-width: 560px; margin: 0 auto; }
+
+/* ════════════════════════════════
+   REASSURANCE STRIP
+════════════════════════════════ */
+#reassurance {
+  background: #fff;
+  border-bottom: 1px solid var(--warm-gray);
+  padding: 24px 0;
+}
+.reassurance-inner {
+  display: flex; align-items: center; justify-content: center;
+  gap: 40px; flex-wrap: wrap;
+}
+.reassurance-item {
+  display: flex; align-items: center; gap: 10px;
+  font-size: 14px; font-weight: 600; color: var(--navy);
+}
+.reassurance-item::before { content: '✓'; color: var(--green); font-weight: 800; font-size: 16px; }
+
+/* ════════════════════════════════
+   MAIN CONTENT GRID
+════════════════════════════════ */
+#contact-main { padding: 72px 0 96px; background: var(--white); }
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px; align-items: start;
+}
+
+/* ════════════════════════════════
+   LEFT — CALENDLY
+════════════════════════════════ */
+.calendly-wrap {}
+.section-label {
+  font-size: 11px; font-weight: 700; letter-spacing: 0.2em;
+  text-transform: uppercase; color: var(--gold); margin-bottom: 12px;
+}
+.calendly-wrap h2 { font-size: 32px; margin-bottom: 12px; }
+.calendly-wrap p { font-size: 15px; color: #666; margin-bottom: 28px; }
+
+.what-to-expect {
+  background: #fff;
+  border: 1px solid var(--warm-gray);
+  border-radius: var(--radius);
+  padding: 20px 24px;
+  margin-bottom: 28px;
+  box-shadow: 0 2px 12px rgba(12,45,94,0.06);
+}
+.expect-title {
+  font-size: 13px; font-weight: 700; color: var(--navy);
+  text-transform: uppercase; letter-spacing: 0.1em;
+  margin-bottom: 14px;
+}
+.expect-list { list-style: none; }
+.expect-list li {
+  display: flex; align-items: flex-start; gap: 10px;
+  font-size: 14px; color: #555; padding: 6px 0;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+.expect-list li:last-child { border-bottom: none; }
+.expect-icon { font-size: 16px; flex-shrink: 0; margin-top: 1px; }
+
+/* Calendly inline embed */
+.calendly-embed-container {
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--warm-gray);
+  box-shadow: 0 4px 24px rgba(12,45,94,0.10);
+  min-height: 660px;
+}
+
+/* ════════════════════════════════
+   RIGHT — CONTACT FORM
+════════════════════════════════ */
+.form-wrap {}
+.form-wrap h2 { font-size: 28px; margin-bottom: 10px; }
+.form-wrap > p { font-size: 15px; color: #666; margin-bottom: 28px; }
+
+.contact-form {
+  background: #fff;
+  border: 1px solid var(--warm-gray);
+  border-radius: var(--radius);
+  padding: 32px;
+  box-shadow: 0 4px 24px rgba(12,45,94,0.08);
+}
+
+.form-group { margin-bottom: 20px; }
+.form-group label {
+  display: block; font-size: 13px; font-weight: 600;
+  color: var(--navy); margin-bottom: 6px;
+}
+.form-group label .required { color: var(--gold); margin-left: 2px; }
+.form-control {
+  width: 100%;
+  padding: 13px 16px;
+  border: 1.5px solid var(--warm-gray);
+  border-radius: 8px;
+  font-family: var(--font-body);
+  font-size: 15px; color: var(--near-black);
+  background: var(--white);
+  transition: var(--transition);
+  outline: none;
+}
+.form-control:focus { border-color: var(--navy); background: #fff; box-shadow: 0 0 0 3px rgba(12,45,94,0.08); }
+.form-control::placeholder { color: #aaa; }
+textarea.form-control { resize: vertical; min-height: 120px; }
+select.form-control { appearance: none; -webkit-appearance: none; cursor: pointer; }
+
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+.form-submit {
+  width: 100%; padding: 16px;
+  background: var(--navy);
+  color: #fff; font-family: var(--font-body);
+  font-weight: 700; font-size: 16px;
+  border-radius: var(--radius); border: none;
+  cursor: pointer; transition: var(--transition);
+  margin-top: 8px;
+}
+.form-submit:hover { background: var(--mid-navy); transform: translateY(-2px); }
+.form-submit:active { transform: translateY(0); }
+
+.form-privacy {
+  font-size: 12px; color: #999; text-align: center;
+  margin-top: 14px; line-height: 1.5;
+}
+
+/* Success state */
+.form-success {
+  display: none;
+  text-align: center; padding: 40px 20px;
+}
+.form-success.show { display: block; }
+.success-icon { font-size: 48px; margin-bottom: 16px; }
+.form-success h3 { color: var(--navy); font-size: 22px; margin-bottom: 10px; }
+.form-success p { color: #666; font-size: 15px; }
+
+/* Audience select tags */
+.audience-tags {
+  display: flex; flex-wrap: wrap; gap: 8px;
+  margin-top: 6px;
+}
+.audience-tag {
+  padding: 8px 16px;
+  border: 1.5px solid var(--warm-gray);
+  border-radius: 20px; font-size: 13px; font-weight: 600;
+  color: #666; cursor: pointer; transition: var(--transition);
+  user-select: none;
+}
+.audience-tag:hover { border-color: var(--navy); color: var(--navy); }
+.audience-tag.selected { background: var(--navy); border-color: var(--navy); color: #fff; }
+.audience-tag input { display: none; }
+
+/* ════════════════════════════════
+   FAQ STRIP
+════════════════════════════════ */
+#contact-faq { background: #fff; padding: 72px 0; border-top: 1px solid var(--warm-gray); }
+.faq-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 40px; }
+.faq-card {
+  background: var(--white);
+  border: 1px solid var(--warm-gray);
+  border-radius: var(--radius); padding: 24px;
+  box-shadow: 0 2px 12px rgba(12,45,94,0.05);
+}
+.faq-q { font-weight: 700; font-size: 15px; color: var(--navy); margin-bottom: 10px; }
+.faq-a { font-size: 14px; color: #666; line-height: 1.65; }
+
+/* ════════════════════════════════
+   FOOTER
+════════════════════════════════ */
+#footer { background: #080f1c; padding: 64px 0 32px; border-top: 1px solid rgba(201,151,58,0.15); }
+.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
+.footer-brand .wordmark { font-family: var(--font-head); font-size: 24px; font-weight: 700; color: #fff; margin-bottom: 16px; }
+.footer-brand .wordmark span { color: var(--gold); }
+.footer-brand p { font-size: 14px; color: rgba(255,255,255,0.45); line-height: 1.7; max-width: 280px; }
+.footer-col-title { font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
+.footer-col a { display: block; font-size: 14px; color: rgba(255,255,255,0.5); margin-bottom: 10px; transition: color 0.2s; }
+.footer-col a:hover { color: rgba(255,255,255,0.85); }
+.footer-bottom { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; padding-top: 32px; border-top: 1px solid rgba(255,255,255,0.06); }
+.footer-copy { font-size: 12px; color: rgba(255,255,255,0.3); }
+.footer-legal { display: flex; gap: 24px; }
+.footer-legal a { font-size: 12px; color: rgba(255,255,255,0.3); transition: color 0.2s; }
+.footer-legal a:hover { color: rgba(255,255,255,0.6); }
+
+/* ── SCROLL ANIMATIONS ── */
+.fade-up { opacity: 0; transform: translateY(28px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.fade-up.visible { opacity: 1; transform: translateY(0); }
+.fade-up.delay-1 { transition-delay: 0.1s; }
+.fade-up.delay-2 { transition-delay: 0.2s; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .contact-grid { grid-template-columns: 1fr; gap: 48px; }
+  .faq-grid { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+  .form-row { grid-template-columns: 1fr; }
+  .nav-links, .nav-cta { display: none; }
+  .nav-hamburger { display: flex; }
+}
+@media (max-width: 500px) {
+  .footer-grid { grid-template-columns: 1fr; }
+  .reassurance-inner { flex-direction: column; gap: 16px; align-items: flex-start; padding: 0 20px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ════════════ NAVIGATION ════════════ -->
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="logo-mark_transparent.png" alt="Hero HomeReach Shield" style="width:48px; height:48px; object-fit:contain;">
+      <div>
+        <div class="nav-wordmark">Hero <span>HomeReach</span><sup class="nav-tm">™</sup></div>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="programs.html">Programs</a></li>
+      <li><a href="who-we-serve.html">Who We Serve</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="blog/">Resources</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="contact.html" class="btn btn-gold">Book Free Consultation</a>
+    </div>
+    <div class="nav-hamburger" id="hamburger" onclick="toggleMobileNav()">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile Nav -->
+<div id="mobile-nav">
+  <a href="programs.html" onclick="toggleMobileNav()">Programs</a>
+  <a href="who-we-serve.html" onclick="toggleMobileNav()">Who We Serve</a>
+  <a href="about.html" onclick="toggleMobileNav()">About</a>
+  <a href="blog/" onclick="toggleMobileNav()">Resources</a>
+  <a href="contact.html" class="btn btn-gold" style="margin-top:16px; font-size:16px;" onclick="toggleMobileNav()">Book Free Consultation</a>
+</div>
+
+
+<!-- ════════════ PAGE HERO ════════════ -->
+<section id="page-hero">
+  <div class="container">
+    <div class="page-hero-inner">
+      <div class="page-eyebrow">Free · No Pressure · 30 Minutes</div>
+      <h1>Let's Find Out What <span>You've Earned</span></h1>
+      <p>Book a free 30-minute consultation and walk away knowing every Colorado program you qualify for — zero obligation, zero cost.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════ REASSURANCE STRIP ════════════ -->
+<div id="reassurance">
+  <div class="container">
+    <div class="reassurance-inner">
+      <div class="reassurance-item">Completely free — always</div>
+      <div class="reassurance-item">No lender pressure</div>
+      <div class="reassurance-item">Colorado-specific guidance</div>
+      <div class="reassurance-item">30 minutes or less</div>
+      <div class="reassurance-item">Your info stays private</div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ════════════ MAIN CONTENT ════════════ -->
+<section id="contact-main">
+  <div class="container">
+    <div class="contact-grid">
+
+      <!-- LEFT: CALENDLY BOOKING -->
+      <div class="calendly-wrap fade-up">
+        <div class="section-label">Book Your Free Session</div>
+        <h2>Pick a Time That Works for You</h2>
+        <p>Choose any available 30-minute slot. We'll cover your situation, your goals, and every program you qualify for.</p>
+
+        <div class="what-to-expect">
+          <div class="expect-title">What happens on the call</div>
+          <ul class="expect-list">
+            <li><span class="expect-icon">🗓️</span> 30-minute video or phone call — your choice</li>
+            <li><span class="expect-icon">🔍</span> We review every program available for your profession</li>
+            <li><span class="expect-icon">💰</span> We calculate your maximum combined assistance</li>
+            <li><span class="expect-icon">📋</span> You get a clear next-steps plan — no pressure</li>
+            <li><span class="expect-icon">🔒</span> Your information is never shared or sold</li>
+          </ul>
+        </div>
+
+        <!-- Calendly Inline Embed -->
+        <div class="calendly-embed-container">
+          <div
+            class="calendly-inline-widget"
+            data-url="https://calendly.com/trogelstad-herohomereach/30min?hide_gdpr_banner=1&primary_color=0C2D5E"
+            style="min-width:100%; height:660px;">
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: CONTACT FORM -->
+      <div class="form-wrap fade-up delay-2">
+        <div class="section-label">Not Ready to Book Yet?</div>
+        <h2>Send Us a Message</h2>
+        <p>Have a question first? Send us a note and we'll get back to you within one business day — no pressure, no sales pitch.</p>
+
+        <div class="contact-form" id="contactFormWrap">
+          <form id="contactForm" onsubmit="handleSubmit(event)">
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="firstName">First Name <span class="required">*</span></label>
+                <input type="text" id="firstName" class="form-control" placeholder="Sarah" required>
+              </div>
+              <div class="form-group">
+                <label for="lastName">Last Name <span class="required">*</span></label>
+                <input type="text" id="lastName" class="form-control" placeholder="Miller" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email Address <span class="required">*</span></label>
+              <input type="email" id="email" class="form-control" placeholder="sarah@example.com" required>
+            </div>
+
+            <div class="form-group">
+              <label for="phone">Phone Number</label>
+              <input type="tel" id="phone" class="form-control" placeholder="(720) 555-0100">
+            </div>
+
+            <div class="form-group">
+              <label>I am a… <span class="required">*</span></label>
+              <div class="audience-tags" id="audienceTags">
+                <label class="audience-tag" onclick="selectAudience(this)">
+                  <input type="radio" name="audience" value="educator"> 🎓 Educator
+                </label>
+                <label class="audience-tag" onclick="selectAudience(this)">
+                  <input type="radio" name="audience" value="first-responder"> 🚒 First Responder
+                </label>
+                <label class="audience-tag" onclick="selectAudience(this)">
+                  <input type="radio" name="audience" value="healthcare"> 🏥 Healthcare Worker
+                </label>
+                <label class="audience-tag" onclick="selectAudience(this)">
+                  <input type="radio" name="audience" value="military"> 🎖️ Military / Veteran
+                </label>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="city">City / Area in Colorado</label>
+              <input type="text" id="city" class="form-control" placeholder="Denver, Colorado Springs, Fort Collins...">
+            </div>
+
+            <div class="form-group">
+              <label for="message">Your Question or Situation <span class="required">*</span></label>
+              <textarea id="message" class="form-control" placeholder="Tell us a little about your situation — what you're hoping to learn, any questions you have, or anything that might help us prepare for our conversation." required></textarea>
+            </div>
+
+            <button type="submit" class="form-submit">Send My Message →</button>
+
+            <div class="form-privacy">
+              🔒 Your information is never sold or shared. We hate spam as much as you do.
+            </div>
+          </form>
+
+          <!-- Success State -->
+          <div class="form-success" id="formSuccess">
+            <div class="success-icon">✅</div>
+            <h3>Message Received!</h3>
+            <p>Thanks for reaching out. We'll get back to you within one business day.<br><br>
+            In the meantime, feel free to browse our <a href="programs.html" style="color:var(--navy); font-weight:600;">Programs page</a> to see what might be available for you.</p>
+            <a href="programs.html" class="btn btn-navy" style="margin-top:24px;">Explore Programs →</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════ FAQ ════════════ -->
+<section id="contact-faq">
+  <div class="container">
+    <div style="text-align:center;">
+      <div style="font-size:11px; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:var(--gold); margin-bottom:12px;">Common Questions</div>
+      <h2 style="margin-bottom:8px;">Before You Book</h2>
+      <p style="color:#666; font-size:16px; max-width:480px; margin:0 auto;">A few things people ask before scheduling their first call.</p>
+    </div>
+
+    <div class="faq-grid">
+      <div class="faq-card fade-up">
+        <div class="faq-q">Is the consultation really free?</div>
+        <div class="faq-a">Yes — completely. There is no cost, no catch, and no obligation to do anything after the call. Hero HomeReach™ is a guidance service, not a lender.</div>
+      </div>
+      <div class="faq-card fade-up delay-1">
+        <div class="faq-q">Will I be pressured to buy or apply for anything?</div>
+        <div class="faq-a">Never. Our job is to educate you on what you qualify for. What you do with that information is entirely up to you. No pressure, ever.</div>
+      </div>
+      <div class="faq-card fade-up delay-2">
+        <div class="faq-q">What should I have ready for the call?</div>
+        <div class="faq-a">Just yourself and a rough sense of your situation — your profession, income range, and whether you've bought a home before. We'll do the rest.</div>
+      </div>
+      <div class="faq-card fade-up">
+        <div class="faq-q">I have student loans. Do I still qualify?</div>
+        <div class="faq-a">Often yes. Many Colorado programs account for student debt and have qualifying structures that work for educators and healthcare workers with loans.</div>
+      </div>
+      <div class="faq-card fade-up delay-1">
+        <div class="faq-q">I already have a VA loan — is there anything else?</div>
+        <div class="faq-a">Yes. Colorado state and local programs can often be stacked on top of VA benefits, potentially adding $10,000–$25,000 in additional assistance.</div>
+      </div>
+      <div class="faq-card fade-up delay-2">
+        <div class="faq-q">How long does the whole process take?</div>
+        <div class="faq-a">The call is 30 minutes. Finding and applying for programs varies, but most heroes have a clear picture within a week of their consultation.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════ FOOTER ════════════ -->
+<footer id="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="wordmark">Hero <span>HomeReach</span>™</div>
+        <p>Free homeownership guidance for Colorado's educators, first responders, healthcare workers, and military members. No jargon. No pressure. Built for heroes.</p>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Site</div>
+        <a href="programs.html">Programs</a>
+        <a href="who-we-serve.html">Who We Serve</a>
+        <a href="about.html">About</a>
+        <a href="blog/">Resources</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Heroes</div>
+        <a href="who-we-serve.html#educators">Educators</a>
+        <a href="who-we-serve.html#first-responders">First Responders</a>
+        <a href="who-we-serve.html#healthcare">Healthcare Workers</a>
+        <a href="who-we-serve.html#military">Military Members</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Start Here</div>
+        <a href="contact.html">Book Free Consultation</a>
+        <a href="programs.html">Explore Programs</a>
+        <a href="blog/">Read Resources</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2026 Hero HomeReach™. All rights reserved. Colorado Homeownership Guidance.</div>
+      <div class="footer-legal">
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Use</a>
+        <a href="disclaimer.html">Disclaimer</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+<script>
+// Mobile nav
+function toggleMobileNav() {
+  document.getElementById('mobile-nav').classList.toggle('open');
+}
+
+// Audience tag selection
+function selectAudience(el) {
+  document.querySelectorAll('.audience-tag').forEach(t => t.classList.remove('selected'));
+  el.classList.add('selected');
+}
+
+// Form submission
+function handleSubmit(e) {
+  e.preventDefault();
+  const form = document.getElementById('contactForm');
+  const success = document.getElementById('formSuccess');
+  form.style.display = 'none';
+  success.classList.add('show');
+  // Scroll to success message
+  success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
+
+// Scroll animations
+const fadeEls = document.querySelectorAll('.fade-up');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12 });
+fadeEls.forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
