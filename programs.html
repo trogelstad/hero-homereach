@@ -479,8 +479,8 @@ p:last-child { margin-bottom: 0; }
     <button class="prog-nav-btn active" onclick="scrollTo('state-programs')">State Programs</button>
     <button class="prog-nav-btn" onclick="scrollTo('local-programs')">Local & Regional</button>
     <button class="prog-nav-btn" onclick="scrollTo('hero-programs')">Hero Grants</button>
-    <button class="prog-nav-btn" onclick="scrollTo('loan-types')">Loan Types</button>
     <button class="prog-nav-btn" onclick="scrollTo('stacking-section')">Stacking Programs</button>
+    <button class="prog-nav-btn" onclick="scrollTo('loan-types')">Loan Types</button>
   </div>
 </div>
 
@@ -1020,27 +1020,37 @@ function toggleMobileNav() {
 
 function scrollTo(id) {
   const el = document.getElementById(id);
-  if (el) {
-    const offset = document.getElementById('program-nav').offsetHeight + document.getElementById('nav').offsetHeight;
-    const top = el.getBoundingClientRect().top + window.scrollY - offset - 16;
-    window.scrollTo({ top, behavior: 'smooth' });
-  }
-  // Update active state
+  if (!el) return;
+  const mainNav = document.getElementById('nav');
+  const progNav = document.getElementById('program-nav');
+  const offset = mainNav.offsetHeight + progNav.offsetHeight + 16;
+  const top = el.getBoundingClientRect().top + window.scrollY - offset;
+  window.scrollTo({ top, behavior: 'smooth' });
+
+  // Update active button
   document.querySelectorAll('.prog-nav-btn').forEach(b => b.classList.remove('active'));
-  event.target.classList.add('active');
+  event.currentTarget.classList.add('active');
 }
 
 // Update sticky nav active state on scroll
-const sections = ['state-programs','local-programs','hero-programs','loan-types','stacking-section'];
+const sectionIds = ['state-programs','local-programs','hero-programs','stacking-section','loan-types'];
 const navBtns = document.querySelectorAll('.prog-nav-btn');
+
 window.addEventListener('scroll', () => {
-  let current = '';
-  sections.forEach(id => {
+  const mainNavH = document.getElementById('nav').offsetHeight;
+  const progNavH = document.getElementById('program-nav').offsetHeight;
+  const offset = mainNavH + progNavH + 32;
+
+  let current = sectionIds[0];
+  sectionIds.forEach(id => {
     const el = document.getElementById(id);
-    if (el && window.scrollY >= el.offsetTop - 160) current = id;
+    if (el && window.scrollY >= el.offsetTop - offset) {
+      current = id;
+    }
   });
+
   navBtns.forEach((btn, i) => {
-    btn.classList.toggle('active', sections[i] === current || (current === '' && i === 0));
+    btn.classList.toggle('active', sectionIds[i] === current);
   });
 }, { passive: true });
 
