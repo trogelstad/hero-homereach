@@ -476,11 +476,11 @@ p:last-child { margin-bottom: 0; }
 <!-- ════════════ STICKY PROGRAM NAV ════════════ -->
 <div id="program-nav">
   <div class="program-nav-inner">
-    <button class="prog-nav-btn active" onclick="scrollTo('state-programs')">State Programs</button>
-    <button class="prog-nav-btn" onclick="scrollTo('local-programs')">Local & Regional</button>
-    <button class="prog-nav-btn" onclick="scrollTo('hero-programs')">Hero Grants</button>
-    <button class="prog-nav-btn" onclick="scrollTo('stacking-section')">Stacking Programs</button>
-    <button class="prog-nav-btn" onclick="scrollTo('loan-types')">Loan Types</button>
+    <button class="prog-nav-btn active" onclick="jumpToSection('state-programs', this)">State Programs</button>
+    <button class="prog-nav-btn" onclick="jumpToSection('local-programs', this)">Local & Regional</button>
+    <button class="prog-nav-btn" onclick="jumpToSection('hero-programs', this)">Hero Grants</button>
+    <button class="prog-nav-btn" onclick="jumpToSection('stacking-section', this)">Stacking Programs</button>
+    <button class="prog-nav-btn" onclick="jumpToSection('loan-types', this)">Loan Types</button>
   </div>
 </div>
 
@@ -854,28 +854,28 @@ p:last-child { margin-bottom: 0; }
 
       <div class="fade-up delay-2">
         <div class="stack-calc">
-          <div class="stack-calc-title">Example Stack — Colorado Educator</div>
+          <div class="stack-calc-title">Maximum Stack — Colorado Teacher · $400K FHA Purchase</div>
           <div class="stack-row">
-            <div class="stack-name">CHFA FirstGen DPA<small>State-backed deferred loan</small></div>
-            <div class="stack-val">$18,000</div>
-          </div>
-          <div class="stack-row">
-            <div class="stack-name">Teacher Next Door Grant<small>True grant — never repaid</small></div>
+            <div class="stack-name">Teacher Next Door Grant<small>True grant — never repaid · covers $1K min. contribution</small></div>
             <div class="stack-val">$8,000</div>
           </div>
           <div class="stack-row">
-            <div class="stack-name">DCHP Standard Program<small>Douglas County 3% fixed loan</small></div>
+            <div class="stack-name">Teacher Next Door DPA<small>Additional down payment assistance</small></div>
             <div class="stack-val">$15,000</div>
           </div>
           <div class="stack-row">
-            <div class="stack-name">Homes for Heroes Rebate<small>Post-closing cash back</small></div>
-            <div class="stack-val">~$2,500</div>
+            <div class="stack-name">Chenoa Fund (5%)<small>Covers 3.5% FHA down payment · forgiven after 36 payments</small></div>
+            <div class="stack-val">$20,000</div>
+          </div>
+          <div class="stack-row">
+            <div class="stack-name">Seller Concessions (6% FHA max)<small>Covers all closing costs &amp; pre-paid items</small></div>
+            <div class="stack-val">$24,000</div>
           </div>
           <div class="stack-total">
             <div class="stack-total-label">Total Combined Assistance</div>
-            <div class="stack-total-val">$43,500</div>
+            <div class="stack-total-val">$67,000</div>
           </div>
-          <div class="stack-disclaimer">*Example only. Eligibility, amounts, and stackability vary by program, location, income, and purchase price. Book a free consultation for your personalized program map.</div>
+          <div class="stack-disclaimer">Based on a $400,000 FHA home purchase. Seller concessions negotiated as part of the offer — not a program grant. Result: $0 out-of-pocket for the buyer at closing. Eligibility and stackability vary — book a free consultation for your personalized program map.</div>
         </div>
       </div>
     </div>
@@ -1018,18 +1018,16 @@ function toggleMobileNav() {
   document.getElementById('mobile-nav').classList.toggle('open');
 }
 
-function scrollTo(id) {
+function jumpToSection(id, btn) {
   const el = document.getElementById(id);
   if (!el) return;
-  const mainNav = document.getElementById('nav');
-  const progNav = document.getElementById('program-nav');
-  const offset = mainNav.offsetHeight + progNav.offsetHeight + 16;
+  const mainNavH = document.getElementById('nav').offsetHeight;
+  const progNavH = document.getElementById('program-nav').offsetHeight;
+  const offset = mainNavH + progNavH + 16;
   const top = el.getBoundingClientRect().top + window.scrollY - offset;
   window.scrollTo({ top, behavior: 'smooth' });
-
-  // Update active button
   document.querySelectorAll('.prog-nav-btn').forEach(b => b.classList.remove('active'));
-  event.currentTarget.classList.add('active');
+  btn.classList.add('active');
 }
 
 // Update sticky nav active state on scroll
@@ -1037,18 +1035,12 @@ const sectionIds = ['state-programs','local-programs','hero-programs','stacking-
 const navBtns = document.querySelectorAll('.prog-nav-btn');
 
 window.addEventListener('scroll', () => {
-  const mainNavH = document.getElementById('nav').offsetHeight;
-  const progNavH = document.getElementById('program-nav').offsetHeight;
-  const offset = mainNavH + progNavH + 32;
-
+  const offset = document.getElementById('nav').offsetHeight + document.getElementById('program-nav').offsetHeight + 32;
   let current = sectionIds[0];
   sectionIds.forEach(id => {
     const el = document.getElementById(id);
-    if (el && window.scrollY >= el.offsetTop - offset) {
-      current = id;
-    }
+    if (el && window.scrollY >= el.offsetTop - offset) current = id;
   });
-
   navBtns.forEach((btn, i) => {
     btn.classList.toggle('active', sectionIds[i] === current);
   });
