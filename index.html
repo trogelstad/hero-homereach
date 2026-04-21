@@ -311,13 +311,31 @@ h3 { font-size: clamp(20px, 2.5vw, 26px); }
 .hero-badge.b4 { bottom: 60px; right: -30px; }
 
 @media (max-width: 900px) {
-  .hero-inner { grid-template-columns: 1fr; gap: 48px; text-align: center; }
+  .hero-inner {
+    display: flex; flex-direction: column;
+    text-align: left;
+    padding: 48px 24px 80px;
+  }
   .hero-content { max-width: 100%; }
-  .hero-eyebrow { justify-content: center; }
-  .hero-sub { margin: 0 auto 40px; }
-  .hero-actions { justify-content: center; }
-  .hero-social-proof { justify-content: center; }
+  .hero-eyebrow { justify-content: flex-start; }
+  .hero-sub { margin: 0 0 32px; font-size: 16px; }
+  .hero-actions { flex-direction: column; align-items: flex-start; gap: 12px; }
+  .hero-actions .btn { width: 100%; justify-content: center; }
+  .hero-social-proof { flex-wrap: wrap; gap: 12px; }
   .hero-visual { display: none; }
+  /* Much stronger overlay on mobile so text is always readable */
+  .hero-bg::before {
+    background: linear-gradient(
+      180deg,
+      rgba(12, 45, 94, 0.92) 0%,
+      rgba(12, 45, 94, 0.88) 60%,
+      rgba(12, 45, 94, 0.75) 100%
+    );
+  }
+  /* Position image to show faces on mobile */
+  .hero-bg {
+    background-position: 65% top;
+  }
 }
 
 /* ════════════════════════════════
