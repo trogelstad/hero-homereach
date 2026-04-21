@@ -185,21 +185,21 @@ h3 { font-size: clamp(20px, 2.5vw, 26px); }
   position: absolute; inset: 0;
   background-image: url('hero-bg.jpg');
   background-size: cover;
-  background-position: center right;
+  background-position: 70% center;
   background-repeat: no-repeat;
 }
 
-/* Gradient overlay — dark navy left for text, fades right to reveal photo */
+/* Gradient overlay — heavy navy on left for text, clears fast on right for people */
 .hero-bg::before {
   content: '';
   position: absolute; inset: 0;
   background: linear-gradient(
-    105deg,
+    90deg,
     rgba(12, 45, 94, 0.97) 0%,
-    rgba(12, 45, 94, 0.92) 35%,
-    rgba(12, 45, 94, 0.70) 55%,
-    rgba(12, 45, 94, 0.25) 75%,
-    rgba(12, 45, 94, 0.10) 100%
+    rgba(12, 45, 94, 0.95) 30%,
+    rgba(12, 45, 94, 0.60) 50%,
+    rgba(12, 45, 94, 0.15) 70%,
+    rgba(12, 45, 94, 0.05) 100%
   );
 }
 
