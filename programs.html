@@ -1,0 +1,1058 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Colorado Homebuyer Assistance Programs — Hero HomeReach™</title>
+  <meta name="description" content="Explore Colorado down payment assistance, grants, and forgivable loan programs available to teachers, first responders, healthcare workers, and military members. CHFA, MetroDPA, Teacher Next Door, and more.">
+  <meta name="keywords" content="Colorado down payment assistance, CHFA programs, teacher homebuyer grant Colorado, first responder mortgage assistance, MetroDPA, Teacher Next Door, hero homebuyer programs Colorado">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --navy:        #0C2D5E;
+  --mid-navy:    #1A4A8A;
+  --gold:        #C9973A;
+  --bright-gold: #EAB84A;
+  --white:       #F5F7FA;
+  --near-black:  #1C1C1E;
+  --green:       #1A6B4A;
+  --warm-gray:   #D3D1C7;
+  --font-head:   'Playfair Display', Georgia, serif;
+  --font-body:   'Inter', system-ui, sans-serif;
+  --max-w:       1140px;
+  --nav-h:       76px;
+  --radius:      10px;
+  --transition:  all 0.22s ease;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--font-body); font-size: 17px; line-height: 1.7; color: var(--near-black); background: var(--white); -webkit-font-smoothing: antialiased; }
+img { display: block; max-width: 100%; }
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+button { font-family: inherit; cursor: pointer; border: none; background: none; }
+h1, h2, h3, h4 { font-family: var(--font-head); font-weight: 700; color: var(--navy); line-height: 1.15; }
+p { margin-bottom: 16px; }
+p:last-child { margin-bottom: 0; }
+
+.container { max-width: var(--max-w); margin: 0 auto; padding: 0 32px; }
+@media (max-width: 768px) { .container { padding: 0 20px; } }
+
+/* ── BUTTONS ── */
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: var(--font-body); font-weight: 700; font-size: 15px;
+  padding: 16px 32px; border-radius: var(--radius);
+  transition: var(--transition); white-space: nowrap;
+}
+.btn-gold { background: var(--gold); color: var(--navy); box-shadow: 0 4px 20px rgba(201,151,58,0.3); }
+.btn-gold:hover { background: var(--bright-gold); transform: translateY(-2px); }
+.btn-navy { background: var(--navy); color: #fff; }
+.btn-navy:hover { background: var(--mid-navy); transform: translateY(-2px); }
+.btn-outline-navy { background: transparent; color: var(--navy); border: 2px solid var(--navy); }
+.btn-outline-navy:hover { background: var(--navy); color: #fff; }
+.btn-arrow::after { content: '→'; font-size: 17px; transition: transform 0.2s; }
+.btn-arrow:hover::after { transform: translateX(4px); }
+
+/* ════════════════════════════════
+   NAVIGATION
+════════════════════════════════ */
+#nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 999;
+  height: var(--nav-h);
+  background: rgba(12, 45, 94, 0.97);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(201,151,58,0.2);
+  box-shadow: 0 2px 24px rgba(0,0,0,0.15);
+  display: flex; align-items: center;
+}
+.nav-inner {
+  width: 100%; max-width: var(--max-w);
+  margin: 0 auto; padding: 0 32px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.nav-logo { display: flex; align-items: center; gap: 12px; }
+.nav-wordmark { font-family: var(--font-head); font-size: 22px; font-weight: 700; color: #fff; }
+.nav-wordmark span { color: var(--gold); }
+.nav-tm { font-size: 12px; vertical-align: super; color: var(--gold); }
+.nav-links { display: flex; align-items: center; gap: 32px; }
+.nav-links a { font-size: 14px; font-weight: 500; color: rgba(255,255,255,0.8); transition: var(--transition); position: relative; }
+.nav-links a:hover { color: #fff; }
+.nav-links a.active { color: var(--bright-gold); }
+.nav-cta .btn { padding: 11px 22px; font-size: 14px; }
+.nav-hamburger { display: none; flex-direction: column; gap: 5px; padding: 8px; cursor: pointer; }
+.nav-hamburger span { display: block; width: 24px; height: 2px; background: #fff; border-radius: 2px; }
+#mobile-nav {
+  position: fixed; inset: 0; z-index: 998;
+  background: var(--navy);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: 28px;
+  opacity: 0; pointer-events: none; transition: opacity 0.3s;
+}
+#mobile-nav.open { opacity: 1; pointer-events: all; }
+#mobile-nav a { font-family: var(--font-head); font-size: 28px; font-weight: 700; color: #fff; }
+#mobile-nav a:hover { color: var(--gold); }
+@media (max-width: 900px) {
+  .nav-links, .nav-cta { display: none; }
+  .nav-hamburger { display: flex; }
+}
+
+/* ════════════════════════════════
+   PAGE HERO
+════════════════════════════════ */
+#page-hero {
+  background: var(--navy);
+  padding: calc(var(--nav-h) + 64px) 0 72px;
+  position: relative; overflow: hidden;
+}
+#page-hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image: repeating-linear-gradient(
+    45deg,
+    rgba(201,151,58,0.03) 0px, rgba(201,151,58,0.03) 1px,
+    transparent 1px, transparent 60px
+  );
+}
+#page-hero::after {
+  content: '';
+  position: absolute; bottom: 0; left: 0; right: 0; height: 80px;
+  background: linear-gradient(to bottom, transparent, var(--white));
+}
+.page-hero-inner {
+  position: relative; z-index: 2;
+  max-width: 760px;
+}
+.page-eyebrow {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-size: 11px; font-weight: 700; letter-spacing: 0.2em;
+  text-transform: uppercase; color: var(--gold); margin-bottom: 20px;
+}
+.page-eyebrow::before { content: ''; display: block; width: 28px; height: 2px; background: var(--gold); }
+.page-hero-inner h1 { color: #fff; font-size: clamp(32px, 4vw, 52px); margin-bottom: 20px; }
+.page-hero-inner h1 span { color: var(--gold); font-style: italic; }
+.page-hero-inner .lead { color: rgba(255,255,255,0.72); font-size: 18px; max-width: 600px; margin-bottom: 36px; }
+
+/* Hero stats */
+.hero-stats {
+  display: flex; gap: 40px; flex-wrap: wrap;
+  padding-top: 32px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+.hero-stat-item {}
+.hero-stat-num {
+  font-family: var(--font-head); font-size: 36px; font-weight: 900;
+  color: var(--gold); line-height: 1;
+}
+.hero-stat-label { font-size: 13px; color: rgba(255,255,255,0.5); margin-top: 4px; }
+
+/* ════════════════════════════════
+   STICKY PROGRAM FILTER NAV
+════════════════════════════════ */
+#program-nav {
+  position: sticky; top: var(--nav-h); z-index: 100;
+  background: #fff;
+  border-bottom: 2px solid var(--warm-gray);
+  padding: 0;
+  box-shadow: 0 2px 16px rgba(12,45,94,0.07);
+}
+.program-nav-inner {
+  display: flex; align-items: center; gap: 4px;
+  overflow-x: auto; padding: 0 32px;
+  scrollbar-width: none;
+}
+.program-nav-inner::-webkit-scrollbar { display: none; }
+.prog-nav-btn {
+  flex-shrink: 0;
+  padding: 18px 20px;
+  font-size: 13px; font-weight: 600; color: #888;
+  border-bottom: 3px solid transparent;
+  cursor: pointer; transition: var(--transition);
+  white-space: nowrap; background: none; border-top: none; border-left: none; border-right: none;
+  font-family: var(--font-body);
+}
+.prog-nav-btn:hover { color: var(--navy); }
+.prog-nav-btn.active { color: var(--navy); border-bottom-color: var(--gold); font-weight: 700; }
+
+/* ════════════════════════════════
+   SECTION COMMON
+════════════════════════════════ */
+.prog-section { padding: 88px 0; }
+.prog-section:nth-child(even) { background: #fff; }
+.prog-section:nth-child(odd) { background: var(--white); }
+
+.section-intro { max-width: 640px; margin-bottom: 52px; }
+.section-eyebrow {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-size: 11px; font-weight: 700; letter-spacing: 0.2em;
+  text-transform: uppercase; color: var(--gold); margin-bottom: 14px;
+}
+.section-eyebrow::before { content: ''; display: block; width: 28px; height: 2px; background: var(--gold); }
+.section-intro h2 { font-size: clamp(26px, 3vw, 38px); margin-bottom: 14px; }
+.section-intro p { color: #666; font-size: 16px; }
+
+/* ════════════════════════════════
+   PROGRAM CARDS
+════════════════════════════════ */
+.program-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-bottom: 16px; }
+.program-grid-2 { grid-template-columns: repeat(2, 1fr); }
+.program-grid-4 { grid-template-columns: repeat(4, 1fr); }
+
+.prog-card {
+  background: #fff;
+  border: 1px solid var(--warm-gray);
+  border-radius: var(--radius);
+  padding: 28px 24px;
+  box-shadow: 0 2px 16px rgba(12,45,94,0.06);
+  transition: var(--transition);
+  position: relative; overflow: hidden;
+  display: flex; flex-direction: column;
+}
+.prog-card::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 4px;
+}
+.prog-card.stripe-gold::before { background: var(--gold); }
+.prog-card.stripe-navy::before { background: var(--navy); }
+.prog-card.stripe-green::before { background: var(--green); }
+.prog-card:hover { transform: translateY(-5px); box-shadow: 0 10px 36px rgba(12,45,94,0.12); border-color: rgba(201,151,58,0.35); }
+
+.prog-badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 10px; font-weight: 700; letter-spacing: 0.12em;
+  text-transform: uppercase; padding: 4px 10px;
+  border-radius: 20px; margin-bottom: 14px; align-self: flex-start;
+}
+.badge-gold { background: rgba(201,151,58,0.12); color: #8B6020; }
+.badge-navy { background: rgba(12,45,94,0.08); color: var(--navy); }
+.badge-green { background: rgba(26,107,74,0.1); color: var(--green); }
+.badge-purple { background: rgba(100,60,180,0.08); color: #5a3090; }
+
+.prog-amount {
+  font-family: var(--font-head); font-size: 34px; font-weight: 900;
+  color: var(--navy); line-height: 1; margin-bottom: 4px;
+}
+.prog-amount-note { font-size: 12px; color: #999; margin-bottom: 14px; }
+.prog-card h3 { font-size: 18px; margin-bottom: 10px; }
+.prog-card p { font-size: 13px; color: #666; line-height: 1.65; flex: 1; }
+.prog-list {
+  margin-top: 14px; padding-top: 14px;
+  border-top: 1px solid var(--warm-gray);
+}
+.prog-list li {
+  font-size: 12px; color: #555; padding: 4px 0;
+  display: flex; align-items: flex-start; gap: 7px;
+}
+.prog-list li::before { content: '✓'; color: var(--green); font-weight: 700; flex-shrink: 0; font-size: 12px; margin-top: 2px; }
+.prog-tag {
+  display: inline-flex; align-items: center; gap: 4px;
+  margin-top: 14px; font-size: 11px; font-weight: 600;
+  color: var(--navy); background: rgba(12,45,94,0.05);
+  border-radius: 4px; padding: 3px 8px;
+}
+
+/* ════════════════════════════════
+   STACKING EXPLAINER
+════════════════════════════════ */
+#stacking-section {
+  background: var(--navy);
+  padding: 88px 0;
+  position: relative; overflow: hidden;
+}
+#stacking-section::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image: repeating-linear-gradient(
+    45deg,
+    rgba(201,151,58,0.03) 0px, rgba(201,151,58,0.03) 1px,
+    transparent 1px, transparent 60px
+  );
+}
+.stacking-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; position: relative; z-index: 2; }
+.stacking-content h2 { color: #fff; margin-bottom: 18px; }
+.stacking-content p { color: rgba(255,255,255,0.7); font-size: 16px; margin-bottom: 14px; }
+
+/* Stack calculator */
+.stack-calc {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(201,151,58,0.25);
+  border-radius: var(--radius); padding: 28px;
+}
+.stack-calc-title {
+  font-size: 11px; font-weight: 700; letter-spacing: 0.16em;
+  text-transform: uppercase; color: var(--gold); margin-bottom: 20px;
+}
+.stack-row {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.07);
+  font-size: 14px;
+}
+.stack-row:last-of-type { border-bottom: none; }
+.stack-name { color: rgba(255,255,255,0.7); }
+.stack-name small { display: block; font-size: 11px; color: rgba(255,255,255,0.35); margin-top: 2px; }
+.stack-val { font-weight: 700; color: var(--bright-gold); white-space: nowrap; }
+.stack-total {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 18px 0 0; margin-top: 10px;
+  border-top: 2px solid rgba(201,151,58,0.4);
+}
+.stack-total-label { font-weight: 700; color: #fff; font-size: 15px; }
+.stack-total-val { font-family: var(--font-head); font-size: 38px; font-weight: 900; color: var(--gold); }
+.stack-disclaimer { font-size: 11px; color: rgba(255,255,255,0.3); margin-top: 10px; text-align: right; line-height: 1.5; }
+
+/* ════════════════════════════════
+   LOAN TYPES SECTION
+════════════════════════════════ */
+.loan-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+.loan-card {
+  background: #fff;
+  border: 1px solid var(--warm-gray);
+  border-radius: var(--radius); padding: 24px;
+  display: flex; gap: 18px; align-items: flex-start;
+  box-shadow: 0 2px 12px rgba(12,45,94,0.05);
+  transition: var(--transition);
+}
+.loan-card:hover { transform: translateY(-3px); box-shadow: 0 6px 24px rgba(12,45,94,0.10); }
+.loan-icon {
+  width: 52px; height: 52px; border-radius: 12px;
+  background: rgba(12,45,94,0.07);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 24px; flex-shrink: 0;
+}
+.loan-info h3 { font-size: 17px; margin-bottom: 6px; }
+.loan-info p { font-size: 13px; color: #666; line-height: 1.6; margin: 0; }
+.loan-highlight {
+  display: inline-block; margin-top: 8px;
+  font-size: 11px; font-weight: 700; color: var(--green);
+  background: rgba(26,107,74,0.08); padding: 3px 8px; border-radius: 4px;
+}
+
+/* ════════════════════════════════
+   DISCLAIMER & CTA
+════════════════════════════════ */
+#programs-cta {
+  background: var(--white);
+  padding: 88px 0;
+  border-top: 1px solid var(--warm-gray);
+}
+.cta-card {
+  background: var(--navy);
+  border-radius: 16px; padding: 64px;
+  text-align: center;
+  position: relative; overflow: hidden;
+}
+.cta-card::before {
+  content: '';
+  position: absolute; top: -80px; right: -80px;
+  width: 300px; height: 300px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(201,151,58,0.12) 0%, transparent 70%);
+}
+.cta-card h2 { color: #fff; margin-bottom: 16px; }
+.cta-card h2 span { color: var(--gold); font-style: italic; }
+.cta-card p { color: rgba(255,255,255,0.7); font-size: 17px; max-width: 520px; margin: 0 auto 36px; }
+.cta-reassurance {
+  display: flex; align-items: center; justify-content: center;
+  gap: 28px; flex-wrap: wrap; margin-top: 28px;
+}
+.cta-reassurance-item { display: flex; align-items: center; gap: 6px; font-size: 13px; color: rgba(255,255,255,0.55); }
+.cta-reassurance-item::before { content: '✓'; color: var(--green); font-weight: 800; }
+
+.disclaimer-box {
+  margin-top: 48px; padding: 20px 24px;
+  background: rgba(12,45,94,0.04);
+  border: 1px solid var(--warm-gray);
+  border-radius: 8px; border-left: 4px solid var(--warm-gray);
+  font-size: 12px; color: #999; line-height: 1.6;
+}
+
+/* ════════════════════════════════
+   FOOTER
+════════════════════════════════ */
+#footer { background: #080f1c; padding: 64px 0 32px; border-top: 1px solid rgba(201,151,58,0.15); }
+.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
+.footer-brand .wordmark { font-family: var(--font-head); font-size: 24px; font-weight: 700; color: #fff; margin-bottom: 16px; }
+.footer-brand .wordmark span { color: var(--gold); }
+.footer-brand p { font-size: 14px; color: rgba(255,255,255,0.45); line-height: 1.7; max-width: 280px; }
+.footer-col-title { font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
+.footer-col a { display: block; font-size: 14px; color: rgba(255,255,255,0.5); margin-bottom: 10px; transition: color 0.2s; }
+.footer-col a:hover { color: rgba(255,255,255,0.85); }
+.footer-bottom { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; padding-top: 32px; border-top: 1px solid rgba(255,255,255,0.06); }
+.footer-copy { font-size: 12px; color: rgba(255,255,255,0.3); }
+.footer-legal { display: flex; gap: 24px; }
+.footer-legal a { font-size: 12px; color: rgba(255,255,255,0.3); transition: color 0.2s; }
+.footer-legal a:hover { color: rgba(255,255,255,0.6); }
+
+/* ── ANIMATIONS ── */
+.fade-up { opacity: 0; transform: translateY(28px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.fade-up.visible { opacity: 1; transform: translateY(0); }
+.fade-up.delay-1 { transition-delay: 0.1s; }
+.fade-up.delay-2 { transition-delay: 0.2s; }
+.fade-up.delay-3 { transition-delay: 0.3s; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 960px) {
+  .program-grid { grid-template-columns: repeat(2, 1fr); }
+  .program-grid-4 { grid-template-columns: repeat(2, 1fr); }
+  .stacking-grid { grid-template-columns: 1fr; gap: 40px; }
+  .loan-grid { grid-template-columns: 1fr; }
+  .cta-card { padding: 40px 24px; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 600px) {
+  .program-grid, .program-grid-2, .program-grid-4 { grid-template-columns: 1fr; }
+  .hero-stats { gap: 24px; }
+  .footer-grid { grid-template-columns: 1fr; }
+  .cta-reassurance { flex-direction: column; align-items: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- ════════════ NAV ════════════ -->
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="logo-mark_transparent.png" alt="Hero HomeReach Shield" style="width:48px; height:48px; object-fit:contain;">
+      <div><div class="nav-wordmark">Hero <span>HomeReach</span><sup class="nav-tm">™</sup></div></div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="programs.html" class="active">Programs</a></li>
+      <li><a href="who-we-serve.html">Who We Serve</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="blog/">Resources</a></li>
+      <li><a href="https://guide.herohomereach.com" target="_blank" style="color:var(--bright-gold); font-weight:700;">Free Guide</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="contact.html" class="btn btn-gold btn-arrow">Book Free Consultation</a>
+    </div>
+    <div class="nav-hamburger" id="hamburger" onclick="toggleMobileNav()">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+<div id="mobile-nav">
+  <a href="programs.html" onclick="toggleMobileNav()">Programs</a>
+  <a href="who-we-serve.html" onclick="toggleMobileNav()">Who We Serve</a>
+  <a href="about.html" onclick="toggleMobileNav()">About</a>
+  <a href="blog/" onclick="toggleMobileNav()">Resources</a>
+  <a href="https://guide.herohomereach.com" target="_blank" style="color:var(--bright-gold);" onclick="toggleMobileNav()">Free Guide</a>
+  <a href="contact.html" class="btn btn-gold" style="margin-top:16px;" onclick="toggleMobileNav()">Book Free Consultation</a>
+</div>
+
+
+<!-- ════════════ PAGE HERO ════════════ -->
+<section id="page-hero">
+  <div class="container">
+    <div class="page-hero-inner">
+      <div class="page-eyebrow">Colorado Programs for Heroes</div>
+      <h1>Real Programs. <span>Real Money.</span><br>Built for Heroes Like You.</h1>
+      <p class="lead">Colorado has one of the most robust stacks of homebuyer assistance in the country — and most of it is specifically designed for public service professionals. Here's everything available to you.</p>
+      <a href="contact.html" class="btn btn-gold btn-arrow">Find My Programs — Free</a>
+      <div class="hero-stats">
+        <div class="hero-stat-item">
+          <div class="hero-stat-num">$41K</div>
+          <div class="hero-stat-label">Max single program assistance</div>
+        </div>
+        <div class="hero-stat-item">
+          <div class="hero-stat-num">10+</div>
+          <div class="hero-stat-label">Active Colorado programs</div>
+        </div>
+        <div class="hero-stat-item">
+          <div class="hero-stat-num">Stack</div>
+          <div class="hero-stat-label">Multiple programs = more money</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════ STICKY PROGRAM NAV ════════════ -->
+<div id="program-nav">
+  <div class="program-nav-inner">
+    <button class="prog-nav-btn active" onclick="scrollTo('state-programs')">State Programs</button>
+    <button class="prog-nav-btn" onclick="scrollTo('local-programs')">Local & Regional</button>
+    <button class="prog-nav-btn" onclick="scrollTo('hero-programs')">Hero Grants</button>
+    <button class="prog-nav-btn" onclick="scrollTo('loan-types')">Loan Types</button>
+    <button class="prog-nav-btn" onclick="scrollTo('stacking-section')">Stacking Programs</button>
+  </div>
+</div>
+
+
+<!-- ════════════ STATE PROGRAMS ════════════ -->
+<section class="prog-section" id="state-programs">
+  <div class="container">
+    <div class="section-intro fade-up">
+      <div class="section-eyebrow">State & National</div>
+      <h2>The Foundation — State-Backed Programs</h2>
+      <p>These programs form the backbone of most hero homebuyer packages in Colorado. Wide eligibility, strong amounts, and designed to stack with other programs.</p>
+    </div>
+
+    <div class="program-grid fade-up">
+
+      <div class="prog-card stripe-gold">
+        <span class="prog-badge badge-gold">✦ CHFA — True Grant</span>
+        <div class="prog-amount">3%</div>
+        <div class="prog-amount-note">of purchase price — never repaid</div>
+        <h3>CHFA True Grant</h3>
+        <p>Colorado Housing Finance Authority's flagship grant. Unlike a loan, this money never needs to be repaid. Pairs with CHFA's SmartStep and FirstStep mortgage products. Income limit up to $126,200 for SmartStep.</p>
+        <ul class="prog-list">
+          <li>True grant — zero repayment ever</li>
+          <li>3% of the purchase price</li>
+          <li>FICO 620+ required</li>
+          <li>Income limit: up to $126,200 (SmartStep)</li>
+          <li>Must use a CHFA-approved lender</li>
+          <li>Available statewide</li>
+        </ul>
+        <span class="prog-tag">🏠 SmartStep / Preferred Program</span>
+      </div>
+
+      <div class="prog-card stripe-gold">
+        <span class="prog-badge badge-navy">CHFA — Deferred Loan</span>
+        <div class="prog-amount">4%</div>
+        <div class="prog-amount-note">deferred second mortgage</div>
+        <h3>CHFA Deferred Second Mortgage</h3>
+        <p>A second mortgage that carries no monthly payment — it's deferred until you sell or refinance. Significantly reduces cash needed at closing without adding to your monthly obligations.</p>
+        <ul class="prog-list">
+          <li>No monthly payment while in home</li>
+          <li>Repaid only upon sale or refinance</li>
+          <li>4% of purchase price</li>
+          <li>Works with FHA, VA, conventional loans</li>
+          <li>Available statewide</li>
+        </ul>
+        <span class="prog-tag">🏠 FirstStep / FirstGeneration Program</span>
+      </div>
+
+      <div class="prog-card stripe-gold">
+        <span class="prog-badge badge-gold">✦ CHFA — FirstGen</span>
+        <div class="prog-amount">$25,000</div>
+        <div class="prog-amount-note">maximum assistance</div>
+        <h3>CHFA FirstStep / FirstGeneration</h3>
+        <p>The highest-value CHFA product, designed for first-generation homebuyers. If neither you nor your parents have owned a home, you may qualify for up to $25,000. Income limit is generous at $174,440 — most hero households qualify easily.</p>
+        <ul class="prog-list">
+          <li>Up to $25,000 maximum benefit</li>
+          <li>First-generation homebuyer requirement</li>
+          <li>FICO 620+ required</li>
+          <li>Income limit: up to $174,440</li>
+          <li>Below-market interest rate on first mortgage</li>
+        </ul>
+        <span class="prog-tag">🎓 Common match for educator heroes</span>
+      </div>
+
+      <div class="prog-card stripe-navy">
+        <span class="prog-badge badge-green">✦ Forgiven After 36 Mo.</span>
+        <div class="prog-amount">6%</div>
+        <div class="prog-amount-note">fully forgiven — Denver Metro / Front Range</div>
+        <h3>MetroDPA</h3>
+        <p>One of the most powerful programs available. MetroDPA provides up to 6% of the purchase price that is completely forgiven after just 36 months of continuous primary occupancy. Stay three years and it's yours free and clear.</p>
+        <ul class="prog-list">
+          <li>100% forgiven after 36 months occupancy</li>
+          <li>Covers Denver Metro and Front Range</li>
+          <li>Up to 6% of purchase price</li>
+          <li>FICO 640+ required</li>
+          <li>Household income up to $210,150</li>
+          <li>Strong option for first responders and nurses</li>
+        </ul>
+        <span class="prog-tag">🚒 Popular with first responders</span>
+      </div>
+
+      <div class="prog-card stripe-navy">
+        <span class="prog-badge badge-navy">National Program</span>
+        <div class="prog-amount">5%</div>
+        <div class="prog-amount-note">forgiven after 36 on-time payments</div>
+        <h3>Chenoa Fund</h3>
+        <p>A national safety-net program with unusually flexible eligibility. No income limits and accepts FICO scores as low as 600 — making it the go-to option for heroes who don't qualify for income-restricted programs. Forgiveness is triggered by 36 consecutive on-time mortgage payments.</p>
+        <ul class="prog-list">
+          <li>No income limits — open to all heroes</li>
+          <li>Accepts FICO scores as low as 600</li>
+          <li>5% assistance on FHA loans</li>
+          <li>Forgiven after 36 consecutive on-time payments</li>
+          <li>Available nationwide, including all Colorado</li>
+          <li>Safety net when other programs don't fit</li>
+        </ul>
+        <span class="prog-tag">🏥 Great safety net for healthcare workers</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════ LOCAL & REGIONAL ════════════ -->
+<section class="prog-section" id="local-programs" style="background:#fff;">
+  <div class="container">
+    <div class="section-intro fade-up">
+      <div class="section-eyebrow">Local & Regional</div>
+      <h2>Local Funds — Often Overlooked, Always Valuable</h2>
+      <p>County and regional programs are frequently missed because they're not well publicized. These are some of the highest-value programs available — especially in the Denver Metro and Douglas County areas.</p>
+    </div>
+
+    <div class="program-grid fade-up">
+
+      <div class="prog-card stripe-gold">
+        <span class="prog-badge badge-gold">Douglas County</span>
+        <div class="prog-amount">$15,000</div>
+        <div class="prog-amount-note">flat second mortgage at 3% fixed</div>
+        <h3>Douglas County Housing Partnership</h3>
+        <p>The DCHP traditional program offers a straightforward $15,000 second mortgage at a fixed 3% rate. Predictable, affordable, and stackable with state programs. Note the purchase price cap of $456,000.</p>
+        <ul class="prog-list">
+          <li>$15,000 flat second mortgage</li>
+          <li>3% fixed interest rate</li>
+          <li>Household income at or below 80% AMI (~$124,950)</li>
+          <li>Purchase price cannot exceed $456,000</li>
+          <li>Douglas County residents / buyers</li>
+          <li>Stackable with CHFA programs</li>
+        </ul>
+      </div>
+
+      <div class="prog-card stripe-gold">
+        <span class="prog-badge badge-gold">✦ Douglas County — Equity Share</span>
+        <div class="prog-amount">$41,000</div>
+        <div class="prog-amount-note">zero-payment shared equity loan</div>
+        <h3>DCHP Shared Equity Program</h3>
+        <p>The highest single-program amount available in the region. Zero monthly payments — repaid via a share of the home's appreciation when you sell. A powerful tool for heroes buying in Douglas County.</p>
+        <ul class="prog-list">
+          <li>Up to $41,000 in assistance</li>
+          <li>Zero monthly payment</li>
+          <li>Repaid via share of home appreciation</li>
+          <li>No out-of-pocket repayment while you live there</li>
+        </ul>
+        <span class="prog-tag">📍 Douglas County only</span>
+      </div>
+
+      <div class="prog-card stripe-navy">
+        <span class="prog-badge badge-navy">Nonprofit — Statewide</span>
+        <div class="prog-amount">$10–15K</div>
+        <div class="prog-amount-note">low-interest amortized or deferred loans</div>
+        <h3>Colorado Housing Assistance Corporation (CHAC)</h3>
+        <p>A nonprofit DPA provider offering flexible loan structures for low-to-moderate income buyers across Colorado. Particularly valuable for heroes whose income puts them near the qualifying threshold of other programs.</p>
+        <ul class="prog-list">
+          <li>$10,000–$15,000 assistance range</li>
+          <li>Low-interest or deferred options</li>
+          <li>Targets low-to-moderate income buyers</li>
+          <li>Nonprofit — mission-driven, not profit-driven</li>
+          <li>Available statewide</li>
+        </ul>
+      </div>
+
+      <div class="prog-card stripe-green">
+        <span class="prog-badge badge-green">✦ Up to 20% Down</span>
+        <div class="prog-amount">$30,000</div>
+        <div class="prog-amount-note">0% deferred loan — strict income limits</div>
+        <h3>FirstBank / Impact Development Fund</h3>
+        <p>An exceptional program offering up to 20% of the purchase price (capped at $30,000) as a 0% interest deferred loan. For heroes who meet the income requirements, this can effectively eliminate the down payment entirely.</p>
+        <ul class="prog-list">
+          <li>Up to 20% of purchase price</li>
+          <li>Maximum $30,000 in assistance</li>
+          <li>0% interest — no interest charges ever</li>
+          <li>Deferred — no payment until sale/refi</li>
+          <li>Strict income limits apply</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════ HERO GRANTS ════════════ -->
+<section class="prog-section" id="hero-programs">
+  <div class="container">
+    <div class="section-intro fade-up">
+      <div class="section-eyebrow">Specialty Hero Grants</div>
+      <h2>Programs Built Specifically for Heroes</h2>
+      <p>These programs exist because of your profession. They're designed to honor your service with real financial assistance — not just a handshake.</p>
+    </div>
+
+    <div class="program-grid fade-up">
+
+      <div class="prog-card stripe-gold">
+        <span class="prog-badge badge-gold">✦ True Grant</span>
+        <div class="prog-amount">$8,000</div>
+        <div class="prog-amount-note">true grant + up to $15K DPA</div>
+        <h3>Teacher Next Door (TND)</h3>
+        <p>Broader than the name suggests — this program covers educators, nurses, first responders, military, and government employees. The $8,000 grant uniquely satisfies the mandatory $1,000 minimum borrower contribution required by most DPA programs, plus up to $15,000 in additional down payment assistance.</p>
+        <ul class="prog-list">
+          <li>$8,000 true grant — never repaid</li>
+          <li>Satisfies minimum borrower contribution</li>
+          <li>Additional $15,000 DPA available</li>
+          <li>Eligible: Pre-K–12 teachers, school staff, nurses, first responders, military, government employees</li>
+          <li>No income limits — stackable with CHFA programs</li>
+        </ul>
+        <span class="prog-tag">🎓 Teachers · Nurses · First Responders · Military</span>
+      </div>
+
+      <div class="prog-card stripe-navy">
+        <span class="prog-badge badge-navy">HUD Program</span>
+        <div class="prog-amount">50%</div>
+        <div class="prog-amount-note">off list price · only $100 down payment</div>
+        <h3>HUD Good Neighbor Next Door</h3>
+        <p>A remarkable HUD program offering a 50% discount off the list price on specific HUD-owned foreclosed properties in designated revitalization areas — with only a $100 down payment required. The catch: availability is limited, especially in Douglas County.</p>
+        <ul class="prog-list">
+          <li>50% discount off HUD list price</li>
+          <li>Only $100 down payment required</li>
+          <li>Teachers, police, firefighters, EMTs eligible</li>
+          <li>Must commit to living there 3 years</li>
+          <li>Limited inventory — check availability often</li>
+          <li>Rare but extraordinary when available</li>
+        </ul>
+        <span class="prog-tag">🚒 First responders + educators</span>
+      </div>
+
+      <div class="prog-card stripe-green">
+        <span class="prog-badge badge-green">Essential Workers</span>
+        <div class="prog-amount">$15,000</div>
+        <div class="prog-amount-note">flat grant assistance</div>
+        <h3>NeighborhoodLIFT</h3>
+        <p>A Wells Fargo-partnered program providing up to $15,000 in flat grant assistance specifically for essential workers including first responders, teachers, and military service members. Offered periodically in targeted markets — worth monitoring for availability in your area.</p>
+        <ul class="prog-list">
+          <li>Up to $15,000 in flat grant assistance</li>
+          <li>Targeted toward essential workers</li>
+          <li>First responders, teachers, military eligible</li>
+          <li>Offered in specific markets periodically</li>
+          <li>Worth monitoring for availability</li>
+        </ul>
+        <span class="prog-tag">🎖️ Includes military members</span>
+      </div>
+
+      <div class="prog-card stripe-gold">
+        <span class="prog-badge badge-gold">✦ Hero-Specific</span>
+        <div class="prog-amount">Varies</div>
+        <div class="prog-amount-note">specialized hero assistance</div>
+        <h3>Colorado Community Hero Program</h3>
+        <p>A specialized Colorado program with assistance tailored specifically for firefighters, K-12 teachers, law enforcement, healthcare professionals, and military members. Ask us about current availability and amounts in your area.</p>
+        <ul class="prog-list">
+          <li>Firefighters, teachers, law enforcement</li>
+          <li>Healthcare professionals eligible</li>
+          <li>Military members eligible</li>
+          <li>Colorado-specific — designed for our heroes</li>
+        </ul>
+        <span class="prog-tag">🏠 All four hero audiences</span>
+      </div>
+
+      <div class="prog-card stripe-navy">
+        <span class="prog-badge badge-navy">Post-Closing</span>
+        <div class="prog-amount">0.7%</div>
+        <div class="prog-amount-note">post-closing rebate of purchase price</div>
+        <h3>Homes for Heroes (HfH)</h3>
+        <p>A post-closing rebate program that replenishes your savings after closing rather than reducing upfront costs. Not traditional DPA — but a meaningful amount that hits your bank account after the transaction completes.</p>
+        <ul class="prog-list">
+          <li>0.7% of purchase price back after closing</li>
+          <li>Replenishes savings — doesn't reduce upfront cash</li>
+          <li>All hero audiences eligible</li>
+          <li>Best used alongside upfront DPA programs</li>
+        </ul>
+        <span class="prog-tag">💰 Pairs with upfront DPA</span>
+      </div>
+
+      <div class="prog-card stripe-navy">
+        <span class="prog-badge badge-navy">Post-Closing Gift</span>
+        <div class="prog-amount">Varies</div>
+        <div class="prog-amount-note">closing cost gifts — reimbursed after closing</div>
+        <h3>Everyday Hero Housing Assistance Fund (EHHAF)</h3>
+        <p>Provides closing cost assistance that is gifted and reimbursed after closing. Another post-closing tool that pairs well with upfront programs to maximize total assistance for hero homebuyers.</p>
+        <ul class="prog-list">
+          <li>Closing cost assistance — gifted funds</li>
+          <li>Reimbursed after closing completes</li>
+          <li>Pairs with upfront DPA programs</li>
+          <li>Available to hero profession buyers</li>
+        </ul>
+        <span class="prog-tag">🏥 All hero audiences</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════ INCOME LIMITS TABLE ════════════ -->
+<section class="prog-section" style="background:#fff; padding:72px 0;">
+  <div class="container">
+    <div class="section-intro fade-up">
+      <div class="section-eyebrow">2025 Income Limits</div>
+      <h2>Do You Qualify? Here Are the Numbers.</h2>
+      <p>Income limits are one of the most common questions we get. Here's a clear breakdown for the major Colorado programs — with good news: most hero households fall well within the limits.</p>
+    </div>
+    <div class="fade-up" style="overflow-x:auto; border-radius:var(--radius); border:1px solid var(--warm-gray); box-shadow:0 4px 24px rgba(12,45,94,0.08);">
+      <table style="width:100%; border-collapse:collapse;">
+        <thead>
+          <tr style="background:var(--navy);">
+            <th style="padding:16px 20px; text-align:left; font-size:12px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--bright-gold); white-space:nowrap;">Program</th>
+            <th style="padding:16px 20px; text-align:left; font-size:12px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:rgba(255,255,255,0.75);">Income Limit</th>
+            <th style="padding:16px 20px; text-align:left; font-size:12px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:rgba(255,255,255,0.75);">FICO Min.</th>
+            <th style="padding:16px 20px; text-align:left; font-size:12px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:rgba(255,255,255,0.75);">Hero Fit</th>
+            <th style="padding:16px 20px; text-align:left; font-size:12px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:rgba(255,255,255,0.75);">Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom:1px solid var(--warm-gray);">
+            <td style="padding:14px 20px; font-weight:700; color:var(--navy); font-size:14px;">MetroDPA</td>
+            <td style="padding:14px 20px; font-size:14px;"><strong style="color:var(--green);">$210,150</strong></td>
+            <td style="padding:14px 20px; font-size:14px;">640+</td>
+            <td style="padding:14px 20px; font-size:14px;"><span style="background:rgba(26,107,74,0.1); color:var(--green); font-weight:700; padding:3px 10px; border-radius:20px; font-size:12px;">✓ Most heroes qualify</span></td>
+            <td style="padding:14px 20px; font-size:13px; color:#777;">Denver Metro & Front Range only</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--warm-gray); background:rgba(245,247,250,0.5);">
+            <td style="padding:14px 20px; font-weight:700; color:var(--navy); font-size:14px;">CHFA FirstGen</td>
+            <td style="padding:14px 20px; font-size:14px;"><strong style="color:var(--green);">$174,440</strong></td>
+            <td style="padding:14px 20px; font-size:14px;">620+</td>
+            <td style="padding:14px 20px; font-size:14px;"><span style="background:rgba(26,107,74,0.1); color:var(--green); font-weight:700; padding:3px 10px; border-radius:20px; font-size:12px;">✓ Most heroes qualify</span></td>
+            <td style="padding:14px 20px; font-size:13px; color:#777;">First-generation homebuyer requirement</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--warm-gray);">
+            <td style="padding:14px 20px; font-weight:700; color:var(--navy); font-size:14px;">CHFA SmartStep</td>
+            <td style="padding:14px 20px; font-size:14px;"><strong style="color:var(--gold);">$126,200</strong></td>
+            <td style="padding:14px 20px; font-size:14px;">620+</td>
+            <td style="padding:14px 20px; font-size:14px;"><span style="background:rgba(201,151,58,0.12); color:#8B6020; font-weight:700; padding:3px 10px; border-radius:20px; font-size:12px;">✓ Many heroes qualify</span></td>
+            <td style="padding:14px 20px; font-size:13px; color:#777;">Available statewide</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--warm-gray); background:rgba(245,247,250,0.5);">
+            <td style="padding:14px 20px; font-weight:700; color:var(--navy); font-size:14px;">DCHP Standard</td>
+            <td style="padding:14px 20px; font-size:14px;"><strong style="color:var(--gold);">~$124,950</strong></td>
+            <td style="padding:14px 20px; font-size:14px;">—</td>
+            <td style="padding:14px 20px; font-size:14px;"><span style="background:rgba(201,151,58,0.12); color:#8B6020; font-weight:700; padding:3px 10px; border-radius:20px; font-size:12px;">✓ Many heroes qualify</span></td>
+            <td style="padding:14px 20px; font-size:13px; color:#777;">Douglas County · Price cap $456,000</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--warm-gray);">
+            <td style="padding:14px 20px; font-weight:700; color:var(--navy); font-size:14px;">Teacher Next Door</td>
+            <td style="padding:14px 20px; font-size:14px;"><strong style="color:var(--green);">No limit</strong></td>
+            <td style="padding:14px 20px; font-size:14px;">—</td>
+            <td style="padding:14px 20px; font-size:14px;"><span style="background:rgba(26,107,74,0.1); color:var(--green); font-weight:700; padding:3px 10px; border-radius:20px; font-size:12px;">✓ All heroes qualify</span></td>
+            <td style="padding:14px 20px; font-size:13px; color:#777;">No income limits on FHA products</td>
+          </tr>
+          <tr>
+            <td style="padding:14px 20px; font-weight:700; color:var(--navy); font-size:14px;">Chenoa Fund</td>
+            <td style="padding:14px 20px; font-size:14px;"><strong style="color:var(--green);">No limit</strong></td>
+            <td style="padding:14px 20px; font-size:14px;">600+</td>
+            <td style="padding:14px 20px; font-size:14px;"><span style="background:rgba(26,107,74,0.1); color:var(--green); font-weight:700; padding:3px 10px; border-radius:20px; font-size:12px;">✓ All heroes qualify</span></td>
+            <td style="padding:14px 20px; font-size:13px; color:#777;">National safety net — FHA loans</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="font-size:12px; color:#aaa; margin-top:12px;">*Income limits shown are for 2025 and apply to Douglas County / Denver Metro area. Limits vary by county and household size. Verify current limits with your program administrator.</p>
+  </div>
+</section>
+
+<!-- ════════════ STACKING SECTION ════════════ -->
+<section id="stacking-section">
+  <div class="container">
+    <div class="stacking-grid">
+      <div class="stacking-content fade-up">
+        <div class="page-eyebrow" style="color:var(--bright-gold);">The Power Move</div>
+        <h2 style="color:#fff; margin-bottom:18px;">Stack Your Programs.<br>Maximize Every Dollar.</h2>
+        <p>Here's what most heroes don't know: these programs aren't mutually exclusive. The right combination — stacked strategically — can dramatically reduce or even eliminate what you need at closing.</p>
+        <p>That's exactly what we do in your free consultation. We map every program you qualify for, identify the legal stacks, and show you your maximum possible benefit.</p>
+        <a href="contact.html" class="btn btn-gold btn-arrow" style="margin-top:8px;">Find My Stack — Free</a>
+      </div>
+
+      <div class="fade-up delay-2">
+        <div class="stack-calc">
+          <div class="stack-calc-title">Example Stack — Colorado Educator</div>
+          <div class="stack-row">
+            <div class="stack-name">CHFA FirstGen DPA<small>State-backed deferred loan</small></div>
+            <div class="stack-val">$18,000</div>
+          </div>
+          <div class="stack-row">
+            <div class="stack-name">Teacher Next Door Grant<small>True grant — never repaid</small></div>
+            <div class="stack-val">$8,000</div>
+          </div>
+          <div class="stack-row">
+            <div class="stack-name">DCHP Standard Program<small>Douglas County 3% fixed loan</small></div>
+            <div class="stack-val">$15,000</div>
+          </div>
+          <div class="stack-row">
+            <div class="stack-name">Homes for Heroes Rebate<small>Post-closing cash back</small></div>
+            <div class="stack-val">~$2,500</div>
+          </div>
+          <div class="stack-total">
+            <div class="stack-total-label">Total Combined Assistance</div>
+            <div class="stack-total-val">$43,500</div>
+          </div>
+          <div class="stack-disclaimer">*Example only. Eligibility, amounts, and stackability vary by program, location, income, and purchase price. Book a free consultation for your personalized program map.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════ LOAN TYPES ════════════ -->
+<section class="prog-section" id="loan-types" style="background:#fff;">
+  <div class="container">
+    <div class="section-intro fade-up">
+      <div class="section-eyebrow">First Mortgage Options</div>
+      <h2>The Right Loan Makes the Stack Work</h2>
+      <p>DPA programs layer on top of a first mortgage. Choosing the right underlying loan type is critical — some programs only work with specific loan types, and your choice affects how much assistance you can access.</p>
+    </div>
+
+    <div class="loan-grid fade-up">
+      <div class="loan-card">
+        <div class="loan-icon">🎖️</div>
+        <div class="loan-info">
+          <h3>VA Loan</h3>
+          <p>The gold standard for military members and veterans. Zero down payment required, competitive rates, and allows up to 4% in seller concessions. Can often be stacked with Colorado state and local grant programs.</p>
+          <span class="loan-highlight">0% down · Military / Veterans only</span>
+        </div>
+      </div>
+      <div class="loan-card">
+        <div class="loan-icon">🏛️</div>
+        <div class="loan-info">
+          <h3>FHA Loan</h3>
+          <p>The most DPA-compatible loan type. Requires 3.5% down (often covered by DPA), allows up to 6% in seller concessions, and works with the widest range of assistance programs including Chenoa Fund and CHFA products.</p>
+          <span class="loan-highlight">3.5% down · Widest DPA compatibility</span>
+        </div>
+      </div>
+      <div class="loan-card">
+        <div class="loan-icon">🏡</div>
+        <div class="loan-info">
+          <h3>Fannie Mae HomeReady</h3>
+          <p>A conventional option with cancellable PMI — meaning once you reach 20% equity, the mortgage insurance disappears. Accepts FICO scores of 620 and works well for heroes with moderate income and good credit.</p>
+          <span class="loan-highlight">3% down · Cancellable PMI · FICO 620+</span>
+        </div>
+      </div>
+      <div class="loan-card">
+        <div class="loan-icon">🏘️</div>
+        <div class="loan-info">
+          <h3>Freddie Mac Home Possible</h3>
+          <p>Another strong conventional option at 3% down with PMI cancellation. Competitive for heroes who want a conventional loan experience with minimal down payment and the ability to eliminate mortgage insurance over time.</p>
+          <span class="loan-highlight">3% down · PMI cancellation option</span>
+        </div>
+      </div>
+      <div class="loan-card">
+        <div class="loan-icon">🌾</div>
+        <div class="loan-info">
+          <h3>USDA Loan</h3>
+          <p>A powerful zero-down option for heroes willing to buy in designated rural areas of Colorado. Geographic restriction is the key limitation — but for the right buyer in the right area, this is an exceptional product.</p>
+          <span class="loan-highlight">0% down · Rural areas only</span>
+        </div>
+      </div>
+      <div class="loan-card" style="border-color:rgba(220,60,60,0.2); background:rgba(220,60,60,0.02);">
+        <div class="loan-icon">⚠️</div>
+        <div class="loan-info">
+          <h3>High-Interest DPA Products</h3>
+          <p>Beware of DPA products like Access Zero that carry interest rates 2+ percentage points above the primary loan rate. They reduce upfront costs but cost significantly more over time. We help you avoid these traps.</p>
+          <span class="loan-highlight" style="background:rgba(220,60,60,0.08); color:#c03;">Watch out for high-rate DPA products</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════ FINAL CTA ════════════ -->
+<section id="programs-cta">
+  <div class="container">
+    <div class="cta-card">
+      <div style="position:relative; z-index:2;">
+        <div style="font-size:11px; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:var(--bright-gold); margin-bottom:16px;">Free · 30 Minutes · No Obligation</div>
+        <h2>Ready to Find Out <span>What You Qualify For?</span></h2>
+        <p>Book your free Hero HomeReach™ consultation. We'll map every program available for your profession, calculate your maximum combined assistance, and give you a clear next-steps plan.</p>
+        <a href="contact.html" class="btn btn-gold btn-arrow" style="font-size:17px; padding:18px 40px;">Book My Free Consultation</a>
+        <div class="cta-reassurance">
+          <div class="cta-reassurance-item">Completely free</div>
+          <div class="cta-reassurance-item">No lender pressure</div>
+          <div class="cta-reassurance-item">Colorado-specific</div>
+          <div class="cta-reassurance-item">30 minutes or less</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="disclaimer-box">
+      <strong>Disclaimer:</strong> Program availability, amounts, income limits, and eligibility requirements change frequently. The programs listed on this page represent programs available at the time of publication and are provided for educational purposes only. Hero HomeReach™ is a homeownership education and guidance service, not a lender, broker, or financial advisor. Always verify current program availability and terms with a qualified lender or program administrator. Information on this page does not constitute financial, legal, or mortgage advice.
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════ FOOTER ════════════ -->
+<footer id="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="wordmark">Hero <span>HomeReach</span>™</div>
+        <p>Free homeownership guidance for Colorado's educators, first responders, healthcare workers, and military members. No jargon. No pressure. Built for heroes.</p>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Site</div>
+        <a href="programs.html">Programs</a>
+        <a href="who-we-serve.html">Who We Serve</a>
+        <a href="about.html">About</a>
+        <a href="blog/">Resources</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Heroes</div>
+        <a href="who-we-serve.html#educators">Educators</a>
+        <a href="who-we-serve.html#first-responders">First Responders</a>
+        <a href="who-we-serve.html#healthcare">Healthcare Workers</a>
+        <a href="who-we-serve.html#military">Military Members</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Start Here</div>
+        <a href="contact.html">Book Free Consultation</a>
+        <a href="programs.html">Explore Programs</a>
+        <a href="blog/">Read Resources</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2026 Hero HomeReach™. All rights reserved. Colorado Homeownership Guidance.</div>
+      <div class="footer-legal">
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Use</a>
+        <a href="disclaimer.html">Disclaimer</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+<script>
+function toggleMobileNav() {
+  document.getElementById('mobile-nav').classList.toggle('open');
+}
+
+function scrollTo(id) {
+  const el = document.getElementById(id);
+  if (el) {
+    const offset = document.getElementById('program-nav').offsetHeight + document.getElementById('nav').offsetHeight;
+    const top = el.getBoundingClientRect().top + window.scrollY - offset - 16;
+    window.scrollTo({ top, behavior: 'smooth' });
+  }
+  // Update active state
+  document.querySelectorAll('.prog-nav-btn').forEach(b => b.classList.remove('active'));
+  event.target.classList.add('active');
+}
+
+// Update sticky nav active state on scroll
+const sections = ['state-programs','local-programs','hero-programs','loan-types','stacking-section'];
+const navBtns = document.querySelectorAll('.prog-nav-btn');
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(id => {
+    const el = document.getElementById(id);
+    if (el && window.scrollY >= el.offsetTop - 160) current = id;
+  });
+  navBtns.forEach((btn, i) => {
+    btn.classList.toggle('active', sections[i] === current || (current === '' && i === 0));
+  });
+}, { passive: true });
+
+// Scroll animations
+const fadeEls = document.querySelectorAll('.fade-up');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); }
+  });
+}, { threshold: 0.1 });
+fadeEls.forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
