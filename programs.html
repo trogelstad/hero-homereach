@@ -29,7 +29,7 @@
   --font-head:   'Playfair Display', Georgia, serif;
   --font-body:   'Inter', system-ui, sans-serif;
   --max-w:       1140px;
-  --nav-h:       76px;
+  --nav-h:       82px;
   --radius:      10px;
   --transition:  all 0.22s ease;
 }
@@ -111,23 +111,28 @@ p:last-child { margin-bottom: 0; }
    PAGE HERO
 ════════════════════════════════ */
 #page-hero {
-  background: var(--navy);
+  background-color: var(--navy);
+  background-image: url('programs-hero-bg.jpg');
+  background-size: cover;
+  background-position: 60% center;
+  background-repeat: no-repeat;
   padding: calc(var(--nav-h) + 64px) 0 72px;
   position: relative; overflow: hidden;
 }
 #page-hero::before {
   content: '';
   position: absolute; inset: 0;
-  background-image: repeating-linear-gradient(
-    45deg,
-    rgba(201,151,58,0.03) 0px, rgba(201,151,58,0.03) 1px,
-    transparent 1px, transparent 60px
+  background: linear-gradient(
+    90deg,
+    rgba(12,45,94,0.97) 0%,
+    rgba(12,45,94,0.95) 35%,
+    rgba(12,45,94,0.65) 55%,
+    rgba(12,45,94,0.20) 75%,
+    rgba(12,45,94,0.05) 100%
   );
 }
 #page-hero::after {
-  content: '';
-  position: absolute; bottom: 0; left: 0; right: 0; height: 80px;
-  display: none; /* fade removed */
+  display: none;
 }
 .page-hero-inner {
   position: relative; z-index: 2;
@@ -423,14 +428,14 @@ p:last-child { margin-bottom: 0; }
 <nav id="nav">
   <div class="nav-inner">
     <a href="index.html" class="nav-logo">
-      <img src="logo-mark_transparent.png" alt="Hero HomeReach Shield" style="width:48px; height:48px; object-fit:contain;">
+      <img src="logo-mark_transparent.png" alt="Hero HomeReach Shield" style="width:58px; height:58px; object-fit:contain;">
       <div><div class="nav-wordmark">Hero <span>HomeReach</span><sup class="nav-tm">™</sup></div></div>
     </a>
     <ul class="nav-links">
       <li><a href="programs.html" class="active">Programs</a></li>
       <li><a href="who-we-serve.html">Who We Serve</a></li>
       <li><a href="about.html">About</a></li>
-      <li><a href="blog/">Resources</a></li>
+      <li><a href="blog/">Resources &amp; Blog</a></li>
       <li><a href="https://guide.herohomereach.com" target="_blank" style="color:var(--bright-gold); font-weight:700;">Free Guide</a></li>
     </ul>
     <div class="nav-cta">
@@ -446,7 +451,7 @@ p:last-child { margin-bottom: 0; }
   <a href="programs.html" onclick="toggleMobileNav()">Programs</a>
   <a href="who-we-serve.html" onclick="toggleMobileNav()">Who We Serve</a>
   <a href="about.html" onclick="toggleMobileNav()">About</a>
-  <a href="blog/" onclick="toggleMobileNav()">Resources</a>
+  <a href="blog/" onclick="toggleMobileNav()">Resources &amp; Blog</a>
   <a href="https://guide.herohomereach.com" target="_blank" style="color:var(--bright-gold);" onclick="toggleMobileNav()">Free Guide</a>
   <a href="contact.html" class="btn btn-gold" style="margin-top:16px;" onclick="toggleMobileNav()">Book Free Consultation</a>
 </div>
@@ -990,7 +995,7 @@ p:last-child { margin-bottom: 0; }
         <a href="programs.html">Programs</a>
         <a href="who-we-serve.html">Who We Serve</a>
         <a href="about.html">About</a>
-        <a href="blog/">Resources</a>
+        <a href="blog/">Resources &amp; Blog</a>
         <a href="contact.html">Contact</a>
       </div>
       <div class="footer-col">
@@ -1004,7 +1009,7 @@ p:last-child { margin-bottom: 0; }
         <div class="footer-col-title">Start Here</div>
         <a href="contact.html">Book Free Consultation</a>
         <a href="programs.html">Explore Programs</a>
-        <a href="blog/">Read Resources</a>
+        <a href="blog/">Resources &amp; Blog</a>
       </div>
     </div>
     <div class="footer-bottom">
