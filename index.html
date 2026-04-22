@@ -203,13 +203,9 @@ h3 { font-size: clamp(20px, 2.5vw, 26px); }
   );
 }
 
-/* Bottom fade for smooth section transition */
+/* Bottom — solid edge, no fade */
 .hero-bg::after {
-  content: '';
-  position: absolute;
-  bottom: 0; left: 0; right: 0;
-  height: 120px;
-  background: linear-gradient(to bottom, transparent, var(--white));
+  display: none;
 }
 
 .hero-grid-lines { display: none; }
@@ -346,6 +342,7 @@ h3 { font-size: clamp(20px, 2.5vw, 26px); }
   border-bottom: 1px solid var(--warm-gray);
   padding: 28px 0;
   box-shadow: 0 4px 24px rgba(12,45,94,0.06);
+  border-top: 4px solid var(--gold);
 }
 .trust-bar-inner {
   display: flex; align-items: center;
