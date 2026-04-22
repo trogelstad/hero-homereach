@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About — Hero HomeReach™ | Trent Rogelstad, Colorado</title>
+  <meta name="description" content="Hero HomeReach™ was founded by Trent Rogelstad with a simple belief: Colorado's teachers, first responders, healthcare workers, and military families deserve a clearer path to homeownership.">
+  <meta name="keywords" content="Hero HomeReach about, Trent Rogelstad, Colorado homebuyer education, hero homeownership guidance Colorado">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --navy:        #0C2D5E;
+  --mid-navy:    #1A4A8A;
+  --gold:        #C9973A;
+  --bright-gold: #EAB84A;
+  --white:       #F5F7FA;
+  --near-black:  #1C1C1E;
+  --green:       #1A6B4A;
+  --warm-gray:   #D3D1C7;
+  --font-head:   'Playfair Display', Georgia, serif;
+  --font-body:   'Inter', system-ui, sans-serif;
+  --max-w:       1140px;
+  --nav-h:       76px;
+  --radius:      10px;
+  --transition:  all 0.22s ease;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--font-body); font-size: 17px; line-height: 1.7; color: var(--near-black); background: var(--white); -webkit-font-smoothing: antialiased; }
+img { display: block; max-width: 100%; }
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+button { font-family: inherit; cursor: pointer; border: none; background: none; }
+h1, h2, h3, h4 { font-family: var(--font-head); font-weight: 700; color: var(--navy); line-height: 1.15; }
+p { margin-bottom: 20px; }
+p:last-child { margin-bottom: 0; }
+
+.container { max-width: var(--max-w); margin: 0 auto; padding: 0 32px; }
+@media (max-width: 768px) { .container { padding: 0 20px; } }
+
+/* ── BUTTONS ── */
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: var(--font-body); font-weight: 700; font-size: 15px;
+  padding: 16px 32px; border-radius: var(--radius);
+  transition: var(--transition); white-space: nowrap;
+}
+.btn-gold { background: var(--gold); color: var(--navy); box-shadow: 0 4px 20px rgba(201,151,58,0.3); }
+.btn-gold:hover { background: var(--bright-gold); transform: translateY(-2px); }
+.btn-navy { background: var(--navy); color: #fff; }
+.btn-navy:hover { background: var(--mid-navy); transform: translateY(-2px); }
+.btn-arrow::after { content: '→'; font-size: 17px; transition: transform 0.2s; }
+.btn-arrow:hover::after { transform: translateX(4px); }
+
+/* ════════════════════════════════
+   NAVIGATION
+════════════════════════════════ */
+#nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 999;
+  height: var(--nav-h);
+  background: rgba(12, 45, 94, 0.97);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(201,151,58,0.2);
+  box-shadow: 0 2px 24px rgba(0,0,0,0.15);
+  display: flex; align-items: center;
+}
+.nav-inner {
+  width: 100%; max-width: var(--max-w);
+  margin: 0 auto; padding: 0 32px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.nav-logo { display: flex; align-items: center; gap: 12px; }
+.nav-wordmark { font-family: var(--font-head); font-size: 22px; font-weight: 700; color: #fff; }
+.nav-wordmark span { color: var(--gold); }
+.nav-tm { font-size: 12px; vertical-align: super; color: var(--gold); }
+.nav-links { display: flex; align-items: center; gap: 32px; }
+.nav-links a { font-size: 14px; font-weight: 500; color: rgba(255,255,255,0.8); transition: var(--transition); }
+.nav-links a:hover { color: #fff; }
+.nav-links a.active { color: var(--bright-gold); }
+.nav-cta .btn { padding: 11px 22px; font-size: 14px; }
+.nav-hamburger { display: none; flex-direction: column; gap: 5px; padding: 8px; cursor: pointer; }
+.nav-hamburger span { display: block; width: 24px; height: 2px; background: #fff; border-radius: 2px; }
+#mobile-nav {
+  position: fixed; inset: 0; z-index: 998;
+  background: var(--navy);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: 28px;
+  opacity: 0; pointer-events: none; transition: opacity 0.3s;
+}
+#mobile-nav.open { opacity: 1; pointer-events: all; }
+#mobile-nav a { font-family: var(--font-head); font-size: 28px; font-weight: 700; color: #fff; }
+#mobile-nav a:hover { color: var(--gold); }
+@media (max-width: 900px) {
+  .nav-links, .nav-cta { display: none; }
+  .nav-hamburger { display: flex; }
+}
+
+/* ════════════════════════════════
+   PAGE HERO — SPLIT LAYOUT
+════════════════════════════════ */
+#about-hero {
+  background: var(--navy);
+  padding-top: var(--nav-h);
+  min-height: 90vh;
+  display: flex; align-items: center;
+  position: relative; overflow: hidden;
+}
+#about-hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image: repeating-linear-gradient(
+    45deg, rgba(201,151,58,0.03) 0px,
+    rgba(201,151,58,0.03) 1px, transparent 1px, transparent 60px
+  );
+}
+#about-hero::after {
+  content: '';
+  position: absolute; bottom: 0; left: 0; right: 0; height: 100px;
+  background: linear-gradient(to bottom, transparent, var(--white));
+}
+.about-hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 72px; align-items: center;
+  position: relative; z-index: 2;
+  padding: 80px 0;
+}
+
+/* Left — copy */
+.about-hero-content {}
+.about-eyebrow {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-size: 11px; font-weight: 700; letter-spacing: 0.2em;
+  text-transform: uppercase; color: var(--gold); margin-bottom: 20px;
+}
+.about-eyebrow::before { content: ''; display: block; width: 28px; height: 2px; background: var(--gold); }
+.about-hero-content h1 {
+  color: #fff; font-size: clamp(32px, 4vw, 52px); margin-bottom: 24px;
+}
+.about-hero-content h1 span { color: var(--gold); font-style: italic; }
+.about-hero-content .lead {
+  font-size: 18px; color: rgba(255,255,255,0.72);
+  margin-bottom: 36px; max-width: 480px;
+}
+.about-tagline {
+  display: flex; flex-direction: column; gap: 12px;
+  margin-bottom: 40px;
+}
+.tagline-item {
+  display: flex; align-items: center; gap: 12px;
+  font-size: 15px; font-weight: 600;
+  color: rgba(255,255,255,0.85);
+}
+.tagline-item::before {
+  content: ''; display: block;
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--gold); flex-shrink: 0;
+}
+
+/* Right — photo */
+.about-photo-wrap {
+  position: relative; display: flex;
+  align-items: center; justify-content: center;
+}
+.about-photo-frame {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 24px 64px rgba(0,0,0,0.4);
+  border: 3px solid rgba(201,151,58,0.3);
+  max-width: 420px; width: 100%;
+}
+.about-photo-frame img {
+  width: 100%; height: auto;
+  display: block;
+}
+/* Gold accent corner */
+.about-photo-frame::before {
+  content: '';
+  position: absolute; top: -3px; right: -3px;
+  width: 60px; height: 60px;
+  border-top: 4px solid var(--gold);
+  border-right: 4px solid var(--gold);
+  border-radius: 0 16px 0 0;
+  z-index: 2;
+}
+.about-photo-frame::after {
+  content: '';
+  position: absolute; bottom: -3px; left: -3px;
+  width: 60px; height: 60px;
+  border-bottom: 4px solid var(--gold);
+  border-left: 4px solid var(--gold);
+  border-radius: 0 0 0 16px;
+  z-index: 2;
+}
+/* Name card overlay */
+.photo-namecard {
+  position: absolute;
+  bottom: -24px; left: 24px;
+  background: var(--navy);
+  border: 2px solid rgba(201,151,58,0.3);
+  border-radius: 10px;
+  padding: 14px 20px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+}
+.namecard-name {
+  font-family: var(--font-head); font-size: 18px;
+  font-weight: 700; color: #fff; line-height: 1.2;
+}
+.namecard-title {
+  font-size: 12px; color: var(--gold);
+  font-weight: 600; margin-top: 4px;
+}
+
+@media (max-width: 900px) {
+  .about-hero-grid { grid-template-columns: 1fr; gap: 48px; }
+  .about-hero-content .lead { max-width: 100%; }
+  .about-photo-wrap { justify-content: center; }
+  .about-photo-frame { max-width: 320px; }
+}
+
+/* ════════════════════════════════
+   MISSION SECTION
+════════════════════════════════ */
+#mission {
+  background: var(--white);
+  padding: 112px 0 80px;
+}
+.mission-grid {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  gap: 72px; align-items: start;
+}
+.mission-content {}
+.section-eyebrow {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-size: 11px; font-weight: 700; letter-spacing: 0.2em;
+  text-transform: uppercase; color: var(--gold); margin-bottom: 16px;
+}
+.section-eyebrow::before { content: ''; display: block; width: 28px; height: 2px; background: var(--gold); }
+.mission-content h2 { font-size: clamp(28px, 3vw, 38px); margin-bottom: 28px; }
+.mission-content p { font-size: 17px; color: #444; line-height: 1.8; }
+
+/* Pull quote */
+.pull-quote {
+  border-left: 5px solid var(--gold);
+  padding: 20px 24px;
+  margin: 32px 0;
+  background: rgba(201,151,58,0.05);
+  border-radius: 0 8px 8px 0;
+}
+.pull-quote p {
+  font-family: var(--font-head);
+  font-size: 22px; font-weight: 700;
+  font-style: italic; color: var(--navy);
+  line-height: 1.4; margin: 0;
+}
+
+/* Values sidebar */
+.values-card {
+  background: var(--navy);
+  border-radius: var(--radius);
+  padding: 36px 28px;
+  position: sticky; top: calc(var(--nav-h) + 24px);
+  box-shadow: 0 8px 40px rgba(12,45,94,0.2);
+}
+.values-title {
+  font-size: 11px; font-weight: 700; letter-spacing: 0.18em;
+  text-transform: uppercase; color: var(--gold); margin-bottom: 24px;
+}
+.value-item {
+  display: flex; gap: 14px; align-items: flex-start;
+  padding: 16px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.value-item:last-child { border-bottom: none; }
+.value-icon {
+  width: 36px; height: 36px; border-radius: 8px;
+  background: rgba(201,151,58,0.12);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px; flex-shrink: 0; margin-top: 2px;
+}
+.value-text {}
+.value-name {
+  font-weight: 700; font-size: 14px; color: #fff; margin-bottom: 4px;
+}
+.value-desc { font-size: 13px; color: rgba(255,255,255,0.55); line-height: 1.5; }
+
+@media (max-width: 900px) {
+  .mission-grid { grid-template-columns: 1fr; gap: 40px; }
+  .values-card { position: static; }
+}
+
+/* ════════════════════════════════
+   VIDEO SECTION
+════════════════════════════════ */
+#about-video {
+  background: #fff;
+  padding: 80px 0;
+  border-top: 1px solid var(--warm-gray);
+}
+.video-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px; align-items: center;
+}
+.video-content h2 { margin-bottom: 16px; }
+.video-content p { color: #555; font-size: 16px; }
+
+.video-embed-wrap {
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 12px 48px rgba(12,45,94,0.15);
+  border: 2px solid var(--warm-gray);
+}
+.video-ratio {
+  position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;
+}
+.video-ratio iframe {
+  position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+}
+.video-caption {
+  background: var(--navy); padding: 14px 20px;
+  display: flex; align-items: center; gap: 12px;
+}
+.video-caption img {
+  width: 32px; height: 32px; object-fit: contain; flex-shrink: 0;
+}
+.video-cap-name {
+  font-family: var(--font-head); font-size: 14px; font-weight: 700; color: #fff;
+}
+.video-cap-title { font-size: 12px; color: rgba(255,255,255,0.5); }
+
+@media (max-width: 900px) {
+  .video-grid { grid-template-columns: 1fr; gap: 40px; }
+}
+
+/* ════════════════════════════════
+   PHILOSOPHY SECTION
+════════════════════════════════ */
+#philosophy {
+  background: var(--navy);
+  padding: 88px 0;
+  position: relative; overflow: hidden;
+}
+#philosophy::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image: repeating-linear-gradient(
+    45deg, rgba(201,151,58,0.03) 0px,
+    rgba(201,151,58,0.03) 1px, transparent 1px, transparent 60px
+  );
+}
+.philosophy-inner {
+  position: relative; z-index: 2;
+  max-width: 800px; margin: 0 auto; text-align: center;
+}
+.philosophy-inner h2 { color: #fff; margin-bottom: 20px; }
+.philosophy-inner p { color: rgba(255,255,255,0.7); font-size: 18px; margin-bottom: 20px; }
+
+.philosophy-pillars {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 20px; margin-top: 48px;
+}
+.pillar {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(201,151,58,0.2);
+  border-radius: var(--radius);
+  padding: 28px 20px; text-align: center;
+}
+.pillar-icon { font-size: 32px; margin-bottom: 14px; }
+.pillar-title {
+  font-family: var(--font-head); font-size: 18px; font-weight: 700;
+  color: #fff; margin-bottom: 10px;
+}
+.pillar-text { font-size: 13px; color: rgba(255,255,255,0.6); line-height: 1.65; }
+
+@media (max-width: 700px) {
+  .philosophy-pillars { grid-template-columns: 1fr; }
+}
+
+/* ════════════════════════════════
+   BRAND PROMISE
+════════════════════════════════ */
+#brand-promise {
+  background: var(--white);
+  padding: 80px 0;
+}
+.promise-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.promise-card {
+  background: #fff;
+  border: 1px solid var(--warm-gray);
+  border-radius: var(--radius);
+  padding: 28px 24px;
+  text-align: center;
+  box-shadow: 0 2px 16px rgba(12,45,94,0.05);
+  position: relative; overflow: hidden;
+}
+.promise-card::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 4px;
+  background: var(--gold);
+}
+.promise-phrase {
+  font-family: var(--font-head); font-size: 22px; font-weight: 700;
+  font-style: italic; color: var(--navy); margin-bottom: 12px; line-height: 1.3;
+}
+.promise-desc { font-size: 14px; color: #666; line-height: 1.65; }
+
+@media (max-width: 700px) {
+  .promise-grid { grid-template-columns: 1fr; }
+}
+
+/* ════════════════════════════════
+   FINAL CTA
+════════════════════════════════ */
+#about-cta {
+  background: var(--navy); padding: 96px 0;
+  text-align: center; position: relative; overflow: hidden;
+}
+#about-cta::before {
+  content: '';
+  position: absolute; top: -100px; right: -100px;
+  width: 500px; height: 500px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(201,151,58,0.1) 0%, transparent 70%);
+}
+.about-cta-inner { position: relative; z-index: 2; }
+.about-cta-inner h2 { color: #fff; margin-bottom: 16px; }
+.about-cta-inner h2 span { color: var(--gold); font-style: italic; }
+.about-cta-inner p { color: rgba(255,255,255,0.7); font-size: 18px; max-width: 520px; margin: 0 auto 40px; }
+.cta-reassurance { display: flex; align-items: center; justify-content: center; gap: 28px; flex-wrap: wrap; margin-top: 28px; }
+.cta-reassurance-item { display: flex; align-items: center; gap: 6px; font-size: 13px; color: rgba(255,255,255,0.55); }
+.cta-reassurance-item::before { content: '✓'; color: var(--green); font-weight: 800; }
+
+/* ════════════════════════════════
+   FOOTER
+════════════════════════════════ */
+#footer { background: #080f1c; padding: 64px 0 32px; border-top: 1px solid rgba(201,151,58,0.15); }
+.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
+.footer-brand .wordmark { font-family: var(--font-head); font-size: 24px; font-weight: 700; color: #fff; margin-bottom: 16px; }
+.footer-brand .wordmark span { color: var(--gold); }
+.footer-brand p { font-size: 14px; color: rgba(255,255,255,0.45); line-height: 1.7; max-width: 280px; }
+.footer-col-title { font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
+.footer-col a { display: block; font-size: 14px; color: rgba(255,255,255,0.5); margin-bottom: 10px; transition: color 0.2s; }
+.footer-col a:hover { color: rgba(255,255,255,0.85); }
+.footer-bottom { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; padding-top: 32px; border-top: 1px solid rgba(255,255,255,0.06); }
+.footer-copy { font-size: 12px; color: rgba(255,255,255,0.3); }
+.footer-legal { display: flex; gap: 24px; }
+.footer-legal a { font-size: 12px; color: rgba(255,255,255,0.3); transition: color 0.2s; }
+.footer-legal a:hover { color: rgba(255,255,255,0.6); }
+
+/* ── ANIMATIONS ── */
+.fade-up { opacity: 0; transform: translateY(28px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.fade-up.visible { opacity: 1; transform: translateY(0); }
+.fade-up.delay-1 { transition-delay: 0.1s; }
+.fade-up.delay-2 { transition-delay: 0.2s; }
+.fade-up.delay-3 { transition-delay: 0.3s; }
+
+@media (max-width: 768px) {
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+  .cta-reassurance { flex-direction: column; align-items: center; }
+}
+@media (max-width: 500px) {
+  .footer-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- ════════════ NAV ════════════ -->
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="logo-mark_transparent.png" alt="Hero HomeReach Shield" style="width:48px; height:48px; object-fit:contain;">
+      <div><div class="nav-wordmark">Hero <span>HomeReach</span><sup class="nav-tm">™</sup></div></div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="programs.html">Programs</a></li>
+      <li><a href="who-we-serve.html">Who We Serve</a></li>
+      <li><a href="about.html" class="active">About</a></li>
+      <li><a href="blog/">Resources</a></li>
+      <li><a href="https://guide.herohomereach.com" target="_blank" style="color:var(--bright-gold); font-weight:700;">Free Guide</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="contact.html" class="btn btn-gold btn-arrow">Book Free Consultation</a>
+    </div>
+    <div class="nav-hamburger" id="hamburger" onclick="toggleMobileNav()">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+<div id="mobile-nav">
+  <a href="programs.html" onclick="toggleMobileNav()">Programs</a>
+  <a href="who-we-serve.html" onclick="toggleMobileNav()">Who We Serve</a>
+  <a href="about.html" onclick="toggleMobileNav()">About</a>
+  <a href="blog/" onclick="toggleMobileNav()">Resources</a>
+  <a href="https://guide.herohomereach.com" target="_blank" style="color:var(--bright-gold);" onclick="toggleMobileNav()">Free Guide</a>
+  <a href="contact.html" class="btn btn-gold" style="margin-top:16px;" onclick="toggleMobileNav()">Book Free Consultation</a>
+</div>
+
+
+<!-- ════════════ ABOUT HERO ════════════ -->
+<section id="about-hero">
+  <div class="container">
+    <div class="about-hero-grid">
+
+      <!-- Left: Copy -->
+      <div class="about-hero-content">
+        <div class="about-eyebrow">About Hero HomeReach™</div>
+        <h1>Built on a Simple <span>Belief.</span></h1>
+        <p class="lead">The people who serve our communities should have a clearer path to owning a home in them.</p>
+
+        <div class="about-tagline">
+          <div class="tagline-item">Clear education over confusing jargon</div>
+          <div class="tagline-item">Thoughtful guidance over pressure tactics</div>
+          <div class="tagline-item">Strategy-first approach over big promises</div>
+          <div class="tagline-item">Built for heroes. Always free.</div>
+        </div>
+
+        <a href="contact.html" class="btn btn-gold btn-arrow">Book a Free Consultation</a>
+      </div>
+
+      <!-- Right: Photo -->
+      <div class="about-photo-wrap">
+        <div class="about-photo-frame">
+          <img src="trent-rogelstad.jpg" alt="Trent Rogelstad — Founder, Hero HomeReach™">
+        </div>
+        <div class="photo-namecard">
+          <div class="namecard-name">Trent Rogelstad</div>
+          <div class="namecard-title">Founder — Hero HomeReach™ · Colorado</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════ MISSION ════════════ -->
+<section id="mission">
+  <div class="container">
+    <div class="mission-grid">
+
+      <!-- Left: Story -->
+      <div class="mission-content fade-up">
+        <div class="section-eyebrow">The Mission</div>
+        <h2>Why Hero HomeReach™ Exists</h2>
+
+        <p>Colorado's teachers, first responders, healthcare workers, and military families often spend their careers showing up for others. But when it comes to homeownership, many are left sorting through confusing information, missed opportunities, and the assumption that buying a home is still out of reach.</p>
+
+        <p>Hero HomeReach™ exists to help change that.</p>
+
+        <div class="pull-quote">
+          <p>"The programs exist. Most heroes just don't know they qualify — or how to make them work together."</p>
+        </div>
+
+        <p>Founded by Trent Rogelstad, Hero HomeReach™ grew from earlier experience in lending and real estate, where he saw firsthand how down payment assistance programs and related strategies could make a real difference for everyday buyers. He also saw how often those opportunities were misunderstood, overlooked, or explained in a way that made the process feel more intimidating than it needed to be.</p>
+
+        <p>That is the gap Hero HomeReach™ is built to fill.</p>
+
+        <p>The mission is to help Colorado heroes better understand the programs, options, and next steps that may support their homeownership journey — with clear education, thoughtful guidance, and a practical, strategy-first approach.</p>
+
+        <p>This is not about pressure. It is not about jargon. And it is not about making big promises. It is about helping the right people make more informed decisions, ask better questions, and see what may actually be possible.</p>
+
+        <p style="font-size:17px; color:var(--navy); font-weight:600;">If you are a teacher, first responder, healthcare worker, military member, or veteran trying to figure out your next step — Hero HomeReach™ was built with you in mind.</p>
+      </div>
+
+      <!-- Right: Values -->
+      <div class="fade-up delay-2">
+        <div class="values-card">
+          <div class="values-title">What We Stand For</div>
+
+          <div class="value-item">
+            <div class="value-icon">📖</div>
+            <div class="value-text">
+              <div class="value-name">Clear Education</div>
+              <div class="value-desc">We explain programs in plain English — no mortgage jargon, no acronyms without definitions.</div>
+            </div>
+          </div>
+
+          <div class="value-item">
+            <div class="value-icon">🎯</div>
+            <div class="value-text">
+              <div class="value-name">Strategy First</div>
+              <div class="value-desc">Every hero situation is different. We find the right combination of programs for your specific goals.</div>
+            </div>
+          </div>
+
+          <div class="value-item">
+            <div class="value-icon">🤝</div>
+            <div class="value-text">
+              <div class="value-name">Zero Pressure</div>
+              <div class="value-desc">Our consultations are free. Our guidance is honest. There is never an obligation to do anything.</div>
+            </div>
+          </div>
+
+          <div class="value-item">
+            <div class="value-icon">🏡</div>
+            <div class="value-text">
+              <div class="value-name">Hero-Focused</div>
+              <div class="value-desc">Educators. First responders. Healthcare workers. Military. That's who we serve. Full stop.</div>
+            </div>
+          </div>
+
+          <div class="value-item" style="border-bottom:none;">
+            <div class="value-icon">📍</div>
+            <div class="value-text">
+              <div class="value-name">Colorado-Specific</div>
+              <div class="value-desc">We know Colorado's programs, counties, and markets. This isn't generic national advice.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════ VIDEO ════════════ -->
+<section id="about-video">
+  <div class="container">
+    <div class="video-grid">
+      <div class="fade-up">
+        <div class="section-eyebrow">Hear from Trent Directly</div>
+        <h2>A Personal Note on Why This Matters</h2>
+        <p>The best way to understand Hero HomeReach™ is to hear directly from Trent. In this short video, he explains what the service does, who it's built for, and why the guidance is always free — in plain language, no pitch.</p>
+        <p style="color:#888; font-size:14px;">Watch time: just a few minutes. Worth every one of them.</p>
+        <a href="contact.html" class="btn btn-navy btn-arrow" style="margin-top:8px;">Book a Free Call After Watching</a>
+      </div>
+      <div class="fade-up delay-2">
+        <div class="video-embed-wrap">
+          <div class="video-ratio">
+            <iframe
+              src="https://www.youtube.com/embed/JVoKihkSG3I"
+              title="A message from Trent Rogelstad — Hero HomeReach™"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen>
+            </iframe>
+          </div>
+          <div class="video-caption">
+            <img src="logo-mark_transparent.png" alt="Hero HomeReach">
+            <div>
+              <div class="video-cap-name">Trent Rogelstad</div>
+              <div class="video-cap-title">Founder, Hero HomeReach™ · Colorado</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════ PHILOSOPHY ════════════ -->
+<section id="philosophy">
+  <div class="container">
+    <div class="philosophy-inner fade-up">
+      <div class="section-eyebrow" style="justify-content:center; color:var(--bright-gold);">The Approach</div>
+      <h2 style="color:#fff; margin-bottom:20px;">How Hero HomeReach™ Works</h2>
+      <p>We are not a lender. We are not a real estate agent. We are an education and guidance service — built to help Colorado heroes understand what's available to them and make more informed decisions about one of the biggest financial choices of their lives.</p>
+
+      <div class="philosophy-pillars">
+        <div class="pillar">
+          <div class="pillar-icon">🔍</div>
+          <div class="pillar-title">Research</div>
+          <div class="pillar-text">We map every program available for your profession, income, location, and situation — including programs most people never hear about.</div>
+        </div>
+        <div class="pillar">
+          <div class="pillar-icon">📋</div>
+          <div class="pillar-title">Educate</div>
+          <div class="pillar-text">We explain each program in plain English — how it works, what it requires, what it costs, and how it might fit your goals.</div>
+        </div>
+        <div class="pillar">
+          <div class="pillar-icon">🗺️</div>
+          <div class="pillar-title">Guide</div>
+          <div class="pillar-text">We give you a clear next-steps plan — what to do, who to talk to, and how to move forward with confidence. No pressure, ever.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════ BRAND PROMISE ════════════ -->
+<section id="brand-promise">
+  <div class="container">
+    <div style="text-align:center; margin-bottom:48px;" class="fade-up">
+      <div class="section-eyebrow" style="justify-content:center;">The Promise</div>
+      <h2>Three Things We'll Never Compromise On</h2>
+    </div>
+    <div class="promise-grid">
+      <div class="promise-card fade-up">
+        <div class="promise-phrase">"No Jargon."</div>
+        <div class="promise-desc">Every program, every term, every option — explained in language a real person can understand and act on. If we use a term you don't know, we explain it immediately.</div>
+      </div>
+      <div class="promise-card fade-up delay-1">
+        <div class="promise-phrase">"No Pressure."</div>
+        <div class="promise-desc">Your consultation is free. Your information is private. And there is never any obligation to take a next step you aren't ready for. This is your timeline, your decision.</div>
+      </div>
+      <div class="promise-card fade-up delay-2">
+        <div class="promise-phrase">"Built for Heroes."</div>
+        <div class="promise-desc">This service exists for one reason: to give Colorado's public service professionals a fair shot at homeownership. That focus will never change.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════ FINAL CTA ════════════ -->
+<section id="about-cta">
+  <div class="container">
+    <div class="about-cta-inner fade-up">
+      <div style="font-size:11px; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:var(--bright-gold); margin-bottom:16px;">Free · 30 Minutes · No Obligation</div>
+      <h2>Ready to See <span>What's Possible for You?</span></h2>
+      <p>Book your free Hero HomeReach™ consultation. Trent will walk you through every program that applies to your situation — no pressure, no pitch, no jargon.</p>
+      <a href="contact.html" class="btn btn-gold btn-arrow" style="font-size:17px; padding:18px 40px;">Book My Free Consultation</a>
+      <div class="cta-reassurance">
+        <div class="cta-reassurance-item">Completely free</div>
+        <div class="cta-reassurance-item">Your info stays private</div>
+        <div class="cta-reassurance-item">Colorado-specific guidance</div>
+        <div class="cta-reassurance-item">30 minutes or less</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════ FOOTER ════════════ -->
+<footer id="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="wordmark">Hero <span>HomeReach</span>™</div>
+        <p>Free homeownership guidance for Colorado's educators, first responders, healthcare workers, and military members. No jargon. No pressure. Built for heroes.</p>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Site</div>
+        <a href="programs.html">Programs</a>
+        <a href="who-we-serve.html">Who We Serve</a>
+        <a href="about.html">About</a>
+        <a href="blog/">Resources</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Heroes</div>
+        <a href="who-we-serve.html#educators">Educators</a>
+        <a href="who-we-serve.html#first-responders">First Responders</a>
+        <a href="who-we-serve.html#healthcare">Healthcare Workers</a>
+        <a href="who-we-serve.html#military">Military Members</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Start Here</div>
+        <a href="contact.html">Book Free Consultation</a>
+        <a href="programs.html">Explore Programs</a>
+        <a href="blog/">Read Resources</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2026 Hero HomeReach™. All rights reserved. Colorado Homeownership Guidance.</div>
+      <div class="footer-legal">
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Use</a>
+        <a href="disclaimer.html">Disclaimer</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+<script>
+function toggleMobileNav() {
+  document.getElementById('mobile-nav').classList.toggle('open');
+}
+
+const fadeEls = document.querySelectorAll('.fade-up');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); }
+  });
+}, { threshold: 0.1 });
+fadeEls.forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
