@@ -13,15 +13,22 @@
 
 export default async function handler(req, res) {
 
+export default async function handler(req, res) {
+
+  // CORS headers — allow all origins for flexibility
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+
+  // Handle preflight OPTIONS request
+  if (req.method === 'OPTIONS') {
+    return res.status(200).end();
+  }
+
   // Only allow POST
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
   }
-
-  // CORS headers
-  res.setHeader('Access-Control-Allow-Origin', 'https://herohomereach.com');
-  res.setHeader('Access-Control-Allow-Methods', 'POST');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
 
   const { firstName, profession, credit, income, timeline } = req.body;
 
@@ -136,8 +143,9 @@ Write the assessment now. Do not include any markdown formatting, bullet points,
 
     if (!response.ok) {
       const err = await response.text();
-      console.error('Claude API error:', err);
-      return res.status(500).json({ error: 'Failed to generate result' });
+      console.error('Claude API error status:', response.status);
+      console.error('Claude API error body:', err);
+      return res.status(500).json({ error: 'Failed to generate result', detail: response.status });
     }
 
     const data = await response.json();
