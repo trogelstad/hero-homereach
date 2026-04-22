@@ -169,10 +169,11 @@ p:last-child { margin-bottom: 0; }
 }
 .about-photo-frame {
   position: relative;
-  border-radius: 16px;
+  border-radius: 16px 16px 0 0;
   overflow: hidden;
   box-shadow: 0 24px 64px rgba(0,0,0,0.4);
   border: 3px solid rgba(201,151,58,0.3);
+  border-bottom: none;
   max-width: 420px; width: 100%;
 }
 .about-photo-frame img {
@@ -198,15 +199,16 @@ p:last-child { margin-bottom: 0; }
   border-radius: 0 0 0 16px;
   z-index: 2;
 }
-/* Name card overlay */
+/* Name card — sits below frame, not overlapping */
 .photo-namecard {
-  position: absolute;
-  bottom: -24px; left: 24px;
+  position: relative;
+  bottom: auto; left: auto;
   background: var(--navy);
-  border: 2px solid rgba(201,151,58,0.3);
-  border-radius: 10px;
+  border: 1px solid rgba(201,151,58,0.3);
+  border-top: 3px solid var(--gold);
+  border-radius: 0 0 10px 10px;
   padding: 14px 20px;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
 }
 .namecard-name {
   font-family: var(--font-head); font-size: 18px;
@@ -530,12 +532,14 @@ p:last-child { margin-bottom: 0; }
 
       <!-- Right: Photo -->
       <div class="about-photo-wrap">
-        <div class="about-photo-frame">
-          <img src="trent-rogelstad.jpg" alt="Trent Rogelstad — Founder, Hero HomeReach™">
-        </div>
-        <div class="photo-namecard">
-          <div class="namecard-name">Trent Rogelstad</div>
-          <div class="namecard-title">Founder — Hero HomeReach™ · Colorado</div>
+        <div style="max-width:420px; width:100%;">
+          <div class="about-photo-frame">
+            <img src="trent-rogelstad.jpg" alt="Trent Rogelstad — Founder, Hero HomeReach™">
+          </div>
+          <div class="photo-namecard">
+            <div class="namecard-name">Trent Rogelstad</div>
+            <div class="namecard-title">Founder — Hero HomeReach™ · Colorado</div>
+          </div>
         </div>
       </div>
 
@@ -630,10 +634,9 @@ p:last-child { margin-bottom: 0; }
   <div class="container">
     <div class="video-grid">
       <div class="fade-up">
-        <div class="section-eyebrow">Hear from Trent Directly</div>
-        <h2>A Personal Note on Why This Matters</h2>
-        <p>The best way to understand Hero HomeReach™ is to hear directly from Trent. In this short video, he explains what the service does, who it's built for, and why the guidance is always free — in plain language, no pitch.</p>
-        <p style="color:#888; font-size:14px;">Watch time: just a few minutes. Worth every one of them.</p>
+        <div class="section-eyebrow">See It in Action</div>
+        <h2>What Hero HomeReach™ Does and Who It's Built For</h2>
+        <p>This short video explains what the service does, who it's built for, and why the guidance is always free — in plain language, no pitch.</p>
         <a href="contact.html" class="btn btn-navy btn-arrow" style="margin-top:8px;">Book a Free Call After Watching</a>
       </div>
       <div class="fade-up delay-2">
