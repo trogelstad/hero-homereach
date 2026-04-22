@@ -1,0 +1,1143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>60-Second Eligibility Quiz — Hero HomeReach™</title>
+  <meta name="description" content="Find out which Colorado homeownership assistance programs you may qualify for in under 60 seconds. Free, no pressure, built for heroes.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="favicon.png">
+
+<style>
+/* ═══════════════════════════════════════
+   HERO HOMEREACH — QUIZ
+   Brand system + quiz-specific styles
+═══════════════════════════════════════ */
+:root {
+  --navy:        #0C2D5E;
+  --mid-navy:    #1A4A8A;
+  --gold:        #C9973A;
+  --bright-gold: #EAB84A;
+  --white:       #F5F7FA;
+  --near-black:  #1C1C1E;
+  --green:       #1A6B4A;
+  --warm-gray:   #D3D1C7;
+  --font-head:   'Playfair Display', Georgia, serif;
+  --font-body:   'Inter', system-ui, sans-serif;
+  --nav-h:       82px;
+  --radius:      12px;
+  --radius-lg:   20px;
+  --shadow:      0 4px 24px rgba(12,45,94,0.10);
+  --shadow-lg:   0 12px 48px rgba(12,45,94,0.16);
+  --transition:  all 0.24s ease;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-body);
+  font-size: 17px; line-height: 1.7;
+  color: var(--near-black);
+  background: var(--white);
+  -webkit-font-smoothing: antialiased;
+}
+img { display: block; max-width: 100%; }
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+button { font-family: inherit; cursor: pointer; border: none; background: none; }
+h1,h2,h3,h4 { font-family: var(--font-head); font-weight: 700; color: var(--navy); line-height: 1.15; }
+
+.container { max-width: 860px; margin: 0 auto; padding: 0 24px; }
+
+/* ── BUTTONS ── */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  font-family: var(--font-body); font-weight: 700; font-size: 16px;
+  padding: 16px 36px; border-radius: var(--radius);
+  transition: var(--transition); white-space: nowrap; cursor: pointer;
+  border: none;
+}
+.btn-gold { background: var(--gold); color: var(--navy); box-shadow: 0 4px 20px rgba(201,151,58,0.35); }
+.btn-gold:hover { background: var(--bright-gold); transform: translateY(-2px); box-shadow: 0 6px 28px rgba(201,151,58,0.45); }
+.btn-navy { background: var(--navy); color: #fff; }
+.btn-navy:hover { background: var(--mid-navy); transform: translateY(-2px); }
+.btn-outline { background: transparent; border: 2px solid var(--warm-gray); color: #666; }
+.btn-outline:hover { border-color: var(--navy); color: var(--navy); }
+.btn-full { width: 100%; }
+.btn-arrow::after { content: '→'; transition: transform 0.2s; }
+.btn-arrow:hover::after { transform: translateX(4px); }
+
+/* ════════════════════════════════
+   NAVIGATION
+════════════════════════════════ */
+#nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 999;
+  height: var(--nav-h);
+  background: rgba(12,45,94,0.97);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(201,151,58,0.2);
+  box-shadow: 0 2px 24px rgba(0,0,0,0.15);
+  display: flex; align-items: center;
+}
+.nav-inner {
+  width: 100%; max-width: 1140px;
+  margin: 0 auto; padding: 0 32px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+.nav-wordmark { font-family: var(--font-head); font-size: 22px; font-weight: 700; color: #fff; }
+.nav-wordmark span { color: var(--gold); }
+.nav-tm { font-size: 12px; vertical-align: super; color: var(--gold); }
+.nav-back {
+  font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.7);
+  display: flex; align-items: center; gap: 6px;
+  transition: color 0.2s;
+}
+.nav-back:hover { color: var(--bright-gold); }
+.nav-back::before { content: '←'; }
+
+/* ════════════════════════════════
+   QUIZ HERO HEADER
+════════════════════════════════ */
+#quiz-header {
+  background: var(--navy);
+  padding: calc(var(--nav-h) + 52px) 0 52px;
+  position: relative; overflow: hidden;
+  text-align: center;
+}
+#quiz-header::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image: repeating-linear-gradient(
+    45deg, rgba(201,151,58,0.04) 0px,
+    rgba(201,151,58,0.04) 1px, transparent 1px, transparent 56px
+  );
+}
+#quiz-header::after {
+  content: '';
+  position: absolute;
+  top: -120px; right: -120px;
+  width: 500px; height: 500px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(201,151,58,0.08) 0%, transparent 70%);
+}
+.quiz-header-inner { position: relative; z-index: 2; }
+.quiz-eyebrow {
+  display: inline-flex; align-items: center; gap: 10px; justify-content: center;
+  font-size: 11px; font-weight: 700; letter-spacing: 0.2em;
+  text-transform: uppercase; color: var(--gold); margin-bottom: 18px;
+}
+.quiz-eyebrow::before, .quiz-eyebrow::after {
+  content: ''; display: block; width: 24px; height: 2px; background: var(--gold);
+}
+#quiz-header h1 {
+  font-size: clamp(26px, 4vw, 44px);
+  color: #fff; margin-bottom: 16px; max-width: 680px; margin-left: auto; margin-right: auto;
+}
+#quiz-header h1 span { color: var(--gold); font-style: italic; }
+#quiz-header p {
+  font-size: 17px; color: rgba(255,255,255,0.7);
+  max-width: 520px; margin: 0 auto 28px;
+}
+.quiz-trust-strip {
+  display: flex; align-items: center; justify-content: center;
+  gap: 24px; flex-wrap: wrap;
+  font-size: 13px; color: rgba(255,255,255,0.5);
+}
+.quiz-trust-item { display: flex; align-items: center; gap: 6px; }
+.quiz-trust-item::before { content: '✓'; color: var(--green); font-weight: 800; font-size: 14px; }
+
+/* ════════════════════════════════
+   QUIZ WRAPPER
+════════════════════════════════ */
+#quiz-wrap {
+  padding: 48px 0 96px;
+  background: var(--white);
+}
+
+/* ── PROGRESS BAR ── */
+.quiz-progress-wrap {
+  margin-bottom: 36px;
+}
+.quiz-progress-meta {
+  display: flex; justify-content: space-between;
+  font-size: 13px; font-weight: 600; color: #888;
+  margin-bottom: 10px;
+}
+.quiz-progress-meta .step-label { color: var(--navy); }
+.quiz-progress-bar {
+  height: 6px; background: var(--warm-gray);
+  border-radius: 3px; overflow: hidden;
+}
+.quiz-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--navy), var(--mid-navy));
+  border-radius: 3px;
+  transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ── QUIZ CARD ── */
+.quiz-card {
+  background: #fff;
+  border: 1px solid var(--warm-gray);
+  border-radius: var(--radius-lg);
+  padding: 48px;
+  box-shadow: var(--shadow-lg);
+  position: relative;
+}
+
+/* ── STEP ── */
+.quiz-step { display: none; }
+.quiz-step.active {
+  display: block;
+  animation: stepIn 0.35s ease forwards;
+}
+@keyframes stepIn {
+  from { opacity: 0; transform: translateX(20px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+.step-question {
+  font-family: var(--font-head);
+  font-size: clamp(20px, 2.5vw, 26px);
+  font-weight: 700; color: var(--navy);
+  margin-bottom: 8px; line-height: 1.3;
+}
+.step-sub {
+  font-size: 14px; color: #888; margin-bottom: 28px;
+}
+
+/* ── OPTION CARDS ── */
+.option-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px; margin-bottom: 32px;
+}
+.option-grid.single-col { grid-template-columns: 1fr; }
+
+.option-card {
+  border: 2px solid var(--warm-gray);
+  border-radius: var(--radius);
+  padding: 16px 20px;
+  cursor: pointer; transition: var(--transition);
+  display: flex; align-items: center; gap: 14px;
+  background: var(--white);
+  position: relative;
+}
+.option-card:hover {
+  border-color: var(--gold);
+  background: rgba(201,151,58,0.04);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(12,45,94,0.08);
+}
+.option-card.selected {
+  border-color: var(--navy);
+  background: rgba(12,45,94,0.04);
+  box-shadow: 0 0 0 3px rgba(12,45,94,0.08);
+}
+.option-card.selected .option-radio {
+  background: var(--navy); border-color: var(--navy);
+}
+.option-card.selected .option-radio::after {
+  content: ''; display: block;
+  width: 8px; height: 8px; border-radius: 50%;
+  background: #fff; margin: auto;
+  position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+}
+.option-radio {
+  width: 20px; height: 20px; border-radius: 50%;
+  border: 2px solid var(--warm-gray);
+  flex-shrink: 0; transition: var(--transition);
+  position: relative;
+}
+.option-emoji { font-size: 22px; flex-shrink: 0; }
+.option-text {}
+.option-label {
+  font-weight: 600; font-size: 14px; color: var(--navy);
+  display: block; line-height: 1.3;
+}
+.option-sub {
+  font-size: 12px; color: #888; margin-top: 2px;
+}
+
+/* ── STEP NAVIGATION ── */
+.step-nav {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 12px;
+}
+.btn-prev {
+  font-size: 13px; font-weight: 600; color: #888;
+  display: flex; align-items: center; gap: 5px;
+  padding: 10px 16px; border-radius: 8px;
+  transition: var(--transition); border: none; background: none;
+  cursor: pointer; font-family: var(--font-body);
+}
+.btn-prev::before { content: '←'; }
+.btn-prev:hover { color: var(--navy); background: rgba(12,45,94,0.05); }
+.btn-prev:disabled { opacity: 0.3; cursor: default; }
+
+/* ── LEAD GATE ── */
+.gate-intro { margin-bottom: 28px; }
+.gate-intro h3 {
+  font-size: clamp(18px, 2.5vw, 24px); color: var(--navy); margin-bottom: 8px;
+}
+.gate-intro p { font-size: 15px; color: #666; }
+
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px; }
+.form-group { margin-bottom: 14px; }
+.form-group label {
+  display: block; font-size: 13px; font-weight: 600;
+  color: var(--navy); margin-bottom: 6px;
+}
+.form-group label .req { color: var(--gold); }
+.form-control {
+  width: 100%; padding: 13px 16px;
+  border: 1.5px solid var(--warm-gray);
+  border-radius: 8px;
+  font-family: var(--font-body); font-size: 15px; color: var(--near-black);
+  background: var(--white); transition: var(--transition); outline: none;
+}
+.form-control:focus { border-color: var(--navy); background: #fff; box-shadow: 0 0 0 3px rgba(12,45,94,0.08); }
+.form-control::placeholder { color: #bbb; }
+.form-control.error { border-color: #e03; }
+
+.gate-privacy {
+  font-size: 12px; color: #aaa; text-align: center; margin-top: 12px; line-height: 1.5;
+}
+.gate-privacy strong { color: #888; }
+
+/* ── RESULTS ── */
+.result-wrap { animation: stepIn 0.4s ease forwards; }
+.result-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 6px 16px; border-radius: 20px; margin-bottom: 20px;
+  font-size: 11px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase;
+}
+.badge-strong { background: rgba(26,107,74,0.1); color: var(--green); }
+.badge-good   { background: rgba(12,45,94,0.08); color: var(--navy); }
+.badge-fair   { background: rgba(201,151,58,0.12); color: #8B6020; }
+.badge-prep   { background: rgba(220,100,60,0.1); color: #c05020; }
+
+.result-headline {
+  font-family: var(--font-head);
+  font-size: clamp(22px, 3vw, 32px);
+  color: var(--navy); margin-bottom: 16px; line-height: 1.25;
+}
+.result-headline span { color: var(--gold); font-style: italic; }
+.result-body { font-size: 16px; color: #444; line-height: 1.75; margin-bottom: 24px; }
+
+.result-programs { margin-bottom: 28px; }
+.result-programs-title {
+  font-size: 11px; font-weight: 800; letter-spacing: 0.16em;
+  text-transform: uppercase; color: var(--gold); margin-bottom: 14px;
+}
+.result-program-list { display: flex; flex-direction: column; gap: 10px; }
+.result-program-item {
+  display: flex; align-items: flex-start; gap: 12px;
+  padding: 12px 16px;
+  background: rgba(12,45,94,0.03);
+  border: 1px solid rgba(12,45,94,0.08);
+  border-radius: 8px; font-size: 14px;
+}
+.result-program-item::before { content: '→'; color: var(--gold); font-weight: 800; flex-shrink: 0; margin-top: 2px; }
+
+.result-cta-wrap {
+  background: var(--navy);
+  border-radius: var(--radius);
+  padding: 28px; margin-bottom: 16px;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 20px; flex-wrap: wrap;
+}
+.result-cta-copy { color: #fff; }
+.result-cta-copy strong { display: block; font-family: var(--font-head); font-size: 18px; margin-bottom: 4px; }
+.result-cta-copy span { font-size: 13px; color: rgba(255,255,255,0.6); }
+
+.result-secondary { text-align: center; margin-top: 12px; }
+.result-secondary a {
+  font-size: 13px; font-weight: 600; color: var(--gold);
+  text-decoration: underline; text-underline-offset: 3px;
+}
+
+.result-disclaimer {
+  margin-top: 24px; padding: 14px 18px;
+  background: rgba(0,0,0,0.03);
+  border-left: 3px solid var(--warm-gray);
+  border-radius: 0 6px 6px 0;
+  font-size: 12px; color: #999; line-height: 1.6;
+}
+
+/* ── PERSONALIZATION BAR ── */
+.personalization-bar {
+  background: rgba(201,151,58,0.06);
+  border: 1px solid rgba(201,151,58,0.2);
+  border-radius: 8px; padding: 12px 18px;
+  margin-bottom: 24px;
+  display: flex; align-items: center; gap: 10px;
+  font-size: 14px; color: var(--navy);
+}
+.personalization-bar strong { font-weight: 700; }
+
+/* ── SCORE METER ── */
+.score-meter-wrap { margin-bottom: 28px; }
+.score-meter-label {
+  display: flex; justify-content: space-between;
+  font-size: 13px; font-weight: 600; margin-bottom: 8px;
+}
+.score-meter-label .score-val { color: var(--gold); font-family: var(--font-head); font-size: 20px; font-weight: 900; }
+.score-meter-bar { height: 10px; background: var(--warm-gray); border-radius: 5px; overflow: hidden; }
+.score-meter-fill {
+  height: 100%; border-radius: 5px;
+  transition: width 1s cubic-bezier(0.4, 0, 0.2, 1) 0.3s;
+}
+.fill-strong { background: linear-gradient(90deg, var(--green), #2a9b6a); }
+.fill-good   { background: linear-gradient(90deg, var(--navy), var(--mid-navy)); }
+.fill-fair   { background: linear-gradient(90deg, var(--gold), var(--bright-gold)); }
+.fill-prep   { background: linear-gradient(90deg, #d04020, #e06040); }
+
+/* ── MICROCOPY ── */
+.microcopy {
+  font-size: 12px; color: #aaa; text-align: center; margin-top: 8px;
+}
+
+/* ── RESTART ── */
+.restart-btn {
+  font-size: 13px; color: #aaa; cursor: pointer;
+  text-decoration: underline; text-underline-offset: 3px;
+  background: none; border: none; font-family: var(--font-body);
+  margin-top: 16px; display: block; margin-left: auto; margin-right: auto;
+}
+.restart-btn:hover { color: var(--navy); }
+
+/* ════════════════════════════════
+   RESPONSIVE
+════════════════════════════════ */
+@media (max-width: 700px) {
+  .quiz-card { padding: 28px 20px; }
+  .option-grid { grid-template-columns: 1fr; }
+  .form-row { grid-template-columns: 1fr; }
+  .result-cta-wrap { flex-direction: column; text-align: center; }
+  .step-nav { flex-direction: column-reverse; }
+  .btn-next { width: 100%; }
+  .quiz-trust-strip { flex-direction: column; gap: 10px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ════════════ NAV ════════════ -->
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="logo-mark_transparent.png" alt="Hero HomeReach" style="width:58px;height:58px;object-fit:contain;">
+      <div class="nav-wordmark">Hero <span>HomeReach</span><sup class="nav-tm">™</sup></div>
+    </a>
+    <a href="contact.html" class="nav-back">Back to Contact</a>
+  </div>
+</nav>
+
+
+<!-- ════════════ QUIZ HEADER ════════════ -->
+<section id="quiz-header">
+  <div class="container">
+    <div class="quiz-header-inner">
+      <div class="quiz-eyebrow">60-Second Eligibility Quiz</div>
+      <h1>Find Out What Assistance <span>You May Qualify For</span></h1>
+      <p>Answer 4 quick questions to see which Colorado homeownership programs may fit your situation.</p>
+      <div class="quiz-trust-strip">
+        <div class="quiz-trust-item">Takes under 60 seconds</div>
+        <div class="quiz-trust-item">No commitment required</div>
+        <div class="quiz-trust-item">Educational estimate only</div>
+        <div class="quiz-trust-item">Your info stays private</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════ QUIZ ════════════ -->
+<section id="quiz-wrap">
+  <div class="container">
+
+    <!-- Progress bar -->
+    <div class="quiz-progress-wrap" id="progressWrap">
+      <div class="quiz-progress-meta">
+        <span class="step-label" id="stepLabel">Question 1 of 4</span>
+        <span id="stepPct">25%</span>
+      </div>
+      <div class="quiz-progress-bar">
+        <div class="quiz-progress-fill" id="progressFill" style="width:25%;"></div>
+      </div>
+    </div>
+
+    <!-- Quiz card -->
+    <div class="quiz-card">
+
+      <!-- ── STEP 1: Profession ── -->
+      <div class="quiz-step active" id="step-1">
+        <div class="step-question">What is your current profession?</div>
+        <div class="step-sub">This helps us identify hero-specific grants and programs for your field.</div>
+        <div class="option-grid" id="q1-options">
+          <div class="option-card" onclick="selectOption(this, 'q1', 'educator')" tabindex="0" role="button">
+            <div class="option-radio"></div>
+            <div class="option-emoji">🎓</div>
+            <div class="option-text">
+              <span class="option-label">Teacher, Educator, or School Staff</span>
+              <span class="option-sub">Pre-K–12, administrators, school support</span>
+            </div>
+          </div>
+          <div class="option-card" onclick="selectOption(this, 'q1', 'responder')" tabindex="0" role="button">
+            <div class="option-radio"></div>
+            <div class="option-emoji">🚒</div>
+            <div class="option-text">
+              <span class="option-label">First Responder</span>
+              <span class="option-sub">Police, fire, EMT, paramedic, dispatch</span>
+            </div>
+          </div>
+          <div class="option-card" onclick="selectOption(this, 'q1', 'healthcare')" tabindex="0" role="button">
+            <div class="option-radio"></div>
+            <div class="option-emoji">🏥</div>
+            <div class="option-text">
+              <span class="option-label">Healthcare Professional or Nurse</span>
+              <span class="option-sub">Nurses, doctors, technicians, hospital staff</span>
+            </div>
+          </div>
+          <div class="option-card" onclick="selectOption(this, 'q1', 'military')" tabindex="0" role="button">
+            <div class="option-radio"></div>
+            <div class="option-emoji">🎖️</div>
+            <div class="option-text">
+              <span class="option-label">Military (Active Duty or Veteran)</span>
+              <span class="option-sub">Active duty, veterans, military spouses</span>
+            </div>
+          </div>
+          <div class="option-card" onclick="selectOption(this, 'q1', 'other')" tabindex="0" role="button">
+            <div class="option-radio"></div>
+            <div class="option-emoji">👤</div>
+            <div class="option-text">
+              <span class="option-label">Other Profession</span>
+              <span class="option-sub">Government, nonprofit, or other</span>
+            </div>
+          </div>
+        </div>
+        <div class="step-nav">
+          <button class="btn-prev" disabled onclick="prevStep()">Previous</button>
+          <button class="btn btn-gold btn-arrow btn-next" onclick="nextStep(1)" id="next1" disabled>Next</button>
+        </div>
+        <div class="microcopy">No wrong answers — all responses are treated equally.</div>
+      </div>
+
+      <!-- ── STEP 2: Credit Score ── -->
+      <div class="quiz-step" id="step-2">
+        <div class="step-question">What is your estimated credit score?</div>
+        <div class="step-sub">Different programs have different minimums — we'll match you to what fits.</div>
+        <div class="option-grid single-col" id="q2-options">
+          <div class="option-card" onclick="selectOption(this, 'q2', '660plus')" tabindex="0" role="button">
+            <div class="option-radio"></div>
+            <div class="option-text">
+              <span class="option-label">660 or higher</span>
+              <span class="option-sub">Qualifies for the widest range of programs</span>
+            </div>
+          </div>
+          <div class="option-card" onclick="selectOption(this, 'q2', '620to659')" tabindex="0" role="button">
+            <div class="option-radio"></div>
+            <div class="option-text">
+              <span class="option-label">620 to 659</span>
+              <span class="option-sub">Qualifies for CHFA and several DPA options</span>
+            </div>
+          </div>
+          <div class="option-card" onclick="selectOption(this, 'q2', '600to619')" tabindex="0" role="button">
+            <div class="option-radio"></div>
+            <div class="option-text">
+              <span class="option-label">600 to 619</span>
+              <span class="option-sub">Fewer options but Chenoa Fund may still apply</span>
+            </div>
+          </div>
+          <div class="option-card" onclick="selectOption(this, 'q2', 'under600')" tabindex="0" role="button">
+            <div class="option-radio"></div>
+            <div class="option-text">
+              <span class="option-label">Under 600</span>
+              <span class="option-sub">Credit-readiness guidance available</span>
+            </div>
+          </div>
+          <div class="option-card" onclick="selectOption(this, 'q2', 'unsure')" tabindex="0" role="button">
+            <div class="option-radio"></div>
+            <div class="option-text">
+              <span class="option-label">I'm not sure</span>
+              <span class="option-sub">No problem — we can discuss this on a call</span>
+            </div>
+          </div>
+        </div>
+        <div class="step-nav">
+          <button class="btn-prev" onclick="prevStep()">Previous</button>
+          <button class="btn btn-gold btn-arrow btn-next" onclick="nextStep(2)" id="next2" disabled>Next</button>
+        </div>
+        <div class="microcopy">Your score won't be pulled or affected by this quiz.</div>
+      </div>
+
+      <!-- ── STEP 3: Income ── -->
+      <div class="quiz-step" id="step-3">
+        <div class="step-question">What is your estimated total household income?</div>
+        <div class="step-sub">Income limits vary by program — this helps us identify your best options.</div>
+        <div class="option-grid single-col" id="q3-options">
+          <div class="option-card" onclick="selectOption(this, 'q3', 'under126')" tabindex="0" role="button">
+            <div class="option-radio"></div>
+            <div class="option-text">
+              <span class="option-label">Under $126,000</span>
+              <span class="option-sub">Qualifies for all major Colorado programs</span>
+            </div>
+          </div>
+          <div class="option-card" onclick="selectOption(this, 'q3', '126to174')" tabindex="0" role="button">
+            <div class="option-radio"></div>
+            <div class="option-text">
+              <span class="option-label">$126,000 to $174,000</span>
+              <span class="option-sub">Qualifies for CHFA FirstGen and MetroDPA</span>
+            </div>
+          </div>
+          <div class="option-card" onclick="selectOption(this, 'q3', '174to210')" tabindex="0" role="button">
+            <div class="option-radio"></div>
+            <div class="option-text">
+              <span class="option-label">$174,000 to $210,150</span>
+              <span class="option-sub">MetroDPA and hero-specific programs may apply</span>
+            </div>
+          </div>
+          <div class="option-card" onclick="selectOption(this, 'q3', 'over210')" tabindex="0" role="button">
+            <div class="option-radio"></div>
+            <div class="option-text">
+              <span class="option-label">Over $210,150</span>
+              <span class="option-sub">Hero grants with no income limits may still apply</span>
+            </div>
+          </div>
+          <div class="option-card" onclick="selectOption(this, 'q3', 'unsure')" tabindex="0" role="button">
+            <div class="option-radio"></div>
+            <div class="option-text">
+              <span class="option-label">I'm not sure</span>
+              <span class="option-sub">We can work through this together on a call</span>
+            </div>
+          </div>
+        </div>
+        <div class="step-nav">
+          <button class="btn-prev" onclick="prevStep()">Previous</button>
+          <button class="btn btn-gold btn-arrow btn-next" onclick="nextStep(3)" id="next3" disabled>Next</button>
+        </div>
+      </div>
+
+      <!-- ── STEP 4: Timeline ── -->
+      <div class="quiz-step" id="step-4">
+        <div class="step-question">When are you hoping to buy a home?</div>
+        <div class="step-sub">Your timeline helps us tailor the right next step for you.</div>
+        <div class="option-grid single-col" id="q4-options">
+          <div class="option-card" onclick="selectOption(this, 'q4', 'asap')" tabindex="0" role="button">
+            <div class="option-radio"></div>
+            <div class="option-emoji">🚀</div>
+            <div class="option-text">
+              <span class="option-label">ASAP — I'm ready to move</span>
+              <span class="option-sub">Looking to buy within the next 1–3 months</span>
+            </div>
+          </div>
+          <div class="option-card" onclick="selectOption(this, 'q4', '3to6')" tabindex="0" role="button">
+            <div class="option-radio"></div>
+            <div class="option-emoji">📅</div>
+            <div class="option-text">
+              <span class="option-label">3 to 6 months</span>
+              <span class="option-sub">Getting serious, building toward it</span>
+            </div>
+          </div>
+          <div class="option-card" onclick="selectOption(this, 'q4', 'research')" tabindex="0" role="button">
+            <div class="option-radio"></div>
+            <div class="option-emoji">🔍</div>
+            <div class="option-text">
+              <span class="option-label">6+ months — just researching</span>
+              <span class="option-sub">Exploring options, not in a rush</span>
+            </div>
+          </div>
+        </div>
+        <div class="step-nav">
+          <button class="btn-prev" onclick="prevStep()">Previous</button>
+          <button class="btn btn-gold btn-arrow btn-next" onclick="nextStep(4)" id="next4" disabled>Next</button>
+        </div>
+      </div>
+
+      <!-- ── LEAD GATE ── -->
+      <div class="quiz-step" id="step-gate">
+        <div class="gate-intro">
+          <h3>Almost there — your results are ready.</h3>
+          <p>Enter your name and email to see which programs may be the best fit for your situation.</p>
+        </div>
+
+        <!-- Progress shield visual -->
+        <div style="background:rgba(12,45,94,0.04); border:1px solid rgba(12,45,94,0.1); border-radius:10px; padding:16px 20px; margin-bottom:24px; display:flex; align-items:center; gap:14px;">
+          <div style="font-size:32px;">🛡️</div>
+          <div>
+            <div style="font-size:13px; font-weight:700; color:var(--navy);">Your answers have been scored</div>
+            <div style="font-size:13px; color:#888;">Based on your profession, credit range, income, and timeline — your personalized result is waiting.</div>
+          </div>
+        </div>
+
+        <form id="leadForm" onsubmit="submitGate(event)" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="gateFirst">First Name <span class="req">*</span></label>
+              <input type="text" id="gateFirst" class="form-control" placeholder="Sarah" required autocomplete="given-name">
+            </div>
+            <div class="form-group">
+              <label for="gateLast">Last Name</label>
+              <input type="text" id="gateLast" class="form-control" placeholder="Miller" autocomplete="family-name">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="gateEmail">Email Address <span class="req">*</span></label>
+            <input type="email" id="gateEmail" class="form-control" placeholder="sarah@email.com" required autocomplete="email">
+          </div>
+          <div class="form-group">
+            <label for="gatePhone">Phone Number <span style="color:#aaa; font-weight:400;">(optional)</span></label>
+            <input type="tel" id="gatePhone" class="form-control" placeholder="(720) 555-0100" autocomplete="tel">
+          </div>
+          <div id="formError" style="display:none; color:#c03; font-size:13px; margin-bottom:12px;"></div>
+          <button type="submit" class="btn btn-gold btn-full" style="font-size:17px; padding:18px;">
+            See My Results →
+          </button>
+          <div class="gate-privacy">
+            🔒 <strong>No pressure. No spam.</strong> Just helpful next steps based on your answers. Your information is never sold or shared.
+          </div>
+        </form>
+
+        <!-- ═══ HUBSPOT INTEGRATION POINT ═══
+          When you have your HubSpot embed code, you can either:
+          A) Replace the <form> above with your HubSpot embed snippet, OR
+          B) In the submitGate() function below, add a fetch() call to your
+             HubSpot forms API endpoint to submit the lead silently alongside
+             showing the result. The HubSpot API endpoint pattern is:
+             https://api.hsforms.com/submissions/v3/integration/submit/{portalId}/{formId}
+          See the JS section below for the submission handler.
+        ═══════════════════════════════════ -->
+
+        <div class="step-nav" style="margin-top:16px;">
+          <button class="btn-prev" onclick="prevStep()">Previous</button>
+        </div>
+      </div>
+
+      <!-- ── RESULTS ── -->
+      <div class="quiz-step" id="step-result">
+        <div class="result-wrap" id="resultContent">
+          <!-- Populated by JS -->
+        </div>
+        <button class="restart-btn" onclick="restartQuiz()">Start over</button>
+      </div>
+
+    </div><!-- /quiz-card -->
+  </div>
+</section>
+
+
+<!-- ════════════ FOOTER ════════════ -->
+<footer style="background:#080f1c; padding:32px 0; border-top:1px solid rgba(201,151,58,0.15); text-align:center;">
+  <div style="font-size:12px; color:rgba(255,255,255,0.3);">
+    © 2026 Hero HomeReach™. All rights reserved. Colorado Homeownership Guidance. &nbsp;|&nbsp;
+    <a href="privacy.html" style="color:rgba(255,255,255,0.3);">Privacy Policy</a> &nbsp;|&nbsp;
+    <a href="contact.html" style="color:rgba(255,255,255,0.3);">Contact</a>
+  </div>
+</footer>
+
+
+<!-- ════════════════════════════════
+     QUIZ JAVASCRIPT
+════════════════════════════════ -->
+<script>
+// ─────────────────────────────────
+// STATE
+// ─────────────────────────────────
+const answers = { q1: null, q2: null, q3: null, q4: null };
+let currentStep = 1;
+const totalSteps = 4;
+
+// ─────────────────────────────────
+// OPTION SELECTION
+// ─────────────────────────────────
+function selectOption(card, question, value) {
+  // Deselect all in same question group
+  const group = document.getElementById(question + '-options');
+  group.querySelectorAll('.option-card').forEach(c => c.classList.remove('selected'));
+
+  // Select this card
+  card.classList.add('selected');
+  answers[question] = value;
+
+  // Enable next button
+  const nextBtn = document.getElementById('next' + currentStep);
+  if (nextBtn) {
+    nextBtn.disabled = false;
+    nextBtn.style.opacity = '1';
+  }
+}
+
+// Keyboard accessibility
+document.querySelectorAll('.option-card').forEach(card => {
+  card.addEventListener('keydown', e => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      card.click();
+    }
+  });
+});
+
+// ─────────────────────────────────
+// NAVIGATION
+// ─────────────────────────────────
+function nextStep(fromStep) {
+  if (!answers['q' + fromStep] && fromStep <= totalSteps) return;
+  showStep(fromStep + 1);
+}
+
+function prevStep() {
+  if (currentStep > 1) showStep(currentStep - 1);
+}
+
+function showStep(stepNum) {
+  // Hide current
+  document.querySelectorAll('.quiz-step').forEach(s => s.classList.remove('active'));
+
+  // Show target
+  const target = stepNum > totalSteps
+    ? document.getElementById('step-gate')
+    : document.getElementById('step-' + stepNum);
+
+  if (target) target.classList.add('active');
+  currentStep = stepNum;
+
+  // Update progress
+  updateProgress(stepNum);
+
+  // Scroll to top of card
+  document.getElementById('quiz-wrap').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function updateProgress(step) {
+  const progressWrap = document.getElementById('progressWrap');
+  const fill = document.getElementById('progressFill');
+  const label = document.getElementById('stepLabel');
+  const pct = document.getElementById('stepPct');
+
+  if (step > totalSteps) {
+    // Gate or results
+    progressWrap.style.display = 'none';
+    return;
+  }
+
+  progressWrap.style.display = 'block';
+  const percent = Math.round((step / totalSteps) * 100);
+  fill.style.width = percent + '%';
+  label.textContent = 'Question ' + step + ' of ' + totalSteps;
+  pct.textContent = percent + '%';
+}
+
+// ─────────────────────────────────
+// LEAD GATE SUBMISSION
+// ─────────────────────────────────
+function submitGate(e) {
+  e.preventDefault();
+  const first = document.getElementById('gateFirst').value.trim();
+  const email = document.getElementById('gateEmail').value.trim();
+  const errorEl = document.getElementById('formError');
+
+  // Validation
+  if (!first) {
+    errorEl.textContent = 'Please enter your first name.';
+    errorEl.style.display = 'block';
+    document.getElementById('gateFirst').classList.add('error');
+    return;
+  }
+  if (!email || !email.includes('@')) {
+    errorEl.textContent = 'Please enter a valid email address.';
+    errorEl.style.display = 'block';
+    document.getElementById('gateEmail').classList.add('error');
+    return;
+  }
+  errorEl.style.display = 'none';
+
+  // ═══ HUBSPOT SUBMISSION POINT ═══
+  // Uncomment and fill in your portalId and formId to submit to HubSpot:
+  //
+  // const phone = document.getElementById('gatePhone').value.trim();
+  // fetch('https://api.hsforms.com/submissions/v3/integration/submit/YOUR_PORTAL_ID/YOUR_FORM_ID', {
+  //   method: 'POST',
+  //   headers: { 'Content-Type': 'application/json' },
+  //   body: JSON.stringify({
+  //     fields: [
+  //       { name: 'firstname', value: first },
+  //       { name: 'email', value: email },
+  //       { name: 'phone', value: phone },
+  //       { name: 'profession', value: answers.q1 },
+  //       { name: 'credit_range', value: answers.q2 },
+  //       { name: 'income_range', value: answers.q3 },
+  //       { name: 'buying_timeline', value: answers.q4 }
+  //     ],
+  //     context: { pageUri: window.location.href }
+  //   })
+  // });
+  // ═══════════════════════════════
+
+  // Store name for personalization
+  window.quizFirstName = first;
+
+  // Show results
+  showResults();
+}
+
+// ─────────────────────────────────
+// SCORING & RESULTS ENGINE
+// ─────────────────────────────────
+function showResults() {
+  // Calculate score
+  const result = calculateResult();
+
+  // Build result HTML
+  document.getElementById('resultContent').innerHTML = buildResultHTML(result);
+
+  // Show result step
+  document.querySelectorAll('.quiz-step').forEach(s => s.classList.remove('active'));
+  document.getElementById('step-result').classList.add('active');
+  document.getElementById('progressWrap').style.display = 'none';
+
+  // Animate score meter
+  setTimeout(() => {
+    const fill = document.getElementById('scoreFill');
+    if (fill) fill.style.width = result.scoreWidth + '%';
+  }, 100);
+
+  document.getElementById('quiz-wrap').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function calculateResult() {
+  const { q1, q2, q3, q4 } = answers;
+  const isHero = ['educator','responder','healthcare','military'].includes(q1);
+
+  // ── CREDIT READINESS ──
+  if (q2 === 'under600') {
+    return {
+      type: 'prep',
+      scoreWidth: 28,
+      badge: '🌱 Credit Readiness Path',
+      badgeClass: 'badge-prep',
+      meterClass: 'fill-prep',
+      headline: `${window.quizFirstName}, Let's Build Your Path to Qualifying`,
+      headlineBold: 'Together',
+      body: `Based on your answers, your credit score may currently be below the minimum threshold for most Colorado DPA programs. The good news: this is very fixable — and many heroes have gone from where you are to closing on a home within 12–18 months with the right plan.`,
+      programs: [
+        'Credit improvement strategies that work for hero income profiles',
+        'Understanding what lenders look for — and how to get there faster',
+        'A free consultation to map out your specific credit-readiness timeline',
+        'Programs that become available as your score improves (CHFA at 620, MetroDPA at 640)'
+      ],
+      urgency: q4 === 'asap',
+      ctaStrong: false
+    };
+  }
+
+  // ── OVER INCOME — Hero grants still apply ──
+  if (q3 === 'over210') {
+    return {
+      type: isHero ? 'good' : 'fair',
+      scoreWidth: isHero ? 65 : 48,
+      badge: isHero ? '✦ Hero Grant Candidate' : '📋 Program Review Recommended',
+      badgeClass: isHero ? 'badge-good' : 'badge-fair',
+      meterClass: isHero ? 'fill-good' : 'fill-fair',
+      headline: `${window.quizFirstName}, Your Profession ${isHero ? 'Opens Doors Standard Programs Don\'t' : 'Still Has Options'}`,
+      body: `Your income is above the limits for some income-restricted programs, but hero-specific grants like Teacher Next Door and the Colorado Community Hero Program have no income limits. The right combination of hero grants and negotiated seller concessions may still result in significant assistance.`,
+      programs: [
+        isHero ? 'Teacher Next Door / Officer Next Door — no income limit' : 'Homes for Heroes post-closing rebate program',
+        isHero ? 'Colorado Community Hero Program — profession-specific' : 'Seller concession strategy (up to 6% on FHA)',
+        'Homes for Heroes post-closing rebate (0.7% of purchase price)',
+        'A free consultation to identify every applicable program regardless of income'
+      ],
+      urgency: q4 === 'asap',
+      ctaStrong: true
+    };
+  }
+
+  // ── STRONG FIT — Hero + Good Credit + Income ──
+  if (isHero && (q2 === '660plus' || q2 === 'unsure') && (q3 === 'under126' || q3 === '126to174' || q3 === '174to210')) {
+    return {
+      type: 'strong',
+      scoreWidth: 88,
+      badge: '✦ Strong Candidate',
+      badgeClass: 'badge-strong',
+      meterClass: 'fill-strong',
+      headline: `${window.quizFirstName}, You May Be a Strong Candidate for`,
+      headlineBold: 'Maximum Hero Assistance',
+      body: `Based on your answers, you may be among the best-positioned hero buyers in Colorado. Your profession unlocks hero-specific grants, your credit range opens MetroDPA and CHFA programs, and your income falls within qualifying limits. On a $400,000 FHA purchase, stacking the right programs could result in up to $67,000 in combined assistance.`,
+      programs: [
+        'MetroDPA — up to 6% forgiven after 36 months (requires 640+ FICO)',
+        q1 === 'educator' ? 'Teacher Next Door Grant — $8,000 true grant + $15,000 DPA' :
+        q1 === 'military' ? 'VA Loan + Colorado DPA stack — maximize both benefits' :
+        'Teacher Next Door / Colorado Community Hero Program — hero-specific grants',
+        'Chenoa Fund — 5% forgivable DPA as a safety net layer',
+        'Seller concessions strategy — up to $24,000 on a $400K FHA purchase'
+      ],
+      urgency: q4 === 'asap',
+      ctaStrong: true
+    };
+  }
+
+  // ── GOOD FIT — CHFA Path ──
+  if (q2 === '620to659' || (q2 === 'unsure' && !isHero)) {
+    return {
+      type: 'good',
+      scoreWidth: 68,
+      badge: '✓ Good Candidate',
+      badgeClass: 'badge-good',
+      meterClass: 'fill-good',
+      headline: `${window.quizFirstName}, You May Be a Good Fit for`,
+      headlineBold: 'CHFA-Style Assistance',
+      body: `Based on your credit range and income, CHFA programs appear to be a strong starting point for your situation. CHFA offers both a 3% true grant and a 4% deferred loan — and both are available statewide. ${isHero ? 'Your hero profession adds additional grant options on top.' : 'Combined with seller concessions, the total assistance can be meaningful.'}`,
+      programs: [
+        'CHFA True Grant — 3% of purchase price, never repaid',
+        'CHFA Deferred Second Mortgage — 4%, no payment until sale or refinance',
+        q3 === 'under126' || q3 === '126to174' ? 'CHFA FirstGeneration — up to $25,000 if you\'re a first-generation buyer' : 'CHFA SmartStep — available statewide with income limits',
+        isHero ? 'Hero-specific grant programs as additional layers' : 'Seller concession negotiation strategy'
+      ],
+      urgency: q4 === 'asap',
+      ctaStrong: true
+    };
+  }
+
+  // ── FAIR FIT — Chenoa Path ──
+  if (q2 === '600to619') {
+    return {
+      type: 'fair',
+      scoreWidth: 50,
+      badge: '◈ Chenoa-Style Path',
+      badgeClass: 'badge-fair',
+      meterClass: 'fill-fair',
+      headline: `${window.quizFirstName}, Chenoa Fund May Be Your`,
+      headlineBold: 'Best Starting Point',
+      body: `Based on your credit range, the Chenoa Fund — a national DPA program with no income limits — may be your best primary program. It accepts FICO scores as low as 600 and provides up to 5% assistance that is fully forgiven after 36 consecutive on-time payments. ${isHero ? 'Your hero profession may also unlock additional grants.' : ''}`,
+      programs: [
+        'Chenoa Fund — 5% forgivable DPA, no income limits, accepts 600+ FICO',
+        'Forgiven after 36 consecutive on-time mortgage payments',
+        isHero ? 'Hero-specific programs with no credit minimum as additional layers' : 'Seller concession negotiation to cover closing costs',
+        'A free consultation to map the full eligible stack for your situation'
+      ],
+      urgency: q4 === 'asap',
+      ctaStrong: false
+    };
+  }
+
+  // ── DEFAULT FALLBACK ──
+  return {
+    type: 'good',
+    scoreWidth: 60,
+    badge: '✓ Review Recommended',
+    badgeClass: 'badge-good',
+    meterClass: 'fill-good',
+    headline: `${window.quizFirstName}, Let's Map Your Options`,
+    headlineBold: 'Together',
+    body: `Based on your answers, there are several Colorado programs that may be worth reviewing for your situation. A free 30-minute consultation is the fastest way to identify your exact eligibility and the best combination of assistance.`,
+    programs: [
+      'CHFA programs — available statewide with flexible structures',
+      'MetroDPA — if in Denver Metro / Front Range area',
+      isHero ? 'Hero-specific grant programs for your profession' : 'Seller concession strategy',
+      'Chenoa Fund — national safety net with no income limits'
+    ],
+    urgency: q4 === 'asap',
+    ctaStrong: true
+  };
+}
+
+function buildResultHTML(r) {
+  const urgencyLine = r.urgency
+    ? `<strong>Since you're ready to move quickly</strong>, booking a free consultation now puts you ahead of the process — program funding can be time-sensitive.`
+    : `Since you're in research mode, a free consultation is a low-pressure way to understand your options before you're ready to commit.`;
+
+  const programItems = r.programs.map(p =>
+    `<div class="result-program-item">${p}</div>`
+  ).join('');
+
+  const secondaryCTA = r.type === 'prep'
+    ? `<a href="blog/">Read our free resources →</a>`
+    : `<a href="programs.html">Explore all Colorado programs →</a>`;
+
+  return `
+    <div class="personalization-bar">
+      Based on: <strong>${professionLabel(answers.q1)}</strong> · <strong>Credit ${creditLabel(answers.q2)}</strong> · <strong>Income ${incomeLabel(answers.q3)}</strong>
+    </div>
+
+    <span class="result-badge ${r.badgeClass}">${r.badge}</span>
+
+    <div class="result-headline">
+      ${r.headline} <span>${r.headlineBold || ''}</span>
+    </div>
+
+    <div class="result-body">${r.body}</div>
+
+    <!-- Score meter -->
+    <div class="score-meter-wrap">
+      <div class="score-meter-label">
+        <span>Estimated Program Fit</span>
+        <span class="score-val">${r.scoreWidth}%</span>
+      </div>
+      <div class="score-meter-bar">
+        <div class="score-meter-fill ${r.meterClass}" id="scoreFill" style="width:0%;"></div>
+      </div>
+    </div>
+
+    <!-- Programs -->
+    <div class="result-programs">
+      <div class="result-programs-title">What This May Mean for You</div>
+      <div class="result-program-list">${programItems}</div>
+    </div>
+
+    <!-- Urgency line -->
+    <p style="font-size:14px; color:#666; margin-bottom:24px;">${urgencyLine}</p>
+
+    <!-- Primary CTA -->
+    <div class="result-cta-wrap">
+      <div class="result-cta-copy">
+        <strong>Book Your Free 30-Minute Consultation</strong>
+        <span>No pressure · No obligation · Colorado-specific guidance</span>
+      </div>
+      <a href="contact.html" class="btn btn-gold btn-arrow">Book My Free Call</a>
+    </div>
+
+    <!-- Secondary CTA -->
+    <div class="result-secondary">${secondaryCTA}</div>
+
+    <!-- Disclaimer -->
+    <div class="result-disclaimer">
+      <strong>Important:</strong> This quiz provides an educational estimate only — it is not a lending decision, prequalification, or guarantee of funding. Final eligibility depends on lender review, current program guidelines, property details, income verification, and funding availability. A licensed mortgage professional must confirm all program eligibility. Hero HomeReach™ is a homeownership education and guidance service, not a lender.
+    </div>
+  `;
+}
+
+// ─────────────────────────────────
+// LABEL HELPERS
+// ─────────────────────────────────
+function professionLabel(v) {
+  const map = { educator:'Educator', responder:'First Responder', healthcare:'Healthcare', military:'Military', other:'Other' };
+  return map[v] || v;
+}
+function creditLabel(v) {
+  const map = { '660plus':'660+', '620to659':'620–659', '600to619':'600–619', 'under600':'Under 600', 'unsure':'Unknown' };
+  return map[v] || v;
+}
+function incomeLabel(v) {
+  const map = { 'under126':'Under $126K', '126to174':'$126–$174K', '174to210':'$174–$210K', 'over210':'Over $210K', 'unsure':'Unknown' };
+  return map[v] || v;
+}
+
+// ─────────────────────────────────
+// RESTART
+// ─────────────────────────────────
+function restartQuiz() {
+  answers.q1 = answers.q2 = answers.q3 = answers.q4 = null;
+  window.quizFirstName = '';
+  document.querySelectorAll('.option-card').forEach(c => c.classList.remove('selected'));
+  document.querySelectorAll('.btn-next').forEach(b => { b.disabled = true; });
+  document.getElementById('leadForm').reset();
+  showStep(1);
+}
+</script>
+
+</body>
+</html>
