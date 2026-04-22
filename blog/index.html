@@ -29,7 +29,7 @@
   --font-head:   'Playfair Display', Georgia, serif;
   --font-body:   'Inter', system-ui, sans-serif;
   --max-w:       1140px;
-  --nav-h:       76px;
+  --nav-h:       82px;
   --radius:      10px;
   --transition:  all 0.22s ease;
 }
@@ -98,14 +98,25 @@ p:last-child { margin-bottom: 0; }
    PAGE HERO
 ════════════════════════════════ */
 #page-hero {
-  background: var(--navy);
+  background-color: var(--navy);
+  background-image: url('../resources-hero-bg.jpg');
+  background-size: cover;
+  background-position: 65% center;
+  background-repeat: no-repeat;
   padding: calc(var(--nav-h) + 64px) 0 72px;
   position: relative; overflow: hidden;
 }
 #page-hero::before {
   content: '';
   position: absolute; inset: 0;
-  background-image: repeating-linear-gradient(45deg, rgba(201,151,58,0.03) 0px, rgba(201,151,58,0.03) 1px, transparent 1px, transparent 60px);
+  background: linear-gradient(
+    90deg,
+    rgba(12,45,94,0.97) 0%,
+    rgba(12,45,94,0.95) 35%,
+    rgba(12,45,94,0.60) 55%,
+    rgba(12,45,94,0.15) 75%,
+    rgba(12,45,94,0.05) 100%
+  );
 }
 .page-hero-inner { position: relative; z-index: 2; max-width: 700px; }
 .page-eyebrow { display: inline-flex; align-items: center; gap: 10px; font-size: 11px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
@@ -423,19 +434,19 @@ p:last-child { margin-bottom: 0; }
 <!-- ════════════ NAV ════════════ -->
 <nav id="nav">
   <div class="nav-inner">
-    <a href="index.html" class="nav-logo">
-      <img src="logo-mark_transparent.png" alt="Hero HomeReach Shield" style="width:48px; height:48px; object-fit:contain;">
+    <a href="../index.html" class="nav-logo">
+      <img src="../logo-mark_transparent.png" alt="Hero HomeReach Shield" style="width:58px; height:58px; object-fit:contain;">
       <div><div class="nav-wordmark">Hero <span>HomeReach</span><sup class="nav-tm">™</sup></div></div>
     </a>
     <ul class="nav-links">
-      <li><a href="programs.html">Programs</a></li>
-      <li><a href="who-we-serve.html">Who We Serve</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="blog/" class="active">Resources</a></li>
+      <li><a href="../programs.html">Programs</a></li>
+      <li><a href="../who-we-serve.html">Who We Serve</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../blog/" class="active">Resources &amp; Blog</a></li>
       <li><a href="https://guide.herohomereach.com" target="_blank" style="color:var(--bright-gold); font-weight:700;">Free Guide</a></li>
     </ul>
     <div class="nav-cta">
-      <a href="contact.html" class="btn btn-gold btn-arrow">Book Free Consultation</a>
+      <a href="../contact.html" class="btn btn-gold btn-arrow">Book Free Consultation</a>
     </div>
     <div class="nav-hamburger" id="hamburger" onclick="toggleMobileNav()">
       <span></span><span></span><span></span>
@@ -443,12 +454,12 @@ p:last-child { margin-bottom: 0; }
   </div>
 </nav>
 <div id="mobile-nav">
-  <a href="programs.html" onclick="toggleMobileNav()">Programs</a>
-  <a href="who-we-serve.html" onclick="toggleMobileNav()">Who We Serve</a>
-  <a href="about.html" onclick="toggleMobileNav()">About</a>
-  <a href="blog/" onclick="toggleMobileNav()">Resources</a>
+  <a href="../programs.html" onclick="toggleMobileNav()">Programs</a>
+  <a href="../who-we-serve.html" onclick="toggleMobileNav()">Who We Serve</a>
+  <a href="../about.html" onclick="toggleMobileNav()">About</a>
+  <a href="../blog/" onclick="toggleMobileNav()">Resources &amp; Blog</a>
   <a href="https://guide.herohomereach.com" target="_blank" style="color:var(--bright-gold);" onclick="toggleMobileNav()">Free Guide</a>
-  <a href="contact.html" class="btn btn-gold" style="margin-top:16px;" onclick="toggleMobileNav()">Book Free Consultation</a>
+  <a href="../contact.html" class="btn btn-gold" style="margin-top:16px;" onclick="toggleMobileNav()">Book Free Consultation</a>
 </div>
 
 
@@ -692,7 +703,7 @@ p:last-child { margin-bottom: 0; }
         <h2>In-Depth Resources for Colorado Heroes</h2>
         <p>Practical, SEO-optimized guides on every aspect of hero homebuying in Colorado.</p>
       </div>
-      <a href="contact.html" class="btn btn-gold btn-sm btn-arrow">Book Free Consultation</a>
+      <a href="../contact.html" class="btn btn-gold btn-sm btn-arrow">Book Free Consultation</a>
     </div>
 
     <!-- Category filter -->
@@ -724,7 +735,7 @@ p:last-child { margin-bottom: 0; }
         </div>
         <div class="article-footer">
           <span style="font-size:11px; color:#aaa;">Publishing soon</span>
-          <a href="contact.html" class="notify-link">Get notified →</a>
+          <a href="../contact.html" class="notify-link">Get notified →</a>
         </div>
       </div>
 
@@ -745,7 +756,7 @@ p:last-child { margin-bottom: 0; }
         </div>
         <div class="article-footer">
           <span style="font-size:11px; color:#aaa;">Publishing soon</span>
-          <a href="contact.html" class="notify-link">Get notified →</a>
+          <a href="../contact.html" class="notify-link">Get notified →</a>
         </div>
       </div>
 
@@ -766,7 +777,7 @@ p:last-child { margin-bottom: 0; }
         </div>
         <div class="article-footer">
           <span style="font-size:11px; color:#aaa;">Publishing soon</span>
-          <a href="contact.html" class="notify-link">Get notified →</a>
+          <a href="../contact.html" class="notify-link">Get notified →</a>
         </div>
       </div>
 
@@ -787,7 +798,7 @@ p:last-child { margin-bottom: 0; }
         </div>
         <div class="article-footer">
           <span style="font-size:11px; color:#aaa;">Publishing soon</span>
-          <a href="contact.html" class="notify-link">Get notified →</a>
+          <a href="../contact.html" class="notify-link">Get notified →</a>
         </div>
       </div>
 
@@ -808,7 +819,7 @@ p:last-child { margin-bottom: 0; }
         </div>
         <div class="article-footer">
           <span style="font-size:11px; color:#aaa;">Publishing soon</span>
-          <a href="contact.html" class="notify-link">Get notified →</a>
+          <a href="../contact.html" class="notify-link">Get notified →</a>
         </div>
       </div>
 
@@ -829,7 +840,7 @@ p:last-child { margin-bottom: 0; }
         </div>
         <div class="article-footer">
           <span style="font-size:11px; color:#aaa;">Publishing soon</span>
-          <a href="contact.html" class="notify-link">Get notified →</a>
+          <a href="../contact.html" class="notify-link">Get notified →</a>
         </div>
       </div>
 
@@ -845,7 +856,7 @@ p:last-child { margin-bottom: 0; }
       <div style="font-size:11px; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:var(--bright-gold); margin-bottom:16px;">Free · 30 Minutes · No Obligation</div>
       <h2>Still Have Questions? <span>Let's Talk.</span></h2>
       <p>Book your free Hero HomeReach™ consultation and get answers specific to your situation — your profession, your location, your goals.</p>
-      <a href="contact.html" class="btn btn-gold btn-arrow" style="font-size:17px; padding:18px 40px;">Book My Free Consultation</a>
+      <a href="../contact.html" class="btn btn-gold btn-arrow" style="font-size:17px; padding:18px 40px;">Book My Free Consultation</a>
       <div class="cta-reassurance">
         <div class="cta-reassurance-item">Completely free</div>
         <div class="cta-reassurance-item">No lender pressure</div>
@@ -867,24 +878,24 @@ p:last-child { margin-bottom: 0; }
       </div>
       <div class="footer-col">
         <div class="footer-col-title">Site</div>
-        <a href="programs.html">Programs</a>
-        <a href="who-we-serve.html">Who We Serve</a>
-        <a href="about.html">About</a>
-        <a href="blog/">Resources</a>
-        <a href="contact.html">Contact</a>
+        <a href="../programs.html">Programs</a>
+        <a href="../who-we-serve.html">Who We Serve</a>
+        <a href="../about.html">About</a>
+        <a href="../blog/">Resources &amp; Blog</a>
+        <a href="../contact.html">Contact</a>
       </div>
       <div class="footer-col">
         <div class="footer-col-title">Heroes</div>
-        <a href="who-we-serve.html#educators">Educators</a>
-        <a href="who-we-serve.html#first-responders">First Responders</a>
-        <a href="who-we-serve.html#healthcare">Healthcare Workers</a>
-        <a href="who-we-serve.html#military">Military Members</a>
+        <a href="../who-we-serve.html#educators">Educators</a>
+        <a href="../who-we-serve.html#first-responders">First Responders</a>
+        <a href="../who-we-serve.html#healthcare">Healthcare Workers</a>
+        <a href="../who-we-serve.html#military">Military Members</a>
       </div>
       <div class="footer-col">
         <div class="footer-col-title">Start Here</div>
-        <a href="contact.html">Book Free Consultation</a>
-        <a href="programs.html">Explore Programs</a>
-        <a href="blog/">Read Resources</a>
+        <a href="../contact.html">Book Free Consultation</a>
+        <a href="../programs.html">Explore Programs</a>
+        <a href="../blog/">Resources &amp; Blog</a>
       </div>
     </div>
     <div class="footer-bottom">
