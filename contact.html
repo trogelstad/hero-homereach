@@ -118,7 +118,7 @@ h1, h2, h3, h4 { font-family: var(--font-head); font-weight: 700; color: var(--n
 #page-hero::after {
   content: '';
   position: absolute; bottom: 0; left: 0; right: 0; height: 80px;
-  background: linear-gradient(to bottom, transparent, var(--white));
+  display: none; /* fade removed */
 }
 .page-hero-inner {
   position: relative; z-index: 2;
@@ -140,6 +140,7 @@ h1, h2, h3, h4 { font-family: var(--font-head); font-weight: 700; color: var(--n
 #reassurance {
   background: #fff;
   border-bottom: 1px solid var(--warm-gray);
+  border-top: 4px solid var(--gold);
   padding: 24px 0;
 }
 .reassurance-inner {
