@@ -121,7 +121,7 @@ p:last-child { margin-bottom: 0; }
 #about-hero::after {
   content: '';
   position: absolute; bottom: 0; left: 0; right: 0; height: 100px;
-  background: linear-gradient(to bottom, transparent, var(--white));
+  display: none; /* fade removed */
 }
 .about-hero-grid {
   display: grid;
@@ -231,7 +231,8 @@ p:last-child { margin-bottom: 0; }
 ════════════════════════════════ */
 #mission {
   background: var(--white);
-  padding: 112px 0 80px;
+  padding: 80px 0 80px;
+  border-top: 4px solid var(--gold);
 }
 .mission-grid {
   display: grid;
