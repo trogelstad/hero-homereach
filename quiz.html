@@ -1,9 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-5ZQKN4LM');</script>
+  <!-- End Google Tag Manager -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>60-Second Eligibility Quiz — Hero HomeReach™</title>
+  <title>60-Second Eligibility Quiz | Hero HomeReach™</title>
   <meta name="description" content="Find out which Colorado homeownership programs you may qualify for. Answer 4 questions and get a personalized AI-powered assessment — free, no pressure.">
   <link rel="icon" type="image/png" href="favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -172,6 +179,10 @@ h1,h2,h3,h4{font-family:var(--font-head);font-weight:700;color:var(--navy);line-
 </style>
 </head>
 <body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5ZQKN4LM"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
 
 <nav id="nav">
   <div class="nav-inner">
@@ -192,7 +203,7 @@ h1,h2,h3,h4{font-family:var(--font-head);font-weight:700;color:var(--navy);line-
       <div class="trust-strip">
         <div class="trust-item">Under 60 seconds</div>
         <div class="trust-item">Results appear instantly — right here</div>
-       
+        <div class="trust-item">No email required</div>
         <div class="trust-item">No commitment required</div>
       </div>
     </div>
@@ -341,6 +352,27 @@ h1,h2,h3,h4{font-family:var(--font-head);font-weight:700;color:var(--navy);line-
 </footer>
 
 <script>
+// ── GTM TRACKING FUNCTIONS ──
+window.dataLayer = window.dataLayer || [];
+
+function trackQuizStarted() {
+  window.dataLayer.push({ event: 'quiz_started', event_category: 'quiz' });
+}
+function trackQuizCompleted(profession, credit, income, timeline) {
+  window.dataLayer.push({
+    event: 'quiz_completed', event_category: 'quiz',
+    quiz_profession: profession, quiz_credit: credit,
+    quiz_income: income, quiz_timeline: timeline
+  });
+}
+
+// Calendly booking confirmation listener
+window.addEventListener('message', function(e) {
+  if (e.data.event && e.data.event === 'calendly.event_scheduled') {
+    window.dataLayer.push({ event: 'consultation_booked', event_category: 'conversion' });
+  }
+});
+
 // ── STATE ──
 const A = {q1:null,q2:null,q3:null,q4:null};
 let cur = 1;
@@ -352,6 +384,8 @@ function pick(card, q, val) {
   A[q] = val;
   const nb = document.getElementById('next'+cur);
   if(nb){nb.disabled=false;}
+  // Track quiz start on first answer
+  if (q === 'q1') trackQuizStarted();
 }
 document.querySelectorAll('.opt-card').forEach(c=>{
   c.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();c.click();}});
@@ -390,6 +424,9 @@ function submitGate(e) {
   if(!email||!email.includes('@')){errEl.textContent='Please enter a valid email address.';errEl.style.display='block';document.getElementById('gEmail').classList.add('error');return;}
   errEl.style.display='none';
 
+  // Track quiz completion
+  trackQuizCompleted(A.q1, A.q2, A.q3, A.q4);
+
   // Show loading
   document.querySelectorAll('.quiz-step').forEach(s=>s.classList.remove('active'));
   document.getElementById('step-loading').classList.add('active');
@@ -399,19 +436,36 @@ function submitGate(e) {
   lf.style.animation='none'; void lf.offsetWidth; lf.style.animation='';
   document.getElementById('quiz-wrap').scrollIntoView({behavior:'smooth',block:'start'});
 
-  // ══ HUBSPOT SILENT SUBMISSION ══
-  // Uncomment when ready — add your portalId and formId:
-  // const phone = document.getElementById('gPhone').value.trim();
-  // fetch('https://api.hsforms.com/submissions/v3/integration/submit/YOUR_PORTAL_ID/YOUR_FORM_ID',{
-  //   method:'POST', headers:{'Content-Type':'application/json'},
-  //   body:JSON.stringify({fields:[
-  //     {name:'firstname',value:first},{name:'email',value:email},
-  //     {name:'phone',value:phone},{name:'profession',value:A.q1},
-  //     {name:'credit_range',value:A.q2},{name:'income_range',value:A.q3},
-  //     {name:'buying_timeline',value:A.q4}
-  //   ],context:{pageUri:window.location.href}})
-  // }).catch(console.error);
-  // ══════════════════════════════
+  // ══ MAILERLITE — Consultation Leads ══
+  // Submits quiz lead to "Consultation Leads" group
+  const nameParts = first.split(' ');
+  const mlFirst = nameParts[0] || first;
+  const mlLast = nameParts.slice(1).join(' ') || '';
+  const phone = document.getElementById('gPhone').value.trim();
+
+  fetch('https://connect.mailerlite.com/api/subscribers', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json',
+      'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI0IiwianRpIjoiMDJhMDg4ZWMyNDQ5MmNjOGFjODJmZDg4YzNlYTQ2ZDlmNDliYzM0YmU5ZTdhZjI5MmNmNDI1NmNmN2QzMWY5NDNlMzUxOTQ0ZGZhOTk4ZWUiLCJpYXQiOjE3NzY5NTYxMTIuMTMwMzUyLCJuYmYiOjE3NzY5NTYxMTIuMTMwMzU0LCJleHAiOjQ5MzI2Mjk3MTIuMTI1OTE2LCJzdWIiOiIyMjg3NTQyIiwic2NvcGVzIjpbXX0.MB8WJnwZ5lG35JACvXlS_2oXjBPpRODveds6iG7e4lfdSH1TjNKBhkkbs-AZZux35lr9PbDSp7HwxwdpebCMH3zb_m8nQl7MRh4aN2j4ucPbcUFtwWwbnnL59Om_t8mD7IBF8gXcmgDGVNhnCzMRrcJn4_1y6y-9ba6wizpfPDG98YvFVIeSk8Jcl_pXiljER8ZgOUaWEr8AP5AJ9fNo3zUrYK54fc9KOoyQ9s36Mz46FYEpehsaTKoZ3WsR3NA18xWLfzhX2Elt3Bkv8NGaN2zFtnAh6vRntHiBIVyxH2xmGg4mUKQjjXMzKbYK7YjRe03vAveGGrKGNLBPidZgORZX_TyhfqcG1iVl9Yuy7xqsufS2JuXTzCcEkB9VHSFQ6lGsYBU3JJJesVxcFMUcVg8POKlGj-NM7JXR2SFYAxt-ziWVo6p3yNHIdb1tY6mTlvRY-96nPiIfNtrfYabSWhUfHcE8bw75IudWHRswypaapYfGLHxYzLFgQuAoCdNNYkMj_vHouQ7yOguAO5HYjADQqPhbBAq2-2UYZtPiCPNW7i_F8TFbwl1TzxmTRC36b7G7vDfbnavInmIgJj2NVlGS2UFn432xzFG600xVwcFUFQI9LHykOhUYHB0Bsu-6BW_OuY5jpCkYiypRpqbPxaSgUMvAAPv45ydTSi27wCQ'
+    },
+    body: JSON.stringify({
+      email: email,
+      fields: {
+        name: mlFirst,
+        last_name: mlLast,
+        phone: phone,
+        profession: A.q1,
+        credit_range: A.q2,
+        income_range: A.q3,
+        buying_timeline: A.q4
+      },
+      groups: ['185553924750575511'],
+      status: 'active'
+    })
+  }).catch(err => console.error('[Quiz] MailerLite error:', err));
+  // ══════════════════════════════════════
 
   callAPI(first, email);
 }
