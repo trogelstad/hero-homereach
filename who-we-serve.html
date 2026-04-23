@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-5ZQKN4LM');</script>
+  <!-- End Google Tag Manager -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Who We Serve — Hero HomeReach™ | Colorado Hero Homebuyer Programs</title>
@@ -196,6 +203,68 @@ p:last-child { margin-bottom: 0; }
 /* Dark hero variant */
 .audience-section.dark {
   background: var(--navy);
+}
+
+/* Audience section background images */
+.audience-section.dark::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: left center;
+  pointer-events: none;
+}
+#first-responders::before {
+  background-image: url('first-responder-section-bg.jpg');
+  background: linear-gradient(
+    90deg,
+    rgba(12,45,94,0.15) 0%,
+    rgba(12,45,94,0.55) 38%,
+    rgba(12,45,94,0.95) 58%,
+    rgba(12,45,94,0.99) 100%
+  ),
+  url('first-responder-section-bg.jpg');
+  background-size: cover;
+  background-position: left center;
+  background-repeat: no-repeat;
+}
+#military::before {
+  background: linear-gradient(
+    90deg,
+    rgba(12,45,94,0.15) 0%,
+    rgba(12,45,94,0.55) 38%,
+    rgba(12,45,94,0.95) 58%,
+    rgba(12,45,94,0.99) 100%
+  ),
+  url('military-section-bg.jpg');
+  background-size: cover;
+  background-position: left center;
+  background-repeat: no-repeat;
+}
+/* Mobile — stronger overlay so text stays readable */
+@media (max-width: 768px) {
+  #first-responders::before {
+    background: linear-gradient(
+      180deg,
+      rgba(12,45,94,0.85) 0%,
+      rgba(12,45,94,0.92) 100%
+    ),
+    url('first-responder-section-bg.jpg');
+    background-size: cover;
+    background-position: 25% center;
+    background-repeat: no-repeat;
+  }
+  #military::before {
+    background: linear-gradient(
+      180deg,
+      rgba(12,45,94,0.85) 0%,
+      rgba(12,45,94,0.92) 100%
+    ),
+    url('military-section-bg.jpg');
+    background-size: cover;
+    background-position: 25% center;
+    background-repeat: no-repeat;
+  }
 }
 
 .audience-grid {
@@ -415,6 +484,10 @@ p:last-child { margin-bottom: 0; }
 </style>
 </head>
 <body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5ZQKN4LM"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
 
 <!-- ════════════ NAV ════════════ -->
 <nav id="nav">
@@ -590,7 +663,7 @@ p:last-child { margin-bottom: 0; }
 
 <!-- ════════════ FIRST RESPONDERS ════════════ -->
 <section class="audience-section dark" id="first-responders">
-  <div class="container">
+  <div class="container" style="position:relative;z-index:2;">
     <div class="audience-grid reverse">
 
       <div class="audience-content fade-up">
@@ -767,7 +840,7 @@ p:last-child { margin-bottom: 0; }
 
 <!-- ════════════ MILITARY MEMBERS ════════════ -->
 <section class="audience-section dark" id="military">
-  <div class="container">
+  <div class="container" style="position:relative;z-index:2;">
     <div class="audience-grid reverse">
 
       <div class="audience-content fade-up">
