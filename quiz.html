@@ -10,7 +10,7 @@
   <!-- End Google Tag Manager -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>60-Second Eligibility Quiz | Hero HomeReach™</title>
+  <title>60-Second Eligibility Quiz — Hero HomeReach™</title>
   <meta name="description" content="Find out which Colorado homeownership programs you may qualify for. Answer 4 questions and get a personalized AI-powered assessment — free, no pressure.">
   <link rel="icon" type="image/png" href="favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -145,21 +145,52 @@ h1,h2,h3,h4{font-family:var(--font-head);font-weight:700;color:var(--navy);line-
 @keyframes fadeUp{to{opacity:1;}}
 .load-step::before{content:'·';color:var(--gold);font-size:18px;font-weight:900;}
 
-/* RESULT */
-.result-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(201,151,58,0.08);border:1px solid rgba(201,151,58,0.25);border-radius:20px;padding:6px 16px;margin-bottom:20px;font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#8B6020;}
-.result-tags{background:rgba(12,45,94,0.04);border:1px solid rgba(12,45,94,0.1);border-radius:8px;padding:12px 16px;margin-bottom:24px;font-size:13px;color:#666;display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
-.rtag{background:var(--navy);color:#fff;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;}
-.result-text{background:var(--white);border:1px solid var(--warm-gray);border-left:4px solid var(--gold);border-radius:0 var(--radius) var(--radius) 0;padding:28px;margin-bottom:28px;font-size:16px;color:#333;line-height:1.85;}
-.result-text p{margin-bottom:16px;}
-.result-text p:last-child{margin-bottom:0;}
-.result-cta{background:var(--navy);border-radius:var(--radius);padding:32px;margin-bottom:16px;position:relative;overflow:hidden;}
+/* RESULT CARDS */
+.result-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(201,151,58,0.08);border:1px solid rgba(201,151,58,0.25);border-radius:20px;padding:6px 16px;margin-bottom:16px;font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#8B6020;}
+
+/* Header card — navy with name + profile tags */
+.result-header-card{background:var(--navy);border-radius:var(--radius);padding:26px 30px;margin-bottom:12px;position:relative;overflow:hidden;}
+.result-header-card::before{content:'';position:absolute;top:-80px;right:-80px;width:260px;height:260px;border-radius:50%;background:radial-gradient(circle,rgba(201,151,58,0.1) 0%,transparent 70%);}
+.result-header-inner{position:relative;z-index:2;}
+.result-hero-label{font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--bright-gold);margin-bottom:8px;}
+.result-hero-name{font-family:var(--font-head);font-size:clamp(18px,3vw,26px);color:#fff;margin-bottom:4px;line-height:1.2;}
+.result-hero-sub{font-size:13px;color:rgba(255,255,255,0.55);}
+.result-profile{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px;padding-top:14px;border-top:1px solid rgba(255,255,255,0.1);}
+.result-profile-pill{display:flex;align-items:center;gap:5px;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:20px;padding:4px 12px;font-size:12px;color:rgba(255,255,255,0.75);}
+.result-profile-pill strong{color:var(--bright-gold);}
+
+/* Assessment card — white with gold header bar */
+.result-assessment-card{background:#fff;border:1px solid var(--warm-gray);border-radius:var(--radius);overflow:hidden;margin-bottom:12px;box-shadow:0 2px 16px rgba(12,45,94,0.06);}
+.result-assessment-header{background:rgba(201,151,58,0.06);border-bottom:2px solid var(--gold);padding:12px 22px;display:flex;align-items:center;gap:10px;}
+.result-assessment-icon{font-size:16px;}
+.result-assessment-label{font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);}
+.result-assessment-body{padding:26px;font-size:15px;color:#333;line-height:1.88;}
+.result-assessment-body p{margin-bottom:15px;}
+.result-assessment-body p:last-child{margin-bottom:0;}
+
+/* Next steps card */
+.result-next-card{background:var(--white);border:1px solid var(--warm-gray);border-radius:var(--radius);padding:22px 24px;margin-bottom:12px;}
+.result-next-title{font-size:11px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--navy);margin-bottom:14px;display:flex;align-items:center;gap:8px;}
+.result-next-title::before{content:'';display:block;width:18px;height:2px;background:var(--gold);}
+.result-next-steps{display:flex;flex-direction:column;gap:8px;}
+.result-next-step{display:flex;align-items:flex-start;gap:12px;padding:11px 14px;background:#fff;border:1px solid var(--warm-gray);border-radius:8px;transition:border-color 0.2s;}
+.result-next-step:hover{border-color:rgba(201,151,58,0.3);}
+.result-step-num{width:22px;height:22px;border-radius:50%;background:var(--navy);color:var(--gold);font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;}
+.result-step-body strong{display:block;font-size:13px;color:var(--navy);margin-bottom:2px;}
+.result-step-body span{font-size:12px;color:#888;}
+
+/* CTA card */
+.result-cta{background:var(--navy);border-radius:var(--radius);padding:28px 32px;margin-bottom:12px;position:relative;overflow:hidden;}
 .result-cta::before{content:'';position:absolute;top:-60px;right:-60px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(201,151,58,0.12) 0%,transparent 70%);}
 .result-cta-inner{position:relative;z-index:2;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;}
-.cta-copy strong{display:block;font-family:var(--font-head);font-size:20px;color:#fff;margin-bottom:6px;}
+.cta-copy strong{display:block;font-family:var(--font-head);font-size:20px;color:#fff;margin-bottom:5px;}
 .cta-copy span{font-size:13px;color:rgba(255,255,255,0.6);}
-.result-secondary{text-align:center;margin-bottom:20px;}
+.result-instant{display:flex;align-items:center;gap:6px;font-size:11px;color:rgba(255,255,255,0.4);margin-top:10px;}
+.result-instant::before{content:'⚡';}
+
+.result-secondary{text-align:center;margin-bottom:16px;}
 .result-secondary a{font-size:13px;font-weight:600;color:var(--gold);text-decoration:underline;text-underline-offset:3px;}
-.result-disclaimer{padding:14px 18px;background:rgba(0,0,0,0.03);border-left:3px solid var(--warm-gray);border-radius:0 6px 6px 0;font-size:12px;color:#999;line-height:1.65;margin-bottom:24px;}
+.result-disclaimer{padding:13px 16px;background:rgba(0,0,0,0.03);border-left:3px solid var(--warm-gray);border-radius:0 6px 6px 0;font-size:11px;color:#aaa;line-height:1.65;margin-bottom:20px;}
 .result-error{text-align:center;padding:32px 20px;background:rgba(220,60,60,0.04);border:1px solid rgba(220,60,60,0.15);border-radius:var(--radius);}
 .result-error h3{color:var(--navy);margin-bottom:10px;}
 .result-error p{font-size:15px;color:#666;margin-bottom:20px;}
@@ -172,6 +203,8 @@ h1,h2,h3,h4{font-family:var(--font-head);font-weight:700;color:var(--navy);line-
   .opt-grid{grid-template-columns:1fr;}
   .form-row{grid-template-columns:1fr;}
   .result-cta-inner{flex-direction:column;text-align:center;}
+  .result-header-card{padding:20px;}
+  .result-assessment-body{padding:20px;}
   .step-nav{flex-direction:column-reverse;}
   .btn-next,.btn-full{width:100%;}
   .trust-strip{flex-direction:column;gap:10px;}
@@ -491,30 +524,81 @@ async function callAPI(firstName, email) {
 function showResult(name, text) {
   const paras = text.split(/\n\n+/).filter(p=>p.trim()).map(p=>`<p>${p.trim()}</p>`).join('');
   const pMap = {educator:'Educator',responder:'First Responder',healthcare:'Healthcare Worker',military:'Military / Veteran',other:'Other'};
+  const pIcon = {educator:'🎓',responder:'🚒',healthcare:'🏥',military:'🎖️',other:'👤'};
   const cMap = {'660plus':'Credit 660+','620to659':'Credit 620–659','600to619':'Credit 600–619','under600':'Credit Under 600','unsure':'Credit Unknown'};
   const iMap = {'under126':'Under $126K','126to174':'$126–$174K','174to210':'$174–$210K','over210':'Over $210K','unsure':'Unknown'};
-  const tMap = {'asap':'Ready Now','3to6':'3–6 Months','research':'Researching'};
+  const tMap = {'asap':'Ready Now 🚀','3to6':'3–6 Months 📅','research':'Researching 🔍'};
 
   document.getElementById('resultContent').innerHTML = `
+
     <span class="result-badge">✦ Your Personalized Assessment</span>
-    <div class="result-tags">
-      Based on:
-      <span class="rtag">${pMap[A.q1]||A.q1}</span>
-      <span class="rtag">${cMap[A.q2]||A.q2}</span>
-      <span class="rtag">Income ${iMap[A.q3]||A.q3}</span>
-      <span class="rtag">${tMap[A.q4]||A.q4}</span>
+
+    <!-- Card 1: Identity header -->
+    <div class="result-header-card">
+      <div class="result-header-inner">
+        <div class="result-hero-label">Assessment prepared for</div>
+        <div class="result-hero-name">${name}</div>
+        <div class="result-hero-sub">Colorado Hero Homebuyer · Hero HomeReach™</div>
+        <div class="result-profile">
+          <div class="result-profile-pill">${pIcon[A.q1]||''} <strong>${pMap[A.q1]||A.q1}</strong></div>
+          <div class="result-profile-pill">📊 <strong>${cMap[A.q2]||A.q2}</strong></div>
+          <div class="result-profile-pill">💰 <strong>${iMap[A.q3]||A.q3}</strong></div>
+          <div class="result-profile-pill">${tMap[A.q4]||A.q4}</div>
+        </div>
+      </div>
     </div>
-    <div class="result-text">${paras}</div>
+
+    <!-- Card 2: AI assessment text -->
+    <div class="result-assessment-card">
+      <div class="result-assessment-header">
+        <span class="result-assessment-icon">🛡️</span>
+        <span class="result-assessment-label">Your Program Assessment</span>
+      </div>
+      <div class="result-assessment-body">${paras}</div>
+    </div>
+
+    <!-- Card 3: What to do next -->
+    <div class="result-next-card">
+      <div class="result-next-title">Recommended Next Steps</div>
+      <div class="result-next-steps">
+        <div class="result-next-step">
+          <div class="result-step-num">1</div>
+          <div class="result-step-body">
+            <strong>Book your free 30-minute consultation</strong>
+            <span>We'll map every program you qualify for — specific to your location and situation.</span>
+          </div>
+        </div>
+        <div class="result-next-step">
+          <div class="result-step-num">2</div>
+          <div class="result-step-body">
+            <strong>Review available Colorado programs</strong>
+            <span>See full details on MetroDPA, CHFA, Chenoa Fund, Teacher Next Door, and more.</span>
+          </div>
+        </div>
+        <div class="result-next-step">
+          <div class="result-step-num">3</div>
+          <div class="result-step-body">
+            <strong>Get connected with a CHFA-approved lender</strong>
+            <span>No pressure — we make referrals only when you're ready and only on your terms.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 4: CTA -->
     <div class="result-cta">
       <div class="result-cta-inner">
         <div class="cta-copy">
-          <strong>Ready to Take the Next Step?</strong>
-          <span>Your results are yours to keep — no email needed. When you're ready, book a free 30-minute call.</span>
+          <strong>Book Your Free 30-Minute Call</strong>
+          <span>No pressure · No obligation · Colorado-specific guidance</span>
+          <div class="result-instant">Results appeared instantly — no email to wait for</div>
         </div>
         <a href="contact.html" class="btn btn-gold btn-arrow">Book My Free Call</a>
       </div>
     </div>
+
     <div class="result-secondary"><a href="programs.html">Explore all Colorado hero programs →</a></div>
+
     <div class="result-disclaimer"><strong>Important:</strong> This assessment is an educational estimate only — it is not a lending decision, prequalification, or guarantee of program funding. Final eligibility depends on lender review, current program guidelines, property details, income verification, and available funding. A licensed mortgage professional must confirm all program eligibility. Hero HomeReach™ is a homeownership education and guidance service, not a lender or broker.</div>
   `;
 
