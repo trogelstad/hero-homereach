@@ -210,6 +210,9 @@ h1,h2,h3,h4{font-family:var(--font-head);font-weight:700;color:var(--navy);line-
   .trust-strip{flex-direction:column;gap:10px;}
 }
 </style>
+<!-- Calendly popup widget -->
+<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+<script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
 </head>
 <body>
   <!-- Google Tag Manager (noscript) -->
@@ -593,7 +596,7 @@ function showResult(name, text) {
           <span>No pressure · No obligation · Colorado-specific guidance</span>
           <div class="result-instant">Results appeared instantly — no email to wait for</div>
         </div>
-        <a href="https://calendly.com/trogelstad-herohomereach/30min" target="_blank" class="btn btn-gold btn-arrow">Book My Free Call</a>
+        <a href="" onclick="Calendly.initPopupWidget({url:'https://calendly.com/trogelstad-herohomereach/30min'});return false;" class="btn btn-gold btn-arrow">Book My Free Call</a>
       </div>
     </div>
 
