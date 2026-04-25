@@ -113,6 +113,14 @@ p:last-child { margin-bottom: 0; }
   padding: calc(var(--nav-h) + 64px) 0 72px;
   position: relative; overflow: hidden;
 }
+  @media (max-width: 600px) {
+  #page-hero {
+    background-position: 40% center;
+  }
+  #page-hero::before {
+    background: rgba(12,45,94,0.85);
+  }
+}
 #page-hero::before {
   content: '';
   position: absolute; inset: 0;
