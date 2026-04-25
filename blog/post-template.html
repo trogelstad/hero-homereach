@@ -1,1 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
 
+  <meta charset="UTF-8">
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-5ZQKN4LM');</script>
+  <!-- End Google Tag Manager -->
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!--
+  ════════════════════════════════════════════════════
+  POST CHECKLIST — update every field before publishing
+  ════════════════════════════════════════════════════
+  1. <title>          — Post title + Hero HomeReach™
+  2. meta description — 150 chars max, natural sentence
+  3. og:title         — Same as <title>
+  4. og:description   — Same as meta description
+  5. og:url           — Full URL of this post
+  6. og:image         — 1200x630 social share image
+  7. Post title h1    — Matches <title>
+  8. Post meta        — Tag, audience, date, read time
+  9. TOC anchors      — Match every h2 id in the body
+  10. Related posts   — Update 3 links at bottom of sidebar
+  11. Breadcrumb      — Update post title in breadcrumb
+  12. Post body       — Replace all [PLACEHOLDER] content
+  ════════════════════════════════════════════════════
+  -->
+
+  <title>[POST TITLE] — Hero HomeReach™</title>
+  <meta name="description" content="[150-character description of this post. Write as a natural sentence that earns the click from search results.]">
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/png" href="../favicon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../favicon-180x180.png">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="[POST TITLE] — Hero HomeReach™">
+  <meta property="og:description" content="[Same as meta description above]">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://herohomereach.com/blog/[post-slug].html">
+  <meta property="og:image" content="https://herohomereach.com/blog/images/[post-slug]-social.jpg">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Shared + Blog styles -->
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/blog.css">
+
+<style>
+/* ── Post page hero — narrower than homepage, text-only ── */
+.post-hero {
+  background: var(--navy);
+  padding: calc(var(--nav-h) + 56px) 0 64px;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 4px solid var(--gold);
+}
+.post-hero::before {
+  content: '';
+  position: absolute;
+  top: -80px; right: -80px;
+  width: 500px; height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(201,151,58,0.07) 0%, transparent 70%);
+}
+.post-hero-inner {
+  position: relative; z-index: 2;
+  max-width: 780px;
+}
+.post-hero-inner h1 {
+  color: #fff;
+  font-size: clamp(28px, 4vw, 46px);
+  line-height: 1.15;
+  margin-bottom: 20px;
+}
+.post-hero-meta {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+.post-hero-tag {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold);
+  background: rgba(201,151,58,0.15);
+  padding: 4px 12px;
+  border-radius: 20px;
+}
+.post-hero-audience {
+  font-size: 11px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.8);
+  background: rgba(255,255,255,0.1);
+  padding: 4px 12px;
+  border-radius: 20px;
+}
+.post-hero-date {
+  font-size: 13px;
+  color: rgba(255,255,255,0.45);
+}
+.post-hero-read-time {
+  font-size: 13px;
+  color: rgba(255,255,255,0.45);
+}
+.post-hero-dot {
+  width: 3px; height: 3px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.3);
+  flex-shrink: 0;
+}
+
+/* ── Breadcrumb ── */
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 20px;
+  font-size: 13px;
+}
+.breadcrumb a {
+  color: rgba(255,255,255,0.5);
+  transition: color 0.2s;
+}
+.breadcrumb a:hover { color: var(--gold); }
+.breadcrumb-sep { color: rgba(255,255,255,0.25); }
+.breadcrumb-current { color: rgba(255,255,255,0.4); }
+</style>
+</head>
+<body>
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5ZQKN4LM"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+
+<!-- ════════════ NAVIGATION ════════════ -->
+<nav id="nav" class="nav-solid">
+  <div class="nav-inner">
+    <a href="../" class="nav-logo">
+      <img src="../logo-mark_transparent.png" alt="Hero HomeReach Shield" style="width:50px;height:50px;object-fit:contain;">
+      <div>
+        <div class="nav-wordmark">Hero <span>HomeReach</span><sup class="nav-tm">™</sup></div>
+      </div>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="../programs.html">Programs</a></li>
+      <li><a href="../who-we-serve.html">Who We Serve</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../blog/" class="active">Resources &amp; Blog</a></li>
+      <li><a href="https://guide.herohomereach.com" target="_blank" style="color:var(--bright-gold);font-weight:700;">Free Guide</a></li>
+    </ul>
+
+    <div class="nav-cta">
+      <a href="../contact.html" class="btn btn-gold btn-arrow">Book Free Consultation</a>
+    </div>
+
+    <div class="nav-hamburger" id="hamburger" onclick="toggleMobileNav()">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile Nav -->
+<div id="mobile-nav">
+  <a href="../programs.html" onclick="toggleMobileNav()">Programs</a>
+  <a href="../who-we-serve.html" onclick="toggleMobileNav()">Who We Serve</a>
+  <a href="../about.html" onclick="toggleMobileNav()">About</a>
+  <a href="../blog/" onclick="toggleMobileNav()">Resources &amp; Blog</a>
+  <a href="https://guide.herohomereach.com" target="_blank" onclick="toggleMobileNav()" style="color:var(--bright-gold);">Free Guide</a>
+  <a href="../contact.html" class="btn btn-gold" style="margin-top:16px;font-size:16px;">Book Free Consultation</a>
+</div>
+
+
+<!-- ════════════ POST HERO ════════════ -->
+<div class="post-hero">
+  <div class="container">
+    <div class="post-hero-inner">
+
+      <!-- Breadcrumb -->
+      <div class="breadcrumb">
+        <a href="../">Home</a>
+        <span class="breadcrumb-sep">›</span>
+        <a href="../blog/">Resources &amp; Blog</a>
+        <span class="breadcrumb-sep">›</span>
+        <span class="breadcrumb-current">[POST TITLE — shortened if long]</span>
+      </div>
+
+      <!-- Post headline -->
+      <h1>[POST TITLE — match exactly to &lt;title&gt; tag above]</h1>
+
+      <!-- Post meta row -->
+      <div class="post-hero-meta">
+        <span class="post-hero-tag">[Tag: Case Study / Program Guide / Explainer / Audience Guide]</span>
+        <span class="post-hero-audience">[Audience: Educators / First Responders / Healthcare / Military / All Heroes]</span>
+        <span class="post-hero-dot"></span>
+        <span class="post-hero-date">[Month YYYY]</span>
+        <span class="post-hero-dot"></span>
+        <span class="post-hero-read-time">[X] min read</span>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<!-- ════════════ POST BODY ════════════ -->
+<section class="section">
+  <div class="container">
+    <div class="post-layout">
+
+      <!-- ── LEFT: Article ── -->
+      <article class="post-article">
+
+        <div class="post-body">
+
+          <!--
+          ════════════════════════════════
+          WRITING GUIDE FOR EVERY POST
+          ════════════════════════════════
+          Brand voice: trusted authority. Warm, clear, mission-driven.
+          Never corporate, never salesy, never jargon-heavy.
+          Write like you're explaining to a smart friend who is new to homebuying.
+
+          Structure every post like this:
+          1. Hook paragraph — a real story or specific scenario (3-5 sentences)
+          2. What this post covers — one sentence transition
+          3. H2 sections — 3 to 6 sections, each with a clear takeaway
+          4. Post callout box — the most important insight, pulled out
+          5. Closing paragraph — what to do next, soft bridge to consultation
+          6. No dashes — use commas instead throughout
+
+          SEO notes:
+          - Put primary keyword in first 100 words naturally
+          - Use h2 and h3 tags with secondary keywords
+          - Every h2 needs an id for the TOC (e.g. id="what-is-dpa")
+          - Aim for 1,200 to 2,000 words per post
+          - Internal link to at least one other blog post and one main page
+          ════════════════════════════════
+          -->
+
+          <!-- HOOK — Replace this paragraph -->
+          <p>[Opening hook paragraph. Start with a real person or scenario, not a question. Example: "A Denver third-grade teacher named Sarah had saved $8,000 toward a home. She thought it wasn't enough. It was more than enough, because she had no idea four separate programs were waiting for her." Make it specific and relatable to the target audience.]</p>
+
+          <p>[Transition sentence. Tell the reader exactly what this post will teach them and why it matters.]</p>
+
+          <!-- ── SECTION 1 ── -->
+          <h2 id="section-1">[First H2 — What is / Who qualifies / The problem]</h2>
+
+          <p>[2 to 3 paragraphs explaining the first concept. Keep sentences short. Use plain language. No jargon without immediate explanation.]</p>
+
+          <p>[Continue section 1 content here.]</p>
+
+          <!-- ── SECTION 2 ── -->
+          <h2 id="section-2">[Second H2 — How it works / The programs / The detail]</h2>
+
+          <p>[Section 2 content. This is usually the meat of the post, specific program names, dollar amounts, eligibility rules.]</p>
+
+          <p>[Use a bullet list here if listing multiple programs or requirements.]</p>
+
+          <ul>
+            <li>[Program or requirement one]</li>
+            <li>[Program or requirement two]</li>
+            <li>[Program or requirement three]</li>
+            <li>[Add or remove items as needed]</li>
+          </ul>
+
+          <!-- Pull quote — use for the single most important insight -->
+          <blockquote>
+            <p>[The single most powerful or surprising insight from this post. Written as a complete, punchy sentence. Example: "Most Colorado heroes qualify for at least two programs, and almost none of them know it."]</p>
+          </blockquote>
+
+          <!-- ── SECTION 3 ── -->
+          <h2 id="section-3">[Third H2 — The stack / What to watch out for / Real example]</h2>
+
+          <p>[Section 3 content.]</p>
+
+          <p>[If this section uses a real example or case study, make it specific. Name a profession, a city, a dollar amount. Specificity builds trust.]</p>
+
+          <!-- Callout box — use for warnings, key facts, or action steps -->
+          <div class="post-callout">
+            <p><strong>[Callout headline, e.g. "Important:" or "Program note:" or "Quick tip:"]</strong> [One to three sentences with a critical piece of information the reader should not miss. Could be an income limit, a deadline, an eligibility nuance, or a key action step.]</p>
+          </div>
+
+          <!-- ── SECTION 4 (optional — delete if not needed) ── -->
+          <h2 id="section-4">[Fourth H2 — How to apply / Next steps / Common mistakes]</h2>
+
+          <p>[Section 4 content. If this is a "how to apply" section, walk through the steps in plain English. Numbered lists work well here.]</p>
+
+          <ol>
+            <li>[Step one]</li>
+            <li>[Step two]</li>
+            <li>[Step three]</li>
+          </ol>
+
+          <!-- ── SECTION 5 (optional — delete if not needed) ── -->
+          <h2 id="section-5">[Fifth H2 — FAQs / Myths / Summary]</h2>
+
+          <p>[Section 5 content.]</p>
+
+          <!-- ── CLOSING ── -->
+          <h2 id="next-steps">Your Next Step</h2>
+
+          <p>[Closing paragraph. Summarize the key takeaway in one sentence. Then bridge naturally to the free consultation without making it feel like a pitch. Example: "The only way to know exactly which programs apply to your situation is to look at your specific income, profession, and target purchase price together. That's exactly what the free Hero HomeReach consultation is designed to do."]</p>
+
+          <p>[Optional second closing paragraph. Reinforce the no-pressure, no-obligation message. End with confidence, not a plea.]</p>
+
+        </div>
+        <!-- /post-body -->
+
+
+        <!-- ── AUTHOR BOX ── -->
+        <div class="post-author-box">
+          <div class="post-author-avatar">T</div>
+          <div>
+            <div class="post-author-name">Trent Rogelstad</div>
+            <div class="post-author-title">Founder, Hero HomeReach™ · Colorado Down Payment Assistance Specialist</div>
+            <p class="post-author-bio">Trent helps Colorado educators, first responders, healthcare workers, and military members find and stack every homebuyer program they've earned. Free guidance, zero pressure, zero jargon.</p>
+          </div>
+        </div>
+
+
+        <!-- ── CTA STRIP ── -->
+        <div class="post-cta-strip">
+          <div>
+            <h3>Find Out What You Qualify For</h3>
+            <p>Every hero's situation is different. Book a free 30-minute call and we'll walk through exactly which Colorado programs apply to you.</p>
+          </div>
+          <a href="../contact.html" class="btn btn-gold btn-arrow">Book My Free Consultation</a>
+        </div>
+
+      </article>
+      <!-- /post-article -->
+
+
+      <!-- ── RIGHT: Sidebar ── -->
+      <aside class="post-sidebar">
+
+        <!-- CTA Card -->
+        <div class="sidebar-card">
+          <div class="sidebar-card-title">Free Consultation</div>
+          <p>Not sure which programs apply to you? Book a free 30-minute call. We'll walk through your specific situation, no obligation, no pressure.</p>
+          <a href="../contact.html" class="btn btn-gold btn-arrow">Book My Free Call</a>
+        </div>
+
+        <!-- Table of Contents -->
+        <div class="sidebar-card">
+          <div class="sidebar-card-title">In This Guide</div>
+          <ul class="toc-list">
+            <!--
+            Match every anchor here to the id="" on each h2 in the post body.
+            Delete rows that don't have a matching h2.
+            Always keep "Your Next Step" as the last item.
+            -->
+            <li><a href="#section-1">[Section 1 title — short]</a></li>
+            <li><a href="#section-2">[Section 2 title — short]</a></li>
+            <li><a href="#section-3">[Section 3 title — short]</a></li>
+            <li><a href="#section-4">[Section 4 title — short]</a></li>
+            <li><a href="#section-5">[Section 5 title — short]</a></li>
+            <li><a href="#next-steps">Your Next Step</a></li>
+          </ul>
+        </div>
+
+        <!-- Related Posts -->
+        <div class="sidebar-card">
+          <div class="sidebar-card-title">Related Guides</div>
+
+          <div class="related-post-item">
+            <div class="related-post-thumb"></div>
+            <div>
+              <a href="[related-post-1.html]" class="related-post-title">[Related post title 1]</a>
+              <div class="related-post-date">[Month YYYY]</div>
+            </div>
+          </div>
+
+          <div class="related-post-item">
+            <div class="related-post-thumb"></div>
+            <div>
+              <a href="[related-post-2.html]" class="related-post-title">[Related post title 2]</a>
+              <div class="related-post-date">[Month YYYY]</div>
+            </div>
+          </div>
+
+          <div class="related-post-item">
+            <div class="related-post-thumb"></div>
+            <div>
+              <a href="[related-post-3.html]" class="related-post-title">[Related post title 3]</a>
+              <div class="related-post-date">[Month YYYY]</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Free Guide CTA -->
+        <div class="sidebar-card" style="background:var(--navy);border-color:rgba(201,151,58,0.3);">
+          <div class="sidebar-card-title" style="color:var(--gold);border-bottom-color:rgba(201,151,58,0.3);">Free Hero Homebuyer Guide</div>
+          <p style="color:rgba(255,255,255,0.7);">Get the complete breakdown of every Colorado program available to heroes. Free download, no strings attached.</p>
+          <a href="https://guide.herohomereach.com" target="_blank" class="btn btn-gold btn-arrow">Get the Free Guide</a>
+        </div>
+
+      </aside>
+      <!-- /post-sidebar -->
+
+    </div>
+    <!-- /post-layout -->
+  </div>
+</section>
+
+
+<!-- ════════════ FOOTER ════════════ -->
+<footer id="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="wordmark">Hero <span>HomeReach</span>™</div>
+        <p>Free homeownership guidance for Colorado's educators, first responders, healthcare workers and military members. No jargon. No pressure. Built for heroes.</p>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Site</div>
+        <a href="../programs.html">Programs</a>
+        <a href="../who-we-serve.html">Who We Serve</a>
+        <a href="../about.html">About</a>
+        <a href="../blog/">Resources &amp; Blog</a>
+        <a href="../contact.html">Contact</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Heroes</div>
+        <a href="../who-we-serve.html#educators">Educators</a>
+        <a href="../who-we-serve.html#first-responders">First Responders</a>
+        <a href="../who-we-serve.html#healthcare">Healthcare Workers</a>
+        <a href="../who-we-serve.html#military">Military Members</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Start Here</div>
+        <a href="../contact.html">Book Free Consultation</a>
+        <a href="../programs.html">Explore Programs</a>
+        <a href="../blog/">Resources &amp; Blog</a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2026 Hero HomeReach™. All rights reserved. Colorado Homeownership Guidance.</div>
+      <div class="footer-legal">
+        <a href="../privacy.html">Privacy Policy</a>
+        <a href="../terms.html">Terms of Use</a>
+        <a href="../disclaimer.html">Disclaimer</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+<script>
+// ── NAV SCROLL ──
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 40);
+}, { passive: true });
+
+// ── MOBILE NAV ──
+function toggleMobileNav() {
+  document.getElementById('mobile-nav').classList.toggle('open');
+}
+
+// ── SCROLL ANIMATIONS ──
+const fadeEls = document.querySelectorAll('.fade-up');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12 });
+fadeEls.forEach(el => observer.observe(el));
+
+// ── SMOOTH SCROLL for TOC links ──
+document.querySelectorAll('.toc-list a').forEach(link => {
+  link.addEventListener('click', e => {
+    e.preventDefault();
+    const target = document.querySelector(link.getAttribute('href'));
+    if (target) {
+      const offset = target.getBoundingClientRect().top + window.scrollY - 100;
+      window.scrollTo({ top: offset, behavior: 'smooth' });
+    }
+  });
+});
+</script>
+
+</body>
+</html>
