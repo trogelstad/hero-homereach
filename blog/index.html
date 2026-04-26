@@ -44,6 +44,14 @@
   margin-top: 32px;
   flex-wrap: wrap;
 }
+  @media (max-width: 600px) {
+  .blog-hero-stats {
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+  .blog-hero-stat-divider { display: none; }
+}
 .blog-hero-stat-item {
   text-align: center;
 }
