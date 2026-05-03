@@ -70,14 +70,10 @@
   font-size: 11px; font-weight: 700; letter-spacing: 0.2em;
   text-transform: uppercase; color: var(--gold); margin-bottom: 5px;
 }
-.page-eyebrow
 .page-hero-inner h1      { color: #fff; font-size: clamp(32px, 4vw, 50px); margin-bottom: 8px; }
 .page-hero-inner h1 span { color: var(--gold); font-style: italic; }
 .page-hero-inner p       { color: rgba(255,255,255,0.7); font-size: 18px; max-width: 560px; margin: 0 auto; }
 
-/* ════════════════════════════════
-   REASSURANCE STRIP
-════════════════════════════════ */
 #reassurance {
   background: #fff;
   border-top: 4px solid var(--gold);
@@ -94,9 +90,6 @@
 }
 .reassurance-item::before { content: '✓'; color: var(--green); font-weight: 800; font-size: 16px; }
 
-/* ════════════════════════════════
-   MAIN CONTENT GRID
-════════════════════════════════ */
 #contact-main { padding: 72px 0 96px; background: var(--white); }
 .contact-grid {
   display: grid;
@@ -104,7 +97,6 @@
   gap: 56px; align-items: start;
 }
 
-/* ── Left: Calendly ── */
 .section-label {
   font-size: 11px; font-weight: 700; letter-spacing: 0.2em;
   text-transform: uppercase; color: var(--gold); margin-bottom: 12px;
@@ -138,13 +130,9 @@
   min-height: 660px;
 }
 
-/* ── Right: Form area ── */
 .form-wrap h2   { font-size: 28px; margin-bottom: 10px; }
 .form-wrap > p  { font-size: 15px; color: #666; margin-bottom: 28px; }
 
-/* ════════════════════════════════
-   FAQ STRIP
-════════════════════════════════ */
 #contact-faq { background: #fff; padding: 72px 0; border-top: 1px solid var(--warm-gray); }
 .faq-grid {
   display: grid; grid-template-columns: repeat(3, 1fr);
@@ -159,9 +147,6 @@
 .faq-q { font-weight: 700; font-size: 15px; color: var(--navy); margin-bottom: 10px; }
 .faq-a { font-size: 14px; color: #666; line-height: 1.65; }
 
-/* ════════════════════════════════
-   RESPONSIVE — contact.html only
-════════════════════════════════ */
 @media (max-width: 900px) {
   .contact-grid { grid-template-columns: 1fr; gap: 48px; }
   .faq-grid     { grid-template-columns: 1fr; }
