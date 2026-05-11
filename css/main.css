@@ -1,7 +1,7 @@
 /* ============================================================
    HERO HOMEREACH — main.css
    Shared across all pages. Link this in every HTML <head>.
-   Last updated: 2026-04-25
+   Last updated: 2026-05-11
    ============================================================ */
 
 /* ── VARIABLES ── */
@@ -177,6 +177,7 @@ h3 { font-size: clamp(20px, 2.5vw, 26px); }
   display: flex;
   align-items: center;
   gap: 12px;
+  flex-shrink: 0;
 }
 .nav-logo-mark {
   width: 42px; height: 42px;
@@ -188,6 +189,7 @@ h3 { font-size: clamp(20px, 2.5vw, 26px); }
   font-weight: 700;
   color: #fff;
   line-height: 1;
+  white-space: nowrap;
 }
 .nav-wordmark span  { color: var(--gold); }
 .nav-tm {
@@ -198,7 +200,8 @@ h3 { font-size: clamp(20px, 2.5vw, 26px); }
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 36px;
+  gap: 24px;           /* reduced from 36px to fit 6 items cleanly */
+  flex-wrap: nowrap;   /* never allow items to wrap to a second line */
 }
 .nav-links a {
   font-size: 14px;
@@ -206,6 +209,7 @@ h3 { font-size: clamp(20px, 2.5vw, 26px); }
   color: rgba(255,255,255,0.8);
   transition: var(--transition);
   position: relative;
+  white-space: nowrap; /* keeps each link on one line at all times */
 }
 .nav-links a::after {
   content: '';
@@ -221,7 +225,7 @@ h3 { font-size: clamp(20px, 2.5vw, 26px); }
 .nav-links a.active          { color: #fff; }
 .nav-links a.active::after   { transform: scaleX(1); }
 
-.nav-cta          { margin-left: 16px; }
+.nav-cta          { margin-left: 16px; flex-shrink: 0; }
 .nav-cta .btn     { padding: 11px 22px; font-size: 14px; }
 
 /* Hamburger */
@@ -265,7 +269,9 @@ h3 { font-size: clamp(20px, 2.5vw, 26px); }
 }
 #mobile-nav a:hover { color: var(--gold); }
 
-@media (max-width: 900px) {
+/* Bumped from 900px to 1060px — six nav items need more room
+   before collapsing to hamburger                             */
+@media (max-width: 1060px) {
   .nav-links, .nav-cta { display: none; }
   .nav-hamburger        { display: flex; }
 }
