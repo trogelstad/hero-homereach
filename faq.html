@@ -1,45 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-5ZQKN4LM');</script>
+  <!-- End Google Tag Manager -->
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Colorado Hero Homebuyer FAQ — Down Payment Assistance Questions Answered | Hero HomeReach</title>
-  <meta name="description" content="Answers to every question Colorado teachers, nurses, firefighters, veterans & EMTs have about down payment assistance grants, CHFA, MetroDPA, Chenoa Fund & more.">
-  <link rel="canonical" href="https://herohomereach.com/colorado-hero-homebuyer-faq">
-  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <meta name="description" content="Answers to every question Colorado teachers, nurses, firefighters, veterans and EMTs have about down payment assistance grants, CHFA, MetroDPA, Chenoa Fund, and more.">
+  <link rel="canonical" href="https://www.herohomereach.com/faq.html">
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="favicon-192x192.png">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Colorado Hero Homebuyer FAQ — Down Payment Assistance Questions Answered | Hero HomeReach">
+  <meta property="og:description" content="Answers to every question Colorado teachers, nurses, firefighters, veterans and EMTs have about down payment assistance grants, CHFA, MetroDPA, Chenoa Fund, and more.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.herohomereach.com/faq.html">
+
+  <!-- Google Fonts: Playfair Display + Inter for nav, plus FAQ fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@300;400;500;600;700&family=Oswald:wght@400;500;600;700&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
   <style>
+    /* ── SITE-WIDE NAV VARIABLES (must match main.css exactly) ── */
     :root {
-      --navy:        #0B1E3D;
-      --navy-mid:    #152b54;
-      --navy-light:  #1e3a6e;
-      --gold:        #C9A84C;
-      --gold-bright: #F0C040;
-      --gold-dim:    #7a6530;
-      --red:         #B42031;
-      --cream:       #F5EFE0;
-      --gray:        #8A9AB5;
-      --gray-light:  #C5D0E0;
-      --white:       #FFFFFF;
-      --dark:        #060F1E;
-      --card-bg:     #0f2443;
-      --card-border: #1e3d6b;
-      --success:     #4CAF50;
+      --navy:        #0C2D5E;
+      --mid-navy:    #1A4A8A;
+      --gold:        #C9973A;
+      --bright-gold: #EAB84A;
+      --green:       #1A6B4A;
+      --warm-gray:   #D3D1C7;
+      --font-head:   'Playfair Display', Georgia, serif;
+      --font-body:   'Inter', system-ui, sans-serif;
+      --max-w:       1140px;
+      --nav-h:       82px;
+      --radius:      10px;
+      --transition:  all 0.24s ease;
+
+      /* FAQ dark theme variables — scoped names to avoid nav conflicts */
+      --faq-bg:        #060F1E;
+      --faq-navy:      #0B1E3D;
+      --faq-navy-mid:  #152b54;
+      --faq-navy-lt:   #1e3a6e;
+      --faq-gold:      #C9A84C;
+      --faq-gold-br:   #F0C040;
+      --faq-gold-dim:  #7a6530;
+      --faq-cream:     #F5EFE0;
+      --faq-gray:      #8A9AB5;
+      --faq-gray-lt:   #C5D0E0;
+      --faq-card-bg:   #0f2443;
+      --faq-card-bd:   #1e3d6b;
+      --faq-success:   #4CAF50;
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     html { scroll-behavior: smooth; }
 
     body {
-      background: var(--dark);
-      color: var(--cream);
+      background: var(--faq-bg);
+      color: var(--faq-cream);
       font-family: 'Source Serif 4', Georgia, serif;
       line-height: 1.7;
       min-height: 100vh;
     }
 
-    /* ── AMBIENT BG ── */
+    /* ── AMBIENT BACKGROUND ── */
     body::before {
       content: '';
       position: fixed; inset: 0; z-index: 0;
@@ -50,67 +85,174 @@
       pointer-events: none;
     }
 
-    /* ── HEADER ── */
-    .site-header {
-      position: relative; z-index: 10;
-      background: linear-gradient(135deg, var(--navy) 0%, #0a1a35 60%, var(--navy-mid) 100%);
-      border-bottom: 3px solid var(--gold);
-      padding: 1.25rem 2rem;
+    /* ════════════════════════════════
+       NAVIGATION (matches main.css)
+    ════════════════════════════════ */
+    #nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 999;
+      height: var(--nav-h);
+      display: flex;
+      align-items: center;
+      background: rgba(12, 45, 94, 0.97);
+      border-bottom: 1px solid rgba(201,151,58,0.2);
+      transition: var(--transition);
+    }
+    #nav.scrolled {
+      backdrop-filter: blur(12px);
+      box-shadow: 0 2px 24px rgba(0,0,0,0.2);
+    }
+    .nav-inner {
+      width: 100%;
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 32px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 1rem;
-      flex-wrap: wrap;
     }
-
-    .logo-link {
-      text-decoration: none;
+    .nav-logo {
       display: flex;
-      flex-direction: column;
-      gap: 0.1rem;
+      align-items: center;
+      gap: 12px;
+      flex-shrink: 0;
+      text-decoration: none;
     }
-
-    .logo-name {
-      font-family: 'Oswald', sans-serif;
-      font-size: 1.4rem;
+    .nav-wordmark {
+      font-family: var(--font-head);
+      font-size: 22px;
       font-weight: 700;
-      color: var(--gold-bright);
-      letter-spacing: 0.03em;
+      color: #fff;
       line-height: 1;
+      white-space: nowrap;
     }
-
-    .logo-tag {
-      font-size: 0.65rem;
-      color: var(--gray);
-      letter-spacing: 0.08em;
-      font-family: 'Oswald', sans-serif;
-      text-transform: uppercase;
+    .nav-wordmark span { color: var(--gold); }
+    .nav-tm {
+      font-size: 12px;
+      vertical-align: super;
+      color: var(--gold);
     }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: nowrap;
+      list-style: none;
+    }
+    .nav-links a {
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.8);
+      text-decoration: none;
+      transition: var(--transition);
+      position: relative;
+      white-space: nowrap;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px; left: 0; right: 0;
+      height: 2px;
+      background: var(--gold);
+      transform: scaleX(0);
+      transition: transform 0.2s ease;
+    }
+    .nav-links a:hover            { color: #fff; }
+    .nav-links a:hover::after     { transform: scaleX(1); }
+    .nav-links a.active           { color: #fff; }
+    .nav-links a.active::after    { transform: scaleX(1); }
 
-    .header-cta {
+    .nav-cta          { margin-left: 16px; flex-shrink: 0; }
+    .nav-cta .btn     { padding: 9px 14px; font-size: 13px; white-space: nowrap; }
+
+    .btn {
       display: inline-flex;
       align-items: center;
-      gap: 0.4rem;
-      background: var(--gold);
-      color: var(--dark);
-      font-family: 'Oswald', sans-serif;
-      font-size: 0.75rem;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
+      gap: 8px;
+      font-family: var(--font-body);
+      font-weight: 700;
+      font-size: 15px;
+      padding: 16px 32px;
+      border-radius: var(--radius);
+      transition: var(--transition);
+      letter-spacing: 0.01em;
       text-decoration: none;
-      padding: 0.55rem 1.2rem;
-      border-radius: 3px;
-      transition: background 0.2s, transform 0.15s;
+      white-space: nowrap;
     }
-    .header-cta:hover { background: var(--gold-bright); transform: translateY(-1px); }
+    .btn-gold {
+      background: var(--gold);
+      color: var(--navy);
+      box-shadow: 0 4px 20px rgba(201,151,58,0.35);
+    }
+    .btn-gold:hover {
+      background: var(--bright-gold);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 28px rgba(201,151,58,0.45);
+    }
+    .btn-arrow::after {
+      content: '→';
+      font-size: 18px;
+      transition: transform 0.2s;
+    }
+    .btn-arrow:hover::after { transform: translateX(4px); }
 
-    /* ── HERO ── */
+    /* Hamburger */
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      padding: 8px;
+      cursor: pointer;
+    }
+    .nav-hamburger span {
+      display: block;
+      width: 24px; height: 2px;
+      background: #fff;
+      border-radius: 2px;
+      transition: var(--transition);
+    }
+
+    /* Mobile full-screen nav */
+    #mobile-nav {
+      position: fixed;
+      inset: 0;
+      z-index: 998;
+      background: var(--navy);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 32px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s;
+    }
+    #mobile-nav.open { opacity: 1; pointer-events: all; }
+    #mobile-nav a {
+      font-family: var(--font-head);
+      font-size: 32px;
+      font-weight: 700;
+      color: #fff;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    #mobile-nav a:hover { color: var(--gold); }
+
+    @media (max-width: 1060px) {
+      .nav-links, .nav-cta { display: none; }
+      .nav-hamburger        { display: flex; }
+    }
+
+    /* ════════════════════════════════
+       PAGE HERO — offset for fixed nav
+    ════════════════════════════════ */
     .page-hero {
       position: relative; z-index: 5;
-      background: linear-gradient(180deg, var(--navy-mid) 0%, transparent 100%);
-      border-bottom: 1px solid var(--card-border);
-      padding: 3.5rem 2rem 2.5rem;
+      background: linear-gradient(180deg, var(--faq-navy-mid) 0%, transparent 100%);
+      border-bottom: 1px solid var(--faq-card-bd);
+      padding: calc(var(--nav-h) + 3.5rem) 2rem 2.5rem;
       text-align: center;
     }
 
@@ -123,7 +265,7 @@
       font-weight: 600;
       letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: var(--gold);
+      color: var(--faq-gold);
       background: rgba(201,168,76,0.1);
       border: 1px solid rgba(201,168,76,0.25);
       padding: 0.3rem 0.9rem;
@@ -135,33 +277,29 @@
       font-family: 'Oswald', sans-serif;
       font-size: clamp(1.8rem, 4vw, 2.8rem);
       font-weight: 700;
-      color: var(--white);
+      color: #fff;
       letter-spacing: 0.02em;
       line-height: 1.15;
       max-width: 750px;
       margin: 0 auto 1rem;
     }
-
-    .page-hero h1 span { color: var(--gold-bright); }
+    .page-hero h1 span { color: var(--faq-gold-br); }
 
     .page-hero .lead {
       font-size: 1rem;
-      color: var(--gray-light);
+      color: var(--faq-gray-lt);
       max-width: 620px;
       margin: 0 auto 1.75rem;
       font-style: italic;
       font-weight: 300;
     }
 
-    /* Profession pills */
     .profession-pills {
       display: flex;
       gap: 0.5rem;
       flex-wrap: wrap;
       justify-content: center;
-      margin-bottom: 0;
     }
-
     .pill {
       font-family: 'Oswald', sans-serif;
       font-size: 0.68rem;
@@ -172,49 +310,51 @@
       border-radius: 20px;
       border: 1px solid;
     }
-    .pill-teacher  { color: #64B5F6; border-color: rgba(100,181,246,0.3); background: rgba(100,181,246,0.08); }
-    .pill-nurse    { color: #CE93D8; border-color: rgba(206,147,216,0.3); background: rgba(206,147,216,0.08); }
-    .pill-fire     { color: #FF8A65; border-color: rgba(255,138,101,0.3); background: rgba(255,138,101,0.08); }
-    .pill-veteran  { color: #81C784; border-color: rgba(129,199,132,0.3); background: rgba(129,199,132,0.08); }
-    .pill-emt      { color: #FFD54F; border-color: rgba(255,213,79,0.3);  background: rgba(255,213,79,0.08);  }
-    .pill-leo      { color: #80CBC4; border-color: rgba(128,203,196,0.3); background: rgba(128,203,196,0.08); }
+    .pill-teacher { color: #64B5F6; border-color: rgba(100,181,246,0.3); background: rgba(100,181,246,0.08); }
+    .pill-nurse   { color: #CE93D8; border-color: rgba(206,147,216,0.3); background: rgba(206,147,216,0.08); }
+    .pill-fire    { color: #FF8A65; border-color: rgba(255,138,101,0.3); background: rgba(255,138,101,0.08); }
+    .pill-veteran { color: #81C784; border-color: rgba(129,199,132,0.3); background: rgba(129,199,132,0.08); }
+    .pill-emt     { color: #FFD54F; border-color: rgba(255,213,79,0.3);  background: rgba(255,213,79,0.08);  }
+    .pill-leo     { color: #80CBC4; border-color: rgba(128,203,196,0.3); background: rgba(128,203,196,0.08); }
 
-    /* ── JUMP NAV ── */
+    /* ════════════════════════════════
+       JUMP NAV
+    ════════════════════════════════ */
     .jump-nav {
       position: relative; z-index: 5;
       background: rgba(11,30,61,0.95);
-      border-bottom: 1px solid var(--card-border);
+      border-bottom: 1px solid var(--faq-card-bd);
       padding: 0.9rem 2rem;
       display: flex;
       gap: 0.5rem 1.5rem;
       flex-wrap: wrap;
       align-items: center;
     }
-
     .jump-nav-label {
       font-family: 'Oswald', sans-serif;
       font-size: 0.6rem;
       letter-spacing: 0.15em;
       text-transform: uppercase;
-      color: var(--gray);
+      color: var(--faq-gray);
       margin-right: 0.5rem;
       white-space: nowrap;
     }
-
     .jump-link {
       font-family: 'Oswald', sans-serif;
       font-size: 0.72rem;
       font-weight: 500;
       letter-spacing: 0.06em;
-      color: var(--gray-light);
+      color: var(--faq-gray-lt);
       text-decoration: none;
       border-bottom: 1px dotted transparent;
       transition: color 0.15s, border-color 0.15s;
       white-space: nowrap;
     }
-    .jump-link:hover { color: var(--gold); border-bottom-color: var(--gold-dim); }
+    .jump-link:hover { color: var(--faq-gold); border-bottom-color: var(--faq-gold-dim); }
 
-    /* ── MAIN LAYOUT ── */
+    /* ════════════════════════════════
+       MAIN LAYOUT
+    ════════════════════════════════ */
     .main {
       position: relative; z-index: 5;
       max-width: 860px;
@@ -222,10 +362,7 @@
       padding: 2.5rem 2rem 5rem;
     }
 
-    /* ── CATEGORY SECTION ── */
-    .faq-section {
-      margin-bottom: 3rem;
-    }
+    .faq-section { margin-bottom: 3rem; }
 
     .faq-section-header {
       display: flex;
@@ -233,45 +370,38 @@
       gap: 0.9rem;
       margin-bottom: 1.25rem;
       padding-bottom: 0.75rem;
-      border-bottom: 1px solid var(--card-border);
+      border-bottom: 1px solid var(--faq-card-bd);
     }
-
-    .section-icon {
-      font-size: 1.4rem;
-      line-height: 1;
-      flex-shrink: 0;
-    }
+    .section-icon { font-size: 1.4rem; line-height: 1; flex-shrink: 0; }
 
     .faq-section h2 {
       font-family: 'Oswald', sans-serif;
       font-size: 1.15rem;
       font-weight: 600;
-      color: var(--gold-bright);
+      color: var(--faq-gold-br);
       letter-spacing: 0.05em;
       text-transform: uppercase;
       line-height: 1.2;
     }
-
     .faq-section h2 small {
       display: block;
       font-size: 0.65rem;
       letter-spacing: 0.12em;
-      color: var(--gray);
+      color: var(--faq-gray);
       font-weight: 400;
       margin-top: 0.15rem;
     }
 
-    /* ── FAQ ACCORDION ── */
+    /* ── ACCORDION ── */
     .faq-item {
-      border: 1px solid var(--card-border);
+      border: 1px solid var(--faq-card-bd);
       border-radius: 5px;
       margin-bottom: 0.6rem;
-      background: var(--card-bg);
+      background: var(--faq-card-bg);
       overflow: hidden;
       transition: border-color 0.2s;
     }
-
-    .faq-item:hover { border-color: var(--gold-dim); }
+    .faq-item:hover { border-color: var(--faq-gold-dim); }
     .faq-item.open  { border-color: rgba(201,168,76,0.4); }
 
     .faq-q {
@@ -291,31 +421,31 @@
     .faq-num {
       font-family: 'JetBrains Mono', monospace;
       font-size: 0.6rem;
-      color: var(--gold-dim);
+      color: var(--faq-gold-dim);
       min-width: 1.5rem;
       flex-shrink: 0;
       font-weight: 500;
     }
-    .faq-item.open .faq-num { color: var(--gold); }
+    .faq-item.open .faq-num { color: var(--faq-gold); }
 
     .faq-q-text {
       flex: 1;
       font-family: 'Oswald', sans-serif;
       font-size: 0.95rem;
       font-weight: 500;
-      color: var(--white);
+      color: #fff;
       letter-spacing: 0.02em;
       line-height: 1.35;
     }
-    .faq-item.open .faq-q-text { color: var(--gold-bright); }
+    .faq-item.open .faq-q-text { color: var(--faq-gold-br); }
 
     .faq-chevron {
-      color: var(--gray);
+      color: var(--faq-gray);
       font-size: 0.75rem;
       transition: transform 0.25s;
       flex-shrink: 0;
     }
-    .faq-item.open .faq-chevron { transform: rotate(180deg); color: var(--gold); }
+    .faq-item.open .faq-chevron { transform: rotate(180deg); color: var(--faq-gold); }
 
     .faq-a {
       display: none;
@@ -327,21 +457,13 @@
     .faq-a p {
       font-size: 0.9rem;
       line-height: 1.75;
-      color: var(--gray-light);
+      color: var(--faq-gray-lt);
       margin-top: 0.85rem;
     }
-
     .faq-a p + p { margin-top: 0.6rem; }
+    .faq-a strong { color: var(--faq-gold-br); font-weight: 600; }
+    .faq-a .answer-lead { color: var(--faq-cream); font-weight: 600; font-size: 0.92rem; }
 
-    .faq-a strong { color: var(--gold-bright); font-weight: 600; }
-
-    .faq-a .answer-lead {
-      color: var(--cream);
-      font-weight: 600;
-      font-size: 0.92rem;
-    }
-
-    /* Program tags inside answers */
     .prog-tag {
       display: inline-block;
       font-family: 'JetBrains Mono', monospace;
@@ -349,60 +471,55 @@
       padding: 0.15rem 0.5rem;
       border-radius: 2px;
       background: rgba(201,168,76,0.1);
-      color: var(--gold);
+      color: var(--faq-gold);
       border: 1px solid rgba(201,168,76,0.2);
       margin: 0.1rem 0.15rem;
       vertical-align: middle;
       white-space: nowrap;
     }
 
-    /* Highlight box inside answers */
     .answer-highlight {
       background: rgba(201,168,76,0.07);
-      border-left: 3px solid var(--gold);
+      border-left: 3px solid var(--faq-gold);
       border-radius: 0 4px 4px 0;
       padding: 0.65rem 0.9rem;
       margin-top: 0.75rem;
       font-size: 0.85rem;
-      color: var(--cream);
+      color: var(--faq-cream);
       line-height: 1.6;
     }
 
     /* ── CTA BANNER ── */
     .cta-banner {
       position: relative; z-index: 5;
-      background: linear-gradient(135deg, var(--navy-mid) 0%, var(--navy-light) 100%);
-      border-top: 1px solid var(--card-border);
-      border-bottom: 1px solid var(--card-border);
+      background: linear-gradient(135deg, var(--faq-navy-mid) 0%, var(--faq-navy-lt) 100%);
+      border-top: 1px solid var(--faq-card-bd);
+      border-bottom: 1px solid var(--faq-card-bd);
       padding: 2.5rem 2rem;
       text-align: center;
-      margin-bottom: 0;
     }
-
     .cta-banner h2 {
       font-family: 'Oswald', sans-serif;
       font-size: 1.6rem;
       font-weight: 700;
-      color: var(--white);
+      color: #fff;
       letter-spacing: 0.03em;
       margin-bottom: 0.5rem;
     }
-    .cta-banner h2 span { color: var(--gold-bright); }
-
+    .cta-banner h2 span { color: var(--faq-gold-br); }
     .cta-banner p {
-      color: var(--gray-light);
+      color: var(--faq-gray-lt);
       font-size: 0.95rem;
       max-width: 520px;
       margin: 0 auto 1.5rem;
       font-style: italic;
     }
-
     .cta-btn {
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
       background: var(--gold);
-      color: var(--dark);
+      color: var(--navy);
       font-family: 'Oswald', sans-serif;
       font-size: 0.9rem;
       font-weight: 700;
@@ -412,89 +529,64 @@
       padding: 0.9rem 2.2rem;
       border-radius: 4px;
       transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
-      box-shadow: 0 4px 20px rgba(201,168,76,0.25);
+      box-shadow: 0 4px 20px rgba(201,151,58,0.25);
     }
     .cta-btn:hover {
-      background: var(--gold-bright);
+      background: var(--bright-gold);
       transform: translateY(-2px);
       box-shadow: 0 8px 30px rgba(240,192,64,0.35);
     }
-
     .cta-sub {
       font-family: 'Oswald', sans-serif;
       font-size: 0.65rem;
       letter-spacing: 0.12em;
-      color: var(--gray);
+      color: var(--faq-gray);
       text-transform: uppercase;
       margin-top: 0.75rem;
     }
 
-    /* ── FOOTER ── */
-    .site-footer {
-      position: relative; z-index: 5;
-      background: var(--navy);
-      border-top: 2px solid var(--gold);
-      padding: 1.5rem 2rem;
-      text-align: center;
-    }
-
-    .site-footer p {
-      font-family: 'Oswald', sans-serif;
-      font-size: 0.68rem;
-      letter-spacing: 0.08em;
-      color: var(--gray);
-      text-transform: uppercase;
-    }
-
-    .site-footer strong { color: var(--gold); }
-
-    /* ── SCHEMA BLOCK DISPLAY ── */
+    /* ── SCHEMA REFERENCE BLOCK ── */
     .schema-preview {
       position: relative; z-index: 5;
       max-width: 860px;
       margin: 0 auto;
       padding: 0 2rem 3rem;
     }
-
     .schema-header {
       display: flex;
       align-items: center;
       gap: 0.75rem;
       margin-bottom: 0.75rem;
       padding-top: 2rem;
-      border-top: 1px solid var(--card-border);
+      border-top: 1px solid var(--faq-card-bd);
     }
-
     .schema-header h3 {
       font-family: 'Oswald', sans-serif;
       font-size: 0.8rem;
       letter-spacing: 0.15em;
       text-transform: uppercase;
-      color: var(--gray);
+      color: var(--faq-gray);
     }
-
     .schema-badge {
       font-family: 'JetBrains Mono', monospace;
       font-size: 0.6rem;
-      color: var(--success);
+      color: var(--faq-success);
       background: rgba(76,175,80,0.1);
       border: 1px solid rgba(76,175,80,0.25);
       padding: 0.15rem 0.5rem;
       border-radius: 2px;
     }
-
     .schema-note {
       font-size: 0.8rem;
-      color: var(--gray);
+      color: var(--faq-gray);
       font-style: italic;
       margin-bottom: 0.75rem;
       line-height: 1.5;
     }
-
     .schema-code {
       background: rgba(0,0,0,0.5);
-      border: 1px solid var(--card-border);
-      border-left: 3px solid var(--success);
+      border: 1px solid var(--faq-card-bd);
+      border-left: 3px solid var(--faq-success);
       border-radius: 0 4px 4px 0;
       padding: 1.25rem 1.5rem;
       font-family: 'JetBrains Mono', monospace;
@@ -507,41 +599,143 @@
       overflow-y: auto;
     }
 
+    /* ── FOOTER ── */
+    #footer {
+      position: relative; z-index: 5;
+      background: #080f1c;
+      padding: 64px 0 32px;
+      border-top: 1px solid rgba(201,151,58,0.15);
+    }
+    .footer-grid {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 32px;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 48px;
+    }
+    .footer-brand .wordmark {
+      font-family: var(--font-head);
+      font-size: 24px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 16px;
+    }
+    .footer-brand .wordmark span { color: var(--gold); }
+    .footer-brand p {
+      font-size: 14px;
+      color: rgba(255,255,255,0.45);
+      line-height: 1.7;
+      max-width: 280px;
+    }
+    .footer-col-title {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 20px;
+      font-family: var(--font-body);
+    }
+    .footer-col a {
+      display: block;
+      font-size: 14px;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 10px;
+      transition: color 0.2s;
+      font-family: var(--font-body);
+      text-decoration: none;
+    }
+    .footer-col a:hover { color: rgba(255,255,255,0.85); }
+    .footer-bottom {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 32px 32px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+    .footer-copy  { font-size: 12px; color: rgba(255,255,255,0.3); font-family: var(--font-body); }
+    .footer-legal { display: flex; gap: 24px; }
+    .footer-legal a {
+      font-size: 12px;
+      color: rgba(255,255,255,0.3);
+      transition: color 0.2s;
+      font-family: var(--font-body);
+      text-decoration: none;
+    }
+    .footer-legal a:hover { color: rgba(255,255,255,0.6); }
+
     /* ── SCROLLBAR ── */
     ::-webkit-scrollbar { width: 5px; height: 5px; }
-    ::-webkit-scrollbar-track { background: var(--dark); }
-    ::-webkit-scrollbar-thumb { background: var(--navy-light); border-radius: 3px; }
-    ::-webkit-scrollbar-thumb:hover { background: var(--gold-dim); }
+    ::-webkit-scrollbar-track { background: var(--faq-bg); }
+    ::-webkit-scrollbar-thumb { background: var(--faq-navy-lt); border-radius: 3px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--faq-gold-dim); }
 
-    /* ── MOBILE ── */
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
     @media (max-width: 640px) {
-      .site-header { padding: 1rem; }
-      .page-hero   { padding: 2rem 1.25rem 1.75rem; }
-      .jump-nav    { padding: 0.75rem 1.25rem; }
-      .main        { padding: 1.75rem 1.25rem 3rem; }
+      .page-hero  { padding-top: calc(var(--nav-h) + 2rem); padding-left: 1.25rem; padding-right: 1.25rem; }
+      .jump-nav   { padding: 0.75rem 1.25rem; }
+      .main       { padding: 1.75rem 1.25rem 3rem; }
       .schema-preview { padding: 0 1.25rem 2rem; }
-      .faq-a       { padding-left: 1.15rem; }
+      .faq-a      { padding-left: 1.15rem; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; text-align: center; }
     }
   </style>
 </head>
 <body>
 
-<!-- ══════════════════════════════════════
-     SITE HEADER
-══════════════════════════════════════ -->
-<header class="site-header">
-  <a href="https://herohomereach.com" class="logo-link">
-    <span class="logo-name">Hero HomeReach</span>
-    <span class="logo-tag">Colorado Hero Homebuyer Programs</span>
-  </a>
-  <a href="https://herohomereach.com/#guide" class="header-cta">
-    Get Free Guide ↗
-  </a>
-</header>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5ZQKN4LM"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 
-<!-- ══════════════════════════════════════
-     PAGE HERO
-══════════════════════════════════════ -->
+<!-- ════════════ NAVIGATION ════════════ -->
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">
+      <img src="/logo-mark_transparent.png" alt="Hero HomeReach Shield" style="width:50px; height:50px; object-fit:contain;">
+      <div>
+        <div class="nav-wordmark">Hero <span>HomeReach</span><sup class="nav-tm">™</sup></div>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="programs.html">Programs</a></li>
+      <li><a href="who-we-serve.html">Who We Serve</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="blog/">Resources &amp; Blog</a></li>
+      <li><a href="faq.html" class="active">DPA FAQ</a></li>
+      <li><a href="https://guide.herohomereach.com" target="_blank" style="color:var(--bright-gold); font-weight:700;">Free Guide</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="contact.html" class="btn btn-gold btn-arrow">Book Free Consultation</a>
+    </div>
+    <div class="nav-hamburger" id="hamburger" onclick="toggleMobileNav()">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile Nav -->
+<div id="mobile-nav">
+  <a href="programs.html" onclick="toggleMobileNav()">Programs</a>
+  <a href="who-we-serve.html" onclick="toggleMobileNav()">Who We Serve</a>
+  <a href="about.html" onclick="toggleMobileNav()">About</a>
+  <a href="blog/" onclick="toggleMobileNav()">Resources &amp; Blog</a>
+  <a href="faq.html" onclick="toggleMobileNav()">Homebuyer FAQ</a>
+  <a href="https://guide.herohomereach.com" target="_blank" onclick="toggleMobileNav()" style="color:var(--bright-gold);">Free Guide</a>
+  <a href="contact.html" onclick="toggleMobileNav()" class="btn btn-gold" style="margin-top:16px; font-family:'Playfair Display',Georgia,serif;">Book Free Consultation</a>
+</div>
+
+<!-- ════════════ PAGE HERO ════════════ -->
 <section class="page-hero">
   <div class="eyebrow">★ Colorado Hero Homebuyer</div>
   <h1>Your Questions About<br><span>Down Payment Assistance</span><br>Answered in Plain English</h1>
@@ -556,21 +750,17 @@
   </div>
 </section>
 
-<!-- ══════════════════════════════════════
-     JUMP NAV
-══════════════════════════════════════ -->
+<!-- ════════════ JUMP NAV ════════════ -->
 <nav class="jump-nav" aria-label="FAQ categories">
   <span class="jump-nav-label">Jump to:</span>
-  <a href="#programs" class="jump-link">💰 Programs &amp; Money</a>
-  <a href="#eligibility" class="jump-link">🦸 Eligibility</a>
-  <a href="#process" class="jump-link">🏠 The Process</a>
-  <a href="#financial" class="jump-link">💳 Financial Qualifications</a>
-  <a href="#herehomereach" class="jump-link">⭐ About Hero HomeReach</a>
+  <a href="#programs"       class="jump-link">💰 Programs &amp; Money</a>
+  <a href="#eligibility"    class="jump-link">🦸 Eligibility</a>
+  <a href="#process"        class="jump-link">🏠 The Process</a>
+  <a href="#financial"      class="jump-link">💳 Financial Qualifications</a>
+  <a href="#herehomereach"  class="jump-link">⭐ About Hero HomeReach</a>
 </nav>
 
-<!-- ══════════════════════════════════════
-     MAIN FAQ CONTENT
-══════════════════════════════════════ -->
+<!-- ════════════ MAIN FAQ CONTENT ════════════ -->
 <main class="main">
 
   <!-- ─── SECTION 1: PROGRAMS & MONEY ─── -->
@@ -587,9 +777,9 @@
         <span class="faq-chevron">▼</span>
       </button>
       <div class="faq-a" role="region">
-        <p class="answer-lead">It depends entirely on which program you use — and the difference is significant. There are three types:</p>
+        <p class="answer-lead">It depends entirely on which program you use, and the difference is significant. There are three types:</p>
         <p><strong>TRUE GRANTS</strong> — Never repaid, ever. The money is yours the moment you close on the home. The Teacher Next Door grant works this way. You don't have to stay in the home for any set period. It's a gift.</p>
-        <p><strong>FORGIVABLE LOANS</strong> — These appear as a second mortgage but are forgiven after a set period (typically 3–5 years) as long as you remain in the home. If you sell or refinance before the forgiveness period ends, you repay a prorated portion. The Chenoa Fund and some MetroDPA options work this way.</p>
+        <p><strong>FORGIVABLE LOANS</strong> — These appear as a second mortgage but are forgiven after a set period (typically 3 to 5 years) as long as you remain in the home. If you sell or refinance before the forgiveness period ends, you repay a prorated portion. The Chenoa Fund and some MetroDPA options work this way.</p>
         <p><strong>DEFERRED SECOND MORTGAGES</strong> — No monthly payment, but you repay the full amount when you sell, refinance, or pay off the first mortgage. CHFA's Down Payment Assistance grant is structured this way for some programs.</p>
         <div class="answer-highlight">Bottom line: When Hero HomeReach matches you with programs, we clearly label each one so you know exactly what you're agreeing to. No surprises at closing.</div>
       </div>
@@ -602,9 +792,9 @@
         <span class="faq-chevron">▼</span>
       </button>
       <div class="faq-a" role="region">
-        <p class="answer-lead">The honest answer: anywhere from $5,000 to $67,000+ depending on which programs you qualify for and whether you stack them.</p>
-        <p>Individual program amounts: <span class="prog-tag">Teacher Next Door</span> up to $8,000 grant | <span class="prog-tag">MetroDPA</span> up to $25,000 | <span class="prog-tag">Chenoa Fund</span> 3.5–5% of purchase price | <span class="prog-tag">NeighborhoodLIFT</span> up to $15,000 | <span class="prog-tag">CHFA</span> up to $25,000 in select programs.</p>
-        <p>The $67,000 figure represents a realistic stacked scenario — combining multiple programs that you simultaneously qualify for. Not every hero qualifies for every program, which is exactly why Hero HomeReach matches you individually.</p>
+        <p class="answer-lead">The honest answer: anywhere from $5,000 to $67,000 or more depending on which programs you qualify for and whether you stack them.</p>
+        <p>Individual program amounts: <span class="prog-tag">Teacher Next Door</span> up to $8,000 grant | <span class="prog-tag">MetroDPA</span> up to $25,000 | <span class="prog-tag">Chenoa Fund</span> 3.5 to 5% of purchase price | <span class="prog-tag">NeighborhoodLIFT</span> up to $15,000 | <span class="prog-tag">CHFA</span> up to $25,000 in select programs.</p>
+        <p>The $67,000 figure represents a realistic stacked scenario, combining multiple programs that you simultaneously qualify for. Not every hero qualifies for every program, which is exactly why Hero HomeReach matches you individually.</p>
       </div>
     </div>
 
@@ -615,9 +805,9 @@
         <span class="faq-chevron">▼</span>
       </button>
       <div class="faq-a" role="region">
-        <p class="answer-lead">Yes — and this is the strategy most people miss entirely.</p>
+        <p class="answer-lead">Yes, and this is the strategy most people miss entirely.</p>
         <p>Program stacking is legal, encouraged, and used by informed buyers every day in Colorado. A common combination: <span class="prog-tag">Teacher Next Door</span> grant (never repaid) + <span class="prog-tag">MetroDPA</span> (forgivable after 3 years) + seller concessions negotiated into the purchase agreement. The result can cover your entire down payment AND closing costs.</p>
-        <p>The key is that each program has its own rules about what it can be layered with. Some are designed to work together; others are standalone. Hero HomeReach's matching process accounts for this.</p>
+        <p>The key is that each program has its own rules about what it can be layered with. Some are designed to work together, others are standalone. Hero HomeReach's matching process accounts for this.</p>
       </div>
     </div>
 
@@ -629,7 +819,7 @@
       </button>
       <div class="faq-a" role="region">
         <p class="answer-lead">Teacher Next Door is a national program specifically for educators. Unlike HUD's Good Neighbor Next Door (which requires buying in a revitalization area), Teacher Next Door works on homes across Colorado with no geographic restriction.</p>
-        <p>The grant amount is up to $8,000 and is a true grant — never repaid. Eligible buyers also get access to below-market mortgage rates and additional down payment assistance loans on top of the grant. There is no first-time buyer requirement. Full-time and part-time Pre-K through 12th grade teachers, administrators, and staff qualify.</p>
+        <p>The grant amount is up to $8,000 and is a true grant, never repaid. Eligible buyers also get access to below-market mortgage rates and additional down payment assistance loans on top of the grant. There is no first-time buyer requirement. Full-time and part-time Pre-K through 12th grade teachers, administrators, and staff qualify.</p>
         <div class="answer-highlight">This program is one of the most underused in Colorado. Many teachers assume it's "too good to be true." It isn't. It's a legitimate, federally recognized program that has helped thousands of educators across the country.</div>
       </div>
     </div>
@@ -642,7 +832,7 @@
       </button>
       <div class="faq-a" role="region">
         <p class="answer-lead">MetroDPA is a down payment assistance program administered by the Metro Mortgage Assistance Plus program in the Denver metro area. It provides assistance up to $25,000 for qualifying buyers.</p>
-        <p>Eligibility basics: must purchase in an eligible Colorado county, income limits apply (varies by county and household size), minimum 640 credit score typically required, and the home must be your primary residence. Hero professions do not get preferential access to MetroDPA — it's available to any qualifying buyer — but it stacks powerfully with profession-specific programs like Teacher Next Door.</p>
+        <p>Eligibility basics: must purchase in an eligible Colorado county, income limits apply (varies by county and household size), minimum 640 credit score typically required, and the home must be your primary residence. Hero professions do not get preferential access to MetroDPA, it's available to any qualifying buyer, but it stacks powerfully with profession-specific programs like Teacher Next Door.</p>
       </div>
     </div>
 
@@ -653,7 +843,7 @@
         <span class="faq-chevron">▼</span>
       </button>
       <div class="faq-a" role="region">
-        <p class="answer-lead">Yes — the Chenoa Fund is available in Colorado and is one of the most flexible down payment programs in the country.</p>
+        <p class="answer-lead">Yes, the Chenoa Fund is available in Colorado and is one of the most flexible down payment programs in the country.</p>
         <p>The Chenoa Fund provides 3.5% or 5% of the loan amount as down payment assistance. The 3.5% option can be structured as a forgivable loan (forgiven after 36 on-time payments if income is below 115% of AMI) or a repayable second mortgage. It works with FHA loans and has no first-time buyer requirement. Minimum 600 credit score. It is one of the few programs that layers cleanly with VA loans and CHFA loans as a closing cost assistance tool.</p>
       </div>
     </div>
@@ -668,7 +858,7 @@
         <p class="answer-lead">CHFA stands for Colorado Housing and Finance Authority. It's a state agency that offers below-market mortgage rates and down payment assistance specifically for Colorado residents.</p>
         <p>CHFA loans are originated through participating lenders (not directly through CHFA). They offer a <span class="prog-tag">CHFA SectionEight Homeownership</span> program, a <span class="prog-tag">CHFA SmartStep</span> program, and a <span class="prog-tag">CHFA HomeOpener</span> program with varying income limits and DPA amounts.</p>
         <p>Basic eligibility: Colorado resident, meet income limits (vary by county), meet credit requirements (typically 620+ FICO), complete a free homebuyer education course, and purchase within CHFA purchase price limits. First-time buyer requirement applies for most programs, but exceptions exist for veterans and buyers purchasing in targeted areas.</p>
-        <p>Visit <a href="https://www.chfainfo.com" style="color:var(--gold);" target="_blank" rel="noopener">chfainfo.com</a> for official current limits by county.</p>
+        <p>Visit <a href="https://www.chfainfo.com" style="color:var(--faq-gold);" target="_blank" rel="noopener">chfainfo.com</a> for official current limits by county.</p>
       </div>
     </div>
 
@@ -679,7 +869,7 @@
         <span class="faq-chevron">▼</span>
       </button>
       <div class="faq-a" role="region">
-        <p class="answer-lead">Yes — and this combination is one of the most powerful homebuying strategies available to any buyer in America.</p>
+        <p class="answer-lead">Yes, and this combination is one of the most powerful homebuying strategies available to any buyer in America.</p>
         <p>The VA loan already provides zero down payment and no PMI. Stacking it with assistance programs primarily targets <strong>closing costs</strong> (which the VA loan does not eliminate). The Chenoa Fund can layer on top of a VA loan to cover closing costs. Seller concessions (negotiated into the purchase offer) can cover up to 4% on VA loans. Some veteran-specific nonprofit programs also provide closing cost grants.</p>
         <div class="answer-highlight">A veteran using a VA loan + Chenoa Fund + 4% seller concession on a $350,000 home could potentially close with $0 out of pocket. This is real. It happens in Colorado regularly.</div>
       </div>
@@ -688,17 +878,17 @@
     <div class="faq-item" id="faq-9">
       <button class="faq-q" onclick="toggleFaq('faq-9')" aria-expanded="false">
         <span class="faq-num">09</span>
-        <span class="faq-q-text">What is a forgivable loan in real estate — and is it as good as it sounds?</span>
+        <span class="faq-q-text">What is a forgivable loan in real estate, and is it as good as it sounds?</span>
         <span class="faq-chevron">▼</span>
       </button>
       <div class="faq-a" role="region">
-        <p class="answer-lead">A forgivable loan is exactly what it sounds like — money you borrow that gets legally forgiven (erased) after you meet certain conditions, most commonly staying in the home for a set period.</p>
-        <p>Example: You receive a $15,000 forgivable second mortgage with a 3-year forgiveness period. If you stay in the home for 3 years, the $15,000 is forgiven — you never pay a penny of it back. If you sell or refinance at month 24, you'd repay roughly $5,000 (the prorated remaining balance). The longer you stay, the less you owe if you leave early.</p>
+        <p class="answer-lead">A forgivable loan is exactly what it sounds like, money you borrow that gets legally forgiven (erased) after you meet certain conditions, most commonly staying in the home for a set period.</p>
+        <p>Example: You receive a $15,000 forgivable second mortgage with a 3-year forgiveness period. If you stay in the home for 3 years, the $15,000 is forgiven, you never pay a penny of it back. If you sell or refinance at month 24, you'd repay roughly $5,000 (the prorated remaining balance). The longer you stay, the less you owe if you leave early.</p>
         <p>For most hero homebuyers who intend to live in their home long-term, forgivable loans function identically to grants. The only risk is if you have to sell quickly.</p>
       </div>
     </div>
 
-  </section><!-- /section 1 -->
+  </section>
 
   <!-- ─── SECTION 2: ELIGIBILITY ─── -->
   <section class="faq-section" id="eligibility">
@@ -727,9 +917,9 @@
         <span class="faq-chevron">▼</span>
       </button>
       <div class="faq-a" role="region">
-        <p class="answer-lead">It varies by program, but you don't need perfect credit. Most programs work with credit scores starting at 580–640.</p>
-        <p>General benchmarks: <span class="prog-tag">FHA Loan + Chenoa Fund</span> — minimum 580–600 FICO | <span class="prog-tag">CHFA</span> — typically 620+ | <span class="prog-tag">MetroDPA</span> — typically 640+ | <span class="prog-tag">VA Loan</span> — no official VA minimum, but most lenders require 580–620 | <span class="prog-tag">Teacher Next Door</span> — follows the underlying mortgage requirement.</p>
-        <p>If your credit score is below 600, don't abandon hope — a 6–12 month credit improvement plan can meaningfully change your options. Hero HomeReach can connect you with resources for credit counseling as part of your homebuyer action plan.</p>
+        <p class="answer-lead">It varies by program, but you don't need perfect credit. Most programs work with credit scores starting at 580 to 640.</p>
+        <p>General benchmarks: <span class="prog-tag">FHA Loan + Chenoa Fund</span> — minimum 580 to 600 FICO | <span class="prog-tag">CHFA</span> — typically 620+ | <span class="prog-tag">MetroDPA</span> — typically 640+ | <span class="prog-tag">VA Loan</span> — no official VA minimum, but most lenders require 580 to 620 | <span class="prog-tag">Teacher Next Door</span> — follows the underlying mortgage requirement.</p>
+        <p>If your credit score is below 600, don't abandon hope. A 6 to 12 month credit improvement plan can meaningfully change your options. Hero HomeReach can connect you with resources for credit counseling as part of your homebuyer action plan.</p>
       </div>
     </div>
 
@@ -740,9 +930,9 @@
         <span class="faq-chevron">▼</span>
       </button>
       <div class="faq-a" role="region">
-        <p class="answer-lead">Most programs have income limits — but they're often higher than people expect, and many hero professionals fall well within them.</p>
-        <p>Income limits are based on Area Median Income (AMI) and vary by county and household size. In the Denver-Aurora metro, the 2025 AMI for a family of 4 is approximately $117,000. Most programs allow incomes up to 80–115% of AMI. A nurse earning $85,000/year or a teacher earning $65,000/year typically qualifies for multiple programs.</p>
-        <p>The best way to know if you qualify is to get your free program match from Hero HomeReach — we check current limits for your specific county and household size.</p>
+        <p class="answer-lead">Most programs have income limits, but they're often higher than people expect, and many hero professionals fall well within them.</p>
+        <p>Income limits are based on Area Median Income (AMI) and vary by county and household size. In the Denver-Aurora metro, the 2025 AMI for a family of 4 is approximately $117,000. Most programs allow incomes up to 80 to 115% of AMI. A nurse earning $85,000/year or a teacher earning $65,000/year typically qualifies for multiple programs.</p>
+        <p>The best way to know if you qualify is to get your free program match from Hero HomeReach. We check current limits for your specific county and household size.</p>
       </div>
     </div>
 
@@ -753,8 +943,8 @@
         <span class="faq-chevron">▼</span>
       </button>
       <div class="faq-a" role="region">
-        <p class="answer-lead">For the Teacher Next Door grant specifically — yes. The program covers Pre-K through 12th grade teachers, administrators, and support staff. Part-time educators and long-term substitutes working in a school setting are eligible.</p>
-        <p>For other programs that aren't profession-specific (CHFA, MetroDPA, Chenoa Fund), your employment status matters mainly for income documentation and loan qualification — not for program eligibility itself. A stable part-time employment history with predictable income can qualify.</p>
+        <p class="answer-lead">For the Teacher Next Door grant specifically, yes. The program covers Pre-K through 12th grade teachers, administrators, and support staff. Part-time educators and long-term substitutes working in a school setting are eligible.</p>
+        <p>For other programs that aren't profession-specific (CHFA, MetroDPA, Chenoa Fund), your employment status matters mainly for income documentation and loan qualification, not for program eligibility itself. A stable part-time employment history with predictable income can qualify.</p>
       </div>
     </div>
 
@@ -773,12 +963,12 @@
     <div class="faq-item" id="faq-15">
       <button class="faq-q" onclick="toggleFaq('faq-15')" aria-expanded="false">
         <span class="faq-num">15</span>
-        <span class="faq-q-text">Can I qualify if I already own a home — or if I owned one in the past?</span>
+        <span class="faq-q-text">Can I qualify if I already own a home, or if I owned one in the past?</span>
         <span class="faq-chevron">▼</span>
       </button>
       <div class="faq-a" role="region">
         <p class="answer-lead">Owning a home currently or in the past does not automatically disqualify you from down payment assistance.</p>
-        <p>Programs without a first-time buyer requirement (Teacher Next Door, Chenoa Fund, MetroDPA, VA loan) are fully available to current and past homeowners. For programs that require first-time buyer status: if you haven't owned a primary residence in the past 3 years, most programs consider you a first-time buyer regardless of prior ownership history. If you currently own a rental property but are buying a new primary residence, some programs still allow this — it depends on the specific program rules.</p>
+        <p>Programs without a first-time buyer requirement (Teacher Next Door, Chenoa Fund, MetroDPA, VA loan) are fully available to current and past homeowners. For programs that require first-time buyer status: if you haven't owned a primary residence in the past 3 years, most programs consider you a first-time buyer regardless of prior ownership history. If you currently own a rental property but are buying a new primary residence, some programs still allow this. It depends on the specific program rules.</p>
       </div>
     </div>
 
@@ -789,12 +979,12 @@
         <span class="faq-chevron">▼</span>
       </button>
       <div class="faq-a" role="region">
-        <p class="answer-lead">Yes. Law enforcement officers — including police, sheriff's deputies, corrections officers, and federal agents — qualify under the first responder category of hero homebuyer programs.</p>
-        <p>Additionally, HUD's Good Neighbor Next Door program offers law enforcement officers (and teachers, firefighters, and EMTs) a 50% discount on the list price of eligible HUD homes in revitalization areas — a benefit worth tens of thousands of dollars for officers willing to live in their community. This is separate from down payment assistance programs and can potentially be combined with them.</p>
+        <p class="answer-lead">Yes. Law enforcement officers, including police, sheriff's deputies, corrections officers, and federal agents, qualify under the first responder category of hero homebuyer programs.</p>
+        <p>Additionally, HUD's Good Neighbor Next Door program offers law enforcement officers (and teachers, firefighters, and EMTs) a 50% discount on the list price of eligible HUD homes in revitalization areas, a benefit worth tens of thousands of dollars for officers willing to live in their community. This is separate from down payment assistance programs and can potentially be combined with them.</p>
       </div>
     </div>
 
-  </section><!-- /section 2 -->
+  </section>
 
   <!-- ─── SECTION 3: THE PROCESS ─── -->
   <section class="faq-section" id="process">
@@ -810,8 +1000,8 @@
         <span class="faq-chevron">▼</span>
       </button>
       <div class="faq-a" role="region">
-        <p class="answer-lead">Realistically, plan for a 60–90 day process from the moment you start to keys in hand — the same timeline as a conventional purchase.</p>
-        <p>Down payment assistance programs do not significantly slow down the process when you work with an experienced lender who handles them regularly. The steps: Hero HomeReach program matching (free, 48 hours) → Lender pre-approval including DPA program approval (1–2 weeks) → Home search and offer (varies) → Under contract to close (30–45 days). Some assistance programs require a homebuyer education course (typically 6–8 hours online, completable in one day).</p>
+        <p class="answer-lead">Realistically, plan for a 60 to 90 day process from the moment you start to keys in hand, the same timeline as a conventional purchase.</p>
+        <p>Down payment assistance programs do not significantly slow down the process when you work with an experienced lender who handles them regularly. The steps: Hero HomeReach program matching (free, 48 hours), lender pre-approval including DPA program approval (1 to 2 weeks), home search and offer (varies), under contract to close (30 to 45 days). Some assistance programs require a homebuyer education course (typically 6 to 8 hours online, completable in one day).</p>
       </div>
     </div>
 
@@ -822,20 +1012,20 @@
         <span class="faq-chevron">▼</span>
       </button>
       <div class="faq-a" role="region">
-        <p class="answer-lead">Yes — and this is critical. Not every lender participates in every program. Working with the wrong lender can mean leaving money on the table or missing programs entirely.</p>
-        <p>CHFA loans, for example, must be originated through CHFA-approved lenders. MetroDPA has participating lenders. Teacher Next Door has its own network of approved mortgage specialists. Hero HomeReach connects you with lenders who are already approved for the programs you qualify for — which eliminates the trial-and-error of finding one yourself.</p>
+        <p class="answer-lead">Yes, and this is critical. Not every lender participates in every program. Working with the wrong lender can mean leaving money on the table or missing programs entirely.</p>
+        <p>CHFA loans, for example, must be originated through CHFA-approved lenders. MetroDPA has participating lenders. Teacher Next Door has its own network of approved mortgage specialists. Hero HomeReach connects you with lenders who are already approved for the programs you qualify for, which eliminates the trial-and-error of finding one yourself.</p>
       </div>
     </div>
 
     <div class="faq-item" id="faq-19">
       <button class="faq-q" onclick="toggleFaq('faq-19')" aria-expanded="false">
         <span class="faq-num">19</span>
-        <span class="faq-q-text">What type of homes qualify — can I buy new construction, a condo, or a multi-family property?</span>
+        <span class="faq-q-text">What type of homes qualify, can I buy new construction, a condo, or a multi-family property?</span>
         <span class="faq-chevron">▼</span>
       </button>
       <div class="faq-a" role="region">
         <p class="answer-lead">Most programs allow a range of property types, but rules vary.</p>
-        <p><strong>Single-family homes:</strong> Universally accepted by all programs. <strong>Condos:</strong> Generally accepted, but the condo project must be approved by FHA or VA (for those respective loan types). <strong>New construction:</strong> Accepted by most programs, though builder timelines must align with program expiration dates. <strong>Multi-family (2–4 units):</strong> Allowed by some programs (VA loan, FHA) as long as you occupy one unit as your primary residence. <strong>Manufactured homes:</strong> Limited acceptance — check individual program rules. All programs require the home to be your primary residence — investment properties and vacation homes do not qualify.</p>
+        <p><strong>Single-family homes:</strong> Universally accepted by all programs. <strong>Condos:</strong> Generally accepted, but the condo project must be approved by FHA or VA (for those respective loan types). <strong>New construction:</strong> Accepted by most programs, though builder timelines must align with program expiration dates. <strong>Multi-family (2 to 4 units):</strong> Allowed by some programs (VA loan, FHA) as long as you occupy one unit as your primary residence. <strong>Manufactured homes:</strong> Limited acceptance, check individual program rules. All programs require the home to be your primary residence, investment properties and vacation homes do not qualify.</p>
       </div>
     </div>
 
@@ -858,12 +1048,12 @@
         <span class="faq-chevron">▼</span>
       </button>
       <div class="faq-a" role="region">
-        <p class="answer-lead">For most down payment assistance programs — yes. And honestly, it's worth your time.</p>
-        <p>CHFA requires a homebuyer education certificate from a HUD-approved provider. Teacher Next Door and many other programs have the same requirement. The course is typically 6–8 hours, available entirely online, and usually free or low cost. Colorado has excellent options through eHome America and Framework. The course covers budgeting, understanding your mortgage, the home buying process, and how to maintain your home. Completing it often unlocks additional assistance amounts and demonstrates to lenders that you're a serious buyer.</p>
+        <p class="answer-lead">For most down payment assistance programs, yes. And honestly, it's worth your time.</p>
+        <p>CHFA requires a homebuyer education certificate from a HUD-approved provider. Teacher Next Door and many other programs have the same requirement. The course is typically 6 to 8 hours, available entirely online, and usually free or low cost. Colorado has excellent options through eHome America and Framework. The course covers budgeting, understanding your mortgage, the home buying process, and how to maintain your home. Completing it often unlocks additional assistance amounts and demonstrates to lenders that you're a serious buyer.</p>
       </div>
     </div>
 
-  </section><!-- /section 3 -->
+  </section>
 
   <!-- ─── SECTION 4: FINANCIAL QUALIFICATIONS ─── -->
   <section class="faq-section" id="financial">
@@ -875,13 +1065,13 @@
     <div class="faq-item" id="faq-22">
       <button class="faq-q" onclick="toggleFaq('faq-22')" aria-expanded="false">
         <span class="faq-num">22</span>
-        <span class="faq-q-text">Can I buy a home with student loan debt — specifically as a teacher or nurse?</span>
+        <span class="faq-q-text">Can I buy a home with student loan debt, specifically as a teacher or nurse?</span>
         <span class="faq-chevron">▼</span>
       </button>
       <div class="faq-a" role="region">
         <p class="answer-lead">Yes. Student loan debt does not disqualify you from homeownership or from assistance programs. What matters is your debt-to-income ratio (DTI).</p>
-        <p>Lenders typically want your total monthly debt payments (including your new mortgage) to be under 43–50% of your gross monthly income. If you're a nurse earning $75,000/year ($6,250/month) with $500/month in student loan payments, you'd have roughly $2,625/month available for a mortgage payment within a 50% DTI — which supports a home purchase in the $350,000+ range in today's rate environment.</p>
-        <p>Teachers enrolled in PSLF (Public Service Loan Forgiveness) can often use their income-driven repayment amount (which may be $0) rather than the full loan balance for DTI calculations — a significant advantage.</p>
+        <p>Lenders typically want your total monthly debt payments (including your new mortgage) to be under 43 to 50% of your gross monthly income. If you're a nurse earning $75,000/year ($6,250/month) with $500/month in student loan payments, you'd have roughly $2,625/month available for a mortgage payment within a 50% DTI, which supports a home purchase in the $350,000+ range in today's rate environment.</p>
+        <p>Teachers enrolled in PSLF (Public Service Loan Forgiveness) can often use their income-driven repayment amount (which may be $0) rather than the full loan balance for DTI calculations, a significant advantage.</p>
       </div>
     </div>
 
@@ -893,7 +1083,7 @@
       </button>
       <div class="faq-a" role="region">
         <p class="answer-lead">Purchase price limits vary by program and change annually. Current general benchmarks for Colorado:</p>
-        <p><span class="prog-tag">CHFA</span> — Limits vary by county; Denver metro is typically $750,000–$850,000 for targeted areas. | <span class="prog-tag">FHA Loan limit</span> (for Chenoa Fund) — $621,000 for most Colorado counties in 2025, higher in high-cost areas. | <span class="prog-tag">MetroDPA</span> — Follows FHA limits. | <span class="prog-tag">VA Loan</span> — No purchase price limit (though lender overlays may apply). | <span class="prog-tag">Teacher Next Door</span> — No specific purchase price cap beyond the underlying loan limits.</p>
+        <p><span class="prog-tag">CHFA</span> — Limits vary by county; Denver metro is typically $750,000 to $850,000 for targeted areas. | <span class="prog-tag">FHA Loan limit</span> (for Chenoa Fund) — $621,000 for most Colorado counties in 2025, higher in high-cost areas. | <span class="prog-tag">MetroDPA</span> — Follows FHA limits. | <span class="prog-tag">VA Loan</span> — No purchase price limit (though lender overlays may apply). | <span class="prog-tag">Teacher Next Door</span> — No specific purchase price cap beyond the underlying loan limits.</p>
         <p>Given Colorado's median home price is around $550,000 statewide (and higher in Denver metro), most programs adequately cover realistic purchase prices for hero professionals.</p>
       </div>
     </div>
@@ -905,25 +1095,25 @@
         <span class="faq-chevron">▼</span>
       </button>
       <div class="faq-a" role="region">
-        <p class="answer-lead">Yes, in most cases. Gift funds and down payment assistance can coexist — and combining both can further reduce your cash needed at closing.</p>
-        <p>FHA loans allow 100% of the down payment to come from gift funds. VA loans allow gift funds for closing costs. Gift funds must be documented with a gift letter from the donor stating no repayment is expected. If you have family who want to help AND you qualify for down payment assistance programs, both sources can be applied simultaneously — the programs don't restrict or eliminate other gift money you receive.</p>
+        <p class="answer-lead">Yes, in most cases. Gift funds and down payment assistance can coexist, and combining both can further reduce your cash needed at closing.</p>
+        <p>FHA loans allow 100% of the down payment to come from gift funds. VA loans allow gift funds for closing costs. Gift funds must be documented with a gift letter from the donor stating no repayment is expected. If you have family who want to help AND you qualify for down payment assistance programs, both sources can be applied simultaneously. The programs don't restrict or eliminate other gift money you receive.</p>
       </div>
     </div>
 
     <div class="faq-item" id="faq-25">
       <button class="faq-q" onclick="toggleFaq('faq-25')" aria-expanded="false">
         <span class="faq-num">25</span>
-        <span class="faq-q-text">What if my credit score is below 600 — is homeownership completely out of reach?</span>
+        <span class="faq-q-text">What if my credit score is below 600, is homeownership completely out of reach?</span>
         <span class="faq-chevron">▼</span>
       </button>
       <div class="faq-a" role="region">
-        <p class="answer-lead">Not out of reach — but you may need a 6–12 month credit-building runway first.</p>
+        <p class="answer-lead">Not out of reach, but you may need a 6 to 12 month credit-building runway first.</p>
         <p>Below 580, conventional and most assistance programs are unavailable. But a focused credit improvement plan can move your score dramatically in a short time. High-impact actions: pay down credit card balances below 30% utilization (the single fastest score improvement), ensure no missed payments going forward, dispute any inaccurate negative items, and avoid opening new credit accounts. Going from 560 to 620 in 6 months is realistically achievable for most people and unlocks significant program access.</p>
-        <div class="answer-highlight">Get your free Hero HomeReach guide now and start the process regardless. Knowing your exact program landscape — even if you're 6 months out — lets you plan with precision rather than guessing.</div>
+        <div class="answer-highlight">Get your free Hero HomeReach guide now and start the process regardless. Knowing your exact program landscape, even if you're 6 months out, lets you plan with precision rather than guessing.</div>
       </div>
     </div>
 
-  </section><!-- /section 4 -->
+  </section>
 
   <!-- ─── SECTION 5: ABOUT HERO HOMEREACH ─── -->
   <section class="faq-section" id="herehomereach">
@@ -940,7 +1130,7 @@
       </button>
       <div class="faq-a" role="region">
         <p class="answer-lead">No catch. The guide is completely free. No credit card. No obligation. No sales call you didn't ask for.</p>
-        <p>Hero HomeReach exists to close the information gap between Colorado's heroes and the programs designed to help them. Most teachers, nurses, and first responders never access these programs simply because they don't know they exist or don't know how to apply. We built the guide to change that — for free, for every hero who wants it.</p>
+        <p>Hero HomeReach exists to close the information gap between Colorado's heroes and the programs designed to help them. Most teachers, nurses, and first responders never access these programs simply because they don't know they exist or don't know how to apply. We built the guide to change that, for free, for every hero who wants it.</p>
         <p>We connect you with participating lenders if and when you're ready. That's how we sustain the platform. But the guide, the program matching, and the information are yours with no strings attached.</p>
       </div>
     </div>
@@ -948,13 +1138,13 @@
     <div class="faq-item" id="faq-27">
       <button class="faq-q" onclick="toggleFaq('faq-27')" aria-expanded="false">
         <span class="faq-num">27</span>
-        <span class="faq-q-text">What does the Hero HomeReach process look like — how does it actually work?</span>
+        <span class="faq-q-text">What does the Hero HomeReach process look like, how does it actually work?</span>
         <span class="faq-chevron">▼</span>
       </button>
       <div class="faq-a" role="region">
         <p class="answer-lead">Three steps. No bureaucracy. No credit check required.</p>
         <p><strong>Step 1 — Get Your Free Guide:</strong> Fill out the form at herohomereach.com. Tell us your profession, your Colorado city, and a few basics. No credit check, no hard pull, no social security number required at this stage.</p>
-        <p><strong>Step 2 — Review Your Matches:</strong> We identify every program you're likely eligible for based on your profile and deliver a personalized breakdown — which programs, how much, and how they can stack.</p>
+        <p><strong>Step 2 — Review Your Matches:</strong> We identify every program you're likely eligible for based on your profile and deliver a personalized breakdown, which programs, how much, and how they can stack.</p>
         <p><strong>Step 3 — Connect With a Specialist:</strong> If you want to move forward, we connect you with a vetted Colorado lender who is already approved for your matched programs. You take it from there on your own timeline.</p>
       </div>
     </div>
@@ -966,20 +1156,20 @@
         <span class="faq-chevron">▼</span>
       </button>
       <div class="faq-a" role="region">
-        <p class="answer-lead">Most lenders know the programs they participate in — not the full landscape of every program you might qualify for. CHFA will tell you about CHFA. A MetroDPA lender will tell you about MetroDPA. No single lender shows you everything.</p>
-        <p>Hero HomeReach maps your eligibility across ALL available programs simultaneously — and then shows you how they stack. That's the difference between getting one program and getting your maximum possible assistance. We're the aggregator. Once you know your full picture, you're a much more informed buyer when you sit down with any lender.</p>
+        <p class="answer-lead">Most lenders know the programs they participate in, not the full landscape of every program you might qualify for. CHFA will tell you about CHFA. A MetroDPA lender will tell you about MetroDPA. No single lender shows you everything.</p>
+        <p>Hero HomeReach maps your eligibility across ALL available programs simultaneously, and then shows you how they stack. That's the difference between getting one program and getting your maximum possible assistance. We're the aggregator. Once you know your full picture, you're a much more informed buyer when you sit down with any lender.</p>
       </div>
     </div>
 
     <div class="faq-item" id="faq-29">
       <button class="faq-q" onclick="toggleFaq('faq-29')" aria-expanded="false">
         <span class="faq-num">29</span>
-        <span class="faq-q-text">I'm not ready to buy yet — is it too early to get the guide?</span>
+        <span class="faq-q-text">I'm not ready to buy yet, is it too early to get the guide?</span>
         <span class="faq-chevron">▼</span>
       </button>
       <div class="faq-a" role="region">
-        <p class="answer-lead">It's never too early — and getting the guide before you're ready is actually a strategic advantage.</p>
-        <p>Knowing which programs you'll qualify for lets you make smarter decisions today: whether to pay down debt to improve your DTI, which credit score to target, how much to save (which may be far less than you assumed), and when to start the pre-approval process. Heroes who get the guide 6–12 months before they're ready to buy consistently close faster and with more assistance than those who start the research at the last minute.</p>
+        <p class="answer-lead">It's never too early, and getting the guide before you're ready is actually a strategic advantage.</p>
+        <p>Knowing which programs you'll qualify for lets you make smarter decisions today: whether to pay down debt to improve your DTI, which credit score to target, how much to save (which may be far less than you assumed), and when to start the pre-approval process. Heroes who get the guide 6 to 12 months before they're ready to buy consistently close faster and with more assistance than those who start the research at the last minute.</p>
       </div>
     </div>
 
@@ -990,51 +1180,64 @@
         <span class="faq-chevron">▼</span>
       </button>
       <div class="faq-a" role="region">
-        <p class="answer-lead">Several programs cover closing costs in addition to — or instead of — the down payment. This is a crucial distinction that can eliminate your last remaining cash barrier.</p>
-        <p>The Chenoa Fund is specifically designed to cover the 3.5% FHA down payment requirement, freeing other assistance for closing costs. Seller concessions (negotiated into your purchase offer) can cover up to 3–6% of the purchase price in closing costs. VA loans allow sellers to pay up to 4% in concessions plus all customary closing costs. CHFA also offers a separate closing cost assistance grant alongside its down payment program. In a well-structured transaction, it's possible to cover both down payment and closing costs entirely through a combination of these sources.</p>
+        <p class="answer-lead">Several programs cover closing costs in addition to, or instead of, the down payment. This is a crucial distinction that can eliminate your last remaining cash barrier.</p>
+        <p>The Chenoa Fund is specifically designed to cover the 3.5% FHA down payment requirement, freeing other assistance for closing costs. Seller concessions (negotiated into your purchase offer) can cover up to 3 to 6% of the purchase price in closing costs. VA loans allow sellers to pay up to 4% in concessions plus all customary closing costs. CHFA also offers a separate closing cost assistance grant alongside its down payment program. In a well-structured transaction, it's possible to cover both down payment and closing costs entirely through a combination of these sources.</p>
       </div>
     </div>
 
-  </section><!-- /section 5 -->
+  </section>
 
-</main><!-- /main -->
+</main>
 
-<!-- ══════════════════════════════════════
-     CTA BANNER
-══════════════════════════════════════ -->
+<!-- ════════════ CTA BANNER ════════════ -->
 <section class="cta-banner">
   <h2>Ready to See What You <span>Actually Qualify For?</span></h2>
-  <p>Get your free, personalized Hero Homebuyer Action Guide — matched to your profession, your county, and your financial situation. No credit check. No sales call you didn't request.</p>
+  <p>Get your free, personalized Hero Homebuyer Action Guide, matched to your profession, your county, and your financial situation. No credit check. No sales call you didn't request.</p>
   <a href="https://herohomereach.com/#guide" class="cta-btn">Get My Free Guide →</a>
   <p class="cta-sub">Free · No Credit Check · No Obligation · Colorado Heroes Only</p>
 </section>
 
-<!-- ══════════════════════════════════════
-     SCHEMA MARKUP DISPLAY BLOCK
-     (for developer reference — the actual
-      script tag below is what Google reads)
-══════════════════════════════════════ -->
-<div class="schema-preview">
-  <div class="schema-header">
-    <h3>FAQ Schema Markup</h3>
-    <span class="schema-badge">✓ JSON-LD Active</span>
-  </div>
-  <p class="schema-note">The block below is the FAQ Schema (JSON-LD) embedded in this page's &lt;head&gt;. It tells Google that this page contains structured Q&amp;A content, enabling rich result formatting in search. Validate at <a href="https://search.google.com/test/rich-results" style="color:var(--gold);" target="_blank" rel="noopener">search.google.com/test/rich-results</a> after deployment.</p>
-  <div class="schema-code" id="schema-display"></div>
-</div>
 
-<!-- ══════════════════════════════════════
-     SITE FOOTER
-══════════════════════════════════════ -->
-<footer class="site-footer">
-  <p><strong>Hero HomeReach</strong> · herohomereach.com · Serving Colorado's Teachers, Nurses, First Responders &amp; Veterans · Free Hero Homebuyer Programs Guide</p>
+<!-- ════════════ FOOTER ════════════ -->
+<footer id="footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="wordmark">Hero <span>HomeReach</span>™</div>
+      <p>Helping Colorado's teachers, nurses, firefighters, veterans, and public servants become homeowners through down payment assistance, grants, and forgivable loan programs.</p>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title">Programs</div>
+      <a href="programs.html">Down Payment Assistance</a>
+      <a href="programs.html#grants">Grants</a>
+      <a href="programs.html#forgivable">Forgivable Loans</a>
+      <a href="programs.html#chfa">CHFA Programs</a>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title">Who We Serve</div>
+      <a href="who-we-serve.html#teachers">Teachers &amp; Educators</a>
+      <a href="who-we-serve.html#first-responders">First Responders</a>
+      <a href="who-we-serve.html#healthcare">Healthcare Workers</a>
+      <a href="who-we-serve.html#military">Military &amp; Veterans</a>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title">Resources</div>
+      <a href="faq.html">Homebuyer FAQ</a>
+      <a href="blog/">Resources &amp; Blog</a>
+      <a href="about.html">About Us</a>
+      <a href="contact.html">Book a Consultation</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-copy">© 2026 Hero HomeReach™. All rights reserved. Serving Colorado's heroes.</p>
+    <div class="footer-legal">
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="terms.html">Terms of Use</a>
+      <a href="disclaimer.html">Disclaimer</a>
+    </div>
+  </div>
 </footer>
 
-<!-- ══════════════════════════════════════
-     ★ FAQ SCHEMA MARKUP (JSON-LD)
-     COPY THIS ENTIRE SCRIPT TAG INTO
-     THE <HEAD> OF YOUR PAGE IN VERCEL
-══════════════════════════════════════ -->
+<!-- ════════════ FAQ SCHEMA JSON-LD ════════════ -->
 <script type="application/ld+json" id="faq-schema">
 {
   "@context": "https://schema.org",
@@ -1061,7 +1264,7 @@
       "name": "Can I combine multiple down payment assistance programs at the same time?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. Program stacking is legal and used by informed buyers every day in Colorado. A common combination is the Teacher Next Door grant (never repaid) plus MetroDPA (forgivable after 3 years) plus seller concessions negotiated into the purchase agreement. The result can cover your entire down payment and closing costs. Hero HomeReach's matching process identifies which programs can legally be combined for your situation."
+        "text": "Yes. Program stacking is legal and used by informed buyers every day in Colorado. A common combination is the Teacher Next Door grant (never repaid) plus MetroDPA (forgivable after 3 years) plus seller concessions negotiated into the purchase agreement. The result can cover your entire down payment and closing costs."
       }
     },
     {
@@ -1069,7 +1272,7 @@
       "name": "What is the Teacher Next Door grant and how does it work?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Teacher Next Door is a national program for educators that provides up to $8,000 in true grant money that is never repaid. It works on homes across Colorado with no geographic restriction. Full-time and part-time Pre-K through 12th grade teachers, administrators, and support staff qualify. There is no first-time homebuyer requirement. Buyers also get access to below-market mortgage rates and additional down payment assistance loans."
+        "text": "Teacher Next Door is a national program for educators that provides up to $8,000 in true grant money that is never repaid. It works on homes across Colorado with no geographic restriction. Full-time and part-time Pre-K through 12th grade teachers, administrators, and support staff qualify. There is no first-time homebuyer requirement."
       }
     },
     {
@@ -1077,7 +1280,7 @@
       "name": "What is MetroDPA and who qualifies in Colorado?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "MetroDPA is a down payment assistance program for the Denver metro area providing up to $25,000 for qualifying buyers. Eligibility requires purchasing in an eligible Colorado county, meeting income limits (varies by county and household size), typically a minimum 640 credit score, and the home must be your primary residence. It does not require first-time homebuyer status and stacks well with profession-specific programs like Teacher Next Door."
+        "text": "MetroDPA is a down payment assistance program for the Denver metro area providing up to $25,000 for qualifying buyers. Eligibility requires purchasing in an eligible Colorado county, meeting income limits, typically a minimum 640 credit score, and the home must be your primary residence. It does not require first-time homebuyer status."
       }
     },
     {
@@ -1085,7 +1288,7 @@
       "name": "What is the Chenoa Fund and is it available in Colorado?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes, the Chenoa Fund is available statewide in Colorado. It provides 3.5% or 5% of the loan amount as down payment assistance. The 3.5% option can be structured as a forgivable loan (forgiven after 36 on-time payments if income is below 115% of AMI) or a repayable second mortgage. It works with FHA loans, requires a minimum 600 credit score, and has no first-time buyer requirement. It layers with VA loans and CHFA loans as a closing cost assistance tool."
+        "text": "Yes, the Chenoa Fund is available statewide in Colorado. It provides 3.5% or 5% of the loan amount as down payment assistance. The 3.5% option can be structured as a forgivable loan (forgiven after 36 on-time payments if income is below 115% of AMI) or a repayable second mortgage. It works with FHA loans, requires a minimum 600 credit score, and has no first-time buyer requirement."
       }
     },
     {
@@ -1093,7 +1296,7 @@
       "name": "What is CHFA and how do I qualify for a CHFA loan in Colorado?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "CHFA stands for Colorado Housing and Finance Authority, a state agency offering below-market mortgage rates and down payment assistance for Colorado residents. CHFA loans are originated through participating lenders. Basic eligibility includes: Colorado resident status, meeting income limits by county, typically a 620+ FICO credit score, completing a free homebuyer education course, and purchasing within CHFA purchase price limits. First-time buyer requirement applies for most programs, with exceptions for veterans and buyers in targeted areas."
+        "text": "CHFA stands for Colorado Housing and Finance Authority, a state agency offering below-market mortgage rates and down payment assistance for Colorado residents. Basic eligibility includes: Colorado resident status, meeting income limits by county, typically a 620+ FICO credit score, completing a free homebuyer education course, and purchasing within CHFA purchase price limits."
       }
     },
     {
@@ -1109,7 +1312,7 @@
       "name": "Do I have to be a first-time homebuyer to qualify for Colorado hero homebuyer programs?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Many of these programs do NOT require first-time homebuyer status. Teacher Next Door has no first-time buyer requirement. Chenoa Fund has no first-time buyer requirement. VA Loan has no first-time buyer requirement. MetroDPA does not require it in most configurations. CHFA generally requires first-time buyer status but veterans and buyers in targeted areas are exempt. Even the CHFA first-time buyer definition is broad: if you have not owned a primary residence in the last 3 years, you qualify regardless of prior ownership history."
+        "text": "Many programs do NOT require first-time homebuyer status. Teacher Next Door, Chenoa Fund, VA Loan, and MetroDPA (in most configurations) have no first-time buyer requirement. CHFA generally requires it but veterans and buyers in targeted areas are exempt. Even the CHFA first-time buyer definition is broad: if you have not owned a primary residence in the last 3 years, you qualify."
       }
     },
     {
@@ -1117,7 +1320,7 @@
       "name": "What credit score do I need to qualify for down payment assistance in Colorado?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Most programs work with credit scores starting at 580-640. FHA Loan with Chenoa Fund requires a minimum 580-600 FICO. CHFA typically requires 620+. MetroDPA typically requires 640+. VA Loan has no official minimum but most lenders require 580-620. Teacher Next Door follows the underlying mortgage requirement. If your credit score is below 600, a 6-12 month credit improvement plan can meaningfully change your program options."
+        "text": "Most programs work with credit scores starting at 580-640. FHA Loan with Chenoa Fund requires a minimum 580-600 FICO. CHFA typically requires 620+. MetroDPA typically requires 640+. VA Loan has no official minimum but most lenders require 580-620. Teacher Next Door follows the underlying mortgage requirement."
       }
     },
     {
@@ -1125,7 +1328,7 @@
       "name": "Is there an income limit for Colorado down payment assistance programs?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Most programs have income limits, but they are often higher than people expect. Limits are based on Area Median Income (AMI) and vary by county and household size. In the Denver-Aurora metro, most programs allow incomes up to 80-115% of AMI. A nurse earning $85,000 per year or a teacher earning $65,000 per year typically qualifies for multiple programs. Hero HomeReach checks current income limits for your specific county and household size."
+        "text": "Most programs have income limits, but they are often higher than people expect. Limits are based on Area Median Income (AMI) and vary by county and household size. Most programs allow incomes up to 80-115% of AMI. A nurse earning $85,000 per year or a teacher earning $65,000 per year typically qualifies for multiple programs."
       }
     },
     {
@@ -1133,15 +1336,7 @@
       "name": "Can EMTs and paramedics qualify for hero homebuyer programs?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. EMTs and paramedics qualify under the first responder and medical professional categories of hero homebuyer programs. The Teacher Next Door program umbrella includes a Homes for Heroes component covering firefighters, law enforcement, medical professionals, military members, and teachers. All non-profession-specific programs including CHFA, MetroDPA, Chenoa Fund, and VA loan for veteran EMTs are also fully available."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Do Colorado law enforcement officers qualify for hero homebuyer programs?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. Law enforcement officers including police, sheriff's deputies, corrections officers, and federal agents qualify under the first responder category. Additionally, HUD's Good Neighbor Next Door program offers law enforcement officers a 50% discount on eligible HUD homes in revitalization areas. This is separate from down payment assistance programs and can potentially be combined with them."
+        "text": "Yes. EMTs and paramedics qualify under the first responder and medical professional categories of hero homebuyer programs. All major programs including CHFA, MetroDPA, Chenoa Fund, Teacher Next Door umbrella programs, and VA loan for veteran EMTs are fully available."
       }
     },
     {
@@ -1149,7 +1344,7 @@
       "name": "How long does it take to buy a home using down payment assistance in Colorado?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Plan for a 60-90 day process from start to keys in hand, which is the same timeline as a conventional purchase. Down payment assistance programs do not significantly slow down the process when you work with an experienced lender. Steps include: Hero HomeReach program matching (free, 48 hours), lender pre-approval including DPA program approval (1-2 weeks), home search and offer, and under contract to close (30-45 days). Some programs require a homebuyer education course that can be completed online in one day."
+        "text": "Plan for a 60-90 day process from start to keys in hand, the same timeline as a conventional purchase. Down payment assistance programs do not significantly slow the process when you work with an experienced lender. Steps include Hero HomeReach program matching (free, 48 hours), lender pre-approval (1-2 weeks), home search, and under contract to close (30-45 days)."
       }
     },
     {
@@ -1157,15 +1352,7 @@
       "name": "Do I need a special lender to use down payment assistance programs?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes, and this is critical. Not every lender participates in every program. CHFA loans must be originated through CHFA-approved lenders. MetroDPA has participating lenders. Teacher Next Door has its own network of approved mortgage specialists. Working with the wrong lender can mean missing programs entirely. Hero HomeReach connects you with lenders who are already approved for the programs you qualify for."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can I use down payment assistance anywhere in Colorado or only certain cities?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Most major programs are available statewide. Teacher Next Door is available statewide in any Colorado city or county. CHFA is available statewide across all 64 Colorado counties. Chenoa Fund is statewide. MetroDPA is specific to the Denver metro area covering Adams, Arapahoe, Boulder, Broomfield, Denver, Douglas, and Jefferson counties. VA Loan is available nationwide including all of Colorado."
+        "text": "Yes, and this is critical. Not every lender participates in every program. CHFA loans must be originated through CHFA-approved lenders. MetroDPA has participating lenders. Teacher Next Door has its own network of approved mortgage specialists. Hero HomeReach connects you with lenders already approved for your matched programs."
       }
     },
     {
@@ -1173,7 +1360,7 @@
       "name": "Can I buy a home with student loan debt as a teacher or nurse in Colorado?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. Student loan debt does not disqualify you from homeownership or assistance programs. What matters is your debt-to-income ratio (DTI), which lenders want under 43-50% of gross monthly income. Teachers enrolled in Public Service Loan Forgiveness (PSLF) can often use their income-driven repayment amount, which may be zero dollars, rather than the full loan balance for DTI calculations. This is a significant advantage for teachers."
+        "text": "Yes. Student loan debt does not disqualify you. What matters is your debt-to-income ratio (DTI), which lenders want under 43-50% of gross monthly income. Teachers enrolled in Public Service Loan Forgiveness (PSLF) can often use their income-driven repayment amount, which may be zero, rather than the full loan balance for DTI calculations."
       }
     },
     {
@@ -1181,7 +1368,7 @@
       "name": "Is the Hero HomeReach guide really free?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes, completely free. No credit card, no obligation, no sales call you did not ask for. Hero HomeReach exists to close the information gap between Colorado heroes and the programs designed to help them. We connect you with participating lenders if and when you are ready, which is how we sustain the platform. But the guide, the program matching, and the information are yours with no strings attached."
+        "text": "Yes, completely free. No credit card, no obligation, no sales call you did not ask for. The guide, the program matching, and the information are yours with no strings attached. Hero HomeReach sustains the platform by connecting ready buyers with vetted participating lenders."
       }
     },
     {
@@ -1189,33 +1376,46 @@
       "name": "Do down payment assistance programs cover closing costs too, or just the down payment?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Several programs cover closing costs in addition to or instead of the down payment. The Chenoa Fund is specifically designed to cover the 3.5% FHA down payment, freeing other assistance for closing costs. Seller concessions can cover up to 3-6% of the purchase price in closing costs. VA loans allow sellers to pay all customary closing costs plus up to 4% in concessions. CHFA offers a separate closing cost assistance grant alongside its down payment program. In a well-structured transaction it is possible to cover both down payment and closing costs entirely."
+        "text": "Several programs cover closing costs in addition to or instead of the down payment. The Chenoa Fund covers the 3.5% FHA down payment, freeing other assistance for closing costs. Seller concessions can cover up to 3-6% of the purchase price. VA loans allow sellers to pay all customary closing costs plus up to 4% in concessions. CHFA offers a separate closing cost assistance grant. In a well-structured transaction it is possible to cover both down payment and closing costs entirely."
       }
     }
   ]
 }
 </script>
 
-<!-- ══════════════════════════════════════
-     JS — Accordion + Schema Display
-══════════════════════════════════════ -->
+<!-- ════════════ JAVASCRIPT ════════════ -->
 <script>
+  /* ── Mobile nav toggle ── */
+  function toggleMobileNav() {
+    const nav = document.getElementById('mobile-nav');
+    nav.classList.toggle('open');
+  }
+
+  /* ── Nav scroll behavior ── */
+  window.addEventListener('scroll', () => {
+    const nav = document.getElementById('nav');
+    if (window.scrollY > 20) {
+      nav.classList.add('scrolled');
+    } else {
+      nav.classList.remove('scrolled');
+    }
+  });
+
+  /* ── FAQ accordion ── */
   function toggleFaq(id) {
     const item = document.getElementById(id);
     const isOpen = item.classList.contains('open');
-    // close all
     document.querySelectorAll('.faq-item.open').forEach(el => {
       el.classList.remove('open');
       el.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
     });
-    // open clicked (if it was closed)
     if (!isOpen) {
       item.classList.add('open');
       item.querySelector('.faq-q').setAttribute('aria-expanded', 'true');
     }
   }
 
-  // Display schema source in the preview box
+  /* ── Schema source display ── */
   window.addEventListener('DOMContentLoaded', () => {
     const raw = document.getElementById('faq-schema').textContent;
     const pretty = JSON.stringify(JSON.parse(raw), null, 2);
