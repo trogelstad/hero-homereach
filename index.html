@@ -403,7 +403,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 
 <!-- ════════════ NAVIGATION ════════════ -->
-<<nav id="nav" class="nav-solid">
+<nav id="nav" class="nav-solid">
   <div class="nav-inner">
     <a href="/" class="nav-logo">
       <img src="logo-mark_transparent.png" alt="Hero HomeReach Shield" style="width:50px; height:50px; object-fit:contain;">
@@ -411,23 +411,33 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="nav-wordmark">Hero <span>HomeReach</span><sup class="nav-tm">™</sup></div>
       </div>
     </a>
-
     <ul class="nav-links">
       <li><a href="programs.html">Programs</a></li>
       <li><a href="who-we-serve.html">Who We Serve</a></li>
       <li><a href="about.html">About</a></li>
       <li><a href="blog/">Resources &amp; Blog</a></li>
+      <li><a href="faq.html">Homebuyer FAQ</a></li>
       <li><a href="https://guide.herohomereach.com" target="_blank" style="color:var(--bright-gold); font-weight:700;">Free Guide</a></li>
     </ul>
-
-<div class="nav-cta">
-  <a href="contact.html" class="btn btn-gold btn-arrow">Book Free Consultation</a>
-</div>
+    <div class="nav-cta">
+      <a href="contact.html" class="btn btn-gold btn-arrow">Book Free Consultation</a>
+    </div>
     <div class="nav-hamburger" id="hamburger" onclick="toggleMobileNav()">
       <span></span><span></span><span></span>
     </div>
   </div>
 </nav>
+
+<!-- Mobile Nav -->
+<div id="mobile-nav">
+  <a href="programs.html" onclick="toggleMobileNav()">Programs</a>
+  <a href="who-we-serve.html" onclick="toggleMobileNav()">Who We Serve</a>
+  <a href="about.html" onclick="toggleMobileNav()">About</a>
+  <a href="blog/" onclick="toggleMobileNav()">Resources &amp; Blog</a>
+  <a href="faq.html" onclick="toggleMobileNav()">Homebuyer FAQ</a>
+  <a href="https://guide.herohomereach.com" target="_blank" onclick="toggleMobileNav()" style="color:var(--bright-gold);">Free Guide</a>
+  <a href="contact.html" onclick="toggleMobileNav()" class="btn btn-gold" style="margin-top:16px;">Book Free Consultation</a>
+</div>
 
 <!-- Mobile Nav -->
 <div id="mobile-nav">
