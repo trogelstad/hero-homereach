@@ -12,19 +12,54 @@
   <!-- End Google Tag Manager -->
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Resources & Blog — Hero HomeReach™</title>
-  <meta name="description" content="Free homeownership guides & program breakdowns for Colorado teachers, first responders, healthcare workers & military members. Start reading now.">
+
+  <title>VA Loan Down Payment Assistance in Colorado: What Veterans Should Know — Hero HomeReach™</title>
+  <meta name="description" content="Colorado veterans may qualify for down payment and closing cost help beyond the VA loan. Here's what CHFA, metroDPA, and stacking benefits can do for you.">
+
+  <link rel="canonical" href="https://www.herohomereach.com/blog/va-loan-down-payment-assistance-colorado">
 
   <!-- Favicons -->
   <link rel="icon" type="image/png" href="../favicon.png">
   <link rel="apple-touch-icon" sizes="180x180" href="../favicon-180x180.png">
-  <link rel="icon" type="image/png" sizes="192x192" href="../favicon-192x192.png">
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Resources & Blog — Hero HomeReach™">
-  <meta property="og:description" content="Plain-English guides to Colorado down payment assistance, grants, and forgivable loans for heroes.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://herohomereach.com/blog/">
+  <meta property="og:title" content="VA Loan Down Payment Assistance in Colorado: What Veterans Should Know — Hero HomeReach™">
+  <meta property="og:description" content="Colorado veterans may qualify for down payment and closing cost help beyond the VA loan. Here's what CHFA, metroDPA, and stacking benefits can do for you.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://www.herohomereach.com/blog/va-loan-down-payment-assistance-colorado">
+  <meta property="og:image" content="https://www.herohomereach.com/blog/va-loan-down-payment-assistance-colorado.jpg">
+  <meta property="og:site_name" content="Hero HomeReach">
+
+  <!-- Article Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "VA Loan Down Payment Assistance in Colorado: What Veterans Should Know",
+    "description": "Colorado veterans may qualify for down payment and closing cost help beyond the VA loan. Here's what CHFA, metroDPA, and stacking benefits can do for you.",
+    "image": "https://www.herohomereach.com/blog/va-loan-down-payment-assistance-colorado.jpg",
+    "datePublished": "2026-05-13",
+    "dateModified": "2026-05-13",
+    "author": {
+      "@type": "Person",
+      "name": "Trent Rogelstad",
+      "url": "https://www.herohomereach.com/about.html"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Hero HomeReach",
+      "url": "https://www.herohomereach.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.herohomereach.com/logo-mark_transparent.png"
+      }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://www.herohomereach.com/blog/va-loan-down-payment-assistance-colorado"
+    }
+  }
+  </script>
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -36,62 +71,82 @@
   <link rel="stylesheet" href="../css/blog.css">
 
 <style>
-/* ── Blog index page-specific overrides ── */
-.blog-hero-stats {
+/* ── Post page hero ── */
+.post-hero {
+  background: var(--navy);
+  padding: calc(var(--nav-h) + 56px) 0 64px;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 4px solid var(--gold);
+}
+.post-hero::before {
+  content: '';
+  position: absolute;
+  top: -80px; right: -80px;
+  width: 500px; height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(201,151,58,0.07) 0%, transparent 70%);
+}
+.post-hero-inner {
+  position: relative; z-index: 2;
+  max-width: 780px;
+}
+.post-hero-inner h1 {
+  color: #fff;
+  font-size: clamp(28px, 4vw, 46px);
+  line-height: 1.15;
+  margin-bottom: 20px;
+}
+.post-hero-meta {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 40px;
-  margin-top: 32px;
+  gap: 14px;
   flex-wrap: wrap;
 }
-  * { max-width: 100%; }
-html, body { overflow-x: hidden; }
-  @media (max-width: 600px) {
-  .blog-hero-stats {
-    flex-direction: column;
-    align-items: center;
-    gap: 16px;
-  }
-  .blog-hero-stat-divider { display: none; }
-}
-.blog-hero-stat-item {
-  text-align: center;
-}
-.blog-hero-stat-num {
-  font-family: var(--font-head);
-  font-size: 28px;
-  font-weight: 900;
-  color: var(--gold);
-  display: block;
-  line-height: 1;
-}
-.blog-hero-stat-label {
-  font-size: 12px;
-  color: rgba(255,255,255,0.5);
-  margin-top: 4px;
-  display: block;
-}
-.blog-hero-stat-divider {
-  width: 1px;
-  height: 36px;
-  background: rgba(255,255,255,0.15);
-}
-.filters-section {
-  padding: 32px 0 0;
-}
-.filters-label {
+.post-hero-tag {
   font-size: 11px;
   font-weight: 700;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #999;
-  margin-bottom: 12px;
+  color: var(--gold);
+  background: rgba(201,151,58,0.15);
+  padding: 4px 12px;
+  border-radius: 20px;
 }
+.post-hero-audience {
+  font-size: 11px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.8);
+  background: rgba(255,255,255,0.1);
+  padding: 4px 12px;
+  border-radius: 20px;
+}
+.post-hero-date, .post-hero-read-time {
+  font-size: 13px;
+  color: rgba(255,255,255,0.45);
+}
+.post-hero-dot {
+  width: 3px; height: 3px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.3);
+  flex-shrink: 0;
+}
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 20px;
+  font-size: 13px;
+}
+.breadcrumb a { color: rgba(255,255,255,0.5); transition: color 0.2s; }
+.breadcrumb a:hover { color: var(--gold); }
+.breadcrumb-sep { color: rgba(255,255,255,0.25); }
+.breadcrumb-current { color: rgba(255,255,255,0.4); }
 </style>
+
   <!-- Calendly popup -->
-<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
-<script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+  <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
 </head>
 <body>
 
@@ -99,6 +154,7 @@ html, body { overflow-x: hidden; }
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5ZQKN4LM"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
+
 
 <!-- ════════════ NAVIGATION ════════════ -->
 <nav id="nav" class="nav-solid">
@@ -119,9 +175,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <li><a href="https://guide.herohomereach.com" target="_blank" style="color:var(--bright-gold);font-weight:700;">Free Guide</a></li>
     </ul>
 
-<div class="nav-cta">
-  <a href="https://www.herohomereach.com/contact.html" class="btn btn-gold btn-arrow">Book Free Consultation</a>
-</div>
+    <div class="nav-cta">
+      <a href="https://www.herohomereach.com/contact.html" class="btn btn-gold btn-arrow">Book Free Consultation</a>
+    </div>
 
     <div class="nav-hamburger" id="hamburger" onclick="toggleMobileNav()">
       <span></span><span></span><span></span>
@@ -141,191 +197,247 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </div>
 
 
-<!-- ════════════ PAGE HERO ════════════ -->
-<div class="page-hero">
+<!-- ════════════ POST HERO ════════════ -->
+<div class="post-hero">
   <div class="container">
-    <div class="page-hero-inner">
-      <div class="section-eyebrow" style="justify-content:center;color:var(--bright-gold);">Plain-English Guides</div>
-      <h1>Resources &amp; <span>Blog</span></h1>
-      <p>Everything Colorado heroes need to know about down payment assistance, grants, and forgivable loans. No jargon. No fluff. Just answers.</p>
-      <div class="blog-hero-stats">
-        <div class="blog-hero-stat-item">
-        
-          
-        </div>
-        <!--<div class="blog-hero-stat-divider"></div>-->
-        <div class="blog-hero-stat-item">
-          <span class="blog-hero-stat-num">Free</span>
-          <span class="blog-hero-stat-label">All resources</span>
-        </div>
-        <div class="blog-hero-stat-divider"></div>
-        <div class="blog-hero-stat-item">
-          <span class="blog-hero-stat-num">CO</span>
-          <span class="blog-hero-stat-label">Colorado-specific</span>
-        </div>
+    <div class="post-hero-inner">
+
+      <div class="breadcrumb">
+        <a href="../">Home</a>
+        <span class="breadcrumb-sep">›</span>
+        <a href="../blog/">Resources &amp; Blog</a>
+        <span class="breadcrumb-sep">›</span>
+        <span class="breadcrumb-current">VA Loan Down Payment Assistance in Colorado</span>
       </div>
+
+      <h1>VA Loan Down Payment Assistance in Colorado: What Veterans Should Know</h1>
+
+      <div class="post-hero-meta">
+        <span class="post-hero-tag">Program Guide</span>
+        <span class="post-hero-audience">Military &amp; Veterans</span>
+        <span class="post-hero-dot"></span>
+        <span class="post-hero-date">May 2026</span>
+        <span class="post-hero-dot"></span>
+        <span class="post-hero-read-time">12 min read</span>
+      </div>
+
     </div>
   </div>
 </div>
 
 
-<!-- ════════════ FILTERS + BLOG GRID ════════════ -->
+<!-- ════════════ POST BODY ════════════ -->
 <section class="section">
   <div class="container">
+    <div class="post-layout">
 
-    <!-- Category filter bar -->
-    <div class="filters-section">
-      <div class="filters-label">Filter by audience</div>
-      <div class="blog-filters">
-        <button class="blog-filter-btn active" data-filter="all">All Resources</button>
-        <button class="blog-filter-btn" data-filter="educators">🎓 Educators</button>
-        <button class="blog-filter-btn" data-filter="first-responders">🚒 First Responders</button>
-        <button class="blog-filter-btn" data-filter="healthcare">🏥 Healthcare</button>
-        <button class="blog-filter-btn" data-filter="military">🎖️ Military</button>
-        <button class="blog-filter-btn" data-filter="programs">Program Guides</button>
-      </div>
+      <!-- ── LEFT: Article ── -->
+      <article class="post-article">
+
+        <div class="post-body">
+
+          <p>Buying a home in Colorado can feel a little ridiculous right now. You served your country. You did the hard things. And now a starter home can feel like it requires a treasure map, a spreadsheet, and possibly a small miracle.</p>
+
+          <p>Here is the good news: if you are a veteran, active-duty service member, or eligible surviving spouse, your <strong>VA home loan benefit</strong> may already be one of the strongest homebuying tools available. But here is the part many people miss. Your VA loan benefit may not be the only help available. Depending on your situation, you may also be able to use <strong>Colorado down payment assistance</strong>, closing cost help, or local homebuyer programs to reduce the cash needed to buy a home. That is where <a href="https://www.herohomereach.com">Hero HomeReach</a> comes in.</p>
+
+
+          <!-- ── SECTION 1 ── -->
+          <h2 id="quick-answer">Quick Answer: Can Veterans Use Down Payment Assistance With a VA Loan?</h2>
+
+          <p>Yes, in some cases, veterans may be able to use <strong>down payment assistance with a VA loan in Colorado</strong>.</p>
+
+          <p>A VA loan often allows eligible buyers to purchase with no VA-required down payment, no private mortgage insurance, and limited closing costs. You can review those VA home loan benefits directly through the <a href="https://www.benefits.va.gov/homeloans/" target="_blank" rel="noopener noreferrer">Veterans Benefits Administration</a>.</p>
+
+          <p>But "zero down" does not always mean "zero cash needed." You may still need money for closing costs, prepaid taxes and insurance, earnest money, inspection and appraisal costs, moving expenses, and cash reserves.</p>
+
+          <p>Colorado programs like <strong>CHFA</strong> and <strong>metroDPA</strong> may help with some of these upfront costs, depending on your income, credit, lender, loan type, location, and the specific property. You can explore more options on our <a href="../programs.html">Hero HomeReach programs page</a>.</p>
+
+
+          <!-- ── SECTION 2 ── -->
+          <h2 id="va-loan-power">What Makes the VA Loan So Powerful?</h2>
+
+          <p>The VA loan is not a "special coupon." It is a hard-earned benefit. For eligible veterans, active-duty service members, and certain surviving spouses, a VA-backed purchase loan can make homeownership more realistic by reducing some of the biggest barriers buyers face.</p>
+
+          <p>According to the VA, VA-backed purchase loans may offer no down payment as long as the sales price does not exceed the appraised value, better terms and interest rates than many private loans, limited closing costs, no private mortgage insurance, and the ability to use the benefit more than once. You can read the official VA explanation on the <a href="https://www.va.gov/housing-assistance/home-loans/loan-types/purchase-loan/" target="_blank" rel="noopener noreferrer">VA-backed purchase loan page</a>.</p>
+
+          <p>That last point matters. Some veterans assume the VA loan is only for first-time buyers. Not true. The VA home loan benefit is a lifetime benefit and can be used multiple times, as long as you qualify and meet program rules.</p>
+
+          <blockquote>
+            <p>Your VA benefit may open the door. Assistance programs may help you walk through it with a little more breathing room.</p>
+          </blockquote>
+
+
+          <!-- ── SECTION 3 ── -->
+          <h2 id="why-assistance-matters">If VA Loans Can Be Zero Down, Why Does Assistance Still Matter?</h2>
+
+          <p>This is where a lot of homebuyers get surprised. A VA loan may remove the need for a traditional down payment. That is a huge deal. But the down payment is only one piece of buying a home.</p>
+
+          <p>You may still need money for closing costs, taxes, insurance, inspections, moving costs, and other real-world expenses that show up right when your bank account is trying to act calm. The VA also explains that borrowers may still need to pay a VA funding fee and other closing costs on VA-backed or VA direct loans. You can see the official breakdown on the VA's <a href="https://www.va.gov/housing-assistance/home-loans/funding-fee-and-closing-costs/" target="_blank" rel="noopener noreferrer">funding fee and closing costs page</a>.</p>
+
+          <p>That is why VA loan down payment assistance in Colorado can still matter. Even if your down payment is $0, assistance may help reduce other costs connected to getting into the home. Think of it this way: the VA loan may help with the mountain climb. Down payment assistance may help carry the backpack. And in Colorado, where housing costs can make even confident buyers blink twice, every bit of help matters.</p>
+
+
+          <!-- ── SECTION 4 ── -->
+          <h2 id="colorado-programs">Colorado Programs Veterans Should Know About</h2>
+
+          <p>Colorado has several homebuyer assistance options that may be relevant for veterans and military families. The right fit depends on where you are buying, your income, your credit, your lender, and the type of mortgage being used.</p>
+
+          <h3>CHFA Down Payment Assistance</h3>
+
+          <p><strong>CHFA</strong>, the Colorado Housing and Finance Authority, is one of the most important statewide homebuyer resources in Colorado. CHFA offers eligible borrowers a <strong>Down Payment Assistance Grant</strong> and a <strong>Second Mortgage Loan</strong>. The DPA grant may offer up to 3% of the first mortgage loan amount and does not require repayment. The second mortgage loan may offer up to 4% of the first mortgage loan amount, with repayment deferred until certain events such as sale, refinance, first mortgage payoff, or the home no longer being the borrower's primary residence. You can review CHFA's official <a href="https://www.chfainfo.com/homeownership/down-payment-assistance" target="_blank" rel="noopener noreferrer">down payment assistance page</a>.</p>
+
+          <div class="post-callout">
+            <p><strong>Important:</strong> A grant may not need to be repaid. A deferred second mortgage usually does not require monthly payments right away, but it may become due later. Always ask which type of assistance you are receiving before signing anything, and always ask whether it is compatible with a VA loan through your specific lender.</p>
+          </div>
+
+          <h3>metroDPA</h3>
+
+          <p><strong>metroDPA</strong> is another major Colorado program, especially for buyers in the Denver metro and Front Range areas. The official metroDPA program offers 30-year fixed-rate mortgage loans, including <strong>VA loans</strong>, along with borrower assistance for down payment, closing costs, and prepaids. You can review the official <a href="https://www.metro-dpa.com/" target="_blank" rel="noopener noreferrer">metroDPA borrower program page</a>. Denver's metroDPA information notes that eligible borrowers may qualify with income up to $216,000 and a credit score above 640, with some cases allowing 620.</p>
+
+          <h3>Colorado DOLA Down Payment Assistance</h3>
+
+          <p>The Colorado Department of Local Affairs has a Down Payment Assistance Program designed to help qualified low- to moderate-income families afford homeownership. Colorado DOLA says this program is available to local jurisdictions and housing partners, not directly to individual homebuyers, meaning you would typically access help through approved local partners. You can review the official <a href="https://cdola.colorado.gov/down-payment-assistance" target="_blank" rel="noopener noreferrer">Colorado DOLA Down Payment Assistance page</a>.</p>
+
+
+          <!-- ── SECTION 5 ── -->
+          <h2 id="stacking">Can You Stack a VA Loan With Down Payment Assistance?</h2>
+
+          <p>Sometimes, yes. But this is where we want to be careful. Stacking homebuyer benefits is not like stacking grocery coupons. It is more like building a safe bridge. Every piece has to fit.</p>
+
+          <p>A VA loan may be compatible with certain assistance programs, but the final answer depends on the assistance program rules, the lender's guidelines, your income, your credit score, your debt-to-income ratio, the home's location, whether the home will be your primary residence, whether the program requires a homebuyer education course, and whether the assistance is a grant, forgivable loan, or deferred second mortgage.</p>
+
+          <p>This is why Hero HomeReach focuses on helping you ask better questions early. Because once you are under contract, the clock starts running. Have questions about whether programs may stack in your situation? Start with our <a href="../programs.html">Colorado homebuyer assistance overview</a>, then check the <a href="../faq.html">Hero HomeReach FAQ</a> for common program questions.</p>
+
+
+          <!-- ── SECTION 6 ── -->
+          <h2 id="types-of-assistance">Grant vs. Forgivable Loan vs. Deferred Second Mortgage</h2>
+
+          <p>Not all "assistance" works the same way. Before using any program, make sure you understand what kind of help you are receiving.</p>
+
+          <p><strong>A grant</strong> is usually the cleanest form of help. If you meet the rules, it may not need to be repaid. CHFA's DPA grant is one example of assistance that CHFA says does not require repayment, subject to program rules.</p>
+
+          <p><strong>A forgivable loan</strong> may be forgiven after you meet certain requirements, such as living in the home for a certain number of years. If you sell too soon or refinance too early, you may have to repay some or all of the assistance.</p>
+
+          <p><strong>A deferred second mortgage</strong> typically does not require monthly payments right away, but it is not the same as free money. CHFA explains that repayment of its second mortgage assistance may be deferred until certain events occur, including first mortgage payoff, sale, refinance, or the home no longer being your primary residence. This can still be very helpful. You just deserve to know exactly how it works. No fog machine. No tiny print circus.</p>
+
+
+          <!-- ── SECTION 7 ── -->
+          <h2 id="common-mistakes">Common Mistakes Veterans Make When Buying in Colorado</h2>
+
+          <p>Veterans are often excellent candidates for homeownership. But the process can get messy when nobody explains the moving parts.</p>
+
+          <p><strong>Assuming zero down means zero cash needed.</strong> A VA loan may eliminate the required down payment, but closing costs and prepaid expenses can still apply.</p>
+
+          <p><strong>Talking to only one lender.</strong> Not every lender is equally experienced with VA loans and Colorado assistance programs. A lender may understand VA loans but not participate in certain DPA programs. That matters.</p>
+
+          <p><strong>Waiting too long to ask about assistance.</strong> Ask before you shop. Some programs have rules that need to be handled early in the process.</p>
+
+          <p><strong>Not asking what kind of assistance it is.</strong> Grant? Forgivable loan? Deferred second mortgage? Those are three very different animals. One is a golden retriever. One is a golden retriever with paperwork. One is a raccoon in a vest. Ask questions.</p>
+
+          <p><strong>Shopping before knowing the full cash-to-close number.</strong> The monthly payment matters. But so does the amount needed at closing. A good plan looks at both.</p>
+
+
+          <!-- ── CLOSING ── -->
+          <h2 id="next-steps">Your Next Step</h2>
+
+          <p>If you are a veteran buying a home in Colorado, your VA benefit may already give you a strong foundation. But the real opportunity may be understanding what can work alongside it. Hero HomeReach helps Colorado veterans explore VA loan benefits, down payment assistance, closing cost help, and local programs so you can move toward homeownership with more clarity and less guesswork.</p>
+
+          <p>The only way to know exactly which programs apply to your situation is to look at your specific income, profession, purchase price, and location together. That is exactly what the free Hero HomeReach consultation is designed to do. No pressure, no obligation, just a clear picture of what may be possible.</p>
+
+        </div>
+        <!-- /post-body -->
+
+
+        <!-- ── AUTHOR BOX ── -->
+        <div class="post-author-box">
+          <div class="post-author-avatar">T</div>
+          <div>
+            <div class="post-author-name">Trent Rogelstad</div>
+            <div class="post-author-title">Founder, Hero HomeReach™ · Colorado Down Payment Assistance Specialist</div>
+            <p class="post-author-bio">Trent helps Colorado educators, first responders, healthcare workers, and military members find and stack every homebuyer program they've earned. Free guidance, zero pressure, zero jargon.</p>
+          </div>
+        </div>
+
+
+        <!-- ── CTA STRIP ── -->
+        <div class="post-cta-strip">
+          <div>
+            <h3>Find Out What You Qualify For</h3>
+            <p>Every hero's situation is different. Book a free 30-minute call and we'll walk through exactly which Colorado programs apply to you.</p>
+          </div>
+          <a href="../contact.html" class="btn btn-gold btn-arrow">Book My Free Consultation</a>
+        </div>
+
+      </article>
+      <!-- /post-article -->
+
+
+      <!-- ── RIGHT: Sidebar ── -->
+      <aside class="post-sidebar">
+
+        <!-- CTA Card -->
+        <div class="sidebar-card">
+          <div class="sidebar-card-title">Free Consultation</div>
+          <p>Not sure which programs apply to you? Book a free 30-minute call. We'll walk through your specific situation, no obligation, no pressure.</p>
+          <a href="../contact.html" class="btn btn-gold btn-arrow">Book My Free Call</a>
+        </div>
+
+        <!-- Table of Contents -->
+        <div class="sidebar-card">
+          <div class="sidebar-card-title">In This Guide</div>
+          <ul class="toc-list">
+            <li><a href="#quick-answer">Can Veterans Use DPA With a VA Loan?</a></li>
+            <li><a href="#va-loan-power">What Makes the VA Loan Powerful?</a></li>
+            <li><a href="#why-assistance-matters">Why Does Assistance Still Matter?</a></li>
+            <li><a href="#colorado-programs">Colorado Programs to Know</a></li>
+            <li><a href="#stacking">Can You Stack Benefits?</a></li>
+            <li><a href="#types-of-assistance">Grant vs. Forgivable vs. Deferred</a></li>
+            <li><a href="#common-mistakes">Common Mistakes to Avoid</a></li>
+            <li><a href="#next-steps">Your Next Step</a></li>
+          </ul>
+        </div>
+
+        <!-- Related Posts -->
+        <div class="sidebar-card">
+          <div class="sidebar-card-title">Related Guides</div>
+
+          <div class="related-post-item">
+            <div class="related-post-thumb"></div>
+            <div>
+              <a href="teacher-homebuyer-grant-colorado.html" class="related-post-title">Colorado Teacher Homebuyer Guide 2026</a>
+              <div class="related-post-date">Coming Soon</div>
+            </div>
+          </div>
+
+          <div class="related-post-item">
+            <div class="related-post-thumb"></div>
+            <div>
+              <a href="first-responder-home-buying-colorado.html" class="related-post-title">First Responder Home Buying Benefits in Colorado</a>
+              <div class="related-post-date">Coming Soon</div>
+            </div>
+          </div>
+
+          <div class="related-post-item">
+            <div class="related-post-thumb"></div>
+            <div>
+              <a href="chfa-loan-colorado.html" class="related-post-title">CHFA Loan Colorado: Complete Buyer Guide</a>
+              <div class="related-post-date">Coming Soon</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Free Guide CTA -->
+        <div class="sidebar-card" style="background:var(--navy);border-color:rgba(201,151,58,0.3);">
+          <div class="sidebar-card-title" style="color:var(--gold);border-bottom-color:rgba(201,151,58,0.3);">Free Hero Homebuyer Guide</div>
+          <p style="color:rgba(255,255,255,0.7);">Get the complete breakdown of every Colorado program available to heroes. Free download, no strings attached.</p>
+          <a href="https://guide.herohomereach.com" target="_blank" class="btn btn-gold btn-arrow">Get the Free Guide</a>
+        </div>
+
+      </aside>
+      <!-- /post-sidebar -->
+
     </div>
-
-    <!-- Blog grid -->
-    <div class="blog-grid" id="blog-grid">
-
-      <!-- FEATURED POST -->
-      <article class="blog-card featured fade-up" data-audience="educators">
-        <div class="blog-card-image-placeholder">🎓</div>
-        <div class="blog-card-body">
-          <div class="blog-card-meta">
-            <span class="blog-card-tag">Case Study</span>
-            <span class="blog-card-audience">Educators</span>
-            <span class="blog-card-date">April 2026</span>
-          </div>
-          <h3><a href="how-a-colorado-teacher-stacked-67000-in-assistance.html">How a Colorado Teacher Stacked $67,000 in Down Payment Assistance</a></h3>
-          <p class="blog-card-excerpt">A Denver 3rd-grade teacher combined four programs and closed on a $400,000 home with $0 out of pocket. Here's the exact stack she used and how you can replicate it.</p>
-          <div class="blog-card-footer">
-            <span class="blog-read-time">8 min read</span>
-            <a href="how-a-colorado-teacher-stacked-67000-in-assistance.html" class="blog-read-link">Read the full story →</a>
-          </div>
-        </div>
-      </article>
-
-      <!-- POST 2 -->
-      <article class="blog-card fade-up delay-1" data-audience="military">
-        <div class="blog-card-image-placeholder">🎖️</div>
-        <div class="blog-card-body">
-          <div class="blog-card-meta">
-            <span class="blog-card-tag">Program Guide</span>
-            <span class="blog-card-audience">Military</span>
-            <span class="blog-card-date">April 2026</span>
-          </div>
-          <h3><a href="va-loan-plus-colorado-dpa-can-veterans-stack-both.html">VA Loan + Colorado DPA: Can Veterans Stack Both?</a></h3>
-          <p class="blog-card-excerpt">Most veterans assume the VA loan is their only option. It isn't. Here's how Colorado veterans are layering state programs on top of VA benefits for maximum assistance.</p>
-          <div class="blog-card-footer">
-            <span class="blog-read-time">6 min read</span>
-            <a href="va-loan-plus-colorado-dpa-can-veterans-stack-both.html" class="blog-read-link">Read more →</a>
-          </div>
-        </div>
-      </article>
-
-      <!-- POST 3 -->
-      <article class="blog-card fade-up delay-2" data-audience="programs">
-        <div class="blog-card-image-placeholder">🏦</div>
-        <div class="blog-card-body">
-          <div class="blog-card-meta">
-            <span class="blog-card-tag">Program Guide</span>
-            <span class="blog-card-audience">All Heroes</span>
-            <span class="blog-card-date">March 2026</span>
-          </div>
-          <h3><a href="chfa-programs-explained-what-every-colorado-hero-needs-to-know.html">CHFA Programs Explained: What Every Colorado Hero Needs to Know</a></h3>
-          <p class="blog-card-excerpt">The Colorado Housing and Finance Authority runs the state's most widely used assistance programs. Here's a plain-English breakdown of every program and who qualifies.</p>
-          <div class="blog-card-footer">
-            <span class="blog-read-time">10 min read</span>
-            <a href="chfa-programs-explained-what-every-colorado-hero-needs-to-know.html" class="blog-read-link">Read more →</a>
-          </div>
-        </div>
-      </article>
-
-      <!-- POST 4 -->
-      <article class="blog-card fade-up delay-1" data-audience="healthcare">
-        <div class="blog-card-image-placeholder">🏥</div>
-        <div class="blog-card-body">
-          <div class="blog-card-meta">
-            <span class="blog-card-tag">Audience Guide</span>
-            <span class="blog-card-audience">Healthcare</span>
-            <span class="blog-card-date">March 2026</span>
-          </div>
-          <h3><a href="down-payment-assistance-for-nurses-in-colorado.html">Down Payment Assistance for Nurses in Colorado: A Complete Guide</a></h3>
-          <p class="blog-card-excerpt">Travel nurses, ICU nurses, and hospital staff often assume their income situation makes buying complicated. It doesn't have to be. Here's what actually applies to healthcare workers in Colorado.</p>
-          <div class="blog-card-footer">
-            <span class="blog-read-time">7 min read</span>
-            <a href="down-payment-assistance-for-nurses-in-colorado.html" class="blog-read-link">Read more →</a>
-          </div>
-        </div>
-      </article>
-
-      <!-- POST 5 -->
-      <article class="blog-card fade-up delay-2" data-audience="first-responders">
-        <div class="blog-card-image-placeholder">🚒</div>
-        <div class="blog-card-body">
-          <div class="blog-card-meta">
-            <span class="blog-card-tag">Audience Guide</span>
-            <span class="blog-card-audience">First Responders</span>
-            <span class="blog-card-date">February 2026</span>
-          </div>
-          <h3><a href="first-responder-home-buying-programs-colorado.html">5 Home Buying Programs Colorado First Responders Often Miss</a></h3>
-          <p class="blog-card-excerpt">Police officers, firefighters, and EMTs across Colorado have access to programs most lenders never mention. This guide covers the five most valuable programs available right now.</p>
-          <div class="blog-card-footer">
-            <span class="blog-read-time">8 min read</span>
-            <a href="first-responder-home-buying-programs-colorado.html" class="blog-read-link">Read more →</a>
-          </div>
-        </div>
-      </article>
-
-      <!-- POST 6 -->
-      <article class="blog-card fade-up delay-3" data-audience="programs">
-        <div class="blog-card-image-placeholder">✂️</div>
-        <div class="blog-card-body">
-          <div class="blog-card-meta">
-            <span class="blog-card-tag">Explainer</span>
-            <span class="blog-card-audience">All Heroes</span>
-            <span class="blog-card-date">February 2026</span>
-          </div>
-          <h3><a href="forgivable-loans-vs-grants-whats-the-difference.html">Forgivable Loans vs. Grants: What's the Difference and Which Is Better?</a></h3>
-          <p class="blog-card-excerpt">These two types of assistance look similar but work very differently. Understanding the distinction could save you thousands and help you choose the right program for your situation.</p>
-          <div class="blog-card-footer">
-            <span class="blog-read-time">5 min read</span>
-            <a href="forgivable-loans-vs-grants-whats-the-difference.html" class="blog-read-link">Read more →</a>
-          </div>
-        </div>
-      </article>
-
-    </div>
-    <!-- /blog-grid -->
-
-    <!-- No results message (hidden by default) -->
-    <div id="no-results" style="display:none; text-align:center; padding:64px 0;">
-      <div style="font-size:48px; margin-bottom:16px;">🔍</div>
-      <h3 style="color:var(--navy); margin-bottom:12px;">No posts in that category yet</h3>
-      <p style="color:#666; margin-bottom:24px;">New guides are added regularly. Check back soon or browse all resources.</p>
-      <button class="btn btn-navy" onclick="filterPosts('all')">View All Resources</button>
-    </div>
-
-  </div>
-</section>
-
-
-<!-- ════════════ CTA STRIP ════════════ -->
-<section style="background:var(--navy); padding:80px 0; border-top:4px solid var(--gold);">
-  <div class="container">
-    <div style="display:grid; grid-template-columns:1fr auto; gap:48px; align-items:center;">
-      <div class="fade-up">
-        <div class="section-eyebrow" style="color:var(--bright-gold);">Ready to Find Out What You Qualify For?</div>
-        <h2 style="color:#fff; margin-bottom:12px;">Reading is great. A free consultation is better.</h2>
-        <p style="color:rgba(255,255,255,0.65); font-size:17px; max-width:540px;">Every hero's situation is different. Book a free 30-minute call and we'll walk through exactly which Colorado programs apply to you, no jargon, no pressure, no obligation.</p>
-      </div>
-      <div class="fade-up delay-2" style="flex-shrink:0;">
-        <a href="" onclick="Calendly.initPopupWidget({url:'https://calendly.com/trogelstad-herohomereach/30min?hide_gdpr_banner=1&primary_color=0C2D5E'});return false;" class="btn btn-gold btn-arrow" style="font-size:16px; padding:18px 36px;">Book My Free Call</a>
-        <div style="font-size:12px; color:rgba(255,255,255,0.4); text-align:center; margin-top:10px;">30 min · Free · No obligation</div>
-      </div>
-    </div>
+    <!-- /post-layout -->
   </div>
 </section>
 
@@ -397,29 +509,16 @@ const observer = new IntersectionObserver(entries => {
 }, { threshold: 0.12 });
 fadeEls.forEach(el => observer.observe(el));
 
-// ── CATEGORY FILTER ──
-function filterPosts(filter) {
-  const cards   = document.querySelectorAll('.blog-card');
-  const buttons = document.querySelectorAll('.blog-filter-btn');
-  const noResults = document.getElementById('no-results');
-  let visibleCount = 0;
-
-  buttons.forEach(btn => {
-    btn.classList.toggle('active', btn.dataset.filter === filter);
+// ── SMOOTH SCROLL for TOC links ──
+document.querySelectorAll('.toc-list a').forEach(link => {
+  link.addEventListener('click', e => {
+    e.preventDefault();
+    const target = document.querySelector(link.getAttribute('href'));
+    if (target) {
+      const offset = target.getBoundingClientRect().top + window.scrollY - 100;
+      window.scrollTo({ top: offset, behavior: 'smooth' });
+    }
   });
-
-  cards.forEach(card => {
-    const audience = card.dataset.audience;
-    const show = filter === 'all' || audience === filter;
-    card.style.display = show ? '' : 'none';
-    if (show) visibleCount++;
-  });
-
-  noResults.style.display = visibleCount === 0 ? 'block' : 'none';
-}
-
-document.querySelectorAll('.blog-filter-btn').forEach(btn => {
-  btn.addEventListener('click', () => filterPosts(btn.dataset.filter));
 });
 </script>
 
