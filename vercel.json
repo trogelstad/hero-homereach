@@ -14,11 +14,6 @@
       "source": "/faq/",
       "destination": "/faq.html",
       "permanent": true
-    },
-    {
-      "source": "/blog/:path*",
-      "destination": "/",
-      "permanent": false
     }
   ]
 }
