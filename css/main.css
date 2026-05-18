@@ -247,7 +247,10 @@ h3 { font-size: clamp(20px, 2.5vw, 26px); }
 /* Mobile full-screen nav */
 #mobile-nav {
   position: fixed;
-  inset: 0;
+  top: var(--nav-h);    /* starts at 82px, below the nav bar */
+  left: 0;
+  right: 0;
+  bottom: 0;
   z-index: 998;
   background: var(--navy);
   display: flex;
