@@ -39,23 +39,18 @@
   <link rel="stylesheet" href="../css/blog.css">
 
 <style>
-  .page-hero {
-  background-image: 
+
+/* ── Blog index hero ── */
+.blog-index-hero {
+  background-image:
     linear-gradient(rgba(12, 45, 94, 0.78), rgba(12, 45, 94, 0.78)),
     url('blog-hero.png');
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
-  background-attachment: scroll; /* prevents iOS fixed-bg glitch */
-}
-/* ── Blog index hero ── */
-.blog-index-hero {
-  background: var(--navy);
+  background-attachment: scroll;
   padding: calc(var(--nav-h) + 56px) 0 64px;
-  position: relative;
-  overflow: hidden;
-  border-bottom: 4px solid var(--gold);
-}
+  
 .blog-index-hero::before {
   content: '';
   position: absolute;
