@@ -135,100 +135,113 @@
   color: #fff;
 }
 
-/* ── Featured post card ── */
+/* ── Featured post card — overlay style ── */
 .blog-featured {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0;
-  border-radius: 12px;
+  display: block;
+  position: relative;
+  border-radius: 14px;
   overflow: hidden;
-  border: 1px solid rgba(12,45,94,0.1);
-  box-shadow: 0 4px 24px rgba(12,45,94,0.08);
   margin-bottom: 48px;
   text-decoration: none;
-  transition: box-shadow 0.2s;
+  height: 480px;
+  box-shadow: 0 8px 40px rgba(12,45,94,0.18);
+  transition: box-shadow 0.3s, transform 0.3s;
 }
 .blog-featured:hover {
-  box-shadow: 0 8px 40px rgba(12,45,94,0.14);
+  box-shadow: 0 16px 56px rgba(12,45,94,0.26);
+  transform: translateY(-2px);
 }
 .blog-featured-img {
-  background: var(--navy);
-  min-height: 320px;
-  position: relative;
-  overflow: hidden;
+  position: absolute;
+  inset: 0;
+  z-index: 1;
 }
 .blog-featured-img img {
-  width: 100%; height: 100%;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
+  object-position: center;
   display: block;
 }
-.blog-featured-img-placeholder {
-  width: 100%; height: 100%;
-  min-height: 320px;
-  background: linear-gradient(135deg, var(--navy) 0%, #1A4A8A 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: 'Playfair Display', Georgia, serif;
-  font-size: 64px;
-  color: rgba(201,151,58,0.3);
+.blog-featured-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background: linear-gradient(
+    to bottom,
+    rgba(12, 45, 94, 0.15) 0%,
+    rgba(12, 45, 94, 0.55) 40%,
+    rgba(12, 45, 94, 0.93) 100%
+  );
 }
 .blog-featured-body {
-  padding: 40px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  background: #fff;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 3;
+  padding: 36px 40px;
+  background: none;
 }
 .blog-featured-tag {
   display: inline-block;
   font-size: 11px;
   font-weight: 700;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--gold);
-  background: rgba(201,151,58,0.1);
+  background: rgba(201,151,58,0.18);
+  border: 1px solid rgba(201,151,58,0.35);
   padding: 4px 12px;
   border-radius: 20px;
-  margin-bottom: 16px;
+  margin-bottom: 14px;
   width: fit-content;
 }
 .blog-featured-title {
   font-family: 'Playfair Display', Georgia, serif;
-  font-size: clamp(20px, 2.5vw, 28px);
+  font-size: clamp(22px, 3vw, 32px);
   font-weight: 700;
-  color: var(--navy);
-  line-height: 1.25;
+  color: #fff;
+  line-height: 1.2;
   margin-bottom: 14px;
+  text-shadow: 0 2px 12px rgba(0,0,0,0.3);
 }
 .blog-featured-excerpt {
   font-size: 15px;
-  color: #555;
-  line-height: 1.65;
-  margin-bottom: 20px;
+  color: rgba(255,255,255,0.75);
+  line-height: 1.6;
+  margin-bottom: 18px;
+  max-width: 680px;
 }
 .blog-featured-meta {
   display: flex;
   align-items: center;
   gap: 10px;
   font-size: 13px;
-  color: #999;
+  color: rgba(255,255,255,0.55);
 }
 .blog-featured-meta-dot {
-  width: 3px; height: 3px;
+  width: 3px;
+  height: 3px;
   border-radius: 50%;
-  background: #ccc;
+  background: rgba(255,255,255,0.35);
 }
 .blog-featured-read {
-  color: var(--gold);
-  font-weight: 600;
-  font-size: 13px;
-  margin-top: 20px;
   display: inline-flex;
   align-items: center;
   gap: 6px;
+  margin-top: 18px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--gold);
+  letter-spacing: 0.04em;
 }
 
+@media (max-width: 600px) {
+  .blog-featured { height: 420px; }
+  .blog-featured-body { padding: 24px; }
+  .blog-featured-excerpt { display: none; }
+}
 /* ── Post grid ── */
 .blog-grid {
   display: grid;
@@ -471,24 +484,25 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
 
     <!-- ── FEATURED POST ── -->
-    <a href="va-loan-down-payment-assistance-colorado.html" class="blog-featured" data-audience="military programs">
-      <div class="blog-featured-img">
-        <img src="va-loan-down-payment-assistance-colorado.png" alt="VA Loan Down Payment Assistance Colorado" />
-      </div>
-      <div class="blog-featured-body">
-        <span class="blog-featured-tag">Program Guide · Military &amp; Veterans</span>
-        <div class="blog-featured-title">VA Loan Down Payment Assistance in Colorado: What Veterans Should Know</div>
-        <p class="blog-featured-excerpt">Your VA loan benefit may open the door. But "zero down" does not always mean "zero cash needed." Here's what Colorado veterans should know about CHFA, metroDPA, and stacking benefits to cover closing costs.</p>
-        <div class="blog-featured-meta">
-          <span>May 2026</span>
-          <span class="blog-featured-meta-dot"></span>
-          <span>12 min read</span>
-          <span class="blog-featured-meta-dot"></span>
-          <span>Trent Rogelstad</span>
-        </div>
-        <span class="blog-featured-read">Read the guide →</span>
-      </div>
-    </a>
+   <a href="va-loan-down-payment-assistance-colorado.html" class="blog-featured" data-audience="military programs">
+  <div class="blog-featured-img">
+    <img src="va-loan-down-payment-assistance-colorado.png" alt="VA Loan Down Payment Assistance Colorado" />
+  </div>
+  <div class="blog-featured-overlay"></div>
+  <div class="blog-featured-body">
+    <span class="blog-featured-tag">Program Guide · Military &amp; Veterans</span>
+    <div class="blog-featured-title">VA Loan Down Payment Assistance in Colorado: What Veterans Should Know</div>
+    <p class="blog-featured-excerpt">Your VA loan benefit may open the door. But "zero down" does not always mean "zero cash needed." Here's what Colorado veterans should know about CHFA, metroDPA, and stacking benefits to cover closing costs.</p>
+    <div class="blog-featured-meta">
+      <span>May 2026</span>
+      <span class="blog-featured-meta-dot"></span>
+      <span>12 min read</span>
+      <span class="blog-featured-meta-dot"></span>
+      <span>Trent Rogelstad</span>
+    </div>
+    <span class="blog-featured-read">Read the guide →</span>
+  </div>
+</a>
 
     <!-- ── POST GRID ── -->
     <div class="blog-grid" id="postGrid">
