@@ -256,6 +256,18 @@ h1,h2,h3,h4{font-family:var(--font-head);font-weight:700;color:var(--navy);line-
 </nav>
 
 <!-- Mobile Nav -->
+  /* MOBILE NAV */
+.nav-hamburger { display: none; }
+
+@media (max-width: 1060px) {
+  .nav-links, .nav-cta { display: none; }
+  .nav-hamburger { display: flex; }
+}
+
+#mobile-nav.open {
+  opacity: 1;
+  pointer-events: auto;
+}
 <div id="mobile-nav">
   <a href="programs.html" onclick="toggleMobileNav()">Programs</a>
   <a href="who-we-serve.html" onclick="toggleMobileNav()">Who We Serve</a>
