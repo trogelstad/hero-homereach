@@ -753,6 +753,29 @@ document.querySelectorAll('.toc-list a').forEach(link => {
     }
   });
 });
+// ── SOCIAL SHARE — auto-populates current URL and page title ──
+(function() {
+  const url   = encodeURIComponent(window.location.href);
+  const title = encodeURIComponent(document.title);
+
+  const fb = 'https://www.facebook.com/sharer/sharer.php?u=' + url;
+  const x  = 'https://twitter.com/intent/tweet?url=' + url + '&text=' + title;
+  const li = 'https://www.linkedin.com/sharing/share-offsite/?url=' + url;
+
+  ['top', 'bottom'].forEach(function(pos) {
+    document.getElementById('share-fb-' + pos).href = fb;
+    document.getElementById('share-x-'  + pos).href = x;
+    document.getElementById('share-li-' + pos).href = li;
+
+    document.getElementById('copy-' + pos).addEventListener('click', function() {
+      navigator.clipboard.writeText(window.location.href).then(function() {
+        var btn = document.getElementById('copy-' + pos);
+        btn.classList.add('copied');
+        setTimeout(function() { btn.classList.remove('copied'); }, 2000);
+      });
+    });
+  });
+})();
 </script>
 
 </body>
