@@ -266,6 +266,12 @@
   list-style: disc;
 }
 .post-body ol { list-style: decimal; }
+
+/* Override li color inside navy callout boxes only */
+.post-callout li {
+  color: #F5F7FA;
+}
+
 .post-body li {
   margin-bottom: 8px;
   font-size: 16px;
