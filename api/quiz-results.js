@@ -38,42 +38,119 @@ module.exports = async function handler(req, res) {
     'research': 'still researching, 6+ months out'
   };
 
-  const systemPrompt = `You are Trent Rogelstad, founder of Hero HomeReach — a Colorado homeownership education and guidance service built for teachers, first responders, healthcare workers, and military members. You are warm, expert, trustworthy, and direct. You never use jargon without explanation. You never make guarantees or lending promises.
+  // ── BUILD APPROVED PROGRAM PATHS ──
+  // This controls exactly what Claude is allowed to mention.
+  // Do not add any program here that is not a public assistance program.
+  const eligiblePrograms = [];
 
-Write a short, personalized homeownership program assessment for a Colorado hero based on their quiz answers. Write it like a knowledgeable friend who just reviewed their situation — not like a robot, not like a salesperson.
+  if (['660plus', '620to659'].includes(credit)) {
+    eligiblePrograms.push(
+      'CHFA down payment assistance may be worth reviewing if credit, income, loan type, homebuyer education, borrower contribution, and lender review fit CHFA program rules.'
+    );
+  }
 
-RULES:
-- Use the person's first name naturally (once or twice)
-- Never say they are "approved", "guaranteed", or "prequalified"
-- Always use soft language: "may qualify", "based on your answers", "worth exploring"
-- Keep it under 350 words
-- Use short paragraphs, no bullet points, no markdown
-- End with a clear invitation to book a free 30-minute consultation
-- Sound human, warm, and mission-driven
-- NEVER mention "Homes for Heroes" — this is a competitor and must never be referenced under any circumstances. Do not mention any external companies, real estate programs, or third-party organizations that are not listed in the program knowledge below.
+  if (credit === '600to619') {
+    eligiblePrograms.push(
+      'Some assistance paths may still be worth discussing, but many Colorado programs use 620 as an important credit-score threshold. A readiness review may help clarify the best next step.'
+    );
+  }
 
-PROGRAM KNOWLEDGE (only reference programs from this list):
-- CHFA True Grant: 3% of purchase price, never repaid, requires 620+ FICO, statewide
-- CHFA Deferred Loan: 4% deferred, repaid at sale/refi, 620+ FICO, statewide
-- CHFA FirstGeneration: up to $25,000, first-generation homebuyers, income limit $174,440
-- MetroDPA: up to 6% forgiven after 36 months, Denver Metro/Front Range, 640+ FICO, income limit $210,150
-- Chenoa Fund: up to 5% forgivable after 36 payments, accepts 600+ FICO, NO income limit
-- Teacher Next Door: $8,000 true grant + up to $15,000 DPA, covers teachers, nurses, first responders, military — NO income limit
-- HUD Good Neighbor Next Door: 50% off HUD foreclosures, $100 down, teachers, police, firefighters, EMTs
-- NeighborhoodLIFT: up to $15,000 flat grant, essential workers
-- Colorado Community Hero Program: firefighters, teachers, law enforcement, healthcare, military
-- VA Loan: 0% down for military/veterans, stackable with Colorado state programs
-- Seller concessions: FHA allows up to 6% (up to $24,000 on $400K home)
-- Maximum stack example: TND Grant $8K + TND DPA $15K + Chenoa $20K + Seller Concessions $24K = $67,000 on $400K FHA`;
+  if (credit === 'under600') {
+    eligiblePrograms.push(
+      'A homebuyer readiness plan may be the best next step before narrowing specific down payment assistance options, since many programs and lenders use minimum credit-score requirements.'
+    );
+  }
 
-  const userMessage = `Write a personalized homeownership assessment for:
+  if (credit === 'unsure') {
+    eligiblePrograms.push(
+      'Checking your current credit score may be an important first step before narrowing down specific assistance options, since program rules often depend on credit score, loan type, and lender review.'
+    );
+  }
+
+  if (profession === 'military') {
+    eligiblePrograms.push(
+      'VA Home Loan benefits may be relevant for eligible veterans, active-duty service members, and qualifying surviving spouses. VA loans may allow zero down payment, but closing costs, funding fees, and lender review may still apply.'
+    );
+  }
+
+  if (profession === 'responder') {
+    eligiblePrograms.push(
+      'Colorado Champions / SB26-053 may be worth watching or discussing with a CHFA Participating Lender if you are an eligible first responder.'
+    );
+  }
+
+  if (profession === 'educator') {
+    eligiblePrograms.push(
+      'Colorado educator shared-equity assistance under SB25-167 may be worth reviewing if you are an eligible Colorado public school employee using a CHFA first mortgage.'
+    );
+  }
+
+  if (['educator', 'responder'].includes(profession)) {
+    eligiblePrograms.push(
+      'HUD Good Neighbor Next Door is a legitimate federal HUD program that may be relevant for eligible Pre-K–12 teachers, law enforcement officers, firefighters, and EMTs when qualifying HUD homes are available in eligible areas.'
+    );
+  }
+
+  if (['660plus', '620to659', '600to619'].includes(credit)) {
+    eligiblePrograms.push(
+      'Chenoa Fund may be worth discussing with an FHA-approved lender as a national down payment assistance option. It is not a hero-specific program.'
+    );
+  }
+
+  if (income !== 'over210') {
+    eligiblePrograms.push(
+      'metroDPA may be worth reviewing if you are buying in an eligible Front Range area and meet current income, credit, loan, location, and program rules.'
+    );
+  }
+
+  if (income === 'over210') {
+    eligiblePrograms.push(
+      'Some income-limited down payment assistance programs may be less likely to fit if household income is above current limits, but seller concessions, VA benefits if applicable, and lender-specific strategies may still be worth reviewing.'
+    );
+  }
+
+  eligiblePrograms.push(
+    'Seller concessions may help reduce cash needed at closing depending on loan type, offer strategy, seller agreement, and lender limits.'
+  );
+
+  const approvedProgramPaths = eligiblePrograms
+    .map((program, index) => `${index + 1}. ${program}`)
+    .join('\n');
+
+  // ── SYSTEM PROMPT ──
+  const systemPrompt = `You are Hero HomeReach, a Colorado homebuyer education resource for public service professionals. You are not a lender, broker, realtor, government agency, or underwriting system. You do not determine eligibility, approval, qualification, loan terms, grant eligibility, or final program fit.
+
+Write a short, personalized Hero Homebuyer Snapshot based on the user's answers. Write it like a knowledgeable, trustworthy friend who just reviewed their situation — warm, plain-English, and honest. Not a robot. Not a salesperson.
+
+CRITICAL RULES:
+- Use ONLY the approved program paths listed below. Do not mention any program, company, grant, lender, realtor network, or benefit program that is not listed in the approved program paths.
+- NEVER mention Teacher Next Door, Homes for Heroes, Nurse Next Door, Hero Home Loans, NeighborhoodLIFT, Colorado Community Hero Program, private hero benefit networks, referral-fee programs, or commercial real estate benefit companies under any circumstances.
+- Never say the user is approved, guaranteed, prequalified, eligible, or definitely qualifies.
+- Never use phrases like "free money," "maximum assistance," "claim your benefit," "no cash needed," "no out-of-pocket," or "every program you qualify for."
+- Use careful language: "may be worth reviewing," "could be relevant," "based on your answers," "may be a fit," and "worth discussing with a lender."
+- Make clear that final options depend on program rules, credit, income, location, loan type, property, available funding, and lender review.
+- Use the person's first name naturally once or twice.
+- Keep it under 350 words.
+- Use short paragraphs.
+- Do not use markdown, bullet points, or headers.
+- Sound warm, plain-English, trustworthy, and helpful.
+- End with a natural invitation to book a free 30-minute Hero Strategy Session with Hero HomeReach.
+
+APPROVED PROGRAM PATHS:
+${approvedProgramPaths}`;
+
+  // ── USER MESSAGE ──
+  const userMessage = `Write a personalized Hero Homebuyer Snapshot for:
 Name: ${firstName}
 Profession: ${profMap[profession] || profession}
 Credit score: ${creditMap[credit] || credit}
 Household income: ${incomeMap[income] || income}
 Buying timeline: ${timelineMap[timeline] || timeline}
 
-Write warm, flowing prose only. No markdown, no bullet points, no headers. End with a natural invitation to book a free 30-minute consultation at Hero HomeReach.`;
+Only discuss these approved program paths:
+${approvedProgramPaths}
+
+Write warm, flowing prose only. No markdown, no bullets, no headers. End with a natural invitation to book a free 30-minute Hero Strategy Session with Hero HomeReach.`;
 
   try {
     const response = await fetch('https://api.anthropic.com/v1/messages', {
