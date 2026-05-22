@@ -268,7 +268,7 @@
 .post-body ol { list-style: decimal; }
 
 /* Override li color inside navy callout boxes only */
-.post-callout li {
+.post-body .post-callout li {
   color: #F5F7FA;
 }
 
