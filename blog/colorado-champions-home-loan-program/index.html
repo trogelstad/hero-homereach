@@ -539,7 +539,236 @@
   }
   .step-content p { margin: 0; font-size: 15px; line-height: 1.65; }
 
-  /* ── FAQ Accordion ── */
+  /* ── Embedded Quiz Widget ── */
+  .pqe-wrap { margin-top: 40px; }
+  .pqe-header {
+    background: var(--navy);
+    border-radius: 12px 12px 0 0;
+    padding: 36px 40px 32px;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+  }
+  .pqe-header::before {
+    content: '';
+    position: absolute;
+    top: -80px; right: -80px;
+    width: 300px; height: 300px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(201,151,58,0.1) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .pqe-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 14px;
+  }
+  .pqe-eyebrow::before,.pqe-eyebrow::after {
+    content: '';
+    display: block;
+    width: 20px; height: 2px;
+    background: var(--gold);
+  }
+  .pqe-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(20px, 3vw, 30px);
+    color: #fff;
+    margin-bottom: 12px;
+    line-height: 1.2;
+  }
+  .pqe-title span { color: var(--gold); font-style: italic; }
+  .pqe-header .pqe-sub {
+    font-size: 15px;
+    color: rgba(255,255,255,0.65);
+    margin-bottom: 20px;
+    line-height: 1.6;
+  }
+  .pqe-trust {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .pqe-trust-item {
+    font-size: 12px;
+    color: rgba(255,255,255,0.5);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  .pqe-trust-item::before { content: '✓'; color: #1A6B4A; font-weight: 800; }
+
+  /* Quiz widget area */
+  .pqe-widget {
+    background: #fff;
+    border: 1px solid rgba(12,45,94,0.1);
+    border-top: none;
+    border-radius: 0 0 12px 12px;
+    padding: 28px 32px 32px;
+  }
+
+  /* Progress */
+  .pqe-prog-wrap { margin-bottom: 24px; }
+  .pqe-prog-meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    font-weight: 600;
+    color: #888;
+    margin-bottom: 8px;
+  }
+  .pqe-step-lbl { color: var(--navy); }
+  .pqe-prog-bar { height: 5px; background: #D3D1C7; border-radius: 3px; overflow: hidden; }
+  .pqe-prog-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--navy), #1A4A8A);
+    border-radius: 3px;
+    transition: width 0.5s cubic-bezier(0.4,0,0.2,1);
+  }
+
+  /* Card */
+  .pqe-card { /* no extra styling needed, widget handles it */ }
+
+  /* Steps */
+  .pqe-step { display: none; }
+  .pqe-step.active { display: block; animation: pqeStepIn 0.3s ease forwards; }
+  @keyframes pqeStepIn { from { opacity:0; transform:translateX(14px); } to { opacity:1; transform:translateX(0); } }
+  @keyframes pqePulse { 0%,100%{transform:scale(1);opacity:1;} 50%{transform:scale(1.08);opacity:0.75;} }
+  @keyframes pqeLoad { 0%{width:0%} 40%{width:55%} 80%{width:82%} 100%{width:95%} }
+  @keyframes pqeFadeUp { to { opacity:1; } }
+  .pqe-load-step {
+    font-size: 13px; color: #aaa;
+    display: flex; align-items: flex-start; gap: 8px;
+    opacity: 0; animation: pqeFadeUp 0.4s ease forwards;
+    line-height: 1.5;
+  }
+  .pqe-load-step::before { content: '·'; color: var(--gold); font-size: 18px; font-weight: 900; flex-shrink: 0; line-height: 1.3; margin-top: 1px; }
+
+  /* Question */
+  .pqe-q {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(17px, 2.5vw, 22px);
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 4px;
+    line-height: 1.3;
+  }
+  .pqe-sub-q { font-size: 13px; color: #888; margin-bottom: 20px; }
+
+  /* Options */
+  .pqe-opt-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 10px; margin-bottom: 24px; }
+  .pqe-col1 { grid-template-columns: 1fr; }
+  .pqe-opt {
+    border: 2px solid #D3D1C7;
+    border-radius: 10px;
+    padding: 13px 16px;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: #F5F7FA;
+  }
+  .pqe-opt:hover { border-color: var(--gold); background: rgba(201,151,58,0.04); transform: translateY(-1px); }
+  .pqe-opt.pqe-selected { border-color: var(--navy); background: rgba(12,45,94,0.04); }
+  .pqe-opt.pqe-selected .pqe-radio { background: var(--navy); border-color: var(--navy); }
+  .pqe-opt.pqe-selected .pqe-radio::after { content:''; display:block; width:7px; height:7px; border-radius:50%; background:#fff; position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); }
+  .pqe-radio { width:18px; height:18px; border-radius:50%; border:2px solid #D3D1C7; flex-shrink:0; position:relative; transition:all 0.2s; }
+  .pqe-emo { font-size:20px; flex-shrink:0; }
+  .pqe-lbl { font-weight:600; font-size:13px; color:var(--navy); display:block; line-height:1.3; }
+  .pqe-lbl-sub { font-size:11px; color:#888; margin-top:1px; display:block; }
+
+  /* Nav buttons */
+  .pqe-nav { display:flex; align-items:center; justify-content:space-between; gap:12px; }
+  .pqe-btn-prev {
+    font-size:13px; font-weight:600; color:#888;
+    padding:10px 14px; border-radius:8px;
+    background:none; border:none; cursor:pointer;
+    transition:all 0.2s;
+    font-family:inherit;
+  }
+  .pqe-btn-prev:hover { color:var(--navy); background:rgba(12,45,94,0.05); }
+  .pqe-btn-prev:disabled { opacity:0.3; cursor:default; }
+  .pqe-btn-next {
+    background: var(--gold);
+    color: var(--navy);
+    font-family: inherit;
+    font-weight: 700;
+    font-size: 15px;
+    padding: 12px 28px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+    box-shadow: 0 4px 16px rgba(201,151,58,0.3);
+  }
+  .pqe-btn-next:hover { background: #EAB84A; transform: translateY(-1px); }
+  .pqe-btn-next:disabled { opacity:0.4; cursor:default; transform:none; }
+  .pqe-micro { font-size:12px; color:#bbb; text-align:center; margin-top:8px; }
+
+  /* Gate form */
+  .pqe-gate-badge {
+    background: rgba(26,107,74,0.08);
+    border: 1px solid rgba(26,107,74,0.2);
+    border-radius: 8px;
+    padding: 14px 16px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .pqe-gate-icon { font-size:26px; flex-shrink:0; }
+  .pqe-form-row { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:12px; }
+  .pqe-form-group { margin-bottom:12px; }
+  .pqe-label { display:block; font-size:13px; font-weight:600; color:var(--navy); margin-bottom:5px; }
+  .pqe-ctrl {
+    width:100%; padding:11px 14px;
+    border:1.5px solid #D3D1C7; border-radius:8px;
+    font-family:inherit; font-size:14px;
+    color:#1C1C1E; background:#F5F7FA;
+    outline:none; transition:all 0.2s;
+  }
+  .pqe-ctrl:focus { border-color:var(--navy); background:#fff; box-shadow:0 0 0 3px rgba(12,45,94,0.07); }
+  .pqe-ctrl::placeholder { color:#bbb; }
+
+  /* Result cards */
+  .pqe-result-badge { display:inline-flex; align-items:center; gap:8px; background:rgba(201,151,58,0.08); border:1px solid rgba(201,151,58,0.25); border-radius:20px; padding:5px 14px; margin-bottom:14px; font-size:11px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:#8B6020; }
+  .pqe-result-header { background:var(--navy); border-radius:10px; padding:22px 24px; margin-bottom:10px; position:relative; overflow:hidden; }
+  .pqe-result-header::before { content:''; position:absolute; top:-60px; right:-60px; width:200px; height:200px; border-radius:50%; background:radial-gradient(circle,rgba(201,151,58,0.1) 0%,transparent 70%); }
+  .pqe-result-header-inner { position:relative; z-index:2; }
+  .pqe-result-label { font-size:11px; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:#EAB84A; margin-bottom:6px; }
+  .pqe-result-name { font-family:'Playfair Display',Georgia,serif; font-size:clamp(16px,2.5vw,22px); color:#fff; margin-bottom:3px; }
+  .pqe-result-sub { font-size:13px; color:rgba(255,255,255,0.5); }
+  .pqe-result-pills { display:flex; gap:6px; flex-wrap:wrap; margin-top:12px; padding-top:12px; border-top:1px solid rgba(255,255,255,0.1); }
+  .pqe-pill { display:flex; align-items:center; gap:4px; background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.12); border-radius:20px; padding:4px 10px; font-size:11px; color:rgba(255,255,255,0.75); }
+  .pqe-pill strong { color:#EAB84A; }
+  .pqe-assessment { background:#fff; border:1px solid #D3D1C7; border-radius:10px; overflow:hidden; margin-bottom:10px; }
+  .pqe-assessment-head { background:rgba(201,151,58,0.06); border-bottom:2px solid var(--gold); padding:10px 20px; display:flex; align-items:center; gap:8px; }
+  .pqe-assessment-label { font-size:11px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:var(--gold); }
+  .pqe-assessment-body { padding:20px; font-size:14px; color:#333; line-height:1.85; }
+  .pqe-assessment-body p { margin-bottom:12px; }
+  .pqe-assessment-body p:last-child { margin-bottom:0; }
+  .pqe-result-cta { background:var(--navy); border-radius:10px; padding:24px 28px; margin-bottom:10px; }
+  .pqe-result-cta-inner { display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap; }
+  .pqe-result-cta strong { display:block; font-family:'Playfair Display',Georgia,serif; font-size:18px; color:#fff; margin-bottom:4px; }
+  .pqe-result-cta span { font-size:13px; color:rgba(255,255,255,0.55); }
+  .pqe-disclaimer { padding:12px 14px; background:rgba(0,0,0,0.03); border-left:3px solid #D3D1C7; border-radius:0 6px 6px 0; font-size:11px; color:#aaa; line-height:1.65; margin-bottom:16px; }
+
+  @media (max-width: 640px) {
+    .pqe-header { padding:24px 20px; }
+    .pqe-widget { padding:20px 16px; }
+    .pqe-opt-grid { grid-template-columns:1fr; }
+    .pqe-form-row { grid-template-columns:1fr; }
+    .pqe-result-cta-inner { flex-direction:column; }
+    .pqe-trust { gap:12px; flex-direction:column; }
+  }
   .faq-accordion {
     margin: 0 0 32px;
     border: 1px solid rgba(12,45,94,0.1);
@@ -1194,14 +1423,158 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </button>
         </div>
 
-        <!-- ── CTA STRIP ── -->
-        <div class="post-cta-strip">
-          <div>
-            <h3>Compare Your Colorado Home Buying Options</h3>
-            <p>Before you choose a lender, realtor, or private hero-benefit program, make sure you understand your public-program options first. Book a free 30-minute call and we'll walk through exactly which Colorado programs apply to your situation.</p>
+        <!-- ── EMBEDDED QUIZ ── -->
+        <div class="pqe-wrap">
+
+          <!-- Navy header box -->
+          <div class="pqe-header">
+            <div class="pqe-eyebrow">60-Second Eligibility Quiz</div>
+            <h3 class="pqe-title">Find Out What Assistance <span>You May Qualify For</span></h3>
+            <p class="pqe-sub">Answer 4 quick questions and receive a personalized program assessment written specifically for your situation.</p>
+            <div class="pqe-trust">
+              <span class="pqe-trust-item">Under 60 seconds</span>
+              <span class="pqe-trust-item">Results appear right here</span>
+              <span class="pqe-trust-item">No commitment required</span>
+            </div>
           </div>
-          <a href="../../contact.html" class="btn btn-gold btn-arrow">Compare Your Options</a>
+
+          <!-- Quiz widget -->
+          <div class="pqe-widget">
+
+            <!-- Progress -->
+            <div class="pqe-prog-wrap" id="pqeProgWrap">
+              <div class="pqe-prog-meta">
+                <span class="pqe-step-lbl" id="pqeStepLbl">Question 1 of 4</span>
+                <span id="pqeStepPct">25%</span>
+              </div>
+              <div class="pqe-prog-bar"><div class="pqe-prog-fill" id="pqeProgFill" style="width:25%;"></div></div>
+            </div>
+
+            <div class="pqe-card">
+
+              <!-- Q1 -->
+              <div class="pqe-step active" id="pqe-step-1">
+                <div class="pqe-q">What is your current profession?</div>
+                <div class="pqe-sub-q">This identifies hero-specific grants and programs available to your field.</div>
+                <div class="pqe-opt-grid" id="pqe-q1-opts">
+                  <div class="pqe-opt" onclick="pqePick(this,'q1','educator')" tabindex="0"><div class="pqe-radio"></div><div class="pqe-emo">🎓</div><div><span class="pqe-lbl">Teacher, Educator, or School Staff</span><span class="pqe-lbl-sub">Pre-K–12, administrators, school support</span></div></div>
+                  <div class="pqe-opt" onclick="pqePick(this,'q1','responder')" tabindex="0"><div class="pqe-radio"></div><div class="pqe-emo">🚒</div><div><span class="pqe-lbl">First Responder</span><span class="pqe-lbl-sub">Police, fire, EMT, paramedic, dispatch</span></div></div>
+                  <div class="pqe-opt" onclick="pqePick(this,'q1','healthcare')" tabindex="0"><div class="pqe-radio"></div><div class="pqe-emo">🏥</div><div><span class="pqe-lbl">Healthcare Professional or Nurse</span><span class="pqe-lbl-sub">Nurses, doctors, technicians, hospital staff</span></div></div>
+                  <div class="pqe-opt" onclick="pqePick(this,'q1','military')" tabindex="0"><div class="pqe-radio"></div><div class="pqe-emo">🎖️</div><div><span class="pqe-lbl">Military (Active Duty or Veteran)</span><span class="pqe-lbl-sub">Active duty, veterans, military spouses</span></div></div>
+                  <div class="pqe-opt" onclick="pqePick(this,'q1','other')" tabindex="0"><div class="pqe-radio"></div><div class="pqe-emo">👤</div><div><span class="pqe-lbl">Other Profession</span><span class="pqe-lbl-sub">Government, nonprofit, or other</span></div></div>
+                </div>
+                <div class="pqe-nav">
+                  <button class="pqe-btn-prev" disabled>← Previous</button>
+                  <button class="pqe-btn-next" onclick="pqeNext(1)" id="pqeNext1" disabled>Next →</button>
+                </div>
+                <div class="pqe-micro">No wrong answers — all responses help tailor your result.</div>
+              </div>
+
+              <!-- Q2 -->
+              <div class="pqe-step" id="pqe-step-2">
+                <div class="pqe-q">What is your estimated credit score?</div>
+                <div class="pqe-sub-q">Different programs have different minimums — we'll match you to what fits.</div>
+                <div class="pqe-opt-grid pqe-col1" id="pqe-q2-opts">
+                  <div class="pqe-opt" onclick="pqePick(this,'q2','660plus')" tabindex="0"><div class="pqe-radio"></div><div><span class="pqe-lbl">660 or higher</span><span class="pqe-lbl-sub">Qualifies for the widest range of programs</span></div></div>
+                  <div class="pqe-opt" onclick="pqePick(this,'q2','620to659')" tabindex="0"><div class="pqe-radio"></div><div><span class="pqe-lbl">620 to 659</span><span class="pqe-lbl-sub">Qualifies for CHFA and several DPA options</span></div></div>
+                  <div class="pqe-opt" onclick="pqePick(this,'q2','600to619')" tabindex="0"><div class="pqe-radio"></div><div><span class="pqe-lbl">600 to 619</span><span class="pqe-lbl-sub">Chenoa Fund may still apply</span></div></div>
+                  <div class="pqe-opt" onclick="pqePick(this,'q2','under600')" tabindex="0"><div class="pqe-radio"></div><div><span class="pqe-lbl">Under 600</span><span class="pqe-lbl-sub">Credit-readiness guidance available</span></div></div>
+                  <div class="pqe-opt" onclick="pqePick(this,'q2','unsure')" tabindex="0"><div class="pqe-radio"></div><div><span class="pqe-lbl">I'm not sure</span><span class="pqe-lbl-sub">No problem — we can discuss this on a call</span></div></div>
+                </div>
+                <div class="pqe-nav">
+                  <button class="pqe-btn-prev" onclick="pqePrev()">← Previous</button>
+                  <button class="pqe-btn-next" onclick="pqeNext(2)" id="pqeNext2" disabled>Next →</button>
+                </div>
+                <div class="pqe-micro">Your score won't be pulled or affected by this quiz.</div>
+              </div>
+
+              <!-- Q3 -->
+              <div class="pqe-step" id="pqe-step-3">
+                <div class="pqe-q">What is your estimated total household income?</div>
+                <div class="pqe-sub-q">Income limits vary by program — this helps identify your best options.</div>
+                <div class="pqe-opt-grid pqe-col1" id="pqe-q3-opts">
+                  <div class="pqe-opt" onclick="pqePick(this,'q3','under126')" tabindex="0"><div class="pqe-radio"></div><div><span class="pqe-lbl">Under $126,000</span><span class="pqe-lbl-sub">Qualifies for all major Colorado programs</span></div></div>
+                  <div class="pqe-opt" onclick="pqePick(this,'q3','126to174')" tabindex="0"><div class="pqe-radio"></div><div><span class="pqe-lbl">$126,000 to $174,000</span><span class="pqe-lbl-sub">Qualifies for CHFA FirstGen and MetroDPA</span></div></div>
+                  <div class="pqe-opt" onclick="pqePick(this,'q3','174to210')" tabindex="0"><div class="pqe-radio"></div><div><span class="pqe-lbl">$174,000 to $210,150</span><span class="pqe-lbl-sub">MetroDPA and hero-specific programs may apply</span></div></div>
+                  <div class="pqe-opt" onclick="pqePick(this,'q3','over210')" tabindex="0"><div class="pqe-radio"></div><div><span class="pqe-lbl">Over $210,150</span><span class="pqe-lbl-sub">Hero grants with no income limits may still apply</span></div></div>
+                  <div class="pqe-opt" onclick="pqePick(this,'q3','unsure')" tabindex="0"><div class="pqe-radio"></div><div><span class="pqe-lbl">I'm not sure</span><span class="pqe-lbl-sub">We can work through this on a free call</span></div></div>
+                </div>
+                <div class="pqe-nav">
+                  <button class="pqe-btn-prev" onclick="pqePrev()">← Previous</button>
+                  <button class="pqe-btn-next" onclick="pqeNext(3)" id="pqeNext3" disabled>Next →</button>
+                </div>
+              </div>
+
+              <!-- Q4 -->
+              <div class="pqe-step" id="pqe-step-4">
+                <div class="pqe-q">When are you hoping to buy a home?</div>
+                <div class="pqe-sub-q">Your timeline helps us give you the most useful next step.</div>
+                <div class="pqe-opt-grid pqe-col1" id="pqe-q4-opts">
+                  <div class="pqe-opt" onclick="pqePick(this,'q4','asap')" tabindex="0"><div class="pqe-radio"></div><div class="pqe-emo">🚀</div><div><span class="pqe-lbl">ASAP — I'm ready to move</span><span class="pqe-lbl-sub">Looking to buy within 1–3 months</span></div></div>
+                  <div class="pqe-opt" onclick="pqePick(this,'q4','3to6')" tabindex="0"><div class="pqe-radio"></div><div class="pqe-emo">📅</div><div><span class="pqe-lbl">3 to 6 months</span><span class="pqe-lbl-sub">Getting serious, building toward it</span></div></div>
+                  <div class="pqe-opt" onclick="pqePick(this,'q4','research')" tabindex="0"><div class="pqe-radio"></div><div class="pqe-emo">🔍</div><div><span class="pqe-lbl">6+ months — just researching</span><span class="pqe-lbl-sub">Exploring options, no rush</span></div></div>
+                </div>
+                <div class="pqe-nav">
+                  <button class="pqe-btn-prev" onclick="pqePrev()">← Previous</button>
+                  <button class="pqe-btn-next" onclick="pqeNext(4)" id="pqeNext4" disabled>Next →</button>
+                </div>
+              </div>
+
+              <!-- GATE -->
+              <div class="pqe-step" id="pqe-step-gate">
+                <div class="pqe-gate-badge">
+                  <div class="pqe-gate-icon">🛡️</div>
+                  <div>
+                    <strong style="display:block;color:var(--navy);font-size:15px;font-weight:700;margin-bottom:2px;">Your answers have been scored</strong>
+                    <span style="color:#666;font-size:13px;">Enter your name and email to generate your personalized assessment.</span>
+                  </div>
+                </div>
+                <h3 style="font-size:20px;color:var(--navy);margin-bottom:8px;">Almost there.</h3>
+                <p style="font-size:15px;color:#666;margin-bottom:20px;">We'll generate a personalized, AI-powered assessment based on your specific answers.</p>
+                <form id="pqeForm" onsubmit="pqeSubmitGate(event)" novalidate>
+                  <div class="pqe-form-row">
+                    <div class="pqe-form-group"><label class="pqe-label" for="pqeFirst">First Name <span style="color:var(--gold);">*</span></label><input type="text" id="pqeFirst" class="pqe-ctrl" placeholder="Sarah" required autocomplete="given-name"></div>
+                    <div class="pqe-form-group"><label class="pqe-label" for="pqeLast">Last Name</label><input type="text" id="pqeLast" class="pqe-ctrl" placeholder="Miller" autocomplete="family-name"></div>
+                  </div>
+                  <div class="pqe-form-group"><label class="pqe-label" for="pqeEmail">Email Address <span style="color:var(--gold);">*</span></label><input type="email" id="pqeEmail" class="pqe-ctrl" placeholder="sarah@email.com" required autocomplete="email"></div>
+                  <div class="pqe-form-group"><label class="pqe-label" for="pqePhone">Phone <span style="color:#aaa;font-weight:400;">(optional)</span></label><input type="tel" id="pqePhone" class="pqe-ctrl" placeholder="(720) 555-0100" autocomplete="tel"></div>
+                  <div id="pqeErr" style="display:none;color:#c03;font-size:13px;margin-bottom:12px;"></div>
+                  <button type="submit" class="btn btn-gold" style="width:100%;font-size:16px;padding:16px;">See My Results Right Here →</button>
+                  <div style="display:flex;align-items:flex-start;gap:10px;background:rgba(26,107,74,0.07);border:1px solid rgba(26,107,74,0.2);border-radius:8px;padding:12px 16px;margin-top:14px;">
+                    <span style="font-size:18px;flex-shrink:0;">⚡</span>
+                    <div style="font-size:13px;color:#444;line-height:1.55;"><strong style="color:var(--navy);display:block;margin-bottom:2px;">Your results appear instantly — right on this page.</strong>No email to wait for. No inbox to check. Just your personalized assessment, right here.</div>
+                  </div>
+                  <div style="font-size:12px;color:#aaa;text-align:center;margin-top:12px;">🔒 No pressure. No spam. Your info stays private.</div>
+                </form>
+                <div style="margin-top:16px;"><button class="pqe-btn-prev" onclick="pqePrev()">← Previous</button></div>
+              </div>
+
+              <!-- LOADING -->
+              <div class="pqe-step" id="pqe-step-loading" style="text-align:center;padding:36px 0;">
+                <div style="font-size:48px;margin-bottom:16px;animation:pqePulse 1.5s ease-in-out infinite;">🏡</div>
+                <div style="font-family:'Playfair Display',Georgia,serif;font-size:22px;color:var(--navy);margin-bottom:8px;">Building Your Assessment…</div>
+                <div style="font-size:14px;color:#888;margin-bottom:24px;">Matching Colorado programs to your situation.</div>
+                <div style="max-width:280px;margin:0 auto;"><div style="height:6px;background:#D3D1C7;border-radius:3px;overflow:hidden;"><div id="pqeLoadFill" style="height:100%;width:0%;border-radius:3px;background:linear-gradient(90deg,var(--navy),var(--gold));animation:pqeLoad 3.5s ease-in-out forwards;"></div></div></div>
+                <div style="margin-top:20px;display:flex;flex-direction:column;gap:8px;max-width:280px;margin-left:auto;margin-right:auto;text-align:left;">
+                  <div class="pqe-load-step" style="animation-delay:0.3s;">Identifying programs for your profession</div>
+                  <div class="pqe-load-step" style="animation-delay:1.1s;">Matching credit and income to program requirements</div>
+                  <div class="pqe-load-step" style="animation-delay:2s;">Writing your personalized assessment</div>
+                </div>
+              </div>
+
+              <!-- RESULT -->
+              <div class="pqe-step" id="pqe-step-result">
+                <div id="pqeResultContent"></div>
+                <button onclick="pqeRestart()" style="display:block;text-align:center;margin-top:16px;font-size:13px;color:#bbb;text-decoration:underline;background:none;border:none;cursor:pointer;font-family:inherit;">Start over</button>
+              </div>
+
+            </div>
+            <!-- /pqe-card -->
+          </div>
+          <!-- /pqe-widget -->
+
         </div>
+        <!-- /pqe-wrap -->
 
       </article>
       <!-- /post-article -->
@@ -1239,7 +1612,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="sidebar-card-title">Related Guides</div>
 
           <div class="related-post-item">
-            <div class="related-post-thumb"></div>
+            <div class="related-post-thumb" style="background-image:url('../colorado-firefighter-emt-home-buying-help.png');background-size:cover;background-position:center;"></div>
             <div>
               <a href="../colorado-firefighter-emt-home-buying-help.html" class="related-post-title">Colorado Firefighter &amp; EMT Home Buying Help</a>
               <div class="related-post-date">May 2026</div>
@@ -1247,7 +1620,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </div>
 
           <div class="related-post-item">
-            <div class="related-post-thumb"></div>
+            <div class="related-post-thumb" style="background-image:url('../va-loan-down-payment-assistance-colorado.png');background-size:cover;background-position:center;"></div>
             <div>
               <a href="../va-loan-down-payment-assistance-colorado.html" class="related-post-title">VA Loan + Down Payment Assistance in Colorado</a>
               <div class="related-post-date">May 2026</div>
@@ -1255,7 +1628,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </div>
 
           <div class="related-post-item">
-            <div class="related-post-thumb"></div>
+            <div class="related-post-thumb" style="background-image:url('../down-payment-assistance-teachers-colorado.png');background-size:cover;background-position:center;"></div>
             <div>
               <a href="../down-payment-assistance-teachers-colorado.html" class="related-post-title">Down Payment Assistance for Colorado Teachers</a>
               <div class="related-post-date">May 2026</div>
@@ -1323,7 +1696,155 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
 <script>
-// ── FAQ ACCORDION ──
+// ── EMBEDDED QUIZ ──
+(function() {
+  const PQE = { q1:null, q2:null, q3:null, q4:null };
+  let pqeCur = 1;
+
+  window.pqePick = function(card, q, val) {
+    document.getElementById('pqe-' + q + '-opts').querySelectorAll('.pqe-opt').forEach(c => c.classList.remove('pqe-selected'));
+    card.classList.add('pqe-selected');
+    PQE[q] = val;
+    const nb = document.getElementById('pqeNext' + pqeCur);
+    if (nb) nb.disabled = false;
+  };
+
+  document.querySelectorAll('.pqe-opt').forEach(c => {
+    c.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); c.click(); } });
+  });
+
+  window.pqeNext = function(from) { if (!PQE['q' + from]) return; pqeShow(from + 1); };
+  window.pqePrev = function() { if (pqeCur > 1) pqeShow(pqeCur - 1); };
+
+  function pqeShow(step) {
+    document.querySelectorAll('.pqe-step').forEach(s => s.classList.remove('active'));
+    const id = step > 4 ? 'pqe-step-gate' : 'pqe-step-' + step;
+    document.getElementById(id).classList.add('active');
+    pqeCur = step;
+    pqeUpdateProg(step);
+    document.querySelector('.pqe-wrap').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  function pqeUpdateProg(step) {
+    const pw = document.getElementById('pqeProgWrap');
+    if (step > 4) { pw.style.display = 'none'; return; }
+    pw.style.display = 'block';
+    const pct = Math.round((step / 4) * 100);
+    document.getElementById('pqeProgFill').style.width = pct + '%';
+    document.getElementById('pqeStepLbl').textContent = 'Question ' + step + ' of 4';
+    document.getElementById('pqeStepPct').textContent = pct + '%';
+  }
+
+  window.pqeSubmitGate = function(e) {
+    e.preventDefault();
+    const first = document.getElementById('pqeFirst').value.trim();
+    const email = document.getElementById('pqeEmail').value.trim();
+    const errEl = document.getElementById('pqeErr');
+    if (!first) { errEl.textContent = 'Please enter your first name.'; errEl.style.display = 'block'; return; }
+    if (!email || !email.includes('@')) { errEl.textContent = 'Please enter a valid email address.'; errEl.style.display = 'block'; return; }
+    errEl.style.display = 'none';
+
+    // GTM event
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ event: 'quiz_completed', quiz_profession: PQE.q1, quiz_credit: PQE.q2, quiz_income: PQE.q3, quiz_timeline: PQE.q4 });
+
+    // Show loading
+    document.querySelectorAll('.pqe-step').forEach(s => s.classList.remove('active'));
+    document.getElementById('pqe-step-loading').classList.add('active');
+    document.getElementById('pqeProgWrap').style.display = 'none';
+    const lf = document.getElementById('pqeLoadFill');
+    lf.style.animation = 'none'; void lf.offsetWidth; lf.style.animation = '';
+    document.querySelector('.pqe-wrap').scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+    // MailerLite
+    const phone = document.getElementById('pqePhone').value.trim();
+    fetch('https://connect.mailerlite.com/api/subscribers', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json', 'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI0IiwianRpIjoiMDJhMDg4ZWMyNDQ5MmNjOGFjODJmZDg4YzNlYTQ2ZDlmNDliYzM0YmU5ZTdhZjI5MmNmNDI1NmNmN2QzMWY5NDNlMzUxOTQ0ZGZhOTk4ZWUiLCJpYXQiOjE3NzY5NTYxMTIuMTMwMzUyLCJuYmYiOjE3NzY5NTYxMTIuMTMwMzU0LCJleHAiOjQ5MzI2Mjk3MTIuMTI1OTE2LCJzdWIiOiIyMjg3NTQyIiwic2NvcGVzIjpbXX0.MB8WJnwZ5lG35JACvXlS_2oXjBPpRODveds6iG7e4lfdSH1TjNKBhkkbs-AZZux35lr9PbDSp7HwxwdpebCMH3zb_m8nQl7MRh4aN2j4ucPbcUFtwWwbnnL59Om_t8mD7IBF8gXcmgDGVNhnCzMRrcJn4_1y6y-9ba6wizpfPDG98YvFVIeSk8Jcl_pXiljER8ZgOUaWEr8AP5AJ9fNo3zUrYK54fc9KOoyQ9s36Mz46FYEpehsaTKoZ3WsR3NA18xWLfzhX2Elt3Bkv8NGaN2zFtnAh6vRntHiBIVyxH2xmGg4mUKQjjXMzKbYK7YjRe03vAveGGrKGNLBPidZgORZX_TyhfqcG1iVl9Yuy7xqsufS2JuXTzCcEkB9VHSFQ6lGsYBU3JJJesVxcFMUcVg8POKlGj-NM7JXR2SFYAxt-ziWVo6p3yNHIdb1tY6mTlvRY-96nPiIfNtrfYabSWhUfHcE8bw75IudWHRswypaapYfGLHxYzLFgQuAoCdNNYkMj_vHouQ7yOguAO5HYjADQqPhbBAq2-2UYZtPiCPNW7i_F8TFbwl1TzxmTRC36b7G7vDfbnavInmIgJj2NVlGS2UFn432xzFG600xVwcFUFQI9LHykOhUYHB0Bsu-6BW_OuY5jpCkYiypRpqbPxaSgUMvAAPv45ydTSi27wCQ' },
+      body: JSON.stringify({ email: email, fields: { name: first, last_name: document.getElementById('pqeLast').value.trim(), phone: phone, profession: PQE.q1, credit_range: PQE.q2, income_range: PQE.q3, buying_timeline: PQE.q4 }, groups: ['185553924750575511'], status: 'active' })
+    }).catch(err => console.error('[PQE] MailerLite:', err));
+
+    // Claude API
+    pqeCallAPI(first, email);
+  };
+
+  async function pqeCallAPI(firstName, email) {
+    try {
+      const res = await fetch('/api/quiz-results', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ firstName, email, profession: PQE.q1, credit: PQE.q2, income: PQE.q3, timeline: PQE.q4 })
+      });
+      if (!res.ok) throw new Error('API ' + res.status);
+      const data = await res.json();
+      setTimeout(() => pqeShowResult(firstName, data.result), 700);
+    } catch (err) {
+      console.error(err);
+      setTimeout(() => pqeShowError(), 700);
+    }
+  }
+
+  function pqeShowResult(name, text) {
+    const paras = text.split(/\n\n+/).filter(p => p.trim()).map(p => `<p>${p.trim()}</p>`).join('');
+    const pMap = { educator:'Educator', responder:'First Responder', healthcare:'Healthcare Worker', military:'Military / Veteran', other:'Other' };
+    const pIcon = { educator:'🎓', responder:'🚒', healthcare:'🏥', military:'🎖️', other:'👤' };
+    const cMap = { '660plus':'Credit 660+','620to659':'Credit 620–659','600to619':'Credit 600–619','under600':'Credit Under 600','unsure':'Credit Unknown' };
+    const iMap = { 'under126':'Under $126K','126to174':'$126–$174K','174to210':'$174–$210K','over210':'Over $210K','unsure':'Unknown' };
+    const tMap = { 'asap':'Ready Now 🚀','3to6':'3–6 Months 📅','research':'Researching 🔍' };
+
+    document.getElementById('pqeResultContent').innerHTML = `
+      <span class="pqe-result-badge">✦ Your Personalized Assessment</span>
+      <div class="pqe-result-header">
+        <div class="pqe-result-header-inner">
+          <div class="pqe-result-label">Assessment prepared for</div>
+          <div class="pqe-result-name">${name}</div>
+          <div class="pqe-result-sub">Colorado Hero Homebuyer · Hero HomeReach™</div>
+          <div class="pqe-result-pills">
+            <div class="pqe-pill">${pIcon[PQE.q1]||''} <strong>${pMap[PQE.q1]||PQE.q1}</strong></div>
+            <div class="pqe-pill">📊 <strong>${cMap[PQE.q2]||PQE.q2}</strong></div>
+            <div class="pqe-pill">💰 <strong>${iMap[PQE.q3]||PQE.q3}</strong></div>
+            <div class="pqe-pill">${tMap[PQE.q4]||PQE.q4}</div>
+          </div>
+        </div>
+      </div>
+      <div class="pqe-assessment">
+        <div class="pqe-assessment-head"><span>🛡️</span><span class="pqe-assessment-label">Your Program Assessment</span></div>
+        <div class="pqe-assessment-body">${paras}</div>
+      </div>
+      <div class="pqe-result-cta">
+        <div class="pqe-result-cta-inner">
+          <div><strong>Book Your Free 30-Minute Call</strong><span>No pressure · No obligation · Colorado-specific guidance</span></div>
+          <a href="" onclick="Calendly.initPopupWidget({url:'https://calendly.com/trogelstad-herohomereach/30min'});return false;" class="btn btn-gold" style="white-space:nowrap;">Book My Free Call →</a>
+        </div>
+      </div>
+      <div class="pqe-disclaimer"><strong>Important:</strong> This assessment is an educational estimate only — not a lending decision, prequalification, or guarantee of program funding. Final eligibility depends on lender review, current program guidelines, property details, income verification, and available funding. A licensed mortgage professional must confirm all program eligibility. Hero HomeReach™ is a homeownership education and guidance service, not a lender or broker.</div>
+    `;
+    document.querySelectorAll('.pqe-step').forEach(s => s.classList.remove('active'));
+    document.getElementById('pqe-step-result').classList.add('active');
+    document.querySelector('.pqe-wrap').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  function pqeShowError() {
+    document.getElementById('pqeResultContent').innerHTML = `
+      <div style="text-align:center;padding:32px 20px;background:rgba(220,60,60,0.04);border:1px solid rgba(220,60,60,0.15);border-radius:12px;">
+        <h3 style="color:var(--navy);margin-bottom:10px;">Something went wrong</h3>
+        <p style="font-size:15px;color:#666;margin-bottom:20px;">We couldn't generate your result right now. Book a free consultation and we'll walk through everything on the call.</p>
+        <a href="../../contact.html" class="btn btn-gold">Book My Free Consultation →</a>
+      </div>`;
+    document.querySelectorAll('.pqe-step').forEach(s => s.classList.remove('active'));
+    document.getElementById('pqe-step-result').classList.add('active');
+  }
+
+  window.pqeRestart = function() {
+    PQE.q1 = PQE.q2 = PQE.q3 = PQE.q4 = null;
+    document.querySelectorAll('.pqe-opt').forEach(c => c.classList.remove('pqe-selected'));
+    document.querySelectorAll('[id^="pqeNext"]').forEach(b => { b.disabled = true; });
+    document.getElementById('pqeForm').reset();
+    document.getElementById('pqeErr').style.display = 'none';
+    pqeShow(1);
+  };
+})();
+
 document.querySelectorAll('.faq-accordion-q').forEach(btn => {
   btn.addEventListener('click', () => {
     const item = btn.closest('.faq-accordion-item');
