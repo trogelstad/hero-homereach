@@ -22,8 +22,6 @@
   AUDIENCE: First Responders
   PUBLISHED: May 2026
   PATHS: All relative paths use ../../ to reach site root
-  NOTE: og:image — replace hero.png with -social.jpg after ChatGPT generates image
-  NOTE: Pillar post link placeholder at [PILLAR-POST-URL] — confirm slug with Trent
   ════════════════════════════════════════════════════
   -->
 
@@ -173,6 +171,88 @@
           "@type": "Answer",
           "text": "Ask whether the lender is a CHFA Participating Lender, whether they understand the Colorado Champions Home Loan Program, what DPA options may apply, whether assistance is a grant or loan, and whether any private hero-benefit offer affects your lender or realtor choice."
         }
+      }
+    ]
+  }
+  </script>
+
+  <!-- ── Schema: BreadcrumbList ── -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://herohomereach.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Resources & Blog",
+        "item": "https://herohomereach.com/blog/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Colorado Champions Home Loan Program Explained",
+        "item": "https://herohomereach.com/blog/colorado-champions-home-loan-program/"
+      }
+    ]
+  }
+  </script>
+
+  <!-- ── Schema: HowTo ── -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "How to Compare Colorado First Responder Home Buying Options",
+    "description": "Steps for Colorado first responders to evaluate the Colorado Champions Home Loan Program and compare it against other assistance options before choosing a lender or realtor.",
+    "step": [
+      {
+        "@type": "HowToStep",
+        "position": 1,
+        "name": "Confirm Whether Your Role May Fit the Program",
+        "text": "Start with your occupation. If you are a firefighter, EMT, peace officer, 911 operator, corrections officer, emergency communications specialist, port of entry officer, or wildlife officer, the Colorado Champions Home Loan Program may be worth understanding."
+      },
+      {
+        "@type": "HowToStep",
+        "position": 2,
+        "name": "Learn the CHFA Basics",
+        "text": "Review how CHFA Participating Lenders work, what CHFA assistance may be available, and whether the assistance is a grant or second mortgage. Do this before relying on a private hero-benefit pitch."
+      },
+      {
+        "@type": "HowToStep",
+        "position": 3,
+        "name": "Ask Whether the Lender Is a CHFA Participating Lender",
+        "text": "Not every lender offers every program. Ask directly: are you a CHFA Participating Lender, and can you explain how Colorado Champions may apply to my situation?"
+      },
+      {
+        "@type": "HowToStep",
+        "position": 4,
+        "name": "Compare Public Assistance Before Private Offers",
+        "text": "Compare public-program options first, including CHFA, metroDPA, VA loan options, local DPA, and seller credits, before evaluating private hero-benefit offers."
+      },
+      {
+        "@type": "HowToStep",
+        "position": 5,
+        "name": "Ask How the Hero Benefit Actually Works",
+        "text": "If a private company advertises hero savings, ask whether it is a rebate, lender credit, realtor credit, grant, or referral network, and whether it is compatible with CHFA or other DPA."
+      },
+      {
+        "@type": "HowToStep",
+        "position": 6,
+        "name": "Review Repayment Terms Before Accepting Assistance",
+        "text": "Understand whether assistance is a grant, deferred loan, or forgivable loan, and when repayment may be triggered, before signing anything."
+      },
+      {
+        "@type": "HowToStep",
+        "position": 7,
+        "name": "Use Hero HomeReach to Organize the Options",
+        "text": "Hero HomeReach helps Colorado public service professionals compare Colorado Champions, CHFA, metroDPA, VA loan options, and private hero-benefit offers in plain English before making a decision."
       }
     ]
   }
@@ -459,6 +539,82 @@
   }
   .step-content p { margin: 0; font-size: 15px; line-height: 1.65; }
 
+  /* ── FAQ Accordion ── */
+  .faq-accordion {
+    margin: 0 0 32px;
+    border: 1px solid rgba(12,45,94,0.1);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .faq-accordion-item {
+    border-bottom: 1px solid rgba(12,45,94,0.08);
+  }
+  .faq-accordion-item:last-child {
+    border-bottom: none;
+  }
+  .faq-accordion-q {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 18px 24px;
+    background: #fff;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--navy);
+    line-height: 1.45;
+    transition: background 0.2s;
+  }
+  .faq-accordion-q:hover {
+    background: rgba(12,45,94,0.03);
+  }
+  .faq-accordion-item.open .faq-accordion-q {
+    background: rgba(12,45,94,0.04);
+  }
+  .faq-chevron {
+    flex-shrink: 0;
+    width: 22px; height: 22px;
+    border-radius: 50%;
+    background: rgba(201,151,58,0.12);
+    display: flex; align-items: center; justify-content: center;
+    transition: transform 0.3s ease, background 0.2s;
+  }
+  .faq-chevron svg {
+    width: 11px; height: 11px;
+    stroke: var(--gold);
+    fill: none;
+    stroke-width: 2.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+  .faq-accordion-item.open .faq-chevron {
+    background: rgba(201,151,58,0.2);
+    transform: rotate(180deg);
+  }
+  .faq-accordion-a {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease;
+  }
+  .faq-accordion-item.open .faq-accordion-a {
+    max-height: 400px;
+  }
+  .faq-accordion-a-inner {
+    padding: 4px 24px 20px;
+    font-size: 15px;
+    line-height: 1.7;
+    color: #4B5563;
+    border-top: 1px solid rgba(12,45,94,0.06);
+  }
+  .faq-accordion-a-inner p {
+    margin: 12px 0 0;
+  }
+
   </style>
 
   <!-- Calendly popup -->
@@ -574,7 +730,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
         <div class="post-body">
 
-          <!-- Hero image — update src after ChatGPT generates hero.png -->
           <img src="hero.jpg" alt="Colorado first responder outside a Colorado home, representing the Colorado Champions Home Loan Program" style="width:100%;border-radius:10px;margin-bottom:32px;display:block;" loading="lazy">
 
           <!-- ── INTRO ── -->
@@ -595,7 +750,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </div>
 
 
-          <!-- ── SECTION 1: What Is the Program ── -->
+          <!-- ── SECTION 1 ── -->
           <h2 id="what-is-it">What Is the Colorado Champions Home Loan Program?</h2>
 
           <p>The Colorado Champions Home Loan Program is the short title connected to <a href="https://leg.colorado.gov/bills/sb26-053" target="_blank" rel="noopener">SB26-053</a>. The law expands eligibility for mortgage loans through the Colorado Housing and Finance Authority to first responders. In plain English, the program is meant to help more Colorado first responders access CHFA mortgage options.</p>
@@ -609,7 +764,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </div>
 
 
-          <!-- ── SECTION 2: Who Qualifies ── -->
+          <!-- ── SECTION 2 ── -->
           <h2 id="who-qualifies">Who May Be Included Under SB26-053?</h2>
 
           <p>According to the official bill summary, SB26-053 expands eligibility for CHFA mortgage loans to first responders. The act defines "first responder" to include peace officers, firefighters, and emergency medical technicians. It also defines "peace officer" to include additional roles such as noncertified deputy sheriffs, emergency communications specialists, corrections officers, port of entry officers, and wildlife officers.</p>
@@ -631,7 +786,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <p>The act also sets an income limit for families made eligible by the act. That last part matters. Even when a program expands access, final eligibility still depends on actual program rules, lender guidelines, income limits, loan type, property requirements, credit profile, and available assistance options. For a full breakdown of who Colorado assistance programs serve, see our <a href="../../who-we-serve.html">Who We Serve</a> page.</p>
 
 
-          <!-- ── SECTION 3: Confusing Offers ── -->
+          <!-- ── SECTION 3 ── -->
           <h2 id="confusing-offers">Why Some Hero Home Buying Offers Can Be Confusing</h2>
 
           <p>This is where first responders need to slow down. A lot of home buying offers use words like hero, grant, savings, reward, benefit, program, assistance, credit, discount, or exclusive. Those words can sound similar, but they do not always mean the same thing.</p>
@@ -659,7 +814,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <p>A hero-branded offer is not automatically the same as official homebuyer assistance. For answers to common <a href="/faq">down payment assistance questions</a>, our FAQ page walks through the most important distinctions.</p>
 
 
-          <!-- ── SECTION 4: Champions vs Private ── -->
+          <!-- ── SECTION 4 ── -->
           <h2 id="champions-vs-private">Colorado Champions vs. Private Hero-Benefit Offers</h2>
 
           <p>The Colorado Champions Home Loan Program should not be lumped together with every "hero home buying" offer online. SB26-053 is a Colorado law that expands access to CHFA mortgage options for eligible first responders. Many private hero-benefit offers are different. They may be useful, but they are often built around referrals, partner networks, credits, discounts, or savings models. That distinction matters before you choose a lender, realtor, or assistance path.</p>
@@ -714,7 +869,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <p>The key distinction is control. A public program is governed by public-program rules, statutory authority, agency guidelines, lender underwriting, and eligibility limits. A private hero-benefit offer is usually governed by a company's business model, partner relationships, terms, and availability. Those are not the same thing.</p>
 
 
-          <!-- ── SECTION 5: Green and Red Flags ── -->
+          <!-- ── SECTION 5 ── -->
           <h2 id="green-red-flags">Green Flags and Red Flags When Comparing Hero Home Buying Offers</h2>
 
           <p>A first responder does not need to become a mortgage expert before buying a home, but you should know enough to separate a clear offer from a shiny headline.</p>
@@ -750,7 +905,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </div>
 
 
-          <!-- ── SECTION 6: What It Does Not Mean ── -->
+          <!-- ── SECTION 6 ── -->
           <h2 id="what-it-doesnt-mean">What the Program Does Not Automatically Do</h2>
 
           <p>This part matters because housing assistance can be easy to oversell. The Colorado Champions Home Loan Program does not automatically mean any of the following:</p>
@@ -769,7 +924,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <p>The better way to understand Colorado Champions is this: it expands who may be able to access CHFA mortgage options. It does not erase the normal mortgage process. You still need to qualify for the loan. You still need to work through an approved lender. You still need to understand whether the assistance is a grant, a second mortgage, a forgivable loan, a deferred loan, a seller credit, or another structure. And you still need to compare the full picture, not just the headline.</p>
 
 
-          <!-- ── SECTION 7: How CHFA Fits ── -->
+          <!-- ── SECTION 7 ── -->
           <h2 id="how-chfa-fits">How CHFA Fits Into the Program</h2>
 
           <p>CHFA is central to the Colorado Champions conversation. <a href="https://www.chfainfo.com/homeownership" target="_blank" rel="noopener">CHFA's homeownership programs</a> may include home purchase loans, grants and second mortgage loans for down payment and closing cost assistance.</p>
@@ -789,7 +944,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <p>This is why <a href="../../">Hero HomeReach</a> uses careful language around assistance. "May help" is more accurate than "will get." "Could reduce upfront cash needed" is more accurate than "no money needed." "Compare your options" is more useful than "claim your free money." That is not being timid. That is being honest.</p>
 
 
-          <!-- ── SECTION 8: Grant vs Second Mortgage ── -->
+          <!-- ── SECTION 8 ── -->
           <h2 id="dpa-grant-vs-loan">CHFA Down Payment Assistance: Grant vs. Second Mortgage</h2>
 
           <p>One of the biggest sources of confusion is the word <em>assistance</em>. Assistance does not always mean the same thing. <a href="https://www.chfainfo.com/homeownership/down-payment-assistance" target="_blank" rel="noopener">CHFA's down payment assistance</a> options include a Down Payment Assistance Grant of up to the lesser of $25,000 or 3 percent of the first mortgage, with no repayment required. CHFA also offers a Second Mortgage Loan of up to the lesser of $25,000 or 4 percent of the first mortgage.</p>
@@ -803,7 +958,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <p>For a broader breakdown of the programs available to Colorado heroes across all audiences, explore our <a href="../../programs.html">Colorado home buying assistance programs</a> page.</p>
 
 
-          <!-- ── SECTION 9: Combining ── -->
+          <!-- ── SECTION 9 ── -->
           <h2 id="combining-assistance">Can Colorado Champions Be Combined With Other Assistance?</h2>
 
           <p>Possibly, but not automatically. This is another place where buyers need plain English. A Colorado first responder may be able to compare the Colorado Champions / CHFA path with other assistance options, including:</p>
@@ -824,7 +979,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <p>This is why the answer is almost never as simple as "yes, you qualify" or "no, you don't." The better question is: which combination gives you the cleanest, most affordable, most realistic path to closing?</p>
 
 
-          <!-- ── SECTION 10: Practical Example ── -->
+          <!-- ── SECTION 10 ── -->
           <h2 id="practical-example">A Practical Example</h2>
 
           <p>Imagine a Colorado firefighter who wants to buy a first home. They have stable income and can handle a reasonable monthly payment, but saving for down payment, closing costs, inspections, reserves, and moving expenses is difficult. That buyer might see several types of offers online:</p>
@@ -845,7 +1000,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <p>The job is not to chase the biggest-sounding number. The job is to understand the cleanest path. Our <a href="../colorado-firefighter-emt-home-buying-help.html">Colorado firefighter and EMT home buying guide</a> covers this full picture in more detail for first responder buyers.</p>
 
 
-          <!-- ── SECTION 11: Best Next Steps ── -->
+          <!-- ── SECTION 11 ── -->
           <h2 id="next-steps">Best Next Steps for Colorado First Responders</h2>
 
           <ol class="step-list">
@@ -901,7 +1056,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </ol>
 
 
-          <!-- ── SECTION 12: Bottom Line ── -->
+          <!-- ── SECTION 12 ── -->
           <h2 id="bottom-line">Bottom Line</h2>
 
           <p>The Colorado Champions Home Loan Program is important because it is tied to public law and CHFA mortgage access. That makes it different from many private hero home buying offers. Private hero-benefit programs may still provide value, but they should not be confused with official public assistance, CHFA-backed mortgage options, or down payment assistance programs with specific rules.</p>
@@ -911,63 +1066,113 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <p>When you are ready to sort through the options for your specific situation, <a href="../../contact.html">Hero HomeReach offers a free 30-minute consultation</a> designed to do exactly that, with no pressure and no obligation.</p>
 
 
-          <!-- ── SECTION 13: FAQ ── -->
+          <!-- ── SECTION 13: FAQ Accordion ── -->
           <h2 id="faq">Frequently Asked Questions</h2>
 
-          <div class="faq-block">
+          <div class="faq-accordion" id="faqAccordion">
 
-            <div class="faq-item">
-              <div class="faq-q">What is the Colorado Champions Home Loan Program?</div>
-              <div class="faq-a">The Colorado Champions Home Loan Program comes from SB26-053, a 2026 Colorado law that expands eligibility for mortgage loans through CHFA to certain first responders.</div>
+            <div class="faq-accordion-item">
+              <button class="faq-accordion-q" aria-expanded="false">
+                What is the Colorado Champions Home Loan Program?
+                <span class="faq-chevron"><svg viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg"><polyline points="2,4 6,8 10,4"/></svg></span>
+              </button>
+              <div class="faq-accordion-a">
+                <div class="faq-accordion-a-inner"><p>The Colorado Champions Home Loan Program comes from SB26-053, a 2026 Colorado law that expands eligibility for mortgage loans through CHFA to certain first responders.</p></div>
+              </div>
             </div>
 
-            <div class="faq-item">
-              <div class="faq-q">Is Colorado Champions the same as down payment assistance?</div>
-              <div class="faq-a">No. Colorado Champions is best understood as an eligibility expansion through CHFA. Down payment assistance may be available through CHFA or other programs, but it has its own rules, limits, and repayment structure.</div>
+            <div class="faq-accordion-item">
+              <button class="faq-accordion-q" aria-expanded="false">
+                Is Colorado Champions the same as down payment assistance?
+                <span class="faq-chevron"><svg viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg"><polyline points="2,4 6,8 10,4"/></svg></span>
+              </button>
+              <div class="faq-accordion-a">
+                <div class="faq-accordion-a-inner"><p>No. Colorado Champions is best understood as an eligibility expansion through CHFA. Down payment assistance may be available through CHFA or other programs, but it has its own rules, limits, and repayment structure.</p></div>
+              </div>
             </div>
 
-            <div class="faq-item">
-              <div class="faq-q">Who may qualify under the Colorado Champions Home Loan Program?</div>
-              <div class="faq-a">The official bill summary says the act includes first responders such as peace officers, firefighters, and EMTs. It also includes certain peace officer-related roles such as noncertified deputy sheriffs, emergency communications specialists, corrections officers, port of entry officers, and wildlife officers. Final eligibility depends on CHFA and lender program rules.</div>
+            <div class="faq-accordion-item">
+              <button class="faq-accordion-q" aria-expanded="false">
+                Who may qualify under the Colorado Champions Home Loan Program?
+                <span class="faq-chevron"><svg viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg"><polyline points="2,4 6,8 10,4"/></svg></span>
+              </button>
+              <div class="faq-accordion-a">
+                <div class="faq-accordion-a-inner"><p>The official bill summary says the act includes first responders such as peace officers, firefighters, and EMTs. It also includes certain peace officer-related roles such as noncertified deputy sheriffs, emergency communications specialists, corrections officers, port of entry officers, and wildlife officers. Final eligibility depends on CHFA and lender program rules.</p></div>
+              </div>
             </div>
 
-            <div class="faq-item">
-              <div class="faq-q">Does the program guarantee mortgage approval?</div>
-              <div class="faq-a">No. The program expands eligibility, but final approval still depends on lender underwriting, income, credit, property, loan type, program rules, and other requirements.</div>
+            <div class="faq-accordion-item">
+              <button class="faq-accordion-q" aria-expanded="false">
+                Does the program guarantee mortgage approval?
+                <span class="faq-chevron"><svg viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg"><polyline points="2,4 6,8 10,4"/></svg></span>
+              </button>
+              <div class="faq-accordion-a">
+                <div class="faq-accordion-a-inner"><p>No. The program expands eligibility, but final approval still depends on lender underwriting, income, credit, property, loan type, program rules, and other requirements.</p></div>
+              </div>
             </div>
 
-            <div class="faq-item">
-              <div class="faq-q">Is this different from private hero home buying programs?</div>
-              <div class="faq-a">Yes. Colorado Champions is tied to state law and CHFA mortgage access. Private hero home buying programs are usually business models involving referral networks, lender partners, realtor partners, credits, rebates, discounts, or advertised savings.</div>
+            <div class="faq-accordion-item">
+              <button class="faq-accordion-q" aria-expanded="false">
+                Is this different from private hero home buying programs?
+                <span class="faq-chevron"><svg viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg"><polyline points="2,4 6,8 10,4"/></svg></span>
+              </button>
+              <div class="faq-accordion-a">
+                <div class="faq-accordion-a-inner"><p>Yes. Colorado Champions is tied to state law and CHFA mortgage access. Private hero home buying programs are usually business models involving referral networks, lender partners, realtor partners, credits, rebates, discounts, or advertised savings.</p></div>
+              </div>
             </div>
 
-            <div class="faq-item">
-              <div class="faq-q">Can firefighters and EMTs use the program?</div>
-              <div class="faq-a">Firefighters and emergency medical technicians are included in the official bill summary's definition of first responders. Final eligibility still depends on CHFA and lender program rules.</div>
+            <div class="faq-accordion-item">
+              <button class="faq-accordion-q" aria-expanded="false">
+                Can firefighters and EMTs use the program?
+                <span class="faq-chevron"><svg viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg"><polyline points="2,4 6,8 10,4"/></svg></span>
+              </button>
+              <div class="faq-accordion-a">
+                <div class="faq-accordion-a-inner"><p>Firefighters and emergency medical technicians are included in the official bill summary's definition of first responders. Final eligibility still depends on CHFA and lender program rules.</p></div>
+              </div>
             </div>
 
-            <div class="faq-item">
-              <div class="faq-q">Can 911 operators qualify?</div>
-              <div class="faq-a">The official bill summary includes emergency communications specialists within the peace officer definition used for the act. Since many 911 operators fall under emergency communications roles, they should ask a CHFA Participating Lender how the final program rules apply.</div>
+            <div class="faq-accordion-item">
+              <button class="faq-accordion-q" aria-expanded="false">
+                Can 911 operators qualify?
+                <span class="faq-chevron"><svg viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg"><polyline points="2,4 6,8 10,4"/></svg></span>
+              </button>
+              <div class="faq-accordion-a">
+                <div class="faq-accordion-a-inner"><p>The official bill summary includes emergency communications specialists within the peace officer definition used for the act. Since many 911 operators fall under emergency communications roles, they should ask a CHFA Participating Lender how the final program rules apply.</p></div>
+              </div>
             </div>
 
-            <div class="faq-item">
-              <div class="faq-q">Can Colorado Champions be combined with CHFA down payment assistance?</div>
-              <div class="faq-a">Possibly, but not automatically. CHFA offers down payment assistance options, including a grant and a second mortgage loan. Program compatibility depends on CHFA rules, loan type, lender review, and other assistance being used.</div>
+            <div class="faq-accordion-item">
+              <button class="faq-accordion-q" aria-expanded="false">
+                Can Colorado Champions be combined with CHFA down payment assistance?
+                <span class="faq-chevron"><svg viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg"><polyline points="2,4 6,8 10,4"/></svg></span>
+              </button>
+              <div class="faq-accordion-a">
+                <div class="faq-accordion-a-inner"><p>Possibly, but not automatically. CHFA offers down payment assistance options, including a grant and a second mortgage loan. Program compatibility depends on CHFA rules, loan type, lender review, and other assistance being used.</p></div>
+              </div>
             </div>
 
-            <div class="faq-item">
-              <div class="faq-q">Should I use a private hero-benefit program instead?</div>
-              <div class="faq-a">Not before comparing public options. A private hero-benefit offer may provide value, but you should first understand CHFA, Colorado Champions, metroDPA, VA loan options, local assistance, seller credits, and repayment terms.</div>
+            <div class="faq-accordion-item">
+              <button class="faq-accordion-q" aria-expanded="false">
+                Should I use a private hero-benefit program instead?
+                <span class="faq-chevron"><svg viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg"><polyline points="2,4 6,8 10,4"/></svg></span>
+              </button>
+              <div class="faq-accordion-a">
+                <div class="faq-accordion-a-inner"><p>Not before comparing public options. A private hero-benefit offer may provide value, but you should first understand CHFA, Colorado Champions, metroDPA, VA loan options, local assistance, seller credits, and repayment terms.</p></div>
+              </div>
             </div>
 
-            <div class="faq-item">
-              <div class="faq-q">What should I ask a lender before applying?</div>
-              <div class="faq-a">Ask whether the lender is a CHFA Participating Lender, whether they understand the Colorado Champions Home Loan Program, what DPA options may apply, whether assistance is a grant or loan, and whether any private hero-benefit offer affects your lender or realtor choice.</div>
+            <div class="faq-accordion-item">
+              <button class="faq-accordion-q" aria-expanded="false">
+                What should I ask a lender before applying?
+                <span class="faq-chevron"><svg viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg"><polyline points="2,4 6,8 10,4"/></svg></span>
+              </button>
+              <div class="faq-accordion-a">
+                <div class="faq-accordion-a-inner"><p>Ask whether the lender is a CHFA Participating Lender, whether they understand the Colorado Champions Home Loan Program, what DPA options may apply, whether assistance is a grant or loan, and whether any private hero-benefit offer affects your lender or realtor choice.</p></div>
+              </div>
             </div>
 
           </div>
-          <!-- /faq-block -->
+          <!-- /faq-accordion -->
 
         </div>
         <!-- /post-body -->
@@ -1118,6 +1323,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
 <script>
+// ── FAQ ACCORDION ──
+document.querySelectorAll('.faq-accordion-q').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.closest('.faq-accordion-item');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-accordion-item.open').forEach(el => {
+      el.classList.remove('open');
+      el.querySelector('.faq-accordion-q').setAttribute('aria-expanded', 'false');
+    });
+    if (!isOpen) {
+      item.classList.add('open');
+      btn.setAttribute('aria-expanded', 'true');
+    }
+  });
+});
+
 // ── NAV SCROLL ──
 const nav = document.getElementById('nav');
 window.addEventListener('scroll', () => {
