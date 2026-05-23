@@ -24,7 +24,7 @@
   <meta property="og:title" content="Who We Serve — Hero HomeReach™">
   <meta property="og:description" content="Colorado homeownership programs for educators, first responders, healthcare workers, and military members. Find your profession and see what you qualify for.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://herohomereach.com/who-we-serve.html">
+  <meta property="og:url" content="https://herohomereach.com/who-we-serve">
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -35,14 +35,11 @@
   <link rel="stylesheet" href="css/main.css">
 
 <style>
-/* who-we-serve.html — page-specific styles only
-   Variables, reset, typography, layout, buttons,
-   nav, footer, and fade-up are all in main.css     */
+/* who-we-serve.html — page-specific styles only */
 
 p { margin-bottom: 16px; }
 p:last-child { margin-bottom: 0; }
 
-/* ── Button variants not in main.css ── */
 .btn-white { background: #fff; color: var(--navy); }
 .btn-white:hover { background: var(--white); transform: translateY(-2px); }
 .btn-sm { padding: 11px 22px; font-size: 13px; }
@@ -128,7 +125,6 @@ p:last-child { margin-bottom: 0; }
 .audience-section:nth-child(even) { background: var(--white); }
 .audience-section.dark { background: var(--navy); }
 
-/* Background image overlays for dark sections */
 .audience-section.dark::before {
   content: '';
   position: absolute; inset: 0;
@@ -183,7 +179,6 @@ p:last-child { margin-bottom: 0; }
 .audience-content .lead       { font-size: 17px; color: #555; margin-bottom: 24px; }
 .audience-content .lead.white { color: rgba(255,255,255,0.72); }
 
-/* Who qualifies */
 .who-qualifies {
   background: rgba(12,45,94,0.04);
   border: 1px solid var(--warm-gray);
@@ -210,7 +205,6 @@ p:last-child { margin-bottom: 0; }
   border-color: rgba(255,255,255,0.15);
 }
 
-/* Pull quote */
 .hero-quote {
   position: relative;
   padding: 20px 20px 20px 28px;
@@ -225,7 +219,6 @@ p:last-child { margin-bottom: 0; }
   color: rgba(255,255,255,0.85);
 }
 
-/* Program pills */
 .program-pills { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 28px; }
 .prog-pill {
   display: flex; align-items: center; gap: 6px;
@@ -242,7 +235,6 @@ p:last-child { margin-bottom: 0; }
 }
 .prog-pill.dark::before { color: var(--bright-gold); }
 
-/* Stats card */
 .audience-stats {
   background: rgba(12,45,94,0.70);
   border-radius: var(--radius); padding: 32px;
@@ -263,7 +255,6 @@ p:last-child { margin-bottom: 0; }
 .stat-label                       { font-size: 12px; color: rgba(255,255,255,0.55); margin-top: 4px; }
 .audience-stats.light .stat-label { color: #888; }
 
-/* Objection busters */
 .objection-list { margin-top: 20px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); }
 .audience-stats.light .objection-list { border-top-color: var(--warm-gray); }
 .objection-title {
@@ -325,7 +316,7 @@ p:last-child { margin-bottom: 0; }
 .cta-reassurance-item::before { content: '✓'; color: var(--green); font-weight: 800; }
 
 /* ════════════════════════════════
-   RESPONSIVE — who-we-serve.html only
+   RESPONSIVE
 ════════════════════════════════ */
 @media (max-width: 900px) {
   .select-grid { grid-template-columns: repeat(2, 1fr); }
@@ -367,7 +358,7 @@ p:last-child { margin-bottom: 0; }
     </a>
     <ul class="nav-links">
       <li><a href="programs.html">Programs</a></li>
-      <li><a href="who-we-serve.html">Who We Serve</a></li>
+      <li><a href="who-we-serve.html" class="active">Who We Serve</a></li>
       <li><a href="about.html">About</a></li>
       <li><a href="blog/">Resources &amp; Blog</a></li>
       <li><a href="faq.html">DPA FAQ</a></li>
@@ -481,48 +472,42 @@ p:last-child { margin-bottom: 0; }
           <span class="prog-pill">CHFA Second Mortgage · up to 4% / $25K cap</span>
           <span class="prog-pill">Chenoa Fund (5% forgivable)</span>
           <span class="prog-pill">CHFA FirstGen (up to $25K)</span>
-          <span class="prog-pill">DCHP Standard · $15Kr</span>
           <span class="prog-pill">MetroDPA (up to 6%)</span>
-          <span class="prog-pill">DCHP Shared Equity · up to $41K)</span>
-          <span class="prog-pill">CHAC · up to $12K</span>
+          <span class="prog-pill">HUD Good Neighbor Next Door</span>
           <span class="prog-pill">Seller Credits · up to 6% FHA</span>
         </div>
 
         <div style="display:flex; gap:12px; flex-wrap:wrap;">
           <a href="" onclick="Calendly.initPopupWidget({url:'https://calendly.com/trogelstad-herohomereach/30min?hide_gdpr_banner=1&primary_color=0C2D5E'});return false;" class="btn btn-gold btn-arrow">Book Free Educator Consultation</a>
-          <a href="programs.html#hero-programs" class="btn btn-outline-navy btn-sm" style="border:2px solid var(--navy); color:var(--navy);">See All Programs →</a>
+          <a href="programs.html" class="btn btn-outline-navy btn-sm" style="border:2px solid var(--navy); color:var(--navy);">See All Programs →</a>
         </div>
       </div>
 
       <div class="fade-up delay-2">
         <div class="program-callout navy-bg">
-          <div class="pc-title">EXAMPLE STACK — COLORADO EDUCATOR · $500K FHA PURCHASE</div>
+          <div class="pc-title">Example Assistance Paths — Colorado Educator · $500K FHA</div>
           <div class="pc-row">
-            <div class="pc-name">MetroDPA Assistance<small>May help reduce down payment and/or closing-cost pressure</small></div>
+            <div class="pc-name">metroDPA Assistance<small>Up to 6% in eligible Front Range areas</small></div>
             <div class="pc-val">$30,000</div>
           </div>
-          <!--<div class="pc-row">
-            <div class="pc-name">Teacher Next Door DPA<small>Additional down payment assistance</small></div>
-            <div class="pc-val">$15,000</div>
-          </div>
           <div class="pc-row">
-            <div class="pc-name">Chenoa Fund (5%)<small>Covers 3.5% FHA down · forgiven after 36 payments</small></div>
-            <div class="pc-val">$20,000</div>
-          </div>-->
+            <div class="pc-name">CHFA or FirstGeneration Path<small>Up to $25,000 depending on eligibility and loan type</small></div>
+            <div class="pc-val">$25,000</div>
+          </div>
           <div class="pc-row" style="border-bottom:none;">
-            <div class="pc-name">Seller Concessions (6% FHA max)<small>Covers all closing costs &amp; pre-paids</small></div>
+            <div class="pc-name">Seller Concessions (6% FHA max)<small>May offset allowable closing costs depending on offer and lender</small></div>
             <div class="pc-val">$30,000</div>
           </div>
           <div class="pc-total">
-            <div class="pc-total-label">Total Assistance</div>
-            <div class="pc-total-val">$60,000</div>
+            <div class="pc-total-label">Potential Planning Range</div>
+            <div class="pc-total-val">$44K–$60K+</div>
           </div>
-          <div class="pc-note">Example based on a $500,000 FHA purchase using 6% MetroDPA assistance and up to 6% FHA seller credits. Seller credits are negotiated as part of the offer and are not program grants. Actual options depend on eligibility, program rules, loan type, property, seller agreement, lender approval, and current program availability.</div>
+          <div class="pc-note">These are example paths, not one combined stack. metroDPA, CHFA, and Chenoa are generally alternative DPA options tied to specific loan and lender rules. Seller concessions depend on the offer, loan type, and lender approval. Final eligibility depends on program rules, credit, income, property, and lender review.</div>
         </div>
 
         <div style="background:rgba(26,107,74,0.08); border:1px solid rgba(26,107,74,0.2); border-radius:8px; padding:16px 20px; margin-top:16px;">
           <div style="font-size:12px; font-weight:700; color:var(--green); text-transform:uppercase; letter-spacing:0.12em; margin-bottom:6px;">Income Limit Note</div>
-          <div style="font-size:13px; color:#555;">Most Castle Rock teachers qualify easily. MetroDPA allows up to <strong>$210,150</strong> household income. CHFA FirstGen up to <strong>$174,440</strong>. Chenoa Fund has <strong>no income limits</strong>.</div>
+          <div style="font-size:13px; color:#555;">Most Colorado educators qualify for several programs. metroDPA allows up to <strong>$210,150</strong> household income. CHFA FirstGen up to <strong>$174,440</strong>. Chenoa Fund has <strong>no income limits</strong>.</div>
         </div>
       </div>
 
@@ -532,7 +517,7 @@ p:last-child { margin-bottom: 0; }
 
 <div class="section-divider-banner">
   <div class="container">
-    <p>Every hero profession has a different combination of programs. Book a free consultation to find your exact stack. →</p>
+    <p>Every hero profession has a different combination of programs. Book a free consultation to find your exact path. →</p>
   </div>
 </div>
 
@@ -545,7 +530,7 @@ p:last-child { margin-bottom: 0; }
       <div class="audience-content fade-up">
         <div class="audience-label white">🚒 First Responders</div>
         <h2 class="white">You Run Toward the Fire.<br><span style="color:var(--gold); font-style:italic;">We'll Run the Numbers.</span></h2>
-        <p class="lead white">You don't have time to research 12 different programs. That's exactly why Hero HomeReach™ exists. We find your stack, you pick a time for a call.</p>
+        <p class="lead white">You don't have time to research 12 different programs. That's exactly why Hero HomeReach™ exists. We find your options, you pick a time for a call.</p>
 
         <div class="who-qualifies dark-bg">
           <div class="wq-title">Who Qualifies</div>
@@ -554,24 +539,23 @@ p:last-child { margin-bottom: 0; }
             <span class="wq-tag dark">Firefighters</span>
             <span class="wq-tag dark">EMTs</span>
             <span class="wq-tag dark">Paramedics</span>
-            <span class="wq-tag dark">Dispatchers</span>
+            <span class="wq-tag dark">Dispatchers / 911 Operators</span>
             <span class="wq-tag dark">Sheriff Deputies</span>
             <span class="wq-tag dark">Corrections Officers</span>
           </div>
         </div>
 
         <div class="hero-quote dark-bg">
-          "I had no idea there were programs specifically for first responders. Between MetroDPA and seller paid concessions we got into our home with almost nothing down."
+          "I had no idea there were programs specifically for first responders. Between metroDPA and seller-paid concessions we got into our home with almost nothing down."
           <div style="font-style:normal; font-size:13px; color:rgba(255,255,255,0.45); margin-top:8px; font-weight:600;">— Police Officer, Colorado Springs CO</div>
         </div>
 
         <div class="program-pills">
-          <span class="prog-pill dark">MetroDPA — 6% forgiven</span>
-          <!--<span class="prog-pill dark">Teacher Next Door (covers officers)</span>-->
+          <span class="prog-pill dark">Colorado Champions / SB26-053</span>
+          <span class="prog-pill dark">metroDPA — up to 6% forgiven</span>
           <span class="prog-pill dark">HUD Good Neighbor Next Door</span>
-          <!--<span class="prog-pill dark">NeighborhoodLIFT ($15K)</span>-->
-          <span class="prog-pill dark">CO Community Hero Program</span>
-         
+          <span class="prog-pill dark">CHFA Loan Programs</span>
+          <span class="prog-pill dark">Seller Concessions</span>
         </div>
 
         <a href="" onclick="Calendly.initPopupWidget({url:'https://calendly.com/trogelstad-herohomereach/30min?hide_gdpr_banner=1&primary_color=0C2D5E'});return false;" class="btn btn-gold btn-arrow">Book Free First Responder Consultation</a>
@@ -582,19 +566,19 @@ p:last-child { margin-bottom: 0; }
           <div class="audience-stat-grid">
             <div class="audience-stat">
               <div class="stat-num">6%</div>
-              <div class="stat-label">MetroDPA — fully forgiven after 3 years</div>
+              <div class="stat-label">metroDPA — fully forgiven after 3 years in eligible areas</div>
             </div>
             <div class="audience-stat">
-              <div class="stat-num">$15K</div>
-              <div class="stat-label">NeighborhoodLIFT flat grant</div>
+              <div class="stat-num">2026</div>
+              <div class="stat-label">Colorado Champions / SB26-053 — new first responder CHFA eligibility expansion</div>
             </div>
             <div class="audience-stat">
               <div class="stat-num">50%</div>
-              <div class="stat-label">HUD GNND discount — only $100 down</div>
+              <div class="stat-label">HUD GNND discount on eligible HUD homes — only $100 down</div>
             </div>
             <div class="audience-stat">
-              <div class="stat-num">$0</div>
-              <div class="stat-label">Out-of-pocket possible with right stack</div>
+              <div class="stat-num">620+</div>
+              <div class="stat-label">Minimum FICO for most CHFA programs</div>
             </div>
           </div>
           <div class="objection-list">
@@ -605,7 +589,7 @@ p:last-child { margin-bottom: 0; }
             </div>
             <div class="objection-item">
               <span class="obj-icon">✓</span>
-              <span class="obj-truth" style="color:var(--bright-gold);">MetroDPA allows up to $210,150 household income</span>
+              <span class="obj-truth" style="color:var(--bright-gold);">metroDPA allows up to $210,150 household income</span>
             </div>
             <div class="objection-item" style="margin-top:8px;">
               <span class="obj-icon">✗</span>
@@ -640,11 +624,11 @@ p:last-child { margin-bottom: 0; }
             <span class="wq-tag">Registered Nurses (RN)</span>
             <span class="wq-tag">Licensed Practical Nurses (LPN)</span>
             <span class="wq-tag">CNAs</span>
-            <span class="wq-tag">Doctors & Physicians</span>
+            <span class="wq-tag">Doctors &amp; Physicians</span>
             <span class="wq-tag">Medical Technicians</span>
             <span class="wq-tag">Radiologists</span>
             <span class="wq-tag">Physical Therapists</span>
-            <span class="wq-tag">Hospital & Clinic Staff</span>
+            <span class="wq-tag">Hospital &amp; Clinic Staff</span>
           </div>
         </div>
 
@@ -654,12 +638,11 @@ p:last-child { margin-bottom: 0; }
         </div>
 
         <div class="program-pills">
-         <!-- <span class="prog-pill">Teacher Next Door (covers nurses)</span>-->
           <span class="prog-pill">Chenoa Fund — no income limits</span>
-          <span class="prog-pill">MetroDPA — 6% forgiven</span>
-          <span class="prog-pill">CO Community Hero Program</span>
-          <span class="prog-pill">CHFA programs (FICO 620+)</span>
-          
+          <span class="prog-pill">metroDPA — up to 6% forgiven</span>
+          <span class="prog-pill">CHFA Programs (FICO 620+)</span>
+          <span class="prog-pill">HUD Good Neighbor Next Door</span>
+          <span class="prog-pill">Seller Credits · up to 6% FHA</span>
         </div>
 
         <div style="display:flex; gap:12px; flex-wrap:wrap;">
@@ -672,7 +655,7 @@ p:last-child { margin-bottom: 0; }
           <div class="audience-stat-grid">
             <div class="audience-stat">
               <div class="stat-num" style="color:var(--navy);">No</div>
-              <div class="stat-label" style="color:#666;">Income limits on Chenoa Fund </div>
+              <div class="stat-label" style="color:#666;">Income limits on Chenoa Fund</div>
             </div>
             <div class="audience-stat">
               <div class="stat-num" style="color:var(--navy);">600+</div>
@@ -680,12 +663,12 @@ p:last-child { margin-bottom: 0; }
             </div>
             <div class="audience-stat">
               <div class="stat-num" style="color:var(--navy);">36</div>
-              <div class="stat-label" style="color:#666;">On-time payments to fully forgive Chenoa</div>
+              <div class="stat-label" style="color:#666;">On-time payments to fully forgive Chenoa Fund assistance</div>
             </div>
-            <!--   <div class="audience-stat">
-             <div class="stat-num" style="color:var(--navy);">$8K</div>
-            <div class="stat-label" style="color:#666;">Teacher Next Door true grant — also covers nurses</div>
-            </div>-->
+            <div class="audience-stat">
+              <div class="stat-num" style="color:var(--navy);">620+</div>
+              <div class="stat-label" style="color:#666;">Minimum FICO for most CHFA programs</div>
+            </div>
           </div>
           <div class="objection-list" style="border-top-color:var(--warm-gray);">
             <div class="objection-title">Common Myths — Busted</div>
@@ -722,7 +705,7 @@ p:last-child { margin-bottom: 0; }
       <div class="audience-content fade-up">
         <div class="audience-label white">🎖️ Military Members</div>
         <h2 class="white">You Already Have the VA Loan.<br><span style="color:var(--gold); font-style:italic;">Here's What Stacks On Top.</span></h2>
-        <p class="lead white">Most military members know about VA loans. What they don't know is that Colorado's state and local programs can often be stacked on top of VA benefits adding thousands more in assistance.</p>
+        <p class="lead white">Most military members know about VA loans. What they don't know is that Colorado's state and local programs can often be stacked on top of VA benefits, adding thousands more in assistance.</p>
 
         <div class="who-qualifies dark-bg">
           <div class="wq-title">Who Qualifies</div>
@@ -744,12 +727,9 @@ p:last-child { margin-bottom: 0; }
         <div class="program-pills">
           <span class="prog-pill dark">VA Loan — 0% down</span>
           <span class="prog-pill dark">CHFA Programs (stacks with VA)</span>
-          <span class="prog-pill dark">MetroDPA — 6% forgiven</span>
-          <!--<span class="prog-pill dark">Teacher Next Door (covers military)</span>-->
-         <!-- <span class="prog-pill dark">NeighborhoodLIFT ($15K)</span>-->
-          <span class="prog-pill dark">CO Community Hero Program</span>
+          <span class="prog-pill dark">metroDPA — up to 6% forgiven</span>
           <span class="prog-pill dark">HUD Good Neighbor Next Door</span>
-        
+          <span class="prog-pill dark">Seller Concessions</span>
         </div>
 
         <a href="" onclick="Calendly.initPopupWidget({url:'https://calendly.com/trogelstad-herohomereach/30min?hide_gdpr_banner=1&primary_color=0C2D5E'});return false;" class="btn btn-gold btn-arrow">Book Free Military Consultation</a>
@@ -760,19 +740,19 @@ p:last-child { margin-bottom: 0; }
           <div class="audience-stat-grid">
             <div class="audience-stat">
               <div class="stat-num">0%</div>
-              <div class="stat-label">Down payment required with VA loan</div>
+              <div class="stat-label">Down payment required with VA loan for eligible buyers</div>
             </div>
             <div class="audience-stat">
               <div class="stat-num">4%</div>
               <div class="stat-label">Max seller concessions on VA loans</div>
             </div>
             <div class="audience-stat">
-              <div class="stat-num">$15K+</div>
-              <div class="stat-label">Additional Colorado grants stackable with VA</div>
+              <div class="stat-num">$25K+</div>
+              <div class="stat-label">Additional Colorado assistance potentially stackable with VA</div>
             </div>
             <div class="audience-stat">
               <div class="stat-num">Stack</div>
-              <div class="stat-label">VA + state programs = maximum benefit</div>
+              <div class="stat-label">VA + state programs may be combinable for maximum benefit</div>
             </div>
           </div>
           <div class="objection-list">
@@ -783,7 +763,7 @@ p:last-child { margin-bottom: 0; }
             </div>
             <div class="objection-item">
               <span class="obj-icon">✓</span>
-              <span class="obj-truth" style="color:var(--bright-gold);">Colorado grants can stack on top of VA benefits</span>
+              <span class="obj-truth" style="color:var(--bright-gold);">Colorado grants may stack on top of VA benefits</span>
             </div>
             <div class="objection-item" style="margin-top:8px;">
               <span class="obj-icon">✗</span>
@@ -791,7 +771,7 @@ p:last-child { margin-bottom: 0; }
             </div>
             <div class="objection-item">
               <span class="obj-icon">✓</span>
-              <span class="obj-truth" style="color:var(--bright-gold);">If Colorado is your base — programs are waiting for you</span>
+              <span class="obj-truth" style="color:var(--bright-gold);">If Colorado is your base — programs may be waiting for you</span>
             </div>
           </div>
         </div>
@@ -808,7 +788,7 @@ p:last-child { margin-bottom: 0; }
     <div class="final-cta-inner fade-up">
       <div style="font-size:11px; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:var(--bright-gold); margin-bottom:16px;">Free · 30 Minutes · Zero Obligation</div>
       <h2>Find Out <span>Exactly What You've Earned</span></h2>
-      <p>Book your free Hero HomeReach™ consultation. We'll map every program available for your profession and show you your maximum combined benefit at zero cost to you.</p>
+      <p>Book your free Hero HomeReach™ consultation. We'll walk through Colorado assistance paths that may fit your situation, at zero cost and zero pressure.</p>
       <a href="" onclick="Calendly.initPopupWidget({url:'https://calendly.com/trogelstad-herohomereach/30min?hide_gdpr_banner=1&primary_color=0C2D5E'});return false;" class="btn btn-gold btn-arrow" style="font-size:17px; padding:18px 40px;">Book My Free Consultation</a>
       <div class="cta-reassurance">
         <div class="cta-reassurance-item">Completely free</div>
@@ -868,7 +848,11 @@ function toggleMobileNav() {
   document.getElementById('mobile-nav').classList.toggle('open');
 }
 
-// Scroll animations
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 40);
+}, { passive: true });
+
 const fadeEls = document.querySelectorAll('.fade-up');
 const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
