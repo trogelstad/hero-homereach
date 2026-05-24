@@ -547,60 +547,6 @@
       margin-top: 1.25rem !important;
     }
 
-    /* ── SCHEMA REFERENCE BLOCK ── */
-    .schema-preview {
-      position: relative; z-index: 5;
-      max-width: 860px;
-      margin: 0 auto;
-      padding: 0 2rem 3rem;
-    }
-    .schema-header {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      margin-bottom: 0.75rem;
-      padding-top: 2rem;
-      border-top: 1px solid var(--faq-card-bd);
-    }
-    .schema-header h3 {
-      font-family: 'Oswald', sans-serif;
-      font-size: 0.8rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--faq-gray);
-    }
-    .schema-badge {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.6rem;
-      color: var(--faq-success);
-      background: rgba(76,175,80,0.1);
-      border: 1px solid rgba(76,175,80,0.25);
-      padding: 0.15rem 0.5rem;
-      border-radius: 2px;
-    }
-    .schema-note {
-      font-size: 0.8rem;
-      color: var(--faq-gray);
-      font-style: italic;
-      margin-bottom: 0.75rem;
-      line-height: 1.5;
-    }
-    .schema-code {
-      background: rgba(0,0,0,0.5);
-      border: 1px solid var(--faq-card-bd);
-      border-left: 3px solid var(--faq-success);
-      border-radius: 0 4px 4px 0;
-      padding: 1.25rem 1.5rem;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.72rem;
-      color: #A8D8A8;
-      line-height: 1.8;
-      overflow-x: auto;
-      white-space: pre;
-      max-height: 400px;
-      overflow-y: auto;
-    }
-
     /* ── FOOTER ── */
     #footer {
       position: relative; z-index: 5;
@@ -686,7 +632,6 @@
       .page-hero  { padding-top: calc(var(--nav-h) + 2rem); padding-left: 1.25rem; padding-right: 1.25rem; }
       .jump-nav   { padding: 0.75rem 1.25rem; }
       .main       { padding: 1.75rem 1.25rem 3rem; }
-      .schema-preview { padding: 0 1.25rem 2rem; }
       .faq-a      { padding-left: 1.15rem; }
       .footer-grid { grid-template-columns: 1fr; }
       .footer-bottom { flex-direction: column; text-align: center; }
@@ -743,13 +688,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <h1>Your Questions About<br><span>Down Payment Assistance</span><br>Answered in Plain English</h1>
   <p class="lead">No jargon, no fluff. Real answers to the questions Colorado's teachers, nurses, firefighters, veterans, and EMTs ask most.</p>
   <div class="profession-pills">
-  <a href="#eligibility" class="pill pill-teacher">🎓 Teachers</a>
-  <a href="#eligibility" class="pill pill-nurse">🏥 Nurses &amp; Healthcare</a>
-  <a href="#eligibility" class="pill pill-fire">🚒 Firefighters</a>
-  <a href="#eligibility" class="pill pill-veteran">🎖 Veterans &amp; Military</a>
-  <a href="#eligibility" class="pill pill-emt">🚑 EMTs &amp; Paramedics</a>
-  <a href="#eligibility" class="pill pill-leo">🚔 Law Enforcement</a>
-</div>
+    <a href="#eligibility" class="pill pill-teacher">🎓 Teachers</a>
+    <a href="#eligibility" class="pill pill-nurse">🏥 Nurses &amp; Healthcare</a>
+    <a href="#eligibility" class="pill pill-fire">🚒 Firefighters</a>
+    <a href="#eligibility" class="pill pill-veteran">🎖 Veterans &amp; Military</a>
+    <a href="#eligibility" class="pill pill-emt">🚑 EMTs &amp; Paramedics</a>
+    <a href="#eligibility" class="pill pill-leo">🚔 Law Enforcement</a>
+  </div>
 </section>
 
 <!-- ════════════ JUMP NAV ════════════ -->
@@ -771,7 +716,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <span class="section-icon">💰</span>
       <h2>Programs &amp; Money<small>What exists, what it pays, and how it works</small></h2>
     </div>
-
     <div class="faq-item" id="faq-1">
       <button class="faq-q" onclick="toggleFaq('faq-1')" aria-expanded="false">
         <span class="faq-num">01</span>
@@ -780,13 +724,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </button>
       <div class="faq-a" role="region">
         <p class="answer-lead">It depends entirely on which program you use, and the difference is significant. There are three types:</p>
-        <p><strong>TRUE GRANTS</strong> — Never repaid, ever. The money is yours the moment you close on the home. The Teacher Next Door grant works this way. You don't have to stay in the home for any set period. It's a gift.</p>
+        <p><strong>TRUE GRANTS</strong> — Never repaid, ever. The money is yours the moment you close on the home. Select CHFA programs offer a true grant structure. You do not have to stay in the home for any set period. It is a gift.</p>
         <p><strong>FORGIVABLE LOANS</strong> — These appear as a second mortgage but are forgiven after a set period (typically 3 to 5 years) as long as you remain in the home. If you sell or refinance before the forgiveness period ends, you repay a prorated portion. The Chenoa Fund and some MetroDPA options work this way.</p>
-        <p><strong>DEFERRED SECOND MORTGAGES</strong> — No monthly payment, but you repay the full amount when you sell, refinance, or pay off the first mortgage. CHFA's Down Payment Assistance grant is structured this way for some programs.</p>
-        <div class="answer-highlight">Bottom line: When Hero HomeReach matches you with programs, we clearly label each one so you know exactly what you're agreeing to. No surprises at closing.</div>
+        <p><strong>DEFERRED SECOND MORTGAGES</strong> — No monthly payment, but you repay the full amount when you sell, refinance, or pay off the first mortgage. Some CHFA down payment assistance options are structured this way.</p>
+        <div class="answer-highlight">Bottom line: When Hero HomeReach walks you through your options, we explain each program clearly so you know exactly what you are agreeing to. No surprises at closing.</div>
       </div>
     </div>
-
     <div class="faq-item" id="faq-2">
       <button class="faq-q" onclick="toggleFaq('faq-2')" aria-expanded="false">
         <span class="faq-num">02</span>
@@ -794,12 +737,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <span class="faq-chevron">▼</span>
       </button>
       <div class="faq-a" role="region">
-        <p class="answer-lead">The honest answer: anywhere from $5,000 to $67,000 or more depending on which programs you qualify for and whether you stack them.</p>
-        <p>Individual program amounts: <span class="prog-tag">Teacher Next Door</span> up to $8,000 grant | <span class="prog-tag">MetroDPA</span> up to $25,000 | <span class="prog-tag">Chenoa Fund</span> 3.5 to 5% of purchase price | <span class="prog-tag">NeighborhoodLIFT</span> up to $15,000 | <span class="prog-tag">CHFA</span> up to $25,000 in select programs.</p>
-        <p>The $67,000 figure represents a realistic stacked scenario, combining multiple programs that you simultaneously qualify for. Not every hero qualifies for every program, which is exactly why Hero HomeReach matches you individually.</p>
+        <p class="answer-lead">The honest answer: the range is wide, and it depends on which Colorado programs apply to your situation and how different assistance paths interact.</p>
+        <p>Individual program examples: <span class="prog-tag">CHFA</span> may offer up to $25,000 depending on the option | <span class="prog-tag">MetroDPA</span> may provide assistance up to $30,000 in eligible Front Range counties | <span class="prog-tag">Chenoa Fund</span> provides 3.5 to 5% of the loan amount | <span class="prog-tag">VA Loan</span> combined with seller concessions can potentially eliminate upfront cash requirements entirely | <span class="prog-tag">Colorado Champions Program</span> offers forgivable assistance for eligible first responders.</p>
+        <p>A realistic planning range for a $500,000 FHA purchase, when comparing available paths, typically falls between $44,000 and $60,000 or more depending on the combination of programs, seller concessions, and loan type. These are planning estimates, not guarantees. Program amounts change, funding availability varies, and your specific situation determines what may apply.</p>
+        <div class="answer-highlight">A free Hero HomeReach consultation gives you a realistic picture based on your specific county, profession, income, and credit profile.</div>
       </div>
     </div>
-
     <div class="faq-item" id="faq-3">
       <button class="faq-q" onclick="toggleFaq('faq-3')" aria-expanded="false">
         <span class="faq-num">03</span>
@@ -808,24 +751,23 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </button>
       <div class="faq-a" role="region">
         <p class="answer-lead">Yes, and this is the strategy most people miss entirely.</p>
-        <p>Program stacking is legal, encouraged, and used by informed buyers every day in Colorado. A common combination: <span class="prog-tag">Teacher Next Door</span> grant (never repaid) + <span class="prog-tag">MetroDPA</span> (forgivable after 3 years) + seller concessions negotiated into the purchase agreement. The result can cover your entire down payment AND closing costs.</p>
-        <p>The key is that each program has its own rules about what it can be layered with. Some are designed to work together, others are standalone. Hero HomeReach's matching process accounts for this.</p>
+        <p>Program layering is legal, encouraged, and used by informed buyers every day in Colorado. A common combination: a <span class="prog-tag">CHFA</span> grant option paired with seller concessions negotiated into the purchase agreement. Another path worth exploring: <span class="prog-tag">MetroDPA</span> assistance combined with seller-paid closing costs. The result in a well-structured transaction can significantly reduce or eliminate your upfront cash requirement.</p>
+        <p>The key is that each program has its own rules about what it can be layered with. Some are designed to work together, others are standalone, and some are best reviewed as alternative paths rather than combined stacks. Hero HomeReach helps you understand how these paths interact so you can make an informed decision.</p>
       </div>
     </div>
-
     <div class="faq-item" id="faq-4">
       <button class="faq-q" onclick="toggleFaq('faq-4')" aria-expanded="false">
         <span class="faq-num">04</span>
-        <span class="faq-q-text">What is the Teacher Next Door grant and how does it work?</span>
+        <span class="faq-q-text">What is the Colorado Champions Home Loan Program and who does it serve?</span>
         <span class="faq-chevron">▼</span>
       </button>
       <div class="faq-a" role="region">
-        <p class="answer-lead">Teacher Next Door is a national program specifically for educators. Unlike HUD's Good Neighbor Next Door (which requires buying in a revitalization area), Teacher Next Door works on homes across Colorado with no geographic restriction.</p>
-        <p>The grant amount is up to $8,000 and is a true grant, never repaid. Eligible buyers also get access to below-market mortgage rates and additional down payment assistance loans on top of the grant. There is no first-time buyer requirement. Full-time and part-time Pre-K through 12th grade teachers, administrators, and staff qualify.</p>
-        <div class="answer-highlight">This program is one of the most underused in Colorado. Many teachers assume it's "too good to be true." It isn't. It's a legitimate, federally recognized program that has helped thousands of educators across the country.</div>
+        <p class="answer-lead">The Colorado Champions Home Loan Program, established through SB26-053, is a Colorado-specific assistance program designed for first responders and essential community workers. It is one of the most meaningful new homebuyer assistance developments in the state in recent years.</p>
+        <p>The program offers forgivable loan assistance structured as a second mortgage that may be forgiven over time as long as you remain in your home. Eligible professions include firefighters, EMTs, paramedics, law enforcement officers, and other qualifying first responders. The program is Colorado-specific, built around Colorado's housing market and income realities.</p>
+        <p>Key features worth knowing: there is no geographic restriction limiting you to specific neighborhoods or revitalization areas, the program is designed to layer with primary mortgage financing rather than replace it, and eligibility is tied to profession and income guidelines rather than first-time buyer status alone.</p>
+        <div class="answer-highlight">This program is newer, which means many first responders have not yet heard of it. A free Hero HomeReach consultation is the fastest way to understand whether it may fit your specific situation and how it interacts with other assistance options available to you.</div>
       </div>
     </div>
-
     <div class="faq-item" id="faq-5">
       <button class="faq-q" onclick="toggleFaq('faq-5')" aria-expanded="false">
         <span class="faq-num">05</span>
@@ -834,10 +776,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </button>
       <div class="faq-a" role="region">
         <p class="answer-lead">MetroDPA is a down payment assistance program administered by the Metro Mortgage Assistance Plus program in the Denver metro area. It provides assistance up to $25,000 for qualifying buyers.</p>
-        <p>Eligibility basics: must purchase in an eligible Colorado county, income limits apply (varies by county and household size), minimum 640 credit score typically required, and the home must be your primary residence. Hero professions do not get preferential access to MetroDPA, it's available to any qualifying buyer, but it stacks powerfully with profession-specific programs like Teacher Next Door.</p>
+        <p>Eligibility basics: must purchase in an eligible Colorado county, income limits apply (varies by county and household size), minimum 640 credit score typically required, and the home must be your primary residence. Hero professions do not get preferential access to MetroDPA, it is available to any qualifying buyer, but it layers powerfully with profession-specific Colorado programs when your situation allows for it.</p>
       </div>
     </div>
-
     <div class="faq-item" id="faq-6">
       <button class="faq-q" onclick="toggleFaq('faq-6')" aria-expanded="false">
         <span class="faq-num">06</span>
@@ -849,7 +790,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <p>The Chenoa Fund provides 3.5% or 5% of the loan amount as down payment assistance. The 3.5% option can be structured as a forgivable loan (forgiven after 36 on-time payments if income is below 115% of AMI) or a repayable second mortgage. It works with FHA loans and has no first-time buyer requirement. Minimum 600 credit score. It is one of the few programs that layers cleanly with VA loans and CHFA loans as a closing cost assistance tool.</p>
       </div>
     </div>
-
     <div class="faq-item" id="faq-7">
       <button class="faq-q" onclick="toggleFaq('faq-7')" aria-expanded="false">
         <span class="faq-num">07</span>
@@ -863,7 +803,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <p>Visit <a href="https://www.chfainfo.com" style="color:var(--faq-gold);" target="_blank" rel="noopener">chfainfo.com</a> for official current limits by county.</p>
       </div>
     </div>
-
     <div class="faq-item" id="faq-8">
       <button class="faq-q" onclick="toggleFaq('faq-8')" aria-expanded="false">
         <span class="faq-num">08</span>
@@ -876,7 +815,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="answer-highlight">A veteran using a VA loan + Chenoa Fund + 4% seller concession on a $350,000 home could potentially close with $0 out of pocket. This is real. It happens in Colorado regularly.</div>
       </div>
     </div>
-
     <div class="faq-item" id="faq-9">
       <button class="faq-q" onclick="toggleFaq('faq-9')" aria-expanded="false">
         <span class="faq-num">09</span>
@@ -898,7 +836,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <span class="section-icon">🦸</span>
       <h2>Eligibility<small>Who qualifies, what professions count, and common misconceptions</small></h2>
     </div>
-
     <div class="faq-item" id="faq-10">
       <button class="faq-q" onclick="toggleFaq('faq-10')" aria-expanded="false">
         <span class="faq-num">10</span>
@@ -907,11 +844,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </button>
       <div class="faq-a" role="region">
         <p class="answer-lead">This is the #1 reason Colorado heroes incorrectly rule themselves out. Many of these programs do NOT require you to be a first-time buyer.</p>
-        <p><span class="prog-tag">Teacher Next Door</span> — No first-time buyer requirement. | <span class="prog-tag">Chenoa Fund</span> — No first-time buyer requirement. | <span class="prog-tag">VA Loan</span> — No first-time buyer requirement. | <span class="prog-tag">CHFA</span> — Generally requires first-time buyer status, but veterans and buyers in targeted areas are exempt. | <span class="prog-tag">MetroDPA</span> — Does not require first-time buyer status in most configurations.</p>
+        <p><span class="prog-tag">Colorado Champions Program</span> — No first-time buyer status required for eligible first responders. | <span class="prog-tag">Chenoa Fund</span> — No first-time buyer requirement. | <span class="prog-tag">VA Loan</span> — No first-time buyer requirement. | <span class="prog-tag">CHFA</span> — Generally requires first-time buyer status, but veterans and buyers in targeted areas are exempt. | <span class="prog-tag">MetroDPA</span> — Does not require first-time buyer status in most configurations. | <span class="prog-tag">Colorado Educator Homeownership Program</span> — Review current program guidelines for specific requirements.</p>
         <p>Even the CHFA "first-time buyer" definition is broader than people think: if you haven't owned a primary residence in the last 3 years, you qualify as a first-time buyer under most program definitions.</p>
       </div>
     </div>
-
     <div class="faq-item" id="faq-11">
       <button class="faq-q" onclick="toggleFaq('faq-11')" aria-expanded="false">
         <span class="faq-num">11</span>
@@ -920,11 +856,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </button>
       <div class="faq-a" role="region">
         <p class="answer-lead">It varies by program, but you don't need perfect credit. Most programs work with credit scores starting at 580 to 640.</p>
-        <p>General benchmarks: <span class="prog-tag">FHA Loan + Chenoa Fund</span> — minimum 580 to 600 FICO | <span class="prog-tag">CHFA</span> — typically 620+ | <span class="prog-tag">MetroDPA</span> — typically 640+ | <span class="prog-tag">VA Loan</span> — no official VA minimum, but most lenders require 580 to 620 | <span class="prog-tag">Teacher Next Door</span> — follows the underlying mortgage requirement.</p>
+        <p>General benchmarks: <span class="prog-tag">FHA Loan + Chenoa Fund</span> — minimum 580 to 600 FICO | <span class="prog-tag">CHFA</span> — typically 620 or higher | <span class="prog-tag">MetroDPA</span> — typically 640 or higher | <span class="prog-tag">VA Loan</span> — no official VA minimum, but most lenders require 580 to 620 | <span class="prog-tag">Colorado Champions Program</span> — review current program guidelines for credit requirements.</p>
         <p>If your credit score is below 600, don't abandon hope. A 6 to 12 month credit improvement plan can meaningfully change your options. Hero HomeReach can connect you with resources for credit counseling as part of your homebuyer action plan.</p>
       </div>
     </div>
-
     <div class="faq-item" id="faq-12">
       <button class="faq-q" onclick="toggleFaq('faq-12')" aria-expanded="false">
         <span class="faq-num">12</span>
@@ -934,10 +869,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="faq-a" role="region">
         <p class="answer-lead">Most programs have income limits, but they're often higher than people expect, and many hero professionals fall well within them.</p>
         <p>Income limits are based on Area Median Income (AMI) and vary by county and household size. In the Denver-Aurora metro, the 2025 AMI for a family of 4 is approximately $117,000. Most programs allow incomes up to 80 to 115% of AMI. A nurse earning $85,000/year or a teacher earning $65,000/year typically qualifies for multiple programs.</p>
-        <p>The best way to know if you qualify is to get your free program match from Hero HomeReach. We check current limits for your specific county and household size.</p>
+        <p>The best way to get a clear picture is a free Hero HomeReach consultation. We walk through current limits for your specific county and household size and explain which paths may be worth exploring for your situation.</p>
       </div>
     </div>
-
     <div class="faq-item" id="faq-13">
       <button class="faq-q" onclick="toggleFaq('faq-13')" aria-expanded="false">
         <span class="faq-num">13</span>
@@ -945,11 +879,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <span class="faq-chevron">▼</span>
       </button>
       <div class="faq-a" role="region">
-        <p class="answer-lead">For the Teacher Next Door grant specifically, yes. The program covers Pre-K through 12th grade teachers, administrators, and support staff. Part-time educators and long-term substitutes working in a school setting are eligible.</p>
-        <p>For other programs that aren't profession-specific (CHFA, MetroDPA, Chenoa Fund), your employment status matters mainly for income documentation and loan qualification, not for program eligibility itself. A stable part-time employment history with predictable income can qualify.</p>
+        <p class="answer-lead">For Colorado educator-focused programs, yes. The Colorado Educator Homeownership Program (SB25-167) and certain CHFA options are designed for Pre-K through 12th grade teachers, administrators, and support staff. Part-time educators and long-term substitutes working in a consistent school setting may qualify depending on the program's employment documentation requirements.</p>
+        <p>For programs that aren't profession-specific (CHFA, MetroDPA, Chenoa Fund), your employment status matters mainly for income documentation and loan qualification, not for program eligibility itself. A stable part-time employment history with predictable income can qualify.</p>
       </div>
     </div>
-
     <div class="faq-item" id="faq-14">
       <button class="faq-q" onclick="toggleFaq('faq-14')" aria-expanded="false">
         <span class="faq-num">14</span>
@@ -958,10 +891,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </button>
       <div class="faq-a" role="region">
         <p class="answer-lead">Absolutely. EMTs and paramedics qualify for every first responder category of hero homebuyer programs.</p>
-        <p>The Teacher Next Door program umbrella includes a "Homes for Heroes" component that covers firefighters, law enforcement, medical professionals, military members, and teachers. EMTs and paramedics fall squarely in the medical and first responder categories. Additionally, all non-profession-specific programs (CHFA, MetroDPA, Chenoa Fund, VA loan for former military EMTs) are fully available.</p>
+        <p>The Colorado Champions Home Loan Program (SB26-053) is specifically designed for first responders, including EMTs and paramedics, and represents one of the strongest profession-specific assistance opportunities currently available in Colorado. Additionally, all non-profession-specific programs (CHFA, MetroDPA, Chenoa Fund, and VA loan for former military EMTs) are fully available. HUD's Good Neighbor Next Door program also offers meaningful benefits to qualifying EMTs willing to purchase in a designated revitalization area.</p>
       </div>
     </div>
-
     <div class="faq-item" id="faq-15">
       <button class="faq-q" onclick="toggleFaq('faq-15')" aria-expanded="false">
         <span class="faq-num">15</span>
@@ -970,10 +902,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </button>
       <div class="faq-a" role="region">
         <p class="answer-lead">Owning a home currently or in the past does not automatically disqualify you from down payment assistance.</p>
-        <p>Programs without a first-time buyer requirement (Teacher Next Door, Chenoa Fund, MetroDPA, VA loan) are fully available to current and past homeowners. For programs that require first-time buyer status: if you haven't owned a primary residence in the past 3 years, most programs consider you a first-time buyer regardless of prior ownership history. If you currently own a rental property but are buying a new primary residence, some programs still allow this. It depends on the specific program rules.</p>
+        <p>Programs without a first-time buyer requirement (Chenoa Fund, MetroDPA, VA loan, Colorado Champions Program) are fully available to current and past homeowners. For programs that require first-time buyer status: if you haven't owned a primary residence in the past 3 years, most programs consider you a first-time buyer regardless of prior ownership history. If you currently own a rental property but are buying a new primary residence, some programs still allow this. It depends on the specific program rules.</p>
       </div>
     </div>
-
     <div class="faq-item" id="faq-16">
       <button class="faq-q" onclick="toggleFaq('faq-16')" aria-expanded="false">
         <span class="faq-num">16</span>
@@ -994,7 +925,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <span class="section-icon">🏠</span>
       <h2>The Process<small>Timeline, home types, lenders, and what to expect</small></h2>
     </div>
-
     <div class="faq-item" id="faq-17">
       <button class="faq-q" onclick="toggleFaq('faq-17')" aria-expanded="false">
         <span class="faq-num">17</span>
@@ -1003,10 +933,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </button>
       <div class="faq-a" role="region">
         <p class="answer-lead">Realistically, plan for a 60 to 90 day process from the moment you start to keys in hand, the same timeline as a conventional purchase.</p>
-        <p>Down payment assistance programs do not significantly slow down the process when you work with an experienced lender who handles them regularly. The steps: Hero HomeReach program matching (free, 48 hours), lender pre-approval including DPA program approval (1 to 2 weeks), home search and offer (varies), under contract to close (30 to 45 days). Some assistance programs require a homebuyer education course (typically 6 to 8 hours online, completable in one day).</p>
+        <p>Down payment assistance programs do not significantly slow down the process when you work with an experienced lender who handles them regularly. The steps: Hero HomeReach program research (free, 48 hours), lender pre-approval including DPA program approval (1 to 2 weeks), home search and offer (varies), under contract to close (30 to 45 days). Some assistance programs require a homebuyer education course (typically 6 to 8 hours online, completable in one day).</p>
       </div>
     </div>
-
     <div class="faq-item" id="faq-18">
       <button class="faq-q" onclick="toggleFaq('faq-18')" aria-expanded="false">
         <span class="faq-num">18</span>
@@ -1015,10 +944,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </button>
       <div class="faq-a" role="region">
         <p class="answer-lead">Yes, and this is critical. Not every lender participates in every program. Working with the wrong lender can mean leaving money on the table or missing programs entirely.</p>
-        <p>CHFA loans, for example, must be originated through CHFA-approved lenders. MetroDPA has participating lenders. Teacher Next Door has its own network of approved mortgage specialists. Hero HomeReach connects you with lenders who are already approved for the programs you qualify for, which eliminates the trial-and-error of finding one yourself.</p>
+        <p>CHFA loans, for example, must be originated through CHFA-approved lenders. MetroDPA has participating lenders. The Colorado Champions Program also works through a specific set of participating lenders. Hero HomeReach connects you with lenders who are already approved for the programs relevant to your situation, which eliminates the trial-and-error of finding one yourself.</p>
       </div>
     </div>
-
     <div class="faq-item" id="faq-19">
       <button class="faq-q" onclick="toggleFaq('faq-19')" aria-expanded="false">
         <span class="faq-num">19</span>
@@ -1030,7 +958,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <p><strong>Single-family homes:</strong> Universally accepted by all programs. <strong>Condos:</strong> Generally accepted, but the condo project must be approved by FHA or VA (for those respective loan types). <strong>New construction:</strong> Accepted by most programs, though builder timelines must align with program expiration dates. <strong>Multi-family (2 to 4 units):</strong> Allowed by some programs (VA loan, FHA) as long as you occupy one unit as your primary residence. <strong>Manufactured homes:</strong> Limited acceptance, check individual program rules. All programs require the home to be your primary residence, investment properties and vacation homes do not qualify.</p>
       </div>
     </div>
-
     <div class="faq-item" id="faq-20">
       <button class="faq-q" onclick="toggleFaq('faq-20')" aria-expanded="false">
         <span class="faq-num">20</span>
@@ -1039,10 +966,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </button>
       <div class="faq-a" role="region">
         <p class="answer-lead">Most major programs are available statewide, though some have geographic restrictions.</p>
-        <p><span class="prog-tag">Teacher Next Door</span> — Statewide, any Colorado city or county. | <span class="prog-tag">CHFA</span> — Statewide across all 64 Colorado counties. | <span class="prog-tag">Chenoa Fund</span> — Statewide. | <span class="prog-tag">MetroDPA</span> — Denver metro area (Adams, Arapahoe, Boulder, Broomfield, Denver, Douglas, Jefferson counties). | <span class="prog-tag">NeighborhoodLIFT</span> — Specific cities when funded; check current availability. | <span class="prog-tag">VA Loan</span> — Nationwide, including all of Colorado.</p>
+        <p><span class="prog-tag">CHFA</span> — Statewide across all 64 Colorado counties. | <span class="prog-tag">Chenoa Fund</span> — Statewide. | <span class="prog-tag">MetroDPA</span> — Denver metro area (Adams, Arapahoe, Boulder, Broomfield, Denver, Douglas, Jefferson counties). | <span class="prog-tag">VA Loan</span> — Nationwide, including all of Colorado. | <span class="prog-tag">Colorado Champions Program (SB26-053)</span> — Statewide for eligible first responders. | <span class="prog-tag">Colorado Educator Homeownership Program (SB25-167)</span> — Statewide for eligible educators. | <span class="prog-tag">HUD Good Neighbor Next Door</span> — Designated revitalization areas only; check current HUD listings for Colorado.</p>
       </div>
     </div>
-
     <div class="faq-item" id="faq-21">
       <button class="faq-q" onclick="toggleFaq('faq-21')" aria-expanded="false">
         <span class="faq-num">21</span>
@@ -1051,7 +977,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </button>
       <div class="faq-a" role="region">
         <p class="answer-lead">For most down payment assistance programs, yes. And honestly, it's worth your time.</p>
-        <p>CHFA requires a homebuyer education certificate from a HUD-approved provider. Teacher Next Door and many other programs have the same requirement. The course is typically 6 to 8 hours, available entirely online, and usually free or low cost. Colorado has excellent options through eHome America and Framework. The course covers budgeting, understanding your mortgage, the home buying process, and how to maintain your home. Completing it often unlocks additional assistance amounts and demonstrates to lenders that you're a serious buyer.</p>
+        <p>CHFA requires a homebuyer education certificate from a HUD-approved provider. Most Colorado assistance programs share this requirement. The course is typically 6 to 8 hours, available entirely online, and usually free or low cost. Colorado has excellent options through eHome America and Framework. The course covers budgeting, understanding your mortgage, the home buying process, and how to maintain your home. Completing it often unlocks additional assistance amounts and demonstrates to lenders that you're a serious buyer.</p>
       </div>
     </div>
 
@@ -1063,7 +989,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <span class="section-icon">💳</span>
       <h2>Financial Qualifications<small>Income, debt, credit, and what lenders actually look at</small></h2>
     </div>
-
     <div class="faq-item" id="faq-22">
       <button class="faq-q" onclick="toggleFaq('faq-22')" aria-expanded="false">
         <span class="faq-num">22</span>
@@ -1076,7 +1001,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <p>Teachers enrolled in PSLF (Public Service Loan Forgiveness) can often use their income-driven repayment amount (which may be $0) rather than the full loan balance for DTI calculations, a significant advantage.</p>
       </div>
     </div>
-
     <div class="faq-item" id="faq-23">
       <button class="faq-q" onclick="toggleFaq('faq-23')" aria-expanded="false">
         <span class="faq-num">23</span>
@@ -1085,11 +1009,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </button>
       <div class="faq-a" role="region">
         <p class="answer-lead">Purchase price limits vary by program and change annually. Current general benchmarks for Colorado:</p>
-        <p><span class="prog-tag">CHFA</span> — Limits vary by county; Denver metro is typically $750,000 to $850,000 for targeted areas. | <span class="prog-tag">FHA Loan limit</span> (for Chenoa Fund) — $621,000 for most Colorado counties in 2025, higher in high-cost areas. | <span class="prog-tag">MetroDPA</span> — Follows FHA limits. | <span class="prog-tag">VA Loan</span> — No purchase price limit (though lender overlays may apply). | <span class="prog-tag">Teacher Next Door</span> — No specific purchase price cap beyond the underlying loan limits.</p>
+        <p><span class="prog-tag">CHFA</span> — Limits vary by county; Denver metro is typically $750,000 to $850,000 for targeted areas. | <span class="prog-tag">FHA Loan limit</span> (for Chenoa Fund) — $621,000 for most Colorado counties in 2025, higher in high-cost areas. | <span class="prog-tag">MetroDPA</span> — Follows FHA limits. | <span class="prog-tag">VA Loan</span> — No purchase price limit (though lender overlays may apply). | <span class="prog-tag">Colorado Champions Program</span> — Review current program guidelines for purchase price parameters.</p>
         <p>Given Colorado's median home price is around $550,000 statewide (and higher in Denver metro), most programs adequately cover realistic purchase prices for hero professionals.</p>
       </div>
     </div>
-
     <div class="faq-item" id="faq-24">
       <button class="faq-q" onclick="toggleFaq('faq-24')" aria-expanded="false">
         <span class="faq-num">24</span>
@@ -1101,7 +1024,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <p>FHA loans allow 100% of the down payment to come from gift funds. VA loans allow gift funds for closing costs. Gift funds must be documented with a gift letter from the donor stating no repayment is expected. If you have family who want to help AND you qualify for down payment assistance programs, both sources can be applied simultaneously. The programs don't restrict or eliminate other gift money you receive.</p>
       </div>
     </div>
-
     <div class="faq-item" id="faq-25">
       <button class="faq-q" onclick="toggleFaq('faq-25')" aria-expanded="false">
         <span class="faq-num">25</span>
@@ -1111,7 +1033,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="faq-a" role="region">
         <p class="answer-lead">Not out of reach, but you may need a 6 to 12 month credit-building runway first.</p>
         <p>Below 580, conventional and most assistance programs are unavailable. But a focused credit improvement plan can move your score dramatically in a short time. High-impact actions: pay down credit card balances below 30% utilization (the single fastest score improvement), ensure no missed payments going forward, dispute any inaccurate negative items, and avoid opening new credit accounts. Going from 560 to 620 in 6 months is realistically achievable for most people and unlocks significant program access.</p>
-        <div class="answer-highlight">Get your free Hero HomeReach guide now and start the process regardless. Knowing your exact program landscape, even if you're 6 months out, lets you plan with precision rather than guessing.</div>
+        <div class="answer-highlight">Get your free Hero HomeReach guide now and start the process regardless. Knowing your program landscape, even if you're 6 months out, lets you plan with precision rather than guessing.</div>
       </div>
     </div>
 
@@ -1123,7 +1045,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <span class="section-icon">⭐</span>
       <h2>About Hero HomeReach<small>What we do, what the guide includes, and why it's free</small></h2>
     </div>
-
     <div class="faq-item" id="faq-26">
       <button class="faq-q" onclick="toggleFaq('faq-26')" aria-expanded="false">
         <span class="faq-num">26</span>
@@ -1132,11 +1053,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </button>
       <div class="faq-a" role="region">
         <p class="answer-lead">No catch. The guide is completely free. No credit card. No obligation. No sales call you didn't ask for.</p>
-        <p>Hero HomeReach exists to close the information gap between Colorado's heroes and the programs designed to help them. Most teachers, nurses, and first responders never access these programs simply because they don't know they exist or don't know how to apply. We built the guide to change that, for free, for every hero who wants it.</p>
-        <p>We connect you with participating lenders if and when you're ready. That's how we sustain the platform. But the guide, the program matching, and the information are yours with no strings attached.</p>
+        <p>Hero HomeReach exists to close the information gap between Colorado's heroes and the opportunities designed to help them. Most teachers, nurses, and first responders never access these programs simply because they don't know they exist or don't know how to navigate them. We built the guide to change that, for free, for every hero who wants it.</p>
+        <p>We connect you with participating lenders if and when you're ready. That's how we sustain the platform. But the guide, the consultation, and the education are yours with no strings attached.</p>
       </div>
     </div>
-
     <div class="faq-item" id="faq-27">
       <button class="faq-q" onclick="toggleFaq('faq-27')" aria-expanded="false">
         <span class="faq-num">27</span>
@@ -1146,11 +1066,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="faq-a" role="region">
         <p class="answer-lead">Three steps. No bureaucracy. No credit check required.</p>
         <p><strong>Step 1 — Get Your Free Guide:</strong> Fill out the form at herohomereach.com. Tell us your profession, your Colorado city, and a few basics. No credit check, no hard pull, no social security number required at this stage.</p>
-        <p><strong>Step 2 — Review Your Matches:</strong> We identify every program you're likely eligible for based on your profile and deliver a personalized breakdown, which programs, how much, and how they can stack.</p>
-        <p><strong>Step 3 — Connect With a Specialist:</strong> If you want to move forward, we connect you with a vetted Colorado lender who is already approved for your matched programs. You take it from there on your own timeline.</p>
+        <p><strong>Step 2 — Review Your Options:</strong> We walk through the Colorado assistance landscape based on your profession, county, and situation and give you a clear explanation of which paths may be worth exploring, what each involves, and how different programs interact.</p>
+        <p><strong>Step 3 — Connect With a Specialist:</strong> If you want to move forward, we connect you with a vetted Colorado lender who is already approved for the programs relevant to your situation. You take it from there on your own timeline.</p>
       </div>
     </div>
-
     <div class="faq-item" id="faq-28">
       <button class="faq-q" onclick="toggleFaq('faq-28')" aria-expanded="false">
         <span class="faq-num">28</span>
@@ -1159,10 +1078,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </button>
       <div class="faq-a" role="region">
         <p class="answer-lead">Most lenders know the programs they participate in, not the full landscape of every program you might qualify for. CHFA will tell you about CHFA. A MetroDPA lender will tell you about MetroDPA. No single lender shows you everything.</p>
-        <p>Hero HomeReach maps your eligibility across ALL available programs simultaneously, and then shows you how they stack. That's the difference between getting one program and getting your maximum possible assistance. We're the aggregator. Once you know your full picture, you're a much more informed buyer when you sit down with any lender.</p>
+        <p>Hero HomeReach maps the Colorado assistance landscape across multiple program types and shows you how different paths interact. That is the difference between understanding one option and understanding the full picture of what may be available to you. We are the educational layer. Once you have that clarity, you are a much more informed buyer when you sit down with any lender.</p>
       </div>
     </div>
-
     <div class="faq-item" id="faq-29">
       <button class="faq-q" onclick="toggleFaq('faq-29')" aria-expanded="false">
         <span class="faq-num">29</span>
@@ -1174,7 +1092,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <p>Knowing which programs you'll qualify for lets you make smarter decisions today: whether to pay down debt to improve your DTI, which credit score to target, how much to save (which may be far less than you assumed), and when to start the pre-approval process. Heroes who get the guide 6 to 12 months before they're ready to buy consistently close faster and with more assistance than those who start the research at the last minute.</p>
       </div>
     </div>
-
     <div class="faq-item" id="faq-30">
       <button class="faq-q" onclick="toggleFaq('faq-30')" aria-expanded="false">
         <span class="faq-num">30</span>
@@ -1191,14 +1108,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 </main>
 
-<!-- ════════════ CTA BANNER ════════════ -->
+<!-- ════════════ CTA BANNER — CORRECTED: headline updated ════════════ -->
 <section class="cta-banner">
-  <h2>Ready to See What You <span>Actually Qualify For?</span></h2>
-  <p>Get your free, personalized Hero Homebuyer Action Guide, matched to your profession, your county, and your financial situation. No credit check. No sales call you didn't request.</p>
+  <h2>Ready to Explore What <span>Colorado Has Built for Heroes Like You?</span></h2>
+  <p>Get your free Hero HomeReach guide and walk through Colorado assistance paths that may fit your profession, your county, and your situation. No credit check. No sales call you didn't request.</p>
   <a href="https://herohomereach.com/#guide" class="cta-btn">Get My Free Guide →</a>
   <p class="cta-sub">Free · No Credit Check · No Obligation · Colorado Heroes Only</p>
 </section>
-
 
 <!-- ════════════ FOOTER ════════════ -->
 <footer id="footer">
@@ -1239,7 +1155,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </footer>
 
-<!-- ════════════ FAQ SCHEMA JSON-LD ════════════ -->
+<!-- ════════════ FAQ SCHEMA JSON-LD — FULLY UPDATED ════════════ -->
 <script type="application/ld+json" id="faq-schema">
 {
   "@context": "https://schema.org",
@@ -1250,7 +1166,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       "name": "Do I have to pay back the down payment assistance?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "It depends on the program type. True grants (like the Teacher Next Door grant) are never repaid. Forgivable loans are forgiven after a set period (typically 3-5 years) if you remain in the home. Deferred second mortgages have no monthly payment but are repaid when you sell or refinance. Hero HomeReach clearly labels each program so you know exactly what you are agreeing to before closing."
+        "text": "It depends on the program type. True grants (available through select CHFA programs) are never repaid. Forgivable loans are forgiven after a set period (typically 3 to 5 years) if you remain in the home. Deferred second mortgages have no monthly payment but are repaid when you sell or refinance. Hero HomeReach explains each program clearly so you know exactly what you are agreeing to before closing."
       }
     },
     {
@@ -1258,7 +1174,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       "name": "How much down payment assistance can I get in Colorado?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Colorado heroes can receive anywhere from $5,000 to $67,000 or more depending on which programs they qualify for. Individual programs include: Teacher Next Door (up to $8,000 grant), MetroDPA (up to $25,000), Chenoa Fund (3.5-5% of purchase price), NeighborhoodLIFT (up to $15,000), and CHFA (up to $25,000 in select programs). Stacking multiple programs can maximize your total assistance."
+        "text": "The range is wide and depends on which Colorado programs apply to your situation. Individual program examples: CHFA may offer up to $25,000 depending on the option, MetroDPA may offer assistance up to $30,000 in eligible Front Range counties, Chenoa Fund provides 3.5 to 5% of the loan amount, and the Colorado Champions Program offers forgivable assistance for eligible first responders. A realistic planning range for a $500,000 FHA purchase typically falls between $44,000 and $60,000 or more. These are planning estimates, not guarantees."
       }
     },
     {
@@ -1266,15 +1182,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       "name": "Can I combine multiple down payment assistance programs at the same time?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. Program stacking is legal and used by informed buyers every day in Colorado. A common combination is the Teacher Next Door grant (never repaid) plus MetroDPA (forgivable after 3 years) plus seller concessions negotiated into the purchase agreement. The result can cover your entire down payment and closing costs."
+        "text": "Yes. Program layering is legal and used by informed buyers every day in Colorado. A common combination is a CHFA grant option paired with seller concessions negotiated into the purchase agreement. Another path worth exploring is MetroDPA assistance combined with seller-paid closing costs. The result in a well-structured transaction can significantly reduce or eliminate your upfront cash requirement."
       }
     },
     {
       "@type": "Question",
-      "name": "What is the Teacher Next Door grant and how does it work?",
+      "name": "What is the Colorado Champions Home Loan Program and who does it serve?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Teacher Next Door is a national program for educators that provides up to $8,000 in true grant money that is never repaid. It works on homes across Colorado with no geographic restriction. Full-time and part-time Pre-K through 12th grade teachers, administrators, and support staff qualify. There is no first-time homebuyer requirement."
+        "text": "The Colorado Champions Home Loan Program, established through SB26-053, is a Colorado-specific assistance program designed for first responders and essential community workers. It offers forgivable loan assistance structured as a second mortgage that may be forgiven over time. Eligible professions include firefighters, EMTs, paramedics, and law enforcement officers. There is no geographic restriction and eligibility is tied to profession and income guidelines."
       }
     },
     {
@@ -1298,7 +1214,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       "name": "What is CHFA and how do I qualify for a CHFA loan in Colorado?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "CHFA stands for Colorado Housing and Finance Authority, a state agency offering below-market mortgage rates and down payment assistance for Colorado residents. Basic eligibility includes: Colorado resident status, meeting income limits by county, typically a 620+ FICO credit score, completing a free homebuyer education course, and purchasing within CHFA purchase price limits."
+        "text": "CHFA stands for Colorado Housing and Finance Authority, a state agency offering below-market mortgage rates and down payment assistance for Colorado residents. Basic eligibility includes: Colorado resident status, meeting income limits by county, typically a 620 or higher FICO credit score, completing a free homebuyer education course, and purchasing within CHFA purchase price limits."
       }
     },
     {
@@ -1311,10 +1227,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     },
     {
       "@type": "Question",
+      "name": "What is a forgivable loan in real estate?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A forgivable loan is money you borrow that gets legally forgiven after you meet certain conditions, most commonly staying in the home for a set period. If you receive a $15,000 forgivable second mortgage with a 3-year forgiveness period and stay for 3 years, the $15,000 is forgiven entirely. For most hero homebuyers who intend to live in their home long-term, forgivable loans function identically to grants."
+      }
+    },
+    {
+      "@type": "Question",
       "name": "Do I have to be a first-time homebuyer to qualify for Colorado hero homebuyer programs?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Many programs do NOT require first-time homebuyer status. Teacher Next Door, Chenoa Fund, VA Loan, and MetroDPA (in most configurations) have no first-time buyer requirement. CHFA generally requires it but veterans and buyers in targeted areas are exempt. Even the CHFA first-time buyer definition is broad: if you have not owned a primary residence in the last 3 years, you qualify."
+        "text": "Many programs do NOT require first-time homebuyer status. The Colorado Champions Program, Chenoa Fund, VA Loan, and MetroDPA (in most configurations) have no first-time buyer requirement. CHFA generally requires it but veterans and buyers in targeted areas are exempt. Even the CHFA first-time buyer definition is broad: if you have not owned a primary residence in the last 3 years, you qualify."
       }
     },
     {
@@ -1322,7 +1246,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       "name": "What credit score do I need to qualify for down payment assistance in Colorado?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Most programs work with credit scores starting at 580-640. FHA Loan with Chenoa Fund requires a minimum 580-600 FICO. CHFA typically requires 620+. MetroDPA typically requires 640+. VA Loan has no official minimum but most lenders require 580-620. Teacher Next Door follows the underlying mortgage requirement."
+        "text": "Most programs work with credit scores starting at 580 to 640. FHA Loan with Chenoa Fund requires a minimum 580 to 600 FICO. CHFA typically requires 620 or higher. MetroDPA typically requires 640 or higher. VA Loan has no official minimum but most lenders require 580 to 620. The Colorado Champions Program requirements should be reviewed through current program guidelines."
       }
     },
     {
@@ -1330,7 +1254,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       "name": "Is there an income limit for Colorado down payment assistance programs?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Most programs have income limits, but they are often higher than people expect. Limits are based on Area Median Income (AMI) and vary by county and household size. Most programs allow incomes up to 80-115% of AMI. A nurse earning $85,000 per year or a teacher earning $65,000 per year typically qualifies for multiple programs."
+        "text": "Most programs have income limits, but they are often higher than people expect. Limits are based on Area Median Income (AMI) and vary by county and household size. Most programs allow incomes up to 80 to 115% of AMI. A nurse earning $85,000 per year or a teacher earning $65,000 per year typically qualifies for multiple programs."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do part-time teachers or substitute teachers qualify for hero homebuyer programs?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For Colorado educator-focused programs, yes. The Colorado Educator Homeownership Program (SB25-167) and certain CHFA options are designed for Pre-K through 12th grade teachers, administrators, and support staff. Part-time educators and long-term substitutes working in a consistent school setting may qualify depending on employment documentation requirements."
       }
     },
     {
@@ -1338,7 +1270,23 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       "name": "Can EMTs and paramedics qualify for hero homebuyer programs?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. EMTs and paramedics qualify under the first responder and medical professional categories of hero homebuyer programs. All major programs including CHFA, MetroDPA, Chenoa Fund, Teacher Next Door umbrella programs, and VA loan for veteran EMTs are fully available."
+        "text": "Yes. EMTs and paramedics qualify under every first responder category of hero homebuyer programs. The Colorado Champions Home Loan Program (SB26-053) is specifically designed for first responders including EMTs and paramedics. Additionally, CHFA, MetroDPA, Chenoa Fund, and VA loan for veteran EMTs are all fully available."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I qualify for down payment assistance if I already own a home?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Owning a home currently or in the past does not automatically disqualify you. Programs without a first-time buyer requirement including Chenoa Fund, MetroDPA, VA loan, and the Colorado Champions Program are fully available to current and past homeowners. If you have not owned a primary residence in the past 3 years, most programs consider you a first-time buyer regardless of prior ownership history."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does law enforcement qualify for hero homebuyer programs?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Law enforcement officers including police, sheriff's deputies, corrections officers, and federal agents qualify under the first responder category. HUD's Good Neighbor Next Door program also offers law enforcement officers a 50% discount on the list price of eligible HUD homes in revitalization areas."
       }
     },
     {
@@ -1346,7 +1294,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       "name": "How long does it take to buy a home using down payment assistance in Colorado?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Plan for a 60-90 day process from start to keys in hand, the same timeline as a conventional purchase. Down payment assistance programs do not significantly slow the process when you work with an experienced lender. Steps include Hero HomeReach program matching (free, 48 hours), lender pre-approval (1-2 weeks), home search, and under contract to close (30-45 days)."
+        "text": "Plan for a 60 to 90 day process from start to keys in hand, the same timeline as a conventional purchase. Down payment assistance programs do not significantly slow the process when you work with an experienced lender. Steps include Hero HomeReach program research (free, 48 hours), lender pre-approval (1 to 2 weeks), home search, and under contract to close (30 to 45 days)."
       }
     },
     {
@@ -1354,7 +1302,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       "name": "Do I need a special lender to use down payment assistance programs?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes, and this is critical. Not every lender participates in every program. CHFA loans must be originated through CHFA-approved lenders. MetroDPA has participating lenders. Teacher Next Door has its own network of approved mortgage specialists. Hero HomeReach connects you with lenders already approved for your matched programs."
+        "text": "Yes, and this is critical. Not every lender participates in every program. CHFA loans must be originated through CHFA-approved lenders. MetroDPA has participating lenders. The Colorado Champions Program works through a specific set of participating lenders. Hero HomeReach connects you with lenders already approved for the programs relevant to your situation."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use down payment assistance anywhere in Colorado or only certain cities?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most major programs are available statewide. CHFA covers all 64 Colorado counties. Chenoa Fund is statewide. The Colorado Champions Program (SB26-053) is statewide for eligible first responders. The Colorado Educator Homeownership Program (SB25-167) is statewide for eligible educators. MetroDPA covers the Denver metro area. VA loans are nationwide. HUD Good Neighbor Next Door applies to designated revitalization areas only."
       }
     },
     {
@@ -1362,7 +1318,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       "name": "Can I buy a home with student loan debt as a teacher or nurse in Colorado?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. Student loan debt does not disqualify you. What matters is your debt-to-income ratio (DTI), which lenders want under 43-50% of gross monthly income. Teachers enrolled in Public Service Loan Forgiveness (PSLF) can often use their income-driven repayment amount, which may be zero, rather than the full loan balance for DTI calculations."
+        "text": "Yes. Student loan debt does not disqualify you. What matters is your debt-to-income ratio (DTI), which lenders want under 43 to 50% of gross monthly income. Teachers enrolled in Public Service Loan Forgiveness (PSLF) can often use their income-driven repayment amount, which may be zero, rather than the full loan balance for DTI calculations."
       }
     },
     {
@@ -1370,7 +1326,23 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       "name": "Is the Hero HomeReach guide really free?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes, completely free. No credit card, no obligation, no sales call you did not ask for. The guide, the program matching, and the information are yours with no strings attached. Hero HomeReach sustains the platform by connecting ready buyers with vetted participating lenders."
+        "text": "Yes, completely free. No credit card, no obligation, no sales call you did not ask for. The guide, the consultation, and the education are yours with no strings attached. Hero HomeReach sustains the platform by connecting ready buyers with vetted participating lenders."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does the Hero HomeReach process look like?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Three steps. Step 1: Get your free guide by filling out a basic form, no credit check required. Step 2: Review your options, Hero HomeReach walks through the Colorado assistance landscape based on your profession, county, and situation and explains which paths may be worth exploring. Step 3: Connect with a vetted Colorado lender already approved for the programs relevant to your situation."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How is Hero HomeReach different from going directly to CHFA or a lender?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most lenders know the programs they participate in, not the full landscape of programs you might qualify for. Hero HomeReach maps the Colorado assistance landscape across multiple program types and shows how different paths interact. That is the difference between understanding one option and understanding the full picture of what may be available. We are the educational layer. Once you have that clarity, you are a much more informed buyer when you sit down with any lender."
       }
     },
     {
@@ -1378,7 +1350,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       "name": "Do down payment assistance programs cover closing costs too, or just the down payment?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Several programs cover closing costs in addition to or instead of the down payment. The Chenoa Fund covers the 3.5% FHA down payment, freeing other assistance for closing costs. Seller concessions can cover up to 3-6% of the purchase price. VA loans allow sellers to pay all customary closing costs plus up to 4% in concessions. CHFA offers a separate closing cost assistance grant. In a well-structured transaction it is possible to cover both down payment and closing costs entirely."
+        "text": "Several programs cover closing costs in addition to or instead of the down payment. The Chenoa Fund covers the 3.5% FHA down payment, freeing other assistance for closing costs. Seller concessions can cover up to 3 to 6% of the purchase price. VA loans allow sellers to pay all customary closing costs plus up to 4% in concessions. CHFA offers a separate closing cost assistance grant. In a well-structured transaction it is possible to cover both down payment and closing costs entirely."
       }
     }
   ]
@@ -1416,13 +1388,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       item.querySelector('.faq-q').setAttribute('aria-expanded', 'true');
     }
   }
-
-  /* ── Schema source display ── */
-  window.addEventListener('DOMContentLoaded', () => {
-    const raw = document.getElementById('faq-schema').textContent;
-    const pretty = JSON.stringify(JSON.parse(raw), null, 2);
-    document.getElementById('schema-display').textContent = pretty;
-  });
 </script>
 <!-- Start of HubSpot Embed Code -->
 <script type="text/javascript" id="hs-script-loader" async defer src="//js-na2.hs-scripts.com/244185002.js"></script>
