@@ -14,6 +14,11 @@
       "source": "/faq/",
       "destination": "/faq.html",
       "permanent": true
+    },
+    {
+      "source": "/blog/chfa-loan-colorado-2026-guide.html",
+      "destination": "/blog/chfa-loan-colorado-2026-guide/",
+      "permanent": true
     }
   ]
 }
