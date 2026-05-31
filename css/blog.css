@@ -2,7 +2,7 @@
    HERO HOMEREACH — blog.css
    Blog index (blog/index.html) and individual post pages.
    Always load AFTER main.css.
-   Last updated: 2026-04-25
+   Last updated: 2026-05-30
    ============================================================ */
 
 /* ════════════════════════════════
@@ -24,6 +24,7 @@
   transition: var(--transition);
   display: flex;
   flex-direction: column;
+  text-decoration: none;
 }
 .blog-card:hover {
   transform: translateY(-6px);
@@ -31,6 +32,24 @@
   border-color: rgba(201,151,58,0.4);
 }
 
+/* ── Blog card image slot (used in blog/index.html) ── */
+.blog-card-img {
+  height: 180px;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, var(--navy) 0%, #1A4A8A 100%);
+  flex-shrink: 0;
+}
+.blog-card-img img {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ── Legacy image class ── */
 .blog-card-image {
   width: 100%;
   aspect-ratio: 16 / 9;
@@ -50,7 +69,7 @@
 }
 
 .blog-card-body {
-  padding: 28px 24px;
+  padding: 24px;
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -63,14 +82,12 @@
   margin-bottom: 12px;
 }
 .blog-card-tag {
-  font-size: 11px;
+  font-size: 10px;
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--gold);
-  background: rgba(201,151,58,0.1);
-  padding: 3px 10px;
-  border-radius: 20px;
+  margin-bottom: 10px;
 }
 .blog-card-date {
   font-size: 12px;
@@ -83,6 +100,16 @@
   background: rgba(12,45,94,0.07);
   padding: 3px 10px;
   border-radius: 20px;
+}
+
+.blog-card-title {
+  font-family: var(--font-head);
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.3;
+  margin-bottom: 10px;
+  flex: 1;
 }
 
 .blog-card h3 {
@@ -98,11 +125,10 @@
 .blog-card h3 a:hover { color: var(--gold); }
 
 .blog-card-excerpt {
-  font-size: 14px;
-  color: #666;
-  line-height: 1.65;
-  margin-bottom: 20px;
-  flex: 1;
+  font-size: 13px;
+  color: #777;
+  line-height: 1.6;
+  margin-bottom: 14px;
 }
 
 .blog-card-footer {
@@ -112,10 +138,16 @@
   padding-top: 16px;
   border-top: 1px solid var(--warm-gray);
 }
-.blog-read-time {
+
+.blog-card-meta {
   font-size: 12px;
   color: #aaa;
+  display: flex;
+  gap: 8px;
+  align-items: center;
 }
+
+.blog-read-time { font-size: 12px; color: #aaa; }
 .blog-read-link {
   font-size: 13px;
   font-weight: 700;
@@ -125,10 +157,7 @@
   gap: 4px;
   transition: gap 0.2s, color 0.2s;
 }
-.blog-read-link:hover {
-  color: var(--gold);
-  gap: 8px;
-}
+.blog-read-link:hover { color: var(--gold); gap: 8px; }
 
 /* ── Featured post (first card spans full width) ── */
 .blog-card.featured {
@@ -142,11 +171,32 @@
   aspect-ratio: unset;
   flex-shrink: 0;
 }
-.blog-card.featured .blog-card-body {
-  padding: 36px 40px;
+.blog-card.featured .blog-card-body { padding: 36px 40px; }
+.blog-card.featured h3 { font-size: 26px; }
+
+/* ── No results state ── */
+.blog-no-results {
+  display: none;
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 60px 20px;
+  color: #999;
 }
-.blog-card.featured h3 {
-  font-size: 26px;
+.blog-no-results h3 {
+  font-family: var(--font-head);
+  color: var(--navy);
+  margin-bottom: 8px;
+}
+.blog-no-results button {
+  margin-top: 16px;
+  padding: 10px 24px;
+  background: var(--navy);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
 }
 
 /* ── Category filter bar ── */
@@ -218,6 +268,7 @@
 }
 @media (max-width: 600px) {
   .blog-grid { grid-template-columns: 1fr; }
+  .blog-card-img { height: 160px; }
 }
 
 /* ════════════════════════════════
@@ -232,8 +283,6 @@
 }
 
 /* ── Article body ── */
-.post-article {}
-
 .post-header { margin-bottom: 40px; }
 
 .post-meta {
@@ -266,12 +315,7 @@
   list-style: disc;
 }
 .post-body ol { list-style: decimal; }
-
-/* Override li color inside navy callout boxes only */
-.post-body .post-callout li {
-  color: #EAB84A;
-}
-
+.post-body .post-callout li { color: #EAB84A; }
 .post-body li {
   margin-bottom: 8px;
   font-size: 16px;
@@ -351,9 +395,7 @@
 }
 
 /* Table of contents */
-.toc-list {
-  list-style: none;
-}
+.toc-list { list-style: none; }
 .toc-list li {
   padding: 6px 0;
   border-bottom: 1px solid rgba(0,0,0,0.05);
@@ -384,21 +426,42 @@
   gap: 12px;
   padding: 10px 0;
   border-bottom: 1px solid rgba(0,0,0,0.05);
+  align-items: flex-start;
 }
 .related-post-item:last-child { border-bottom: none; }
+
+/* Empty thumb placeholder (legacy) */
 .related-post-thumb {
-  width: 60px; height: 48px;
-  object-fit: cover;
-  border-radius: 6px;
+  width: 64px; height: 56px;
+  border-radius: 5px;
   background: var(--navy);
   flex-shrink: 0;
 }
+
+/* Real thumbnail image */
+.related-post-thumb-link {
+  flex-shrink: 0;
+  display: block;
+  width: 64px; height: 56px;
+  border-radius: 5px;
+  overflow: hidden;
+}
+.related-post-thumb-img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.2s;
+}
+.related-post-item:hover .related-post-thumb-img { transform: scale(1.05); }
+
 .related-post-title {
   font-size: 13px;
   font-weight: 600;
   color: var(--navy);
   line-height: 1.4;
   transition: color 0.2s;
+  text-decoration: none;
+  display: block;
 }
 .related-post-title:hover { color: var(--gold); }
 .related-post-date {
@@ -407,7 +470,7 @@
   margin-top: 4px;
 }
 
-/* ── Post footer / author box ── */
+/* ── Post author box ── */
 .post-author-box {
   background: var(--white);
   border: 1px solid var(--warm-gray);
@@ -438,18 +501,10 @@
   color: var(--navy);
   margin-bottom: 6px;
 }
-.post-author-title {
-  font-size: 13px;
-  color: #888;
-  margin-bottom: 12px;
-}
-.post-author-bio {
-  font-size: 14px;
-  color: #555;
-  line-height: 1.65;
-}
+.post-author-title { font-size: 13px; color: #888; margin-bottom: 12px; }
+.post-author-bio { font-size: 14px; color: #555; line-height: 1.65; }
 
-/* ── CTA strip between article and footer ── */
+/* ── CTA strip ── */
 .post-cta-strip {
   background: var(--navy);
   border-radius: var(--radius);
@@ -460,16 +515,8 @@
   justify-content: space-between;
   gap: 32px;
 }
-.post-cta-strip h3 {
-  color: #fff;
-  font-size: 24px;
-  margin-bottom: 8px;
-}
-.post-cta-strip p {
-  color: rgba(255,255,255,0.65);
-  font-size: 15px;
-  max-width: 400px;
-}
+.post-cta-strip h3 { color: #fff; font-size: 24px; margin-bottom: 8px; }
+.post-cta-strip p { color: rgba(255,255,255,0.65); font-size: 15px; max-width: 400px; }
 .post-cta-strip .btn { flex-shrink: 0; }
 
 @media (max-width: 900px) {
