@@ -1005,19 +1005,20 @@ fadeEls.forEach(el => observer.observe(el));
 
 <!-- ═══════════════ MODAL STYLES ═══════════════ -->
 <style>
-  #hhm-backdrop {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: rgba(12, 45, 94, 0.78);
-    z-index: 9999;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
-    animation: hhm-fade-in 0.2s ease;
-  }
+#hhm-backdrop {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(12, 45, 94, 0.78);
+  z-index: 9999;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 40px 20px;
+  overflow-y: auto;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  animation: hhm-fade-in 0.2s ease;
+}
   #hhm-backdrop.hhm-open {
     display: flex;
   }
