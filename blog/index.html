@@ -699,6 +699,591 @@ fadeEls.forEach(el => observer.observe(el));
 
 <!-- HubSpot -->
 <script type="text/javascript" id="hs-script-loader" async defer src="//js-na2.hs-scripts.com/244185002.js"></script>
+  <!--
+  ╔══════════════════════════════════════════════════════════════╗
+  ║   HERO HOMEREACH — eBOOK MODAL SYSTEM                       ║
+  ║   Drop this entire block into every HTML page.              ║
+  ║   It intercepts all guide.herohomereach.com links.          ║
+  ║                                                              ║
+  ║   SETUP: Find and replace the 3 config values below:        ║
+  ║   1. MAILERLITE_API_KEY — your ML account API key           ║
+  ║   2. MAILERLITE_GROUP_ID — already set to your eBook group  ║
+  ║   3. EBOOK_PDF_URL — public URL to the hosted PDF           ║
+  ╚══════════════════════════════════════════════════════════════╝
+
+  PLACEMENT: Paste just before your closing </body> tag on every page.
+  It replaces the existing guide.herohomereach.com link at the top of
+  each page too — see the JS intercept block at the bottom.
+-->
+
+
+<!-- ═══════════════ MODAL STYLES ═══════════════ -->
+<style>
+  #hhm-backdrop {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(12, 45, 94, 0.78);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    animation: hhm-fade-in 0.2s ease;
+  }
+  #hhm-backdrop.hhm-open {
+    display: flex;
+  }
+  @keyframes hhm-fade-in {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+  #hhm-modal {
+    background: #ffffff;
+    border-radius: 16px;
+    max-width: 480px;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    animation: hhm-slide-up 0.25s ease;
+    box-shadow: 0 32px 80px rgba(0,0,0,0.32);
+  }
+  @keyframes hhm-slide-up {
+    from { transform: translateY(20px); opacity: 0; }
+    to   { transform: translateY(0);    opacity: 1; }
+  }
+
+  /* Header */
+  .hhm-header {
+    background: #0C2D5E;
+    padding: 28px 32px 24px;
+    position: relative;
+  }
+  .hhm-header::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 32px; right: 32px;
+    height: 2px;
+    background: linear-gradient(90deg, #C9973A 0%, transparent 100%);
+  }
+  .hhm-eyebrow {
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #C9973A;
+    margin-bottom: 8px;
+  }
+  .hhm-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.3;
+    margin-bottom: 8px;
+  }
+  .hhm-subtitle {
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 13px;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.55;
+  }
+  .hhm-close {
+    position: absolute;
+    top: 14px;
+    right: 16px;
+    background: rgba(255,255,255,0.1);
+    border: none;
+    color: rgba(255,255,255,0.6);
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 17px;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.15s, color 0.15s;
+  }
+  .hhm-close:hover {
+    background: rgba(255,255,255,0.2);
+    color: #fff;
+  }
+
+  /* Body */
+  .hhm-body {
+    padding: 24px 32px 30px;
+  }
+
+  /* Guide preview strip */
+  .hhm-guide-strip {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: #F5F7FA;
+    border: 1px solid rgba(201,151,58,0.2);
+    border-radius: 10px;
+    padding: 12px 14px;
+    margin-bottom: 20px;
+  }
+  .hhm-guide-icon {
+    flex-shrink: 0;
+    width: 40px;
+    height: 48px;
+    background: #0C2D5E;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+  .hhm-guide-icon::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 5px;
+    background: #C9973A;
+    border-radius: 5px 5px 0 0;
+  }
+  .hhm-guide-icon svg {
+    width: 18px;
+    height: 18px;
+    fill: rgba(255,255,255,0.8);
+    margin-top: 3px;
+  }
+  .hhm-guide-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #C9973A;
+    margin-bottom: 2px;
+  }
+  .hhm-guide-name {
+    font-size: 13px;
+    font-weight: 600;
+    color: #0C2D5E;
+    line-height: 1.3;
+  }
+  .hhm-guide-pages {
+    font-size: 11px;
+    color: #999;
+    margin-top: 3px;
+  }
+
+  /* Form */
+  .hhm-row { margin-bottom: 12px; }
+  .hhm-row-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 12px;
+  }
+  .hhm-label {
+    display: block;
+    font-size: 11.5px;
+    font-weight: 600;
+    color: #1C1C1E;
+    margin-bottom: 5px;
+    letter-spacing: 0.02em;
+  }
+  .hhm-input,
+  .hhm-select {
+    width: 100%;
+    height: 42px;
+    border: 1.5px solid #dde1e9;
+    border-radius: 8px;
+    padding: 0 13px;
+    font-size: 14px;
+    color: #1C1C1E;
+    background: #ffffff;
+    font-family: 'Inter', system-ui, sans-serif;
+    outline: none;
+    transition: border-color 0.15s, box-shadow 0.15s;
+    -webkit-appearance: none;
+    appearance: none;
+  }
+  .hhm-input:focus,
+  .hhm-select:focus {
+    border-color: #1A4A8A;
+    box-shadow: 0 0 0 3px rgba(26,74,138,0.1);
+  }
+  .hhm-select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23666' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 13px center;
+    padding-right: 34px;
+    cursor: pointer;
+  }
+  .hhm-error {
+    font-size: 11px;
+    color: #c0392b;
+    margin-top: 4px;
+    display: none;
+  }
+
+  /* Submit button */
+  .hhm-btn {
+    width: 100%;
+    height: 48px;
+    background: #C9973A;
+    color: #ffffff;
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 8px;
+    letter-spacing: 0.02em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: background 0.15s, transform 0.1s, opacity 0.15s;
+  }
+  .hhm-btn:hover:not(:disabled) {
+    background: #EAB84A;
+    transform: translateY(-1px);
+  }
+  .hhm-btn:active:not(:disabled) {
+    transform: translateY(0);
+  }
+  .hhm-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+  .hhm-spinner {
+    width: 16px;
+    height: 16px;
+    border: 2px solid rgba(255,255,255,0.35);
+    border-top-color: #fff;
+    border-radius: 50%;
+    animation: hhm-spin 0.6s linear infinite;
+  }
+  @keyframes hhm-spin { to { transform: rotate(360deg); } }
+
+  /* Trust line */
+  .hhm-trust {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    margin-top: 10px;
+    font-size: 11px;
+    color: #aaa;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  /* Success state */
+  .hhm-success {
+    display: none;
+    padding: 36px 32px 32px;
+    text-align: center;
+  }
+  .hhm-success-icon {
+    width: 64px;
+    height: 64px;
+    background: rgba(26,107,74,0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 18px;
+    font-size: 28px;
+  }
+  .hhm-success-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: #0C2D5E;
+    margin-bottom: 10px;
+  }
+  .hhm-success-body {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.6;
+    max-width: 340px;
+    margin: 0 auto 22px;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+  .hhm-success-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #0C2D5E;
+    color: #ffffff;
+    padding: 13px 26px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    font-family: 'Inter', system-ui, sans-serif;
+    transition: background 0.15s;
+  }
+  .hhm-success-cta:hover { background: #1A4A8A; }
+
+  /* Mobile */
+  @media (max-width: 520px) {
+    .hhm-header { padding: 22px 22px 18px; }
+    .hhm-body { padding: 20px 22px 24px; }
+    .hhm-row-split { grid-template-columns: 1fr; gap: 0; }
+    .hhm-title { font-size: 19px; }
+    .hhm-success { padding: 28px 22px 26px; }
+  }
+</style>
+
+
+<!-- ═══════════════ MODAL HTML ═══════════════ -->
+<div id="hhm-backdrop" role="dialog" aria-modal="true" aria-labelledby="hhm-modal-title">
+  <div id="hhm-modal">
+
+    <!-- Header -->
+    <div class="hhm-header">
+      <button class="hhm-close" onclick="hhmClose()" aria-label="Close">&times;</button>
+      <div class="hhm-eyebrow">Free Colorado Guide</div>
+      <h2 class="hhm-title" id="hhm-modal-title">Your Hero Homebuyer Guide Is Ready</h2>
+      <p class="hhm-subtitle">Real Colorado assistance paths, grants, and strategies built for educators, first responders, healthcare workers, and veterans.</p>
+    </div>
+
+    <!-- Form -->
+    <div class="hhm-body" id="hhm-form-wrap">
+
+      <div class="hhm-guide-strip">
+        <div class="hhm-guide-icon">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8l-6-6zm4 18H6V4h7v5h5v11z"/>
+          </svg>
+        </div>
+        <div>
+          <div class="hhm-guide-label">Free eBook</div>
+          <div class="hhm-guide-name">The Hero HomeReach Advantage</div>
+          <div class="hhm-guide-pages">13 pages &middot; CHFA &middot; MetroDPA &middot; Chenoa &middot; VA &middot; Seller Credits</div>
+        </div>
+      </div>
+
+      <div class="hhm-row-split">
+        <div>
+          <label class="hhm-label" for="hhm-first">First Name</label>
+          <input class="hhm-input" type="text" id="hhm-first" placeholder="Jane" autocomplete="given-name" />
+        </div>
+        <div>
+          <label class="hhm-label" for="hhm-last">Last Name</label>
+          <input class="hhm-input" type="text" id="hhm-last" placeholder="Smith" autocomplete="family-name" />
+        </div>
+      </div>
+
+      <div class="hhm-row">
+        <label class="hhm-label" for="hhm-email">Email Address</label>
+        <input class="hhm-input" type="email" id="hhm-email" placeholder="jane@district.org" autocomplete="email" />
+        <div class="hhm-error" id="hhm-email-err">Please enter a valid email address.</div>
+      </div>
+
+      <div class="hhm-row">
+        <label class="hhm-label" for="hhm-hero">I Am A&hellip;</label>
+        <select class="hhm-select" id="hhm-hero">
+          <option value="">Select your profession</option>
+          <option value="educator">Educator (Teacher / School Staff / Admin)</option>
+          <option value="first_responder">First Responder (Firefighter / EMT / Police)</option>
+          <option value="healthcare">Healthcare Worker (Nurse / Paramedic / Medical)</option>
+          <option value="military">Military / Veteran / Active Duty</option>
+          <option value="public_service">Other Public Service</option>
+        </select>
+      </div>
+
+      <button class="hhm-btn" id="hhm-submit-btn" onclick="hhmSubmit()">
+        <span id="hhm-btn-label">Send Me the Free Guide</span>
+        <span id="hhm-btn-arrow">&rarr;</span>
+        <span class="hhm-spinner" id="hhm-spinner" style="display:none;"></span>
+      </button>
+
+      <div class="hhm-trust">
+        <svg width="11" height="13" viewBox="0 0 11 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="1" y="5" width="9" height="7" rx="1.5" stroke="#bbb" stroke-width="1.2"/>
+          <path d="M3.5 5V3.5a2 2 0 014 0V5" stroke="#bbb" stroke-width="1.2" stroke-linecap="round"/>
+        </svg>
+        No spam, ever. Unsubscribe anytime. Your information is safe.
+      </div>
+    </div>
+
+    <!-- Success -->
+    <div class="hhm-success" id="hhm-success-wrap">
+      <div class="hhm-success-icon">&#10003;</div>
+      <div class="hhm-success-title">Check Your Inbox</div>
+      <p class="hhm-success-body">Your Hero HomeReach Advantage guide is on its way. Ready to go deeper? Book a free 30-minute strategy session and we will map your personal assistance path together.</p>
+      <a class="hhm-success-cta" href="https://calendly.com/trogelstad-herohomereach/30min" target="_blank" rel="noopener">
+        Book My Free Call &rarr;
+      </a>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ═══════════════ MODAL SCRIPT ═══════════════ -->
+<script>
+(function(){
+
+  /* ─── CONFIG ─── */
+  var ML_GROUP_ID   = '184754345036744568';
+  var ML_API_KEY    = 'YOUR_MAILERLITE_API_KEY';   /* ← replace this */
+  var EBOOK_PDF_URL = 'https://herohomereach.com/hero-homereach-advantage.pdf'; /* ← replace with your hosted PDF URL */
+
+  /* ─── INTERCEPT all links that go to guide.herohomereach.com ─── */
+  document.addEventListener('DOMContentLoaded', function(){
+    document.querySelectorAll('a').forEach(function(a){
+      var href = a.getAttribute('href') || '';
+      if(href.indexOf('guide.herohomereach.com') !== -1){
+        a.setAttribute('href', '#');
+        a.setAttribute('data-hhm', '1');
+        a.addEventListener('click', function(e){
+          e.preventDefault();
+          hhmOpen();
+        });
+      }
+    });
+  });
+
+  /* ─── OPEN / CLOSE ─── */
+  window.hhmOpen = function(){
+    document.getElementById('hhm-backdrop').classList.add('hhm-open');
+    document.body.style.overflow = 'hidden';
+    setTimeout(function(){ document.getElementById('hhm-first').focus(); }, 120);
+  };
+
+  window.hhmClose = function(){
+    document.getElementById('hhm-backdrop').classList.remove('hhm-open');
+    document.body.style.overflow = '';
+  };
+
+  /* Close on backdrop click */
+  document.getElementById('hhm-backdrop').addEventListener('click', function(e){
+    if(e.target === this) hhmClose();
+  });
+
+  /* Close on Escape */
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape') hhmClose();
+  });
+
+  /* ─── SUBMIT ─── */
+  window.hhmSubmit = function(){
+    var first  = document.getElementById('hhm-first').value.trim();
+    var last   = document.getElementById('hhm-last').value.trim();
+    var email  = document.getElementById('hhm-email').value.trim();
+    var hero   = document.getElementById('hhm-hero').value;
+    var errEl  = document.getElementById('hhm-email-err');
+
+    errEl.style.display = 'none';
+
+    /* Validation */
+    if(!first){ document.getElementById('hhm-first').focus(); return; }
+    if(!email || !/\S+@\S+\.\S+/.test(email)){
+      errEl.style.display = 'block';
+      document.getElementById('hhm-email').focus();
+      return;
+    }
+
+    /* Loading state */
+    var btn     = document.getElementById('hhm-submit-btn');
+    var lbl     = document.getElementById('hhm-btn-label');
+    var arrow   = document.getElementById('hhm-btn-arrow');
+    var spinner = document.getElementById('hhm-spinner');
+    btn.disabled = true;
+    lbl.textContent = 'Sending\u2026';
+    arrow.style.display = 'none';
+    spinner.style.display = 'inline-block';
+
+    /* Build MailerLite subscriber payload */
+    var fields = { name: first + (last ? ' ' + last : '') };
+    if(hero) fields['hero_type'] = hero;
+
+    var payload = {
+      email: email,
+      fields: fields,
+      groups: [ML_GROUP_ID],
+      status: 'active'
+    };
+
+    fetch('https://connect.mailerlite.com/api/subscribers', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + ML_API_KEY,
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify(payload)
+    })
+    .then(function(res){
+      /* 200 = updated existing, 201 = new subscriber */
+      if(res.ok || res.status === 200 || res.status === 201){
+        hhmShowSuccess();
+      } else {
+        return res.json().then(function(data){
+          hhmResetBtn();
+          alert('There was a problem. Please try again or email us directly.');
+          console.error('MailerLite error:', data);
+        });
+      }
+    })
+    .catch(function(err){
+      hhmResetBtn();
+      alert('Network error. Please check your connection and try again.');
+      console.error(err);
+    });
+  };
+
+  function hhmShowSuccess(){
+    document.getElementById('hhm-form-wrap').style.display = 'none';
+    document.getElementById('hhm-success-wrap').style.display = 'block';
+  }
+
+  function hhmResetBtn(){
+    var btn     = document.getElementById('hhm-submit-btn');
+    var lbl     = document.getElementById('hhm-btn-label');
+    var arrow   = document.getElementById('hhm-btn-arrow');
+    var spinner = document.getElementById('hhm-spinner');
+    btn.disabled = false;
+    lbl.textContent = 'Send Me the Free Guide';
+    arrow.style.display = 'inline';
+    spinner.style.display = 'none';
+  }
+
+})();
+</script>
+
+<!--
+  ╔══════════════════════════════════════════════════════════════╗
+  ║   LAUNCH CHECKLIST                                          ║
+  ║                                                              ║
+  ║   1. Replace YOUR_MAILERLITE_API_KEY with your real key     ║
+  ║      → MailerLite → Integrations → API                      ║
+  ║                                                              ║
+  ║   2. Replace EBOOK_PDF_URL with the public PDF address      ║
+  ║      → Upload hero-homereach-advantage.pdf to Vercel root   ║
+  ║      → Commit, auto-deploys, then use:                      ║
+  ║        https://herohomereach.com/hero-homereach-advantage.pdf║
+  ║                                                              ║
+  ║   3. Paste this block above </body> on every page:          ║
+  ║      index.html, programs.html, who-we-serve.html,          ║
+  ║      about.html, contact.html, faq.html, blog/index.html,   ║
+  ║      and each individual blog post file.                     ║
+  ║                                                              ║
+  ║   4. The intercept runs automatically. Every existing        ║
+  ║      guide.herohomereach.com link becomes a modal trigger.   ║
+  ║      No other code changes needed.                           ║
+  ║                                                              ║
+  ║   5. GTM: The ML API call fires silently. If you want a     ║
+  ║      GA4 + Meta Pixel lead event, add a dataLayer push       ║
+  ║      inside hhmShowSuccess() above the form-hide line:       ║
+  ║      window.dataLayer = window.dataLayer || [];              ║
+  ║      window.dataLayer.push({event:'ebook_lead',              ║
+  ║        hero_type: document.getElementById('hhm-hero').value});║
+  ╚══════════════════════════════════════════════════════════════╝
+-->
 
 </body>
 </html>
