@@ -13,53 +13,21 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Public Programs vs. Private Hero Home Buying Offers: What Colorado Buyers Should Know — Hero HomeReach™</title>
-  <meta name="description" content="Not all home buying help works the same way. Learn the difference between public programs, grants, forgivable loans, and shared equity before you choose a path.">
+  <title>Learning Center — Hero HomeReach™</title>
+  <meta name="description" content="Free homebuying guides for Colorado's heroes. Down payment assistance, grants, and program explainers for educators, first responders, healthcare workers, and military members.">
 
-  <link rel="canonical" href="https://www.herohomereach.com/blog/public-vs-private-home-buying-programs/">
+  <link rel="canonical" href="https://www.herohomereach.com/blog/">
 
   <!-- Favicons -->
-  <link rel="icon" type="image/png" href="/favicon.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180x180.png">
+  <link rel="icon" type="image/png" href="../favicon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../favicon-180x180.png">
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Public Programs vs. Private Hero Home Buying Offers: What Colorado Buyers Should Know — Hero HomeReach™">
-  <meta property="og:description" content="Not all home buying help works the same way. Learn the difference between public programs, grants, forgivable loans, and shared equity before you choose a path.">
-  <meta property="og:type" content="article">
-  <meta property="og:url" content="https://www.herohomereach.com/blog/public-vs-private-home-buying-programs/">
-  <meta property="og:image" content="https://www.herohomereach.com/blog/public-vs-private-home-buying-programs/public-vs-private-programs-social.jpg">
-
-  <!-- Article Schema -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "headline": "Public Programs vs. Private Hero Home Buying Offers: What Colorado Buyers Should Know",
-    "description": "Not all home buying help works the same way. Learn the difference between public programs, grants, forgivable loans, and shared equity before you choose a path.",
-    "author": {
-      "@type": "Organization",
-      "name": "Hero HomeReach"
-    },
-    "publisher": {
-      "@type": "Organization",
-      "name": "Hero HomeReach",
-      "url": "https://www.herohomereach.com/"
-    },
-    "mainEntityOfPage": {
-      "@type": "WebPage",
-      "@id": "https://www.herohomereach.com/blog/public-vs-private-home-buying-programs/"
-    },
-    "datePublished": "2026-05-29",
-    "dateModified": "2026-05-29",
-    "about": [
-      "Colorado homebuyer assistance programs",
-      "Public vs private home buying programs",
-      "Forgivable loan home buying Colorado",
-      "Down payment assistance structure",
-      "Shared equity home buying Colorado"
-    ]
-  }
-  </script>
+  <meta property="og:title" content="Learning Center — Hero HomeReach™">
+  <meta property="og:description" content="Free homebuying guides for Colorado heroes. Down payment assistance, grants, and program explainers.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.herohomereach.com/blog/">
+  <meta property="og:image" content="https://www.herohomereach.com/logo-mark_transparent.png">
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -67,194 +35,319 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <!-- Shared + Blog styles -->
-  <link rel="stylesheet" href="/css/main.css">
-  <link rel="stylesheet" href="/css/blog.css">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/blog.css">
 
-  <style>
+<style>
 
-  /* ── Post page hero ── */
-  .post-hero {
-    background: var(--navy);
-    padding: calc(var(--nav-h) + 56px) 0 64px;
-    position: relative;
-    overflow: hidden;
-    border-bottom: 4px solid var(--gold);
-  }
-  .post-hero::before {
-    content: '';
-    position: absolute;
-    top: -80px; right: -80px;
-    width: 500px; height: 500px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(201,151,58,0.07) 0%, transparent 70%);
-  }
-  .post-hero-inner {
-    position: relative; z-index: 2;
-    max-width: 780px;
-  }
-  .post-hero-inner h1 {
-    color: #fff;
-    font-size: clamp(28px, 4vw, 46px);
-    line-height: 1.15;
-    margin-bottom: 20px;
-  }
-  .post-hero-meta {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    flex-wrap: wrap;
-  }
-  .post-hero-tag {
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--gold);
-    background: rgba(201,151,58,0.15);
-    padding: 4px 12px;
-    border-radius: 20px;
-  }
-  .post-hero-audience {
-    font-size: 11px;
-    font-weight: 600;
-    color: rgba(255,255,255,0.8);
-    background: rgba(255,255,255,0.1);
-    padding: 4px 12px;
-    border-radius: 20px;
-  }
-  .post-hero-date {
-    font-size: 13px;
-    color: rgba(255,255,255,0.45);
-  }
-  .post-hero-read-time {
-    font-size: 13px;
-    color: rgba(255,255,255,0.45);
-  }
-  .post-hero-dot {
-    width: 3px; height: 3px;
-    border-radius: 50%;
-    background: rgba(255,255,255,0.3);
-    flex-shrink: 0;
-  }
+/* ── Blog index hero ── */
+.blog-index-hero {
+  background-image:
+    linear-gradient(rgba(12, 45, 94, 0.78), rgba(12, 45, 94, 0.78)),
+    url('blog-hero.png');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  padding: calc(var(--nav-h) + 56px) 0 64px;
+}
+.blog-index-hero::before {
+  content: '';
+  position: absolute;
+  top: -80px; right: -80px;
+  width: 500px; height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(201,151,58,0.07) 0%, transparent 70%);
+  pointer-events: none;
+}
+.blog-index-hero-inner {
+  position: relative; z-index: 2;
+  max-width: 680px;
+}
+.blog-index-hero-inner h1 {
+  color: #fff;
+  font-size: clamp(32px, 5vw, 52px);
+  line-height: 1.1;
+  margin-bottom: 16px;
+}
+.blog-index-hero-inner p {
+  color: rgba(255,255,255,0.65);
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 0;
+}
+.blog-stat-bar {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  margin-top: 36px;
+  flex-wrap: wrap;
+}
+.blog-stat {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.blog-stat-num {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--gold);
+}
+.blog-stat-label {
+  font-size: 13px;
+  color: rgba(255,255,255,0.5);
+}
+.blog-stat-divider {
+  width: 1px; height: 28px;
+  background: rgba(255,255,255,0.12);
+}
 
-  /* ── Breadcrumb ── */
-  .breadcrumb {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin-bottom: 20px;
-    font-size: 13px;
-  }
-  .breadcrumb a {
-    color: rgba(255,255,255,0.5);
-    transition: color 0.2s;
-  }
-  .breadcrumb a:hover { color: var(--gold); }
-  .breadcrumb-sep { color: rgba(255,255,255,0.25); }
-  .breadcrumb-current { color: rgba(255,255,255,0.4); }
+/* ── Filter bar ── */
+.blog-filter-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid rgba(0,0,0,0.07);
+}
+.blog-filter-btn {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 8px 18px;
+  border-radius: 20px;
+  border: 1.5px solid rgba(12,45,94,0.15);
+  background: transparent;
+  color: var(--navy);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.blog-filter-btn:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+.blog-filter-btn.active {
+  background: var(--navy);
+  border-color: var(--navy);
+  color: #fff;
+}
 
-  /* ── Social Share ── */
-  .post-share {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    flex-wrap: wrap;
-  }
-  .post-share-label {
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-  }
-  .post-share-top .post-share-label { color: rgba(255,255,255,0.45); }
-  .post-share-bottom .post-share-label { color: #999; }
-  .share-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 34px; height: 34px;
-    border-radius: 50%;
-    border: none;
-    cursor: pointer;
-    transition: transform 0.2s, opacity 0.2s;
-    text-decoration: none;
-    flex-shrink: 0;
-  }
-  .share-btn:hover { transform: translateY(-2px); opacity: 0.85; }
-  .share-btn svg { width: 16px; height: 16px; fill: #fff; }
-  .share-btn-facebook { background: #1877F2; }
-  .share-btn-x        { background: #000; }
-  .share-btn-linkedin { background: #0A66C2; }
-  .share-btn-copy     { background: var(--gold); }
-  .share-btn-copy svg { fill: var(--navy); }
-  .post-share-top { margin-top: 24px; }
-  .post-share-bottom {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 24px 0;
-    border-top: 1px solid rgba(12,45,94,0.1);
-    border-bottom: 1px solid rgba(12,45,94,0.1);
-    margin-bottom: 40px;
-    flex-wrap: wrap;
-  }
-  .post-share-bottom .post-share-label { margin-right: 4px; }
-  .share-btn-copy { position: relative; }
-  .share-btn-copy.copied::after {
-    content: 'Copied!';
-    position: absolute;
-    bottom: 110%; left: 50%;
-    transform: translateX(-50%);
-    background: var(--navy);
-    color: #fff;
-    font-size: 11px;
-    font-weight: 600;
-    padding: 4px 8px;
-    border-radius: 4px;
-    white-space: nowrap;
-    pointer-events: none;
-  }
+/* ── Featured post card ── */
+.blog-featured {
+  display: block;
+  position: relative;
+  border-radius: 14px;
+  overflow: hidden;
+  margin-bottom: 48px;
+  text-decoration: none;
+  height: 480px;
+  box-shadow: 0 8px 40px rgba(12,45,94,0.18);
+  transition: box-shadow 0.3s, transform 0.3s;
+}
+.blog-featured:hover {
+  box-shadow: 0 16px 56px rgba(12,45,94,0.26);
+  transform: translateY(-2px);
+}
+.blog-featured-img {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+.blog-featured-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+.blog-featured-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background: linear-gradient(
+    to bottom,
+    rgba(12, 45, 94, 0.15) 0%,
+    rgba(12, 45, 94, 0.55) 40%,
+    rgba(12, 45, 94, 0.93) 100%
+  );
+}
+.blog-featured-body {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  z-index: 3;
+  padding: 36px 40px;
+  background: none;
+}
+.blog-featured-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold);
+  background: rgba(201,151,58,0.18);
+  border: 1px solid rgba(201,151,58,0.35);
+  padding: 4px 12px;
+  border-radius: 20px;
+  margin-bottom: 14px;
+  width: fit-content;
+}
+.blog-featured-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(22px, 3vw, 32px);
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.2;
+  margin-bottom: 14px;
+  text-shadow: 0 2px 12px rgba(0,0,0,0.3);
+}
+.blog-featured-excerpt {
+  font-size: 15px;
+  color: rgba(255,255,255,0.75);
+  line-height: 1.6;
+  margin-bottom: 18px;
+  max-width: 680px;
+}
+.blog-featured-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  color: rgba(255,255,255,0.55);
+}
+.blog-featured-meta-dot {
+  width: 3px; height: 3px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.35);
+}
+.blog-featured-read {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 18px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--gold);
+  letter-spacing: 0.04em;
+}
 
-  /* ── Quick Answer box ── */
-  .quick-answer {
-    background: rgba(201,151,58,0.07);
-    border-left: 4px solid var(--gold);
-    border-radius: 0 6px 6px 0;
-    padding: 20px 24px;
-    margin: 28px 0 32px;
-  }
-  .quick-answer-label {
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 10px;
-  }
-  .quick-answer p { margin-bottom: 0; }
+@media (max-width: 600px) {
+  .blog-featured { height: 420px; }
+  .blog-featured-body { padding: 24px; }
+  .blog-featured-excerpt { display: none; }
+}
 
-  /* ── FAQ items ── */
-  .faq-item {
-    border-bottom: 1px solid rgba(12,45,94,0.1);
-    padding: 22px 0;
-  }
-  .faq-item:first-of-type { padding-top: 0; }
-  .faq-item:last-of-type { border-bottom: none; }
-  .faq-item h3 {
-    font-size: 17px;
-    margin-bottom: 10px;
-  }
-  .faq-item p { margin-bottom: 0; }
+/* ── Post grid ── */
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  margin-bottom: 60px;
+}
+.blog-card {
+  border-radius: 10px;
+  border: 1px solid rgba(12,45,94,0.1);
+  overflow: hidden;
+  background: #fff;
+  text-decoration: none;
+  transition: box-shadow 0.2s, transform 0.2s;
+  display: flex;
+  flex-direction: column;
+}
+.blog-card:hover {
+  box-shadow: 0 6px 30px rgba(12,45,94,0.1);
+  transform: translateY(-2px);
+}
+.blog-card-img {
+  height: 180px;
+  overflow: hidden;
+  background: linear-gradient(135deg, var(--navy) 0%, #1A4A8A 100%);
+}
+.blog-card-img img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  display: block;
+}
+.blog-card-body {
+  padding: 24px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.blog-card-tag {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 10px;
+}
+.blog-card-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.3;
+  margin-bottom: 10px;
+  flex: 1;
+}
+.blog-card-excerpt {
+  font-size: 13px;
+  color: #777;
+  line-height: 1.6;
+  margin-bottom: 14px;
+}
+.blog-card-meta {
+  font-size: 12px;
+  color: #aaa;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
 
-  .related-post-thumb-link { flex-shrink:0; display:block; width:64px; height:56px; border-radius:5px; overflow:hidden; }
-  .related-post-thumb-img { width:100%; height:100%; object-fit:cover; display:block; transition:transform 0.2s; }
-  .related-post-item:hover .related-post-thumb-img { transform:scale(1.05); }
-  </style>
+/* ── No results state ── */
+.blog-no-results {
+  display: none;
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 60px 20px;
+  color: #999;
+}
+.blog-no-results h3 {
+  font-family: 'Playfair Display', Georgia, serif;
+  color: var(--navy);
+  margin-bottom: 8px;
+}
+.blog-no-results button {
+  margin-top: 16px;
+  padding: 10px 24px;
+  background: var(--navy);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .blog-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+  .blog-grid { grid-template-columns: 1fr; }
+  .blog-featured-body { padding: 24px; }
+  .blog-stat-bar { gap: 20px; }
+}
+</style>
 
   <!-- Calendly popup -->
   <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
   <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
-
 </head>
 <body>
 
@@ -267,25 +360,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- ════════════ NAVIGATION ════════════ -->
 <nav id="nav" class="nav-solid">
   <div class="nav-inner">
-    <a href="/" class="nav-logo">
-      <img src="/logo-mark_transparent.png" alt="Hero HomeReach Shield" style="width:50px;height:50px;object-fit:contain;">
+    <a href="../" class="nav-logo">
+      <img src="../logo-mark_transparent.png" alt="Hero HomeReach Shield" style="width:50px;height:50px;object-fit:contain;">
       <div>
         <div class="nav-wordmark">Hero <span>HomeReach</span><sup class="nav-tm">™</sup></div>
       </div>
     </a>
-
     <ul class="nav-links">
-      <li><a href="/programs.html">Programs</a></li>
-      <li><a href="/who-we-serve.html">Who We Serve</a></li>
-      <li><a href="/blog/" class="active">Learning Center</a></li>
+      <li><a href="../programs.html">Programs</a></li>
+      <li><a href="../who-we-serve.html">Who We Serve</a></li>
+      <li><a href="../blog/" class="active">Learning Center</a></li>
       <li><a href="/faq">DPA FAQ</a></li>
       <li><a href="https://guide.herohomereach.com" target="_blank" style="color:var(--bright-gold);font-weight:700;">Free Guide</a></li>
     </ul>
-
     <div class="nav-cta">
-      <a href="/contact.html" class="btn btn-gold btn-arrow">Book Free Consultation</a>
+      <a href="../contact.html" class="btn btn-gold btn-arrow">Book Free Consultation</a>
     </div>
-
     <div class="nav-hamburger" id="hamburger" onclick="toggleMobileNav()">
       <span></span><span></span><span></span>
     </div>
@@ -294,355 +384,220 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <!-- Mobile Nav -->
 <div id="mobile-nav">
-  <a href="/programs.html" onclick="toggleMobileNav()">Programs</a>
-  <a href="/who-we-serve.html" onclick="toggleMobileNav()">Who We Serve</a>
-  <a href="/blog/" onclick="toggleMobileNav()">Learning Center</a>
-  <a href="/faq/" onclick="toggleMobileNav()">Homebuyers FAQ</a>
+  <a href="../programs.html" onclick="toggleMobileNav()">Programs</a>
+  <a href="../who-we-serve.html" onclick="toggleMobileNav()">Who We Serve</a>
+  <a href="../blog/" onclick="toggleMobileNav()">Learning Center</a>
+  <a href="../faq/" onclick="toggleMobileNav()">Homebuyers FAQ</a>
   <a href="https://guide.herohomereach.com" target="_blank" onclick="toggleMobileNav()" style="color:var(--bright-gold);">Free Guide</a>
-  <a href="/contact.html" class="btn btn-gold" style="margin-top:16px;font-size:16px;">Book Free Consultation</a>
+  <a href="../contact.html" class="btn btn-gold" style="margin-top:16px;font-size:16px;">Book Free Consultation</a>
 </div>
 
 
-<!-- ════════════ POST HERO ════════════ -->
-<div class="post-hero">
+<!-- ════════════ BLOG HERO ════════════ -->
+<div class="blog-index-hero">
   <div class="container">
-    <div class="post-hero-inner">
-
-      <!-- Breadcrumb -->
-      <div class="breadcrumb">
-        <a href="/">Home</a>
-        <span class="breadcrumb-sep">›</span>
-        <a href="/blog/">Learning Center</a>
-        <span class="breadcrumb-sep">›</span>
-        <span class="breadcrumb-current">Public Programs vs. Private Offers</span>
+    <div class="blog-index-hero-inner">
+      <h1>The Hero HomeReach Learning Center</h1>
+      <p>Plain-English guides on down payment assistance, grants, and homebuying programs for educators, first responders, healthcare workers, and military members.</p>
+      <div class="blog-stat-bar">
+        <div class="blog-stat">
+          <span class="blog-stat-num">Free</span>
+          <span class="blog-stat-label">Always free guidance</span>
+        </div>
+        <div class="blog-stat-divider"></div>
+        <div class="blog-stat">
+          <span class="blog-stat-num">CO</span>
+          <span class="blog-stat-label">Colorado focused</span>
+        </div>
       </div>
-
-      <!-- Post headline -->
-      <h1>Public Programs vs. Private Hero Home Buying Offers: What Colorado Buyers Should Know</h1>
-
-      <!-- Post meta row -->
-      <div class="post-hero-meta">
-        <span class="post-hero-tag">Explainer</span>
-        <span class="post-hero-audience">All Heroes</span>
-        <span class="post-hero-dot"></span>
-        <span class="post-hero-date">Last reviewed May 2026</span>
-        <span class="post-hero-dot"></span>
-        <span class="post-hero-read-time">8 min read</span>
-      </div>
-
-      <!-- Share — top -->
-      <div class="post-share post-share-top">
-        <span class="post-share-label">Share</span>
-        <a class="share-btn share-btn-facebook" id="share-fb-top" href="#" target="_blank" rel="noopener" aria-label="Share on Facebook">
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.413c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/></svg>
-        </a>
-        <a class="share-btn share-btn-x" id="share-x-top" href="#" target="_blank" rel="noopener" aria-label="Share on X">
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.253 5.622 5.911-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-        </a>
-        <a class="share-btn share-btn-linkedin" id="share-li-top" href="#" target="_blank" rel="noopener" aria-label="Share on LinkedIn">
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-        </a>
-        <button class="share-btn share-btn-copy" id="copy-top" aria-label="Copy link">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><path d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 00-6.364-6.364l-4.5 4.5a4.5 4.5 0 001.242 7.244"/></svg>
-        </button>
-      </div>
-
     </div>
   </div>
 </div>
 
 
-<!-- ════════════ POST BODY ════════════ -->
+<!-- ════════════ BLOG CONTENT ════════════ -->
 <section class="section">
   <div class="container">
-    <div class="post-layout">
 
-      <!-- ── LEFT: Article ── -->
-      <article class="post-article">
-        <div class="post-body">
-
-          <p>A Colorado firefighter spent three weeks researching home buying assistance online. By the time he sat down with a lender, he had a list of programs that seemed to overlap, contradict, and compete with each other. Some looked like government programs. Some looked like private services. Some offered grants. Some offered shared savings. Some required working with a specific realtor. He did not know what he was actually evaluating. That confusion is not unusual. It is the norm.</p>
-
-          <p>This guide explains the difference between public homebuyer assistance programs and private home buying offers, breaks down the four main structures assistance can take, and gives you the specific questions to ask before you commit to any path.</p>
-
-          <!-- Quick Answer -->
-          <div class="quick-answer">
-            <div class="quick-answer-label">Quick Answer</div>
-            <p>Not all home buying assistance works the same way. Some options come from public programs administered by government agencies and housing finance authorities. Some come from private referral networks, lender incentives, or realtor rebates. The structure behind the assistance, whether it is a grant, a forgivable loan, a deferred second mortgage, or a shared-equity arrangement, matters more than the headline savings number. Colorado heroes deserve clear information before choosing a lender, realtor, or program path.</p>
-          </div>
-
-
-          <!-- ── SECTION 1 ── -->
-          <h2 id="the-problem">Everybody Seems to Offer Help. That Is the Problem.</h2>
-
-          <p>Spend enough time researching home buying assistance online and a pattern starts to appear. Everyone talks about helping. Everyone talks about savings. Everyone talks about benefits. Everyone talks about programs. But those words often describe completely different things.</p>
-
-          <p>One website may be discussing a state-supported down payment assistance program. Another may be describing a forgivable loan. Another may be discussing a lender credit. Another may be operating a referral network. Another may be offering a shared-equity arrangement.</p>
-
-          <p>To a busy Colorado teacher, firefighter, EMT, nurse, veteran, or public service professional, all of those options can start sounding the same. They are not. And understanding the difference may be one of the most important financial decisions you make during the homebuying process.</p>
-
-          <p>Hero HomeReach exists because the homebuyer assistance map should not be hidden behind jargon, marketing language, or confusing acronyms. This guide is designed to make that map clearer before the pressure starts.</p>
-
-
-          <!-- ── SECTION 2 ── -->
-          <h2 id="public-programs">What Counts as a Public Homebuyer Assistance Program?</h2>
-
-          <p>Public homebuyer assistance programs are generally administered by government agencies, housing finance authorities, municipalities, housing authorities, or public-purpose organizations. Examples Colorado buyers may encounter include:</p>
-
-          <ul>
-            <li><strong>CHFA programs</strong>, administered by the Colorado Housing and Finance Authority statewide</li>
-            <li><strong>MetroDPA</strong>, sponsored by the City and County of Denver for Front Range buyers</li>
-            <li><strong>VA home loan benefits</strong>, administered through the U.S. Department of Veterans Affairs</li>
-            <li><strong>HUD housing initiatives</strong>, including the Good Neighbor Next Door program for first responders</li>
-            <li><strong>Local city and county programs</strong> operated by municipalities throughout Colorado</li>
-            <li><strong>The Colorado Champions Home Loan Program</strong>, established under SB26-053 to expand CHFA mortgage eligibility for first responders</li>
-          </ul>
-
-          <p>Public programs typically share several characteristics that help buyers evaluate them clearly.</p>
-
-          <p><strong>Published rules.</strong> Eligibility requirements are usually documented publicly. Income limits, credit requirements, and program guidelines can typically be reviewed before speaking with anyone.</p>
-
-          <p><strong>Defined program structure.</strong> Buyers can usually review how the assistance works, whether repayment is required, and what happens at sale or refinance, before committing to anything.</p>
-
-          <p><strong>Public oversight.</strong> These programs are administered through established government or quasi-government organizations rather than private marketing arrangements.</p>
-
-          <p><strong>Consistent standards.</strong> The rules apply broadly to eligible buyers rather than being customized around one company's business model or referral relationships.</p>
-
-          <p>That does not mean every public program is perfect for every buyer. It simply means buyers usually have access to clearer documentation and more transparency regarding how the assistance works. For a deeper look at two of Colorado's most widely available public programs, see our guides on <a href="/blog/chfa-loan-colorado-2026-guide/">CHFA down payment assistance</a> and <a href="../colorado-firefighter-emt-home-buying-help.html">Colorado first responder home buying programs</a>.</p>
-
-
-          <!-- ── SECTION 3 ── -->
-          <h2 id="private-offers">What Counts as a Private Hero Home Buying Offer?</h2>
-
-          <p>Private home buying offers come in many forms. Some may involve referral networks, participating lender networks, participating realtor networks, marketing partnerships, rebates, credits, private benefit programs, or membership-based programs.</p>
-
-          <p>The important thing to understand is this: private does not automatically mean bad. Many private programs provide real value. The key distinction is that private programs often operate differently than public assistance programs, and buyers may not immediately understand how the model works or what tradeoffs are involved.</p>
-
-          <p>Before participating in any private program, a buyer should understand:</p>
-
-          <ul>
-            <li>Who funds the benefit and why</li>
-            <li>How the business model works</li>
-            <li>Whether specific professionals, such as a particular lender or realtor, must be used to access the savings</li>
-            <li>Whether savings are guaranteed or estimated</li>
-            <li>Whether there are tradeoffs attached to participation</li>
-          </ul>
-
-          <p>The goal is not to assume one category is automatically better than the other. The goal is understanding what type of assistance you are evaluating. A better plan starts with better questions, not better marketing.</p>
-
-
-          <!-- ── SECTION 4 ── -->
-          <h2 id="program-structures">Grant, Forgivable Loan, Deferred Mortgage, or Shared Equity?</h2>
-
-          <p>This is where many buyers get confused. Several programs may advertise assistance. The structure behind that assistance can be very different. Understanding the structure before you commit to anything is one of the most valuable things you can do during the homebuying process.</p>
-
-          <blockquote>
-            <p>The better question is not "How much help is being advertised?" The better question is "How does the assistance actually work, and what are the terms five or ten years from now?"</p>
-          </blockquote>
-
-          <p><strong>Grant.</strong> A grant may provide funds that generally do not need to be repaid if program requirements are met. The exact rules vary by program. Some grants have occupancy requirements. Some have income recapture provisions if a buyer sells within a defined period. Reading the conditions still matters, even with a grant.</p>
-
-          <p><strong>Forgivable loan.</strong> A forgivable loan starts as a loan. However, all or part of the balance may be forgiven if the borrower satisfies certain conditions. Common examples include remaining in the home for a required number of years, meeting occupancy requirements, and complying with program guidelines. If a buyer sells or moves before the forgiveness period ends, repayment of some or all of the balance may be required.</p>
-
-          <p><strong>Deferred second mortgage.</strong> A deferred second mortgage usually does not require monthly payments immediately. Repayment may occur later when the home is sold, the property is refinanced, the first mortgage is paid off, or when occupancy requirements are no longer met. This does not make deferred assistance bad. It simply means buyers should understand what they are agreeing to before they close, not after.</p>
-
-          <p><strong>Shared equity.</strong> Shared equity is different from the other structures. A buyer may receive assistance upfront. In exchange, they agree to share a portion of the home's future appreciation when repayment occurs. This structure may reduce the upfront cash needed to buy a home. However, it may also reduce future profit because a portion of appreciation is shared with the program provider. Shared equity is not good or bad by nature. It is a tradeoff that every buyer should understand clearly before agreeing to it.</p>
-
-          <div class="post-callout">
-            <p><strong>Important:</strong> Two programs could advertise the same dollar amount of assistance. One might be a grant. One might be a deferred second mortgage. One might be a shared-equity arrangement. Those outcomes could look very different five or ten years from now. Always ask about the structure, not just the headline number. For a plain-English breakdown of each type, see our guide on <a href="../colorado-down-payment-assistance-types.html">forgivable loans, grants, and deferred mortgages explained</a>.</p>
-          </div>
-
-
-          <!-- ── SECTION 5 ── -->
-          <h2 id="why-structure-matters">Why Structure Matters More Than Marketing</h2>
-
-          <p>Many buyers focus on the advertised savings. That is understandable. Buying a home in Colorado can feel overwhelming, especially when upfront cash becomes the wall between renting and owning.</p>
-
-          <p>But chasing the biggest headline number without understanding the structure is how buyers end up surprised at closing, or more often, surprised years later when they sell or refinance and discover a repayment obligation they had either forgotten about or never fully understood.</p>
-
-          <p>Consider a straightforward example. An EMT buying a $425,000 home in the Denver metro area is comparing two options. Option A offers $12,000 as a deferred second mortgage that comes due when the home is sold or refinanced. Option B offers $9,000 as a non-repayable grant if the buyer remains in the home for at least three years. Option A has a larger headline number. Option B may provide more lasting value depending on how long the buyer plans to stay and what their exit plans look like.</p>
-
-          <p>The right choice depends entirely on your specific situation. Understanding the structure is what makes that comparison possible in the first place.</p>
-
-
-          <!-- ── SECTION 6 ── -->
-          <h2 id="questions-to-ask">Questions Every Colorado Hero Buyer Should Ask</h2>
-
-          <p>Before choosing any homebuyer assistance path, public or private, these questions help you understand what you are actually evaluating.</p>
-
-          <ul>
-            <li><strong>Who funds the assistance?</strong> Understanding the source helps clarify the purpose and structure behind the program.</li>
-            <li><strong>Is repayment required?</strong> Not all assistance works the same way. Get a clear answer before moving forward.</li>
-            <li><strong>When would repayment happen?</strong> Selling, refinancing, or changes in occupancy may trigger repayment in certain programs.</li>
-            <li><strong>What happens if the home increases in value?</strong> This is especially important with shared-equity arrangements.</li>
-            <li><strong>Can this assistance be combined with other programs?</strong> Some options may work alongside CHFA or local city programs. Others may not be stackable.</li>
-            <li><strong>Am I required to use a specific lender or realtor?</strong> Some private models are built around participating professionals. Know this before you commit to any path.</li>
-            <li><strong>What fees or tradeoffs exist?</strong> Clear information should never be difficult to find. If it is, that itself tells you something important.</li>
-          </ul>
-
-          <p>The goal is not to become a mortgage expert overnight. The goal is to ask better questions before making major decisions. A few minutes spent on these questions before choosing a path can prevent significant confusion after.</p>
-
-
-          <!-- ── SECTION 7 ── -->
-          <h2 id="our-approach">Why Hero HomeReach Takes a Different Approach</h2>
-
-          <p>Hero HomeReach was built around a simple belief: Colorado public service professionals deserve clear information before they choose a lender, realtor, or program path. That means explaining assistance in plain English, breaking down confusing terminology, showing the differences between program structures, helping buyers understand tradeoffs, and making the map clearer before the pressure starts.</p>
-
-          <p>The goal is not hype. The goal is not promises. The goal is not turning every question into a sales funnel. The goal is helping Colorado heroes understand what options may be worth exploring and what questions to ask next.</p>
-
-          <p>If you are beginning your research, a few starting points that may help:</p>
-
-          <ul>
-            <li><a href="/programs.html">Colorado home buying assistance programs overview</a></li>
-            <li><a href="/blog/chfa-loan-colorado-2026-guide/">CHFA grant and second mortgage options</a></li>
-            <li><a href="../down-payment-assistance-teachers-colorado.html">Teacher home buying assistance in Colorado</a></li>
-            <li><a href="../colorado-firefighter-emt-home-buying-help.html">First responder and firefighter programs</a></li>
-            <li><a href="../va-loan-down-payment-assistance-colorado.html">VA loan benefits for Colorado veterans</a></li>
-            <li><a href="../healthcare-worker-home-grants-colorado-2026.html">Healthcare worker homeownership resources</a></li>
-          </ul>
-
-          <p>Each path may look a little different. The important thing is understanding the map before entering the mortgage maze.</p>
-
-
-          <!-- ── FAQ ── -->
-          <h2 id="faq">Frequently Asked Questions</h2>
-
-          <div class="faq-item">
-            <h3>Are public homebuyer assistance programs better than private offers?</h3>
-            <p>Not necessarily. Public and private options serve different purposes. The important question is understanding how the assistance works, what tradeoffs exist, and whether the structure fits your specific goals and timeline.</p>
-          </div>
-
-          <div class="faq-item">
-            <h3>Is a grant the same as a forgivable loan?</h3>
-            <p>No. A grant may not require repayment if program rules are followed. A forgivable loan begins as a loan but may be forgiven after certain requirements are met, such as remaining in the home for a required number of years. The distinction matters significantly if you plan to sell or refinance within a few years.</p>
-          </div>
-
-          <div class="faq-item">
-            <h3>What is shared equity?</h3>
-            <p>Shared equity allows a buyer to receive assistance upfront in exchange for sharing a portion of the home's future appreciation when repayment occurs. It may reduce the upfront cash needed to buy, but it may also reduce future profit at sale. Understanding the exact terms before agreeing is essential.</p>
-          </div>
-
-          <div class="faq-item">
-            <h3>Can homebuyer assistance be combined?</h3>
-            <p>Sometimes. Some programs may be combined with others, while some may have restrictions against stacking. Program rules, loan type, lender guidelines, and property location all affect whether combining programs is possible in a given situation.</p>
-          </div>
-
-          <div class="faq-item">
-            <h3>Why does Hero HomeReach focus on explaining program structures?</h3>
-            <p>Because understanding the structure often matters more than the marketing. Colorado heroes make better decisions when they understand how assistance works before they move forward, not after they have already committed to a path.</p>
-          </div>
-
-
-          <!-- ── CLOSING ── -->
-          <h2 id="next-steps">Your Next Step</h2>
-
-          <p>Not all homebuyer assistance is created equal. Some programs may reduce upfront cash. Some may involve repayment later. Some may be grants. Some may be shared-equity arrangements. Some may involve public programs. Some may involve private models. The best choice is not always the one with the biggest headline. The best choice is the one you understand.</p>
-
-          <p>Hero HomeReach helps Colorado veterans, military families, educators, first responders, healthcare workers, and other public service professionals understand homebuyer assistance in plain English before choosing a lender, realtor, or program path. Start with a clearer map, explore your options, and take the next step with more confidence.</p>
-
+    <!-- Filter bar -->
+    <div class="blog-filter-bar">
+      <button class="blog-filter-btn active" onclick="filterPosts('all', this)">All Guides</button>
+      <button class="blog-filter-btn" onclick="filterPosts('educators', this)">Educators</button>
+      <button class="blog-filter-btn" onclick="filterPosts('first-responders', this)">First Responders</button>
+      <button class="blog-filter-btn" onclick="filterPosts('healthcare', this)">Healthcare</button>
+      <button class="blog-filter-btn" onclick="filterPosts('military', this)">Military &amp; Veterans</button>
+      <button class="blog-filter-btn" onclick="filterPosts('programs', this)">Programs</button>
+    </div>
+
+    <!-- ── FEATURED POST ── -->
+    <a href="va-loan-down-payment-assistance-colorado" class="blog-featured" data-audience="military programs">
+      <div class="blog-featured-img">
+        <img src="va-loan-down-payment-assistance-colorado.png" alt="VA Loan Down Payment Assistance Colorado" />
+      </div>
+      <div class="blog-featured-overlay"></div>
+      <div class="blog-featured-body">
+        <span class="blog-featured-tag">Program Guide · Military &amp; Veterans</span>
+        <div class="blog-featured-title">VA Loan Down Payment Assistance in Colorado: What Veterans Should Know</div>
+        <p class="blog-featured-excerpt">Your VA loan benefit may open the door. But "zero down" does not always mean "zero cash needed." Here's what Colorado veterans should know about CHFA, metroDPA, and stacking benefits to cover closing costs.</p>
+        <div class="blog-featured-meta">
+          <span>May 2026</span>
+          <span class="blog-featured-meta-dot"></span>
+          <span>12 min read</span>
+          <span class="blog-featured-meta-dot"></span>
+          <span>Trent Rogelstad</span>
         </div>
-        <!-- /post-body -->
+        <span class="blog-featured-read">Read the guide →</span>
+      </div>
+    </a>
 
-        <!-- Share — bottom -->
-        <div class="post-share post-share-bottom">
-          <span class="post-share-label">Found this helpful? Share it.</span>
-          <a class="share-btn share-btn-facebook" id="share-fb-bottom" href="#" target="_blank" rel="noopener" aria-label="Share on Facebook">
-            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.413c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/></svg>
-          </a>
-          <a class="share-btn share-btn-x" id="share-x-bottom" href="#" target="_blank" rel="noopener" aria-label="Share on X">
-            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.253 5.622 5.911-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-          </a>
-          <a class="share-btn share-btn-linkedin" id="share-li-bottom" href="#" target="_blank" rel="noopener" aria-label="Share on LinkedIn">
-            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-          </a>
-          <button class="share-btn share-btn-copy" id="copy-bottom" aria-label="Copy link">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><path d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 00-6.364-6.364l-4.5 4.5a4.5 4.5 0 001.242 7.244"/></svg>
-          </button>
+    <!-- ── POST GRID ── -->
+    <div class="blog-grid" id="postGrid">
+
+      <!-- Educators -->
+      <a href="down-payment-assistance-teachers-colorado" class="blog-card" data-audience="educators">
+        <div class="blog-card-img">
+          <img src="down-payment-assistance-teachers-colorado.png" alt="Colorado teacher researching home buying assistance" />
         </div>
-
-        <!-- ── CTA STRIP ── -->
-        <div class="post-cta-strip">
-          <div>
-            <h3>Find Out What You Qualify For</h3>
-            <p>Every hero's situation is different. Book a free 30-minute call and we'll walk through exactly which Colorado programs apply to you.</p>
-          </div>
-          <a href="/contact.html" class="btn btn-gold btn-arrow">Book My Free Consultation</a>
-        </div>
-
-      </article>
-      <!-- /post-article -->
-
-
-      <!-- ── RIGHT: Sidebar ── -->
-      <aside class="post-sidebar">
-
-        <!-- CTA Card -->
-        <div class="sidebar-card">
-          <div class="sidebar-card-title">Free Consultation</div>
-          <p>Not sure which programs apply to you? Book a free 30-minute call. We'll walk through your specific situation, no obligation, no pressure.</p>
-          <a href="/contact.html" class="btn btn-gold btn-arrow">Book My Free Call</a>
-        </div>
-
-        <!-- Table of Contents -->
-        <div class="sidebar-card">
-          <div class="sidebar-card-title">In This Guide</div>
-          <ul class="toc-list">
-            <li><a href="#the-problem">The Problem With "Help"</a></li>
-            <li><a href="#public-programs">Public Programs Explained</a></li>
-            <li><a href="#private-offers">Private Offers: What to Know</a></li>
-            <li><a href="#program-structures">4 Ways Assistance Is Structured</a></li>
-            <li><a href="#why-structure-matters">Why Structure Beats Marketing</a></li>
-            <li><a href="#questions-to-ask">Questions to Ask First</a></li>
-            <li><a href="#faq">FAQ</a></li>
-            <li><a href="#next-steps">Your Next Step</a></li>
-          </ul>
-        </div>
-
-        <!-- Related Posts -->
-        <div class="sidebar-card">
-          <div class="sidebar-card-title">Related Guides</div>
-
-          <div class="related-post-item">
-            <a href="/blog/colorado-firefighter-emt-home-buying-help.html" class="related-post-thumb-link">
-              <img src="/blog/colorado-firefighter-emt-home-buying-help.png" alt="Colorado Firefighter EMT Home Buying Help" class="related-post-thumb-img">
-            </a>
-            <div>
-              <a href="/blog/colorado-firefighter-emt-home-buying-help.html" class="related-post-title">Colorado Firefighter &amp; EMT Home Buying Help</a>
-              <div class="related-post-date">May 2026</div>
-            </div>
-          </div>
-
-          <div class="related-post-item">
-            <a href="/blog/chfa-loan-colorado-2026-guide/" class="related-post-thumb-link">
-              <img src="/blog/chfa-loan-colorado-2026-guide.png" alt="CHFA Loan Colorado 2026 Guide" class="related-post-thumb-img">
-            </a>
-            <div>
-              <a href="/blog/chfa-loan-colorado-2026-guide/" class="related-post-title">CHFA Down Payment Assistance: Complete Guide</a>
-              <div class="related-post-date">May 2026</div>
-            </div>
-          </div>
-
-          <div class="related-post-item">
-            <div class="related-post-thumb"></div>
-            <div>
-              <a href="../colorado-down-payment-assistance-types.html" class="related-post-title">Forgivable Loans vs. Grants vs. Deferred Mortgages Explained</a>
-              <div class="related-post-date">May 2026</div>
-            </div>
+        <div class="blog-card-body">
+          <div class="blog-card-tag">Educators</div>
+          <div class="blog-card-title">Down Payment Assistance for Colorado Teachers: Grants, CHFA, and What to Check First</div>
+          <p class="blog-card-excerpt">CHFA, SB25-167, Good Neighbor Next Door, and what to ask before private teacher-benefit programs. Here is what Colorado educators should check first.</p>
+          <div class="blog-card-meta">
+            <span>May 2026</span><span>·</span><span>14 min read</span>
           </div>
         </div>
+      </a>
 
-        <!-- Free Guide CTA -->
-        <div class="sidebar-card" style="background:var(--navy);border-color:rgba(201,151,58,0.3);">
-          <div class="sidebar-card-title" style="color:var(--gold);border-bottom-color:rgba(201,151,58,0.3);">Free Hero Homebuyer Guide</div>
-          <p style="color:rgba(255,255,255,0.7);">Get the complete breakdown of every Colorado program available to heroes. Free download, no strings attached.</p>
-          <a href="https://guide.herohomereach.com" target="_blank" class="btn btn-gold btn-arrow">Get the Free Guide</a>
+      <!-- First Responders -->
+      <a href="colorado-firefighter-emt-home-buying-help" class="blog-card" data-audience="first-responders">
+        <div class="blog-card-img">
+          <img src="colorado-firefighter-emt-home-buying-help.png" alt="Colorado firefighters and EMTs learning about home buying help" />
         </div>
+        <div class="blog-card-body">
+          <div class="blog-card-tag">First Responders</div>
+          <div class="blog-card-title">Colorado First Responder Home Buying Help: Down Payment Assistance for Firefighters and EMTs</div>
+          <p class="blog-card-excerpt">CHFA, metroDPA, Firefighter Next Door, HUD Good Neighbor Next Door, and the new Colorado Champions Home Loan Program. Here is what first responders should know before house hunting.</p>
+          <div class="blog-card-meta">
+            <span>May 2026</span><span>·</span><span>15 min read</span>
+          </div>
+        </div>
+      </a>
 
-      </aside>
-      <!-- /post-sidebar -->
+      <!-- Champions Home Loan -->
+      <a href="colorado-champions-home-loan-program/" class="blog-card" data-audience="first-responders programs">
+        <div class="blog-card-img">
+          <img src="colorado-champions-home-loan-program/hero.jpg" alt="Colorado first responder learning about the Colorado Champions Home Loan Program" />
+        </div>
+        <div class="blog-card-body">
+          <div class="blog-card-tag">First Responders · Program Guide</div>
+          <div class="blog-card-title">Colorado Champions Home Loan Program Explained for First Responders</div>
+          <p class="blog-card-excerpt">SB26-053 expanded CHFA mortgage access for firefighters, EMTs, 911 operators, and more. Here is what it actually means, and how it differs from private hero offers.</p>
+          <div class="blog-card-meta">
+            <span>May 2026</span><span>·</span><span>12 min read</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- DPA Types -->
+      <a href="colorado-down-payment-assistance-types" class="blog-card" data-audience="programs">
+        <div class="blog-card-img">
+          <img src="colorado-down-payment-assistance-types.png" alt="Colorado heroes learning about down payment assistance types" />
+        </div>
+        <div class="blog-card-body">
+          <div class="blog-card-tag">Programs</div>
+          <div class="blog-card-title">Colorado Down Payment Assistance: 3 Types Every Hero Should Know</div>
+          <p class="blog-card-excerpt">Grant, forgivable loan, or deferred second mortgage? The type of assistance matters as much as the amount. Here is how to tell the difference before you sign anything.</p>
+          <div class="blog-card-meta">
+            <span>May 2026</span><span>·</span><span>13 min read</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Healthcare -->
+      <a href="healthcare-worker-home-grants-colorado-2026" class="blog-card" data-audience="healthcare">
+        <div class="blog-card-img">
+          <img src="healthcare-worker-home-grants-colorado-2026.png" alt="Colorado nurse reviewing home buying options" />
+        </div>
+        <div class="blog-card-body">
+          <div class="blog-card-tag">Healthcare Workers</div>
+          <div class="blog-card-title">Healthcare Worker Home Grants in Colorado: What May Be Available in 2026</div>
+          <p class="blog-card-excerpt">Nurses, hospital workers, and healthcare professionals may qualify for CHFA, metroDPA, Chenoa Fund, and other assistance. Here is what to check before you start house hunting.</p>
+          <div class="blog-card-meta">
+            <span>May 2026</span><span>·</span><span>14 min read</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- CHFA Guide -->
+      <a href="chfa-loan-colorado-2026-guide" class="blog-card" data-audience="programs">
+        <div class="blog-card-img">
+          <img src="chfa-loan-colorado-2026-guide.png" alt="Colorado couple reviewing CHFA loan documents" />
+        </div>
+        <div class="blog-card-body">
+          <div class="blog-card-tag">Programs</div>
+          <div class="blog-card-title">CHFA Loan Colorado 2026: The Complete Guide for Hero Homebuyers</div>
+          <p class="blog-card-excerpt">Grant or deferred second mortgage? CHFA is Colorado's most important homebuyer resource, but the details matter. Here is the complete plain-English breakdown.</p>
+          <div class="blog-card-meta">
+            <span>May 2026</span><span>·</span><span>16 min read</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Stacking -->
+      <a href="how-to-stack-down-payment-programs-colorado" class="blog-card" data-audience="programs">
+        <div class="blog-card-img">
+          <img src="how-to-stack-down-payment-programs-colorado.png" alt="Colorado family in front of their new home" />
+        </div>
+        <div class="blog-card-body">
+          <div class="blog-card-tag">Programs</div>
+          <div class="blog-card-title">How to Stack Down Payment Programs in Colorado: The $67,000 Strategy</div>
+          <p class="blog-card-excerpt">How Colorado heroes combine Teacher Next Door, metroDPA, Chenoa Fund, and seller concessions to dramatically reduce upfront homebuying costs.</p>
+          <div class="blog-card-meta">
+            <span>May 2026</span><span>·</span><span>13 min read</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Essential Workers -->
+      <a href="colorado-home-buying-programs-essential-workers-2026/" class="blog-card" data-audience="all">
+        <div class="blog-card-img">
+          <img src="colorado-home-buying-programs-essential-workers-2026/card.jpg" alt="Teacher, firefighter, and nurse standing in front of a Colorado home" />
+        </div>
+        <div class="blog-card-body">
+          <div class="blog-card-tag">All Heroes</div>
+          <div class="blog-card-title">Colorado Home Buying Programs for Essential Workers in 2026</div>
+          <p class="blog-card-excerpt">Teachers, nurses, firefighters, and first responders may have more Colorado home buying options than they realize. Here is how the new programs actually work.</p>
+          <div class="blog-card-meta">
+            <span>May 2026</span><span>·</span><span>9 min read</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- ✅ NEW — Public vs Private Programs -->
+      <a href="public-vs-private-home-buying-programs/" class="blog-card" data-audience="programs">
+        <div class="blog-card-img">
+          <img src="public-vs-private-home-buying-programs/card.jpg" alt="Colorado hero buyer comparing public programs vs private home buying offers" />
+        </div>
+        <div class="blog-card-body">
+          <div class="blog-card-tag">Programs · Explainer</div>
+          <div class="blog-card-title">Public Programs vs. Private Hero Home Buying Offers: What Colorado Buyers Should Know</div>
+          <p class="blog-card-excerpt">Not all home buying help works the same way. Grant, forgivable loan, deferred mortgage, or shared equity — the structure behind the assistance matters more than the headline number.</p>
+          <div class="blog-card-meta">
+            <span>May 2026</span><span>·</span><span>8 min read</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- No results state -->
+      <div class="blog-no-results" id="noResults" style="display:none;">
+        <h3>No guides in this category yet.</h3>
+        <p>New guides are published regularly. Check back soon.</p>
+        <button onclick="filterPosts('all', document.querySelector('.blog-filter-btn'))">View All Guides</button>
+      </div>
 
     </div>
-    <!-- /post-layout -->
+    <!-- /post grid -->
+
   </div>
 </section>
 
@@ -657,33 +612,31 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
       <div class="footer-col">
         <div class="footer-col-title">Site</div>
-        <a href="/programs.html">Programs</a>
-        <a href="/who-we-serve.html">Who We Serve</a>
-        <a href="/about.html">About</a>
-        <a href="/blog/">Learning Center</a>
-        <a href="/contact.html">Contact</a>
+        <a href="../programs.html">Programs</a>
+        <a href="../who-we-serve.html">Who We Serve</a>
+        <a href="../blog/">Learning Center</a>
+        <a href="../contact.html">Contact</a>
       </div>
       <div class="footer-col">
         <div class="footer-col-title">Heroes</div>
-        <a href="/who-we-serve.html#educators">Educators</a>
-        <a href="/who-we-serve.html#first-responders">First Responders</a>
-        <a href="/who-we-serve.html#healthcare">Healthcare Workers</a>
-        <a href="/who-we-serve.html#military">Military Members</a>
+        <a href="../who-we-serve.html#educators">Educators</a>
+        <a href="../who-we-serve.html#first-responders">First Responders</a>
+        <a href="../who-we-serve.html#healthcare">Healthcare Workers</a>
+        <a href="../who-we-serve.html#military">Military Members</a>
       </div>
       <div class="footer-col">
         <div class="footer-col-title">Start Here</div>
-        <a href="/contact.html">Book Free Consultation</a>
-        <a href="/programs.html">Explore Programs</a>
-        <a href="/blog/">Learning Center</a>
+        <a href="../contact.html">Book Free Consultation</a>
+        <a href="../programs.html">Explore Programs</a>
+        <a href="../blog/">Learning Center</a>
       </div>
     </div>
-
     <div class="footer-bottom">
       <div class="footer-copy">© 2026 Hero HomeReach™. All rights reserved. Colorado Homeownership Guidance.</div>
       <div class="footer-legal">
-        <a href="/privacy.html">Privacy Policy</a>
-        <a href="/terms.html">Terms of Use</a>
-        <a href="/disclaimer.html">Disclaimer</a>
+        <a href="../privacy.html">Privacy Policy</a>
+        <a href="../terms.html">Terms of Use</a>
+        <a href="../disclaimer.html">Disclaimer</a>
       </div>
     </div>
   </div>
@@ -702,6 +655,35 @@ function toggleMobileNav() {
   document.getElementById('mobile-nav').classList.toggle('open');
 }
 
+// ── CATEGORY FILTER ──
+function filterPosts(category, btn) {
+  document.querySelectorAll('.blog-filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+
+  const featured = document.querySelector('.blog-featured');
+  if (featured) {
+    const audiences = featured.dataset.audience || '';
+    featured.style.display = (category === 'all' || audiences.includes(category)) ? 'block' : 'none';
+  }
+
+  const cards = document.querySelectorAll('.blog-card');
+  let visibleCount = 0;
+  cards.forEach(card => {
+    const audiences = card.dataset.audience || '';
+    if (category === 'all' || audiences.includes(category)) {
+      card.style.display = 'flex';
+      visibleCount++;
+    } else {
+      card.style.display = 'none';
+    }
+  });
+
+  const noResults = document.getElementById('noResults');
+  if (noResults) {
+    noResults.style.display = visibleCount === 0 ? 'block' : 'none';
+  }
+}
+
 // ── SCROLL ANIMATIONS ──
 const fadeEls = document.querySelectorAll('.fade-up');
 const observer = new IntersectionObserver(entries => {
@@ -713,43 +695,10 @@ const observer = new IntersectionObserver(entries => {
   });
 }, { threshold: 0.12 });
 fadeEls.forEach(el => observer.observe(el));
-
-// ── SMOOTH SCROLL for TOC ──
-document.querySelectorAll('.toc-list a').forEach(link => {
-  link.addEventListener('click', e => {
-    e.preventDefault();
-    const target = document.querySelector(link.getAttribute('href'));
-    if (target) {
-      const offset = target.getBoundingClientRect().top + window.scrollY - 100;
-      window.scrollTo({ top: offset, behavior: 'smooth' });
-    }
-  });
-});
-
-// ── SOCIAL SHARE — auto-populates current URL ──
-(function() {
-  const url   = encodeURIComponent(window.location.href);
-  const title = encodeURIComponent(document.title);
-
-  const fb = 'https://www.facebook.com/sharer/sharer.php?u=' + url;
-  const x  = 'https://twitter.com/intent/tweet?url=' + url + '&text=' + title;
-  const li = 'https://www.linkedin.com/sharing/share-offsite/?url=' + url;
-
-  ['top', 'bottom'].forEach(function(pos) {
-    document.getElementById('share-fb-' + pos).href = fb;
-    document.getElementById('share-x-'  + pos).href = x;
-    document.getElementById('share-li-' + pos).href = li;
-
-    document.getElementById('copy-' + pos).addEventListener('click', function() {
-      navigator.clipboard.writeText(window.location.href).then(function() {
-        var btn = document.getElementById('copy-' + pos);
-        btn.classList.add('copied');
-        setTimeout(function() { btn.classList.remove('copied'); }, 2000);
-      });
-    });
-  });
-})();
 </script>
+
+<!-- HubSpot -->
+<script type="text/javascript" id="hs-script-loader" async defer src="//js-na2.hs-scripts.com/244185002.js"></script>
 
 </body>
 </html>
