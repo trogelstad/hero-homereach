@@ -5,11 +5,6 @@
       "source": "/index.html",
       "destination": "/",
       "permanent": true
-    },
-    {
-      "source": "/blog/chfa-loan-colorado-2026-guide.html",
-      "destination": "/blog/chfa-loan-colorado-2026-guide/",
-      "permanent": true
     }
   ],
   "headers": [
