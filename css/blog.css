@@ -435,6 +435,8 @@
   width: 64px; height: 56px;
   border-radius: 5px;
   background: var(--navy);
+  background-size: cover;
+  background-position: center;
   flex-shrink: 0;
 }
 
