@@ -7,6 +7,11 @@
   <meta name="description" content="Free guides, program explainers, and step-by-step articles for Colorado educators, veterans, first responders, and healthcare workers exploring down payment assistance and homebuyer programs.">
   <link rel="canonical" href="https://www.herohomereach.com/blog/">
 
+  <!-- Favicons -->
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png">
+
   <!-- Google Tag Manager -->
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
   new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -38,13 +43,22 @@
       padding-top: var(--nav-h, 72px);
     }
 
+    /* ── Force nav navy on this page (no hero image underneath) ── */
+    #nav {
+      background: var(--navy) !important;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.18) !important;
+    }
+    #nav .nav-links a { color: rgba(255,255,255,0.85) !important; }
+    #nav .nav-links a:hover,
+    #nav .nav-links a.active { color: #fff !important; }
+
     /* ── Learning Center Subnav ── */
     .lc-subnav {
       background: var(--navy);
       border-bottom: 1px solid rgba(201,151,58,0.25);
       position: sticky;
       top: var(--nav-h, 72px);
-      z-index: 90;
+      z-index: 89;
     }
     .lc-subnav-inner {
       max-width: 1200px;
