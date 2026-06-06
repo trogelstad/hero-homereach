@@ -244,15 +244,14 @@
   .post-callout {
     box-sizing: border-box;
     width: 100%;
-    overflow-wrap: break-word;
-    word-wrap: break-word;
+    overflow: hidden;
   }
 
-  .post-callout p {
-    max-width: 100%;
-  }
+  .post-callout p,
   .post-callout a {
+    max-width: 100%;
     word-break: break-word;
+    overflow-wrap: anywhere;
   }
 
   .post-layout {
