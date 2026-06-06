@@ -848,6 +848,13 @@
   .related-post-thumb-link { flex-shrink:0; display:block; width:64px; height:56px; border-radius:5px; overflow:hidden; }
   .related-post-thumb-img { width:100%; height:100%; object-fit:cover; display:block; transition:transform 0.2s; }
   .related-post-item:hover .related-post-thumb-img { transform:scale(1.05); }
+  @media (max-width: 768px) {
+  .comparison-table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}
   </style>
 
   <!-- Calendly popup -->
