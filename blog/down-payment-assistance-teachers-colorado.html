@@ -241,10 +241,19 @@
 .post-share-bottom { display: flex; align-items: center; gap: 12px; padding: 24px 0; border-top: 1px solid rgba(12,45,94,0.1); border-bottom: 1px solid rgba(12,45,94,0.1); margin-bottom: 40px; flex-wrap: wrap; }
 .post-share-bottom .post-share-label { margin-right: 4px; }
 @media (max-width: 768px) {
-  .comparison-table {
-    display: block;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
+  .post-callout {
+    box-sizing: border-box;
+    width: 100%;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+  }
+
+  .post-callout p {
+    max-width: 100%;
+  }
+
+  .post-layout {
+    overflow: hidden;
   }
 }
 </style>
