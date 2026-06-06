@@ -961,6 +961,15 @@ function toggleMobileNav() {
             shelf.classList.add('hidden');
           }
         });
+
+        // Scroll to shelves so user sees the filtered content
+        var shelvesEl = document.querySelector('.lc-shelves');
+        if (shelvesEl) {
+          var navH = document.getElementById('nav').offsetHeight;
+          var subnavH = document.querySelector('.lc-subnav').offsetHeight;
+          var targetY = shelvesEl.getBoundingClientRect().top + window.scrollY - navH - subnavH - 12;
+          window.scrollTo({ top: targetY, behavior: 'smooth' });
+        }
       });
     });
   })();
