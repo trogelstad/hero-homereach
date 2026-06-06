@@ -387,19 +387,6 @@ h3 { font-size: clamp(20px, 2.5vw, 26px); }
   line-height: 1.7;
 }
 
-/* ── Prevent horizontal overflow sitewide ── */
-html, body {
-  overflow-x: hidden;
-  max-width: 100%;
-}
-
-/* ── Prevent tables from breaking mobile layout ── */
-table {
-  display: block;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-  max-width: 100%;
-}
 
 /* ════════════════════════════════
    SCROLL ANIMATIONS
