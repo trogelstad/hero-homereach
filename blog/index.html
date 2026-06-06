@@ -33,12 +33,17 @@
       --warm-gray: #D3D1C7;
     }
 
+    /* ── Push page below fixed nav ── */
+    body {
+      padding-top: var(--nav-h, 72px);
+    }
+
     /* ── Learning Center Subnav ── */
     .lc-subnav {
       background: var(--navy);
       border-bottom: 1px solid rgba(201,151,58,0.25);
       position: sticky;
-      top: 70px;
+      top: var(--nav-h, 72px);
       z-index: 90;
     }
     .lc-subnav-inner {
