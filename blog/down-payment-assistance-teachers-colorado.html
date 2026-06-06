@@ -241,6 +241,13 @@
 .post-share-bottom { display: flex; align-items: center; gap: 12px; padding: 24px 0; border-top: 1px solid rgba(12,45,94,0.1); border-bottom: 1px solid rgba(12,45,94,0.1); margin-bottom: 40px; flex-wrap: wrap; }
 .post-share-bottom .post-share-label { margin-right: 4px; }
 @media (max-width: 768px) {
+  .post-article,
+  .post-body {
+    min-width: 0;
+    max-width: 100%;
+    overflow: hidden;
+  }
+
   .post-callout {
     box-sizing: border-box;
     width: 100%;
@@ -250,7 +257,6 @@
   .post-callout p,
   .post-callout a {
     max-width: 100%;
-    word-break: break-word;
     overflow-wrap: anywhere;
   }
 
