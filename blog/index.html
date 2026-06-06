@@ -1,8 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Learning Center | Colorado Homebuyer Resources for Heroes | Hero HomeReach</title>
+  <meta name="description" content="Free guides, program explainers, and step-by-step articles for Colorado educators, veterans, first responders, and healthcare workers exploring down payment assistance and homebuyer programs.">
+  <link rel="canonical" href="https://www.herohomereach.com/blog/">
+
   <!-- Google Tag Manager -->
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
   new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -11,343 +15,488 @@
   })(window,document,'script','dataLayer','GTM-5ZQKN4LM');</script>
   <!-- End Google Tag Manager -->
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Learning Center — Hero HomeReach™</title>
-  <meta name="description" content="Free homebuying guides for Colorado's heroes. Down payment assistance, grants, and program explainers for educators, first responders, healthcare workers, and military members.">
-
-  <link rel="canonical" href="https://www.herohomereach.com/blog/">
-
-  <!-- Favicons -->
-  <link rel="icon" type="image/png" href="../favicon.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="../favicon-180x180.png">
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="Learning Center — Hero HomeReach™">
-  <meta property="og:description" content="Free homebuying guides for Colorado heroes. Down payment assistance, grants, and program explainers.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://www.herohomereach.com/blog/">
-  <meta property="og:image" content="https://www.herohomereach.com/logo-mark_transparent.png">
-
-  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../main.css">
 
-  <!-- Shared + Blog styles -->
-  <link rel="stylesheet" href="../css/main.css">
-  <link rel="stylesheet" href="../css/blog.css">
+  <style>
+    /* ── Learning Center Variables ── */
+    :root {
+      --navy: #0C2D5E;
+      --mid-navy: #1A4A8A;
+      --gold: #C9973A;
+      --bright-gold: #EAB84A;
+      --cool-white: #F5F7FA;
+      --near-black: #1C1C1E;
+      --forest: #1A6B4A;
+      --warm-gray: #D3D1C7;
+    }
 
-<style>
+    /* ── Learning Center Subnav ── */
+    .lc-subnav {
+      background: var(--navy);
+      border-bottom: 1px solid rgba(201,151,58,0.25);
+      position: sticky;
+      top: 70px;
+      z-index: 90;
+    }
+    .lc-subnav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      gap: 0;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .lc-subnav-inner::-webkit-scrollbar { display: none; }
+    .lc-subnav-label {
+      color: var(--gold);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 15px 20px 15px 0;
+      border-right: 1px solid rgba(255,255,255,0.12);
+      margin-right: 8px;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .lc-tab {
+      color: rgba(255,255,255,0.6);
+      font-size: 13px;
+      font-weight: 500;
+      padding: 15px 16px;
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      transition: color 0.2s, border-color 0.2s;
+      white-space: nowrap;
+      flex-shrink: 0;
+      background: none;
+      border-top: none;
+      border-left: none;
+      border-right: none;
+      font-family: 'Inter', sans-serif;
+    }
+    .lc-tab:hover,
+    .lc-tab.active {
+      color: var(--bright-gold);
+      border-bottom-color: var(--bright-gold);
+    }
 
-/* ── Blog index hero ── */
-.blog-index-hero {
-  background-image:
-    linear-gradient(rgba(12, 45, 94, 0.78), rgba(12, 45, 94, 0.78)),
-    url('blog-hero.png');
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-attachment: scroll;
-  padding: calc(var(--nav-h) + 56px) 0 64px;
-}
-.blog-index-hero::before {
-  content: '';
-  position: absolute;
-  top: -80px; right: -80px;
-  width: 500px; height: 500px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(201,151,58,0.07) 0%, transparent 70%);
-  pointer-events: none;
-}
-.blog-index-hero-inner {
-  position: relative; z-index: 2;
-  max-width: 680px;
-}
-.blog-index-hero-inner h1 {
-  color: #fff;
-  font-size: clamp(32px, 5vw, 52px);
-  line-height: 1.1;
-  margin-bottom: 16px;
-}
-.blog-index-hero-inner p {
-  color: rgba(255,255,255,0.65);
-  font-size: 18px;
-  line-height: 1.6;
-  margin-bottom: 0;
-}
-.blog-stat-bar {
-  display: flex;
-  align-items: center;
-  gap: 32px;
-  margin-top: 36px;
-  flex-wrap: wrap;
-}
-.blog-stat {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-.blog-stat-num {
-  font-family: 'Playfair Display', Georgia, serif;
-  font-size: 22px;
-  font-weight: 700;
-  color: var(--gold);
-}
-.blog-stat-label {
-  font-size: 13px;
-  color: rgba(255,255,255,0.5);
-}
-.blog-stat-divider {
-  width: 1px; height: 28px;
-  background: rgba(255,255,255,0.12);
-}
+    /* ── Hero Banner ── */
+    .lc-hero {
+      background: var(--navy);
+      padding: 52px 24px 48px;
+      position: relative;
+      overflow: hidden;
+    }
+    .lc-hero::before {
+      content: '';
+      position: absolute;
+      top: -80px;
+      right: -100px;
+      width: 500px;
+      height: 500px;
+      border-radius: 50%;
+      background: rgba(201,151,58,0.05);
+      pointer-events: none;
+    }
+    .lc-hero::after {
+      content: '';
+      position: absolute;
+      bottom: -60px;
+      left: 30%;
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      background: rgba(26,74,138,0.3);
+      pointer-events: none;
+    }
+    .lc-hero-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+    .lc-hero h1 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(28px, 4vw, 44px);
+      font-weight: 400;
+      color: #fff;
+      line-height: 1.2;
+      margin-bottom: 14px;
+      max-width: 640px;
+    }
+    .lc-hero h1 span { color: var(--bright-gold); }
+    .lc-hero p {
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      color: rgba(255,255,255,0.62);
+      line-height: 1.65;
+      max-width: 520px;
+    }
 
-/* ── Filter bar ── */
-.blog-filter-bar {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  flex-wrap: wrap;
-  margin-bottom: 40px;
-  padding-bottom: 24px;
-  border-bottom: 1px solid rgba(0,0,0,0.07);
-}
-.blog-filter-btn {
-  font-family: 'Inter', system-ui, sans-serif;
-  font-size: 13px;
-  font-weight: 600;
-  padding: 8px 18px;
-  border-radius: 20px;
-  border: 1.5px solid rgba(12,45,94,0.15);
-  background: transparent;
-  color: var(--navy);
-  cursor: pointer;
-  transition: all 0.2s;
-}
-.blog-filter-btn:hover {
-  border-color: var(--gold);
-  color: var(--gold);
-}
-.blog-filter-btn.active {
-  background: var(--navy);
-  border-color: var(--navy);
-  color: #fff;
-}
+    /* ── Featured Strip ── */
+    .lc-featured {
+      background: #fff;
+      border-bottom: 1px solid #e8e8e8;
+      padding: 36px 24px;
+    }
+    .lc-featured-inner { max-width: 1200px; margin: 0 auto; }
+    .lc-section-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #888;
+      margin-bottom: 16px;
+    }
+    .lc-featured-grid {
+      display: grid;
+      grid-template-columns: 1.85fr 1fr 1fr;
+      gap: 18px;
+    }
+    /* Featured main card */
+    .lc-feat-main {
+      background: var(--navy);
+      border-radius: 12px;
+      overflow: hidden;
+      text-decoration: none;
+      display: block;
+      transition: transform 0.2s;
+    }
+    .lc-feat-main:hover { transform: translateY(-3px); }
+    .lc-feat-main-img {
+      width: 100%;
+      height: 170px;
+      background: linear-gradient(135deg, #1A4A8A 0%, #0C2D5E 60%, #071d3e 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .lc-feat-main-img svg {
+      width: 72px;
+      height: 72px;
+      opacity: 0.18;
+    }
+    .lc-feat-main-body { padding: 18px 20px 20px; }
+    .lc-badge {
+      display: inline-block;
+      font-family: 'Inter', sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border-radius: 20px;
+      margin-bottom: 10px;
+    }
+    .badge-mil { color: #EAB84A; background: rgba(234,184,74,0.15); }
+    .badge-edu { color: #6fcf97; background: rgba(111,207,151,0.15); }
+    .badge-fr  { color: #f28b82; background: rgba(242,139,130,0.15); }
+    .badge-hc  { color: #7ecfb3; background: rgba(126,207,179,0.15); }
+    .badge-all { color: #EAB84A; background: rgba(234,184,74,0.15); }
+    /* light versions for white cards */
+    .badge-mil-lt { color: #1A4A8A; background: #e6f1fb; }
+    .badge-edu-lt { color: #1A6B4A; background: #eaf3de; }
+    .badge-fr-lt  { color: #7B1A1A; background: #fce8e8; }
+    .badge-hc-lt  { color: #0F6E56; background: #e1f5ee; }
+    .badge-all-lt { color: #7A5A00; background: #faeeda; }
 
-/* ── Featured post card ── */
-.blog-featured {
-  display: block;
-  position: relative;
-  border-radius: 14px;
-  overflow: hidden;
-  margin-bottom: 48px;
-  text-decoration: none;
-  height: 480px;
-  box-shadow: 0 8px 40px rgba(12,45,94,0.18);
-  transition: box-shadow 0.3s, transform 0.3s;
-}
-.blog-featured:hover {
-  box-shadow: 0 16px 56px rgba(12,45,94,0.26);
-  transform: translateY(-2px);
-}
-.blog-featured-img {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-}
-.blog-featured-img img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  display: block;
-}
-.blog-featured-overlay {
-  position: absolute;
-  inset: 0;
-  z-index: 2;
-  background: linear-gradient(
-    to bottom,
-    rgba(12, 45, 94, 0.15) 0%,
-    rgba(12, 45, 94, 0.55) 40%,
-    rgba(12, 45, 94, 0.93) 100%
-  );
-}
-.blog-featured-body {
-  position: absolute;
-  bottom: 0; left: 0; right: 0;
-  z-index: 3;
-  padding: 36px 40px;
-  background: none;
-}
-.blog-featured-tag {
-  display: inline-block;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--gold);
-  background: rgba(201,151,58,0.18);
-  border: 1px solid rgba(201,151,58,0.35);
-  padding: 4px 12px;
-  border-radius: 20px;
-  margin-bottom: 14px;
-  width: fit-content;
-}
-.blog-featured-title {
-  font-family: 'Playfair Display', Georgia, serif;
-  font-size: clamp(22px, 3vw, 32px);
-  font-weight: 700;
-  color: #fff;
-  line-height: 1.2;
-  margin-bottom: 14px;
-  text-shadow: 0 2px 12px rgba(0,0,0,0.3);
-}
-.blog-featured-excerpt {
-  font-size: 15px;
-  color: rgba(255,255,255,0.75);
-  line-height: 1.6;
-  margin-bottom: 18px;
-  max-width: 680px;
-}
-.blog-featured-meta {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 13px;
-  color: rgba(255,255,255,0.55);
-}
-.blog-featured-meta-dot {
-  width: 3px; height: 3px;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.35);
-}
-.blog-featured-read {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  margin-top: 18px;
-  font-size: 13px;
-  font-weight: 700;
-  color: var(--gold);
-  letter-spacing: 0.04em;
-}
+    .lc-feat-main-body h2 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 18px;
+      font-weight: 400;
+      color: #fff;
+      line-height: 1.4;
+      margin-bottom: 10px;
+    }
+    .lc-feat-main-body .lc-meta {
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
+      color: rgba(255,255,255,0.38);
+    }
+    /* Featured side cards */
+    .lc-feat-side {
+      background: var(--cool-white);
+      border-radius: 12px;
+      overflow: hidden;
+      text-decoration: none;
+      display: block;
+      border: 1px solid #e4e4e4;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .lc-feat-side:hover { border-color: var(--gold); transform: translateY(-3px); }
+    .lc-feat-side-img {
+      width: 100%;
+      height: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .lc-feat-side-img.bg-mil { background: linear-gradient(135deg, #0C2D5E 0%, #1A4A8A 100%); }
+    .lc-feat-side-img.bg-edu { background: linear-gradient(135deg, #1A4A8A 0%, #1A6B4A 100%); }
+    .lc-feat-side-img.bg-all { background: linear-gradient(135deg, #0C2D5E 0%, #1A4A8A 100%); }
+    .lc-feat-side-img svg { width: 36px; height: 36px; opacity: 0.22; }
+    .lc-feat-side-body { padding: 14px 16px 16px; }
+    .lc-feat-side-body h3 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 15px;
+      font-weight: 400;
+      color: var(--near-black);
+      line-height: 1.4;
+      margin-bottom: 8px;
+    }
+    .lc-feat-side-body .lc-meta {
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
+      color: #888;
+    }
 
-@media (max-width: 600px) {
-  .blog-featured { height: 420px; }
-  .blog-featured-body { padding: 24px; }
-  .blog-featured-excerpt { display: none; }
-}
+    /* ── Shelf Sections ── */
+    .lc-shelves { background: #fff; }
+    .lc-shelf {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 36px 24px 0;
+    }
+    .lc-shelf:last-of-type { padding-bottom: 36px; }
 
-/* ── Post grid ── */
-.blog-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 28px;
-  margin-bottom: 60px;
-}
-.blog-card {
-  border-radius: 10px;
-  border: 1px solid rgba(12,45,94,0.1);
-  overflow: hidden;
-  background: #fff;
-  text-decoration: none;
-  transition: box-shadow 0.2s, transform 0.2s;
-  display: flex;
-  flex-direction: column;
-}
-.blog-card:hover {
-  box-shadow: 0 6px 30px rgba(12,45,94,0.1);
-  transform: translateY(-2px);
-}
-.blog-card-img {
-  height: 180px;
-  overflow: hidden;
-  background: linear-gradient(135deg, var(--navy) 0%, #1A4A8A 100%);
-}
-.blog-card-img img {
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
-  display: block;
-}
-.blog-card-body {
-  padding: 24px;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-}
-.blog-card-tag {
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 10px;
-}
-.blog-card-title {
-  font-family: 'Playfair Display', Georgia, serif;
-  font-size: 17px;
-  font-weight: 700;
-  color: var(--navy);
-  line-height: 1.3;
-  margin-bottom: 10px;
-  flex: 1;
-}
-.blog-card-excerpt {
-  font-size: 13px;
-  color: #777;
-  line-height: 1.6;
-  margin-bottom: 14px;
-}
-.blog-card-meta {
-  font-size: 12px;
-  color: #aaa;
-  display: flex;
-  gap: 8px;
-  align-items: center;
-}
+    .lc-shelf-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 18px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid #ebebeb;
+    }
+    .lc-shelf-title {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .lc-shelf-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      background: var(--navy);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .lc-shelf-icon svg { width: 16px; height: 16px; fill: none; stroke: var(--bright-gold); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    .lc-shelf-header h2 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 20px;
+      font-weight: 400;
+      color: var(--near-black);
+      margin: 0;
+    }
+    .lc-see-all {
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--mid-navy);
+      text-decoration: none;
+      letter-spacing: 0.02em;
+      transition: color 0.2s;
+    }
+    .lc-see-all:hover { color: var(--gold); }
 
-/* ── No results state ── */
-.blog-no-results {
-  display: none;
-  grid-column: 1 / -1;
-  text-align: center;
-  padding: 60px 20px;
-  color: #999;
-}
-.blog-no-results h3 {
-  font-family: 'Playfair Display', Georgia, serif;
-  color: var(--navy);
-  margin-bottom: 8px;
-}
-.blog-no-results button {
-  margin-top: 16px;
-  padding: 10px 24px;
-  background: var(--navy);
-  color: #fff;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 14px;
-  font-weight: 600;
-}
+    /* Post card grid */
+    .lc-card-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin-bottom: 36px;
+    }
+    .lc-card {
+      background: #fff;
+      border: 1px solid #e8e8e8;
+      border-radius: 10px;
+      overflow: hidden;
+      text-decoration: none;
+      display: block;
+      transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+    }
+    .lc-card:hover {
+      border-color: var(--gold);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(12,45,94,0.08);
+    }
+    .lc-card-thumb {
+      width: 100%;
+      height: 88px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .lc-card-thumb.mil { background: linear-gradient(135deg, #0C2D5E 0%, #1A4A8A 100%); }
+    .lc-card-thumb.edu { background: linear-gradient(135deg, #1A4A8A 0%, #1A6B4A 100%); }
+    .lc-card-thumb.fr  { background: linear-gradient(135deg, #6B1A1A 0%, #0C2D5E 100%); }
+    .lc-card-thumb.hc  { background: linear-gradient(135deg, #1A6B4A 0%, #1A4A8A 100%); }
+    .lc-card-thumb.all { background: linear-gradient(135deg, #0C2D5E 0%, #1A4A8A 100%); }
+    .lc-card-thumb svg { width: 32px; height: 32px; fill: none; stroke: rgba(255,255,255,0.28); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    .lc-card-body { padding: 14px; }
+    .lc-card-body h3 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--near-black);
+      line-height: 1.45;
+      margin: 6px 0 8px;
+    }
+    .lc-card-footer {
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      color: #999;
+    }
 
-/* ── Responsive ── */
-@media (max-width: 900px) {
-  .blog-grid { grid-template-columns: repeat(2, 1fr); }
-}
-@media (max-width: 600px) {
-  .blog-grid { grid-template-columns: 1fr; }
-  .blog-featured-body { padding: 24px; }
-  .blog-stat-bar { gap: 20px; }
-}
-</style>
+    /* ── Guide Strip ── */
+    .lc-guide-strip {
+      background: var(--navy);
+      margin: 0;
+      padding: 32px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+      border-top: 1px solid rgba(201,151,58,0.2);
+      border-bottom: 1px solid rgba(201,151,58,0.2);
+    }
+    .lc-guide-strip-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .lc-guide-strip h3 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 22px;
+      font-weight: 400;
+      color: #fff;
+      margin-bottom: 6px;
+    }
+    .lc-guide-strip p {
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      color: rgba(255,255,255,0.55);
+      max-width: 500px;
+    }
+    .lc-guide-btn {
+      display: inline-block;
+      background: var(--gold);
+      color: #fff;
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      padding: 13px 26px;
+      border-radius: 6px;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: background 0.2s;
+      flex-shrink: 0;
+    }
+    .lc-guide-btn:hover { background: var(--bright-gold); }
 
-  <!-- Calendly popup -->
-  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
-  <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+    /* ── CTA Ladder ── */
+    .lc-cta-ladder {
+      background: var(--cool-white);
+      padding: 40px 24px 48px;
+    }
+    .lc-cta-ladder-inner { max-width: 1200px; margin: 0 auto; }
+    .lc-ladder-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #999;
+      margin-bottom: 18px;
+    }
+    .lc-ladder-steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+    .lc-step {
+      background: #fff;
+      border: 1px solid #e8e8e8;
+      border-radius: 10px;
+      padding: 18px 20px;
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      text-decoration: none;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .lc-step:hover { border-color: var(--gold); transform: translateY(-2px); }
+    .lc-step-num {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: var(--navy);
+      color: var(--bright-gold);
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .lc-step-body strong {
+      display: block;
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 15px;
+      font-weight: 400;
+      color: var(--near-black);
+      margin-bottom: 4px;
+    }
+    .lc-step-body span {
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      color: #777;
+      line-height: 1.5;
+    }
+    .lc-step-arrow {
+      margin-left: auto;
+      color: #ccc;
+      font-size: 18px;
+      align-self: center;
+      flex-shrink: 0;
+      padding-left: 8px;
+    }
+
+    /* ── Tab filter JS ── */
+    .lc-shelf { transition: opacity 0.2s; }
+    .lc-shelf.hidden { display: none; }
+
+    /* ── Responsive ── */
+    @media (max-width: 900px) {
+      .lc-featured-grid { grid-template-columns: 1fr; }
+      .lc-card-row { grid-template-columns: repeat(2, 1fr); }
+      .lc-ladder-steps { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 560px) {
+      .lc-card-row { grid-template-columns: 1fr; }
+      .lc-hero h1 { font-size: 26px; }
+    }
+  </style>
 </head>
 <body>
 
@@ -356,9 +505,8 @@
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 
-
 <!-- ════════════ NAVIGATION ════════════ -->
-<nav id="nav" class="nav-solid">
+<nav id="nav">
   <div class="nav-inner">
     <a href="../" class="nav-logo">
       <img src="../logo-mark_transparent.png" alt="Hero HomeReach Shield" style="width:50px;height:50px;object-fit:contain;">
@@ -369,9 +517,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <ul class="nav-links">
       <li><a href="../programs.html">Programs</a></li>
       <li><a href="../who-we-serve.html">Who We Serve</a></li>
+      <li><a href="../about.html">About</a></li>
       <li><a href="../blog/" class="active">Learning Center</a></li>
       <li><a href="/faq">DPA FAQ</a></li>
-      <li><a href="https://guide.herohomereach.com" target="_blank" style="color:var(--bright-gold);font-weight:700;">Free Guide</a></li>
+      <li><a href="https://guide.herohomereach.com" target="_blank" style="color:var(--bright-gold);">Free Guide</a></li>
     </ul>
     <div class="nav-cta">
       <a href="../contact.html" class="btn btn-gold btn-arrow">Book Free Consultation</a>
@@ -386,904 +535,412 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div id="mobile-nav">
   <a href="../programs.html" onclick="toggleMobileNav()">Programs</a>
   <a href="../who-we-serve.html" onclick="toggleMobileNav()">Who We Serve</a>
+  <a href="../about.html" onclick="toggleMobileNav()">About</a>
   <a href="../blog/" onclick="toggleMobileNav()">Learning Center</a>
-  <a href="../faq/" onclick="toggleMobileNav()">Homebuyers FAQ</a>
+  <a href="/faq" onclick="toggleMobileNav()">DPA FAQ</a>
   <a href="https://guide.herohomereach.com" target="_blank" onclick="toggleMobileNav()" style="color:var(--bright-gold);">Free Guide</a>
   <a href="../contact.html" class="btn btn-gold" style="margin-top:16px;font-size:16px;">Book Free Consultation</a>
 </div>
 
+<!-- ════════════ LEARNING CENTER SUBNAV ════════════ -->
+<div class="lc-subnav">
+  <div class="lc-subnav-inner">
+    <span class="lc-subnav-label">Learning Center</span>
+    <button class="lc-tab active" data-filter="all">All Resources</button>
+    <button class="lc-tab" data-filter="mil">Veterans &amp; Military</button>
+    <button class="lc-tab" data-filter="edu">Educators</button>
+    <button class="lc-tab" data-filter="fr">First Responders</button>
+    <button class="lc-tab" data-filter="hc">Healthcare Workers</button>
+  </div>
+</div>
 
-<!-- ════════════ BLOG HERO ════════════ -->
-<div class="blog-index-hero">
-  <div class="container">
-    <div class="blog-index-hero-inner">
-      <h1>The Hero HomeReach Learning Center</h1>
-      <p>Plain-English guides on down payment assistance, grants, and homebuying programs for educators, first responders, healthcare workers, and military members.</p>
-      <div class="blog-stat-bar">
-        <div class="blog-stat">
-          <span class="blog-stat-num">Free</span>
-          <span class="blog-stat-label">Always free guidance</span>
+<!-- ════════════ HERO BANNER ════════════ -->
+<div class="lc-hero">
+  <div class="lc-hero-inner">
+    <h1>Resources for every stage of <span>your journey home.</span></h1>
+    <p>Free guides, program explainers, and step-by-step articles built for Colorado's public service professionals. Know your options before your first lender call.</p>
+  </div>
+</div>
+
+<!-- ════════════ FEATURED STRIP ════════════ -->
+<div class="lc-featured">
+  <div class="lc-featured-inner">
+    <div class="lc-section-label">Featured This Month</div>
+    <div class="lc-featured-grid">
+
+      <!-- Featured main -->
+      <a href="va-loan-down-payment-assistance-colorado.html" class="lc-feat-main">
+        <div class="lc-feat-main-img">
+          <!-- Shield SVG -->
+          <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" fill="white"><path d="M32 4L8 14v20c0 13.3 10.3 25.7 24 29 13.7-3.3 24-15.7 24-29V14L32 4z"/></svg>
         </div>
-        <div class="blog-stat-divider"></div>
-        <div class="blog-stat">
-          <span class="blog-stat-num">CO</span>
-          <span class="blog-stat-label">Colorado focused</span>
+        <div class="lc-feat-main-body">
+          <span class="lc-badge badge-mil">Veterans &amp; Military</span>
+          <h2>How to Stack Your VA Loan with Colorado Down Payment Assistance</h2>
+          <div class="lc-meta">8 min read &nbsp;·&nbsp; Most popular this month</div>
         </div>
-      </div>
+      </a>
+
+      <!-- Featured side 1 -->
+      <a href="down-payment-assistance-teachers-colorado.html" class="lc-feat-side">
+        <div class="lc-feat-side-img bg-edu">
+          <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="white" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 48V20l24-12 24 12v28"/><rect x="20" y="32" width="24" height="16" rx="2"/><path d="M28 32v16M36 32v16"/></svg>
+        </div>
+        <div class="lc-feat-side-body">
+          <span class="lc-badge badge-edu-lt">Educators</span>
+          <h3>Down Payment Assistance for Colorado Teachers: A Full Guide</h3>
+          <div class="lc-meta">8 min read</div>
+        </div>
+      </a>
+
+      <!-- Featured side 2 -->
+      <a href="how-to-stack-down-payment-programs-colorado.html" class="lc-feat-side">
+        <div class="lc-feat-side-img bg-all">
+          <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="white" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><rect x="10" y="40" width="44" height="12" rx="2"/><rect x="14" y="26" width="36" height="12" rx="2"/><rect x="18" y="12" width="28" height="12" rx="2"/></svg>
+        </div>
+        <div class="lc-feat-side-body">
+          <span class="lc-badge badge-all-lt">All Heroes</span>
+          <h3>How to Stack Colorado Down Payment Programs for Maximum Impact</h3>
+          <div class="lc-meta">10 min read</div>
+        </div>
+      </a>
+
     </div>
   </div>
 </div>
 
+<!-- ════════════ CONTENT SHELVES ════════════ -->
+<div class="lc-shelves">
 
-<!-- ════════════ BLOG CONTENT ════════════ -->
-<section class="section">
-  <div class="container">
-
-    <!-- Filter bar -->
-    <div class="blog-filter-bar">
-      <button class="blog-filter-btn active" onclick="filterPosts('all', this)">All Guides</button>
-      <button class="blog-filter-btn" onclick="filterPosts('educators', this)">Educators</button>
-      <button class="blog-filter-btn" onclick="filterPosts('first-responders', this)">First Responders</button>
-      <button class="blog-filter-btn" onclick="filterPosts('healthcare', this)">Healthcare</button>
-      <button class="blog-filter-btn" onclick="filterPosts('military', this)">Military &amp; Veterans</button>
-      <button class="blog-filter-btn" onclick="filterPosts('programs', this)">Programs</button>
+  <!-- ── Veterans & Military Shelf ── -->
+  <div class="lc-shelf" data-shelf="mil">
+    <div class="lc-shelf-header">
+      <div class="lc-shelf-title">
+        <div class="lc-shelf-icon">
+          <!-- chevrons up / rank icon -->
+          <svg viewBox="0 0 24 24"><polyline points="17 11 12 6 7 11"/><polyline points="17 18 12 13 7 18"/></svg>
+        </div>
+        <h2>Veterans &amp; Military</h2>
+      </div>
+      <a href="va-loan-down-payment-assistance-colorado.html" class="lc-see-all">See all &rarr;</a>
     </div>
-
-    <!-- ── FEATURED POST ── -->
-    <a href="va-loan-down-payment-assistance-colorado.html" class="blog-featured" data-audience="military programs">
-      <div class="blog-featured-img">
-        <img src="va-loan-down-payment-assistance-colorado.png" alt="VA Loan Down Payment Assistance Colorado" />
-      </div>
-      <div class="blog-featured-overlay"></div>
-      <div class="blog-featured-body">
-        <span class="blog-featured-tag">Program Guide · Military &amp; Veterans</span>
-        <div class="blog-featured-title">VA Loan Down Payment Assistance in Colorado: What Veterans Should Know</div>
-        <p class="blog-featured-excerpt">Your VA loan benefit may open the door. But "zero down" does not always mean "zero cash needed." Here's what Colorado veterans should know about CHFA, metroDPA, and stacking benefits to cover closing costs.</p>
-        <div class="blog-featured-meta">
-          <span>May 2026</span>
-          <span class="blog-featured-meta-dot"></span>
-          <span>12 min read</span>
-          <span class="blog-featured-meta-dot"></span>
-          <span>Trent Rogelstad</span>
+    <div class="lc-card-row">
+      <a href="va-loan-down-payment-assistance-colorado.html" class="lc-card">
+        <div class="lc-card-thumb mil">
+          <svg viewBox="0 0 24 24"><path d="M12 2L3 7v7c0 5.25 3.75 10.05 9 11.25C17.25 24.05 21 19.25 21 14V7L12 2z"/></svg>
         </div>
-        <span class="blog-featured-read">Read the guide →</span>
-      </div>
-    </a>
-
-    <!-- ── POST GRID ── -->
-    <div class="blog-grid" id="postGrid">
-
-      <!-- Educators -->
-      <a href="down-payment-assistance-teachers-colorado.html" class="blog-card" data-audience="educators">
-        <div class="blog-card-img">
-          <img src="down-payment-assistance-teachers-colorado.png" alt="Colorado teacher researching home buying assistance" />
-        </div>
-        <div class="blog-card-body">
-          <div class="blog-card-tag">Educators</div>
-          <div class="blog-card-title">Down Payment Assistance for Colorado Teachers: Grants, CHFA, and What to Check First</div>
-          <p class="blog-card-excerpt">CHFA, SB25-167, Good Neighbor Next Door, and what to ask before private teacher-benefit programs. Here is what Colorado educators should check first.</p>
-          <div class="blog-card-meta">
-            <span>May 2026</span><span>·</span><span>14 min read</span>
-          </div>
+        <div class="lc-card-body">
+          <span class="lc-badge badge-mil-lt">VA Loan + DPA</span>
+          <h3>VA Loan Plus Colorado Down Payment Assistance: Can You Use Both?</h3>
+          <div class="lc-card-footer">8 min read</div>
         </div>
       </a>
-
-      <!-- First Responders -->
-      <a href="colorado-firefighter-emt-home-buying-help.html" class="blog-card" data-audience="first-responders">
-        <div class="blog-card-img">
-          <img src="colorado-firefighter-emt-home-buying-help.png" alt="Colorado firefighters and EMTs learning about home buying help" />
+      <a href="colorado-champions-home-loan-program/index.html" class="lc-card">
+        <div class="lc-card-thumb mil">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
         </div>
-        <div class="blog-card-body">
-          <div class="blog-card-tag">First Responders</div>
-          <div class="blog-card-title">Colorado First Responder Home Buying Help: Down Payment Assistance for Firefighters and EMTs</div>
-          <p class="blog-card-excerpt">CHFA, metroDPA, Firefighter Next Door, HUD Good Neighbor Next Door, and the new Colorado Champions Home Loan Program. Here is what first responders should know before house hunting.</p>
-          <div class="blog-card-meta">
-            <span>May 2026</span><span>·</span><span>15 min read</span>
-          </div>
+        <div class="lc-card-body">
+          <span class="lc-badge badge-mil-lt">Colorado Champions</span>
+          <h3>Colorado Champions Home Loan Program: Who Qualifies and How It Works</h3>
+          <div class="lc-card-footer">9 min read</div>
         </div>
       </a>
-
-      <!-- Champions Home Loan -->
-      <a href="colorado-champions-home-loan-program/" class="blog-card" data-audience="first-responders programs">
-        <div class="blog-card-img">
-          <img src="colorado-champions-home-loan-program/hero.jpg" alt="Colorado first responder learning about the Colorado Champions Home Loan Program" />
+      <a href="how-to-stack-down-payment-programs-colorado.html" class="lc-card">
+        <div class="lc-card-thumb mil">
+          <svg viewBox="0 0 24 24"><rect x="2" y="17" width="20" height="4" rx="1"/><rect x="4" y="11" width="16" height="4" rx="1"/><rect x="6" y="5" width="12" height="4" rx="1"/></svg>
         </div>
-        <div class="blog-card-body">
-          <div class="blog-card-tag">First Responders · Program Guide</div>
-          <div class="blog-card-title">Colorado Champions Home Loan Program Explained for First Responders</div>
-          <p class="blog-card-excerpt">SB26-053 expanded CHFA mortgage access for firefighters, EMTs, 911 operators, and more. Here is what it actually means, and how it differs from private hero offers.</p>
-          <div class="blog-card-meta">
-            <span>May 2026</span><span>·</span><span>12 min read</span>
-          </div>
+        <div class="lc-card-body">
+          <span class="lc-badge badge-mil-lt">Assistance Paths</span>
+          <h3>How to Stack Colorado Down Payment Programs for Closing Cost Help</h3>
+          <div class="lc-card-footer">10 min read</div>
         </div>
       </a>
-
-      <!-- DPA Types -->
-      <a href="colorado-down-payment-assistance-types.html" class="blog-card" data-audience="programs">
-        <div class="blog-card-img">
-          <img src="colorado-down-payment-assistance-types.png" alt="Colorado heroes learning about down payment assistance types" />
+      <a href="../quiz.html" class="lc-card">
+        <div class="lc-card-thumb mil">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
         </div>
-        <div class="blog-card-body">
-          <div class="blog-card-tag">Programs</div>
-          <div class="blog-card-title">Colorado Down Payment Assistance: 3 Types Every Hero Should Know</div>
-          <p class="blog-card-excerpt">Grant, forgivable loan, or deferred second mortgage? The type of assistance matters as much as the amount. Here is how to tell the difference before you sign anything.</p>
-          <div class="blog-card-meta">
-            <span>May 2026</span><span>·</span><span>13 min read</span>
-          </div>
+        <div class="lc-card-body">
+          <span class="lc-badge badge-mil-lt">Free Assessment</span>
+          <h3>Take the Hero HomeReach Assessment: See Which Programs Match Your Profile</h3>
+          <div class="lc-card-footer">5 min &nbsp;·&nbsp; Interactive</div>
         </div>
       </a>
-
-      <!-- Healthcare -->
-      <a href="healthcare-worker-home-grants-colorado-2026.html" class="blog-card" data-audience="healthcare">
-        <div class="blog-card-img">
-          <img src="healthcare-worker-home-grants-colorado-2026.png" alt="Colorado nurse reviewing home buying options" />
-        </div>
-        <div class="blog-card-body">
-          <div class="blog-card-tag">Healthcare Workers</div>
-          <div class="blog-card-title">Healthcare Worker Home Grants in Colorado: What May Be Available in 2026</div>
-          <p class="blog-card-excerpt">Nurses, hospital workers, and healthcare professionals may qualify for CHFA, metroDPA, Chenoa Fund, and other assistance. Here is what to check before you start house hunting.</p>
-          <div class="blog-card-meta">
-            <span>May 2026</span><span>·</span><span>14 min read</span>
-          </div>
-        </div>
-      </a>
-
-      <!-- CHFA Guide -->
-      <a href="chfa-loan-colorado-2026-guide.html" class="blog-card" data-audience="programs">
-        <div class="blog-card-img">
-          <img src="chfa-loan-colorado-2026-guide.png" alt="Colorado couple reviewing CHFA loan documents" />
-        </div>
-        <div class="blog-card-body">
-          <div class="blog-card-tag">Programs</div>
-          <div class="blog-card-title">CHFA Loan Colorado 2026: The Complete Guide for Hero Homebuyers</div>
-          <p class="blog-card-excerpt">Grant or deferred second mortgage? CHFA is Colorado's most important homebuyer resource, but the details matter. Here is the complete plain-English breakdown.</p>
-          <div class="blog-card-meta">
-            <span>May 2026</span><span>·</span><span>16 min read</span>
-          </div>
-        </div>
-      </a>
-
-      <!-- Stacking -->
-      <a href="how-to-stack-down-payment-programs-colorado.html" class="blog-card" data-audience="programs">
-        <div class="blog-card-img">
-          <img src="how-to-stack-down-payment-programs-colorado.png" alt="Colorado family in front of their new home" />
-        </div>
-        <div class="blog-card-body">
-          <div class="blog-card-tag">Programs</div>
-          <div class="blog-card-title">How to Stack Down Payment Programs in Colorado: The $67,000 Strategy</div>
-          <p class="blog-card-excerpt">How Colorado heroes combine Teacher Next Door, metroDPA, Chenoa Fund, and seller concessions to dramatically reduce upfront homebuying costs.</p>
-          <div class="blog-card-meta">
-            <span>May 2026</span><span>·</span><span>13 min read</span>
-          </div>
-        </div>
-      </a>
-
-      <!-- Essential Workers -->
-      <a href="colorado-home-buying-programs-essential-workers-2026/" class="blog-card" data-audience="all">
-        <div class="blog-card-img">
-          <img src="colorado-home-buying-programs-essential-workers-2026/card.jpg" alt="Teacher, firefighter, and nurse standing in front of a Colorado home" />
-        </div>
-        <div class="blog-card-body">
-          <div class="blog-card-tag">All Heroes</div>
-          <div class="blog-card-title">Colorado Home Buying Programs for Essential Workers in 2026</div>
-          <p class="blog-card-excerpt">Teachers, nurses, firefighters, and first responders may have more Colorado home buying options than they realize. Here is how the new programs actually work.</p>
-          <div class="blog-card-meta">
-            <span>May 2026</span><span>·</span><span>9 min read</span>
-          </div>
-        </div>
-      </a>
-
-      <!-- ✅ NEW — Public vs Private Programs -->
-      <a href="public-vs-private-home-buying-programs/" class="blog-card" data-audience="programs">
-        <div class="blog-card-img">
-          <img src="public-vs-private-home-buying-programs/card.jpg" alt="Colorado hero buyer comparing public programs vs private home buying offers" />
-        </div>
-        <div class="blog-card-body">
-          <div class="blog-card-tag">Programs · Explainer</div>
-          <div class="blog-card-title">Public Programs vs. Private Hero Home Buying Offers: What Colorado Buyers Should Know</div>
-          <p class="blog-card-excerpt">Not all home buying help works the same way. Grant, forgivable loan, deferred mortgage, or shared equity — the structure behind the assistance matters more than the headline number.</p>
-          <div class="blog-card-meta">
-            <span>May 2026</span><span>·</span><span>8 min read</span>
-          </div>
-        </div>
-      </a>
-
-      <!-- No results state -->
-      <div class="blog-no-results" id="noResults" style="display:none;">
-        <h3>No guides in this category yet.</h3>
-        <p>New guides are published regularly. Check back soon.</p>
-        <button onclick="filterPosts('all', document.querySelector('.blog-filter-btn'))">View All Guides</button>
-      </div>
-
     </div>
-    <!-- /post grid -->
-
   </div>
-</section>
 
+  <!-- ── Educators Shelf ── -->
+  <div class="lc-shelf" data-shelf="edu">
+    <div class="lc-shelf-header">
+      <div class="lc-shelf-title">
+        <div class="lc-shelf-icon">
+          <svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+        </div>
+        <h2>Educators</h2>
+      </div>
+      <a href="down-payment-assistance-teachers-colorado.html" class="lc-see-all">See all &rarr;</a>
+    </div>
+    <div class="lc-card-row">
+      <a href="down-payment-assistance-teachers-colorado.html" class="lc-card">
+        <div class="lc-card-thumb edu">
+          <svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+        </div>
+        <div class="lc-card-body">
+          <span class="lc-badge badge-edu-lt">Teachers</span>
+          <h3>Down Payment Assistance for Colorado Teachers: A Complete Guide</h3>
+          <div class="lc-card-footer">8 min read</div>
+        </div>
+      </a>
+      <a href="how-to-stack-down-payment-programs-colorado.html" class="lc-card">
+        <div class="lc-card-thumb edu">
+          <svg viewBox="0 0 24 24"><rect x="2" y="17" width="20" height="4" rx="1"/><rect x="4" y="11" width="16" height="4" rx="1"/><rect x="6" y="5" width="12" height="4" rx="1"/></svg>
+        </div>
+        <div class="lc-card-body">
+          <span class="lc-badge badge-edu-lt">SB25-167</span>
+          <h3>How Colorado Educators Can Stack Multiple Assistance Programs in 2026</h3>
+          <div class="lc-card-footer">10 min read</div>
+        </div>
+      </a>
+      <a href="../programs.html" class="lc-card">
+        <div class="lc-card-thumb edu">
+          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+        </div>
+        <div class="lc-card-body">
+          <span class="lc-badge badge-edu-lt">Programs</span>
+          <h3>Colorado Educator Homeownership Programs: What May Be Available to You</h3>
+          <div class="lc-card-footer">6 min read</div>
+        </div>
+      </a>
+      <a href="../quiz.html" class="lc-card">
+        <div class="lc-card-thumb edu">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+        </div>
+        <div class="lc-card-body">
+          <span class="lc-badge badge-edu-lt">Free Assessment</span>
+          <h3>See Which Colorado Homebuyer Programs Match Your Educator Profile</h3>
+          <div class="lc-card-footer">5 min &nbsp;·&nbsp; Interactive</div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <!-- ── First Responders Shelf ── -->
+  <div class="lc-shelf" data-shelf="fr">
+    <div class="lc-shelf-header">
+      <div class="lc-shelf-title">
+        <div class="lc-shelf-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2L3 7v7c0 5.25 3.75 10.05 9 11.25C17.25 24.05 21 19.25 21 14V7L12 2z"/></svg>
+        </div>
+        <h2>First Responders</h2>
+      </div>
+      <a href="colorado-firefighter-emt-home-buying-help.html" class="lc-see-all">See all &rarr;</a>
+    </div>
+    <div class="lc-card-row">
+      <a href="colorado-firefighter-emt-home-buying-help.html" class="lc-card">
+        <div class="lc-card-thumb fr">
+          <svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+        </div>
+        <div class="lc-card-body">
+          <span class="lc-badge badge-fr-lt">Firefighters &amp; EMTs</span>
+          <h3>Home Buying Help for Colorado Firefighters and EMTs</h3>
+          <div class="lc-card-footer">7 min read</div>
+        </div>
+      </a>
+      <a href="colorado-champions-home-loan-program/index.html" class="lc-card">
+        <div class="lc-card-thumb fr">
+          <svg viewBox="0 0 24 24"><path d="M12 2L3 7v7c0 5.25 3.75 10.05 9 11.25C17.25 24.05 21 19.25 21 14V7L12 2z"/></svg>
+        </div>
+        <div class="lc-card-body">
+          <span class="lc-badge badge-fr-lt">SB26-053</span>
+          <h3>Colorado Champions Program: What First Responders Need to Know</h3>
+          <div class="lc-card-footer">9 min read</div>
+        </div>
+      </a>
+      <a href="how-to-stack-down-payment-programs-colorado.html" class="lc-card">
+        <div class="lc-card-thumb fr">
+          <svg viewBox="0 0 24 24"><rect x="2" y="17" width="20" height="4" rx="1"/><rect x="4" y="11" width="16" height="4" rx="1"/><rect x="6" y="5" width="12" height="4" rx="1"/></svg>
+        </div>
+        <div class="lc-card-body">
+          <span class="lc-badge badge-fr-lt">Assistance Paths</span>
+          <h3>Stacking Assistance Programs as a Colorado First Responder</h3>
+          <div class="lc-card-footer">10 min read</div>
+        </div>
+      </a>
+      <a href="../quiz.html" class="lc-card">
+        <div class="lc-card-thumb fr">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+        </div>
+        <div class="lc-card-body">
+          <span class="lc-badge badge-fr-lt">Free Assessment</span>
+          <h3>Take the Assessment: Find Out Which Programs Match Your First Responder Profile</h3>
+          <div class="lc-card-footer">5 min &nbsp;·&nbsp; Interactive</div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <!-- ── Healthcare Workers Shelf ── -->
+  <div class="lc-shelf" data-shelf="hc">
+    <div class="lc-shelf-header">
+      <div class="lc-shelf-title">
+        <div class="lc-shelf-icon">
+          <svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+        </div>
+        <h2>Healthcare Workers</h2>
+      </div>
+      <a href="../who-we-serve.html" class="lc-see-all">See all &rarr;</a>
+    </div>
+    <div class="lc-card-row">
+      <a href="how-to-stack-down-payment-programs-colorado.html" class="lc-card">
+        <div class="lc-card-thumb hc">
+          <svg viewBox="0 0 24 24"><rect x="2" y="17" width="20" height="4" rx="1"/><rect x="4" y="11" width="16" height="4" rx="1"/><rect x="6" y="5" width="12" height="4" rx="1"/></svg>
+        </div>
+        <div class="lc-card-body">
+          <span class="lc-badge badge-hc-lt">Assistance Paths</span>
+          <h3>Colorado Down Payment Assistance Options for Healthcare Workers</h3>
+          <div class="lc-card-footer">10 min read</div>
+        </div>
+      </a>
+      <a href="../programs.html" class="lc-card">
+        <div class="lc-card-thumb hc">
+          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+        </div>
+        <div class="lc-card-body">
+          <span class="lc-badge badge-hc-lt">CHFA Programs</span>
+          <h3>CHFA Loan and DPA Options Available to Colorado Healthcare Professionals</h3>
+          <div class="lc-card-footer">7 min read</div>
+        </div>
+      </a>
+      <a href="va-loan-down-payment-assistance-colorado.html" class="lc-card">
+        <div class="lc-card-thumb hc">
+          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <div class="lc-card-body">
+          <span class="lc-badge badge-hc-lt">Planning</span>
+          <h3>Before You Call a Lender: What Colorado Healthcare Workers Should Know First</h3>
+          <div class="lc-card-footer">6 min read</div>
+        </div>
+      </a>
+      <a href="../quiz.html" class="lc-card">
+        <div class="lc-card-thumb hc">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+        </div>
+        <div class="lc-card-body">
+          <span class="lc-badge badge-hc-lt">Free Assessment</span>
+          <h3>See Which Colorado Programs May Match Your Healthcare Worker Profile</h3>
+          <div class="lc-card-footer">5 min &nbsp;·&nbsp; Interactive</div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+</div><!-- end lc-shelves -->
+
+<!-- ════════════ GUIDE STRIP ════════════ -->
+<div class="lc-guide-strip">
+  <div class="lc-guide-strip-inner">
+    <div>
+      <h3>Get the Colorado DPA Money Map, Free</h3>
+      <p>The programs, the planning ranges, and the paths forward. One guide to review before your first lender call.</p>
+    </div>
+    <a href="https://guide.herohomereach.com" target="_blank" class="lc-guide-btn">Download Your Free Guide</a>
+  </div>
+</div>
+
+<!-- ════════════ CTA LADDER ════════════ -->
+<div class="lc-cta-ladder">
+  <div class="lc-cta-ladder-inner">
+    <div class="lc-ladder-label">Your next step</div>
+    <div class="lc-ladder-steps">
+      <a href="https://guide.herohomereach.com" target="_blank" class="lc-step">
+        <div class="lc-step-num">1</div>
+        <div class="lc-step-body">
+          <strong>Get the Free Guide</strong>
+          <span>Download the Colorado DPA Money Map and see your options laid out clearly.</span>
+        </div>
+        <span class="lc-step-arrow">&rarr;</span>
+      </a>
+      <a href="../quiz.html" class="lc-step">
+        <div class="lc-step-num">2</div>
+        <div class="lc-step-body">
+          <strong>Take the Assessment</strong>
+          <span>Answer five questions and see which programs may match your hero profile.</span>
+        </div>
+        <span class="lc-step-arrow">&rarr;</span>
+      </a>
+      <a href="../contact.html" class="lc-step">
+        <div class="lc-step-num">3</div>
+        <div class="lc-step-body">
+          <strong>Book Your Free Hero Strategy Session</strong>
+          <span>A free 30-minute conversation with a Hero HomeReach partner to map your path.</span>
+        </div>
+        <span class="lc-step-arrow">&rarr;</span>
+      </a>
+    </div>
+  </div>
+</div>
 
 <!-- ════════════ FOOTER ════════════ -->
-<footer id="footer">
-  <div class="container">
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <div class="wordmark">Hero <span>HomeReach</span>™</div>
-        <p>Free homeownership guidance for Colorado's educators, first responders, healthcare workers and military members. No jargon. No pressure. Built for heroes.</p>
-      </div>
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img src="../logo-mark_transparent.png" alt="Hero HomeReach" style="width:44px;height:44px;object-fit:contain;margin-bottom:12px;">
+      <div class="footer-wordmark">Hero <span>HomeReach</span><sup>™</sup></div>
+      <p class="footer-tagline">Free homebuyer education for Colorado's public service heroes.</p>
+    </div>
+    <div class="footer-links">
       <div class="footer-col">
-        <div class="footer-col-title">Site</div>
+        <div class="footer-col-title">Resources</div>
         <a href="../programs.html">Programs</a>
         <a href="../who-we-serve.html">Who We Serve</a>
         <a href="../blog/">Learning Center</a>
-        <a href="../contact.html">Contact</a>
+        <a href="../faq.html">DPA FAQ</a>
       </div>
       <div class="footer-col">
-        <div class="footer-col-title">Heroes</div>
-        <a href="../who-we-serve.html#educators">Educators</a>
-        <a href="../who-we-serve.html#first-responders">First Responders</a>
-        <a href="../who-we-serve.html#healthcare">Healthcare Workers</a>
-        <a href="../who-we-serve.html#military">Military Members</a>
-      </div>
-      <div class="footer-col">
-        <div class="footer-col-title">Start Here</div>
-        <a href="../contact.html">Book Free Consultation</a>
-        <a href="../programs.html">Explore Programs</a>
-        <a href="../blog/">Learning Center</a>
+        <div class="footer-col-title">Take Action</div>
+        <a href="https://guide.herohomereach.com" target="_blank">Free Guide</a>
+        <a href="../quiz.html">Take Assessment</a>
+        <a href="../contact.html">Book Strategy Session</a>
+        <a href="../about.html">About Hero HomeReach</a>
       </div>
     </div>
-    <div class="footer-bottom">
-      <div class="footer-copy">© 2026 Hero HomeReach™. All rights reserved. Colorado Homeownership Guidance.</div>
-      <div class="footer-legal">
-        <a href="../privacy.html">Privacy Policy</a>
-        <a href="../terms.html">Terms of Use</a>
-        <a href="../disclaimer.html">Disclaimer</a>
-      </div>
-    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 Hero HomeReach. Educational resource only. Not a lender, broker, or government agency. Program availability, eligibility, and assistance amounts vary and are subject to change.</p>
   </div>
 </footer>
 
+<!-- ════════════ SCRIPTS ════════════ -->
+<script src="../js/nav.js"></script>
 
+<!-- HubSpot Chatbot — Do not remove -->
+<script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/244185002.js"></script>
+
+<!-- Tab filter logic -->
 <script>
-// ── NAV SCROLL ──
-const nav = document.getElementById('nav');
-window.addEventListener('scroll', () => {
-  nav.classList.toggle('scrolled', window.scrollY > 40);
-}, { passive: true });
+  (function() {
+    var tabs = document.querySelectorAll('.lc-tab');
+    var shelves = document.querySelectorAll('.lc-shelf');
 
-// ── MOBILE NAV ──
-function toggleMobileNav() {
-  document.getElementById('mobile-nav').classList.toggle('open');
-}
+    tabs.forEach(function(tab) {
+      tab.addEventListener('click', function() {
+        var filter = this.getAttribute('data-filter');
 
-// ── CATEGORY FILTER ──
-function filterPosts(category, btn) {
-  document.querySelectorAll('.blog-filter-btn').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
+        // Update active tab
+        tabs.forEach(function(t) { t.classList.remove('active'); });
+        this.classList.add('active');
 
-  const featured = document.querySelector('.blog-featured');
-  if (featured) {
-    const audiences = featured.dataset.audience || '';
-    featured.style.display = (category === 'all' || audiences.includes(category)) ? 'block' : 'none';
-  }
-
-  const cards = document.querySelectorAll('.blog-card');
-  let visibleCount = 0;
-  cards.forEach(card => {
-    const audiences = card.dataset.audience || '';
-    if (category === 'all' || audiences.includes(category)) {
-      card.style.display = 'flex';
-      visibleCount++;
-    } else {
-      card.style.display = 'none';
-    }
-  });
-
-  const noResults = document.getElementById('noResults');
-  if (noResults) {
-    noResults.style.display = visibleCount === 0 ? 'block' : 'none';
-  }
-}
-
-// ── SCROLL ANIMATIONS ──
-const fadeEls = document.querySelectorAll('.fade-up');
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-      observer.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.12 });
-fadeEls.forEach(el => observer.observe(el));
-</script>
-
-<!-- HubSpot -->
-<script type="text/javascript" id="hs-script-loader" async defer src="//js-na2.hs-scripts.com/244185002.js"></script>
-  <!--
-  ╔══════════════════════════════════════════════════════════════╗
-  ║   HERO HOMEREACH — eBOOK MODAL SYSTEM                       ║
-  ║   Drop this entire block into every HTML page.              ║
-  ║   It intercepts all guide.herohomereach.com links.          ║
-  ║                                                              ║
-  ║   SETUP: Find and replace the 3 config values below:        ║
-  ║   1. MAILERLITE_API_KEY — your ML account API key           ║
-  ║   2. MAILERLITE_GROUP_ID — already set to your eBook group  ║
-  ║   3. EBOOK_PDF_URL — public URL to the hosted PDF           ║
-  ╚══════════════════════════════════════════════════════════════╝
-
-  PLACEMENT: Paste just before your closing </body> tag on every page.
-  It replaces the existing guide.herohomereach.com link at the top of
-  each page too — see the JS intercept block at the bottom.
--->
-
-
-<!-- ═══════════════ MODAL STYLES ═══════════════ -->
-<style>
-  #hhm-backdrop {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: rgba(12, 45, 94, 0.78);
-    z-index: 9999;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
-    animation: hhm-fade-in 0.2s ease;
-  }
-  #hhm-backdrop.hhm-open {
-    display: flex;
-  }
-  @keyframes hhm-fade-in {
-    from { opacity: 0; }
-    to   { opacity: 1; }
-  }
-  #hhm-modal {
-    background: #ffffff;
-    border-radius: 16px;
-    max-width: 480px;
-    width: 100%;
-    overflow: hidden;
-    position: relative;
-    animation: hhm-slide-up 0.25s ease;
-    box-shadow: 0 32px 80px rgba(0,0,0,0.32);
-  }
-  @keyframes hhm-slide-up {
-    from { transform: translateY(20px); opacity: 0; }
-    to   { transform: translateY(0);    opacity: 1; }
-  }
-
-  /* Header */
-  .hhm-header {
-    background: #0C2D5E;
-    padding: 28px 32px 24px;
-    position: relative;
-  }
-  .hhm-header::after {
-    content: '';
-    position: absolute;
-    bottom: 0; left: 32px; right: 32px;
-    height: 2px;
-    background: linear-gradient(90deg, #C9973A 0%, transparent 100%);
-  }
-  .hhm-eyebrow {
-    font-family: 'Inter', system-ui, sans-serif;
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: #C9973A;
-    margin-bottom: 8px;
-  }
-  .hhm-title {
-    font-family: 'Playfair Display', Georgia, serif;
-    font-size: 22px;
-    font-weight: 700;
-    color: #ffffff;
-    line-height: 1.3;
-    margin-bottom: 8px;
-  }
-  .hhm-subtitle {
-    font-family: 'Inter', system-ui, sans-serif;
-    font-size: 13px;
-    color: rgba(255,255,255,0.65);
-    line-height: 1.55;
-  }
-  .hhm-close {
-    position: absolute;
-    top: 14px;
-    right: 16px;
-    background: rgba(255,255,255,0.1);
-    border: none;
-    color: rgba(255,255,255,0.6);
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    cursor: pointer;
-    font-size: 17px;
-    line-height: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background 0.15s, color 0.15s;
-  }
-  .hhm-close:hover {
-    background: rgba(255,255,255,0.2);
-    color: #fff;
-  }
-
-  /* Body */
-  .hhm-body {
-    padding: 24px 32px 30px;
-  }
-
-  /* Guide preview strip */
-  .hhm-guide-strip {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    background: #F5F7FA;
-    border: 1px solid rgba(201,151,58,0.2);
-    border-radius: 10px;
-    padding: 12px 14px;
-    margin-bottom: 20px;
-  }
-  .hhm-guide-icon {
-    flex-shrink: 0;
-    width: 40px;
-    height: 48px;
-    background: #0C2D5E;
-    border-radius: 5px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-  }
-  .hhm-guide-icon::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 5px;
-    background: #C9973A;
-    border-radius: 5px 5px 0 0;
-  }
-  .hhm-guide-icon svg {
-    width: 18px;
-    height: 18px;
-    fill: rgba(255,255,255,0.8);
-    margin-top: 3px;
-  }
-  .hhm-guide-label {
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: #C9973A;
-    margin-bottom: 2px;
-  }
-  .hhm-guide-name {
-    font-size: 13px;
-    font-weight: 600;
-    color: #0C2D5E;
-    line-height: 1.3;
-  }
-  .hhm-guide-pages {
-    font-size: 11px;
-    color: #999;
-    margin-top: 3px;
-  }
-
-  /* Form */
-  .hhm-row { margin-bottom: 12px; }
-  .hhm-row-split {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-    margin-bottom: 12px;
-  }
-  .hhm-label {
-    display: block;
-    font-size: 11.5px;
-    font-weight: 600;
-    color: #1C1C1E;
-    margin-bottom: 5px;
-    letter-spacing: 0.02em;
-  }
-  .hhm-input,
-  .hhm-select {
-    width: 100%;
-    height: 42px;
-    border: 1.5px solid #dde1e9;
-    border-radius: 8px;
-    padding: 0 13px;
-    font-size: 14px;
-    color: #1C1C1E;
-    background: #ffffff;
-    font-family: 'Inter', system-ui, sans-serif;
-    outline: none;
-    transition: border-color 0.15s, box-shadow 0.15s;
-    -webkit-appearance: none;
-    appearance: none;
-  }
-  .hhm-input:focus,
-  .hhm-select:focus {
-    border-color: #1A4A8A;
-    box-shadow: 0 0 0 3px rgba(26,74,138,0.1);
-  }
-  .hhm-select {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23666' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: right 13px center;
-    padding-right: 34px;
-    cursor: pointer;
-  }
-  .hhm-error {
-    font-size: 11px;
-    color: #c0392b;
-    margin-top: 4px;
-    display: none;
-  }
-
-  /* Submit button */
-  .hhm-btn {
-    width: 100%;
-    height: 48px;
-    background: #C9973A;
-    color: #ffffff;
-    font-family: 'Inter', system-ui, sans-serif;
-    font-size: 15px;
-    font-weight: 700;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    margin-top: 8px;
-    letter-spacing: 0.02em;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    transition: background 0.15s, transform 0.1s, opacity 0.15s;
-  }
-  .hhm-btn:hover:not(:disabled) {
-    background: #EAB84A;
-    transform: translateY(-1px);
-  }
-  .hhm-btn:active:not(:disabled) {
-    transform: translateY(0);
-  }
-  .hhm-btn:disabled {
-    opacity: 0.6;
-    cursor: not-allowed;
-  }
-  .hhm-spinner {
-    width: 16px;
-    height: 16px;
-    border: 2px solid rgba(255,255,255,0.35);
-    border-top-color: #fff;
-    border-radius: 50%;
-    animation: hhm-spin 0.6s linear infinite;
-  }
-  @keyframes hhm-spin { to { transform: rotate(360deg); } }
-
-  /* Trust line */
-  .hhm-trust {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 5px;
-    margin-top: 10px;
-    font-size: 11px;
-    color: #aaa;
-    font-family: 'Inter', system-ui, sans-serif;
-  }
-
-  /* Success state */
-  .hhm-success {
-    display: none;
-    padding: 36px 32px 32px;
-    text-align: center;
-  }
-  .hhm-success-icon {
-    width: 64px;
-    height: 64px;
-    background: rgba(26,107,74,0.1);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 18px;
-    font-size: 28px;
-  }
-  .hhm-success-title {
-    font-family: 'Playfair Display', Georgia, serif;
-    font-size: 22px;
-    font-weight: 700;
-    color: #0C2D5E;
-    margin-bottom: 10px;
-  }
-  .hhm-success-body {
-    font-size: 14px;
-    color: #555;
-    line-height: 1.6;
-    max-width: 340px;
-    margin: 0 auto 22px;
-    font-family: 'Inter', system-ui, sans-serif;
-  }
-  .hhm-success-cta {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    background: #0C2D5E;
-    color: #ffffff;
-    padding: 13px 26px;
-    border-radius: 8px;
-    text-decoration: none;
-    font-size: 14px;
-    font-weight: 600;
-    font-family: 'Inter', system-ui, sans-serif;
-    transition: background 0.15s;
-  }
-  .hhm-success-cta:hover { background: #1A4A8A; }
-
-  /* Mobile */
-  @media (max-width: 520px) {
-    .hhm-header { padding: 22px 22px 18px; }
-    .hhm-body { padding: 20px 22px 24px; }
-    .hhm-row-split { grid-template-columns: 1fr; gap: 0; }
-    .hhm-title { font-size: 19px; }
-    .hhm-success { padding: 28px 22px 26px; }
-  }
-</style>
-
-
-<!-- ═══════════════ MODAL HTML ═══════════════ -->
-<div id="hhm-backdrop" role="dialog" aria-modal="true" aria-labelledby="hhm-modal-title">
-  <div id="hhm-modal">
-
-    <!-- Header -->
-    <div class="hhm-header">
-      <button class="hhm-close" onclick="hhmClose()" aria-label="Close">&times;</button>
-      <div class="hhm-eyebrow">Free Colorado Guide</div>
-      <h2 class="hhm-title" id="hhm-modal-title">Your Hero Homebuyer Guide Is Ready</h2>
-      <p class="hhm-subtitle">Real Colorado assistance paths, grants, and strategies built for educators, first responders, healthcare workers, and veterans.</p>
-    </div>
-
-    <!-- Form -->
-    <div class="hhm-body" id="hhm-form-wrap">
-
-      <div class="hhm-guide-strip">
-        <div class="hhm-guide-icon">
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8l-6-6zm4 18H6V4h7v5h5v11z"/>
-          </svg>
-        </div>
-        <div>
-          <div class="hhm-guide-label">Free eBook</div>
-          <div class="hhm-guide-name">The Hero HomeReach Advantage</div>
-          <div class="hhm-guide-pages">13 pages &middot; CHFA &middot; MetroDPA &middot; Chenoa &middot; VA &middot; Seller Credits</div>
-        </div>
-      </div>
-
-      <div class="hhm-row-split">
-        <div>
-          <label class="hhm-label" for="hhm-first">First Name</label>
-          <input class="hhm-input" type="text" id="hhm-first" placeholder="Jane" autocomplete="given-name" />
-        </div>
-        <div>
-          <label class="hhm-label" for="hhm-last">Last Name</label>
-          <input class="hhm-input" type="text" id="hhm-last" placeholder="Smith" autocomplete="family-name" />
-        </div>
-      </div>
-
-      <div class="hhm-row">
-        <label class="hhm-label" for="hhm-email">Email Address</label>
-        <input class="hhm-input" type="email" id="hhm-email" placeholder="jane@district.org" autocomplete="email" />
-        <div class="hhm-error" id="hhm-email-err">Please enter a valid email address.</div>
-      </div>
-
-      <div class="hhm-row">
-        <label class="hhm-label" for="hhm-hero">I Am A&hellip;</label>
-        <select class="hhm-select" id="hhm-hero">
-          <option value="">Select your profession</option>
-          <option value="educator">Educator (Teacher / School Staff / Admin)</option>
-          <option value="first_responder">First Responder (Firefighter / EMT / Police)</option>
-          <option value="healthcare">Healthcare Worker (Nurse / Paramedic / Medical)</option>
-          <option value="military">Military / Veteran / Active Duty</option>
-          <option value="public_service">Other Public Service</option>
-        </select>
-      </div>
-
-      <button class="hhm-btn" id="hhm-submit-btn" onclick="hhmSubmit()">
-        <span id="hhm-btn-label">Send Me the Free Guide</span>
-        <span id="hhm-btn-arrow">&rarr;</span>
-        <span class="hhm-spinner" id="hhm-spinner" style="display:none;"></span>
-      </button>
-
-      <div class="hhm-trust">
-        <svg width="11" height="13" viewBox="0 0 11 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect x="1" y="5" width="9" height="7" rx="1.5" stroke="#bbb" stroke-width="1.2"/>
-          <path d="M3.5 5V3.5a2 2 0 014 0V5" stroke="#bbb" stroke-width="1.2" stroke-linecap="round"/>
-        </svg>
-        No spam, ever. Unsubscribe anytime. Your information is safe.
-      </div>
-    </div>
-
-    <!-- Success -->
-    <div class="hhm-success" id="hhm-success-wrap">
-      <div class="hhm-success-icon">&#10003;</div>
-      <div class="hhm-success-title">Check Your Inbox</div>
-      <p class="hhm-success-body">Your Hero HomeReach Advantage guide is on its way. Ready to go deeper? Book a free 30-minute strategy session and we will map your personal assistance path together.</p>
-      <a class="hhm-success-cta" href="https://calendly.com/trogelstad-herohomereach/30min" target="_blank" rel="noopener">
-        Book My Free Call &rarr;
-      </a>
-    </div>
-
-  </div>
-</div>
-
-
-<!-- ═══════════════ MODAL SCRIPT ═══════════════ -->
-<script>
-(function(){
-
-  /* ─── CONFIG ─── */
-  var ML_GROUP_ID   = '184754345036744568';
-  var ML_API_KEY    = 'YOUR_MAILERLITE_API_KEY';   /* ← replace this */
-  var EBOOK_PDF_URL = 'https://herohomereach.com/hero-homereach-advantage.pdf'; /* ← replace with your hosted PDF URL */
-
-  /* ─── INTERCEPT all links that go to guide.herohomereach.com ─── */
-  document.addEventListener('DOMContentLoaded', function(){
-    document.querySelectorAll('a').forEach(function(a){
-      var href = a.getAttribute('href') || '';
-      if(href.indexOf('guide.herohomereach.com') !== -1){
-        a.setAttribute('href', '#');
-        a.setAttribute('data-hhm', '1');
-        a.addEventListener('click', function(e){
-          e.preventDefault();
-          hhmOpen();
+        // Show/hide shelves
+        shelves.forEach(function(shelf) {
+          if (filter === 'all' || shelf.getAttribute('data-shelf') === filter) {
+            shelf.classList.remove('hidden');
+          } else {
+            shelf.classList.add('hidden');
+          }
         });
-      }
+      });
     });
-  });
-
-  /* ─── OPEN / CLOSE ─── */
-  window.hhmOpen = function(){
-    document.getElementById('hhm-backdrop').classList.add('hhm-open');
-    document.body.style.overflow = 'hidden';
-    setTimeout(function(){ document.getElementById('hhm-first').focus(); }, 120);
-  };
-
-  window.hhmClose = function(){
-    document.getElementById('hhm-backdrop').classList.remove('hhm-open');
-    document.body.style.overflow = '';
-  };
-
-  /* Close on backdrop click */
-  document.getElementById('hhm-backdrop').addEventListener('click', function(e){
-    if(e.target === this) hhmClose();
-  });
-
-  /* Close on Escape */
-  document.addEventListener('keydown', function(e){
-    if(e.key === 'Escape') hhmClose();
-  });
-
-  /* ─── SUBMIT ─── */
-  window.hhmSubmit = function(){
-    var first  = document.getElementById('hhm-first').value.trim();
-    var last   = document.getElementById('hhm-last').value.trim();
-    var email  = document.getElementById('hhm-email').value.trim();
-    var hero   = document.getElementById('hhm-hero').value;
-    var errEl  = document.getElementById('hhm-email-err');
-
-    errEl.style.display = 'none';
-
-    /* Validation */
-    if(!first){ document.getElementById('hhm-first').focus(); return; }
-    if(!email || !/\S+@\S+\.\S+/.test(email)){
-      errEl.style.display = 'block';
-      document.getElementById('hhm-email').focus();
-      return;
-    }
-
-    /* Loading state */
-    var btn     = document.getElementById('hhm-submit-btn');
-    var lbl     = document.getElementById('hhm-btn-label');
-    var arrow   = document.getElementById('hhm-btn-arrow');
-    var spinner = document.getElementById('hhm-spinner');
-    btn.disabled = true;
-    lbl.textContent = 'Sending\u2026';
-    arrow.style.display = 'none';
-    spinner.style.display = 'inline-block';
-
-    /* Build MailerLite subscriber payload */
-    var fields = { name: first + (last ? ' ' + last : '') };
-    if(hero) fields['hero_type'] = hero;
-
-    var payload = {
-      email: email,
-      fields: fields,
-      groups: [ML_GROUP_ID],
-      status: 'active'
-    };
-
-    fetch('https://connect.mailerlite.com/api/subscribers', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': 'Bearer ' + ML_API_KEY,
-        'Accept': 'application/json'
-      },
-      body: JSON.stringify(payload)
-    })
-    .then(function(res){
-      /* 200 = updated existing, 201 = new subscriber */
-      if(res.ok || res.status === 200 || res.status === 201){
-        hhmShowSuccess();
-      } else {
-        return res.json().then(function(data){
-          hhmResetBtn();
-          alert('There was a problem. Please try again or email us directly.');
-          console.error('MailerLite error:', data);
-        });
-      }
-    })
-    .catch(function(err){
-      hhmResetBtn();
-      alert('Network error. Please check your connection and try again.');
-      console.error(err);
-    });
-  };
-
-  function hhmShowSuccess(){
-    document.getElementById('hhm-form-wrap').style.display = 'none';
-    document.getElementById('hhm-success-wrap').style.display = 'block';
-  }
-
-  function hhmResetBtn(){
-    var btn     = document.getElementById('hhm-submit-btn');
-    var lbl     = document.getElementById('hhm-btn-label');
-    var arrow   = document.getElementById('hhm-btn-arrow');
-    var spinner = document.getElementById('hhm-spinner');
-    btn.disabled = false;
-    lbl.textContent = 'Send Me the Free Guide';
-    arrow.style.display = 'inline';
-    spinner.style.display = 'none';
-  }
-
-})();
+  })();
 </script>
-
-<!--
-  ╔══════════════════════════════════════════════════════════════╗
-  ║   LAUNCH CHECKLIST                                          ║
-  ║                                                              ║
-  ║   1. Replace YOUR_MAILERLITE_API_KEY with your real key     ║
-  ║      → MailerLite → Integrations → API                      ║
-  ║                                                              ║
-  ║   2. Replace EBOOK_PDF_URL with the public PDF address      ║
-  ║      → Upload hero-homereach-advantage.pdf to Vercel root   ║
-  ║      → Commit, auto-deploys, then use:                      ║
-  ║        https://herohomereach.com/hero-homereach-advantage.pdf║
-  ║                                                              ║
-  ║   3. Paste this block above </body> on every page:          ║
-  ║      index.html, programs.html, who-we-serve.html,          ║
-  ║      about.html, contact.html, faq.html, blog/index.html,   ║
-  ║      and each individual blog post file.                     ║
-  ║                                                              ║
-  ║   4. The intercept runs automatically. Every existing        ║
-  ║      guide.herohomereach.com link becomes a modal trigger.   ║
-  ║      No other code changes needed.                           ║
-  ║                                                              ║
-  ║   5. GTM: The ML API call fires silently. If you want a     ║
-  ║      GA4 + Meta Pixel lead event, add a dataLayer push       ║
-  ║      inside hhmShowSuccess() above the form-hide line:       ║
-  ║      window.dataLayer = window.dataLayer || [];              ║
-  ║      window.dataLayer.push({event:'ebook_lead',              ║
-  ║        hero_type: document.getElementById('hhm-hero').value});║
-  ╚══════════════════════════════════════════════════════════════╝
--->
 
 </body>
 </html>
