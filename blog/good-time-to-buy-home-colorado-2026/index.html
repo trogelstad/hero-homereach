@@ -459,6 +459,42 @@
   .related-post-thumb-link { flex-shrink:0; display:block; width:64px; height:56px; border-radius:5px; overflow:hidden; }
   .related-post-thumb-img { width:100%; height:100%; object-fit:cover; display:block; transition:transform 0.2s; }
   .related-post-item:hover .related-post-thumb-img { transform:scale(1.05); }
+  @media (max-width: 768px) {
+  .post-article,
+  .post-body {
+    min-width: 0;
+    max-width: 100%;
+    overflow: hidden;
+  }
+
+  .post-layout {
+    overflow: hidden;
+  }
+
+  .post-callout {
+    box-sizing: border-box;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .post-callout p,
+  .post-callout a {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+  }
+
+  .quick-answer {
+    box-sizing: border-box;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .quick-answer p,
+  .quick-answer a {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+  }
+}
   </style>
 
   <!-- Calendly popup -->
