@@ -539,6 +539,93 @@
       .lc-card-row { grid-template-columns: 1fr; }
       .lc-hero h1 { font-size: 26px; }
     }
+
+    /* ── Featured Hero (two-column map layout) ── */
+.lc-feat-hero {
+  display: grid;
+  grid-template-columns: 58% 42%;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid #e4e4e4;
+  text-decoration: none;
+  background: #fff;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.lc-feat-hero:hover {
+  border-color: var(--gold);
+  box-shadow: 0 8px 32px rgba(12,45,94,0.10);
+}
+.lc-feat-hero-img {
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: var(--navy);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.lc-feat-hero-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+.lc-feat-hero-body {
+  padding: 32px 36px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 14px;
+  background: #fff;
+}
+.lc-feat-hero-body h2 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(18px, 2vw, 26px);
+  font-weight: 400;
+  color: var(--near-black);
+  line-height: 1.3;
+  margin: 0;
+}
+.lc-feat-hero-body p {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: #555;
+  line-height: 1.7;
+  margin: 0;
+}
+.lc-feat-read-btn {
+  display: inline-block;
+  margin-top: 4px;
+  background: var(--gold);
+  color: #fff;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 11px 22px;
+  border-radius: 6px;
+  transition: background 0.2s;
+  align-self: flex-start;
+}
+.lc-feat-hero:hover .lc-feat-read-btn {
+  background: var(--bright-gold);
+}
+@media (max-width: 800px) {
+  .lc-feat-hero {
+    grid-template-columns: 1fr;
+  }
+  .lc-feat-hero-img {
+    aspect-ratio: 16 / 7;
+  }
+  .lc-feat-hero-body {
+    padding: 24px 22px;
+  }
+}
+@media (max-width: 480px) {
+  .lc-feat-hero-img {
+    aspect-ratio: 4 / 3;
+  }
+}
   </style>
 </head>
 <body>
