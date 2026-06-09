@@ -490,6 +490,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               width="1200"
               height="630"
               loading="eager"
+              style="cursor:zoom-in;"
+              onclick="openLightbox(this.src, this.alt);"
             >
             <div class="post-map-caption">Colorado homebuyer assistance is best understood as a landscape of possible paths, not one single program.</div>
           </div>
@@ -1192,6 +1194,7 @@ document.querySelectorAll('.toc-list a').forEach(link => {
 <!-- eBook Modal -->
 <link rel="stylesheet" href="../../css/ebook-modal.css">
 <script src="../../js/ebook-modal.js"></script>
+
 <!-- ════════════ MAP LIGHTBOX ════════════ -->
 <div id="map-lightbox" style="
   display:none;
@@ -1246,14 +1249,13 @@ function closeLightbox() {
   document.getElementById('map-lightbox').style.display = 'none';
   document.body.style.overflow = '';
 }
-// Click backdrop to close
 document.getElementById('map-lightbox').addEventListener('click', function(e) {
   if (e.target === this) closeLightbox();
 });
-// Escape key to close
 document.addEventListener('keydown', function(e) {
   if (e.key === 'Escape') closeLightbox();
 });
 </script>
+
 </body>
 </html>
