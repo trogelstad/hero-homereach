@@ -26,7 +26,6 @@
   <link rel="stylesheet" href="/css/main.css">
 
   <style>
-    /* ── Learning Center Variables ── */
     :root {
       --navy: #0C2D5E;
       --mid-navy: #1A4A8A;
@@ -38,349 +37,77 @@
       --warm-gray: #D3D1C7;
     }
 
-    /* ── Push page below fixed nav ── */
-    body {
-      padding-top: var(--nav-h, 72px);
-    }
+    body { padding-top: var(--nav-h, 72px); }
 
-    /* ── Force nav navy on this page (no hero image underneath) ── */
-    #nav {
-      background: var(--navy) !important;
-      box-shadow: 0 2px 16px rgba(0,0,0,0.18) !important;
-    }
+    #nav { background: var(--navy) !important; box-shadow: 0 2px 16px rgba(0,0,0,0.18) !important; }
     #nav .nav-links a { color: rgba(255,255,255,0.85) !important; }
-    #nav .nav-links a:hover,
-    #nav .nav-links a.active { color: #fff !important; }
+    #nav .nav-links a:hover, #nav .nav-links a.active { color: #fff !important; }
 
-    /* ── Learning Center Subnav ── */
-    .lc-subnav {
-      background: var(--navy);
-      border-bottom: 1px solid rgba(201,151,58,0.25);
-      position: sticky;
-      top: var(--nav-h, 72px);
-      z-index: 89;
-    }
-    .lc-subnav-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 24px;
-      display: flex;
-      align-items: center;
-      gap: 0;
-      overflow-x: auto;
-      scrollbar-width: none;
-    }
+    /* ── Subnav ── */
+    .lc-subnav { background: var(--navy); border-bottom: 1px solid rgba(201,151,58,0.25); position: sticky; top: var(--nav-h, 72px); z-index: 89; }
+    .lc-subnav-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; display: flex; align-items: center; gap: 0; overflow-x: auto; scrollbar-width: none; }
     .lc-subnav-inner::-webkit-scrollbar { display: none; }
-    .lc-subnav-label {
-      color: var(--gold);
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      padding: 15px 20px 15px 0;
-      border-right: 1px solid rgba(255,255,255,0.12);
-      margin-right: 8px;
-      white-space: nowrap;
-      flex-shrink: 0;
-    }
-    .lc-tab {
-      color: rgba(255,255,255,0.6);
-      font-size: 13px;
-      font-weight: 500;
-      padding: 15px 16px;
-      cursor: pointer;
-      border-bottom: 2px solid transparent;
-      transition: color 0.2s, border-color 0.2s;
-      white-space: nowrap;
-      flex-shrink: 0;
-      background: none;
-      border-top: none;
-      border-left: none;
-      border-right: none;
-      font-family: 'Inter', sans-serif;
-    }
-    .lc-tab:hover,
-    .lc-tab.active {
-      color: var(--bright-gold);
-      border-bottom-color: var(--bright-gold);
-    }
+    .lc-subnav-label { color: var(--gold); font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 15px 20px 15px 0; border-right: 1px solid rgba(255,255,255,0.12); margin-right: 8px; white-space: nowrap; flex-shrink: 0; }
+    .lc-tab { color: rgba(255,255,255,0.6); font-size: 13px; font-weight: 500; padding: 15px 16px; cursor: pointer; border-bottom: 2px solid transparent; transition: color 0.2s, border-color 0.2s; white-space: nowrap; flex-shrink: 0; background: none; border-top: none; border-left: none; border-right: none; font-family: 'Inter', sans-serif; }
+    .lc-tab:hover, .lc-tab.active { color: var(--bright-gold); border-bottom-color: var(--bright-gold); }
 
     /* ── Hero Banner ── */
-    .lc-hero {
-      background-color: var(--navy);
-      background-image: url('hero-learning-center-mountain-banner-1920x520.webp');
-      background-size: cover;
-      background-position: center center;
-      padding: 64px 24px 60px;
-      position: relative;
-      overflow: hidden;
-    }
-    .lc-hero::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(
-        90deg,
-        rgba(12,45,94,0.92) 0%,
-        rgba(12,45,94,0.85) 40%,
-        rgba(12,45,94,0.60) 70%,
-        rgba(12,45,94,0.30) 100%
-      );
-      pointer-events: none;
-    }
-    .lc-hero::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(
-        180deg,
-        rgba(12,45,94,0.15) 0%,
-        rgba(12,45,94,0.45) 100%
-      );
-      pointer-events: none;
-    }
-    .lc-hero-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-      position: relative;
-      z-index: 2;
-    }
-    .lc-hero-eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      font-family: 'Inter', sans-serif;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 18px;
-    }
-    .lc-hero-eyebrow::before {
-      content: '';
-      display: block;
-      width: 24px;
-      height: 2px;
-      background: var(--gold);
-    }
-    .lc-hero h1 {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: clamp(28px, 4vw, 44px);
-      font-weight: 400;
-      color: #fff;
-      line-height: 1.2;
-      margin-bottom: 14px;
-      max-width: 640px;
-    }
+    .lc-hero { background-color: var(--navy); background-image: url('hero-learning-center-mountain-banner-1920x520.webp'); background-size: cover; background-position: center center; padding: 64px 24px 60px; position: relative; overflow: hidden; }
+    .lc-hero::before { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(12,45,94,0.92) 0%, rgba(12,45,94,0.85) 40%, rgba(12,45,94,0.60) 70%, rgba(12,45,94,0.30) 100%); pointer-events: none; }
+    .lc-hero::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(12,45,94,0.15) 0%, rgba(12,45,94,0.45) 100%); pointer-events: none; }
+    .lc-hero-inner { max-width: 1200px; margin: 0 auto; position: relative; z-index: 2; }
+    .lc-hero-eyebrow { display: inline-flex; align-items: center; gap: 10px; font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 18px; }
+    .lc-hero-eyebrow::before { content: ''; display: block; width: 24px; height: 2px; background: var(--gold); }
+    .lc-hero h1 { font-family: 'Playfair Display', Georgia, serif; font-size: clamp(28px, 4vw, 44px); font-weight: 400; color: #fff; line-height: 1.2; margin-bottom: 14px; max-width: 640px; }
     .lc-hero h1 span { color: var(--bright-gold); }
-    .lc-hero p {
-      font-family: 'Inter', sans-serif;
-      font-size: 16px;
-      color: rgba(255,255,255,0.62);
-      line-height: 1.65;
-      max-width: 520px;
-    }
+    .lc-hero p { font-family: 'Inter', sans-serif; font-size: 16px; color: rgba(255,255,255,0.62); line-height: 1.65; max-width: 520px; }
 
     /* ── Featured Strip ── */
-    .lc-featured {
-      background: #fff;
-      border-bottom: 1px solid #e8e8e8;
-      padding: 36px 24px;
-    }
+    .lc-featured { background: #fff; border-bottom: 1px solid #e8e8e8; padding: 36px 24px; }
     .lc-featured-inner { max-width: 1200px; margin: 0 auto; }
-    .lc-section-label {
-      font-family: 'Inter', sans-serif;
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: #888;
-      margin-bottom: 16px;
-    }
-    .lc-featured-grid {
-      display: grid;
-      grid-template-columns: 1.85fr 1fr 1fr;
-      gap: 18px;
-    }
-    /* Featured main card */
-    .lc-feat-main {
-      background: var(--navy);
-      border-radius: 12px;
-      overflow: hidden;
-      text-decoration: none;
-      display: block;
-      transition: transform 0.2s;
-    }
-    .lc-feat-main:hover { transform: translateY(-3px); }
-    .lc-feat-main-img {
-      width: 100%;
-      height: 170px;
-      background: linear-gradient(135deg, #1A4A8A 0%, #0C2D5E 60%, #071d3e 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      overflow: hidden;
-    }
-    .lc-feat-main-img svg {
-      width: 72px;
-      height: 72px;
-      opacity: 0.18;
-    }
-    .lc-feat-main-body { padding: 18px 20px 20px; }
-    .lc-badge {
-      display: inline-block;
-      font-family: 'Inter', sans-serif;
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 0.09em;
-      text-transform: uppercase;
-      padding: 3px 10px;
-      border-radius: 20px;
-      margin-bottom: 10px;
-    }
+    .lc-section-label { font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #888; margin-bottom: 16px; }
+
+    /* ── Featured Hero Two-Column ── */
+    .lc-feat-hero { display: grid; grid-template-columns: 58% 42%; border-radius: 14px; overflow: hidden; border: 1px solid #e4e4e4; text-decoration: none; background: #fff; transition: border-color 0.2s, box-shadow 0.2s; }
+    .lc-feat-hero:hover { border-color: var(--gold); box-shadow: 0 8px 32px rgba(12,45,94,0.10); }
+    .lc-feat-hero-img { aspect-ratio: 16 / 9; overflow: hidden; background: var(--navy); display: flex; align-items: center; justify-content: center; }
+    .lc-feat-hero-img img { width: 100%; height: 100%; object-fit: contain; display: block; cursor: zoom-in; }
+    .lc-feat-hero-body { padding: 32px 36px; display: flex; flex-direction: column; justify-content: center; gap: 14px; background: #fff; }
+    .lc-feat-hero-body h2 { font-family: 'Playfair Display', Georgia, serif; font-size: clamp(18px, 2vw, 26px); font-weight: 400; color: var(--near-black); line-height: 1.3; margin: 0; }
+    .lc-feat-hero-body p { font-family: 'Inter', sans-serif; font-size: 14px; color: #555; line-height: 1.7; margin: 0; }
+    .lc-feat-read-btn { display: inline-block; margin-top: 4px; background: var(--gold); color: #fff; font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; padding: 11px 22px; border-radius: 6px; transition: background 0.2s; align-self: flex-start; }
+    .lc-feat-hero:hover .lc-feat-read-btn { background: var(--bright-gold); }
+
+    /* ── Badges ── */
+    .lc-badge { display: inline-block; font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.09em; text-transform: uppercase; padding: 3px 10px; border-radius: 20px; margin-bottom: 10px; }
     .badge-mil { color: #EAB84A; background: rgba(234,184,74,0.15); }
     .badge-edu { color: #6fcf97; background: rgba(111,207,151,0.15); }
     .badge-fr  { color: #f28b82; background: rgba(242,139,130,0.15); }
     .badge-hc  { color: #7ecfb3; background: rgba(126,207,179,0.15); }
     .badge-all { color: #EAB84A; background: rgba(234,184,74,0.15); }
-    /* light versions for white cards */
     .badge-mil-lt { color: #1A4A8A; background: #e6f1fb; }
     .badge-edu-lt { color: #1A6B4A; background: #eaf3de; }
     .badge-fr-lt  { color: #7B1A1A; background: #fce8e8; }
     .badge-hc-lt  { color: #0F6E56; background: #e1f5ee; }
     .badge-all-lt { color: #7A5A00; background: #faeeda; }
 
-    .lc-feat-main-body h2 {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: 18px;
-      font-weight: 400;
-      color: #fff;
-      line-height: 1.4;
-      margin-bottom: 10px;
-    }
-    .lc-feat-main-body .lc-meta {
-      font-family: 'Inter', sans-serif;
-      font-size: 12px;
-      color: rgba(255,255,255,0.38);
-    }
-    /* Featured side cards */
-    .lc-feat-side {
-      background: var(--cool-white);
-      border-radius: 12px;
-      overflow: hidden;
-      text-decoration: none;
-      display: block;
-      border: 1px solid #e4e4e4;
-      transition: border-color 0.2s, transform 0.2s;
-    }
-    .lc-feat-side:hover { border-color: var(--gold); transform: translateY(-3px); }
-    .lc-feat-side-img {
-      width: 100%;
-      height: 100px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .lc-feat-side-img.bg-mil { background: linear-gradient(135deg, #0C2D5E 0%, #1A4A8A 100%); }
-    .lc-feat-side-img.bg-edu { background: linear-gradient(135deg, #1A4A8A 0%, #1A6B4A 100%); }
-    .lc-feat-side-img.bg-all { background: linear-gradient(135deg, #0C2D5E 0%, #1A4A8A 100%); }
-    .lc-feat-side-img svg { width: 36px; height: 36px; opacity: 0.22; }
-    .lc-feat-side-body { padding: 14px 16px 16px; }
-    .lc-feat-side-body h3 {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: 15px;
-      font-weight: 400;
-      color: var(--near-black);
-      line-height: 1.4;
-      margin-bottom: 8px;
-    }
-    .lc-feat-side-body .lc-meta {
-      font-family: 'Inter', sans-serif;
-      font-size: 12px;
-      color: #888;
-    }
-
-    /* ── Shelf Sections ── */
+    /* ── Shelves ── */
     .lc-shelves { background: #fff; }
-    .lc-shelf {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 36px 24px 0;
-    }
+    .lc-shelf { max-width: 1200px; margin: 0 auto; padding: 36px 24px 0; }
     .lc-shelf:last-of-type { padding-bottom: 36px; }
-
-    .lc-shelf-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 18px;
-      padding-bottom: 12px;
-      border-bottom: 1px solid #ebebeb;
-    }
-    .lc-shelf-title {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-    .lc-shelf-icon {
-      width: 32px;
-      height: 32px;
-      border-radius: 8px;
-      background: var(--navy);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
+    .lc-shelf-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 18px; padding-bottom: 12px; border-bottom: 1px solid #ebebeb; }
+    .lc-shelf-title { display: flex; align-items: center; gap: 12px; }
+    .lc-shelf-icon { width: 32px; height: 32px; border-radius: 8px; background: var(--navy); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
     .lc-shelf-icon svg { width: 16px; height: 16px; fill: none; stroke: var(--bright-gold); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-    .lc-shelf-header h2 {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: 20px;
-      font-weight: 400;
-      color: var(--near-black);
-      margin: 0;
-    }
-    .lc-see-all {
-      font-family: 'Inter', sans-serif;
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--mid-navy);
-      text-decoration: none;
-      letter-spacing: 0.02em;
-      transition: color 0.2s;
-    }
+    .lc-shelf-header h2 { font-family: 'Playfair Display', Georgia, serif; font-size: 20px; font-weight: 400; color: var(--near-black); margin: 0; }
+    .lc-see-all { font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 600; color: var(--mid-navy); text-decoration: none; letter-spacing: 0.02em; transition: color 0.2s; }
     .lc-see-all:hover { color: var(--gold); }
 
-    /* Post card grid */
-    .lc-card-row {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 14px;
-      margin-bottom: 36px;
-    }
-    .lc-card {
-      background: #fff;
-      border: 1px solid #e8e8e8;
-      border-radius: 10px;
-      overflow: hidden;
-      text-decoration: none;
-      display: block;
-      transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
-    }
-    .lc-card:hover {
-      border-color: var(--gold);
-      transform: translateY(-3px);
-      box-shadow: 0 8px 24px rgba(12,45,94,0.08);
-    }
-    .lc-card-thumb {
-      width: 100%;
-      height: 88px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
+    /* ── Cards ── */
+    .lc-card-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-bottom: 36px; }
+    .lc-card { background: #fff; border: 1px solid #e8e8e8; border-radius: 10px; overflow: hidden; text-decoration: none; display: block; transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s; }
+    .lc-card:hover { border-color: var(--gold); transform: translateY(-3px); box-shadow: 0 8px 24px rgba(12,45,94,0.08); }
+    .lc-card-thumb { width: 100%; height: 88px; display: flex; align-items: center; justify-content: center; }
     .lc-card-thumb.mil { background: linear-gradient(135deg, #0C2D5E 0%, #1A4A8A 100%); }
     .lc-card-thumb.edu { background: linear-gradient(135deg, #1A4A8A 0%, #1A6B4A 100%); }
     .lc-card-thumb.fr  { background: linear-gradient(135deg, #6B1A1A 0%, #0C2D5E 100%); }
@@ -388,150 +115,40 @@
     .lc-card-thumb.all { background: linear-gradient(135deg, #0C2D5E 0%, #1A4A8A 100%); }
     .lc-card-thumb svg { width: 32px; height: 32px; fill: none; stroke: rgba(255,255,255,0.28); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
     .lc-card-body { padding: 14px; }
-    .lc-card-body h3 {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: 14px;
-      font-weight: 400;
-      color: var(--near-black);
-      line-height: 1.45;
-      margin: 6px 0 8px;
-    }
-    .lc-card-footer {
-      font-family: 'Inter', sans-serif;
-      font-size: 11px;
-      color: #999;
-    }
+    .lc-card-body h3 { font-family: 'Playfair Display', Georgia, serif; font-size: 14px; font-weight: 400; color: var(--near-black); line-height: 1.45; margin: 6px 0 8px; }
+    .lc-card-footer { font-family: 'Inter', sans-serif; font-size: 11px; color: #999; }
 
     /* ── Guide Strip ── */
-    .lc-guide-strip {
-      background: var(--navy);
-      margin: 0;
-      padding: 32px 24px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-      flex-wrap: wrap;
-      border-top: 1px solid rgba(201,151,58,0.2);
-      border-bottom: 1px solid rgba(201,151,58,0.2);
-    }
-    .lc-guide-strip-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-      width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-    .lc-guide-strip h3 {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: 22px;
-      font-weight: 400;
-      color: #fff;
-      margin-bottom: 6px;
-    }
-    .lc-guide-strip p {
-      font-family: 'Inter', sans-serif;
-      font-size: 14px;
-      color: rgba(255,255,255,0.55);
-      max-width: 500px;
-    }
-    .lc-guide-btn {
-      display: inline-block;
-      background: var(--gold);
-      color: #fff;
-      font-family: 'Inter', sans-serif;
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      padding: 13px 26px;
-      border-radius: 6px;
-      text-decoration: none;
-      white-space: nowrap;
-      transition: background 0.2s;
-      flex-shrink: 0;
-    }
+    .lc-guide-strip { background: var(--navy); margin: 0; padding: 32px 24px; display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; border-top: 1px solid rgba(201,151,58,0.2); border-bottom: 1px solid rgba(201,151,58,0.2); }
+    .lc-guide-strip-inner { max-width: 1200px; margin: 0 auto; width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+    .lc-guide-strip h3 { font-family: 'Playfair Display', Georgia, serif; font-size: 22px; font-weight: 400; color: #fff; margin-bottom: 6px; }
+    .lc-guide-strip p { font-family: 'Inter', sans-serif; font-size: 14px; color: rgba(255,255,255,0.55); max-width: 500px; }
+    .lc-guide-btn { display: inline-block; background: var(--gold); color: #fff; font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; padding: 13px 26px; border-radius: 6px; text-decoration: none; white-space: nowrap; transition: background 0.2s; flex-shrink: 0; }
     .lc-guide-btn:hover { background: var(--bright-gold); }
 
     /* ── CTA Ladder ── */
-    .lc-cta-ladder {
-      background: var(--cool-white);
-      padding: 40px 24px 48px;
-    }
+    .lc-cta-ladder { background: var(--cool-white); padding: 40px 24px 48px; }
     .lc-cta-ladder-inner { max-width: 1200px; margin: 0 auto; }
-    .lc-ladder-label {
-      font-family: 'Inter', sans-serif;
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: #999;
-      margin-bottom: 18px;
-    }
-    .lc-ladder-steps {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
-    }
-    .lc-step {
-      background: #fff;
-      border: 1px solid #e8e8e8;
-      border-radius: 10px;
-      padding: 18px 20px;
-      display: flex;
-      align-items: flex-start;
-      gap: 14px;
-      text-decoration: none;
-      transition: border-color 0.2s, transform 0.2s;
-    }
+    .lc-ladder-label { font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #999; margin-bottom: 18px; }
+    .lc-ladder-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .lc-step { background: #fff; border: 1px solid #e8e8e8; border-radius: 10px; padding: 18px 20px; display: flex; align-items: flex-start; gap: 14px; text-decoration: none; transition: border-color 0.2s, transform 0.2s; }
     .lc-step:hover { border-color: var(--gold); transform: translateY(-2px); }
-    .lc-step-num {
-      width: 30px;
-      height: 30px;
-      border-radius: 50%;
-      background: var(--navy);
-      color: var(--bright-gold);
-      font-family: 'Inter', sans-serif;
-      font-size: 13px;
-      font-weight: 700;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-    .lc-step-body strong {
-      display: block;
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: 15px;
-      font-weight: 400;
-      color: var(--near-black);
-      margin-bottom: 4px;
-    }
-    .lc-step-body span {
-      font-family: 'Inter', sans-serif;
-      font-size: 13px;
-      color: #777;
-      line-height: 1.5;
-    }
-    .lc-step-arrow {
-      margin-left: auto;
-      color: #ccc;
-      font-size: 18px;
-      align-self: center;
-      flex-shrink: 0;
-      padding-left: 8px;
-    }
+    .lc-step-num { width: 30px; height: 30px; border-radius: 50%; background: var(--navy); color: var(--bright-gold); font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .lc-step-body strong { display: block; font-family: 'Playfair Display', Georgia, serif; font-size: 15px; font-weight: 400; color: var(--near-black); margin-bottom: 4px; }
+    .lc-step-body span { font-family: 'Inter', sans-serif; font-size: 13px; color: #777; line-height: 1.5; }
+    .lc-step-arrow { margin-left: auto; color: #ccc; font-size: 18px; align-self: center; flex-shrink: 0; padding-left: 8px; }
 
-    /* ── Tab filter JS ── */
+    /* ── Tab filter ── */
     .lc-shelf { transition: opacity 0.2s; }
     .lc-shelf.hidden { display: none; }
 
     /* ── Responsive ── */
+    @media (max-width: 800px) {
+      .lc-feat-hero { grid-template-columns: 1fr; }
+      .lc-feat-hero-img { aspect-ratio: 16 / 7; }
+      .lc-feat-hero-body { padding: 24px 22px; }
+    }
     @media (max-width: 900px) {
-      .lc-featured-grid { grid-template-columns: 1fr; }
       .lc-card-row { grid-template-columns: repeat(2, 1fr); }
       .lc-ladder-steps { grid-template-columns: 1fr; }
     }
@@ -539,93 +156,9 @@
       .lc-card-row { grid-template-columns: 1fr; }
       .lc-hero h1 { font-size: 26px; }
     }
-
-    /* ── Featured Hero (two-column map layout) ── */
-.lc-feat-hero {
-  display: grid;
-  grid-template-columns: 58% 42%;
-  border-radius: 14px;
-  overflow: hidden;
-  border: 1px solid #e4e4e4;
-  text-decoration: none;
-  background: #fff;
-  transition: border-color 0.2s, box-shadow 0.2s;
-}
-.lc-feat-hero:hover {
-  border-color: var(--gold);
-  box-shadow: 0 8px 32px rgba(12,45,94,0.10);
-}
-.lc-feat-hero-img {
-  aspect-ratio: 16 / 9;
-  overflow: hidden;
-  background: var(--navy);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.lc-feat-hero-img img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  display: block;
-}
-.lc-feat-hero-body {
-  padding: 32px 36px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 14px;
-  background: #fff;
-}
-.lc-feat-hero-body h2 {
-  font-family: 'Playfair Display', Georgia, serif;
-  font-size: clamp(18px, 2vw, 26px);
-  font-weight: 400;
-  color: var(--near-black);
-  line-height: 1.3;
-  margin: 0;
-}
-.lc-feat-hero-body p {
-  font-family: 'Inter', sans-serif;
-  font-size: 14px;
-  color: #555;
-  line-height: 1.7;
-  margin: 0;
-}
-.lc-feat-read-btn {
-  display: inline-block;
-  margin-top: 4px;
-  background: var(--gold);
-  color: #fff;
-  font-family: 'Inter', sans-serif;
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  padding: 11px 22px;
-  border-radius: 6px;
-  transition: background 0.2s;
-  align-self: flex-start;
-}
-.lc-feat-hero:hover .lc-feat-read-btn {
-  background: var(--bright-gold);
-}
-@media (max-width: 800px) {
-  .lc-feat-hero {
-    grid-template-columns: 1fr;
-  }
-  .lc-feat-hero-img {
-    aspect-ratio: 16 / 7;
-  }
-  .lc-feat-hero-body {
-    padding: 24px 22px;
-  }
-}
-@media (max-width: 480px) {
-  .lc-feat-hero-img {
-    aspect-ratio: 4 / 3;
-  }
-}
+    @media (max-width: 480px) {
+      .lc-feat-hero-img { aspect-ratio: 4 / 3; }
+    }
   </style>
 </head>
 <body>
@@ -633,7 +166,6 @@
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5ZQKN4LM"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
 
 <!-- ════════════ NAVIGATION ════════════ -->
 <nav id="nav">
@@ -647,7 +179,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <ul class="nav-links">
       <li><a href="../programs.html">Programs</a></li>
       <li><a href="../who-we-serve.html">Who We Serve</a></li>
-      <!--<li><a href="../about.html">About</a></li>-->
       <li><a href="../blog/" class="active">Learning Center</a></li>
       <li><a href="/faq">DPA FAQ</a></li>
       <li><a href="https://guide.herohomereach.com" target="_blank" style="color:var(--bright-gold);">Free Guide</a></li>
@@ -706,6 +237,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           src="colorado-dpa-map-optimized-q90.webp"
           alt="Hero HomeReach Colorado homebuyer assistance map showing statewide, regional, rural, and local resources across Colorado."
           loading="eager"
+          onclick="event.preventDefault(); openLightbox(this.src, this.alt);"
+          style="cursor:zoom-in;"
         >
       </div>
       <!-- Right: Content -->
@@ -719,6 +252,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   </div>
 </div>
+
 <!-- ════════════ CONTENT SHELVES ════════════ -->
 <div class="lc-shelves">
 
@@ -727,7 +261,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="lc-shelf-header">
       <div class="lc-shelf-title">
         <div class="lc-shelf-icon">
-          <!-- chevrons up / rank icon -->
           <svg viewBox="0 0 24 24"><polyline points="17 11 12 6 7 11"/><polyline points="17 18 12 13 7 18"/></svg>
         </div>
         <h2>Veterans &amp; Military</h2>
@@ -736,8 +269,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
     <div class="lc-card-row">
       <a href="va-loan-down-payment-assistance-colorado.html" class="lc-card">
-        <div class="lc-card-thumb" style="background-image:url('va-loan-down-payment-assistance-colorado.png'); background-size:cover; background-position:center;">
-        </div>
+        <div class="lc-card-thumb" style="background-image:url('va-loan-down-payment-assistance-colorado.png'); background-size:cover; background-position:center;"></div>
         <div class="lc-card-body">
           <span class="lc-badge badge-mil-lt">VA Loan + DPA</span>
           <h3>VA Loan Plus Colorado Down Payment Assistance: Can You Use Both?</h3>
@@ -745,8 +277,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
       </a>
       <a href="colorado-champions-home-loan-program/index.html" class="lc-card">
-        <div class="lc-card-thumb" style="background-image:url('chfa-loan-colorado-2026-guide.png'); background-size:cover; background-position:center;">
-        </div>
+        <div class="lc-card-thumb" style="background-image:url('chfa-loan-colorado-2026-guide.png'); background-size:cover; background-position:center;"></div>
         <div class="lc-card-body">
           <span class="lc-badge badge-mil-lt">Colorado Champions</span>
           <h3>Colorado Champions Home Loan Program: Who Qualifies and How It Works</h3>
@@ -754,8 +285,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
       </a>
       <a href="how-to-stack-down-payment-programs-colorado.html" class="lc-card">
-        <div class="lc-card-thumb" style="background-image:url('how-to-stack-down-payment-programs-colorado.png'); background-size:cover; background-position:center;">
-        </div>
+        <div class="lc-card-thumb" style="background-image:url('how-to-stack-down-payment-programs-colorado.png'); background-size:cover; background-position:center;"></div>
         <div class="lc-card-body">
           <span class="lc-badge badge-mil-lt">Assistance Paths</span>
           <h3>How to Stack Colorado Down Payment Programs for Closing Cost Help</h3>
@@ -763,8 +293,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
       </a>
       <a href="../quiz.html" class="lc-card">
-        <div class="lc-card-thumb" style="background-image:url('colorado-down-payment-assistance-types.png'); background-size:cover; background-position:center;">
-        </div>
+        <div class="lc-card-thumb" style="background-image:url('colorado-down-payment-assistance-types.png'); background-size:cover; background-position:center;"></div>
         <div class="lc-card-body">
           <span class="lc-badge badge-mil-lt">Free Assessment</span>
           <h3>Take the Hero HomeReach Assessment: See Which Programs Match Your Profile</h3>
@@ -787,8 +316,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
     <div class="lc-card-row">
       <a href="down-payment-assistance-teachers-colorado.html" class="lc-card">
-        <div class="lc-card-thumb" style="background-image:url('down-payment-assistance-teachers-colorado.png'); background-size:cover; background-position:center;">
-        </div>
+        <div class="lc-card-thumb" style="background-image:url('down-payment-assistance-teachers-colorado.png'); background-size:cover; background-position:center;"></div>
         <div class="lc-card-body">
           <span class="lc-badge badge-edu-lt">Teachers</span>
           <h3>Down Payment Assistance for Colorado Teachers: A Complete Guide</h3>
@@ -796,8 +324,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
       </a>
       <a href="how-to-stack-down-payment-programs-colorado.html" class="lc-card">
-        <div class="lc-card-thumb" style="background-image:url('how-to-stack-down-payment-programs-colorado.png'); background-size:cover; background-position:center;">
-        </div>
+        <div class="lc-card-thumb" style="background-image:url('how-to-stack-down-payment-programs-colorado.png'); background-size:cover; background-position:center;"></div>
         <div class="lc-card-body">
           <span class="lc-badge badge-edu-lt">SB25-167</span>
           <h3>How Colorado Educators Can Stack Multiple Assistance Programs in 2026</h3>
@@ -805,8 +332,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
       </a>
       <a href="../programs.html" class="lc-card">
-        <div class="lc-card-thumb" style="background-image:url('chfa-loan-colorado-2026-guide.png'); background-size:cover; background-position:center;">
-        </div>
+        <div class="lc-card-thumb" style="background-image:url('chfa-loan-colorado-2026-guide.png'); background-size:cover; background-position:center;"></div>
         <div class="lc-card-body">
           <span class="lc-badge badge-edu-lt">Programs</span>
           <h3>Colorado Educator Homeownership Programs: What May Be Available to You</h3>
@@ -814,8 +340,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
       </a>
       <a href="../quiz.html" class="lc-card">
-        <div class="lc-card-thumb" style="background-image:url('colorado-down-payment-assistance-types.png'); background-size:cover; background-position:center;">
-        </div>
+        <div class="lc-card-thumb" style="background-image:url('colorado-down-payment-assistance-types.png'); background-size:cover; background-position:center;"></div>
         <div class="lc-card-body">
           <span class="lc-badge badge-edu-lt">Free Assessment</span>
           <h3>See Which Colorado Homebuyer Programs Match Your Educator Profile</h3>
@@ -838,8 +363,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
     <div class="lc-card-row">
       <a href="colorado-firefighter-emt-home-buying-help.html" class="lc-card">
-        <div class="lc-card-thumb" style="background-image:url('colorado-firefighter-emt-home-buying-help.png'); background-size:cover; background-position:center top;">
-        </div>
+        <div class="lc-card-thumb" style="background-image:url('colorado-firefighter-emt-home-buying-help.png'); background-size:cover; background-position:center top;"></div>
         <div class="lc-card-body">
           <span class="lc-badge badge-fr-lt">Firefighters &amp; EMTs</span>
           <h3>Home Buying Help for Colorado Firefighters and EMTs</h3>
@@ -847,8 +371,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
       </a>
       <a href="colorado-champions-home-loan-program/index.html" class="lc-card">
-        <div class="lc-card-thumb" style="background-image:url('chfa-loan-colorado-2026-guide.png'); background-size:cover; background-position:center;">
-        </div>
+        <div class="lc-card-thumb" style="background-image:url('chfa-loan-colorado-2026-guide.png'); background-size:cover; background-position:center;"></div>
         <div class="lc-card-body">
           <span class="lc-badge badge-fr-lt">SB26-053</span>
           <h3>Colorado Champions Program: What First Responders Need to Know</h3>
@@ -856,8 +379,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
       </a>
       <a href="how-to-stack-down-payment-programs-colorado.html" class="lc-card">
-        <div class="lc-card-thumb" style="background-image:url('how-to-stack-down-payment-programs-colorado.png'); background-size:cover; background-position:center;">
-        </div>
+        <div class="lc-card-thumb" style="background-image:url('how-to-stack-down-payment-programs-colorado.png'); background-size:cover; background-position:center;"></div>
         <div class="lc-card-body">
           <span class="lc-badge badge-fr-lt">Assistance Paths</span>
           <h3>Stacking Assistance Programs as a Colorado First Responder</h3>
@@ -865,8 +387,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
       </a>
       <a href="../quiz.html" class="lc-card">
-        <div class="lc-card-thumb" style="background-image:url('colorado-down-payment-assistance-types.png'); background-size:cover; background-position:center;">
-        </div>
+        <div class="lc-card-thumb" style="background-image:url('colorado-down-payment-assistance-types.png'); background-size:cover; background-position:center;"></div>
         <div class="lc-card-body">
           <span class="lc-badge badge-fr-lt">Free Assessment</span>
           <h3>Take the Assessment: Find Out Which Programs Match Your First Responder Profile</h3>
@@ -889,8 +410,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
     <div class="lc-card-row">
       <a href="how-to-stack-down-payment-programs-colorado.html" class="lc-card">
-        <div class="lc-card-thumb" style="background-image:url('healthcare-worker-home-grants-colorado-2026.png'); background-size:cover; background-position:center;">
-        </div>
+        <div class="lc-card-thumb" style="background-image:url('healthcare-worker-home-grants-colorado-2026.png'); background-size:cover; background-position:center;"></div>
         <div class="lc-card-body">
           <span class="lc-badge badge-hc-lt">Assistance Paths</span>
           <h3>Colorado Down Payment Assistance Options for Healthcare Workers</h3>
@@ -898,8 +418,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
       </a>
       <a href="../programs.html" class="lc-card">
-        <div class="lc-card-thumb" style="background-image:url('chfa-loan-colorado-2026-guide.png'); background-size:cover; background-position:center;">
-        </div>
+        <div class="lc-card-thumb" style="background-image:url('chfa-loan-colorado-2026-guide.png'); background-size:cover; background-position:center;"></div>
         <div class="lc-card-body">
           <span class="lc-badge badge-hc-lt">CHFA Programs</span>
           <h3>CHFA Loan and DPA Options Available to Colorado Healthcare Professionals</h3>
@@ -907,8 +426,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
       </a>
       <a href="va-loan-down-payment-assistance-colorado.html" class="lc-card">
-        <div class="lc-card-thumb" style="background-image:url('how-to-stack-down-payment-programs-colorado.png'); background-size:cover; background-position:center;">
-        </div>
+        <div class="lc-card-thumb" style="background-image:url('how-to-stack-down-payment-programs-colorado.png'); background-size:cover; background-position:center;"></div>
         <div class="lc-card-body">
           <span class="lc-badge badge-hc-lt">Planning</span>
           <h3>Before You Call a Lender: What Colorado Healthcare Workers Should Know First</h3>
@@ -916,8 +434,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
       </a>
       <a href="../quiz.html" class="lc-card">
-        <div class="lc-card-thumb" style="background-image:url('colorado-down-payment-assistance-types.png'); background-size:cover; background-position:center;">
-        </div>
+        <div class="lc-card-thumb" style="background-image:url('colorado-down-payment-assistance-types.png'); background-size:cover; background-position:center;"></div>
         <div class="lc-card-body">
           <span class="lc-badge badge-hc-lt">Free Assessment</span>
           <h3>See Which Colorado Programs May Match Your Healthcare Worker Profile</h3>
@@ -926,7 +443,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </a>
     </div>
   </div>
-
 
   <!-- ── Market & Buyer Tips Shelf ── -->
   <div class="lc-shelf" data-shelf="market">
@@ -940,17 +456,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <a href="../blog/" class="lc-see-all">See all &rarr;</a>
     </div>
     <div class="lc-card-row">
-
-<a href="good-time-to-buy-home-colorado-2026/" class="lc-card">
-        <div class="lc-card-thumb" style="background-image:url('good-time-to-buy-home-colorado-2026/card.jpg'); background-size:cover; background-position:center;">
-        </div>
+      <a href="good-time-to-buy-home-colorado-2026/" class="lc-card">
+        <div class="lc-card-thumb" style="background-image:url('good-time-to-buy-home-colorado-2026/card.jpg'); background-size:cover; background-position:center;"></div>
         <div class="lc-card-body">
           <span class="lc-badge" style="color:#7A5A00;background:#faeeda;">Colorado Market</span>
           <h3>Is Now a Good Time to Buy a Home in Colorado?</h3>
           <div class="lc-card-footer">7 min read</div>
         </div>
       </a>
-
       <a href="../blog/" class="lc-card">
         <div class="lc-card-thumb" style="background:linear-gradient(135deg,#1A4A8A 0%,#0C2D5E 100%); display:flex; align-items:center; justify-content:center;">
           <svg viewBox="0 0 24 24" style="width:32px;height:32px;fill:none;stroke:rgba(255,255,255,0.28);stroke-width:2;stroke-linecap:round;stroke-linejoin:round;"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
@@ -961,7 +474,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="lc-card-footer">Coming soon</div>
         </div>
       </a>
-
       <a href="../blog/" class="lc-card">
         <div class="lc-card-thumb" style="background:linear-gradient(135deg,#0C2D5E 0%,#1A6B4A 100%); display:flex; align-items:center; justify-content:center;">
           <svg viewBox="0 0 24 24" style="width:32px;height:32px;fill:none;stroke:rgba(255,255,255,0.28);stroke-width:2;stroke-linecap:round;stroke-linejoin:round;"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
@@ -972,7 +484,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="lc-card-footer">Coming soon</div>
         </div>
       </a>
-
       <a href="../blog/" class="lc-card">
         <div class="lc-card-thumb" style="background:linear-gradient(135deg,#1A4A8A 0%,#1A6B4A 100%); display:flex; align-items:center; justify-content:center;">
           <svg viewBox="0 0 24 24" style="width:32px;height:32px;fill:none;stroke:rgba(255,255,255,0.28);stroke-width:2;stroke-linecap:round;stroke-linejoin:round;"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
@@ -983,7 +494,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="lc-card-footer">Coming soon</div>
         </div>
       </a>
-
     </div>
   </div>
 
@@ -1075,31 +585,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </footer>
 
 <!-- ════════════ SCRIPTS ════════════ -->
-
-
-<!-- HubSpot Chatbot — Do not remove -->
-
 <script>
 function toggleMobileNav() {
   document.getElementById("mobile-nav").classList.toggle("open");
 }
 </script>
 
-<!-- Tab filter logic -->
 <script>
   (function() {
     var tabs = document.querySelectorAll('.lc-tab');
     var shelves = document.querySelectorAll('.lc-shelf');
-
     tabs.forEach(function(tab) {
       tab.addEventListener('click', function() {
         var filter = this.getAttribute('data-filter');
-
-        // Update active tab
         tabs.forEach(function(t) { t.classList.remove('active'); });
         this.classList.add('active');
-
-        // Show/hide shelves
         shelves.forEach(function(shelf) {
           if (filter === 'all' || shelf.getAttribute('data-shelf') === filter) {
             shelf.classList.remove('hidden');
@@ -1107,8 +607,6 @@ function toggleMobileNav() {
             shelf.classList.add('hidden');
           }
         });
-
-        // Scroll to shelves so user sees the filtered content
         var shelvesEl = document.querySelector('.lc-shelves');
         if (shelvesEl) {
           var navH = document.getElementById('nav').offsetHeight;
@@ -1127,6 +625,7 @@ function toggleMobileNav() {
 <!-- eBook Modal -->
 <link rel="stylesheet" href="/css/ebook-modal.css">
 <script src="/js/ebook-modal.js"></script>
+
 <!-- ════════════ MAP LIGHTBOX ════════════ -->
 <div id="map-lightbox" style="
   display:none;
@@ -1181,14 +680,13 @@ function closeLightbox() {
   document.getElementById('map-lightbox').style.display = 'none';
   document.body.style.overflow = '';
 }
-// Click backdrop to close
 document.getElementById('map-lightbox').addEventListener('click', function(e) {
   if (e.target === this) closeLightbox();
 });
-// Escape key to close
 document.addEventListener('keydown', function(e) {
   if (e.key === 'Escape') closeLightbox();
 });
 </script>
+
 </body>
 </html>
