@@ -1192,6 +1192,68 @@ document.querySelectorAll('.toc-list a').forEach(link => {
 <!-- eBook Modal -->
 <link rel="stylesheet" href="../../css/ebook-modal.css">
 <script src="../../js/ebook-modal.js"></script>
+<!-- ════════════ MAP LIGHTBOX ════════════ -->
+<div id="map-lightbox" style="
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.88);
+  z-index:9999;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+  cursor:zoom-out;
+">
+  <img id="map-lightbox-img" src="" alt="" style="
+    max-width:100%;
+    max-height:90vh;
+    border-radius:10px;
+    box-shadow:0 24px 80px rgba(0,0,0,0.6);
+    touch-action:pinch-zoom;
+    cursor:default;
+    display:block;
+  ">
+  <button onclick="closeLightbox()" style="
+    position:fixed;
+    top:18px;
+    right:22px;
+    background:rgba(255,255,255,0.12);
+    border:none;
+    color:#fff;
+    font-size:28px;
+    line-height:1;
+    width:44px;
+    height:44px;
+    border-radius:50%;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-family:Inter,sans-serif;
+  ">&times;</button>
+</div>
 
+<script>
+function openLightbox(src, alt) {
+  var lb = document.getElementById('map-lightbox');
+  var img = document.getElementById('map-lightbox-img');
+  img.src = src;
+  img.alt = alt;
+  lb.style.display = 'flex';
+  document.body.style.overflow = 'hidden';
+}
+function closeLightbox() {
+  document.getElementById('map-lightbox').style.display = 'none';
+  document.body.style.overflow = '';
+}
+// Click backdrop to close
+document.getElementById('map-lightbox').addEventListener('click', function(e) {
+  if (e.target === this) closeLightbox();
+});
+// Escape key to close
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeLightbox();
+});
+</script>
 </body>
 </html>
