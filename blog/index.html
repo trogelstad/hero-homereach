@@ -51,16 +51,11 @@
     .lc-tab { color: rgba(255,255,255,0.6); font-size: 13px; font-weight: 500; padding: 15px 16px; cursor: pointer; border-bottom: 2px solid transparent; transition: color 0.2s, border-color 0.2s; white-space: nowrap; flex-shrink: 0; background: none; border-top: none; border-left: none; border-right: none; font-family: 'Inter', sans-serif; }
     .lc-tab:hover, .lc-tab.active { color: var(--bright-gold); border-bottom-color: var(--bright-gold); }
 
-    /* ── Hero Banner ── */
-    .lc-hero { background-color: var(--navy); background-image: url('hero-learning-center-mountain-banner-1920x520.webp'); background-size: cover; background-position: center center; padding: 64px 24px 60px; position: relative; overflow: hidden; }
-    .lc-hero::before { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(12,45,94,0.92) 0%, rgba(12,45,94,0.85) 40%, rgba(12,45,94,0.60) 70%, rgba(12,45,94,0.30) 100%); pointer-events: none; }
-    .lc-hero::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(12,45,94,0.15) 0%, rgba(12,45,94,0.45) 100%); pointer-events: none; }
-    .lc-hero-inner { max-width: 1200px; margin: 0 auto; position: relative; z-index: 2; }
-    .lc-hero-eyebrow { display: inline-flex; align-items: center; gap: 10px; font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 18px; }
-    .lc-hero-eyebrow::before { content: ''; display: block; width: 24px; height: 2px; background: var(--gold); }
-    .lc-hero h1 { font-family: 'Playfair Display', Georgia, serif; font-size: clamp(28px, 4vw, 44px); font-weight: 400; color: #fff; line-height: 1.2; margin-bottom: 14px; max-width: 640px; }
-    .lc-hero h1 span { color: var(--bright-gold); }
-    .lc-hero p { font-family: 'Inter', sans-serif; font-size: 16px; color: rgba(255,255,255,0.62); line-height: 1.65; max-width: 520px; }
+    /* ── Slim Page Header ── */
+    .lc-page-header { background: var(--cool-white); border-bottom: 1px solid #e8e8e8; padding: 22px 24px; }
+    .lc-page-header-inner { max-width: 1200px; margin: 0 auto; }
+    .lc-page-header-eyebrow { font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 6px; }
+    .lc-page-header h1 { font-family: 'Playfair Display', Georgia, serif; font-size: clamp(22px, 2.5vw, 32px); font-weight: 400; color: var(--navy); line-height: 1.2; margin: 0; }
 
     /* ── Featured Strip ── */
     .lc-featured { background: #fff; border-bottom: 1px solid #e8e8e8; padding: 36px 24px; }
@@ -216,12 +211,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </div>
 
-<!-- ════════════ HERO BANNER ════════════ -->
-<div class="lc-hero">
-  <div class="lc-hero-inner">
-    <div class="lc-hero-eyebrow">Colorado Homebuyer Education</div>
-    <h1>Colorado takes care of the people<br>who take care of <span>Colorado.</span></h1>
-    <p>Free resources to help educators, first responders, healthcare workers, and veterans understand and access homebuyer assistance programs. No jargon. No pressure.</p>
+<!-- ════════════ SLIM PAGE HEADER ════════════ -->
+<div class="lc-page-header">
+  <div class="lc-page-header-inner">
+    <div class="lc-page-header-eyebrow">Colorado Homebuyer Education</div>
+    <h1>Free Resources for Colorado's Heroes and Homebuyers</h1>
   </div>
 </div>
 
