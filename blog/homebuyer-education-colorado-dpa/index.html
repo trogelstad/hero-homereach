@@ -1604,13 +1604,13 @@ document.querySelectorAll('.toc-list a').forEach(link => {
 })();
 
 /* ════════════════════════════════════════════════
+/* ════════════════════════════════════════════════
    CLASS FINDER LOGIC
 ════════════════════════════════════════════════ */
 (function() {
   var answers = { s1: null, s2: null, s3: null };
   var curStep = 1;
 
-  /* Pick an option */
   window.hhrPick = function(card, step, val) {
     var grp = document.getElementById('hhr-' + step + '-opts');
     grp.querySelectorAll('.hhr-opt').forEach(function(o) {
@@ -1624,21 +1624,18 @@ document.querySelectorAll('.toc-list a').forEach(link => {
     if (nextBtn) nextBtn.disabled = false;
   };
 
-  /* Keyboard support */
   document.querySelectorAll('.hhr-opt').forEach(function(o) {
     o.addEventListener('keydown', function(e) {
       if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); o.click(); }
     });
   });
 
-  /* Next step */
   window.hhrNext = function(from) {
     if (!answers['s' + from]) return;
     curStep = from + 1;
     showStep(curStep);
   };
 
-  /* Previous step */
   window.hhrPrev = function(from) {
     curStep = from - 1;
     showStep(curStep);
@@ -1661,87 +1658,79 @@ document.querySelectorAll('.toc-list a').forEach(link => {
     document.getElementById('hhrProgPct').textContent = pct + '%';
   }
 
-  /* Build result */
   window.hhrShowResult = function() {
     if (!answers.s3) return;
 
-    var s1 = answers.s1;
-    var s2 = answers.s2;
-    var s3 = answers.s3;
+    // Show loading state
+    document.querySelectorAll('.hhr-step').forEach(function(s) { s.classList.remove('active'); });
+    document.getElementById('hhr-result').classList.add('active');
+    document.getElementById('hhrProgWrap').style.display = 'none';
 
-    /* ── Result logic ── */
-    var path = '', watchout = '', question = '', nextstep = '';
-
-    /* Path */
-    if (s1 === 'chfa') {
-      path = 'You will want to verify a <strong>CHFA-approved homebuyer education course</strong>. CHFA has specific approved providers, and not every HUD-approved or general online class may satisfy this requirement. Confirm the accepted provider with your lender before registering.';
-      watchout = 'Online CHFA education may require a follow-up call with the provider before your certificate is issued. Finishing the modules online may not release your certificate automatically.';
-      question = 'Ask your lender: "Which CHFA-approved education provider do you recommend, and does the online course require a follow-up call before the certificate is issued?"';
-    } else if (s1 === 'metro') {
-      path = 'metroDPA requires homebuyer education for all borrowers on the note or warranty deed. The accepted course may vary by participating lender, so do not register for a class before confirming which provider your lender accepts.';
-      watchout = 'Do not assume any HUD-approved course automatically works. The lender participating in metroDPA may have a preferred or required education provider.';
-      question = 'Ask your lender: "Which homebuyer education course is accepted for metroDPA, and does each co-borrower need a separate certificate?"';
-    } else if (s1 === 'conventional') {
-      path = 'For Fannie Mae HomeReady or Freddie Mac Home Possible, homebuyer education may be required depending on the borrower profile. Framework, Fannie Mae HomeView, or another qualified provider may be accepted depending on your lender and loan structure.';
-      watchout = 'Not every conventional loan path requires education, but certain situations do. The requirement may depend on whether you are a first-time buyer, the loan-to-value ratio, or lender overlay rules.';
-      question = 'Ask your lender: "Is homebuyer education required for this specific loan, and if so, which education provider is accepted?"';
-    } else if (s1 === 'chenoa') {
-      path = 'Chenoa Fund and other DPA programs may have education requirements that vary by loan type, credit profile, or program version. Requirements are not always automatic, so verify with your lender before paying for a course.';
-      watchout = 'Education requirements for Chenoa Fund may be conditional. Depending on the product, the requirement may or may not apply. Do not guess.';
-      question = 'Ask your lender: "Is homebuyer education required for the specific Chenoa Fund product I am using, and if so, which course is accepted?"';
-    } else {
-      path = 'Since you are still exploring options or comparing paths, <strong>do not pay for a homebuyer education course yet</strong>. The right course depends on the specific program your lender recommends. Paying for the wrong course may mean taking it again.';
-      watchout = 'Different programs may accept different courses. Registering before knowing your program is a common and avoidable mistake.';
-      question = 'Ask your lender: "Which homebuyer education course is accepted for the loan and DPA program you are recommending for my situation?"';
-    }
-
-    /* Modifier: format */
-    if (s2 === 'online') {
-      watchout += ' Online courses often look complete after finishing the modules, but a follow-up call or counseling session may still be required before the certificate is released. Confirm the full process with the provider.';
-    } else if (s2 === 'already') {
-      path = 'Since you already took a class, the most important step is confirming whether that certificate is accepted for your specific program and whether it is still valid. A certificate from one program path may not transfer to another.';
-      watchout = 'Certificates may have a validity window, often 12 months for CHFA. If your certificate is expired or from a different provider, you may need to take the class again.';
-      question = 'Ask your lender: "Is my existing certificate accepted for this specific program, and is it still within the validity period?"';
-    }
-
-    /* Modifier: timeline */
-    if (s3 === 'contract') {
-      nextstep = '⚡ You are under contract, so time matters. Contact your lender today to confirm which course is accepted and ask the education provider how long certificate issuance takes. Do not assume the certificate will arrive quickly after completing the online modules.';
-    } else if (s3 === 'coborrower') {
-      nextstep = 'Since you are buying with another borrower, both of you may need to complete education separately. Coordinate now, before one person is done and the other has not started. Each certificate must be valid at closing.';
-    } else if (s3 === 'tookclass') {
-      nextstep = 'Before assuming your existing certificate works, confirm with your lender that it is accepted for your specific program and still within the validity period. Do not wait until you are under contract to find out it does not count.';
-    } else if (s3 === 'lender') {
-      nextstep = 'You are in a good position to ask the right question before committing. When you speak with lenders, ask which homebuyer education course is accepted for the specific program they are recommending, before registering for anything.';
-    } else {
-      nextstep = 'You have time to verify before paying. Use this result as a guide, then confirm the accepted course with your lender before registering. Starting early is smart. Starting with the wrong course wastes time and money.';
-    }
-
-    /* Build HTML */
     document.getElementById('hhrResultContent').innerHTML =
-      '<div class="hhr-result-badge">✦ Your Education Path to Verify</div>' +
+      '<div style="text-align:center;padding:40px 20px;">' +
+        '<div style="font-size:36px;margin-bottom:14px;animation:hhrPulse 1.4s ease-in-out infinite;">📋</div>' +
+        '<div style="font-family:\'Playfair Display\',Georgia,serif;font-size:18px;color:#0C2D5E;margin-bottom:8px;">Building your guidance note...</div>' +
+        '<div style="font-size:13px;color:#888;margin-bottom:20px;">Matching your situation to specific program requirements.</div>' +
+        '<div style="max-width:240px;margin:0 auto;height:4px;background:#D3D1C7;border-radius:3px;overflow:hidden;">' +
+          '<div style="height:100%;background:linear-gradient(90deg,#0C2D5E,#C9973A);border-radius:3px;animation:hhrLoad 3s ease-in-out forwards;"></div>' +
+        '</div>' +
+      '</div>';
+
+    document.getElementById('hhr-class-finder').scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+    // Call the API
+    fetch('/api/class-finder-result', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        loanPath: answers.s1,
+        format:   answers.s2,
+        timeline: answers.s3
+      })
+    })
+    .then(function(r) { return r.json(); })
+    .then(function(data) {
+      if (data.result) {
+        showAIResult(data.result);
+      } else {
+        showFallback();
+      }
+    })
+    .catch(function() {
+      showFallback();
+    });
+  };
+
+  function showAIResult(text) {
+    var paras = text.split(/\n\n+/).filter(function(p) { return p.trim(); })
+      .map(function(p) { return '<p style="margin:0 0 14px;font-size:15px;line-height:1.7;color:#374151;">' + p.trim() + '</p>'; })
+      .join('');
+
+    var loanLabels = {
+      chfa: 'CHFA', metro: 'metroDPA', conventional: 'Conventional / HomeReady',
+      chenoa: 'Chenoa Fund / DPA', unsure: 'Exploring Options', multiple: 'Comparing Multiple Paths'
+    };
+    var timeLabels = {
+      researching: 'Just Researching', lender: 'Talking to Lender Soon',
+      contract: '⚡ Under Contract', tookclass: 'Already Took a Class',
+      coborrower: 'Buying With Another Borrower'
+    };
+
+    document.getElementById('hhrResultContent').innerHTML =
+      '<div class="hhr-result-badge">✦ Your Homebuyer Education Guidance</div>' +
 
       '<div class="hhr-result-row">' +
         '<div class="hhr-result-row-inner">' +
-          '<div class="hhr-result-row-label">Likely path to verify</div>' +
-          '<p class="hhr-result-row-text">' + path + '</p>' +
+          '<div class="hhr-result-row-label">Based on your situation</div>' +
+          '<div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px;">' +
+            '<span style="background:rgba(234,184,74,0.15);color:#EAB84A;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;letter-spacing:0.08em;text-transform:uppercase;">' + (loanLabels[answers.s1] || answers.s1) + '</span>' +
+            '<span style="background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.7);font-size:11px;font-weight:600;padding:3px 10px;border-radius:20px;">' + (timeLabels[answers.s3] || answers.s3) + '</span>' +
+          '</div>' +
         '</div>' +
       '</div>' +
 
-      '<div class="hhr-result-cards">' +
-        '<div class="hhr-result-card">' +
-          '<div class="hhr-result-card-label watchout"><span>⚠</span> Watch-out</div>' +
-          '<p>' + watchout + '</p>' +
-        '</div>' +
-        '<div class="hhr-result-card">' +
-          '<div class="hhr-result-card-label question"><span>❓</span> Ask your lender</div>' +
-          '<p>' + question + '</p>' +
-        '</div>' +
-      '</div>' +
-
-      '<div class="hhr-result-nextstep">' +
-        '<div class="hhr-result-nextstep-label">Hero HomeReach next step</div>' +
-        '<p>' + nextstep + '</p>' +
+      '<div style="background:#fff;border:1px solid rgba(12,45,94,0.1);border-radius:10px;padding:22px 24px;margin-bottom:12px;">' +
+        paras +
       '</div>' +
 
       '<div class="hhr-result-ctas">' +
@@ -1749,16 +1738,19 @@ document.querySelectorAll('.toc-list a').forEach(link => {
         '<a href="/contact.html" class="hhr-cta-secondary">Ask a Question Before You Register</a>' +
       '</div>' +
 
-      '<div class="hhr-disclaimer"><strong>This tool is for educational purposes only.</strong> It does not determine program eligibility, guarantee assistance, or replace advice from a qualified lender, housing counselor, or program administrator. Always verify education requirements directly with your lender and program provider before registering for any course.</div>';
+      '<div class="hhr-disclaimer"><strong>This tool provides educational guidance only.</strong> It does not determine program eligibility, guarantee assistance, or replace advice from a qualified lender, housing counselor, or program administrator. Always verify education requirements directly with your lender and program provider before registering for any course.</div>';
 
-    /* Show result */
-    document.querySelectorAll('.hhr-step').forEach(function(s) { s.classList.remove('active'); });
-    document.getElementById('hhr-result').classList.add('active');
-    document.getElementById('hhrProgWrap').style.display = 'none';
     document.getElementById('hhr-class-finder').scrollIntoView({ behavior: 'smooth', block: 'start' });
-  };
+  }
 
-  /* Restart */
+  function showFallback() {
+    document.getElementById('hhrResultContent').innerHTML =
+      '<div style="text-align:center;padding:32px 20px;background:rgba(220,60,60,0.04);border:1px solid rgba(220,60,60,0.12);border-radius:10px;">' +
+        '<p style="font-size:15px;color:#555;margin-bottom:18px;">We could not generate your result right now. Book a free consultation and we will walk through the education requirement for your specific program on the call.</p>' +
+        '<a href="/contact.html" class="hhr-cta-primary">Book My Free Strategy Session</a>' +
+      '</div>';
+  }
+
   window.hhrRestart = function() {
     answers = { s1: null, s2: null, s3: null };
     document.querySelectorAll('.hhr-opt').forEach(function(o) {
@@ -1766,14 +1758,18 @@ document.querySelectorAll('.toc-list a').forEach(link => {
       o.setAttribute('aria-pressed', 'false');
     });
     ['hhrNext1','hhrNext2','hhrNext3'].forEach(function(id) {
-      var b = document.getElementById(id);
-      if (b) b.disabled = true;
+      var b = document.getElementById(id); if (b) b.disabled = true;
     });
     document.getElementById('hhr-result').classList.remove('active');
     curStep = 1;
     showStep(1);
     document.getElementById('hhrProgWrap').style.display = 'block';
   };
+
+  // Add loading animations to style block
+  var style = document.createElement('style');
+  style.textContent = '@keyframes hhrPulse{0%,100%{transform:scale(1);opacity:1;}50%{transform:scale(1.1);opacity:0.7;}}@keyframes hhrLoad{0%{width:0%}50%{width:65%}90%{width:90%}100%{width:95%}}';
+  document.head.appendChild(style);
 })();
 </script>
 
