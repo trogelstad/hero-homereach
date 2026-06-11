@@ -407,3 +407,46 @@ h3 { font-size: clamp(20px, 2.5vw, 26px); }
    Add class="nav-solid" to #nav on
    any page without a full-bleed hero
 ════════════════════════════════ */
+
+/* =====================================================
+   Hero HomeReach Tools Pages
+   ===================================================== */
+/* Layout */
+.hhr-container
+.hhr-section-heading
+.hhr-tools-hero
+.hhr-explorer-hero
+.hhr-explorer-hero-grid
+.hhr-explorer-shell
+
+/* Buttons */
+.hhr-btn
+.hhr-btn-primary
+.hhr-btn-secondary
+
+/* Cards */
+.hhr-tool-card
+.hhr-tool-card-featured
+.hhr-mini-tool-card
+.hhr-region-card
+.hhr-pathway-card
+.hhr-explorer-preview-card
+
+/* Grids */
+.hhr-tools-grid
+.hhr-region-grid
+.hhr-pathway-grid
+
+/* Text helpers */
+.hhr-eyebrow
+.hhr-card-label
+.hhr-disclaimer
+.hhr-check-list
+
+/* Future interactive map */
+.hhr-map-stage
+.hhr-map-panel
+.hhr-map-region
+.hhr-map-region-active
+.hhr-detail-drawer
+.hhr-mobile-accordion
