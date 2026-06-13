@@ -235,28 +235,33 @@
     }
 
 .map-hotspot {
-  --size:22px;
   position:absolute;
   left:var(--x);
   top:var(--y);
-  width:var(--size);
-  height:var(--size);
+  width:var(--w);
+  height:var(--h);
   transform:translate(-50%,-50%);
-  border-radius:50%;
-  border:2px solid #fff;
-  background:var(--gold);
-  box-shadow:0 0 0 4px rgba(201,151,58,.22),0 4px 12px rgba(12,45,94,.22);
+  background:transparent;
+  border:2px solid transparent;
+  border-radius:12px;
   cursor:pointer;
-  transition:transform .2s,box-shadow .2s,background .2s;
-  z-index:2;
+  z-index:3;
+  transition:
+    transform .18s ease,
+    box-shadow .18s ease,
+    border-color .18s ease,
+    background .18s ease;
 }
 
 .map-hotspot:hover,
 .map-hotspot:focus-visible,
 .map-hotspot.active {
-  background:var(--bright-gold);
-  transform:translate(-50%,-50%) scale(1.18);
-  box-shadow:0 0 0 6px rgba(234,184,74,.3),0 8px 18px rgba(12,45,94,.28);
+  transform:translate(-50%,-50%) scale(1.02);
+  border-color:rgba(201,151,58,.92);
+  background:rgba(255,255,255,.06);
+  box-shadow:
+    0 0 0 3px rgba(201,151,58,.18),
+    0 12px 24px rgba(12,45,94,.18);
   outline:none;
 }
 
@@ -267,7 +272,7 @@
   bottom:calc(100% + 10px);
   transform:translateX(-50%);
   width:max-content;
-  max-width:190px;
+  max-width:220px;
   padding:7px 10px;
   border-radius:6px;
   background:var(--navy);
@@ -279,7 +284,7 @@
   line-height:1.25;
   opacity:0;
   pointer-events:none;
-  transition:opacity .2s;
+  transition:opacity .18s ease;
   white-space:normal;
 }
 
