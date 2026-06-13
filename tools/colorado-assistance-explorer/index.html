@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en"> 
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -234,41 +234,29 @@
       object-fit:contain;
     }
 
-.map-hotspot-layer {
-  position:absolute;
-  inset:0;
-  z-index:4;
-  pointer-events:none;
-}
-
 .map-hotspot {
+  --size:22px;
   position:absolute;
   left:var(--x);
   top:var(--y);
-  width:var(--w);
-  height:var(--h);
+  width:var(--size);
+  height:var(--size);
   transform:translate(-50%,-50%);
-  background:transparent;
-  border:1.5px solid transparent;
-  border-radius:10px;
+  border-radius:50%;
+  border:2px solid #fff;
+  background:var(--gold);
+  box-shadow:0 0 0 4px rgba(201,151,58,.22),0 4px 12px rgba(12,45,94,.22);
   cursor:pointer;
-  z-index:5;
-  pointer-events:auto;
-  transition:
-    transform .18s ease,
-    box-shadow .18s ease,
-    border-color .18s ease,
-    background .18s ease;
+  transition:transform .2s,box-shadow .2s,background .2s;
+  z-index:2;
 }
 
 .map-hotspot:hover,
-.map-hotspot:focus-visible {
-  transform:translate(-50%,-50%) scale(1.015);
-  border-color:rgba(201,151,58,.92);
-  background:rgba(234,184,74,.07);
-  box-shadow:
-    0 0 0 3px rgba(201,151,58,.18),
-    0 10px 22px rgba(12,45,94,.18);
+.map-hotspot:focus-visible,
+.map-hotspot.active {
+  background:var(--bright-gold);
+  transform:translate(-50%,-50%) scale(1.18);
+  box-shadow:0 0 0 6px rgba(234,184,74,.3),0 8px 18px rgba(12,45,94,.28);
   outline:none;
 }
 
@@ -276,10 +264,10 @@
   content:attr(data-label);
   position:absolute;
   left:50%;
-  bottom:calc(100% + 8px);
+  bottom:calc(100% + 10px);
   transform:translateX(-50%);
   width:max-content;
-  max-width:240px;
+  max-width:190px;
   padding:7px 10px;
   border-radius:6px;
   background:var(--navy);
@@ -291,7 +279,7 @@
   line-height:1.25;
   opacity:0;
   pointer-events:none;
-  transition:opacity .18s ease;
+  transition:opacity .2s;
   white-space:normal;
 }
 
@@ -378,23 +366,6 @@
       cursor:pointer;
       transition:background .2s,color .2s;
     }
-    .dossier-map-banner {
-  background:#071f42;
-  border-bottom:1px solid rgba(234,184,74,.25);
-  padding:16px 18px;
-}
-
-.dossier-map-banner img {
-  display:block;
-  width:100%;
-  max-width:1240px;
-  height:auto;
-  max-height:54vh;
-  object-fit:contain;
-  margin:0 auto;
-  border-radius:10px;
-  box-shadow:0 16px 36px rgba(0,0,0,.22);
-}
 
     .tool-drawer-tab:hover,
     .tool-drawer-tab.active,
@@ -830,171 +801,190 @@
       color:var(--navy);
     }
 
-   .dossier-overlay {
-  position:fixed;
-  inset:0;
-  background:rgba(12,45,94,.88);
-  z-index:9998;
-  display:none;
-  align-items:center;
-  justify-content:center;
-  padding:24px;
-}
+     .dossier-overlay {
+      position:fixed;
+      inset:0;
+      background:rgba(12,45,94,.88);
+      z-index:9998;
+      display:none;
+      align-items:center;
+      justify-content:center;
+      padding:24px;
+    }
 
-.dossier-overlay.open {
-  display:flex;
-}
+    .dossier-overlay.open {
+      display:flex;
+    }
 
-.dossier-modal {
-  width:min(1320px,100%);
-  max-height:90vh;
-  overflow:auto;
-  background:#fff;
-  border-radius:14px;
-  border:1px solid rgba(234,184,74,.35);
-  box-shadow:0 24px 80px rgba(0,0,0,.45);
-}
+    .dossier-modal {
+      width:min(1320px,100%);
+      max-height:92vh;
+      overflow:auto;
+      background:#fff;
+      border-radius:14px;
+      border:1px solid rgba(234,184,74,.35);
+      box-shadow:0 24px 80px rgba(0,0,0,.45);
+    }
 
-.dossier-hero {
-  background:var(--navy);
-  color:#fff;
-  padding:28px 36px 24px;
-  position:relative;
-  border-bottom:1px solid rgba(234,184,74,.25);
-}
+    .dossier-hero {
+      background:var(--navy);
+      color:#fff;
+      padding:28px 36px 24px;
+      position:relative;
+      border-bottom:1px solid rgba(234,184,74,.25);
+    }
 
-.dossier-close {
-  position:absolute;
-  top:18px;
-  right:18px;
-  width:44px;
-  height:44px;
-  border-radius:50%;
-  border:1px solid rgba(255,255,255,.35);
-  background:rgba(255,255,255,.08);
-  color:#fff;
-  font-size:30px;
-  line-height:1;
-  cursor:pointer;
-  z-index:5;
-}
+    .dossier-close {
+      position:absolute;
+      top:18px;
+      right:18px;
+      width:44px;
+      height:44px;
+      border-radius:50%;
+      border:1px solid rgba(255,255,255,.35);
+      background:rgba(255,255,255,.08);
+      color:#fff;
+      font-size:30px;
+      line-height:1;
+      cursor:pointer;
+      z-index:5;
+    }
 
-.dossier-kicker {
-  font-family:Inter,sans-serif;
-  font-size:11px;
-  font-weight:800;
-  letter-spacing:.14em;
-  text-transform:uppercase;
-  color:var(--bright-gold);
-  margin-bottom:10px;
-}
+    .dossier-kicker {
+      font-family:Inter,sans-serif;
+      font-size:11px;
+      font-weight:800;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      color:var(--bright-gold);
+      margin-bottom:10px;
+    }
 
-.dossier-hero h2 {
-  font-family:"Playfair Display",Georgia,serif;
-  font-size:clamp(28px,3vw,44px);
-  font-weight:400;
-  line-height:1.08;
-  margin:0 56px 12px 0;
-}
+    .dossier-hero h2 {
+      font-family:"Playfair Display",Georgia,serif;
+      font-size:clamp(28px,3vw,44px);
+      font-weight:400;
+      line-height:1.08;
+      margin:0 56px 12px 0;
+    }
 
-.dossier-hero p {
-  font-family:Inter,sans-serif;
-  font-size:15px;
-  line-height:1.75;
-  color:rgba(255,255,255,.78);
-  margin:0;
-  max-width:760px;
-}
+    .dossier-hero p {
+      font-family:Inter,sans-serif;
+      font-size:15px;
+      line-height:1.75;
+      color:rgba(255,255,255,.78);
+      margin:0;
+      max-width:900px;
+    }
 
-.dossier-pill-row {
-  display:flex;
-  flex-wrap:wrap;
-  gap:8px;
-  margin-top:18px;
-}
+    .dossier-pill-row {
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      margin-top:18px;
+    }
 
-.dossier-pill {
-  font-family:Inter,sans-serif;
-  font-size:10px;
-  font-weight:800;
-  letter-spacing:.08em;
-  text-transform:uppercase;
-  padding:5px 10px;
-  border-radius:20px;
-  color:var(--bright-gold);
-  background:rgba(234,184,74,.13);
-  border:1px solid rgba(234,184,74,.25);
-}
+    .dossier-pill {
+      font-family:Inter,sans-serif;
+      font-size:10px;
+      font-weight:800;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      padding:5px 10px;
+      border-radius:20px;
+      color:var(--bright-gold);
+      background:rgba(234,184,74,.13);
+      border:1px solid rgba(234,184,74,.25);
+    }
 
-.dossier-body {
-  padding:24px 32px 32px;
-  background:#fff;
-}
+    .dossier-map-banner {
+      background:#071f42;
+      border-bottom:1px solid rgba(234,184,74,.25);
+      padding:16px 18px;
+    }
 
-.dossier-tabs {
-  display:flex;
-  flex-wrap:wrap;
-  gap:8px;
-  border-bottom:1px solid #ebebeb;
-  padding-bottom:14px;
-  margin-bottom:20px;
-}
+    .dossier-map-banner img {
+      display:block;
+      width:100%;
+      max-width:1240px;
+      height:auto;
+      max-height:54vh;
+      object-fit:contain;
+      margin:0 auto;
+      border-radius:10px;
+      box-shadow:0 16px 36px rgba(0,0,0,.22);
+    }
 
-.dossier-section {
-  display:none;
-}
+    .dossier-body {
+      padding:24px 32px 32px;
+      background:#fff;
+    }
 
-.dossier-section.active {
-  display:block;
-}
+    .dossier-tabs {
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      border-bottom:1px solid #ebebeb;
+      padding-bottom:14px;
+      margin-bottom:20px;
+    }
 
-.dossier-section h3 {
-  font-family:"Playfair Display",Georgia,serif;
-  font-size:24px;
-  font-weight:400;
-  color:var(--near-black);
-  margin:0 0 12px;
-}
+    .dossier-section {
+      display:none;
+    }
 
-.dossier-section p,
-.dossier-section li {
-  font-family:Inter,sans-serif;
-  font-size:15px;
-  color:#555;
-  line-height:1.75;
-}
+    .dossier-section.active {
+      display:block;
+    }
 
-.dossier-section ul {
-  padding-left:20px;
-  margin:0;
-}
+    .dossier-section h3 {
+      font-family:"Playfair Display",Georgia,serif;
+      font-size:24px;
+      font-weight:400;
+      color:var(--near-black);
+      margin:0 0 12px;
+    }
 
-.dossier-split {
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:18px;
-}
+    .dossier-section p,
+    .dossier-section li {
+      font-family:Inter,sans-serif;
+      font-size:15px;
+      color:#555;
+      line-height:1.75;
+    }
 
-.dossier-card {
-  border:1px solid #e8e8e8;
-  border-radius:10px;
-  padding:18px;
-  background:#fff;
-}
+    .dossier-section ul {
+      padding-left:20px;
+      margin:0;
+    }
 
-.dossier-link-list {
-  display:grid;
-  gap:10px;
-}
+    .dossier-split {
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:18px;
+    }
 
-.dossier-actions {
-  display:flex;
-  flex-wrap:wrap;
-  gap:10px;
-  border-top:1px solid #ebebeb;
-  margin-top:22px;
-  padding-top:20px;
-}
+    .dossier-card {
+      border:1px solid #e8e8e8;
+      border-radius:10px;
+      padding:18px;
+      background:#fff;
+    }
+
+    .dossier-link-list {
+      display:grid;
+      gap:10px;
+    }
+
+    .dossier-actions {
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      border-top:1px solid #ebebeb;
+      margin-top:22px;
+      padding-top:20px;
+    }
+
     @media (max-width:1100px) {
       .tool-grid {
         grid-template-columns:1fr;
@@ -1018,13 +1008,6 @@
       .tool-shelf-header p {
         text-align:left;
       }
-
-
-
-.dossier-map-frame img {
-  max-height:38vh;
-}
-
       .dossier-split {
         grid-template-columns:1fr;
       }
@@ -1034,18 +1017,10 @@
       .tool-mobile-regions {
         display:block;
       }
-.dossier-map-banner {
-  padding:10px;
-}
 
-.dossier-map-banner img {
-  max-height:38vh;
-}
-
-.dossier-hero h2 {
-  margin-right:56px;
-}
-
+      .map-hotspot {
+        --size:30px;
+      }
 
       .map-hotspot::after {
         display:none;
@@ -1055,7 +1030,6 @@
         padding:10px;
       }
 
-      .dossier-hero-body,
       .dossier-body {
         padding:22px;
       }
@@ -1170,25 +1144,42 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="tool-map-head">
           <h2>The Colorado Homebuyer Assistance Map</h2>
           <p>
-Hover or tap a map card to open the intelligence panel. This map is a visual guide, not a boundary map,
-eligibility map, or program approval tool.
+            Tap a gold marker to open the intelligence panel. This map is a visual guide, not a boundary map,
+            eligibility map, or program approval tool.
           </p>
         </div>
 
-       <div class="tool-map-wrap">
-  <img
-    src="colorado-dpa-map-optimized-q90.webp"
-    alt="Hero HomeReach Colorado homebuyer assistance map showing statewide, regional, rural, and local resources across Colorado."
-    loading="eager"
-  >
+        <div class="tool-map-wrap">
+          <img
+            src="colorado-dpa-map-optimized-q90.webp"
+            alt="Hero HomeReach Colorado homebuyer assistance map showing statewide, regional, rural, and local resources across Colorado."
+            loading="eager"
+          >
 
-  <div class="map-hotspot-layer" data-map-hotspots="main"></div>
-</div>
+          <button class="map-hotspot active" type="button" style="--x:4.9%;--y:22.2%;" data-id="statewide" data-label="Statewide Colorado"></button>
 
-<div class="tool-map-note">
-  <strong>How to use this:</strong> Start with a map card, then ask a qualified lender or housing professional which options may apply to your actual county, income, loan type, property, education certificate, and timing.
-</div>
-</article>
+<button class="map-hotspot" type="button" style="--x:66.1%;--y:39.3%;" data-id="denver-metro" data-label="Denver Metro / Front Range"></button>
+
+<button class="map-hotspot" type="button" style="--x:68.5%;--y:53.5%;" data-id="douglas-county" data-label="Douglas County"></button>
+
+<button class="map-hotspot" type="button" style="--x:68.0%;--y:62.8%;" data-id="pikes-peak" data-label="Colorado Springs / Pikes Peak"></button>
+
+<button class="map-hotspot" type="button" style="--x:62.0%;--y:16.8%;" data-id="northern-colorado" data-label="Northern Colorado"></button>
+
+<button class="map-hotspot" type="button" style="--x:24.5%;--y:53.0%;" data-id="western-slope" data-label="Western Slope"></button>
+
+<button class="map-hotspot" type="button" style="--x:38.5%;--y:39.0%;" data-id="mountain" data-label="Mountain Communities"></button>
+
+<button class="map-hotspot" type="button" style="--x:92.7%;--y:28.7%;" data-id="rural-usda" data-label="Rural / USDA Possibility Areas"></button>
+
+<button class="map-hotspot" type="button" style="--x:69.1%;--y:72.8%;" data-id="southern-colorado" data-label="Southern Colorado"></button>
+        </div>
+
+        <div class="tool-map-note">
+          <strong>How to use this:</strong> Start with a region, then ask a qualified lender or housing professional which options may apply to your actual county, income, loan type, property, education certificate, and timing.
+        </div>
+      </article>
+
       <aside class="tool-panel" aria-live="polite">
         <div class="tool-panel-head">
           <span class="tool-panel-kicker" id="panelKicker">Educational starting point</span>
@@ -1447,20 +1438,17 @@ eligibility map, or program approval tool.
 
 <div class="dossier-overlay" id="dossierOverlay" role="dialog" aria-modal="true" aria-labelledby="dossierTitle">
   <div class="dossier-modal">
-<div class="dossier-hero">
-  <button class="dossier-close" type="button" id="closeDossier" aria-label="Close dossier">&times;</button>
+    <div class="dossier-hero">
+      <button class="dossier-close" type="button" id="closeDossier" aria-label="Close dossier">&times;</button>
 
-  <div class="dossier-kicker" id="dossierKicker">Intelligence Dossier</div>
-  <h2 id="dossierTitle">Statewide Colorado</h2>
-  <p id="dossierSummary"></p>
-  <div class="dossier-pill-row" id="dossierPills"></div>
-</div>
+      <div class="dossier-kicker" id="dossierKicker">Intelligence Dossier</div>
+      <h2 id="dossierTitle">Statewide Colorado</h2>
+      <p id="dossierSummary"></p>
+      <div class="dossier-pill-row" id="dossierPills"></div>
+    </div>
 
-<div class="dossier-map-banner" aria-hidden="true">
-  <img src="colorado-dpa-map-optimized-q90.webp" alt="">
-</div>
-  </div>
-</div>
+    <div class="dossier-map-banner" aria-hidden="true">
+      <img src="colorado-dpa-map-optimized-q90.webp" alt="">
     </div>
 
     <div class="dossier-body">
@@ -1806,183 +1794,6 @@ const explorerData = {
   }
 };
 
- let hotspotButtons = []; 
-const mapHotspots = [
-  {
-    id:"statewide",
-    label:"CHFA Statewide Programs",
-    x:"4.5%",
-    y:"29.0%",
-    w:"8.8%",
-    h:"8.0%"
-  },
-  {
-    id:"statewide",
-    label:"Chenoa Fund Option",
-    x:"4.5%",
-    y:"47.3%",
-    w:"8.8%",
-    h:"8.0%"
-  },
-  {
-    id:"education",
-    label:"Homebuyer Education",
-    x:"4.5%",
-    y:"65.2%",
-    w:"8.8%",
-    h:"8.8%"
-  },
-
-  {
-    id:"mountain",
-    label:"Grand County DPA",
-    x:"21.6%",
-    y:"25.8%",
-    w:"12.3%",
-    h:"7.2%"
-  },
-  {
-    id:"mountain",
-    label:"Mountain Workforce Housing",
-    x:"36.2%",
-    y:"39.0%",
-    w:"12.5%",
-    h:"7.8%"
-  },
-
-  {
-    id:"western-slope",
-    label:"Western Slope Home Resources",
-    x:"24.3%",
-    y:"52.0%",
-    w:"12.0%",
-    h:"7.4%"
-  },
-  {
-    id:"western-slope",
-    label:"HomesFund Southwest CO",
-    x:"17.9%",
-    y:"68.0%",
-    w:"12.0%",
-    h:"8.0%"
-  },
-
-  {
-    id:"northern-colorado",
-    label:"Northern Colorado Program Search",
-    x:"65.9%",
-    y:"20.0%",
-    w:"12.8%",
-    h:"7.0%"
-  },
-  {
-    id:"denver-metro",
-    label:"Boulder / Longmont Options",
-    x:"66.1%",
-    y:"28.7%",
-    w:"12.8%",
-    h:"6.8%"
-  },
-  {
-    id:"metrodpa",
-    label:"MetroDPA Down Payment Resource",
-    x:"68.8%",
-    y:"37.3%",
-    w:"12.6%",
-    h:"6.8%"
-  },
-  {
-    id:"denver-metro",
-    label:"Aurora Homebuyer Assistance",
-    x:"69.0%",
-    y:"45.5%",
-    w:"12.8%",
-    h:"6.8%"
-  },
-  {
-    id:"douglas-county",
-    label:"Douglas County DPA",
-    x:"70.5%",
-    y:"52.8%",
-    w:"13.0%",
-    h:"6.6%"
-  },
-  {
-    id:"pikes-peak",
-    label:"Pikes Peak / Colorado Springs",
-    x:"71.4%",
-    y:"60.4%",
-    w:"15.2%",
-    h:"6.8%"
-  },
-  {
-    id:"southern-colorado",
-    label:"Southern Colorado DPA",
-    x:"72.0%",
-    y:"68.4%",
-    w:"14.8%",
-    h:"6.8%"
-  },
-
-  {
-    id:"rural-usda",
-    label:"USDA Rural Possibility Areas",
-    x:"93.8%",
-    y:"35.0%",
-    w:"8.8%",
-    h:"24.0%"
-  },
-  {
-    id:"va-strategy",
-    label:"VA + Assistance Strategy",
-    x:"93.8%",
-    y:"61.8%",
-    w:"8.8%",
-    h:"11.0%"
-  },
-  {
-    id:"seller-credits",
-    label:"Seller Credit Strategies",
-    x:"93.8%",
-    y:"75.0%",
-    w:"8.8%",
-    h:"11.0%"
-  }
-];
-function renderMapHotspots() {
-  const layers = document.querySelectorAll("[data-map-hotspots]");
-
-  layers.forEach(function(layer) {
-    layer.innerHTML = "";
-
-    mapHotspots.forEach(function(spot) {
-      const button = document.createElement("button");
-
-      button.className = "map-hotspot";
-      button.type = "button";
-      button.dataset.id = spot.id;
-      button.dataset.label = spot.label;
-      button.setAttribute("aria-label", "Open " + spot.label);
-
-      button.style.setProperty("--x", spot.x);
-      button.style.setProperty("--y", spot.y);
-      button.style.setProperty("--w", spot.w);
-      button.style.setProperty("--h", spot.h);
-
-      button.addEventListener("click", function() {
-        setActiveItem(spot.id, layer.dataset.mapHotspots === "main");
-
-        if (layer.dataset.mapHotspots === "dossier") {
-          openDossier(spot.id);
-        }
-      });
-
-      layer.appendChild(button);
-    });
-  });
-
-  hotspotButtons = document.querySelectorAll(".map-hotspot");
-}
 let currentId = "statewide";
 
 const panelKicker = document.getElementById("panelKicker");
@@ -1995,7 +1806,7 @@ const panelQuestions = document.getElementById("panelQuestions");
 const panelWatchouts = document.getElementById("panelWatchouts");
 const panelLinks = document.getElementById("panelLinks");
 
-
+const hotspotButtons = document.querySelectorAll(".map-hotspot");
 const pathwayButtons = document.querySelectorAll(".tool-card");
 const drawerTabs = document.querySelectorAll(".tool-drawer-tab");
 const drawerSections = document.querySelectorAll(".tool-drawer-section");
@@ -2119,7 +1930,11 @@ function closeDossierModal() {
   document.body.style.overflow = "";
 }
 
-
+hotspotButtons.forEach(function(button) {
+  button.addEventListener("click", function() {
+    setActiveItem(button.dataset.id, true);
+  });
+});
 
 pathwayButtons.forEach(function(button) {
   button.addEventListener("click", function() {
@@ -2172,7 +1987,6 @@ function renderMobileRegions() {
   });
 }
 
-renderMapHotspots();
 renderMobileRegions();
 setActiveItem("statewide", false);
 </script>
