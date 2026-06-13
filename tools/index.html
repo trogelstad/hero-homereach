@@ -1,628 +1,1851 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
   <meta charset="UTF-8">
-
-  <!-- Google Tag Manager -->
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-5ZQKN4LM');</script>
-  <!-- End Google Tag Manager -->
-
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Hero HomeReach Tools | Colorado Homebuyer Assistance Tools</title>
-  <meta name="description" content="Explore Hero HomeReach tools designed to help Colorado homebuyers understand possible assistance paths, down payment options, seller credit strategies, and homebuyer education requirements.">
+  <title>Colorado Assistance Explorer | Interactive Homebuyer Tool | Hero HomeReach</title>
+  <meta name="description" content="Explore possible Colorado homebuyer assistance paths by region, program type, and buyer situation. Educational starting points for CHFA, metroDPA, VA strategies, seller credits, homebuyer education, rural options, and local assistance paths.">
+  <link rel="canonical" href="https://www.herohomereach.com/tools/colorado-assistance-explorer/">
 
-  <!-- Favicons -->
-  <link rel="icon" type="image/png" href="../favicon.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="../favicon-180x180.png">
-  <link rel="icon" type="image/png" sizes="192x192" href="../favicon-192x192.png">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png">
 
-  <link rel="canonical" href="https://www.herohomereach.com/tools/" />
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="Hero HomeReach Tools | Colorado Homebuyer Assistance Tools">
-  <meta property="og:description" content="Interactive educational tools for exploring Colorado homebuyer assistance paths, regional options, and buyer strategy questions.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://www.herohomereach.com/tools/">
-
-  <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "WebPage",
-      "@id": "https://www.herohomereach.com/tools/#webpage",
-      "url": "https://www.herohomereach.com/tools/",
-      "name": "Hero HomeReach Tools",
-      "description": "Interactive educational tools designed to help Colorado homebuyers understand possible assistance paths, down payment options, seller credit strategies, homebuyer education requirements, and regional assistance options.",
-      "isPartOf": {
-        "@id": "https://www.herohomereach.com/#website"
-      },
-      "about": [
-        "Colorado down payment assistance",
-        "Colorado homebuyer assistance",
-        "Homebuyer education",
-        "Seller credit strategies",
-        "Forgivable loans",
-        "Regional homebuyer assistance"
-      ]
-    },
-    {
-      "@type": "BreadcrumbList",
-      "@id": "https://www.herohomereach.com/tools/#breadcrumb",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Home",
-          "item": "https://www.herohomereach.com/"
-        },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "name": "Tools",
-          "item": "https://www.herohomereach.com/tools/"
-        }
-      ]
-    },
-    {
-      "@type": "ItemList",
-      "@id": "https://www.herohomereach.com/tools/#tools-list",
-      "name": "Hero HomeReach Interactive Tools",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Colorado Assistance Explorer",
-          "url": "https://www.herohomereach.com/tools/colorado-assistance-explorer/"
-        },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "name": "DPA Stackability Checker",
-          "description": "Coming soon educational tool for exploring which assistance paths may be worth discussing with a qualified lender."
-        },
-        {
-          "@type": "ListItem",
-          "position": 3,
-          "name": "Seller Credit Strategy Calculator",
-          "description": "Coming soon educational tool for understanding how seller credits may affect cash needed at closing."
-        },
-        {
-          "@type": "ListItem",
-          "position": 4,
-          "name": "Homebuyer Education Finder",
-          "description": "Coming soon educational tool for understanding homebuyer education paths for Colorado assistance programs."
-        }
-      ]
-    }
-  ]
-}
-</script>
-
-  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-  <!-- Shared styles -->
-  <link rel="stylesheet" href="../css/main.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/main.css">
 
   <style>
-    /* ════════════════════════════════
-       TOOLS HUB PAGE
-    ════════════════════════════════ */
-/* Slimmer hero for the Tools Hub page only */
-.tools-page-hero {
-  padding: calc(var(--nav-h) + 48px) 0 56px;
-}
-
-.tools-page-hero h1 {
-  font-size: clamp(38px, 5vw, 64px);
-  max-width: 900px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.tools-page-hero p {
-  margin-bottom: 24px;
-}
-    .tools-intro {
-      background: #fff;
+    :root {
+      --navy:#0C2D5E;
+      --mid-navy:#1A4A8A;
+      --gold:#C9973A;
+      --bright-gold:#EAB84A;
+      --cool-white:#F5F7FA;
+      --near-black:#1C1C1E;
+      --cream:#FFFCF4;
+      --line:#e8e8e8;
+      --muted:#666;
     }
 
-    .tools-featured-grid {
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 48px;
-      align-items: center;
+    body {
+      padding-top:var(--nav-h,72px);
+      background:#fff;
     }
 
-    .tools-copy p {
-      font-size: 17px;
-      color: #555;
-      margin-bottom: 22px;
-      max-width: 620px;
+    #nav {
+      background:var(--navy)!important;
+      box-shadow:0 2px 16px rgba(0,0,0,.18)!important;
     }
 
-    .tools-callout {
-      background: var(--navy);
-      border-radius: var(--radius);
-      padding: 36px 32px;
-      border: 1px solid rgba(201,151,58,0.25);
-      box-shadow: 0 12px 40px rgba(12,45,94,0.16);
-      position: relative;
-      overflow: hidden;
+    #nav .nav-links a {
+      color:rgba(255,255,255,.85)!important;
     }
 
-    .tools-callout::before {
-      content: '';
-      position: absolute;
-      top: -120px;
-      right: -120px;
-      width: 300px;
-      height: 300px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(201,151,58,0.14) 0%, transparent 70%);
+    #nav .nav-links a:hover,
+    #nav .nav-links a.active {
+      color:#fff!important;
     }
 
-    .tools-callout-inner {
-      position: relative;
-      z-index: 2;
+    .tool-subnav {
+      background:var(--navy);
+      border-bottom:1px solid rgba(201,151,58,.25);
+      position:sticky;
+      top:var(--nav-h,72px);
+      z-index:89;
     }
 
-    .tools-callout .section-eyebrow {
-      color: var(--bright-gold);
+    .tool-subnav-inner {
+      max-width:1200px;
+      margin:0 auto;
+      padding:0 24px;
+      display:flex;
+      align-items:center;
+      overflow-x:auto;
+      scrollbar-width:none;
     }
 
-    .tools-callout .section-eyebrow::before {
-      background: var(--bright-gold);
+    .tool-subnav-inner::-webkit-scrollbar {
+      display:none;
     }
 
-    .tools-callout h2 {
-      color: #fff;
-      margin-bottom: 16px;
+    .tool-subnav-label {
+      color:var(--gold);
+      font-size:11px;
+      font-weight:800;
+      letter-spacing:.1em;
+      text-transform:uppercase;
+      padding:15px 20px 15px 0;
+      border-right:1px solid rgba(255,255,255,.12);
+      margin-right:8px;
+      white-space:nowrap;
+      font-family:Inter,sans-serif;
     }
 
-    .tools-callout p {
-      color: rgba(255,255,255,0.72);
-      font-size: 15px;
-      line-height: 1.7;
-      margin-bottom: 28px;
+    .tool-tab {
+      color:rgba(255,255,255,.62);
+      font-size:13px;
+      font-weight:600;
+      padding:15px 16px;
+      border-bottom:2px solid transparent;
+      white-space:nowrap;
+      background:none;
+      border-top:0;
+      border-left:0;
+      border-right:0;
+      font-family:Inter,sans-serif;
+      text-decoration:none;
     }
 
-    .tools-list {
-      margin: 24px 0 32px;
-      border-top: 1px solid rgba(255,255,255,0.1);
-      padding-top: 18px;
+    .tool-tab:hover,
+    .tool-tab.active {
+      color:var(--bright-gold);
+      border-bottom-color:var(--bright-gold);
     }
 
-    .tools-list li {
-      display: flex;
-      gap: 10px;
-      align-items: flex-start;
-      color: rgba(255,255,255,0.72);
-      font-size: 14px;
-      padding: 7px 0;
-      line-height: 1.5;
+    .tool-page-header {
+      background:var(--cool-white);
+      border-bottom:1px solid var(--line);
+      padding:26px 24px;
     }
 
-    .tools-list li::before {
-      content: '✓';
-      color: var(--bright-gold);
-      font-weight: 700;
-      flex-shrink: 0;
-      margin-top: 1px;
+    .tool-page-header-inner {
+      max-width:1200px;
+      margin:0 auto;
     }
 
-    .tools-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-      margin-top: 56px;
+    .tool-page-header-eyebrow,
+    .tool-section-label {
+      font-family:Inter,sans-serif;
+      font-size:11px;
+      font-weight:800;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      color:var(--gold);
+      margin-bottom:8px;
+    }
+
+    .tool-page-header h1 {
+      font-family:"Playfair Display",Georgia,serif;
+      font-size:clamp(30px,4vw,52px);
+      font-weight:400;
+      color:var(--navy);
+      line-height:1.08;
+      margin:0;
+      max-width:920px;
+    }
+
+    .tool-page-header p {
+      font-family:Inter,sans-serif;
+      font-size:15px;
+      color:#555;
+      line-height:1.75;
+      max-width:900px;
+      margin:12px 0 0;
+    }
+
+    .tool-featured {
+      background:#fff;
+      border-bottom:1px solid var(--line);
+      padding:36px 24px;
+    }
+
+    .tool-featured-inner {
+      max-width:1440px;
+      margin:0 auto;
+    }
+
+    .tool-grid {
+      display:grid;
+      grid-template-columns:minmax(0,68%) minmax(360px,32%);
+      gap:20px;
+      align-items:stretch;
+    }
+
+    .tool-map-card,
+    .tool-panel {
+      background:#fff;
+      border:1px solid #e4e4e4;
+      border-radius:14px;
+      overflow:hidden;
+      box-shadow:0 8px 32px rgba(12,45,94,.08);
+    }
+
+    .tool-map-head,
+    .tool-panel-head {
+      padding:20px 22px;
+      border-bottom:1px solid #ebebeb;
+      background:#fff;
+    }
+
+    .tool-map-head h2,
+    .tool-panel-head h2 {
+      font-family:"Playfair Display",Georgia,serif;
+      font-size:clamp(22px,2.2vw,34px);
+      font-weight:400;
+      color:var(--near-black);
+      line-height:1.2;
+      margin:0;
+    }
+
+    .tool-map-head p,
+    .tool-panel-head p {
+      font-family:Inter,sans-serif;
+      font-size:14px;
+      color:#555;
+      line-height:1.7;
+      margin:8px 0 0;
+    }
+
+    .tool-map-wrap {
+      position:relative;
+      background:var(--navy);
+      overflow:hidden;
+    }
+
+    .tool-map-wrap img {
+      width:100%;
+      height:auto;
+      display:block;
+    }
+
+    .map-hotspot-layer {
+      position:absolute;
+      inset:0;
+      z-index:4;
+      pointer-events:none;
+    }
+
+    .map-hotspot {
+      position:absolute;
+      left:var(--x);
+      top:var(--y);
+      width:var(--w);
+      height:var(--h);
+      transform:translate(-50%,-50%);
+      background:transparent;
+      border:1.5px solid transparent;
+      border-radius:10px;
+      cursor:pointer;
+      z-index:5;
+      pointer-events:auto;
+      transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease, background .18s ease;
+    }
+
+    .map-hotspot:hover,
+    .map-hotspot:focus-visible {
+      transform:translate(-50%,-50%) scale(1.015);
+      border-color:rgba(201,151,58,.92);
+      background:rgba(234,184,74,.07);
+      box-shadow:0 0 0 3px rgba(201,151,58,.18), 0 10px 22px rgba(12,45,94,.18);
+      outline:none;
+    }
+
+    .map-hotspot::after {
+      content:attr(data-label);
+      position:absolute;
+      left:50%;
+      bottom:calc(100% + 8px);
+      transform:translateX(-50%);
+      width:max-content;
+      max-width:260px;
+      padding:8px 11px;
+      border-radius:7px;
+      background:var(--navy);
+      color:#fff;
+      border:1px solid rgba(234,184,74,.45);
+      font-family:Inter,sans-serif;
+      font-size:12px;
+      font-weight:800;
+      line-height:1.25;
+      opacity:0;
+      pointer-events:none;
+      transition:opacity .18s ease;
+      white-space:normal;
+    }
+
+    .map-hotspot:hover::after,
+    .map-hotspot:focus-visible::after {
+      opacity:1;
+    }
+
+    .tool-map-note {
+      padding:14px 18px;
+      background:#fff;
+      border-top:1px solid #ebebeb;
+      font-family:Inter,sans-serif;
+      font-size:12px;
+      color:#777;
+      line-height:1.6;
+    }
+
+    .tool-map-note strong {
+      color:var(--navy);
+    }
+
+    .tool-panel {
+      display:flex;
+      flex-direction:column;
+    }
+
+    .tool-panel-kicker {
+      display:inline-block;
+      font-family:Inter,sans-serif;
+      font-size:10px;
+      font-weight:800;
+      letter-spacing:.1em;
+      text-transform:uppercase;
+      color:var(--gold);
+      margin-bottom:10px;
+    }
+
+    .tool-panel-body {
+      padding:18px 22px 22px;
+      flex:1;
+    }
+
+    .tool-pill-row {
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      margin-bottom:14px;
+    }
+
+    .tool-pill,
+    .tool-badge,
+    .dossier-pill {
+      display:inline-block;
+      font-family:Inter,sans-serif;
+      font-size:10px;
+      font-weight:800;
+      letter-spacing:.09em;
+      text-transform:uppercase;
+      padding:5px 10px;
+      border-radius:20px;
+      color:#7A5A00;
+      background:#faeeda;
+    }
+
+    .tool-tabs,
+    .dossier-tabs {
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      margin-bottom:18px;
+      border-bottom:1px solid #ebebeb;
+      padding-bottom:12px;
+    }
+
+    .tool-drawer-tab,
+    .dossier-tab {
+      border:none;
+      background:#f6f6f6;
+      color:#555;
+      font-family:Inter,sans-serif;
+      font-size:13px;
+      font-weight:800;
+      padding:9px 12px;
+      border-radius:7px;
+      cursor:pointer;
+    }
+
+    .tool-drawer-tab:hover,
+    .tool-drawer-tab.active,
+    .dossier-tab:hover,
+    .dossier-tab.active {
+      background:var(--navy);
+      color:#fff;
+    }
+
+    .tool-drawer-section,
+    .dossier-section {
+      display:none;
+    }
+
+    .tool-drawer-section.active,
+    .dossier-section.active {
+      display:block;
+    }
+
+    .tool-drawer-section h3,
+    .dossier-section h3 {
+      font-family:"Playfair Display",Georgia,serif;
+      font-size:24px;
+      font-weight:400;
+      color:var(--near-black);
+      margin:0 0 12px;
+    }
+
+    .tool-drawer-section p,
+    .tool-drawer-section li,
+    .dossier-section p,
+    .dossier-section li {
+      font-family:Inter,sans-serif;
+      font-size:15px;
+      color:#555;
+      line-height:1.75;
+    }
+
+    .tool-drawer-section ul,
+    .dossier-section ul {
+      margin:0;
+      padding-left:20px;
+    }
+
+    .tool-link-list,
+    .dossier-link-list {
+      display:grid;
+      gap:10px;
+    }
+
+    .tool-link-list a,
+    .dossier-link-list a {
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+      align-items:center;
+      padding:12px;
+      border:1px solid #e8e8e8;
+      border-radius:8px;
+      text-decoration:none;
+      color:var(--mid-navy);
+      font-family:Inter,sans-serif;
+      font-size:13px;
+      font-weight:800;
+      background:#fff;
+    }
+
+    .tool-link-list a:hover,
+    .dossier-link-list a:hover {
+      border-color:var(--gold);
+    }
+
+    .tool-panel-actions,
+    .dossier-actions {
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:18px;
+    }
+
+    .tool-btn {
+      display:inline-block;
+      font-family:Inter,sans-serif;
+      font-size:13px;
+      font-weight:800;
+      letter-spacing:.04em;
+      text-transform:uppercase;
+      padding:13px 18px;
+      border-radius:7px;
+      text-decoration:none;
+      cursor:pointer;
+      border:none;
+    }
+
+    .tool-btn-gold {
+      background:var(--gold);
+      color:#fff;
+    }
+
+    .tool-btn-navy {
+      background:var(--navy);
+      color:#fff;
+    }
+
+    .tool-btn-light {
+      background:#fff;
+      color:var(--mid-navy);
+      border:1px solid #e4e4e4;
+    }
+
+    .tool-shelves {
+      background:#fff;
+    }
+
+    .tool-shelf {
+      max-width:1200px;
+      margin:0 auto;
+      padding:36px 24px 0;
+    }
+
+    .tool-shelf:last-of-type {
+      padding-bottom:36px;
+    }
+
+    .tool-shelf-header {
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      margin-bottom:18px;
+      padding-bottom:12px;
+      border-bottom:1px solid #ebebeb;
+      gap:18px;
+    }
+
+    .tool-shelf-title {
+      display:flex;
+      align-items:center;
+      gap:12px;
+    }
+
+    .tool-shelf-icon {
+      width:32px;
+      height:32px;
+      border-radius:8px;
+      background:var(--navy);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:var(--bright-gold);
+      font-family:Inter,sans-serif;
+      font-weight:800;
+    }
+
+    .tool-shelf-header h2 {
+      font-family:"Playfair Display",Georgia,serif;
+      font-size:22px;
+      font-weight:400;
+      color:var(--near-black);
+      margin:0;
+    }
+
+    .tool-shelf-header p {
+      font-family:Inter,sans-serif;
+      font-size:13px;
+      color:#777;
+      line-height:1.5;
+      max-width:560px;
+      margin:0;
+      text-align:right;
+    }
+
+    .tool-card-row {
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:14px;
+      margin-bottom:36px;
     }
 
     .tool-card {
-      background: #fff;
-      border: 1px solid var(--warm-gray);
-      border-radius: var(--radius);
-      padding: 32px 28px;
-      box-shadow: 0 2px 16px rgba(12,45,94,0.06);
-      transition: var(--transition);
-      position: relative;
-      overflow: hidden;
-      min-height: 260px;
+      background:#fff;
+      border:1px solid #e8e8e8;
+      border-radius:10px;
+      overflow:hidden;
+      text-decoration:none;
+      display:block;
+      cursor:pointer;
+      text-align:left;
+      font-family:inherit;
+      padding:0;
     }
 
-    .tool-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 4px;
-      background: var(--gold);
+    .tool-card:hover,
+    .tool-card:focus-visible {
+      border-color:var(--gold);
+      outline:none;
+      box-shadow:0 8px 24px rgba(12,45,94,.08);
     }
 
-    .tool-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 12px 40px rgba(12,45,94,0.12);
-      border-color: rgba(201,151,58,0.4);
+    .tool-card-thumb {
+      width:100%;
+      height:96px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:linear-gradient(135deg,#0C2D5E 0%,#1A4A8A 100%);
+      color:rgba(255,255,255,.28);
+      font-family:"Playfair Display",Georgia,serif;
+      font-size:38px;
     }
 
-    .tool-status {
-      display: inline-block;
-      margin-bottom: 18px;
-      background: rgba(201,151,58,0.1);
-      border: 1px solid rgba(201,151,58,0.3);
-      border-radius: 20px;
-      padding: 5px 14px;
-      font-size: 11px;
-      font-weight: 700;
-      color: #8B6020;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
+    .tool-card-body {
+      padding:14px;
     }
 
-    .tool-card h3 {
-      margin-bottom: 12px;
+    .tool-card-body h3 {
+      font-family:"Playfair Display",Georgia,serif;
+      font-size:16px;
+      font-weight:400;
+      color:var(--near-black);
+      line-height:1.4;
+      margin:8px 0;
     }
 
-    .tool-card p {
-      font-size: 14px;
-      color: #666;
-      line-height: 1.65;
+    .tool-card-body p {
+      font-family:Inter,sans-serif;
+      font-size:12px;
+      color:#777;
+      line-height:1.55;
+      margin:0;
     }
 
-    .tools-guidance {
-      background: var(--white);
-      border-top: 1px solid var(--warm-gray);
-      border-bottom: 1px solid var(--warm-gray);
+    .tool-mobile-regions {
+      display:none;
+      background:var(--cool-white);
+      border-top:1px solid #e8e8e8;
+      padding:32px 24px;
     }
 
-    .tools-guidance-box {
-      background: #fff;
-      border: 1px solid var(--warm-gray);
-      border-radius: var(--radius);
-      padding: 36px 32px;
-      box-shadow: 0 2px 16px rgba(12,45,94,0.06);
-      max-width: 860px;
-      margin: 0 auto;
-      text-align: center;
+    .tool-mobile-inner {
+      max-width:1200px;
+      margin:0 auto;
     }
 
-    .tools-guidance-box p {
-      color: #666;
-      font-size: 15px;
-      line-height: 1.7;
-      margin-bottom: 0;
+    .tool-region-list {
+      display:grid;
+      gap:10px;
+      margin-top:14px;
     }
 
-    .tools-page-actions {
-      display: flex;
-      gap: 16px;
-      flex-wrap: wrap;
-      margin-top: 32px;
+    .tool-region-button {
+      border:1px solid #e4e4e4;
+      border-radius:8px;
+      background:#fff;
+      padding:14px 16px;
+      text-align:left;
+      color:var(--mid-navy);
+      font-family:Inter,sans-serif;
+      font-size:14px;
+      font-weight:800;
+      cursor:pointer;
     }
 
-    @media (max-width: 900px) {
-      .tools-featured-grid {
-        grid-template-columns: 1fr;
-        gap: 36px;
+    .tool-guide-strip {
+      background:var(--navy);
+      padding:32px 24px;
+      border-top:1px solid rgba(201,151,58,.2);
+      border-bottom:1px solid rgba(201,151,58,.2);
+    }
+
+    .tool-guide-strip-inner {
+      max-width:1200px;
+      margin:0 auto;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+      flex-wrap:wrap;
+    }
+
+    .tool-guide-strip h3 {
+      font-family:"Playfair Display",Georgia,serif;
+      font-size:24px;
+      font-weight:400;
+      color:#fff;
+      margin:0 0 6px;
+    }
+
+    .tool-guide-strip p {
+      font-family:Inter,sans-serif;
+      font-size:14px;
+      color:rgba(255,255,255,.68);
+      max-width:700px;
+      margin:0;
+      line-height:1.6;
+    }
+
+    .tool-guide-btn {
+      display:inline-block;
+      background:var(--gold);
+      color:#fff;
+      font-family:Inter,sans-serif;
+      font-size:13px;
+      font-weight:800;
+      letter-spacing:.04em;
+      text-transform:uppercase;
+      padding:13px 26px;
+      border-radius:7px;
+      text-decoration:none;
+      white-space:nowrap;
+    }
+
+    .tool-cta-ladder {
+      background:var(--cool-white);
+      padding:40px 24px 48px;
+    }
+
+    .tool-cta-ladder-inner {
+      max-width:1200px;
+      margin:0 auto;
+    }
+
+    .tool-ladder-label {
+      font-family:Inter,sans-serif;
+      font-size:10px;
+      font-weight:800;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      color:#999;
+      margin-bottom:18px;
+    }
+
+    .tool-ladder-steps {
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:14px;
+    }
+
+    .tool-step {
+      background:#fff;
+      border:1px solid #e8e8e8;
+      border-radius:10px;
+      padding:18px 20px;
+      display:flex;
+      align-items:flex-start;
+      gap:14px;
+      text-decoration:none;
+    }
+
+    .tool-step-num {
+      width:30px;
+      height:30px;
+      border-radius:50%;
+      background:var(--navy);
+      color:var(--bright-gold);
+      font-family:Inter,sans-serif;
+      font-size:13px;
+      font-weight:800;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      flex-shrink:0;
+    }
+
+    .tool-step-body strong {
+      display:block;
+      font-family:"Playfair Display",Georgia,serif;
+      font-size:16px;
+      font-weight:400;
+      color:var(--near-black);
+      margin-bottom:4px;
+    }
+
+    .tool-step-body span {
+      font-family:Inter,sans-serif;
+      font-size:13px;
+      color:#777;
+      line-height:1.5;
+    }
+
+    .tool-step-arrow {
+      margin-left:auto;
+      color:#ccc;
+      font-size:18px;
+      align-self:center;
+      flex-shrink:0;
+    }
+
+    .tool-disclaimer {
+      max-width:1200px;
+      margin:0 auto;
+      padding:0 24px 34px;
+      font-family:Inter,sans-serif;
+      font-size:12px;
+      color:#777;
+      line-height:1.7;
+    }
+
+    .tool-disclaimer strong {
+      color:var(--navy);
+    }
+
+    .dossier-overlay {
+      position:fixed;
+      inset:0;
+      background:rgba(12,45,94,.88);
+      z-index:9998;
+      display:none;
+      align-items:center;
+      justify-content:center;
+      padding:18px;
+    }
+
+    .dossier-overlay.open {
+      display:flex;
+    }
+
+    .dossier-modal {
+      width:min(1540px,96vw);
+      max-height:94vh;
+      overflow:auto;
+      background:#fff;
+      border-radius:14px;
+      border:1px solid rgba(234,184,74,.38);
+      box-shadow:0 24px 80px rgba(0,0,0,.45);
+    }
+
+    .dossier-hero {
+      background:var(--navy);
+      color:#fff;
+      padding:28px 36px 24px;
+      position:relative;
+      border-bottom:1px solid rgba(234,184,74,.25);
+    }
+
+    .dossier-close {
+      position:absolute;
+      top:18px;
+      right:18px;
+      width:46px;
+      height:46px;
+      border-radius:50%;
+      border:1px solid rgba(255,255,255,.35);
+      background:rgba(255,255,255,.08);
+      color:#fff;
+      font-size:30px;
+      line-height:1;
+      cursor:pointer;
+      z-index:5;
+    }
+
+    .dossier-kicker {
+      font-family:Inter,sans-serif;
+      font-size:11px;
+      font-weight:800;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      color:var(--bright-gold);
+      margin-bottom:10px;
+    }
+
+    .dossier-hero h2 {
+      font-family:"Playfair Display",Georgia,serif;
+      font-size:clamp(30px,3vw,48px);
+      font-weight:400;
+      line-height:1.08;
+      margin:0 60px 12px 0;
+    }
+
+    .dossier-hero p {
+      font-family:Inter,sans-serif;
+      font-size:16px;
+      line-height:1.75;
+      color:rgba(255,255,255,.78);
+      margin:0;
+      max-width:980px;
+    }
+
+    .dossier-pill-row {
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      margin-top:18px;
+    }
+
+    .dossier-pill {
+      color:var(--bright-gold);
+      background:rgba(234,184,74,.13);
+      border:1px solid rgba(234,184,74,.25);
+    }
+
+    .dossier-map-banner {
+      background:#071f42;
+      border-bottom:1px solid rgba(234,184,74,.25);
+      padding:18px;
+    }
+
+    .dossier-map-banner img {
+      display:block;
+      width:100%;
+      max-width:1460px;
+      height:auto;
+      max-height:72vh;
+      object-fit:contain;
+      margin:0 auto;
+      border-radius:10px;
+      box-shadow:0 18px 42px rgba(0,0,0,.25);
+    }
+
+    .dossier-body {
+      padding:26px 36px 34px;
+      background:#fff;
+    }
+
+    .dossier-split {
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:18px;
+    }
+
+    .dossier-card {
+      border:1px solid #e8e8e8;
+      border-radius:10px;
+      padding:18px;
+      background:#fff;
+    }
+
+    .dossier-actions {
+      border-top:1px solid #ebebeb;
+      padding-top:22px;
+    }
+
+    @media (max-width:1100px) {
+      .tool-grid {
+        grid-template-columns:1fr;
+      }
+    }
+
+    @media (max-width:980px) {
+      .tool-card-row {
+        grid-template-columns:repeat(2,1fr);
       }
 
-      .tools-grid {
-        grid-template-columns: 1fr;
+      .tool-ladder-steps {
+        grid-template-columns:1fr;
       }
 
-      .tools-page-actions {
-        flex-direction: column;
-        align-items: flex-start;
+      .tool-shelf-header {
+        align-items:flex-start;
+        flex-direction:column;
       }
 
-      .tools-page-actions .btn {
-        width: 100%;
-        justify-content: center;
+      .tool-shelf-header p {
+        text-align:left;
+      }
+
+      .dossier-split {
+        grid-template-columns:1fr;
+      }
+    }
+
+    @media (max-width:720px) {
+      .tool-mobile-regions {
+        display:block;
+      }
+
+      .map-hotspot::after {
+        display:none;
+      }
+
+      .dossier-overlay {
+        padding:10px;
+      }
+
+      .dossier-hero,
+      .dossier-body {
+        padding:22px;
+      }
+
+      .dossier-map-banner {
+        padding:10px;
+      }
+
+      .dossier-map-banner img {
+        max-height:42vh;
+      }
+    }
+
+    @media (max-width:560px) {
+      .tool-card-row {
+        grid-template-columns:1fr;
+      }
+
+      .tool-page-header h1 {
+        font-size:30px;
+      }
+
+      .tool-map-head,
+      .tool-panel-head,
+      .tool-panel-body {
+        padding-left:18px;
+        padding-right:18px;
       }
     }
   </style>
-
 </head>
 
 <body>
 
-  <!-- Google Tag Manager (noscript) -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5ZQKN4LM"
-  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-  <!-- End Google Tag Manager (noscript) -->
-
-
-  <!-- ════════════ NAVIGATION ════════════ -->
-  <nav id="nav" class="nav-solid">
-    <div class="nav-inner">
-      <a href="../" class="nav-logo">
-        <img src="../logo-mark_transparent.png" alt="Hero HomeReach Shield" style="width:50px; height:50px; object-fit:contain;">
-        <div>
-          <div class="nav-wordmark">Hero <span>HomeReach</span><sup class="nav-tm">™</sup></div>
-        </div>
-      </a>
-
-      <ul class="nav-links">
-        <li><a href="../programs.html">Programs</a></li>
-        <li><a href="../who-we-serve.html">Who We Serve</a></li>
-        <li><a href="../blog/">Learning Center</a></li>
-         <li><a href="../tools/" class="active">Tools</a></li>
-        <li><a href="../faq.html">DPA FAQ</a></li>
-        <li><a href="https://guide.herohomereach.com" target="_blank" style="color:var(--bright-gold); font-weight:700;">Free Guide</a></li>
-      </ul>
-
-      <div class="nav-cta">
-        <a href="../contact.html" class="btn btn-gold btn-arrow">Book Free Consultation</a>
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">
+      <img src="/logo-mark_transparent.png" alt="Hero HomeReach Shield" style="width:50px;height:50px;object-fit:contain;">
+      <div>
+        <div class="nav-wordmark">Hero <span>HomeReach</span><sup class="nav-tm">™</sup></div>
       </div>
+    </a>
 
-      <div class="nav-hamburger" id="hamburger" onclick="toggleMobileNav()">
-        <span></span><span></span><span></span>
-      </div>
+    <ul class="nav-links">
+      <li><a href="/programs.html">Programs</a></li>
+      <li><a href="/who-we-serve.html">Who We Serve</a></li>
+      <li><a href="/blog/">Learning Center</a></li>
+      <li><a href="/tools/" class="active">Tools</a></li>
+      <li><a href="/faq">DPA FAQ</a></li>
+      <li><a href="https://guide.herohomereach.com" target="_blank" rel="noopener" style="color:var(--bright-gold);">Free Guide</a></li>
+    </ul>
+
+    <div class="nav-cta">
+      <a href="/contact.html" class="btn btn-gold btn-arrow">Book Free Consultation</a>
     </div>
-  </nav>
 
-  <!-- Mobile Nav -->
-  <div id="mobile-nav">
-    <a href="../programs.html" onclick="toggleMobileNav()">Programs</a>
-    <a href="../who-we-serve.html" onclick="toggleMobileNav()">Who We Serve</a>
-    <a href="../blog/" onclick="toggleMobileNav()">Learning Center</a>
-      <a href="../tools/" onclick="toggleMobileNav()">Tools</a>
-    <a href="../faq.html" onclick="toggleMobileNav()">Homebuyer FAQ</a>
-    <a href="https://guide.herohomereach.com" target="_blank" onclick="toggleMobileNav()" style="color:var(--bright-gold);">Free Guide</a>
-    <a href="../contact.html" onclick="toggleMobileNav()" class="btn btn-gold" style="margin-top:16px;">Book Free Consultation</a>
+    <div class="nav-hamburger" id="hamburger" onclick="toggleMobileNav()">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+<div id="mobile-nav">
+  <a href="/programs.html" onclick="toggleMobileNav()">Programs</a>
+  <a href="/who-we-serve.html" onclick="toggleMobileNav()">Who We Serve</a>
+  <a href="/about.html" onclick="toggleMobileNav()">About</a>
+  <a href="/blog/" onclick="toggleMobileNav()">Learning Center</a>
+  <a href="/tools/" onclick="toggleMobileNav()">Tools</a>
+  <a href="/faq" onclick="toggleMobileNav()">DPA FAQ</a>
+  <a href="https://guide.herohomereach.com" target="_blank" rel="noopener" onclick="toggleMobileNav()" style="color:var(--bright-gold);">Free Guide</a>
+  <a href="/contact.html" class="btn btn-gold" style="margin-top:16px;font-size:16px;">Book Free Consultation</a>
+</div>
+
+<div class="tool-subnav">
+  <div class="tool-subnav-inner">
+    <span class="tool-subnav-label">Interactive Tools</span>
+    <a class="tool-tab active" href="/tools/colorado-assistance-explorer/">Colorado Assistance Explorer</a>
+    <a class="tool-tab" href="/tools/">All Tools</a>
+    <a class="tool-tab" href="/blog/homebuyer-education-colorado-dpa/">Education Guide</a>
+    <a class="tool-tab" href="/blog/how-to-stack-down-payment-programs-colorado.html">Stacking Guide</a>
+    <a class="tool-tab" href="/contact.html">Ask for Help</a>
+  </div>
+</div>
+
+<div class="tool-page-header">
+  <div class="tool-page-header-inner">
+    <div class="tool-page-header-eyebrow">Colorado Assistance Explorer</div>
+    <h1>Explore possible homebuyer assistance paths across Colorado.</h1>
+    <p>
+      Click the map or choose a pathway to review educational starting points for statewide programs,
+      regional assistance, VA-related strategies, seller credits, homebuyer education, rural possibilities,
+      and local resources. Program availability and eligibility vary.
+    </p>
+  </div>
+</div>
+
+<section class="tool-featured" id="interactive-map">
+  <div class="tool-featured-inner">
+    <div class="tool-section-label">Interactive Map Tool</div>
+
+    <div class="tool-grid">
+      <article class="tool-map-card">
+        <div class="tool-map-head">
+          <h2>The Colorado Homebuyer Assistance Map</h2>
+          <p>
+            Hover or tap a map card to open the intelligence panel. This map is a visual guide,
+            not a boundary map, eligibility map, or program approval tool.
+          </p>
+        </div>
+
+        <div class="tool-map-wrap">
+          <img
+            src="colorado-dpa-map-optimized-q90.webp"
+            alt="Hero HomeReach Colorado homebuyer assistance map showing statewide, regional, rural, and local resources across Colorado."
+            loading="eager"
+          >
+          <div class="map-hotspot-layer" data-map-hotspots="main"></div>
+        </div>
+
+        <div class="tool-map-note">
+          <strong>How to use this:</strong> Start with a map card, then ask a qualified lender or housing professional which options may apply to your actual county, income, loan type, property, education certificate, and timing.
+        </div>
+      </article>
+
+      <aside class="tool-panel" aria-live="polite">
+        <div class="tool-panel-head">
+          <span class="tool-panel-kicker" id="panelKicker">Educational starting point</span>
+          <h2 id="panelTitle">Statewide Colorado</h2>
+          <p id="panelSummary">Start here if you are not sure which region or program path applies.</p>
+        </div>
+
+        <div class="tool-panel-body">
+          <div class="tool-pill-row" id="panelPills"></div>
+
+          <div class="tool-tabs" aria-label="Explorer detail tabs">
+            <button class="tool-drawer-tab active" type="button" data-tab="overview">Overview</button>
+            <button class="tool-drawer-tab" type="button" data-tab="paths">Paths</button>
+            <button class="tool-drawer-tab" type="button" data-tab="questions">Questions</button>
+            <button class="tool-drawer-tab" type="button" data-tab="watchouts">Watch-outs</button>
+            <button class="tool-drawer-tab" type="button" data-tab="links">Links</button>
+          </div>
+
+          <div class="tool-drawer-section active" data-section="overview">
+            <h3>What to understand first</h3>
+            <p id="panelOverview"></p>
+          </div>
+
+          <div class="tool-drawer-section" data-section="paths">
+            <h3>Possible assistance paths</h3>
+            <ul id="panelPaths"></ul>
+          </div>
+
+          <div class="tool-drawer-section" data-section="questions">
+            <h3>Questions to ask</h3>
+            <ul id="panelQuestions"></ul>
+          </div>
+
+          <div class="tool-drawer-section" data-section="watchouts">
+            <h3>Watch-outs</h3>
+            <ul id="panelWatchouts"></ul>
+          </div>
+
+          <div class="tool-drawer-section" data-section="links">
+            <h3>Official and Hero HomeReach links</h3>
+            <div class="tool-link-list" id="panelLinks"></div>
+          </div>
+
+          <div class="tool-panel-actions">
+            <button class="tool-btn tool-btn-navy" type="button" id="openDossierBtn">Open Full View</button>
+            <a class="tool-btn tool-btn-gold" href="https://guide.herohomereach.com" target="_blank" rel="noopener">Get the Free Guide</a>
+            <a class="tool-btn tool-btn-light" href="/contact.html">Request Help</a>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section class="tool-mobile-regions">
+  <div class="tool-mobile-inner">
+    <div class="tool-section-label">Mobile Region Shortcuts</div>
+    <div class="tool-region-list" id="mobileRegionList"></div>
+  </div>
+</section>
+
+<section class="tool-shelves" id="pathways">
+  <div class="tool-shelf">
+    <div class="tool-shelf-header">
+      <div class="tool-shelf-title">
+        <div class="tool-shelf-icon">1</div>
+        <h2>Explore by program or strategy path</h2>
+      </div>
+      <p>Use these cards when the buyer situation matters more than geography.</p>
+    </div>
+
+    <div class="tool-card-row">
+      <button class="tool-card" type="button" data-id="chfa">
+        <div class="tool-card-thumb">C</div>
+        <div class="tool-card-body">
+          <span class="tool-badge">Statewide</span>
+          <h3>CHFA Statewide Programs</h3>
+          <p>First mortgage paths, DPA options, education rules, and lender questions.</p>
+        </div>
+      </button>
+
+      <button class="tool-card" type="button" data-id="metrodpa">
+        <div class="tool-card-thumb">M</div>
+        <div class="tool-card-body">
+          <span class="tool-badge">Front Range</span>
+          <h3>metroDPA</h3>
+          <p>A regional path where repayment, occupancy, and refinance rules matter.</p>
+        </div>
+      </button>
+
+      <button class="tool-card" type="button" data-id="chenoa">
+        <div class="tool-card-thumb">F</div>
+        <div class="tool-card-body">
+          <span class="tool-badge">DPA Path</span>
+          <h3>Chenoa Fund</h3>
+          <p>A national assistance path to ask about with participating lenders.</p>
+        </div>
+      </button>
+
+      <button class="tool-card" type="button" data-id="education">
+        <div class="tool-card-thumb">E</div>
+        <div class="tool-card-body">
+          <span class="tool-badge">Certificate</span>
+          <h3>Homebuyer Education</h3>
+          <p>Which class, which follow-up, and which certificate may matter.</p>
+        </div>
+      </button>
+    </div>
   </div>
 
+  <div class="tool-shelf">
+    <div class="tool-shelf-header">
+      <div class="tool-shelf-title">
+        <div class="tool-shelf-icon">2</div>
+        <h2>Hero and cash-to-close strategy</h2>
+      </div>
+      <p>These paths are especially useful for public service heroes comparing closing cost strategies.</p>
+    </div>
 
-  <!-- ════════════ PAGE HERO ════════════ -->
-  <section class="page-hero tools-page-hero">
-    <div class="container">
-      <div class="page-hero-inner">
-        <div class="section-eyebrow" style="justify-content:center;">Hero HomeReach Tools</div>
+    <div class="tool-card-row">
+      <button class="tool-card" type="button" data-id="va-strategy">
+        <div class="tool-card-thumb">V</div>
+        <div class="tool-card-body">
+          <span class="tool-badge">Military</span>
+          <h3>VA + Assistance Strategy</h3>
+          <p>For eligible military and veteran buyers reviewing possible closing cost paths.</p>
+        </div>
+      </button>
 
-        <h1>Interactive Tools for <span>Colorado Homebuyers</span></h1>
+      <button class="tool-card" type="button" data-id="seller-credits">
+        <div class="tool-card-thumb">S</div>
+        <div class="tool-card-body">
+          <span class="tool-badge">Contract Strategy</span>
+          <h3>Seller Credit Strategies</h3>
+          <p>How seller concessions may help reduce cash needed to close within loan rules.</p>
+        </div>
+      </button>
 
-        <p>
-          Explore educational tools designed to help Colorado buyers understand possible assistance paths,
-          regional options, seller credit strategies, and homebuyer education requirements.
-        </p>
+      <button class="tool-card" type="button" data-id="rural-usda">
+        <div class="tool-card-thumb">U</div>
+        <div class="tool-card-body">
+          <span class="tool-badge">Rural</span>
+          <h3>USDA Rural Possibilities</h3>
+          <p>Property eligibility, income rules, and rural loan conversations.</p>
+        </div>
+      </button>
 
-        <a href="colorado-assistance-explorer/" class="btn btn-gold btn-arrow">Preview the Explorer</a>
+      <button class="tool-card" type="button" data-id="mountain">
+        <div class="tool-card-thumb">W</div>
+        <div class="tool-card-body">
+          <span class="tool-badge">Workforce</span>
+          <h3>Mountain Workforce Housing</h3>
+          <p>Local programs, workforce restrictions, shared appreciation, and resale rules.</p>
+        </div>
+      </button>
+    </div>
+  </div>
+</section>
+
+<div class="tool-guide-strip">
+  <div class="tool-guide-strip-inner">
+    <div>
+      <h3>Get the Free Colorado Hero Homebuyer Guide</h3>
+      <p>Review assistance paths, homebuyer education steps, planning ranges, seller credit questions, and lender conversation prompts before your first serious loan conversation.</p>
+    </div>
+    <a href="https://guide.herohomereach.com" target="_blank" rel="noopener" class="tool-guide-btn">Download Your Free Guide</a>
+  </div>
+</div>
+
+<div class="tool-cta-ladder">
+  <div class="tool-cta-ladder-inner">
+    <div class="tool-ladder-label">Your next step</div>
+
+    <div class="tool-ladder-steps">
+      <a href="https://guide.herohomereach.com" target="_blank" rel="noopener" class="tool-step">
+        <div class="tool-step-num">1</div>
+        <div class="tool-step-body">
+          <strong>Get the Free Guide</strong>
+          <span>Download the Colorado homebuyer guide and review possible paths before you call a lender.</span>
+        </div>
+        <span class="tool-step-arrow">&rarr;</span>
+      </a>
+
+      <a href="/blog/" class="tool-step">
+        <div class="tool-step-num">2</div>
+        <div class="tool-step-body">
+          <strong>Read the Learning Center</strong>
+          <span>Explore program explainers, education guides, seller credit strategy, and hero-specific articles.</span>
+        </div>
+        <span class="tool-step-arrow">&rarr;</span>
+      </a>
+
+      <a href="/contact.html" class="tool-step">
+        <div class="tool-step-num">3</div>
+        <div class="tool-step-body">
+          <strong>Request a Strategy Session</strong>
+          <span>Ask for help turning possible assistance paths into better questions for your lender conversation.</span>
+        </div>
+        <span class="tool-step-arrow">&rarr;</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<div class="tool-disclaimer">
+  <strong>Educational disclaimer:</strong>
+  Hero HomeReach is not a lender, mortgage broker, real estate brokerage, government agency, or eligibility authority.
+  This Explorer provides educational starting points only. Program availability and eligibility vary. This is not an eligibility determination, loan approval, legal advice, tax advice, financial advice, or a guarantee of assistance. Always ask a qualified lender, housing counselor, real estate professional, or program administrator before making decisions.
+</div>
+
+<footer id="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="wordmark">Hero <span>HomeReach</span>™</div>
+        <p>Free homeownership guidance for Colorado's educators, first responders, healthcare workers, and military members. No jargon. No pressure. Built for heroes.</p>
+      </div>
+
+      <div class="footer-col">
+        <div class="footer-col-title">Site</div>
+        <a href="/programs.html">Programs</a>
+        <a href="/who-we-serve.html">Who We Serve</a>
+        <a href="/about.html">About</a>
+        <a href="/blog/">Learning Center</a>
+        <a href="/tools/">Tools</a>
+        <a href="/contact.html">Contact</a>
+      </div>
+
+      <div class="footer-col">
+        <div class="footer-col-title">Start Here</div>
+        <a href="/contact.html">Book Free Consultation</a>
+        <a href="/programs.html">Explore Programs</a>
+        <a href="/blog/">Learning Center</a>
+        <a href="https://guide.herohomereach.com" target="_blank" rel="noopener">Free Guide</a>
       </div>
     </div>
-  </section>
 
+    <div class="footer-bottom">
+      <div class="footer-copy">&copy; 2026 Hero HomeReach™. All rights reserved. Colorado Homeownership Guidance.</div>
+      <div class="footer-legal">
+        <a href="/privacy.html">Privacy Policy</a>
+        <a href="/terms.html">Terms of Use</a>
+        <a href="/disclaimer.html">Disclaimer</a>
+      </div>
+    </div>
+  </div>
+</footer>
 
-  <!-- ════════════ FEATURED TOOL ════════════ -->
-  <section class="section tools-intro">
-    <div class="container">
-      <div class="tools-featured-grid">
+<div class="dossier-overlay" id="dossierOverlay" role="dialog" aria-modal="true" aria-labelledby="dossierTitle">
+  <div class="dossier-modal">
+    <div class="dossier-hero">
+      <button class="dossier-close" type="button" id="closeDossier" aria-label="Close dossier">&times;</button>
+      <div class="dossier-kicker" id="dossierKicker">Intelligence Dossier</div>
+      <h2 id="dossierTitle">Statewide Colorado</h2>
+      <p id="dossierSummary"></p>
+      <div class="dossier-pill-row" id="dossierPills"></div>
+    </div>
 
-        <div class="tools-copy fade-up">
-          <div class="section-eyebrow">Featured Tool</div>
+    <div class="dossier-map-banner" aria-hidden="true">
+      <img src="colorado-dpa-map-optimized-q90.webp" alt="">
+    </div>
 
-          <h2>Start with the Colorado Assistance Explorer.</h2>
+    <div class="dossier-body">
+      <div class="dossier-tabs" aria-label="Dossier tabs">
+        <button class="dossier-tab active" type="button" data-dossier-tab="overview">Overview</button>
+        <button class="dossier-tab" type="button" data-dossier-tab="bestfor">Best For</button>
+        <button class="dossier-tab" type="button" data-dossier-tab="paths">Possible Paths</button>
+        <button class="dossier-tab" type="button" data-dossier-tab="questions">Questions</button>
+        <button class="dossier-tab" type="button" data-dossier-tab="watchouts">Watch-outs</button>
+        <button class="dossier-tab" type="button" data-dossier-tab="links">Links</button>
+        <button class="dossier-tab" type="button" data-dossier-tab="nextstep">Next Step</button>
+      </div>
 
-          <p>
-            The Colorado Assistance Explorer is being built as a cleaner, scalable, interactive way to explore
-            statewide, regional, rural, mountain, local, and hero-focused homebuyer assistance paths.
-          </p>
+      <div class="dossier-section active" data-dossier-section="overview">
+        <h3>Plain-English overview</h3>
+        <p id="dossierOverview"></p>
+      </div>
 
-          <p>
-            It is not designed to tell buyers they qualify for a program. It is designed to help them understand
-            possible paths, learn what questions to ask, and prepare for conversations with a qualified lender,
-            housing counselor, real estate professional, or program administrator.
-          </p>
-
-          <div class="tools-page-actions">
-            <a href="colorado-assistance-explorer/" class="btn btn-navy btn-arrow">Open the Explorer</a>
-            <a href="../blog/" class="btn btn-gold btn-arrow">Visit the Learning Center</a>
+      <div class="dossier-section" data-dossier-section="bestfor">
+        <div class="dossier-split">
+          <div class="dossier-card">
+            <h3>Best for</h3>
+            <ul id="dossierBestFor"></ul>
+          </div>
+          <div class="dossier-card">
+            <h3>Education and timing notes</h3>
+            <ul id="dossierEducation"></ul>
           </div>
         </div>
+      </div>
 
-        <div class="tools-callout fade-up delay-2">
-          <div class="tools-callout-inner">
-            <div class="section-eyebrow">Flagship Tool</div>
-
-            <h2>Colorado Assistance Explorer</h2>
-
-            <p>
-              A map-based educational tool for exploring assistance paths by Colorado region,
-              program category, and buyer situation.
-            </p>
-
-            <ul class="tools-list">
-              <li>Explore possible statewide and regional assistance paths</li>
-              <li>Review paths such as CHFA, metroDPA, DCHP, USDA, VA, and seller credits</li>
-              <li>Learn which questions to ask before choosing a loan or assistance strategy</li>
-            </ul>
-
-            <a href="colorado-assistance-explorer/" class="btn btn-gold btn-arrow">Preview the Explorer</a>
+      <div class="dossier-section" data-dossier-section="paths">
+        <div class="dossier-split">
+          <div class="dossier-card">
+            <h3>Possible assistance paths</h3>
+            <ul id="dossierPaths"></ul>
+          </div>
+          <div class="dossier-card">
+            <h3>Stacking and seller credit notes</h3>
+            <ul id="dossierStacking"></ul>
           </div>
         </div>
+      </div>
 
+      <div class="dossier-section" data-dossier-section="questions">
+        <div class="dossier-split">
+          <div class="dossier-card">
+            <h3>Ask a lender</h3>
+            <ul id="dossierLenderQuestions"></ul>
+          </div>
+          <div class="dossier-card">
+            <h3>Ask a housing counselor or program admin</h3>
+            <ul id="dossierCounselorQuestions"></ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="dossier-section" data-dossier-section="watchouts">
+        <h3>Watch-outs</h3>
+        <ul id="dossierWatchouts"></ul>
+      </div>
+
+      <div class="dossier-section" data-dossier-section="links">
+        <h3>Official and Hero HomeReach links</h3>
+        <div class="dossier-link-list" id="dossierLinks"></div>
+      </div>
+
+      <div class="dossier-section" data-dossier-section="nextstep">
+        <h3>Recommended next step</h3>
+        <p id="dossierNextStep"></p>
+      </div>
+
+      <div class="dossier-actions">
+        <a class="tool-btn tool-btn-gold" href="https://guide.herohomereach.com" target="_blank" rel="noopener">Get the Free Guide</a>
+        <a class="tool-btn tool-btn-light" href="/contact.html">Request Help</a>
+        <button class="tool-btn tool-btn-navy" type="button" id="closeDossierBottom">Close Dossier</button>
       </div>
     </div>
-  </section>
+  </div>
+</div>
 
+<script>
+function toggleMobileNav() {
+  document.getElementById("mobile-nav").classList.toggle("open");
+}
 
-  <!-- ════════════ COMING SOON TOOLS ════════════ -->
-  <section class="section" style="background:#fff;">
-    <div class="container">
-      <div style="text-align:center;">
-        <div class="section-eyebrow" style="justify-content:center;">Coming Next</div>
-        <h2 class="section-title-center">More tools are being built for Colorado buyers.</h2>
-        <p class="section-sub-center">
-          The Tools section will continue expanding into calculators, checklists, decision guides,
-          and plain-English program explainers.
-        </p>
-      </div>
+const baseItem = {
+  bestFor:["Buyers comparing possible assistance paths.","Public service heroes asking better lender questions.","Buyers who want to understand timing, education, and program rules before applying."],
+  education:["Ask which exact homebuyer education course the program and lender accept.","Do not assume all online education certificates are interchangeable.","Ask whether each borrower or title holder needs a separate certificate."],
+  stacking:["Ask whether the assistance can be combined with seller credits.","Ask whether multiple programs create lien-position or lender approval issues.","Do not assume two DPA sources can automatically be stacked."],
+  counselorQuestions:["Which local housing agency serves my county or city?","Are funds currently available?","Does this program require counseling, a specific class, or a separate application?"]
+};
 
-      <div class="tools-grid">
+const explorerData = {
+  "statewide": {
+    kicker:"Educational starting point",
+    title:"Statewide Colorado",
+    summary:"Start here if you are not sure which region or program path applies.",
+    pills:["Statewide","CHFA","Education","Seller Credits"],
+    overview:"Statewide Colorado paths may include CHFA, Chenoa Fund, VA-related strategies, USDA possibilities, seller credit strategy, and homebuyer education. The goal is not to decide eligibility here. The goal is to help you ask sharper questions before a lender or housing professional reviews your real details.",
+    paths:["CHFA statewide first mortgage and DPA options may be worth exploring through a participating lender.","Chenoa Fund may be a separate path to ask about when working with lenders who offer it.","VA and USDA loan types may create different down payment and closing cost conversations.","Seller credits may help with allowable closing costs when permitted by the loan type and contract."],
+    questions:["Which programs do you offer directly as a lender?","Which homebuyer education certificate will this loan require?","Can this assistance be combined with seller credits or local programs?","What repayment, refinance, or occupancy rules should I understand?"],
+    watchouts:["CHFA does not lend directly to consumers. A participating lender reviews the loan.","Different programs use different income, credit, education, and property rules.","Not every assistance option can be combined with every other option."],
+    nextStep:"Use this statewide view to make a short lender question list. Ask about CHFA, seller credits, education timing, and any local programs tied to your county or city.",
+    links:[["CHFA Down Payment Assistance","https://www.chfainfo.com/homeownership/down-payment-assistance"],["CHFA Homebuyer Education","https://www.chfainfo.com/homeownership/homebuyer-education"],["Hero HomeReach Learning Center","/blog/"]]
+  },
 
-        <article class="tool-card fade-up">
-          <span class="tool-status">Coming Soon</span>
-          <h3>DPA Stackability Checker</h3>
-          <p>
-            Explore which assistance paths may be worth asking a qualified lender about together,
-            while keeping program rules and limitations clear.
-          </p>
-        </article>
+  "denver-metro": {
+    kicker:"Regional path",
+    title:"Denver Metro / Front Range",
+    summary:"A high-value region for comparing statewide, regional, and local assistance paths.",
+    pills:["Front Range","metroDPA","CHFA","Local"],
+    overview:"Denver Metro and the Front Range can involve metroDPA, CHFA, local city or county programs, seller credits, and lender-specific overlays. This is a strong region for program comparison because a buyer may have several possible starting points, but not every path works together.",
+    paths:["metroDPA may be worth exploring for eligible Front Range buyers through participating lenders.","CHFA may also be available statewide, depending on lender review and program rules.","Local programs in Denver-area municipalities may exist and should be verified before offer strategy."],
+    questions:["Is the property inside the current metroDPA service area?","Is the assistance a deferred loan, forgivable structure, grant, or something else?","Will using assistance affect refinance options or future repayment?"],
+    watchouts:["Do not assume a no-monthly-payment second mortgage disappears.","Some local programs have limited funds, geographic boundaries, or lender restrictions.","Program rules can be different for FHA, VA, USDA, and conventional loans."],
+    nextStep:"Ask a participating lender to compare CHFA, metroDPA, seller credits, and any city-specific programs side by side.",
+    links:[["metroDPA Official Site","https://www.metro-dpa.com/"],["Denver metroDPA Page","https://denvergov.org/Government/Agencies-Departments-Offices/Agencies-Departments-Offices-Directory/Department-of-Housing-Stability/Resident-Resources/Affordable-Home-Ownership/metroDPA"],["Hero HomeReach Contact","/contact.html"]]
+  },
 
-        <article class="tool-card fade-up delay-2">
-          <span class="tool-status">Coming Soon</span>
-          <h3>Seller Credit Strategy Calculator</h3>
-          <p>
-            Learn how seller credits may reduce cash needed at closing depending on the loan type,
-            offer structure, allowable costs, and lender review.
-          </p>
-        </article>
+  "douglas-county": {
+    kicker:"Local path",
+    title:"Douglas County",
+    summary:"A local assistance and education path worth reviewing for Douglas County buyers.",
+    pills:["Douglas County","DCHP","metroDPA","Education"],
+    overview:"Douglas County buyers may have local and regional paths to compare, including Douglas County Housing Partnership, metroDPA, CHFA, seller credits, and education resources. Local assistance can have its own income, purchase, lender, and repayment rules.",
+    paths:["Douglas County Housing Partnership may be worth exploring for buyers focused on Douglas County.","metroDPA may also be a possible Front Range path depending on property location and lender review.","DCHP homebuyer education may satisfy requirements for multiple Colorado assistance paths."],
+    questions:["Does this property meet local program geography rules?","Is this a monthly-payment loan, deferred second, shared equity structure, or another model?","Which lender list or lender approval process applies?"],
+    watchouts:["Local assistance may have limited funds or specific first mortgage requirements.","Shared equity and deferred structures need plain-English repayment explanations.","A class certificate may not be enough if the loan path requires a different approved course."],
+    nextStep:"Contact DCHP or a qualified lender and ask for a plain-English comparison of DCHP, metroDPA, CHFA, and seller credit options for your exact property location.",
+    links:[["DCHP Official Site","https://douglascountyhousingpartnership.org/"],["DCHP Down Payment Assistance","https://douglascountyhousingpartnership.org/down-payment-assistance/"],["DCHP Homebuyer Resources","https://douglascountyhousingpartnership.org/homebuyer-resources/"]]
+  },
 
-        <article class="tool-card fade-up delay-4">
-          <span class="tool-status">Coming Soon</span>
-          <h3>Homebuyer Education Finder</h3>
-          <p>
-            Understand which homebuyer education paths may fit different Colorado assistance programs,
-            certificate timing rules, and course requirements.
-          </p>
-        </article>
+  "pikes-peak": {
+    kicker:"Regional search path",
+    title:"Colorado Springs / Pikes Peak",
+    summary:"A region where military, VA-related, CHFA, and local paths may overlap.",
+    pills:["Pikes Peak","VA Strategy","CHFA","Local"],
+    overview:"Colorado Springs and the Pikes Peak area are especially important for military, veteran, first responder, educator, and healthcare worker buyers. The assistance conversation may include CHFA, VA-related strategy, local housing resources, seller credits, and lender-specific options.",
+    paths:["CHFA statewide options may be worth exploring with participating lenders.","VA-related closing cost strategy may matter for eligible military and veteran buyers.","Local nonprofit or city/county housing resources should be checked before assuming no assistance exists."],
+    questions:["Which local housing agencies serve the property location?","Can seller credits be used for allowable costs under this loan type?","Are there military or veteran-specific considerations that affect cash to close?"],
+    watchouts:["VA down payment rules do not eliminate every cost of buying.","Seller credits have loan-specific limits and cannot be used however the buyer wants.","Local program availability can shift based on funding."],
+    nextStep:"Ask a lender to create a cash-to-close comparison using VA, CHFA, seller credits, and any local assistance possibilities.",
+    links:[["CHFA Find a Participating Lender","https://www.chfainfo.com/homeownership/find-a-participating-lender"],["VA Home Loans","https://www.va.gov/housing-assistance/home-loans/"],["Hero HomeReach Learning Center","/blog/"]]
+  },
 
-      </div>
-    </div>
-  </section>
+  "northern-colorado": {
+    kicker:"Regional search path",
+    title:"Northern Colorado",
+    summary:"A region where statewide, Front Range, local, and rural possibilities should be compared.",
+    pills:["Northern Colorado","CHFA","metroDPA","Local"],
+    overview:"Northern Colorado buyers should compare statewide programs, possible Front Range options, local municipality resources, USDA possibility areas, and lender-specific assistance. Program discovery should happen before offer writing whenever possible.",
+    paths:["CHFA may be worth reviewing as a statewide starting point.","metroDPA may apply in parts of the northern Front Range.","Local housing authorities and city or county programs may have separate funds or education rules."],
+    questions:["Is the home in a city, county, or rural area with separate assistance options?","Which income limit applies by program, household size, and loan type?","Does the program require a specific homebuyer education provider?"],
+    watchouts:["Nearby cities can have different program rules.","Income limits may not work the same across CHFA, metroDPA, USDA, and local programs.","Some assistance paths require specific participating lenders."],
+    nextStep:"Ask a lender to verify the property location first, then compare CHFA, metroDPA, USDA possibility, and local resources.",
+    links:[["CHFA Income Limits","https://www.chfainfo.com/homeownership/income-limits"],["metroDPA Official Site","https://www.metro-dpa.com/"],["Hero HomeReach Contact","/contact.html"]]
+  },
 
+  "western-slope": {
+    kicker:"Regional and local path",
+    title:"Western Slope",
+    summary:"A region where local nonprofit, county, city, and counseling resources may matter.",
+    pills:["Western Slope","Local","CHFA","Counseling"],
+    overview:"Western Slope buyers should look beyond statewide programs and search for local nonprofit, city, county, and employer-related assistance. In some areas, local programs may be more relevant than statewide paths.",
+    paths:["CHFA may still be a statewide path to review.","Housing Resources of Western Colorado and local housing nonprofits may be worth exploring by county.","Some Western Slope paths may be deferred loans rather than grants, so repayment terms matter."],
+    questions:["Which agency serves this county or city?","Does the program assist with down payment, closing costs, repairs, or counseling?","What triggers repayment if the buyer sells, refinances, or moves?"],
+    watchouts:["Regional programs may serve only certain counties.","Funds may be limited or tied to local government funding cycles.","The most useful official resource may be a housing counselor rather than a simple application page."],
+    nextStep:"Start with county-specific housing resources, then ask a lender whether CHFA, USDA, or seller credits can be added safely.",
+    links:[["Housing Resources of Western Colorado","https://hrwco.org/programs/"],["CHFA Homeownership","https://www.chfainfo.com/homeownership"],["Hero HomeReach Learning Center","/blog/"]]
+  },
 
-  <!-- ════════════ EDUCATIONAL NOTE ════════════ -->
-  <section class="section tools-guidance">
-    <div class="container">
-      <div class="tools-guidance-box fade-up">
-        <div class="section-eyebrow" style="justify-content:center;">Important Note</div>
+  "mountain": {
+    kicker:"High-cost market path",
+    title:"Mountain Communities",
+    summary:"A path where workforce housing, deed restrictions, and local rules may matter.",
+    pills:["Mountain","Workforce","Local","Restrictions"],
+    overview:"Mountain communities often have workforce housing pressure, deed restriction possibilities, local housing authorities, employer-related options, and income-limit complexity. A larger assistance amount can sometimes come with larger long-term commitments.",
+    paths:["Local workforce housing or housing authority options may be worth exploring.","CHFA may still be a statewide baseline path.","Employer-related assistance can appear in resort, school, hospital, or public service contexts."],
+    questions:["Is this assistance tied to employment, residency, or local workforce rules?","Does the home carry a deed restriction or resale limitation?","What happens if the buyer changes jobs or moves out of the area?"],
+    watchouts:["Some mountain-area programs may involve resale restrictions or shared appreciation.","A larger assistance amount can come with larger long-term commitments.","The buyer should ask a housing professional to explain future sale, refinance, and occupancy rules."],
+    nextStep:"Before falling in love with a property, ask whether workforce rules, deed restrictions, or shared appreciation terms apply.",
+    links:[["CHFA Homeownership","https://www.chfainfo.com/homeownership"],["Colorado DOLA Down Payment Assistance","https://cdola.colorado.gov/down-payment-assistance"],["Hero HomeReach Contact","/contact.html"]]
+  },
 
-        <h2>Use these tools as educational starting points.</h2>
+  "rural-usda": {
+    kicker:"Rural possibility path",
+    title:"Rural Colorado / USDA Possibility Areas",
+    summary:"A property-location-first path for buyers considering rural or smaller-community options.",
+    pills:["Rural","USDA","CHFA","Seller Credits"],
+    overview:"Rural and smaller-community buyers may have USDA loan possibilities, CHFA options, local nonprofit assistance, and seller credit strategies. The first question is usually property eligibility, not just buyer income.",
+    paths:["USDA may be worth discussing when the property is in an eligible rural area.","CHFA may pair with certain loan types through participating lenders.","Seller credits may help with allowable closing costs depending on loan type."],
+    questions:["Is the specific property USDA-eligible?","Which income limits apply to the household and county?","Can assistance be used with seller credits or other local help?"],
+    watchouts:["USDA eligibility depends on the property location and buyer factors.","Rural does not automatically mean USDA-eligible.","Layering assistance can create underwriting and lien-position questions."],
+    nextStep:"Check property eligibility first, then ask the lender to compare USDA, CHFA, seller credits, and local options.",
+    links:[["USDA Property Eligibility","https://eligibility.sc.egov.usda.gov/eligibility/welcomeAction.do"],["CHFA Homeownership","https://www.chfainfo.com/homeownership"],["Hero HomeReach Learning Center","/blog/"]]
+  },
 
-        <p>
-          Hero HomeReach tools are designed to help buyers understand the landscape, prepare better questions,
-          and avoid common confusion. Program availability and eligibility vary. These tools do not provide an eligibility determination
-          and do not replace guidance from a qualified lender, housing counselor, real estate professional, or program administrator.
-        </p>
-      </div>
-    </div>
-  </section>
+  "southern-colorado": {
+    kicker:"Regional search path",
+    title:"Southern Colorado / Pueblo-Area Possibilities",
+    summary:"A region where statewide, local, USDA, VA, and counseling resources should be reviewed.",
+    pills:["Southern Colorado","Pueblo","USDA","Local"],
+    overview:"Southern Colorado buyers should search statewide programs, Pueblo-area housing resources, regional nonprofits, USDA possibilities, and seller credit strategy. The best path may depend heavily on city, county, and loan type.",
+    paths:["CHFA may be a statewide starting point.","Local Pueblo-area and Southern Colorado housing resources may be worth checking.","USDA and VA-related options may matter depending on property location and buyer situation."],
+    questions:["Which local housing agency serves this county?","Does the assistance require in-person education, counseling, or a specific lender?","What repayment or occupancy rules apply?"],
+    watchouts:["Program names can sound similar but operate very differently.","Income limits and service areas can change by county.","Local assistance may have limited availability."],
+    nextStep:"Identify the exact city and county first, then ask a lender and local housing agency which paths are currently available.",
+    links:[["CHFA Down Payment Assistance","https://www.chfainfo.com/homeownership/down-payment-assistance"],["Colorado DOLA Down Payment Assistance","https://cdola.colorado.gov/down-payment-assistance"],["Hero HomeReach Contact","/contact.html"]]
+  },
 
+  "chfa": {
+    kicker:"Statewide program path",
+    title:"CHFA Statewide Programs",
+    summary:"One of Colorado's most important statewide starting points.",
+    pills:["CHFA","Statewide","DPA","Education"],
+    overview:"CHFA is one of Colorado's most important homebuyer assistance starting points, but buyers work through participating lenders. CHFA paths can include first mortgage programs, DPA options, FirstGeneration, HomeAccess, and homebuyer education requirements.",
+    paths:["CHFA first mortgage programs may pair with one CHFA DPA option.","CHFA DPA may be structured as a grant option or deferred second mortgage option, depending on program rules.","Homebuyer education is a key step before closing."],
+    questions:["Which CHFA loan program are you recommending for my situation?","Is this DPA option a grant structure or a second mortgage structure?","Will using DPA change my first mortgage rate?","What happens if I refinance or sell later?"],
+    watchouts:["CHFA does not lend directly to consumers.","CHFA DPA options are not all stackable with each other.","The online class requires the correct portal and follow-up steps."],
+    nextStep:"Ask a CHFA participating lender to compare the grant option, second mortgage option, FirstGeneration, education requirements, and long-term repayment rules.",
+    links:[["CHFA Down Payment Assistance","https://www.chfainfo.com/homeownership/down-payment-assistance"],["CHFA How to Get a Loan","https://www.chfainfo.com/homeownership/how-to-get-a-chfa-program-loan"],["CHFA Homebuyer Education","https://www.chfainfo.com/homeownership/homebuyer-education"]]
+  },
 
-  <!-- ════════════ FINAL CTA BANNER ════════════ -->
-  <section id="cta-banner">
-    <div class="container">
-      <div class="cta-inner">
-        <div class="section-eyebrow" style="justify-content:center; color:var(--bright-gold);">Free. 30 Minutes. No Pressure.</div>
+  "metrodpa": {
+    kicker:"Front Range program path",
+    title:"metroDPA",
+    summary:"A Front Range path where repayment terms should be clearly understood.",
+    pills:["metroDPA","Front Range","Second Mortgage","Lender Review"],
+    overview:"metroDPA may be worth exploring for Front Range buyers through approved lenders. The most important educational point is to understand whether the assistance is forgiven, deferred, repayable, or subject to occupancy and refinance rules.",
+    paths:["metroDPA may assist with down payment, closing costs, or prepaids through participating lenders.","It may be available with several loan types, depending on current program rules.","VA buyers may want to ask whether assistance can be directed toward allowable closing costs."],
+    questions:["Is the second mortgage forgivable or repayable?","What events trigger repayment?","What happens if I refinance?","Can this be paired with my loan type and seller credits?"],
+    watchouts:["Do not confuse no monthly payment with no repayment obligation.","Refinance and move-out rules can matter years later.","Ask the lender to explain the second mortgage in plain English."],
+    nextStep:"Ask a participating lender to show the full repayment, occupancy, refinance, and seller credit rules in writing before choosing this path.",
+    links:[["metroDPA Official Site","https://www.metro-dpa.com/"],["Denver metroDPA Page","https://denvergov.org/Government/Agencies-Departments-Offices/Agencies-Departments-Offices-Directory/Department-of-Housing-Stability/Resident-Resources/Affordable-Home-Ownership/metroDPA"],["eHousingPlus metroDPA","https://www.ehousingplus.com/homeownership/metrodpa/"]]
+  },
 
-        <h2>Ready to Explore <span>Your Possible Paths?</span></h2>
+  "chenoa": {
+    kicker:"National DPA path",
+    title:"Chenoa Fund",
+    summary:"A lender-participation path that should be reviewed carefully.",
+    pills:["Chenoa","DPA","Lender Participation","Education"],
+    overview:"Chenoa Fund may be a separate assistance path to ask about when working with lenders who participate. It is not the same as CHFA or metroDPA, so buyers should verify the lender, loan type, education requirement, repayment structure, and long-term terms.",
+    paths:["May be discussed as an alternative to state or local DPA paths.","May involve credit-score-driven education or counseling requirements.","Requires lender participation and program-specific review."],
+    questions:["Do you offer Chenoa Fund, and with which loan types?","Is the assistance forgivable, repayable, or another structure?","Is homebuyer education required in my scenario?","Can it be combined with any other assistance or seller credits?"],
+    watchouts:["Lender participation matters.","Education requirements may depend on borrower details.","Do not assume it stacks with other assistance."],
+    nextStep:"Ask your lender to compare Chenoa against CHFA, metroDPA, seller credits, and any local resources in plain English.",
+    links:[["Chenoa Fund Official Site","https://chenoafund.org/"],["Hero HomeReach Contact","/contact.html"],["Hero HomeReach Learning Center","/blog/"]]
+  },
 
-        <p>
-          Book your free Hero HomeReach™ consultation. We’ll walk through Colorado assistance paths that may fit your situation,
-          zero obligation, zero cost, zero jargon.
-        </p>
+  "education": {
+    kicker:"Process protection path",
+    title:"Homebuyer Education",
+    summary:"A quiet but important requirement that can affect timing and closing.",
+    pills:["Education","Certificate","Timing","Follow-up"],
+    overview:"Homebuyer education can be the quiet tripwire in Colorado assistance. The right course, the right portal, the certificate timing, and the follow-up call can all affect the path to closing.",
+    paths:["CHFA-approved in-person classes are often available through local providers.","CHFA online education uses the eHome America portal and requires follow-up through the selected provider.","Some programs accept Framework, while CHFA mortgage loans may require a different path."],
+    questions:["Which exact course will this lender and program accept?","Does the online course require a follow-up phone call before the certificate is issued?","Does each borrower need a separate certificate?","Will the certificate still be valid at closing?"],
+    watchouts:["Do not assume all online classes are interchangeable.","Each borrower may need their own certificate.","A certificate can expire before closing if taken too early."],
+    nextStep:"Before taking a class, ask your lender which exact education provider and certificate they will accept for the loan path being considered.",
+    links:[["CHFA Homebuyer Education","https://www.chfainfo.com/homeownership/homebuyer-education"],["eHome America CHFA Portal","https://chfainfo.ehomeamerica.org/"],["Hero HomeReach Learning Center","/blog/"]]
+  },
 
-        <a href="../contact.html" class="btn btn-gold btn-arrow">Book My Free Consultation</a>
+  "va-strategy": {
+    kicker:"Hero buyer strategy",
+    title:"VA + Assistance Strategy",
+    summary:"A planning path for eligible military and veteran buyers.",
+    pills:["VA","Military","Closing Costs","Seller Credits"],
+    overview:"Eligible military and veteran buyers may have a powerful loan structure, but zero down payment does not mean zero cash needed. The strategy conversation should include closing costs, funding fee treatment, seller credits, assistance programs, and lender-specific rules.",
+    paths:["VA loan benefits may reduce down payment requirements for eligible buyers.","Seller credits may help with allowable costs under VA rules.","Some regional assistance paths may be available with VA loans, depending on program rules."],
+    questions:["What costs remain after the VA down payment benefit?","Can seller credits cover specific closing costs or prepaids?","Can this assistance program be used with a VA loan?","How is the VA funding fee handled in my scenario?"],
+    watchouts:["VA benefits do not automatically remove all cash-to-close items.","Assistance programs may have their own overlays beyond VA rules.","Only a qualified lender can calculate the actual loan estimate."],
+    nextStep:"Ask a VA-experienced lender to prepare a side-by-side cash-to-close estimate with seller credits, assistance, and no assistance.",
+    links:[["VA Home Loans","https://www.va.gov/housing-assistance/home-loans/"],["CHFA Participating Lenders","https://www.chfainfo.com/homeownership/find-a-participating-lender"],["Hero HomeReach Contact","/contact.html"]]
+  },
 
-        <div class="cta-reassurance">
-          <div class="cta-reassurance-item">Completely free</div>
-          <div class="cta-reassurance-item">No lender pressure</div>
-          <div class="cta-reassurance-item">Colorado-specific guidance</div>
-          <div class="cta-reassurance-item">Educational starting point</div>
-        </div>
-      </div>
-    </div>
-  </section>
+  "seller-credits": {
+    kicker:"Cash-to-close strategy",
+    title:"Seller Credit Strategies",
+    summary:"A contract strategy that may help with allowable closing costs.",
+    pills:["Seller Credits","Closing Costs","Contract","Loan Rules"],
+    overview:"Seller credits can be one of the most practical tools for reducing cash needed to close, but they must follow loan rules and contract limits. They are not the same thing as down payment assistance.",
+    paths:["Seller credits may help cover allowable closing costs, prepaids, or rate buydown costs.","They may pair with assistance paths when permitted by loan and program rules.","They require negotiation through the purchase contract."],
+    questions:["What seller credit limit applies to this loan type?","Which costs can seller credits legally cover?","Can seller credits be combined with this DPA path?","Would a rate buydown or closing cost credit be more useful?"],
+    watchouts:["Seller credits cannot always be used for down payment.","Loan type matters. FHA, VA, USDA, and conventional rules differ.","The contract, appraisal, and lender review can all affect strategy."],
+    nextStep:"Ask your lender and real estate professional to model seller credits alongside DPA before writing an offer.",
+    links:[["Hero HomeReach Learning Center","/blog/"],["CHFA Homeownership","https://www.chfainfo.com/homeownership"],["Hero HomeReach Contact","/contact.html"]]
+  }
+};
 
+Object.keys(explorerData).forEach(function(key) {
+  explorerData[key] = Object.assign({}, baseItem, explorerData[key]);
+});
 
-  <!-- ════════════ FOOTER ════════════ -->
-  <footer id="footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <div class="wordmark">Hero <span>HomeReach</span>™</div>
-          <p>Free homeownership guidance for Colorado's educators, first responders, healthcare workers and military members. No jargon. No pressure. Built for heroes.</p>
-        </div>
+let hotspotButtons = [];
 
-        <div class="footer-col">
-          <div class="footer-col-title">Site</div>
-          <a href="../programs.html">Programs</a>
-          <a href="../who-we-serve.html">Who We Serve</a>
-          <a href="../about.html">About</a>
-          <a href="../blog/">Learning Center</a>
-          <a href="../contact.html">Contact</a>
-        </div>
+const mapHotspots = [
+  { id:"statewide", label:"CHFA Statewide Programs", x:"4.5%", y:"29.0%", w:"8.8%", h:"8.0%" },
+  { id:"statewide", label:"Chenoa Fund Option", x:"4.5%", y:"47.3%", w:"8.8%", h:"8.0%" },
+  { id:"education", label:"Homebuyer Education", x:"4.5%", y:"65.2%", w:"8.8%", h:"8.8%" },
 
-        <div class="footer-col">
-          <div class="footer-col-title">Heroes</div>
-          <a href="../who-we-serve.html#educators">Educators</a>
-          <a href="../who-we-serve.html#first-responders">First Responders</a>
-          <a href="../who-we-serve.html#healthcare">Healthcare Workers</a>
-          <a href="../who-we-serve.html#military">Military Members</a>
-        </div>
+  { id:"mountain", label:"Grand County DPA", x:"21.6%", y:"25.8%", w:"12.3%", h:"7.2%" },
+  { id:"mountain", label:"Mountain Workforce Housing", x:"36.2%", y:"39.0%", w:"12.5%", h:"7.8%" },
 
-        <div class="footer-col">
-          <div class="footer-col-title">Start Here</div>
-          <a href="../contact.html">Book Free Consultation</a>
-          <a href="../programs.html">Explore Programs</a>
-          <a href="../blog/">Learning Center</a>
-        </div>
-      </div>
+  { id:"western-slope", label:"Western Slope Home Resources", x:"24.3%", y:"52.0%", w:"12.0%", h:"7.4%" },
+  { id:"western-slope", label:"HomesFund Southwest CO", x:"17.9%", y:"68.0%", w:"12.0%", h:"8.0%" },
 
-      <div class="footer-bottom">
-        <div class="footer-copy">© 2026 Hero HomeReach™. All rights reserved. Colorado Homeownership Guidance.</div>
+  { id:"northern-colorado", label:"Northern Colorado Program Search", x:"65.9%", y:"20.0%", w:"12.8%", h:"7.0%" },
+  { id:"denver-metro", label:"Boulder / Longmont Options", x:"66.1%", y:"28.7%", w:"12.8%", h:"6.8%" },
+  { id:"metrodpa", label:"MetroDPA Down Payment Resource", x:"68.8%", y:"37.3%", w:"12.6%", h:"6.8%" },
+  { id:"denver-metro", label:"Aurora Homebuyer Assistance", x:"69.0%", y:"45.5%", w:"12.8%", h:"6.8%" },
+  { id:"douglas-county", label:"Douglas County DPA", x:"70.5%", y:"52.8%", w:"13.0%", h:"6.6%" },
+  { id:"pikes-peak", label:"Pikes Peak / Colorado Springs", x:"71.4%", y:"60.4%", w:"15.2%", h:"6.8%" },
+  { id:"southern-colorado", label:"Southern Colorado DPA", x:"72.0%", y:"68.4%", w:"14.8%", h:"6.8%" },
 
-        <div class="footer-legal">
-          <a href="../privacy.html">Privacy Policy</a>
-          <a href="../terms.html">Terms of Use</a>
-          <a href="../disclaimer.html">Disclaimer</a>
-        </div>
-      </div>
-    </div>
-  </footer>
+  { id:"rural-usda", label:"USDA Rural Possibility Areas", x:"93.8%", y:"35.0%", w:"8.8%", h:"24.0%" },
+  { id:"va-strategy", label:"VA + Assistance Strategy", x:"93.8%", y:"61.8%", w:"8.8%", h:"11.0%" },
+  { id:"seller-credits", label:"Seller Credit Strategies", x:"93.8%", y:"75.0%", w:"8.8%", h:"11.0%" }
+];
 
+let currentId = "statewide";
 
-  <script>
-    // ── NAV SCROLL BEHAVIOR ──
-    const nav = document.getElementById('nav');
-    window.addEventListener('scroll', () => {
-      nav.classList.toggle('scrolled', window.scrollY > 40);
-    }, { passive: true });
+const panelKicker = document.getElementById("panelKicker");
+const panelTitle = document.getElementById("panelTitle");
+const panelSummary = document.getElementById("panelSummary");
+const panelPills = document.getElementById("panelPills");
+const panelOverview = document.getElementById("panelOverview");
+const panelPaths = document.getElementById("panelPaths");
+const panelQuestions = document.getElementById("panelQuestions");
+const panelWatchouts = document.getElementById("panelWatchouts");
+const panelLinks = document.getElementById("panelLinks");
 
-    // ── MOBILE NAV ──
-    function toggleMobileNav() {
-      document.getElementById('mobile-nav').classList.toggle('open');
+const pathwayButtons = document.querySelectorAll(".tool-card");
+const drawerTabs = document.querySelectorAll(".tool-drawer-tab");
+const drawerSections = document.querySelectorAll(".tool-drawer-section");
+const mobileRegionList = document.getElementById("mobileRegionList");
+
+const dossierOverlay = document.getElementById("dossierOverlay");
+const openDossierBtn = document.getElementById("openDossierBtn");
+const closeDossier = document.getElementById("closeDossier");
+const closeDossierBottom = document.getElementById("closeDossierBottom");
+const dossierTabs = document.querySelectorAll(".dossier-tab");
+const dossierSections = document.querySelectorAll(".dossier-section");
+
+function renderList(target, items) {
+  target.innerHTML = "";
+  items.forEach(function(item) {
+    const li = document.createElement("li");
+    li.textContent = item;
+    target.appendChild(li);
+  });
+}
+
+function renderPills(target, items, className) {
+  target.innerHTML = "";
+  items.forEach(function(item) {
+    const span = document.createElement("span");
+    span.className = className;
+    span.textContent = item;
+    target.appendChild(span);
+  });
+}
+
+function renderLinks(target, items) {
+  target.innerHTML = "";
+  items.forEach(function(item) {
+    const label = item[0];
+    const href = item[1];
+    const a = document.createElement("a");
+    a.href = href;
+    if (href.indexOf("http") === 0) {
+      a.target = "_blank";
+      a.rel = "noopener";
     }
+    a.innerHTML = label + " <span>&rarr;</span>";
+    target.appendChild(a);
+  });
+}
 
-    // ── SCROLL ANIMATIONS ──
-    const fadeEls = document.querySelectorAll('.fade-up');
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        }
+function renderMapHotspots() {
+  const layers = document.querySelectorAll("[data-map-hotspots]");
+  layers.forEach(function(layer) {
+    layer.innerHTML = "";
+    mapHotspots.forEach(function(spot) {
+      const button = document.createElement("button");
+      button.className = "map-hotspot";
+      button.type = "button";
+      button.dataset.id = spot.id;
+      button.dataset.label = spot.label;
+      button.setAttribute("aria-label", "Open " + spot.label);
+      button.style.setProperty("--x", spot.x);
+      button.style.setProperty("--y", spot.y);
+      button.style.setProperty("--w", spot.w);
+      button.style.setProperty("--h", spot.h);
+      button.addEventListener("click", function() {
+        setActiveItem(spot.id, true);
       });
-    }, { threshold: 0.15 });
-    fadeEls.forEach(el => observer.observe(el));
-  </script>
+      layer.appendChild(button);
+    });
+  });
+  hotspotButtons = document.querySelectorAll(".map-hotspot");
+}
 
-  <!-- Start of HubSpot Embed Code -->
-  <script type="text/javascript" id="hs-script-loader" async defer src="//js-na2.hs-scripts.com/244185002.js"></script>
-  <!-- End of HubSpot Embed Code -->
+function setActiveTab(tabName) {
+  drawerTabs.forEach(function(tab) {
+    tab.classList.toggle("active", tab.dataset.tab === tabName);
+  });
+  drawerSections.forEach(function(section) {
+    section.classList.toggle("active", section.dataset.section === tabName);
+  });
+}
 
-  <link rel="stylesheet" href="/css/ebook-modal.css">
-  <script src="/js/ebook-modal.js"></script>
+function setActiveItem(id, scrollPanel) {
+  const item = explorerData[id];
+  if (!item) return;
+
+  currentId = id;
+
+  panelKicker.textContent = item.kicker;
+  panelTitle.textContent = item.title;
+  panelSummary.textContent = item.summary;
+  panelOverview.textContent = item.overview;
+
+  renderPills(panelPills, item.pills, "tool-pill");
+  renderList(panelPaths, item.paths);
+  renderList(panelQuestions, item.questions);
+  renderList(panelWatchouts, item.watchouts);
+  renderLinks(panelLinks, item.links);
+
+  hotspotButtons.forEach(function(button) {
+    button.classList.toggle("active", button.dataset.id === id);
+  });
+
+  setActiveTab("overview");
+
+  if (scrollPanel && window.innerWidth < 1100) {
+    document.querySelector(".tool-panel").scrollIntoView({ behavior:"smooth", block:"start" });
+  }
+}
+
+function setDossierTab(tabName) {
+  dossierTabs.forEach(function(tab) {
+    tab.classList.toggle("active", tab.dataset.dossierTab === tabName);
+  });
+  dossierSections.forEach(function(section) {
+    section.classList.toggle("active", section.dataset.dossierSection === tabName);
+  });
+}
+
+function openDossier(id) {
+  const item = explorerData[id];
+  if (!item) return;
+
+  document.getElementById("dossierKicker").textContent = item.kicker;
+  document.getElementById("dossierTitle").textContent = item.title;
+  document.getElementById("dossierSummary").textContent = item.summary;
+  document.getElementById("dossierOverview").textContent = item.overview;
+  document.getElementById("dossierNextStep").textContent = item.nextStep;
+
+  renderPills(document.getElementById("dossierPills"), item.pills, "dossier-pill");
+  renderList(document.getElementById("dossierBestFor"), item.bestFor);
+  renderList(document.getElementById("dossierEducation"), item.education);
+  renderList(document.getElementById("dossierPaths"), item.paths);
+  renderList(document.getElementById("dossierStacking"), item.stacking);
+  renderList(document.getElementById("dossierLenderQuestions"), item.questions);
+  renderList(document.getElementById("dossierCounselorQuestions"), item.counselorQuestions);
+  renderList(document.getElementById("dossierWatchouts"), item.watchouts);
+  renderLinks(document.getElementById("dossierLinks"), item.links);
+
+  setDossierTab("overview");
+  dossierOverlay.classList.add("open");
+  document.body.style.overflow = "hidden";
+}
+
+function closeDossierModal() {
+  dossierOverlay.classList.remove("open");
+  document.body.style.overflow = "";
+}
+
+pathwayButtons.forEach(function(button) {
+  button.addEventListener("click", function() {
+    const id = button.dataset.id;
+    setActiveItem(id, false);
+    openDossier(id);
+  });
+});
+
+drawerTabs.forEach(function(tab) {
+  tab.addEventListener("click", function() {
+    setActiveTab(tab.dataset.tab);
+  });
+});
+
+dossierTabs.forEach(function(tab) {
+  tab.addEventListener("click", function() {
+    setDossierTab(tab.dataset.dossierTab);
+  });
+});
+
+openDossierBtn.addEventListener("click", function() {
+  openDossier(currentId);
+});
+
+closeDossier.addEventListener("click", closeDossierModal);
+closeDossierBottom.addEventListener("click", closeDossierModal);
+
+dossierOverlay.addEventListener("click", function(event) {
+  if (event.target === dossierOverlay) closeDossierModal();
+});
+
+document.addEventListener("keydown", function(event) {
+  if (event.key === "Escape") closeDossierModal();
+});
+
+function renderMobileRegions() {
+  const regionIds = ["statewide","denver-metro","douglas-county","pikes-peak","northern-colorado","western-slope","mountain","rural-usda","southern-colorado"];
+  regionIds.forEach(function(id) {
+    const item = explorerData[id];
+    const button = document.createElement("button");
+    button.className = "tool-region-button";
+    button.type = "button";
+    button.textContent = item.title;
+    button.addEventListener("click", function() {
+      setActiveItem(id, true);
+    });
+    mobileRegionList.appendChild(button);
+  });
+}
+
+renderMapHotspots();
+renderMobileRegions();
+setActiveItem("statewide", false);
+</script>
+
+<script type="text/javascript" id="hs-script-loader" async defer src="//js-na2.hs-scripts.com/244185002.js"></script>
+
+<link rel="stylesheet" href="/css/ebook-modal.css">
+<script src="/js/ebook-modal.js"></script>
 
 </body>
 </html>
