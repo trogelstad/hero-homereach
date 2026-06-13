@@ -234,60 +234,59 @@
       object-fit:contain;
     }
 
-    .map-hotspot {
-      --size:34px;
-      position:absolute;
-      left:var(--x);
-      top:var(--y);
-      width:var(--size);
-      height:var(--size);
-      transform:translate(-50%,-50%);
-      border-radius:50%;
-      border:2px solid #fff;
-      background:var(--gold);
-      box-shadow:0 0 0 7px rgba(201,151,58,.26),0 8px 24px rgba(12,45,94,.28);
-      cursor:pointer;
-      transition:transform .2s,box-shadow .2s,background .2s;
-      z-index:2;
-    }
+.map-hotspot {
+  --size:22px;
+  position:absolute;
+  left:var(--x);
+  top:var(--y);
+  width:var(--size);
+  height:var(--size);
+  transform:translate(-50%,-50%);
+  border-radius:50%;
+  border:2px solid #fff;
+  background:var(--gold);
+  box-shadow:0 0 0 4px rgba(201,151,58,.22),0 4px 12px rgba(12,45,94,.22);
+  cursor:pointer;
+  transition:transform .2s,box-shadow .2s,background .2s;
+  z-index:2;
+}
 
-    .map-hotspot:hover,
-    .map-hotspot:focus-visible,
-    .map-hotspot.active {
-      background:var(--bright-gold);
-      transform:translate(-50%,-50%) scale(1.14);
-      box-shadow:0 0 0 9px rgba(234,184,74,.34),0 12px 28px rgba(12,45,94,.34);
-      outline:none;
-    }
+.map-hotspot:hover,
+.map-hotspot:focus-visible,
+.map-hotspot.active {
+  background:var(--bright-gold);
+  transform:translate(-50%,-50%) scale(1.18);
+  box-shadow:0 0 0 6px rgba(234,184,74,.3),0 8px 18px rgba(12,45,94,.28);
+  outline:none;
+}
 
-    .map-hotspot::after {
-      content:attr(data-label);
-      position:absolute;
-      left:50%;
-      bottom:calc(100% + 10px);
-      transform:translateX(-50%);
-      width:max-content;
-      max-width:190px;
-      padding:7px 10px;
-      border-radius:6px;
-      background:var(--navy);
-      color:#fff;
-      border:1px solid rgba(234,184,74,.45);
-      font-family:Inter,sans-serif;
-      font-size:11px;
-      font-weight:700;
-      line-height:1.25;
-      opacity:0;
-      pointer-events:none;
-      transition:opacity .2s;
-      white-space:normal;
-    }
+.map-hotspot::after {
+  content:attr(data-label);
+  position:absolute;
+  left:50%;
+  bottom:calc(100% + 10px);
+  transform:translateX(-50%);
+  width:max-content;
+  max-width:190px;
+  padding:7px 10px;
+  border-radius:6px;
+  background:var(--navy);
+  color:#fff;
+  border:1px solid rgba(234,184,74,.45);
+  font-family:Inter,sans-serif;
+  font-size:11px;
+  font-weight:700;
+  line-height:1.25;
+  opacity:0;
+  pointer-events:none;
+  transition:opacity .2s;
+  white-space:normal;
+}
 
-    .map-hotspot:hover::after,
-    .map-hotspot:focus-visible::after,
-    .map-hotspot.active::after {
-      opacity:1;
-    }
+.map-hotspot:hover::after,
+.map-hotspot:focus-visible::after {
+  opacity:1;
+}
 
     .tool-map-note {
       padding:14px 18px;
@@ -1175,15 +1174,23 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             loading="eager"
           >
 
-          <button class="map-hotspot active" type="button" style="--x:50%;--y:45%;" data-id="statewide" data-label="Statewide Colorado"></button>
-          <button class="map-hotspot" type="button" style="--x:64%;--y:39%;" data-id="denver-metro" data-label="Denver Metro / Front Range"></button>
-          <button class="map-hotspot" type="button" style="--x:66%;--y:53%;" data-id="douglas-county" data-label="Douglas County"></button>
-          <button class="map-hotspot" type="button" style="--x:67%;--y:64%;" data-id="pikes-peak" data-label="Colorado Springs / Pikes Peak"></button>
-          <button class="map-hotspot" type="button" style="--x:61%;--y:24%;" data-id="northern-colorado" data-label="Northern Colorado"></button>
-          <button class="map-hotspot" type="button" style="--x:25%;--y:48%;" data-id="western-slope" data-label="Western Slope"></button>
-          <button class="map-hotspot" type="button" style="--x:42%;--y:36%;" data-id="mountain" data-label="Mountain Communities"></button>
-          <button class="map-hotspot" type="button" style="--x:44%;--y:72%;" data-id="rural-usda" data-label="Rural / USDA Possibility Areas"></button>
-          <button class="map-hotspot" type="button" style="--x:58%;--y:77%;" data-id="southern-colorado" data-label="Southern Colorado"></button>
+          <button class="map-hotspot active" type="button" style="--x:4.9%;--y:22.2%;" data-id="statewide" data-label="Statewide Colorado"></button>
+
+<button class="map-hotspot" type="button" style="--x:66.1%;--y:39.3%;" data-id="denver-metro" data-label="Denver Metro / Front Range"></button>
+
+<button class="map-hotspot" type="button" style="--x:68.5%;--y:53.5%;" data-id="douglas-county" data-label="Douglas County"></button>
+
+<button class="map-hotspot" type="button" style="--x:68.0%;--y:62.8%;" data-id="pikes-peak" data-label="Colorado Springs / Pikes Peak"></button>
+
+<button class="map-hotspot" type="button" style="--x:62.0%;--y:16.8%;" data-id="northern-colorado" data-label="Northern Colorado"></button>
+
+<button class="map-hotspot" type="button" style="--x:24.5%;--y:53.0%;" data-id="western-slope" data-label="Western Slope"></button>
+
+<button class="map-hotspot" type="button" style="--x:38.5%;--y:39.0%;" data-id="mountain" data-label="Mountain Communities"></button>
+
+<button class="map-hotspot" type="button" style="--x:92.7%;--y:28.7%;" data-id="rural-usda" data-label="Rural / USDA Possibility Areas"></button>
+
+<button class="map-hotspot" type="button" style="--x:69.1%;--y:72.8%;" data-id="southern-colorado" data-label="Southern Colorado"></button>
         </div>
 
         <div class="tool-map-note">
