@@ -241,21 +241,6 @@
   pointer-events:none;
 }
 
-.dossier-map-frame {
-  position:relative;
-  width:100%;
-  height:100%;
-}
-
-.dossier-map-frame img {
-  width:100%;
-  height:100%;
-  object-fit:contain;
-  object-position:center center;
-  display:block;
-  background:#071f42;
-}
-
 .map-hotspot {
   position:absolute;
   left:var(--x);
@@ -828,83 +813,39 @@
       color:var(--navy);
     }
 
-    .dossier-overlay {
-      position:fixed;
-      inset:0;
-      background:rgba(12,45,94,.88);
-      z-index:9998;
-      display:none;
-      align-items:center;
-      justify-content:center;
-      padding:24px;
-    }
+   .dossier-overlay {
+  position:fixed;
+  inset:0;
+  background:rgba(12,45,94,.88);
+  z-index:9998;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:24px;
+}
 
-    .dossier-overlay.open {
-      display:flex;
-    }
+.dossier-overlay.open {
+  display:flex;
+}
 
 .dossier-modal {
-  width:min(1320px,100%);
-  max-height:94vh;
+  width:min(1040px,100%);
+  max-height:90vh;
   overflow:auto;
   background:#fff;
   border-radius:14px;
   border:1px solid rgba(234,184,74,.35);
   box-shadow:0 24px 80px rgba(0,0,0,.45);
-  position:relative;
 }
 
-    .dossier-hero {
-  display:block;
+.dossier-hero {
   background:var(--navy);
   color:#fff;
-}
-
-.dossier-visual {
-  background:#071f42;
-  padding:18px;
-  height:auto;
-  min-height:0;
-  max-height:none;
-  display:block;
-  overflow:hidden;
+  padding:30px 32px;
+  position:relative;
   border-bottom:1px solid rgba(234,184,74,.25);
 }
 
-.dossier-map-frame {
-  position:relative;
-  width:100%;
-  max-width:1180px;
-  margin:0 auto;
-}
-
-.dossier-map-frame img {
-  width:100%;
-  height:auto;
-  max-height:46vh;
-  object-fit:contain;
-  object-position:center center;
-  display:block;
-  background:#071f42;
-  border-radius:8px;
-}
-
-.dossier-visual img {
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  object-position:center center;
-  display:block;
-  opacity:1;
-  border-radius:0;
-  box-shadow:none;
-}
-
-.dossier-hero-body {
-  padding:24px 32px 28px;
-  position:relative;
-  background:var(--navy);
-}
 .dossier-close {
   position:absolute;
   top:18px;
@@ -913,7 +854,7 @@
   height:44px;
   border-radius:50%;
   border:1px solid rgba(255,255,255,.35);
-  background:rgba(12,45,94,.82);
+  background:rgba(255,255,255,.08);
   color:#fff;
   font-size:30px;
   line-height:1;
@@ -921,122 +862,122 @@
   z-index:5;
 }
 
-    .dossier-kicker {
-      font-family:Inter,sans-serif;
-      font-size:11px;
-      font-weight:800;
-      letter-spacing:.14em;
-      text-transform:uppercase;
-      color:var(--bright-gold);
-      margin-bottom:10px;
-    }
+.dossier-kicker {
+  font-family:Inter,sans-serif;
+  font-size:11px;
+  font-weight:800;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--bright-gold);
+  margin-bottom:10px;
+}
 
-    .dossier-hero h2 {
-      font-family:"Playfair Display",Georgia,serif;
-      font-size:clamp(28px,3vw,44px);
-      font-weight:400;
-      line-height:1.08;
-      margin:0 56px 12px 0;
-    }
+.dossier-hero h2 {
+  font-family:"Playfair Display",Georgia,serif;
+  font-size:clamp(28px,3vw,44px);
+  font-weight:400;
+  line-height:1.08;
+  margin:0 56px 12px 0;
+}
 
-    .dossier-hero p {
-      font-family:Inter,sans-serif;
-      font-size:15px;
-      line-height:1.75;
-      color:rgba(255,255,255,.76);
-      margin:0;
-      max-width:700px;
-    }
+.dossier-hero p {
+  font-family:Inter,sans-serif;
+  font-size:15px;
+  line-height:1.75;
+  color:rgba(255,255,255,.78);
+  margin:0;
+  max-width:760px;
+}
 
-    .dossier-pill-row {
-      display:flex;
-      flex-wrap:wrap;
-      gap:8px;
-      margin-top:18px;
-    }
+.dossier-pill-row {
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-top:18px;
+}
 
-    .dossier-pill {
-      font-family:Inter,sans-serif;
-      font-size:10px;
-      font-weight:800;
-      letter-spacing:.08em;
-      text-transform:uppercase;
-      padding:5px 10px;
-      border-radius:20px;
-      color:var(--bright-gold);
-      background:rgba(234,184,74,.13);
-      border:1px solid rgba(234,184,74,.25);
-    }
+.dossier-pill {
+  font-family:Inter,sans-serif;
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  padding:5px 10px;
+  border-radius:20px;
+  color:var(--bright-gold);
+  background:rgba(234,184,74,.13);
+  border:1px solid rgba(234,184,74,.25);
+}
 
-    .dossier-body {
-      padding:24px 32px 32px;
-    }
+.dossier-body {
+  padding:24px 32px 32px;
+  background:#fff;
+}
 
-    .dossier-tabs {
-      display:flex;
-      flex-wrap:wrap;
-      gap:8px;
-      border-bottom:1px solid #ebebeb;
-      padding-bottom:14px;
-      margin-bottom:20px;
-    }
+.dossier-tabs {
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  border-bottom:1px solid #ebebeb;
+  padding-bottom:14px;
+  margin-bottom:20px;
+}
 
-    .dossier-section {
-      display:none;
-    }
+.dossier-section {
+  display:none;
+}
 
-    .dossier-section.active {
-      display:block;
-    }
+.dossier-section.active {
+  display:block;
+}
 
-    .dossier-section h3 {
-      font-family:"Playfair Display",Georgia,serif;
-      font-size:24px;
-      font-weight:400;
-      color:var(--near-black);
-      margin:0 0 12px;
-    }
+.dossier-section h3 {
+  font-family:"Playfair Display",Georgia,serif;
+  font-size:24px;
+  font-weight:400;
+  color:var(--near-black);
+  margin:0 0 12px;
+}
 
-    .dossier-section p,
-    .dossier-section li {
-      font-family:Inter,sans-serif;
-      font-size:15px;
-      color:#555;
-      line-height:1.75;
-    }
+.dossier-section p,
+.dossier-section li {
+  font-family:Inter,sans-serif;
+  font-size:15px;
+  color:#555;
+  line-height:1.75;
+}
 
-    .dossier-section ul {
-      padding-left:20px;
-      margin:0;
-    }
+.dossier-section ul {
+  padding-left:20px;
+  margin:0;
+}
 
-    .dossier-split {
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:18px;
-    }
+.dossier-split {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px;
+}
 
-    .dossier-card {
-      border:1px solid #e8e8e8;
-      border-radius:10px;
-      padding:18px;
-      background:#fff;
-    }
+.dossier-card {
+  border:1px solid #e8e8e8;
+  border-radius:10px;
+  padding:18px;
+  background:#fff;
+}
 
-    .dossier-link-list {
-      display:grid;
-      gap:10px;
-    }
+.dossier-link-list {
+  display:grid;
+  gap:10px;
+}
 
-    .dossier-actions {
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
-      border-top:1px solid #ebebeb;
-      margin-top:22px;
-      padding-top:20px;
-    }
-
+.dossier-actions {
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  border-top:1px solid #ebebeb;
+  margin-top:22px;
+  padding-top:20px;
+}
     @media (max-width:1100px) {
       .tool-grid {
         grid-template-columns:1fr;
@@ -1061,9 +1002,7 @@
         text-align:left;
       }
 
-.dossier-visual {
-  padding:10px;
-}
+
 
 .dossier-map-frame img {
   max-height:38vh;
@@ -1482,20 +1421,11 @@ eligibility map, or program approval tool.
 <div class="dossier-overlay" id="dossierOverlay" role="dialog" aria-modal="true" aria-labelledby="dossierTitle">
   <div class="dossier-modal">
     <div class="dossier-hero">
-<div class="dossier-visual">
-  <div class="dossier-map-frame">
-    <img src="colorado-dpa-map-optimized-q90.webp" alt="Colorado assistance map detail">
-  </div>
-</div>
-</div>
-
-      <div class="dossier-hero-body">
-        <button class="dossier-close" type="button" id="closeDossier" aria-label="Close dossier">&times;</button>
-        <div class="dossier-kicker" id="dossierKicker">Intelligence Dossier</div>
-        <h2 id="dossierTitle">Statewide Colorado</h2>
-        <p id="dossierSummary"></p>
-        <div class="dossier-pill-row" id="dossierPills"></div>
-      </div>
+      <button class="dossier-close" type="button" id="closeDossier" aria-label="Close dossier">&times;</button>
+      <div class="dossier-kicker" id="dossierKicker">Intelligence Dossier</div>
+      <h2 id="dossierTitle">Statewide Colorado</h2>
+      <p id="dossierSummary"></p>
+      <div class="dossier-pill-row" id="dossierPills"></div>
     </div>
 
     <div class="dossier-body">
