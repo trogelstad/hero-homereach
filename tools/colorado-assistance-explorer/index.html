@@ -27,12 +27,10 @@
       --hhr-radius-sm: 12px;
     }
 
-    body {
-      background:
-        radial-gradient(circle at top left, rgba(234, 184, 74, 0.12), transparent 32rem),
-        linear-gradient(180deg, #FFFCF4 0%, #F8F2ED 100%);
-      color: var(--hhr-ink);
-    }
+body {
+  background: #FFFCF4;
+  color: var(--hhr-ink);
+}
 
     .explorer-page {
       overflow: hidden;
@@ -261,15 +259,14 @@
       align-items: start;
     }
 
-    .map-stage-card,
-    .detail-panel,
-    .pathway-section,
-    .mobile-fallback {
-      background: rgba(255, 255, 255, 0.78);
-      backdrop-filter: blur(14px);
-      border: 1px solid rgba(12, 45, 94, 0.13);
-      box-shadow: 0 22px 60px rgba(12, 45, 94, 0.1);
-    }
+.map-stage-card,
+.detail-panel,
+.pathway-section,
+.mobile-fallback {
+  background: #ffffff;
+  border: 1px solid rgba(12, 45, 94, 0.12);
+  box-shadow: 0 8px 24px rgba(12, 45, 94, 0.08);
+}
 
     .map-stage-card {
       border-radius: var(--hhr-radius-lg);
@@ -316,24 +313,20 @@
       background: rgba(255, 252, 244, 0.8);
     }
 
-    .map-wrap {
-      position: relative;
-      border-radius: 24px;
-      overflow: hidden;
-      background:
-        linear-gradient(145deg, rgba(12, 45, 94, 0.08), rgba(201, 151, 58, 0.08)),
-        #f6efe4;
-      border: 1px solid rgba(12, 45, 94, 0.14);
-      min-height: 420px;
-    }
+.map-wrap {
+  position: relative;
+  border-radius: 18px;
+  overflow: hidden;
+  background: #f6efe4;
+  border: 1px solid rgba(12, 45, 94, 0.14);
+}
 
-    .map-wrap img {
-      display: block;
-      width: 100%;
-      height: auto;
-      min-height: 420px;
-      object-fit: cover;
-    }
+.map-wrap img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
 
     .hotspot {
       --size: 42px;
@@ -1440,15 +1433,9 @@
       renderList(panelWatchouts, item.watchouts);
       renderLinks(item.links);
 
-      hotspotButtons.forEach((button) => {
-        button.classList.toggle("is-active", button.dataset.id === id);
-      });
-
-      if (shouldScroll && window.innerWidth < 980) {
-        document.querySelector(".detail-panel").scrollIntoView({
-          behavior: "smooth",
-          block: "start"
-        });
+hotspotButtons.forEach((button) => {
+  button.addEventListener("click", () => setActive(button.dataset.id, true));
+});
       }
     }
 
