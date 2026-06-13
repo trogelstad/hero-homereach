@@ -1051,6 +1051,42 @@
         padding-right:18px;
       }
     }
+
+/* FORCE V2 MAP HOTSPOTS: remove old gold circle marker styling */
+.tool-map-wrap .map-hotspot {
+  background: transparent !important;
+  border: 1.5px solid transparent !important;
+  border-radius: 10px !important;
+  box-shadow: none !important;
+  width: var(--w, 12%) !important;
+  height: var(--h, 8%) !important;
+  min-width: 0 !important;
+  min-height: 0 !important;
+  padding: 0 !important;
+  opacity: 1 !important;
+}
+
+.tool-map-wrap .map-hotspot::before {
+  display: none !important;
+  content: none !important;
+}
+
+.tool-map-wrap .map-hotspot:hover,
+.tool-map-wrap .map-hotspot:focus-visible {
+  background: rgba(234,184,74,.07) !important;
+  border-color: rgba(201,151,58,.92) !important;
+  box-shadow:
+    0 0 0 3px rgba(201,151,58,.18),
+    0 10px 22px rgba(12,45,94,.18) !important;
+}
+
+@media (max-width:720px) {
+  .tool-map-wrap .map-hotspot {
+    background: transparent !important;
+    border-color: transparent !important;
+    box-shadow: none !important;
+  }
+}
   </style>
 
   <script type="application/ld+json">
