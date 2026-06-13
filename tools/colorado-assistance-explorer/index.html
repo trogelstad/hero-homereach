@@ -2019,11 +2019,7 @@ function closeDossierModal() {
   document.body.style.overflow = "";
 }
 
-hotspotButtons.forEach(function(button) {
-  button.addEventListener("click", function() {
-    setActiveItem(button.dataset.id, true);
-  });
-});
+
 
 pathwayButtons.forEach(function(button) {
   button.addEventListener("click", function() {
