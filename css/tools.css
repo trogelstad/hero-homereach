@@ -1,1 +1,342 @@
+/* =====================================================
+   Hero HomeReach Tools Styles
+   Used for /tools/ and future interactive tools pages
+   ===================================================== */
 
+:root {
+  --hhr-navy: #0C2D5E;
+  --hhr-gold: #C9973A;
+  --hhr-bright-gold: #EAB84A;
+  --hhr-cool-white: #F5F7FA;
+  --hhr-near-black: #1C1C1E;
+  --hhr-warm-cream: #FFFCF4;
+  --hhr-soft-blush: #F8F2ED;
+  --hhr-border: rgba(12, 45, 94, 0.16);
+  --hhr-shadow: 0 24px 70px rgba(12, 45, 94, 0.14);
+}
+
+.hhr-tools-page {
+  background:
+    radial-gradient(circle at top left, rgba(201, 151, 58, 0.16), transparent 34rem),
+    linear-gradient(180deg, var(--hhr-warm-cream) 0%, var(--hhr-cool-white) 52%, #ffffff 100%);
+  color: var(--hhr-near-black);
+  overflow: hidden;
+}
+
+.hhr-tools-container {
+  width: min(1120px, calc(100% - 32px));
+  margin: 0 auto;
+}
+
+.hhr-eyebrow,
+.hhr-card-label {
+  margin: 0 0 0.85rem;
+  color: var(--hhr-gold);
+  font-family: Inter, Arial, sans-serif;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.hhr-tools-page h1,
+.hhr-tools-page h2,
+.hhr-tools-page h3 {
+  color: var(--hhr-navy);
+  margin-top: 0;
+}
+
+.hhr-tools-page h1 {
+  max-width: 900px;
+  margin-bottom: 1.2rem;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(2.6rem, 7vw, 5.25rem);
+  line-height: 0.98;
+  letter-spacing: -0.045em;
+}
+
+.hhr-tools-page h2 {
+  margin-bottom: 1rem;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(2rem, 4vw, 3.1rem);
+  line-height: 1.04;
+  letter-spacing: -0.035em;
+}
+
+.hhr-tools-page h3 {
+  margin-bottom: 0.8rem;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(1.45rem, 2.4vw, 2rem);
+  line-height: 1.1;
+}
+
+.hhr-tools-page p {
+  font-family: Inter, Arial, sans-serif;
+  line-height: 1.7;
+}
+
+.hhr-tools-hero {
+  position: relative;
+  padding: clamp(4.5rem, 9vw, 8rem) 0 clamp(3.5rem, 7vw, 6rem);
+}
+
+.hhr-tools-hero::after {
+  content: "";
+  position: absolute;
+  right: -8rem;
+  top: 5rem;
+  width: 26rem;
+  height: 26rem;
+  border: 1px solid rgba(201, 151, 58, 0.22);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.hhr-hero-copy {
+  max-width: 760px;
+  margin: 0 0 1.8rem;
+  color: rgba(28, 28, 30, 0.78);
+  font-size: 1.14rem;
+}
+
+.hhr-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+  align-items: center;
+  margin-top: 1.6rem;
+}
+
+.hhr-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0.85rem 1.25rem;
+  border-radius: 999px;
+  font-family: Inter, Arial, sans-serif;
+  font-size: 0.95rem;
+  font-weight: 800;
+  line-height: 1;
+  text-decoration: none;
+  transition: transform 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
+}
+
+.hhr-btn:hover {
+  transform: translateY(-2px);
+}
+
+.hhr-btn-primary {
+  background: var(--hhr-navy);
+  color: #ffffff;
+  box-shadow: 0 14px 30px rgba(12, 45, 94, 0.24);
+}
+
+.hhr-btn-primary:hover {
+  background: #09254d;
+  color: #ffffff;
+}
+
+.hhr-btn-secondary {
+  background: rgba(255, 255, 255, 0.72);
+  color: var(--hhr-navy);
+  border: 1px solid var(--hhr-border);
+}
+
+.hhr-btn-secondary:hover {
+  background: #ffffff;
+  color: var(--hhr-navy);
+  box-shadow: 0 14px 30px rgba(12, 45, 94, 0.10);
+}
+
+.hhr-disclaimer {
+  max-width: 760px;
+  margin: 1.4rem 0 0;
+  padding-left: 1rem;
+  color: rgba(28, 28, 30, 0.68);
+  font-size: 0.9rem;
+  border-left: 3px solid var(--hhr-gold);
+}
+
+.hhr-tools-section {
+  padding: clamp(3.2rem, 7vw, 5.5rem) 0;
+}
+
+.hhr-section-heading {
+  max-width: 760px;
+  margin-bottom: 2rem;
+}
+
+.hhr-section-heading p:last-child {
+  margin-bottom: 0;
+  color: rgba(28, 28, 30, 0.72);
+  font-size: 1.05rem;
+}
+
+.hhr-featured-tool-card {
+  position: relative;
+  padding: clamp(1.5rem, 4vw, 3rem);
+  background:
+    linear-gradient(135deg, rgba(12, 45, 94, 0.98), rgba(13, 57, 113, 0.95)),
+    radial-gradient(circle at top right, rgba(234, 184, 74, 0.35), transparent 20rem);
+  border: 1px solid rgba(234, 184, 74, 0.26);
+  border-radius: 30px;
+  box-shadow: var(--hhr-shadow);
+  overflow: hidden;
+}
+
+.hhr-featured-tool-card::before {
+  content: "";
+  position: absolute;
+  right: -5rem;
+  bottom: -7rem;
+  width: 20rem;
+  height: 20rem;
+  background: rgba(234, 184, 74, 0.10);
+  border-radius: 50%;
+}
+
+.hhr-tool-card-content {
+  position: relative;
+  max-width: 780px;
+  z-index: 1;
+}
+
+.hhr-featured-tool-card .hhr-card-label,
+.hhr-featured-tool-card h3,
+.hhr-featured-tool-card p,
+.hhr-featured-tool-card li {
+  color: #ffffff;
+}
+
+.hhr-featured-tool-card .hhr-card-label {
+  color: var(--hhr-bright-gold);
+}
+
+.hhr-featured-tool-card p {
+  color: rgba(255, 255, 255, 0.84);
+}
+
+.hhr-featured-tool-card .hhr-btn-primary {
+  background: var(--hhr-gold);
+  color: var(--hhr-navy);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.18);
+}
+
+.hhr-featured-tool-card .hhr-btn-primary:hover {
+  background: var(--hhr-bright-gold);
+  color: var(--hhr-navy);
+}
+
+.hhr-tool-list {
+  display: grid;
+  gap: 0.7rem;
+  margin: 1.4rem 0 1.7rem;
+  padding: 0;
+  list-style: none;
+}
+
+.hhr-tool-list li {
+  position: relative;
+  padding-left: 1.6rem;
+  font-family: Inter, Arial, sans-serif;
+  line-height: 1.55;
+}
+
+.hhr-tool-list li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--hhr-bright-gold);
+  font-weight: 900;
+}
+
+.hhr-coming-soon-section {
+  background:
+    linear-gradient(180deg, rgba(248, 242, 237, 0.82), rgba(245, 247, 250, 0.92));
+  border-top: 1px solid rgba(12, 45, 94, 0.08);
+  border-bottom: 1px solid rgba(12, 45, 94, 0.08);
+}
+
+.hhr-tools-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.1rem;
+}
+
+.hhr-tool-card {
+  min-height: 250px;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.86);
+  border: 1px solid var(--hhr-border);
+  border-radius: 24px;
+  box-shadow: 0 18px 42px rgba(12, 45, 94, 0.08);
+  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+}
+
+.hhr-tool-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(201, 151, 58, 0.42);
+  box-shadow: 0 24px 54px rgba(12, 45, 94, 0.13);
+}
+
+.hhr-tool-card p:last-child {
+  margin-bottom: 0;
+  color: rgba(28, 28, 30, 0.70);
+}
+
+.hhr-tools-note {
+  padding: clamp(3.2rem, 7vw, 5.5rem) 0;
+  background: var(--hhr-navy);
+  color: #ffffff;
+}
+
+.hhr-tools-note h2 {
+  max-width: 780px;
+  color: #ffffff;
+}
+
+.hhr-tools-note p {
+  max-width: 820px;
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 1.05rem;
+}
+
+@media (max-width: 900px) {
+  .hhr-tools-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hhr-tool-card {
+    min-height: auto;
+  }
+}
+
+@media (max-width: 640px) {
+  .hhr-tools-container {
+    width: min(100% - 24px, 1120px);
+  }
+
+  .hhr-tools-hero {
+    padding-top: 3.5rem;
+  }
+
+  .hhr-actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .hhr-btn {
+    width: 100%;
+  }
+
+  .hhr-featured-tool-card {
+    border-radius: 22px;
+  }
+
+  .hhr-tool-card {
+    border-radius: 20px;
+  }
+}
