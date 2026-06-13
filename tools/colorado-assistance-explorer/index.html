@@ -1087,6 +1087,49 @@
     box-shadow: none !important;
   }
 }
+/* MOBILE FULL VIEW: make the map actually feel full-view */
+@media (max-width:720px) {
+  .dossier-overlay {
+    padding:0 !important;
+    align-items:stretch !important;
+    justify-content:stretch !important;
+  }
+
+  .dossier-modal {
+    width:100vw !important;
+    height:100vh !important;
+    max-height:100vh !important;
+    border-radius:0 !important;
+    overflow:auto !important;
+  }
+
+  .dossier-hero {
+    padding:22px 22px 18px !important;
+  }
+
+  .dossier-hero h2 {
+    font-size:32px !important;
+    line-height:1.08 !important;
+  }
+
+  .dossier-map-banner {
+    padding:0 !important;
+    background:#071f42 !important;
+  }
+
+  .dossier-map-banner img {
+    width:100vw !important;
+    max-width:none !important;
+    height:auto !important;
+    max-height:none !important;
+    border-radius:0 !important;
+    box-shadow:none !important;
+  }
+
+  .dossier-body {
+    padding:22px !important;
+  }
+}
   </style>
 
   <script type="application/ld+json">
