@@ -263,7 +263,7 @@
   height:var(--h);
   transform:translate(-50%,-50%);
   background:transparent;
-  border:2px solid transparent;
+  border:1.5px solid transparent;
   border-radius:10px;
   cursor:pointer;
   z-index:5;
@@ -279,7 +279,7 @@
 .map-hotspot:focus-visible {
   transform:translate(-50%,-50%) scale(1.015);
   border-color:rgba(201,151,58,.92);
-  background:rgba(234,184,74,.10);
+  background:rgba(234,184,74,.07);
   box-shadow:
     0 0 0 3px rgba(201,151,58,.18),
     0 10px 22px rgba(12,45,94,.18);
@@ -1828,124 +1828,124 @@ const mapHotspots = [
   {
     id:"statewide",
     label:"CHFA Statewide Programs",
-    x:"4.1%",
-    y:"29.2%",
-    w:"7.4%",
-    h:"8.6%"
+    x:"4.5%",
+    y:"29.0%",
+    w:"8.8%",
+    h:"8.0%"
   },
   {
     id:"statewide",
     label:"Chenoa Fund Option",
-    x:"4.1%",
-    y:"57.3%",
-    w:"7.4%",
-    h:"8.8%"
+    x:"4.5%",
+    y:"47.3%",
+    w:"8.8%",
+    h:"8.0%"
   },
   {
     id:"education",
     label:"Homebuyer Education",
-    x:"4.1%",
-    y:"75.8%",
-    w:"7.4%",
-    h:"9.2%"
+    x:"4.5%",
+    y:"65.2%",
+    w:"8.8%",
+    h:"8.8%"
   },
 
   {
     id:"mountain",
     label:"Grand County DPA",
-    x:"21.2%",
-    y:"24.6%",
-    w:"12.0%",
+    x:"21.6%",
+    y:"25.8%",
+    w:"12.3%",
     h:"7.2%"
   },
   {
     id:"mountain",
     label:"Mountain Workforce Housing",
-    x:"34.9%",
-    y:"40.0%",
-    w:"12.2%",
+    x:"36.2%",
+    y:"39.0%",
+    w:"12.5%",
     h:"7.8%"
   },
 
   {
     id:"western-slope",
     label:"Western Slope Home Resources",
-    x:"24.2%",
-    y:"58.4%",
-    w:"12.0%",
+    x:"25.2%",
+    y:"52.8%",
+    w:"12.5%",
     h:"7.8%"
   },
   {
     id:"western-slope",
     label:"HomesFund Southwest CO",
-    x:"17.8%",
-    y:"75.6%",
-    w:"12.2%",
-    h:"8.4%"
+    x:"18.0%",
+    y:"68.8%",
+    w:"12.5%",
+    h:"8.5%"
   },
 
   {
     id:"northern-colorado",
     label:"Northern Colorado Program Search",
-    x:"67.2%",
-    y:"21.4%",
-    w:"13.0%",
-    h:"9.0%"
+    x:"66.2%",
+    y:"24.4%",
+    w:"13.3%",
+    h:"8.6%"
   },
   {
     id:"denver-metro",
     label:"Boulder / Longmont Options",
-    x:"67.2%",
-    y:"31.8%",
-    w:"13.0%",
-    h:"8.2%"
+    x:"66.5%",
+    y:"34.8%",
+    w:"13.3%",
+    h:"8.4%"
   },
   {
     id:"metrodpa",
     label:"MetroDPA Down Payment Resource",
-    x:"69.7%",
-    y:"42.4%",
+    x:"69.2%",
+    y:"44.8%",
     w:"13.0%",
-    h:"8.2%"
+    h:"8.0%"
   },
   {
     id:"denver-metro",
     label:"Aurora Homebuyer Assistance",
-    x:"69.8%",
-    y:"51.8%",
+    x:"69.4%",
+    y:"53.8%",
     w:"13.2%",
     h:"8.0%"
   },
   {
     id:"douglas-county",
     label:"Douglas County DPA",
-    x:"71.5%",
-    y:"60.5%",
-    w:"13.2%",
+    x:"71.0%",
+    y:"61.5%",
+    w:"13.3%",
     h:"7.6%"
   },
   {
     id:"pikes-peak",
     label:"Pikes Peak / Colorado Springs",
-    x:"72.5%",
-    y:"69.1%",
-    w:"15.6%",
-    h:"7.7%"
+    x:"72.0%",
+    y:"69.2%",
+    w:"15.7%",
+    h:"7.6%"
   },
   {
     id:"southern-colorado",
     label:"Southern Colorado DPA",
-    x:"73.0%",
-    y:"78.2%",
+    x:"72.5%",
+    y:"76.7%",
     w:"15.2%",
-    h:"7.5%"
+    h:"7.4%"
   },
 
   {
     id:"rural-usda",
     label:"USDA Rural Possibility Areas",
     x:"93.8%",
-    y:"33.0%",
+    y:"35.0%",
     w:"8.8%",
     h:"24.0%"
   },
@@ -1953,17 +1953,17 @@ const mapHotspots = [
     id:"va-strategy",
     label:"VA + Assistance Strategy",
     x:"93.8%",
-    y:"64.8%",
+    y:"61.8%",
     w:"8.8%",
-    h:"11.6%"
+    h:"11.0%"
   },
   {
     id:"seller-credits",
     label:"Seller Credit Strategies",
     x:"93.8%",
-    y:"79.5%",
+    y:"75.0%",
     w:"8.8%",
-    h:"11.6%"
+    h:"11.0%"
   }
 ];
 function renderMapHotspots() {
