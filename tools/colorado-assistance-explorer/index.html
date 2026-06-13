@@ -739,57 +739,70 @@
 
       <div class="explorer-layout">
 
-        <div class="explorer-map-card fade-up">
-          <div class="map-placeholder">
-            <h2 class="map-title">Colorado Assistance Map</h2>
-            <p class="map-subtitle">
-              First prototype: region cards. Future version: cleaner interactive Colorado map with highlighted areas.
-            </p>
+       <div class="explorer-map-card fade-up">
+  <div class="map-placeholder">
+    <h2 class="map-title">Colorado Assistance Map</h2>
+    <p class="map-subtitle">
+      Tap a region to explore possible assistance paths, education requirements, local options, and questions worth asking before a lender conversation.
+    </p>
 
-            <div class="region-grid">
-              <button class="region-button active" data-region="statewide">
-                <span>Statewide Colorado</span>
-                <small>CHFA, education, seller credits</small>
-              </button>
-
-              <button class="region-button" data-region="frontRange">
-                <span>Denver Metro / Front Range</span>
-                <small>metroDPA, CHFA, regional paths</small>
-              </button>
-
-              <button class="region-button" data-region="douglas">
-                <span>Douglas County</span>
-                <small>DCHP, Castle Rock, local options</small>
-              </button>
-
-              <button class="region-button" data-region="pikesPeak">
-                <span>Colorado Springs / Pikes Peak</span>
-                <small>CHFA, VA, regional questions</small>
-              </button>
-
-              <button class="region-button" data-region="northern">
-                <span>Northern Colorado</span>
-                <small>Front Range, rural edges, CHFA</small>
-              </button>
-
-              <button class="region-button" data-region="western">
-                <span>Western Slope</span>
-                <small>Local programs, HomesFund-style paths</small>
-              </button>
-
-              <button class="region-button" data-region="mountain">
-                <span>Mountain Communities</span>
-                <small>Workforce housing, shared appreciation</small>
-              </button>
-
-              <button class="region-button" data-region="rural">
-                <span>Rural Colorado</span>
-                <small>USDA possibility areas</small>
-              </button>
-            </div>
-          </div>
+    <div class="co-map-shell">
+      <div class="co-map-stage" aria-label="Interactive Colorado assistance region map">
+        <div class="co-map-shape">
+          <div class="co-map-mountain-line"></div>
         </div>
 
+        <button type="button" class="co-map-hotspot northern explorer-region-trigger" data-region="northern">
+          Northern CO
+        </button>
+
+        <button type="button" class="co-map-hotspot mountain explorer-region-trigger" data-region="mountain">
+          Mountains
+        </button>
+
+        <button type="button" class="co-map-hotspot western explorer-region-trigger" data-region="western">
+          Western Slope
+        </button>
+
+        <button type="button" class="co-map-hotspot front-range explorer-region-trigger" data-region="frontRange">
+          Front Range
+        </button>
+
+        <button type="button" class="co-map-hotspot douglas explorer-region-trigger" data-region="douglas">
+          Douglas
+        </button>
+
+        <button type="button" class="co-map-hotspot pikes explorer-region-trigger" data-region="pikesPeak">
+          Pikes Peak
+        </button>
+
+        <button type="button" class="co-map-hotspot rural explorer-region-trigger" data-region="rural">
+          Rural / USDA
+        </button>
+
+        <button type="button" class="co-map-hotspot southern explorer-region-trigger" data-region="southern">
+          Southern CO
+        </button>
+      </div>
+
+      <div class="co-map-chip-row" aria-label="Region quick selectors">
+        <button type="button" class="co-map-chip explorer-region-trigger active" data-region="statewide">Statewide</button>
+        <button type="button" class="co-map-chip explorer-region-trigger" data-region="frontRange">Denver Metro / Front Range</button>
+        <button type="button" class="co-map-chip explorer-region-trigger" data-region="douglas">Douglas County</button>
+        <button type="button" class="co-map-chip explorer-region-trigger" data-region="pikesPeak">Colorado Springs / Pikes Peak</button>
+        <button type="button" class="co-map-chip explorer-region-trigger" data-region="northern">Northern Colorado</button>
+        <button type="button" class="co-map-chip explorer-region-trigger" data-region="western">Western Slope</button>
+        <button type="button" class="co-map-chip explorer-region-trigger" data-region="mountain">Mountain Communities</button>
+        <button type="button" class="co-map-chip explorer-region-trigger" data-region="rural">Rural Colorado</button>
+        <button type="button" class="co-map-chip explorer-region-trigger" data-region="southern">Southern Colorado</button>
+      </div>
+
+      <p class="co-map-disclaimer">
+        Educational map only. Region boundaries are simplified for navigation and are not program eligibility boundaries.
+      </p>
+    </div>
+  </div>
+</div>
 
         <div class="explorer-detail-card fade-up delay-2">
           <div class="explorer-detail-header">
