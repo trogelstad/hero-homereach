@@ -1118,30 +1118,38 @@
       }
     };
 
-    const regionButtons = document.querySelectorAll('.region-button');
-    const regionTitle = document.getElementById('region-title');
-    const regionSummary = document.getElementById('region-summary');
-    const regionPaths = document.getElementById('region-paths');
-    const regionQuestions = document.getElementById('region-questions');
+   const regionButtons = document.querySelectorAll('.explorer-region-trigger');
+const regionTitle = document.getElementById('region-title');
+const regionSummary = document.getElementById('region-summary');
+const regionPaths = document.getElementById('region-paths');
+const regionQuestions = document.getElementById('region-questions');
 
-    function renderList(items, target) {
-      target.innerHTML = items.map(item => `<li>${item}</li>`).join('');
-    }
+function renderList(items, target) {
+  target.innerHTML = items.map(item => `<li>${item}</li>`).join('');
+}
 
-    regionButtons.forEach(button => {
-      button.addEventListener('click', () => {
-        const regionKey = button.dataset.region;
-        const data = explorerData[regionKey];
+function setActiveRegion(regionKey) {
+  const data = explorerData[regionKey];
 
-        regionButtons.forEach(btn => btn.classList.remove('active'));
-        button.classList.add('active');
+  if (!data) {
+    return;
+  }
 
-        regionTitle.textContent = data.title;
-        regionSummary.textContent = data.summary;
-        renderList(data.paths, regionPaths);
-        renderList(data.questions, regionQuestions);
-      });
-    });
+  regionButtons.forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.region === regionKey);
+  });
+
+  regionTitle.textContent = data.title;
+  regionSummary.textContent = data.summary;
+  renderList(data.paths, regionPaths);
+  renderList(data.questions, regionQuestions);
+}
+
+regionButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    setActiveRegion(button.dataset.region);
+  });
+});
   </script>
 
   <!-- Start of HubSpot Embed Code -->
