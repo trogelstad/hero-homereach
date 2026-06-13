@@ -836,7 +836,9 @@
 
 .dossier-visual {
   background:#071f42;
-  padding:18px;
+  padding:0;
+  height:62vh;
+  min-height:520px;
   display:flex;
   align-items:center;
   justify-content:center;
@@ -846,13 +848,13 @@
 
 .dossier-visual img {
   width:100%;
-  height:auto;
-  max-height:58vh;
-  object-fit:contain;
+  height:100%;
+  object-fit:cover;
+  object-position:center center;
   display:block;
   opacity:1;
-  border-radius:8px;
-  box-shadow:0 16px 42px rgba(0,0,0,.28);
+  border-radius:0;
+  box-shadow:none;
 }
 
 .dossier-hero-body {
