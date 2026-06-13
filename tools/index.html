@@ -1,141 +1,537 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
   <meta charset="UTF-8">
+
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-5ZQKN4LM');</script>
+  <!-- End Google Tag Manager -->
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Hero HomeReach Tools | Colorado Homebuyer Assistance Tools</title>
   <meta name="description" content="Explore Hero HomeReach tools designed to help Colorado homebuyers understand possible assistance paths, down payment options, seller credit strategies, and homebuyer education requirements.">
 
+  <!-- Favicons -->
+  <link rel="icon" type="image/png" href="../favicon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../favicon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="../favicon-192x192.png">
+
+  <link rel="canonical" href="https://www.herohomereach.com/tools/" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Hero HomeReach Tools | Colorado Homebuyer Assistance Tools">
+  <meta property="og:description" content="Interactive educational tools for exploring Colorado homebuyer assistance paths, regional options, and buyer strategy questions.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.herohomereach.com/tools/">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Shared styles -->
   <link rel="stylesheet" href="../css/main.css">
-  <link rel="stylesheet" href="../css/tools.css">
+
+  <style>
+    /* ════════════════════════════════
+       TOOLS HUB PAGE
+    ════════════════════════════════ */
+
+    .tools-intro {
+      background: #fff;
+    }
+
+    .tools-featured-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .tools-copy p {
+      font-size: 17px;
+      color: #555;
+      margin-bottom: 22px;
+      max-width: 620px;
+    }
+
+    .tools-callout {
+      background: var(--navy);
+      border-radius: var(--radius);
+      padding: 36px 32px;
+      border: 1px solid rgba(201,151,58,0.25);
+      box-shadow: 0 12px 40px rgba(12,45,94,0.16);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .tools-callout::before {
+      content: '';
+      position: absolute;
+      top: -120px;
+      right: -120px;
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(201,151,58,0.14) 0%, transparent 70%);
+    }
+
+    .tools-callout-inner {
+      position: relative;
+      z-index: 2;
+    }
+
+    .tools-callout .section-eyebrow {
+      color: var(--bright-gold);
+    }
+
+    .tools-callout .section-eyebrow::before {
+      background: var(--bright-gold);
+    }
+
+    .tools-callout h2 {
+      color: #fff;
+      margin-bottom: 16px;
+    }
+
+    .tools-callout p {
+      color: rgba(255,255,255,0.72);
+      font-size: 15px;
+      line-height: 1.7;
+      margin-bottom: 28px;
+    }
+
+    .tools-list {
+      margin: 24px 0 32px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 18px;
+    }
+
+    .tools-list li {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      color: rgba(255,255,255,0.72);
+      font-size: 14px;
+      padding: 7px 0;
+      line-height: 1.5;
+    }
+
+    .tools-list li::before {
+      content: '✓';
+      color: var(--bright-gold);
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 56px;
+    }
+
+    .tool-card {
+      background: #fff;
+      border: 1px solid var(--warm-gray);
+      border-radius: var(--radius);
+      padding: 32px 28px;
+      box-shadow: 0 2px 16px rgba(12,45,94,0.06);
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+      min-height: 260px;
+    }
+
+    .tool-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: var(--gold);
+    }
+
+    .tool-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 40px rgba(12,45,94,0.12);
+      border-color: rgba(201,151,58,0.4);
+    }
+
+    .tool-status {
+      display: inline-block;
+      margin-bottom: 18px;
+      background: rgba(201,151,58,0.1);
+      border: 1px solid rgba(201,151,58,0.3);
+      border-radius: 20px;
+      padding: 5px 14px;
+      font-size: 11px;
+      font-weight: 700;
+      color: #8B6020;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .tool-card h3 {
+      margin-bottom: 12px;
+    }
+
+    .tool-card p {
+      font-size: 14px;
+      color: #666;
+      line-height: 1.65;
+    }
+
+    .tools-guidance {
+      background: var(--white);
+      border-top: 1px solid var(--warm-gray);
+      border-bottom: 1px solid var(--warm-gray);
+    }
+
+    .tools-guidance-box {
+      background: #fff;
+      border: 1px solid var(--warm-gray);
+      border-radius: var(--radius);
+      padding: 36px 32px;
+      box-shadow: 0 2px 16px rgba(12,45,94,0.06);
+      max-width: 860px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .tools-guidance-box p {
+      color: #666;
+      font-size: 15px;
+      line-height: 1.7;
+      margin-bottom: 0;
+    }
+
+    .tools-page-actions {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-top: 32px;
+    }
+
+    @media (max-width: 900px) {
+      .tools-featured-grid {
+        grid-template-columns: 1fr;
+        gap: 36px;
+      }
+
+      .tools-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .tools-page-actions {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .tools-page-actions .btn {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+  </style>
+
 </head>
 
 <body>
 
-  <main class="hhr-tools-page">
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5ZQKN4LM"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
 
-    <section class="hhr-tools-hero">
-      <div class="hhr-tools-container">
-        <p class="hhr-eyebrow">Hero HomeReach Tools</p>
 
-        <h1>Interactive tools for Colorado homebuyer assistance paths.</h1>
-
-        <p class="hhr-hero-copy">
-          Explore educational tools designed to help Colorado buyers understand possible down payment assistance,
-          forgivable loan paths, seller credit strategies, homebuyer education requirements, and regional assistance options.
-        </p>
-
-        <div class="hhr-actions">
-          <a class="hhr-btn hhr-btn-primary" href="colorado-assistance-explorer/">
-            Explore Colorado Assistance
-          </a>
-
-          <a class="hhr-btn hhr-btn-secondary" href="../blog/">
-            Visit the Learning Center
-          </a>
+  <!-- ════════════ NAVIGATION ════════════ -->
+  <nav id="nav" class="nav-solid">
+    <div class="nav-inner">
+      <a href="../" class="nav-logo">
+        <img src="../logo-mark_transparent.png" alt="Hero HomeReach Shield" style="width:50px; height:50px; object-fit:contain;">
+        <div>
+          <div class="nav-wordmark">Hero <span>HomeReach</span><sup class="nav-tm">™</sup></div>
         </div>
+      </a>
 
-        <p class="hhr-disclaimer">
-          Educational use only. Program availability and eligibility vary. This is not an eligibility determination.
-        </p>
+      <ul class="nav-links">
+        <li><a href="../programs.html">Programs</a></li>
+        <li><a href="../who-we-serve.html">Who We Serve</a></li>
+        <li><a href="../blog/">Learning Center</a></li>
+        <li><a href="../faq.html">DPA FAQ</a></li>
+        <li><a href="https://guide.herohomereach.com" target="_blank" style="color:var(--bright-gold); font-weight:700;">Free Guide</a></li>
+      </ul>
+
+      <div class="nav-cta">
+        <a href="../contact.html" class="btn btn-gold btn-arrow">Book Free Consultation</a>
       </div>
-    </section>
+
+      <div class="nav-hamburger" id="hamburger" onclick="toggleMobileNav()">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Nav -->
+  <div id="mobile-nav">
+    <a href="../programs.html" onclick="toggleMobileNav()">Programs</a>
+    <a href="../who-we-serve.html" onclick="toggleMobileNav()">Who We Serve</a>
+    <a href="../blog/" onclick="toggleMobileNav()">Learning Center</a>
+    <a href="../faq.html" onclick="toggleMobileNav()">Homebuyer FAQ</a>
+    <a href="https://guide.herohomereach.com" target="_blank" onclick="toggleMobileNav()" style="color:var(--bright-gold);">Free Guide</a>
+    <a href="../contact.html" onclick="toggleMobileNav()" class="btn btn-gold" style="margin-top:16px;">Book Free Consultation</a>
+  </div>
 
 
-    <section class="hhr-tools-section">
-      <div class="hhr-tools-container">
-        <div class="hhr-section-heading">
-          <p class="hhr-eyebrow">Featured Tool</p>
-          <h2>Start with the Colorado Assistance Explorer</h2>
+  <!-- ════════════ PAGE HERO ════════════ -->
+  <section class="page-hero">
+    <div class="container">
+      <div class="page-hero-inner">
+        <div class="section-eyebrow" style="justify-content:center;">Hero HomeReach Tools</div>
+
+        <h1>Interactive Tools for <span>Colorado Homebuyers</span></h1>
+
+        <p>
+          Explore educational tools designed to help Colorado buyers understand possible assistance paths,
+          regional options, seller credit strategies, and homebuyer education requirements.
+        </p>
+
+        <a href="colorado-assistance-explorer/" class="btn btn-gold btn-arrow">Preview the Explorer</a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ════════════ FEATURED TOOL ════════════ -->
+  <section class="section tools-intro">
+    <div class="container">
+      <div class="tools-featured-grid">
+
+        <div class="tools-copy fade-up">
+          <div class="section-eyebrow">Featured Tool</div>
+
+          <h2>Start with the Colorado Assistance Explorer.</h2>
+
           <p>
-            A premium interactive tool built to help visitors explore statewide, regional, rural,
-            mountain, local, and hero-focused homebuyer assistance paths across Colorado.
+            The Colorado Assistance Explorer is being built as a cleaner, scalable, interactive way to explore
+            statewide, regional, rural, mountain, local, and hero-focused homebuyer assistance paths.
           </p>
+
+          <p>
+            It is not designed to tell buyers they qualify for a program. It is designed to help them understand
+            possible paths, learn what questions to ask, and prepare for conversations with a qualified lender,
+            housing counselor, real estate professional, or program administrator.
+          </p>
+
+          <div class="tools-page-actions">
+            <a href="colorado-assistance-explorer/" class="btn btn-navy btn-arrow">Open the Explorer</a>
+            <a href="../blog/" class="btn btn-gold btn-arrow">Visit the Learning Center</a>
+          </div>
         </div>
 
-        <article class="hhr-featured-tool-card">
-          <div class="hhr-tool-card-content">
-            <p class="hhr-card-label">Flagship Tool</p>
+        <div class="tools-callout fade-up delay-2">
+          <div class="tools-callout-inner">
+            <div class="section-eyebrow">Flagship Tool</div>
 
-            <h3>Colorado Assistance Explorer</h3>
+            <h2>Colorado Assistance Explorer</h2>
 
             <p>
-              Explore possible assistance paths by region, program type, and buyer situation.
-              This tool is designed to help you organize your research before speaking with a qualified lender,
-              housing counselor, or real estate professional.
+              A map-based educational tool for exploring assistance paths by Colorado region,
+              program category, and buyer situation.
             </p>
 
-            <ul class="hhr-tool-list">
-              <li>Explore Colorado regions and local assistance starting points</li>
-              <li>Review possible paths such as CHFA, metroDPA, DCHP, USDA, VA, and seller credits</li>
+            <ul class="tools-list">
+              <li>Explore possible statewide and regional assistance paths</li>
+              <li>Review paths such as CHFA, metroDPA, DCHP, USDA, VA, and seller credits</li>
               <li>Learn which questions to ask before choosing a loan or assistance strategy</li>
             </ul>
 
-            <a class="hhr-btn hhr-btn-primary" href="colorado-assistance-explorer/">
-              Preview the Explorer
-            </a>
+            <a href="colorado-assistance-explorer/" class="btn btn-gold btn-arrow">Preview the Explorer</a>
           </div>
-        </article>
+        </div>
+
       </div>
-    </section>
+    </div>
+  </section>
 
 
-    <section class="hhr-tools-section hhr-coming-soon-section">
-      <div class="hhr-tools-container">
-        <div class="hhr-section-heading">
-          <p class="hhr-eyebrow">Coming Next</p>
-          <h2>More tools are being built for Colorado buyers.</h2>
+  <!-- ════════════ COMING SOON TOOLS ════════════ -->
+  <section class="section" style="background:#fff;">
+    <div class="container">
+      <div style="text-align:center;">
+        <div class="section-eyebrow" style="justify-content:center;">Coming Next</div>
+        <h2 class="section-title-center">More tools are being built for Colorado buyers.</h2>
+        <p class="section-sub-center">
+          The Tools section will continue expanding into calculators, checklists, decision guides,
+          and plain-English program explainers.
+        </p>
+      </div>
+
+      <div class="tools-grid">
+
+        <article class="tool-card fade-up">
+          <span class="tool-status">Coming Soon</span>
+          <h3>DPA Stackability Checker</h3>
           <p>
-            The Hero HomeReach Tools section will continue expanding into calculators, checklists,
-            decision guides, and plain-English program explainers.
+            Explore which assistance paths may be worth asking a qualified lender about together,
+            while keeping program rules and limitations clear.
           </p>
-        </div>
+        </article>
 
-        <div class="hhr-tools-grid">
+        <article class="tool-card fade-up delay-2">
+          <span class="tool-status">Coming Soon</span>
+          <h3>Seller Credit Strategy Calculator</h3>
+          <p>
+            Learn how seller credits may reduce cash needed at closing depending on the loan type,
+            offer structure, allowable costs, and lender review.
+          </p>
+        </article>
 
-          <article class="hhr-tool-card">
-            <p class="hhr-card-label">Coming Soon</p>
-            <h3>DPA Stackability Checker</h3>
-            <p>
-              Explore which assistance paths may be worth asking a qualified lender about together.
-            </p>
-          </article>
+        <article class="tool-card fade-up delay-4">
+          <span class="tool-status">Coming Soon</span>
+          <h3>Homebuyer Education Finder</h3>
+          <p>
+            Understand which homebuyer education paths may fit different Colorado assistance programs,
+            certificate timing rules, and course requirements.
+          </p>
+        </article>
 
-          <article class="hhr-tool-card">
-            <p class="hhr-card-label">Coming Soon</p>
-            <h3>Seller Credit Strategy Calculator</h3>
-            <p>
-              Learn how seller credits may reduce cash needed at closing depending on the loan type and transaction.
-            </p>
-          </article>
-
-          <article class="hhr-tool-card">
-            <p class="hhr-card-label">Coming Soon</p>
-            <h3>Homebuyer Education Finder</h3>
-            <p>
-              Understand which homebuyer education paths may fit different Colorado assistance programs.
-            </p>
-          </article>
-
-        </div>
       </div>
-    </section>
+    </div>
+  </section>
 
 
-    <section class="hhr-tools-note">
-      <div class="hhr-tools-container">
+  <!-- ════════════ EDUCATIONAL NOTE ════════════ -->
+  <section class="section tools-guidance">
+    <div class="container">
+      <div class="tools-guidance-box fade-up">
+        <div class="section-eyebrow" style="justify-content:center;">Important Note</div>
+
         <h2>Use these tools as educational starting points.</h2>
 
         <p>
           Hero HomeReach tools are designed to help buyers understand the landscape, prepare better questions,
-          and avoid common confusion. They do not replace guidance from a qualified lender, housing counselor,
-          real estate professional, or program administrator.
+          and avoid common confusion. Program availability and eligibility vary. These tools do not provide an eligibility determination
+          and do not replace guidance from a qualified lender, housing counselor, real estate professional, or program administrator.
         </p>
       </div>
-    </section>
+    </div>
+  </section>
 
-  </main>
+
+  <!-- ════════════ FINAL CTA BANNER ════════════ -->
+  <section id="cta-banner">
+    <div class="container">
+      <div class="cta-inner">
+        <div class="section-eyebrow" style="justify-content:center; color:var(--bright-gold);">Free. 30 Minutes. No Pressure.</div>
+
+        <h2>Ready to Explore <span>Your Possible Paths?</span></h2>
+
+        <p>
+          Book your free Hero HomeReach™ consultation. We’ll walk through Colorado assistance paths that may fit your situation,
+          zero obligation, zero cost, zero jargon.
+        </p>
+
+        <a href="../contact.html" class="btn btn-gold btn-arrow">Book My Free Consultation</a>
+
+        <div class="cta-reassurance">
+          <div class="cta-reassurance-item">Completely free</div>
+          <div class="cta-reassurance-item">No lender pressure</div>
+          <div class="cta-reassurance-item">Colorado-specific guidance</div>
+          <div class="cta-reassurance-item">Educational starting point</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ════════════ FOOTER ════════════ -->
+  <footer id="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="wordmark">Hero <span>HomeReach</span>™</div>
+          <p>Free homeownership guidance for Colorado's educators, first responders, healthcare workers and military members. No jargon. No pressure. Built for heroes.</p>
+        </div>
+
+        <div class="footer-col">
+          <div class="footer-col-title">Site</div>
+          <a href="../programs.html">Programs</a>
+          <a href="../who-we-serve.html">Who We Serve</a>
+          <a href="../about.html">About</a>
+          <a href="../blog/">Learning Center</a>
+          <a href="../contact.html">Contact</a>
+        </div>
+
+        <div class="footer-col">
+          <div class="footer-col-title">Heroes</div>
+          <a href="../who-we-serve.html#educators">Educators</a>
+          <a href="../who-we-serve.html#first-responders">First Responders</a>
+          <a href="../who-we-serve.html#healthcare">Healthcare Workers</a>
+          <a href="../who-we-serve.html#military">Military Members</a>
+        </div>
+
+        <div class="footer-col">
+          <div class="footer-col-title">Start Here</div>
+          <a href="../contact.html">Book Free Consultation</a>
+          <a href="../programs.html">Explore Programs</a>
+          <a href="../blog/">Learning Center</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="footer-copy">© 2026 Hero HomeReach™. All rights reserved. Colorado Homeownership Guidance.</div>
+
+        <div class="footer-legal">
+          <a href="../privacy.html">Privacy Policy</a>
+          <a href="../terms.html">Terms of Use</a>
+          <a href="../disclaimer.html">Disclaimer</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  <script>
+    // ── NAV SCROLL BEHAVIOR ──
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 40);
+    }, { passive: true });
+
+    // ── MOBILE NAV ──
+    function toggleMobileNav() {
+      document.getElementById('mobile-nav').classList.toggle('open');
+    }
+
+    // ── SCROLL ANIMATIONS ──
+    const fadeEls = document.querySelectorAll('.fade-up');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    fadeEls.forEach(el => observer.observe(el));
+  </script>
+
+  <!-- Start of HubSpot Embed Code -->
+  <script type="text/javascript" id="hs-script-loader" async defer src="//js-na2.hs-scripts.com/244185002.js"></script>
+  <!-- End of HubSpot Embed Code -->
+
+  <link rel="stylesheet" href="/css/ebook-modal.css">
+  <script src="/js/ebook-modal.js"></script>
 
 </body>
 </html>
