@@ -250,9 +250,10 @@
 .dossier-map-frame img {
   width:100%;
   height:100%;
-  object-fit:cover;
+  object-fit:contain;
   object-position:center center;
   display:block;
+  background:#071f42;
 }
 
 .map-hotspot {
@@ -861,14 +862,32 @@
 
 .dossier-visual {
   background:#071f42;
-  padding:0;
-  height:62vh;
-  min-height:520px;
+  padding:16px;
+  height:auto;
+  min-height:0;
   display:flex;
   align-items:center;
   justify-content:center;
   overflow:hidden;
   border-bottom:1px solid rgba(234,184,74,.25);
+}
+
+.dossier-map-frame {
+  position:relative;
+  width:100%;
+  max-width:1280px;
+  margin:0 auto;
+}
+
+.dossier-map-frame img {
+  width:100%;
+  height:auto;
+  max-height:68vh;
+  object-fit:contain;
+  object-position:center center;
+  display:block;
+  background:#071f42;
+  border-radius:8px;
 }
 
 .dossier-visual img {
