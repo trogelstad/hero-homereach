@@ -373,6 +373,89 @@
     .dossier-actions { display:flex; flex-wrap:wrap; gap:10px; margin-top:18px; padding-top:18px; border-top:1px solid #ebebeb; }
 
 
+
+    /* ══════════════════════════════════════════════════════
+       PROFESSION SELECTOR — MOBILE ENTRY POINT
+    ══════════════════════════════════════════════════════ */
+    .prof-selector {
+      background:var(--navy);
+      padding:28px 24px 32px;
+      border-bottom:1px solid rgba(201,151,58,.25);
+    }
+    .prof-selector-inner { max-width:1320px; margin:0 auto; }
+    .prof-selector-eyebrow {
+      font:800 11px/1 Inter,sans-serif;
+      letter-spacing:.14em; text-transform:uppercase;
+      color:var(--bright-gold); margin-bottom:10px; display:block;
+    }
+    .prof-selector-h1 {
+      font-family:"Playfair Display",Georgia,serif;
+      font-size:clamp(28px,4vw,42px); font-weight:400;
+      color:#fff; line-height:1.08; margin:0 0 8px;
+    }
+    .prof-selector-sub {
+      font:400 14px/1.65 Inter,sans-serif;
+      color:rgba(255,255,255,.65); margin:0 0 22px;
+      max-width:600px;
+    }
+    .prof-card-grid {
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:12px;
+      margin-bottom:16px;
+    }
+    .prof-card {
+      background:rgba(255,255,255,.06);
+      border:1.5px solid rgba(255,255,255,.12);
+      border-radius:12px;
+      padding:18px 16px;
+      text-align:left;
+      cursor:pointer;
+      transition:background .2s, border-color .2s, transform .18s;
+      font-family:inherit;
+    }
+    .prof-card:hover {
+      background:rgba(201,151,58,.12);
+      border-color:rgba(201,151,58,.6);
+      transform:translateY(-2px);
+    }
+    .prof-card.selected {
+      background:rgba(201,151,58,.18);
+      border-color:var(--bright-gold);
+      box-shadow:0 0 0 2px rgba(234,184,74,.25);
+    }
+    .prof-card-icon {
+      font-size:22px; color:var(--bright-gold);
+      margin-bottom:8px; line-height:1;
+    }
+    .prof-card-label {
+      font:800 14px/1.2 Inter,sans-serif;
+      color:#fff; margin-bottom:5px;
+    }
+    .prof-card-desc {
+      font:400 12px/1.55 Inter,sans-serif;
+      color:rgba(255,255,255,.55);
+    }
+    .prof-skip {
+      background:transparent; border:none;
+      font:600 12px/1 Inter,sans-serif;
+      color:rgba(255,255,255,.4);
+      cursor:pointer; padding:4px 0;
+      text-decoration:underline;
+      transition:color .18s;
+    }
+    .prof-skip:hover { color:rgba(255,255,255,.7); }
+
+    /* On desktop — show page header, hide profession selector */
+    @media (min-width:901px) {
+      .prof-selector { display:none !important; }
+      .tool-page-header { display:block !important; }
+    }
+    /* On mobile — show profession selector, hide page header until selected */
+    @media (max-width:900px) {
+      .prof-selector { display:block; }
+    }
+
     /* ── SITUATION CHIPS + AI LAYER ──────────────────────── */
     .chips-section { border-top:1px solid #ebebeb; padding-top:14px; margin-top:4px; }
     .chips-label { font:700 10px/1 Inter,sans-serif; letter-spacing:.12em; text-transform:uppercase; color:#999; margin-bottom:8px; display:block; }
@@ -471,13 +554,45 @@
 </div>
 
 <!-- ═══════════════════════════════════════════════════════
-     PAGE HEADER
+     PROFESSION SELECTOR — MOBILE ENTRY POINT
 ═══════════════════════════════════════════════════════ -->
-<div class="tool-page-header">
+<div class="prof-selector" id="profSelector">
+  <div class="prof-selector-inner">
+    <div class="prof-selector-eyebrow">Colorado Assistance Explorer</div>
+    <h1 class="prof-selector-h1">Who are you?</h1>
+    <p class="prof-selector-sub">Select your profession and we will show you the assistance paths most relevant to your situation.</p>
+    <div class="prof-card-grid">
+      <button class="prof-card" type="button" data-profession="veteran">
+        <div class="prof-card-icon">★</div>
+        <div class="prof-card-label">Veteran / Military</div>
+        <div class="prof-card-desc">VA loan stacking, closing cost strategies, metroDPA combinations</div>
+      </button>
+      <button class="prof-card" type="button" data-profession="educator">
+        <div class="prof-card-icon">✎</div>
+        <div class="prof-card-label">Educator</div>
+        <div class="prof-card-desc">CHFA, SB25-167, Schools To Home July 2026, and education program rules</div>
+      </button>
+      <button class="prof-card" type="button" data-profession="responder">
+        <div class="prof-card-icon">◈</div>
+        <div class="prof-card-label">First Responder</div>
+        <div class="prof-card-desc">Colorado Champions, SB26-053, CHFA, and hero-specific paths</div>
+      </button>
+      <button class="prof-card" type="button" data-profession="healthcare">
+        <div class="prof-card-icon">✦</div>
+        <div class="prof-card-label">Healthcare Worker</div>
+        <div class="prof-card-desc">CHFA, metroDPA, local programs, and closing cost strategies</div>
+      </button>
+    </div>
+    <button class="prof-skip" type="button" id="profSkipBtn">Skip — show me everything</button>
+  </div>
+</div>
+
+<!-- PAGE HEADER (desktop / post-selection) -->
+<div class="tool-page-header" id="toolPageHeader" style="display:none;">
   <div class="tool-page-header-inner">
     <div class="tool-page-header-eyebrow">Colorado Assistance Explorer</div>
-    <h1>Explore possible homebuyer assistance paths across Colorado.</h1>
-    <p>Click the map or choose a pathway card to review educational starting points for statewide programs, regional assistance, VA-related strategies, seller credits, homebuyer education, rural possibilities, and local resources. Program availability and eligibility vary.</p>
+    <h1 id="toolPageH1">Explore possible homebuyer assistance paths across Colorado.</h1>
+    <p id="toolPageP">Click the map or choose a pathway card to review educational starting points for statewide programs, regional assistance, VA-related strategies, seller credits, homebuyer education, rural possibilities, and local resources. Program availability and eligibility vary.</p>
   </div>
 </div>
 
@@ -1577,6 +1692,88 @@ $('fsOverlay').addEventListener('click',e=>{ if(e.target===$('fsOverlay')) close
 document.addEventListener('keydown',e=>{ if(e.key==='Escape'){ closeDossierModal(); closeFullscreen(); } });
 
 
+
+/* ── PROFESSION SELECTOR (MOBILE ENTRY) ──────────────── */
+const profToPanelProfession = {
+  veteran: 'veteran',
+  educator: 'educator',
+  responder: 'responder',
+  healthcare: 'healthcare'
+};
+
+const profToHeadline = {
+  veteran: 'VA loan strategies, closing cost paths, and Colorado assistance for military buyers.',
+  educator: 'CHFA, SB25-167, Schools To Home, and assistance paths for Colorado educators.',
+  responder: 'Colorado Champions, CHFA, and assistance paths for first responders.',
+  healthcare: 'CHFA, metroDPA, and assistance paths for Colorado healthcare workers.'
+};
+
+const profToDefaultRegion = {
+  veteran: 'va-strategy',
+  educator: 'chfa',
+  responder: 'pikes-peak',
+  healthcare: 'denver-metro'
+};
+
+function initProfessionSelector(){
+  const cards = document.querySelectorAll('.prof-card');
+  const skipBtn = document.getElementById('profSkipBtn');
+  const selector = document.getElementById('profSelector');
+  const pageHeader = document.getElementById('toolPageHeader');
+
+  if(!selector) return;
+
+  cards.forEach(card => {
+    card.addEventListener('click', () => {
+      const prof = card.dataset.profession;
+
+      // Mark selected
+      cards.forEach(c => c.classList.remove('selected'));
+      card.classList.add('selected');
+
+      // Set the matching profession chip in the panel
+      const matchingChip = document.querySelector('[data-group="profession"][data-chip="' + profToPanelProfession[prof] + '"]');
+      if(matchingChip){
+        document.querySelectorAll('[data-group="profession"]').forEach(c => c.classList.remove('active'));
+        matchingChip.classList.add('active');
+        activeProfession = profToPanelProfession[prof];
+      }
+
+      // Load the default region for this profession
+      const defaultRegion = profToDefaultRegion[prof];
+      loadPanel(defaultRegion, false, false);
+
+      // Short delay then transition to tool
+      setTimeout(() => {
+        // Hide selector, show page header
+        selector.style.transition = 'opacity .3s ease';
+        selector.style.opacity = '0';
+        setTimeout(() => {
+          selector.style.display = 'none';
+          pageHeader.style.display = 'block';
+          // Update h1 and p for their profession
+          const h1 = document.getElementById('toolPageH1');
+          const p = document.getElementById('toolPageP');
+          if(h1) h1.textContent = profToHeadline[prof];
+          if(p) p.textContent = 'Tap any labeled area on the map or choose a pathway card below. Program availability and eligibility vary.';
+          // Scroll to map
+          const mapSection = document.getElementById('interactive-map');
+          if(mapSection) mapSection.scrollIntoView({behavior:'smooth', block:'start'});
+        }, 300);
+      }, 180);
+    });
+  });
+
+  if(skipBtn){
+    skipBtn.addEventListener('click', () => {
+      selector.style.display = 'none';
+      pageHeader.style.display = 'block';
+      const mapSection = document.getElementById('interactive-map');
+      if(mapSection) mapSection.scrollIntoView({behavior:'smooth', block:'start'});
+    });
+  }
+}
+
 /* ── SITUATION CHIPS + AI ─────────────────────────────── */
 let activeProfession = 'veteran';
 let activeSituations = new Set();
@@ -1668,7 +1865,8 @@ async function fireAiRequest(){
 renderMainHotspots();
 renderMobileRegions();
 loadPanel('statewide',false,false);
-initChips(); // false = don't highlight any hotspot on initial load
+initChips();
+initProfessionSelector(); // false = don't highlight any hotspot on initial load
 </script>
 
 <script type="text/javascript" id="hs-script-loader" async defer src="//js-na2.hs-scripts.com/244185002.js"></script>
