@@ -51,7 +51,7 @@
   background-size: cover;
   background-position: 65% center;
   background-repeat: no-repeat;
-  padding: calc(var(--nav-h) + 64px) 0 72px;
+  padding: calc(var(--nav-h) + 28px) 0 36px;
   position: relative; overflow: hidden;
 }
 #page-hero::before {
@@ -72,16 +72,16 @@
 .page-eyebrow {
   display: inline-flex; align-items: center; gap: 10px;
   font-size: 11px; font-weight: 700; letter-spacing: 0.2em;
-  text-transform: uppercase; color: var(--gold); margin-bottom: 20px;
+  text-transform: uppercase; color: var(--gold); margin-bottom: 10px;
 }
 .page-eyebrow::before { content: ''; display: block; width: 28px; height: 2px; background: var(--gold); }
-.page-hero-inner h1      { color: #fff; font-size: clamp(32px, 4vw, 52px); margin-bottom: 20px; }
+.page-hero-inner h1      { color: #fff; font-size: clamp(32px, 4vw, 52px); margin-bottom: 12px; }
 .page-hero-inner h1 span { color: var(--gold); font-style: italic; }
-.page-hero-inner .lead   { color: rgba(255,255,255,0.72); font-size: 18px; max-width: 680px; margin-bottom: 36px; }
+.page-hero-inner .lead   { color: rgba(255,255,255,0.72); font-size: 17px; max-width: 680px; margin-bottom: 20px; }
 
-.hero-stats { display: flex; gap: 40px; flex-wrap: wrap; justify-content: center; padding-top: 32px; border-top: 1px solid rgba(255,255,255,0.1); }
+.hero-stats { display: flex; gap: 40px; flex-wrap: wrap; justify-content: center; padding-top: 18px; border-top: 1px solid rgba(255,255,255,0.1); }
 .hero-stat-num {
-  font-family: var(--font-head); font-size: 34px; font-weight: 900;
+  font-family: var(--font-head); font-size: 28px; font-weight: 900;
   color: var(--gold); line-height: 1;
 }
 .hero-stat-label { font-size: 13px; color: rgba(255,255,255,0.5); margin-top: 4px; }
@@ -683,12 +683,11 @@ fadeEls.forEach(el => observer.observe(el));
     margin-bottom: 8px;
   }
   .hhm-title {
-    font-family: 'Playfair Display', Georgia, serif;
-    font-size: 22px;
+font-size: 20px;
     font-weight: 700;
     color: #ffffff;
-    line-height: 1.3;
-    margin-bottom: 8px;
+    line-height: 1.28;
+    margin-bottom: 12px;
   }
   .hhm-subtitle {
     font-family: 'Inter', system-ui, sans-serif;
@@ -951,8 +950,8 @@ fadeEls.forEach(el => observer.observe(el));
     <div class="hhm-header">
       <button class="hhm-close" onclick="hhmClose()" aria-label="Close">&times;</button>
       <div class="hhm-eyebrow">Free Colorado Guide</div>
-      <h2 class="hhm-title" id="hhm-modal-title">Your Hero Homebuyer Guide Is Ready</h2>
-      <p class="hhm-subtitle">Real Colorado assistance paths, grants, and strategies built for educators, first responders, healthcare workers, and veterans.</p>
+     <h2 class="hhm-title" id="hhm-modal-title">Most Colorado heroes leave thousands on the table. This guide shows you what to ask instead.</h2>
+      <p class="hhm-subtitle">Plain-English breakdowns of CHFA, metroDPA, VA stacking strategies, seller credits, and the watch-outs most lenders never mention, written for Colorado educators, first responders, healthcare workers, and military buyers.</p>
     </div>
 
     <!-- Form -->
@@ -1021,7 +1020,7 @@ fadeEls.forEach(el => observer.observe(el));
       <div class="hhm-success-title">Check Your Inbox</div>
       <p class="hhm-success-body">Your Hero HomeReach Advantage guide is on its way. Ready to go deeper? Book a free 30-minute strategy session and we will map your personal assistance path together.</p>
       <a class="hhm-success-cta" href="https://calendly.com/trogelstad-herohomereach/30min" target="_blank" rel="noopener">
-        Book My Free Call &rarr;
+        Book My Free Strategy Session &rarr;
       </a>
     </div>
 
