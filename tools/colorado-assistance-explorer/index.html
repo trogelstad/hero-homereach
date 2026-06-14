@@ -799,19 +799,65 @@ const explorerData = {
   },
 
   chfa: {
-    kicker:"Statewide program path", title:"CHFA Statewide Programs",
-    summary:"One of Colorado's most important statewide starting points for first mortgage and down payment assistance.",
-    pills:["CHFA","Statewide","DPA","Education"],
-    overview:"CHFA is one of Colorado's primary homebuyer assistance starting points. Buyers work through participating lenders — CHFA does not lend directly. CHFA paths can include first mortgage programs, DPA options structured as grants or deferred second mortgages, FirstGeneration, HomeAccess, and mandatory homebuyer education requirements.",
-    bestFor:["Buyers looking for a statewide starting point.", "Buyers who need down payment assistance education before calling a lender.", "Buyers seeking a participating lender conversation."],
-    education: shared.education,
-    paths:["CHFA first mortgage programs may pair with one CHFA DPA option.", "CHFA DPA may be structured as a grant option or a deferred second mortgage option depending on program eligibility.", "Homebuyer education is a required step before closing on most CHFA paths."],
-    stacking: shared.stacking,
-    questions:["Which CHFA loan program are you recommending for my situation?", "Is this DPA option a grant structure or a second mortgage structure?", "What are the income and purchase price limits for my county?", "What happens if I refinance or sell later?"],
-    counselorQ: shared.counselorQ,
-    watchouts:["CHFA does not lend directly to consumers — a participating lender is required.", "CHFA DPA options may not all stack with each other.", "The online education class may require a specific portal and a follow-up phone call before the certificate is issued."],
-    nextStep:"Ask a CHFA participating lender to compare the grant option, second mortgage option, education requirements, income limits, and long-term repayment rules for your specific situation.",
-    links:[["CHFA Down Payment Assistance","https://www.chfainfo.com/homeownership/down-payment-assistance"], ["CHFA How to Get a Loan","https://www.chfainfo.com/homeownership/how-to-get-a-chfa-program-loan"], ["CHFA Homebuyer Education","https://www.chfainfo.com/homeownership/homebuyer-education"]]
+    kicker:"Statewide program path",
+    title:"CHFA Statewide Programs",
+    summary:"Colorado's most important statewide homebuyer resource, with income limit nuances that disqualify buyers who assumed they were over the limit, and a targeted area rule that most buyers never find.",
+    pills:["CHFA","Statewide","DPA","Targeted Areas","Household Income","Education"],
+    overview:"CHFA is the foundation of Colorado homebuyer assistance. If you are buying anywhere in Colorado and want to explore down payment help, CHFA is almost certainly part of the conversation. But CHFA has income limit nuances that regularly cause buyers to either assume they qualify when they do not, or assume they do not qualify when they actually do. The targeted area rule is especially important: CHFA offers higher income and purchase price limits in federally designated targeted areas, and that map is buried in the FAQ section rather than prominently displayed on the income limits page. Buyers frequently disqualify themselves prematurely because they checked the standard limits without knowing the targeted area limits even exist.",
+    bestFor:[
+      "Buyers looking for a statewide starting point regardless of profession or region.",
+      "Buyers near the income limit who want to check whether targeted area limits apply to their property address.",
+      "First-time buyers comparing a CHFA grant path against a CHFA second mortgage path.",
+      "Buyers with a household of three or more who want to use the higher household-size income limits.",
+      "Teachers who want to understand the upcoming CHFA Schools To Home program launching July 2026."
+    ],
+    education:[
+      "CHFA requires homebuyer education for every borrower whose name is on the Note. This is different from metroDPA, which requires education for everyone on the Title.",
+      "The CHFA online course uses the eHome America portal and may require a follow-up phone call with a housing counselor before the certificate is issued.",
+      "CHFA-approved in-person classes are available through local HUD-approved agencies and may satisfy the requirement without a separate follow-up call.",
+      "Ask your lender which exact course format they will accept before registering. CHFA course requirements can vary by program path."
+    ],
+    paths:[
+      "CHFA first mortgage programs may pair with one CHFA DPA option, either a grant structure or a deferred second mortgage structure. Ask your lender to compare both and explain the long-term difference.",
+      "CHFA adjusts income limits by household size for most programs. A household of three or more may qualify at a higher income threshold than a one or two person household.",
+      "CHFA targeted areas offer higher income and purchase price limits than standard CHFA limits. The targeted area lookup map is in the CHFA FAQ section. Check your specific property address before assuming you are over the limit.",
+      "CHFA FirstGeneration and HomeAccess are additional program paths worth asking about if standard CHFA income or down payment requirements are a barrier.",
+      "CHFA Schools To Home is scheduled to launch in July 2026, offering Colorado teachers up to 25% down payment assistance with a shared appreciation structure. Teachers will need to complete a new additional course called Understanding Your Financial Commitment alongside the standard homebuyer education class."
+    ],
+    stacking:[
+      "CHFA does not allow stacking of multiple CHFA DPA options. You may use one CHFA DPA path per transaction.",
+      "Ask whether CHFA can be combined with seller credits and whether doing so affects the assistance structure.",
+      "CHFA and metroDPA may be available through some participating lenders. Ask your lender to compare both for your income and loan type rather than assuming one is automatically better.",
+      "CHFA Mortgage Credit Certificate (MCC) is a separate program that may be worth asking about alongside a CHFA first mortgage."
+    ],
+    questions:[
+      "Does my property address fall inside a CHFA targeted area, and if so, what are the higher income and purchase price limits that apply?",
+      "For my household size, which CHFA income limit applies, and am I close enough to the limit that targeted area rules could help?",
+      "Is the DPA option you are recommending a grant structure or a deferred second mortgage, and what is the long-term difference for my situation?",
+      "I am a teacher. What do I need to know about the CHFA Schools To Home program launching in July 2026, and should I wait or proceed now?",
+      "Which exact homebuyer education course and provider will this CHFA program require?",
+      "Does the income calculation for CHFA FirstStep or FirstGeneration count household members who are not on the mortgage?"
+    ],
+    counselorQ:[
+      "Which local HUD-approved agencies offer in-person CHFA education courses in this county?",
+      "Are CHFA funds currently available and what is the current processing timeline?",
+      "Is the non-borrowing spouse income counted for the program path being recommended?"
+    ],
+    watchouts:[
+      "CHFA does not lend directly to consumers. Every CHFA program requires a CHFA-participating lender. Find a participating lender on the CHFA website before assuming any lender can offer these programs.",
+      "CHFA income limits differ by household size for most programs, but metroDPA uses a flat income limit regardless of household size. The program that fits your income depends on which structure applies to you.",
+      "The CHFA targeted area map is buried in the FAQ section and is not linked from the income limits page. Buyers regularly disqualify themselves by checking only the standard limits. Always check your specific property address against the targeted area map.",
+      "Non-borrowing spouse income may be counted toward household income limits for certain CHFA programs like FirstStep and FirstGeneration even if the spouse is not on the mortgage.",
+      "The CHFA Schools To Home program for teachers is launching in July 2026 with a shared appreciation structure. Teachers will need to complete an additional Understanding Your Financial Commitment course. The shared appreciation means the program participates in the home's future value when sold."
+    ],
+    nextStep:"Before calling a lender, look up your specific property address in the CHFA targeted area map (found in the CHFA FAQ section), check the income limits for your household size, and write down which CHFA programs your lender participates in. That preparation will make the lender conversation significantly more efficient.",
+    links:[
+      ["CHFA Down Payment Assistance","https://www.chfainfo.com/homeownership/down-payment-assistance"],
+      ["CHFA Income and Purchase Price Limits","https://www.chfainfo.com/homeownership/income-limits"],
+      ["CHFA Find a Participating Lender","https://www.chfainfo.com/homeownership/find-a-participating-lender"],
+      ["CHFA Homebuyer Education","https://www.chfainfo.com/homeownership/homebuyer-education"],
+      ["Hero HomeReach Learning Center","/blog/"]
+    ]
   },
 
   chac: {
@@ -852,35 +898,121 @@ const explorerData = {
   },
 
   "denver-metro": {
-    kicker:"Regional path", title:"Denver Metro/Aurora/Front Range",
-    summary:"A high-value region for comparing statewide, regional, and local assistance paths.",
-    pills:["Front Range","metroDPA","CHFA","Local"],
-    overview:"Denver Metro and the Front Range can involve metroDPA, CHFA, local city or county programs, seller credits, and lender-specific overlays. A buyer in this region may have several possible starting points, but not every path works together. Program comparison before offer writing is especially important here.",
-    bestFor:["Front Range buyers comparing regional and statewide options.", "Buyers asking whether metroDPA may be worth exploring.", "VA buyers asking whether assistance can help with allowable closing costs."],
-    education: shared.education,
-    paths:["metroDPA may be worth exploring for eligible Front Range buyers through participating lenders.", "CHFA may also be available statewide, depending on lender review and program rules.", "Local programs in Denver-area municipalities may exist and should be verified before offer strategy."],
-    stacking: shared.stacking,
-    questions:["Is the property inside the current metroDPA service area?", "Is the assistance a deferred loan, forgivable structure, grant, or something else?", "Will using assistance affect refinance options or future repayment?", "Can this path be combined with seller credits?"],
-    counselorQ: shared.counselorQ,
-    watchouts: shared.watchouts,
-    nextStep:"Ask a participating lender to compare CHFA, metroDPA, seller credits, and any city-specific programs side by side before writing an offer.",
-    links:[["metroDPA Official Site","https://www.metro-dpa.com/"], ["Denver Housing Stability","https://denvergov.org/Government/Agencies-Departments-Offices/Agencies-Departments-Offices-Directory/Department-of-Housing-Stability/Resident-Resources/Affordable-Home-Ownership/metroDPA"], ["Hero HomeReach Contact","/contact.html"]]
+    kicker:"Regional path",
+    title:"Denver Metro / Aurora / Front Range",
+    summary:"One of Colorado's most active assistance regions, with real stacking potential and some of the most misunderstood repayment rules in the state.",
+    pills:["Front Range","metroDPA","CHFA","VA Strategy","Seller Credits"],
+    overview:"The Denver Metro and Front Range region gives buyers access to metroDPA, CHFA statewide programs, seller credit strategies, and VA loan stacking options. That sounds like a lot of opportunity, and it is. But this region also has some of the most misunderstood repayment traps in Colorado. The buyers who get hurt here are not the ones who skipped the research. They are the ones who read the words 'zero percent, no scheduled payments' and assumed they would never owe anything back.",
+    bestFor:[
+      "Front Range buyers comparing metroDPA with CHFA and seller credit options.",
+      "Veterans and military buyers who want to use VA loan benefits alongside closing cost assistance.",
+      "First responders, educators, and healthcare workers who need a cash-to-close strategy before writing an offer.",
+      "Buyers who are considering refinancing within five years and need to understand what that means for their second mortgage."
+    ],
+    education:[
+      "Every person listed on the Title or Warranty Deed for a metroDPA purchase must complete homebuyer education, even if they are not on the loan. If a spouse is added to the deed and skips the class, the loan will not close.",
+      "CHFA requires education for every borrower whose name is on the Note, not necessarily every person on the title.",
+      "Ask your lender which exact course and provider they will accept before registering for anything.",
+      "Track your certificate expiration date. Taking a class too early can mean the certificate expires before you close."
+    ],
+    paths:[
+      "metroDPA may provide assistance as a percentage of the first mortgage amount through approved Front Range lenders. On a $500,000 mortgage, assistance could potentially reach $20,000 or more depending on current program terms. Ask your lender for the current percentage and structure.",
+      "CHFA statewide programs may be available alongside or instead of metroDPA depending on your income, loan type, and lender. Ask your lender to compare both paths before choosing.",
+      "VA loan buyers with zero down payment may be able to direct metroDPA assistance entirely toward closing costs and prepaids, potentially creating a near-zero out-of-pocket purchase. This is a significant and undermarketed strategy worth asking about specifically.",
+      "Seller credits may help cover allowable closing costs under VA, FHA, or conventional loan rules, and can sometimes be layered alongside assistance programs when permitted by the lender and program.",
+      "CHFA Mortgage Credit Certificate (MCC) may also be worth asking about as a separate tax benefit that can stack with some assistance paths."
+    ],
+    stacking:[
+      "Ask whether metroDPA and CHFA can be combined for your specific loan type, because they cannot always be stacked automatically.",
+      "Ask whether seller credits can be added on top of assistance without creating lien-position or program conflicts.",
+      "VA buyers should ask whether the assistance can be directed specifically toward allowable closing costs rather than down payment, since VA loans already cover the down payment.",
+      "Do not assume any two programs stack until a participating lender confirms it in writing for your specific scenario."
+    ],
+    questions:[
+      "If I refinance in three to five years, what exactly happens to the metroDPA second mortgage, and will the program subordinate the loan?",
+      "Is the assistance structured as a grant, a forgivable loan, or a repayable second mortgage, and what events trigger repayment?",
+      "I am a veteran using a VA loan. Can I direct the metroDPA assistance entirely toward closing costs and prepaids instead of down payment?",
+      "Does my household income fall within the current metroDPA income limits, and does metroDPA use a flat income limit or adjust by household size?",
+      "Is the property inside the incorporated city or town limits required by metroDPA, or in an eligible unincorporated county area?",
+      "Can CHFA and metroDPA be compared side by side for my income, loan type, and purchase price before I choose a path?"
+    ],
+    counselorQ:[
+      "Which local housing counseling agencies serve this county or city?",
+      "Are metroDPA and CHFA funds currently available and accepting applications?",
+      "What happens to the second mortgage if I move out, convert the home to a rental, or sell?"
+    ],
+    watchouts:[
+      "metroDPA describes itself as a zero percent second mortgage with no scheduled payments. That does not mean the money is forgiven. It is a real loan that must be repaid in full. On a $500,000 mortgage with 4% assistance, that is $20,000 due as a lump sum the moment you refinance, because metroDPA will not subordinate the loan to a new first mortgage.",
+      "If you move out and convert the home to a rental, the full metroDPA balance becomes due immediately. The move-out clause catches buyers who planned to keep the home as an investment property years down the road.",
+      "Everyone listed on the Title or Warranty Deed must complete homebuyer education for metroDPA, even if they are not on the loan. A spouse added to the deed who skips the class will cause the loan to not close.",
+      "metroDPA uses the same income limit regardless of household size. CHFA adjusts income limits based on household size. The program that fits your income may depend on which structure you fall under.",
+      "metroDPA is available in 10 Front Range counties but must be within incorporated city or town limits, or eligible unincorporated county areas. Verify your specific property address before assuming eligibility."
+    ],
+    nextStep:"Before you call a lender, write down three things: your gross household income, your profession, and whether you are planning to refinance in the next five years. Those three answers will shape which path a lender recommends and which watch-outs matter most for your situation.",
+    links:[
+      ["metroDPA Official Site","https://www.metro-dpa.com/"],
+      ["CHFA Down Payment Assistance","https://www.chfainfo.com/homeownership/down-payment-assistance"],
+      ["VA Home Loans Overview","https://www.va.gov/housing-assistance/home-loans/"],
+      ["Hero HomeReach Learning Center","/blog/"],
+      ["Request a Hero Strategy Session","/contact.html"]
+    ]
   },
 
   metrodpa: {
-    kicker:"Front Range program path", title:"metroDPA",
-    summary:"A Front Range path where repayment terms, occupancy rules, and refinance restrictions should be clearly understood.",
-    pills:["metroDPA","Front Range","Second Mortgage","Lender Review"],
-    overview:"metroDPA may be worth exploring for Front Range buyers through approved lenders. The most important educational point is to understand whether the assistance is forgiven, deferred, repayable, or subject to occupancy and refinance rules before assuming it fits your plan.",
-    bestFor:["Front Range buyers in the metroDPA service area.", "Buyers who may not need a first-time buyer-only program.", "Eligible VA buyers asking about allowable closing cost assistance."],
-    education: shared.education,
-    paths:["metroDPA may assist with down payment, closing costs, or prepaids through participating lenders.", "It may be available with several loan types depending on current program rules.", "VA buyers may want to ask whether assistance can be directed toward allowable closing costs specifically."],
-    stacking: shared.stacking,
-    questions:["Is the second mortgage forgivable or repayable?", "What events trigger repayment?", "What happens if I refinance?", "Can this be paired with my loan type and seller credits?"],
-    counselorQ: shared.counselorQ,
-    watchouts:["Do not confuse no monthly payment with no repayment obligation.", "Refinance and move-out rules can matter years after closing.", "Ask the lender to explain the second mortgage terms in plain English before signing."],
-    nextStep:"Ask a participating lender to show the full repayment, occupancy, refinance, and seller credit rules in writing before choosing this path.",
-    links:[["metroDPA Official Site","https://www.metro-dpa.com/"], ["eHousingPlus metroDPA","https://www.ehousingplus.com/homeownership/metrodpa/"], ["Hero HomeReach Contact","/contact.html"]]
+    kicker:"Front Range program path",
+    title:"metroDPA",
+    summary:"A powerful Front Range assistance path that many buyers misread as free money. It is not. Understanding the repayment triggers before you sign may be the most important thing you do.",
+    pills:["metroDPA","Front Range","Second Mortgage","Repayment Triggers","VA Strategy"],
+    overview:"metroDPA may provide meaningful down payment and closing cost assistance for Front Range buyers through approved lenders. The program markets itself as a zero percent second mortgage with no scheduled payments, which is technically accurate. But buyers who read that and assume the money never comes back are making a potentially expensive mistake. The assistance is a real loan. It does not have monthly payments, but it has repayment triggers, and those triggers are more common than most buyers realize.",
+    bestFor:[
+      "Front Range buyers in the 10 eligible metroDPA counties who want a regional assistance option.",
+      "VA buyers who want to use the assistance specifically for closing costs rather than down payment.",
+      "Buyers who plan to stay in the home long-term without refinancing and want to understand their full repayment picture.",
+      "Buyers comparing metroDPA against CHFA and seller credit strategies before choosing a path."
+    ],
+    education:[
+      "Every person on the Title or Warranty Deed must complete homebuyer education, even if they are not the borrower. This is different from CHFA, which only requires education for borrowers on the Note.",
+      "Ask your lender which course provider metroDPA will accept before registering. Taking the wrong class means starting over.",
+      "Track your certificate expiration date. Some certificates expire before closing if the class was taken too early in the process."
+    ],
+    paths:[
+      "metroDPA assistance is calculated as a percentage of the first mortgage note amount, not the purchase price. Ask your lender for the current percentage, as it can vary by program tier and borrower profile.",
+      "The assistance may be directed toward down payment, closing costs, or prepaids depending on loan type and program rules. VA buyers with zero down payment may be able to apply the full assistance toward allowable closing costs.",
+      "metroDPA requires buyers to use an approved participating lender. You cannot apply to metroDPA directly. The lender underwrites both the first and second mortgage.",
+      "metroDPA is available with several loan types including FHA, VA, USDA, and conventional, subject to program rules and lender approval."
+    ],
+    stacking:[
+      "Ask whether metroDPA can be combined with seller credits for your specific loan type, and whether doing so creates any lien-position issues.",
+      "Ask whether metroDPA and CHFA can both be offered by your lender and which path makes more sense for your income and loan type.",
+      "Do not assume metroDPA stacks automatically with any other program. Get the full cash-to-close comparison in writing before choosing."
+    ],
+    questions:[
+      "What is the current metroDPA assistance percentage for my loan type and credit profile?",
+      "If I refinance in three to five years, will metroDPA subordinate the second mortgage, or does the full balance become due at closing?",
+      "What other events trigger full repayment of the metroDPA second mortgage?",
+      "I am a veteran. Can I direct the metroDPA assistance entirely toward allowable closing costs instead of down payment?",
+      "Is this property inside an eligible metroDPA service area, specifically within the incorporated city limits or eligible unincorporated county area?",
+      "Does everyone on the title need to complete homebuyer education even if they are not on the loan?"
+    ],
+    counselorQ:[
+      "Which housing counseling agencies in this county are metroDPA-approved?",
+      "Are metroDPA funds currently available and what is the current wait time?",
+      "What happens to my second mortgage if I move out and rent the home?"
+    ],
+    watchouts:[
+      "Refinancing triggers immediate full repayment of the metroDPA second mortgage. The program will not subordinate the loan to a new first mortgage. On a $500,000 mortgage, that could mean $20,000 or more due as a lump sum the day you refinance, even if rates have dropped significantly.",
+      "Moving out and converting the home to a rental also triggers immediate full repayment. Buyers who plan to keep the home as an investment property down the road need to factor this in before signing.",
+      "metroDPA uses a flat income limit regardless of household size. A family of four and a single borrower face the same income cap. If your household income is near the limit, verify the exact current figure with a participating lender.",
+      "The program must be used within incorporated city or town limits, or eligible unincorporated county areas in the 10 Front Range counties. Verify your specific property address, not just your county.",
+      "The VA and metroDPA stacking strategy is real but is not advertised on the metroDPA consumer website. Ask for it specifically."
+    ],
+    nextStep:"Ask a metroDPA-participating lender to give you the full repayment trigger list in plain English, the current assistance percentage for your loan type, and a side-by-side comparison with CHFA and seller credits before you choose this path.",
+    links:[
+      ["metroDPA Official Site","https://www.metro-dpa.com/"],
+      ["eHousingPlus metroDPA","https://www.ehousingplus.com/homeownership/metrodpa/"],
+      ["Denver Housing Stability metroDPA Page","https://denvergov.org/Government/Agencies-Departments-Offices/Agencies-Departments-Offices-Directory/Department-of-Housing-Stability/Resident-Resources/Affordable-Home-Ownership/metroDPA"],
+      ["Hero HomeReach Contact","/contact.html"]
+    ]
   },
 
   "douglas-county": {
@@ -932,19 +1064,60 @@ const explorerData = {
   },
 
   "western-slope": {
-    kicker:"Regional and local path", title:"Western Slope",
-    summary:"A region where local nonprofit, county, city, and counseling resources may matter more than statewide paths.",
-    pills:["Western Slope","Local","CHFA","Counseling"],
-    overview:"Western Slope buyers should look beyond statewide programs and search for local nonprofit, city, county, and employer-related assistance. In some areas, local programs may be more relevant than statewide paths.",
-    bestFor:["Buyers in Mesa County and broader Western Slope communities.", "Buyers who may benefit from local housing nonprofits.", "Buyers comparing regional counseling with statewide programs."],
-    education: shared.education,
-    paths:["CHFA may still be a statewide path to review.", "Housing Resources of Western Colorado and local housing nonprofits may be worth exploring by county.", "Some Western Slope paths may be deferred loans rather than grants, so repayment terms matter."],
-    stacking: shared.stacking,
-    questions:["Which agency serves this county or city?", "Does the program assist with down payment, closing costs, repairs, or counseling?", "What triggers repayment if the buyer sells, refinances, or moves?"],
-    counselorQ: shared.counselorQ,
-    watchouts: shared.watchouts,
-    nextStep:"Start with county-specific housing resources, then ask a lender whether CHFA, USDA, or seller credits can be added safely.",
-    links:[["Housing Resources of Western Colorado","https://hrwco.org/programs/"], ["CHFA Homeownership","https://www.chfainfo.com/homeownership"], ["Hero HomeReach Learning Center","/blog/"]]
+    kicker:"Regional and local path",
+    title:"HomesFund / Southwest Colorado",
+    summary:"Southwest Colorado has its own assistance model, its own education rules, and a hidden budget requirement that most buyers never see coming.",
+    pills:["HomesFund","Southwest CO","Shared Appreciation","In-Person Education","Budget Review"],
+    overview:"Southwest Colorado buyers in La Plata, Montezuma, Archuleta, San Juan, and Dolores counties have access to HomesFund, a locally run nonprofit assistance program with a completely different model than anything offered statewide. HomesFund uses shared appreciation rather than a grant or standard second mortgage structure, which means the assistance does not have monthly payments, but the program shares in a percentage of your home's increased value when you sell or refinance. Before exploring this path, three things matter more than the program brochure: the education rule, the income rule, and the budget review rule that almost nobody knows about.",
+    bestFor:[
+      "Buyers purchasing in La Plata, Montezuma, Archuleta, San Juan, or Dolores counties specifically.",
+      "Buyers in Durango, Cortez, Pagosa Springs, and surrounding Southwest Colorado communities.",
+      "Buyers who understand that assistance without monthly payments still involves long-term shared equity obligations.",
+      "Educators, first responders, and healthcare workers working in Southwest Colorado's school districts, hospitals, and public agencies."
+    ],
+    education:[
+      "HomesFund does not accept online homebuyer education courses like eHome America. The course must be completed in person. Buyers who take the $75 online class and submit it to HomesFund will have it rejected and need to start over.",
+      "Ask HomesFund directly which in-person course providers they accept before registering for anything.",
+      "Every adult over 18 living in the household may need to be counted for income purposes even if they are not on the loan. Verify the household income counting rules before assuming you qualify."
+    ],
+    paths:[
+      "HomesFund provides down payment and closing cost assistance through a shared appreciation model. There are no monthly payments on the assistance, but when you sell or refinance, you owe the original assistance amount plus a percentage of the home's appreciated value.",
+      "HomesFund is strictly limited to buyers purchasing in the five eligible Southwest Colorado counties. Denver, Front Range, or other Colorado buyers cannot use this program.",
+      "CHFA statewide programs may also be available in Southwest Colorado depending on lender participation and income limits. Ask a CHFA-participating lender whether CHFA is a better fit than HomesFund for your specific situation.",
+      "USDA rural loan eligibility may apply in parts of Southwest Colorado depending on specific property address. Check property eligibility before assuming USDA applies."
+    ],
+    stacking:[
+      "Ask whether HomesFund can be combined with seller credits and what the shared appreciation percentage means for your specific assistance amount.",
+      "Shared appreciation programs mean the more your home appreciates, the more you owe when you sell or refinance. Ask HomesFund to walk you through a scenario based on your expected purchase price and estimated appreciation.",
+      "Ask whether CHFA and HomesFund can be combined or whether they are alternative paths requiring a choice."
+    ],
+    questions:[
+      "What is the current shared appreciation percentage, and can you show me an example of what I would owe if my home appreciates by 20% over five years?",
+      "Which in-person homebuyer education course providers does HomesFund accept, and where are those classes held?",
+      "Does the income calculation include every adult over 18 living in my household even if they are not on the loan?",
+      "I need to prove I can save 5% of my gross monthly income after all expenses including the new mortgage. Can you walk me through exactly how that budget review works?",
+      "What happens to the shared appreciation obligation if I refinance, and does the program subordinate to a new first mortgage?",
+      "Is CHFA a better fit than HomesFund for my income, purchase price, and loan type in this county?"
+    ],
+    counselorQ:[
+      "Can HomesFund walk me through the full budget review requirement before I apply?",
+      "Which lenders in Southwest Colorado participate in HomesFund programs?",
+      "What happens to the shared appreciation balance if I sell during a flat or declining market?"
+    ],
+    watchouts:[
+      "HomesFund requires a rigorous budget review to qualify. Buyers must demonstrate they can save 5% of their gross monthly income after all expenses, including the proposed new mortgage payment. This rule is not prominently featured on the HomesFund website and catches many buyers off guard during the application process.",
+      "Do not take an online homebuyer education course for HomesFund. The program requires in-person education and will not accept online certificates. Paying $75 for an online class that gets rejected is a common and avoidable mistake.",
+      "Every adult over 18 living in the household may be counted toward income limits, not just the borrower. A roommate, adult child, or non-borrowing spouse could affect your eligibility.",
+      "HomesFund is strictly limited to La Plata, Montezuma, Archuleta, San Juan, and Dolores counties. If you are outside those five counties, this program does not apply regardless of your income or situation.",
+      "Shared appreciation means the program participates in your home's future value. If your home appreciates significantly, the amount owed when you sell or refinance will be meaningfully higher than the original assistance amount."
+    ],
+    nextStep:"Contact HomesFund directly to request a plain-English explanation of the shared appreciation percentage, the budget review requirement, and the approved in-person education providers for your county before starting a loan application.",
+    links:[
+      ["HomesFund Official Site","https://homesfund.org/"],
+      ["CHFA Income Limits","https://www.chfainfo.com/homeownership/income-limits"],
+      ["USDA Property Eligibility","https://eligibility.sc.egov.usda.gov/eligibility/welcomeAction.do"],
+      ["Hero HomeReach Contact","/contact.html"]
+    ]
   },
 
   mountain: {
@@ -1012,41 +1185,123 @@ const explorerData = {
   },
 
   education: {
-    kicker:"Process protection path", title:"Homebuyer Education",
-    summary:"A quiet but important requirement that can affect timing, certificate validity, and path to closing.",
-    pills:["Education","Certificate","Timing","Follow-up"],
-    overview:"Homebuyer education can be the quiet tripwire in Colorado assistance. The right course, the right portal, certificate timing, and required follow-up calls can all affect your path to closing. Ask your lender which course they accept before registering for anything.",
-    bestFor:["Buyers considering CHFA, metroDPA, DCHP, CHAC, or local assistance.", "Co-borrowers who may both need certificates.", "Buyers who want to avoid closing delays caused by education timing issues."],
-    education:[
-      "Confirm the exact course before paying for anything — ask your lender first.",
-      "Ask whether a follow-up phone call is required after the online course before the certificate is issued.",
-      "Track the certificate expiration date — it can expire before closing if taken too early.",
-      "CHAC has a separate mandatory one-on-one counseling session in addition to the homebuyer class.",
-      "Each borrower on the loan may need their own valid certificate."
+    kicker:"Process protection path",
+    title:"Homebuyer Education",
+    summary:"The wrong class, the wrong provider, or the wrong timing can delay or kill a closing. This is the most underestimated step in the Colorado assistance process.",
+    pills:["Education","Certificate","Timing","Follow-up","metroDPA Title Rule","CHFA Note Rule"],
+    overview:"Homebuyer education sounds simple. Take a class, get a certificate, close your loan. But Colorado has multiple programs with different education requirements, different approved providers, different follow-up steps, and different rules about who in the household needs to complete the course. Getting this wrong is one of the most common and avoidable reasons Colorado assistance closings get delayed. The single most important rule: ask your lender which exact course they will accept before you register for anything.",
+    bestFor:[
+      "Any buyer considering CHFA, metroDPA, CHAC, HomesFund, DCHP, or local assistance programs.",
+      "Co-borrowers or spouses who need to understand whether they also need a certificate.",
+      "Buyers who want to take the class early in the process without risking an expired certificate before closing.",
+      "Teachers preparing for the CHFA Schools To Home program launching July 2026, which requires an additional separate course."
     ],
-    paths:["CHFA-approved in-person classes are available through local providers.", "CHFA online education uses the eHome America portal and may require a follow-up session.", "Some programs accept Framework, while CHFA mortgage loans may require a different specific provider.", "CHAC requires registration through the CHAC website if choosing an online provider."],
-    stacking:["When combining programs, ask whether one education certificate satisfies all program requirements.", "Ask whether local programs require additional counseling beyond the standard class.", "Ask if every borrower or title holder must complete education.", "CHAC requires a separate counseling session in addition to the standard class."],
-    questions:["Which exact course and provider will this lender and program accept?", "Does the online course require a follow-up phone call before the certificate is issued?", "Does each borrower need a separate certificate?", "Will the certificate still be valid at the time of closing?"],
-    counselorQ: shared.counselorQ,
-    watchouts:["Do not assume all online homebuyer education courses are interchangeable.", "Each borrower may need their own certificate — not a shared one.", "A certificate can expire before closing if taken too early in the process.", "CHAC has a mandatory one-on-one counseling requirement beyond the standard class certificate."],
-    nextStep:"Before registering for any class, ask your lender which exact education provider and certificate format they will accept for the loan path being considered.",
-    links:[["CHFA Homebuyer Education","https://www.chfainfo.com/homeownership/homebuyer-education"], ["eHome America CHFA Portal","https://chfainfo.ehomeamerica.org/"], ["Hero HomeReach Learning Center","/blog/"]]
+    education:[
+      "metroDPA requires education for every person on the Title or Warranty Deed, even if they are not on the loan. This is the Title Rule. If a spouse is on the deed and skips the class, the loan will not close.",
+      "CHFA requires education for every borrower whose name is on the Note, meaning the mortgage document. This is the Note Rule. A non-borrowing spouse on the title but not the loan may not need CHFA education, but may need it for metroDPA if they are on the deed.",
+      "HomesFund requires in-person education only. Online courses including eHome America are not accepted. Taking an online class for HomesFund wastes the class fee and the time.",
+      "CHAC requires a standard homebuyer education class plus a separate mandatory one-on-one counseling session by phone after conditional loan commitment. The counseling session is not the same as the class.",
+      "The CHFA Schools To Home program for teachers requires the standard homebuyer education class plus an additional course called Understanding Your Financial Commitment. Both must be completed before closing."
+    ],
+    paths:[
+      "CHFA online education uses the eHome America portal and may require a follow-up phone call with a HUD-approved housing counselor before the certificate is issued.",
+      "CHFA in-person classes are available through local HUD-approved agencies and may satisfy the education requirement without a separate follow-up call.",
+      "Some programs accept Framework as an alternative online provider. Confirm with your specific lender and program before using Framework.",
+      "CHAC buyers must register through the CHAC website if choosing an online provider, not directly through the online platform. Using the wrong registration path may mean the certificate is not accepted."
+    ],
+    stacking:[
+      "When using multiple programs, ask whether one education certificate satisfies all program requirements or whether separate courses are needed.",
+      "CHAC always requires a separate one-on-one counseling session in addition to the standard class, regardless of which other programs are being used.",
+      "CHFA Schools To Home requires a second separate course in addition to the standard class. Teachers using this program need to plan for both.",
+      "Ask whether the certificate from one class satisfies both the CHFA Note requirement and the metroDPA Title requirement, or whether separate submissions are needed."
+    ],
+    questions:[
+      "Which exact course, provider, and portal will this program and lender accept for homebuyer education?",
+      "Does the online course require a follow-up phone call with a housing counselor before the certificate is issued?",
+      "Under this program, who in my household needs to complete education? Is it everyone on the Note, everyone on the Title, or everyone in the household?",
+      "If my spouse will be on the deed but not the loan, do they need to complete education for metroDPA?",
+      "Will my education certificate still be valid at the time of closing, and when does it expire?",
+      "I am pursuing CHAC. When exactly do I need to schedule the mandatory one-on-one counseling session relative to the loan timeline?"
+    ],
+    counselorQ:[
+      "Which local HUD-approved agencies offer in-person homebuyer education courses in this county?",
+      "For CHAC, which agency provides the mandatory one-on-one counseling session and how far in advance should it be scheduled?",
+      "Is there a wait time for the counseling session that could affect my closing timeline?"
+    ],
+    watchouts:[
+      "Taking the wrong course for the wrong program is a common and avoidable mistake. A $75 online class rejected by HomesFund means starting over. Always confirm the approved provider before registering.",
+      "metroDPA requires education for everyone on the Title, not just the borrower. A spouse added to the deed who does not take the class will cause the loan to not close.",
+      "Education certificates expire. If you take the class too early in the homebuying process, the certificate may expire before closing and you may need to retake the course.",
+      "CHAC has a mandatory one-on-one counseling session that is separate from and in addition to the standard homebuyer class. Missing or delaying this session can delay or prevent closing.",
+      "CHFA Schools To Home for teachers requires two separate courses, not one. Plan for both before starting the application process."
+    ],
+    nextStep:"Before registering for any homebuyer education course, ask your lender three questions: Which provider do you accept? Who in my household needs to complete it? And does the online version require a follow-up call? Those three answers protect your closing timeline.",
+    links:[
+      ["CHFA Homebuyer Education","https://www.chfainfo.com/homeownership/homebuyer-education"],
+      ["eHome America CHFA Portal","https://chfainfo.ehomeamerica.org/"],
+      ["HUD Housing Counselor Finder","https://www.hud.gov/program_offices/housing/sfh/hcc/hcs"],
+      ["Hero HomeReach Learning Center","/blog/"]
+    ]
   },
 
   "va-strategy": {
-    kicker:"Hero buyer strategy", title:"VA + Assistance Strategy",
-    summary:"A planning path for eligible military and veteran buyers who still need cash-to-close clarity.",
-    pills:["VA","Military","Closing Costs","Seller Credits"],
-    overview:"Eligible military and veteran buyers may have a powerful loan structure, but zero down payment does not automatically mean zero cash needed at closing. The strategy conversation should include closing costs, funding fee treatment, seller credits, assistance program compatibility, and lender-specific rules.",
-    bestFor:["Eligible veterans and active-duty military buyers.", "Buyers who understand VA covers down payment but still need cash-to-close clarity.", "Buyers comparing seller credits with assistance options.", "Military spouses and surviving spouses who may qualify for VA benefits."],
-    education: shared.education,
-    paths:["VA loan benefits may eliminate down payment requirements for eligible buyers.", "Seller credits may help with allowable closing costs under VA rules.", "Some regional assistance paths may be available with VA loans depending on program rules and lender approval."],
-    stacking: shared.stacking,
-    questions:["What closing costs and prepaids remain after the VA down payment benefit?", "Can seller credits cover specific allowable closing costs?", "Can this assistance program be used alongside a VA loan?", "How is the VA funding fee handled in my specific scenario?"],
-    counselorQ: shared.counselorQ,
-    watchouts:["VA benefits do not automatically remove all cash-to-close items — closing costs, inspections, escrows, and earnest money may still apply.", "Assistance programs may have their own lender overlays beyond standard VA rules.", "Only a qualified lender can calculate the actual Loan Estimate for your situation."],
-    nextStep:"Ask a VA-experienced lender to prepare a side-by-side cash-to-close estimate comparing: seller credits only, assistance only, and both combined.",
-    links:[["VA Home Loans","https://www.va.gov/housing-assistance/home-loans/"], ["CHFA Participating Lenders","https://www.chfainfo.com/homeownership/find-a-participating-lender"], ["Hero HomeReach Contact","/contact.html"]]
+    kicker:"Hero buyer strategy",
+    title:"VA + Assistance Strategy",
+    summary:"Veterans are the most underserved buyers in Colorado homebuyer education. Zero down is powerful, but the stacking strategies most advisors never mention may be the biggest opportunity in this guide.",
+    pills:["VA Loan","Military","Closing Costs","metroDPA Stack","MCC","Seller Credits"],
+    overview:"Eligible veterans and active-duty military buyers have access to one of the most powerful loan structures available. But zero down payment does not mean zero cash needed at closing. Closing costs, inspections, escrows, earnest money, and the VA funding fee can add up to thousands of dollars even on a VA loan. What most advisors miss, and what most veterans never hear, is that Colorado has legitimate stacking strategies that can dramatically reduce or potentially eliminate that remaining cash requirement. The VA and metroDPA combination is real, undermarketed, and worth asking about specifically.",
+    bestFor:[
+      "Eligible veterans, active-duty military, and surviving spouses comparing VA loan paths with Colorado assistance options.",
+      "Military buyers near Peterson SFB, Fort Carson, Buckley SFB, or other Colorado installations.",
+      "Veterans who know VA covers down payment but still need help with closing costs, prepaids, or the funding fee.",
+      "Military buyers who have been told by a lender that assistance programs do not apply to VA loans, and want to verify that."
+    ],
+    education:[
+      "Homebuyer education may be required if assistance programs are layered with the VA loan. Ask which course the specific program and lender will accept.",
+      "VA buyers using metroDPA will need to work through a metroDPA-approved participating lender who underwrites both mortgages.",
+      "The VA funding fee can sometimes be financed into the loan, which affects the total loan amount and any assistance calculated as a percentage of that amount. Ask your lender how this interacts with your assistance path."
+    ],
+    paths:[
+      "VA loan benefits may eliminate the down payment requirement entirely for eligible buyers, making the remaining cash-to-close conversation about closing costs, prepaids, escrows, and the funding fee rather than a large down payment.",
+      "metroDPA assistance may be directed entirely toward allowable closing costs for VA buyers, since the down payment is already covered by the VA benefit. This creates a potential near-zero out-of-pocket purchase scenario that most lenders do not proactively offer. Ask for it specifically.",
+      "Seller credits may cover additional allowable closing costs under VA loan rules, and may be combinable with assistance programs depending on lender approval and program rules.",
+      "CHFA Mortgage Credit Certificate (MCC) may be available alongside a VA loan, providing an annual federal tax credit on mortgage interest paid. Ask whether this applies to your situation.",
+      "CHFA first mortgage programs may also be worth comparing if VA is not the best fit for a specific property or situation."
+    ],
+    stacking:[
+      "The VA and metroDPA combination is confirmed valid under program rules, but is not advertised on the metroDPA consumer website. Ask a participating lender specifically whether they offer this combination.",
+      "Seller credits on a VA loan must follow VA allowable cost rules. Ask your lender which costs seller credits can legally cover before writing the credit into your offer.",
+      "CHFA MCC and VA loan compatibility should be confirmed with a CHFA-participating lender before assuming they can be used together.",
+      "Do not accept a simple 'no' if a lender says assistance does not apply to VA loans without asking which specific programs they offer and whether metroDPA is among them."
+    ],
+    questions:[
+      "Do you offer metroDPA alongside VA loans, and can the assistance be directed entirely toward closing costs since my down payment is already covered?",
+      "What closing costs, prepaids, and escrows will remain after my VA down payment benefit, and what is the realistic cash-to-close estimate?",
+      "How is the VA funding fee handled in my scenario, and does financing it into the loan affect my assistance calculation?",
+      "Is the CHFA Mortgage Credit Certificate available with a VA loan, and how does the annual tax credit work?",
+      "Can seller credits be structured to cover my remaining allowable costs under VA rules, and how much can the seller contribute?",
+      "If I have a VA loan and use metroDPA, what repayment triggers do I need to understand for the second mortgage?"
+    ],
+    counselorQ:[
+      "Which local housing counseling agencies work with veterans and VA loan borrowers specifically?",
+      "Are there any Colorado veteran-specific assistance programs beyond metroDPA and CHFA that I should ask about?",
+      "What happens to the metroDPA second mortgage if I sell, move, or refinance?"
+    ],
+    watchouts:[
+      "Zero down on a VA loan does not mean zero cash at closing. Closing costs, inspections, escrows, earnest money, and potentially the VA funding fee still apply. Ask for a full Loan Estimate before assuming your out-of-pocket requirement is zero.",
+      "The VA and metroDPA stacking strategy is real but undermarketed. The metroDPA consumer website does not mention VA-specific benefits. If your lender does not bring it up, ask for it directly.",
+      "Assistance programs layered with VA loans may have their own lender overlays beyond standard VA rules. A participating lender approval is required before assuming any combination works.",
+      "metroDPA refinance rules apply to VA buyers the same as any other borrower. If you refinance later, the full metroDPA balance becomes due as a lump sum because the program will not subordinate.",
+      "Some lenders redirect veterans away from state and local DPA programs because the VA benefit already covers the down payment. This causes veterans to miss closing cost strategies that could reduce their cash requirement significantly."
+    ],
+    nextStep:"Ask a VA-experienced lender who also participates in metroDPA to build you a full cash-to-close comparison with three scenarios: VA only, VA with metroDPA directed at closing costs, and VA with seller credits. That comparison will show you exactly where the stacking opportunity is.",
+    links:[
+      ["VA Home Loans Overview","https://www.va.gov/housing-assistance/home-loans/"],
+      ["metroDPA Official Site","https://www.metro-dpa.com/"],
+      ["CHFA Find a Participating Lender","https://www.chfainfo.com/homeownership/find-a-participating-lender"],
+      ["Hero HomeReach Learning Center","/blog/"],
+      ["Book a Hero Strategy Session","/contact.html"]
+    ]
   },
 
   "seller-credits": {
@@ -1077,20 +1332,20 @@ const mapHotspots = [
   // ── INNER MAP — Mountain / Western cards ──────────────────────────────────────
   {id:'mountain',          label:'Grand County DPA',                 x:'24.0%', y:'21.5%', w:'14.0%', h:'8.5%'},
   {id:'mountain',          label:'Mountain Workforce Housing',       x:'35.5%', y:'35.5%', w:'14.5%', h:'9.0%'},
-  {id:'western-slope',     label:'Western Slope Home Resources',     x:'28%', y:'52%', w:'14.0%', h:'8.5%'},
-  {id:'western-slope',     label:'HomesFund Southwest CO',           x:'21.0%', y:'68%', w:'14.0%', h:'9.0%'},
+  {id:'western-slope',     label:'Western Slope Home Resources',     x:'26.5%', y:'49.5%', w:'14.0%', h:'8.5%'},
+  {id:'western-slope',     label:'HomesFund Southwest CO',           x:'21.0%', y:'71.5%', w:'14.0%', h:'9.0%'},
   // ── INNER MAP — Front Range vertical stack ────────────────────────────────────
   {id:'northern-colorado', label:'Northern Colorado Program Search', x:'65.0%', y:'19.0%', w:'15.5%', h:'7.5%'},
   {id:'boulder-longmont',  label:'Boulder / Longmont Options',       x:'65.0%', y:'27.5%', w:'15.5%', h:'7.5%'},
   {id:'metrodpa',          label:'MetroDPA Down Payment Resource',   x:'65.0%', y:'35.5%', w:'15.5%', h:'7.5%'},
-  {id:'denver-metro',      label:'Aurora Homebuyer Assistance',      x:'67.0%', y:'45.25%', w:'15.5%', h:'7.5%'},
-  {id:'douglas-county',    label:'Douglas County DPA',               x:'68%', y:'52.5%', w:'15.5%', h:'7.0%'},
-  {id:'pikes-peak',        label:'Pikes Peak / Colorado Springs',    x:'69.5%', y:'61%', w:'16.5%', h:'7.5%'},
-  {id:'southern-colorado', label:'Southern Colorado DPA',            x:'70%', y:'69%', w:'16.5%', h:'7.5%'},
+  {id:'denver-metro',      label:'Aurora Homebuyer Assistance',      x:'65.0%', y:'43.5%', w:'15.5%', h:'7.5%'},
+  {id:'douglas-county',    label:'Douglas County DPA',               x:'65.5%', y:'51.0%', w:'15.5%', h:'7.0%'},
+  {id:'pikes-peak',        label:'Pikes Peak / Colorado Springs',    x:'66.0%', y:'58.5%', w:'16.5%', h:'7.5%'},
+  {id:'southern-colorado', label:'Southern Colorado DPA',            x:'66.0%', y:'66.5%', w:'16.5%', h:'7.5%'},
   // ── RIGHT SIDEBAR — Rural Access + Statewide Strategies ──────────────────────
-  {id:'rural-usda',        label:'USDA Rural Possibility Areas',     x:'93%', y:'32.5%', w:'10.0%', h:'28.0%'},
-  {id:'va-strategy',       label:'VA + Assistance Strategy',         x:'93%', y:'57.0%', w:'10.0%', h:'12.0%'},
-  {id:'seller-credits',    label:'Seller Credit Strategies',         x:'93%', y:'73%', w:'10.0%', h:'11.0%'},
+  {id:'rural-usda',        label:'USDA Rural Possibility Areas',     x:'94.5%', y:'32.5%', w:'10.0%', h:'28.0%'},
+  {id:'va-strategy',       label:'VA + Assistance Strategy',         x:'94.5%', y:'57.0%', w:'10.0%', h:'12.0%'},
+  {id:'seller-credits',    label:'Seller Credit Strategies',         x:'94.5%', y:'69.5%', w:'10.0%', h:'11.0%'},
 ];
 
 /* ── STATE ────────────────────────────────────────────── */
