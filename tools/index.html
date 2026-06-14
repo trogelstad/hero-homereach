@@ -106,7 +106,47 @@
   max-width: 580px;
   margin: 0 auto;
 }
+@media (max-width: 768px) {
+  .tools-hero {
+    padding: calc(var(--nav-h, 72px) + 44px) 20px 56px;
+  }
 
+  .tools-hero-inner {
+    max-width: 100%;
+  }
+
+  .tools-hero-eyebrow {
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    margin-bottom: 16px;
+  }
+
+  .tools-hero h1 {
+    font-size: clamp(34px, 11vw, 46px);
+    line-height: 1.02;
+    margin-bottom: 18px;
+  }
+
+  .tools-hero p {
+    font-size: 16px;
+    line-height: 1.65;
+    max-width: 92%;
+  }
+}
+
+@media (max-width: 480px) {
+  .tools-hero {
+    padding: calc(var(--nav-h, 72px) + 36px) 18px 48px;
+  }
+
+  .tools-hero h1 {
+    font-size: clamp(30px, 12vw, 40px);
+  }
+
+  .tools-hero p {
+    font-size: 15px;
+  }
+}
     .tools-main {
       background:var(--cool-white);
       padding:42px 24px 54px;
