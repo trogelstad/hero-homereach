@@ -251,23 +251,43 @@
   z-index:2;
 }
 
-.map-hotspot:hover,
-.map-hotspot:focus-visible,
-.map-hotspot.active {
-  background:var(--bright-gold);
-  transform:translate(-50%,-50%) scale(1.18);
-  box-shadow:0 0 0 6px rgba(234,184,74,.3),0 8px 18px rgba(12,45,94,.28);
+.map-hotspot-layer {
+  position:absolute;
+  inset:0;
+  z-index:4;
+  pointer-events:none;
+}
+
+.map-hotspot {
+  position:absolute;
+  left:var(--x);
+  top:var(--y);
+  width:var(--w);
+  height:var(--h);
+  transform:translate(-50%,-50%);
+  background:transparent !important;
+  border:0 !important;
+  border-radius:8px;
+  cursor:pointer;
+  z-index:5;
+  pointer-events:auto;
+  box-shadow:none !important;
   outline:none;
+}
+
+.map-hotspot::before {
+  display:none !important;
+  content:none !important;
 }
 
 .map-hotspot::after {
   content:attr(data-label);
   position:absolute;
   left:50%;
-  bottom:calc(100% + 10px);
+  bottom:calc(100% + 8px);
   transform:translateX(-50%);
   width:max-content;
-  max-width:190px;
+  max-width:240px;
   padding:7px 10px;
   border-radius:6px;
   background:var(--navy);
@@ -279,8 +299,14 @@
   line-height:1.25;
   opacity:0;
   pointer-events:none;
-  transition:opacity .2s;
+  transition:opacity .18s ease;
   white-space:normal;
+}
+
+.map-hotspot:hover,
+.map-hotspot:focus-visible {
+  background:rgba(234,184,74,.08) !important;
+  box-shadow:0 0 0 2px rgba(201,151,58,.45) !important;
 }
 
 .map-hotspot:hover::after,
