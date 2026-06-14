@@ -17,11 +17,5 @@
         }
       ]
     }
-  ],
-  "rewrites": [
-    {
-      "source": "/tools/colorado-assistance-explorer/colorado-dpa-map-optimized-q90.webp",
-      "destination": "/tools/colorado-assistance-explorer/colorado-dpa-map-optimized-q90.webp"
-    }
   ]
 }
