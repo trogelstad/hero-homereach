@@ -501,6 +501,228 @@
       .tool-page-header h1 { font-size:26px; }
       .fs-card-actions { width:100%; justify-content:flex-start; }
     }
+
+    /* ══════════════════════════════════════════════════════
+       MOBILE EXPLORER FLOW (≤900px)
+       After profession selection, the experience becomes:
+       AI ask → Region list → Full-width answer panel
+       The map is hidden by default on mobile.
+    ══════════════════════════════════════════════════════ */
+
+    /* Mobile AI hero — shown after profession selected */
+    .mobile-ai-hero {
+      display:none;
+      background:var(--navy);
+      padding:24px 20px 20px;
+      border-bottom:2px solid rgba(201,151,58,.3);
+    }
+    .mobile-ai-hero-label {
+      font:800 10px/1 Inter,sans-serif;
+      letter-spacing:.14em; text-transform:uppercase;
+      color:var(--bright-gold); margin-bottom:8px; display:block;
+    }
+    .mobile-ai-hero h2 {
+      font-family:"Playfair Display",Georgia,serif;
+      font-size:clamp(20px,5vw,28px); font-weight:400;
+      color:#fff; line-height:1.1; margin:0 0 14px;
+    }
+    .mobile-ai-hero-input-row { display:flex; gap:8px; }
+    .mobile-ai-hero-input {
+      flex:1; height:46px;
+      border:1.5px solid rgba(255,255,255,.2);
+      border-radius:10px; padding:0 14px;
+      font:400 14px/1 Inter,sans-serif;
+      color:#fff; background:rgba(255,255,255,.1);
+      outline:none; transition:border-color .18s;
+    }
+    .mobile-ai-hero-input::placeholder { color:rgba(255,255,255,.4); }
+    .mobile-ai-hero-input:focus { border-color:var(--bright-gold); }
+    .mobile-ai-hero-btn {
+      height:46px; padding:0 16px; border-radius:10px;
+      background:var(--gold); color:#fff; border:none;
+      font:800 13px/1 Inter,sans-serif; letter-spacing:.04em;
+      text-transform:uppercase; cursor:pointer;
+      transition:background .18s; white-space:nowrap; flex-shrink:0;
+    }
+    .mobile-ai-hero-btn:disabled { opacity:.5; cursor:not-allowed; }
+    .mobile-ai-hero-btn:hover:not(:disabled) { background:var(--bright-gold); }
+    .mobile-ai-response {
+      margin-top:14px; padding:14px 16px;
+      background:rgba(255,255,255,.08);
+      border:1px solid rgba(201,151,58,.3);
+      border-radius:10px; border-left:3px solid var(--gold);
+      display:none;
+    }
+    .mobile-ai-response.visible { display:block; }
+    .mobile-ai-response-label {
+      font:800 10px/1 Inter,sans-serif; letter-spacing:.12em;
+      text-transform:uppercase; color:var(--bright-gold);
+      margin-bottom:8px; display:block;
+    }
+    .mobile-ai-response-text {
+      font:400 13px/1.75 Inter,sans-serif; color:rgba(255,255,255,.85);
+    }
+    .mobile-ai-response-text p { margin:0 0 8px; }
+    .mobile-ai-response-text p:last-child { margin:0; }
+    .mobile-view-map-btn {
+      display:block; width:100%; margin-top:14px;
+      background:transparent; border:1px solid rgba(255,255,255,.2);
+      border-radius:8px; padding:11px 16px;
+      color:rgba(255,255,255,.6); font:600 12px/1 Inter,sans-serif;
+      letter-spacing:.04em; text-transform:uppercase;
+      cursor:pointer; text-align:center;
+      transition:border-color .18s, color .18s;
+    }
+    .mobile-view-map-btn:hover { border-color:rgba(255,255,255,.5); color:#fff; }
+
+    /* Mobile region list — shown after profession selected */
+    .mobile-region-flow {
+      display:none;
+      background:var(--cool-white);
+    }
+    .mobile-region-flow-inner { padding:20px 20px 8px; }
+    .mobile-region-flow-label {
+      font:800 10px/1 Inter,sans-serif; letter-spacing:.14em;
+      text-transform:uppercase; color:var(--gold);
+      margin-bottom:16px; display:block;
+    }
+    .mobile-region-grid { display:grid; gap:10px; margin-bottom:20px; }
+    .mobile-region-card {
+      background:#fff; border:1.5px solid #e8e8e8;
+      border-radius:12px; padding:16px 18px;
+      display:flex; align-items:center; justify-content:space-between;
+      gap:12px; cursor:pointer;
+      transition:border-color .18s, transform .18s, box-shadow .18s;
+      text-align:left; font-family:inherit;
+    }
+    .mobile-region-card:hover,
+    .mobile-region-card.active {
+      border-color:var(--gold);
+      transform:translateY(-1px);
+      box-shadow:0 4px 16px rgba(12,45,94,.1);
+    }
+    .mobile-region-card.active { background:#fffbf2; }
+    .mobile-region-card-left { flex:1; }
+    .mobile-region-card-badge {
+      font:800 9px/1 Inter,sans-serif; letter-spacing:.08em;
+      text-transform:uppercase; padding:4px 8px;
+      border-radius:20px; color:#7A5A00; background:#faeeda;
+      margin-bottom:6px; display:inline-block;
+    }
+    .mobile-region-card-title {
+      font:700 15px/1.25 Inter,sans-serif;
+      color:var(--near-black);
+    }
+    .mobile-region-card-desc {
+      font:400 12px/1.5 Inter,sans-serif;
+      color:#888; margin-top:3px;
+    }
+    .mobile-region-card-arrow {
+      color:var(--gold); font-size:18px; flex-shrink:0;
+    }
+
+    /* Mobile answer panel — slides in after region selected */
+    .mobile-answer-panel {
+      display:none;
+      background:#fff;
+      border-top:2px solid var(--gold);
+      padding:0;
+    }
+    .mobile-answer-panel.open { display:block; }
+    .mobile-answer-header {
+      background:var(--navy); padding:18px 20px;
+      display:flex; align-items:center; justify-content:space-between; gap:12px;
+    }
+    .mobile-answer-back {
+      background:transparent; border:none;
+      color:rgba(255,255,255,.7); font:600 13px/1 Inter,sans-serif;
+      cursor:pointer; padding:4px 0;
+      display:flex; align-items:center; gap:6px;
+    }
+    .mobile-answer-back:hover { color:#fff; }
+    .mobile-answer-kicker {
+      font:800 10px/1 Inter,sans-serif; letter-spacing:.12em;
+      text-transform:uppercase; color:var(--bright-gold);
+      margin-bottom:4px; display:block;
+    }
+    .mobile-answer-title {
+      font-family:"Playfair Display",Georgia,serif;
+      font-size:clamp(18px,5vw,24px); font-weight:400;
+      color:#fff; line-height:1.15; margin:0;
+    }
+    .mobile-answer-body { padding:20px; }
+    .mobile-answer-summary {
+      font:400 14px/1.7 Inter,sans-serif; color:#555;
+      padding-bottom:16px; border-bottom:1px solid #ebebeb; margin-bottom:16px;
+    }
+    .mobile-answer-section-label {
+      font:800 10px/1 Inter,sans-serif; letter-spacing:.12em;
+      text-transform:uppercase; color:var(--gold);
+      margin-bottom:10px; display:block;
+    }
+    .mobile-answer-list { margin:0 0 16px; padding-left:18px; }
+    .mobile-answer-list li {
+      font:400 13px/1.7 Inter,sans-serif; color:#444;
+      margin-bottom:8px;
+    }
+    .mobile-answer-actions {
+      display:flex; flex-direction:column; gap:10px;
+      padding-top:16px; border-top:1px solid #ebebeb; margin-top:8px;
+    }
+    .mobile-answer-btn-primary {
+      display:block; width:100%; padding:14px 20px;
+      background:var(--gold); color:#fff; border:none;
+      border-radius:8px; font:800 13px/1 Inter,sans-serif;
+      letter-spacing:.04em; text-transform:uppercase;
+      cursor:pointer; text-align:center; text-decoration:none;
+      transition:background .18s;
+    }
+    .mobile-answer-btn-primary:hover { background:var(--bright-gold); }
+    .mobile-answer-btn-secondary {
+      display:block; width:100%; padding:13px 20px;
+      background:#fff; color:var(--navy); border:1.5px solid #e0e0e0;
+      border-radius:8px; font:700 13px/1 Inter,sans-serif;
+      cursor:pointer; text-align:center; text-decoration:none;
+      transition:border-color .18s;
+    }
+    .mobile-answer-btn-secondary:hover { border-color:var(--gold); }
+    .mobile-answer-btn-dossier {
+      display:block; width:100%; padding:13px 20px;
+      background:var(--navy); color:#fff; border:none;
+      border-radius:8px; font:700 13px/1 Inter,sans-serif;
+      cursor:pointer; text-align:center;
+      transition:background .18s;
+    }
+    .mobile-answer-btn-dossier:hover { background:var(--mid-navy); }
+
+    /* Pill chips on mobile answer */
+    .mobile-answer-pills {
+      display:flex; flex-wrap:wrap; gap:6px; margin-bottom:16px;
+    }
+    .mobile-answer-pill {
+      font:800 9px/1 Inter,sans-serif; letter-spacing:.08em;
+      text-transform:uppercase; padding:5px 9px;
+      border-radius:20px; color:#7A5A00; background:#faeeda;
+    }
+
+    @media (max-width:900px) {
+      /* Hide desktop map section entirely on mobile */
+      .tool-featured { display:none !important; }
+      /* Hide desktop pathway shelves on mobile */
+      .tool-shelves { display:none !important; }
+      /* Hide old mobile region list (we have a better one now) */
+      .tool-mobile-regions { display:none !important; }
+      /* Show our new mobile components */
+      .mobile-ai-hero { display:block; }
+      .mobile-region-flow { display:block; }
+    }
+
+    @media (min-width:901px) {
+      /* Hide all mobile-only components on desktop */
+      .mobile-ai-hero,
+      .mobile-region-flow,
+      .mobile-answer-panel { display:none !important; }
+    }
   </style>
 </head>
 
@@ -550,6 +772,64 @@
     <a class="tool-tab" href="/tools/">All Tools</a>
     <a class="tool-tab" href="/blog/how-to-stack-down-payment-programs-colorado.html">Stacking Guide</a>
     <a class="tool-tab" href="/contact.html">Ask for Help</a>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     MOBILE AI HERO + REGION FLOW
+     Only visible on mobile (≤900px) after profession selected
+═══════════════════════════════════════════════════════ -->
+
+<!-- Mobile AI Ask Hero (shown after profession selected) -->
+<div class="mobile-ai-hero" id="mobileAiHero" style="display:none;">
+  <span class="mobile-ai-hero-label">Explorer Intelligence</span>
+  <h2 id="mobileAiHeadline">What do you want to know about your options?</h2>
+  <div class="mobile-ai-hero-input-row">
+    <input class="mobile-ai-hero-input" type="text" id="mobileAiQuestion"
+      placeholder="e.g. Can I use my VA loan with metroDPA?" maxlength="200">
+    <button class="mobile-ai-hero-btn" type="button" id="mobileAiBtn">Ask</button>
+  </div>
+  <div class="mobile-ai-response" id="mobileAiResponse">
+    <span class="mobile-ai-response-label">Explorer Intelligence</span>
+    <div class="mobile-ai-response-text" id="mobileAiResponseText"></div>
+  </div>
+  <button class="mobile-view-map-btn" type="button" id="mobileViewMapBtn">
+    ⊞ View Full Map Instead
+  </button>
+</div>
+
+<!-- Mobile Region Flow (shown after profession selected) -->
+<div class="mobile-region-flow" id="mobileRegionFlow" style="display:none;">
+  <div class="mobile-region-flow-inner">
+    <span class="mobile-region-flow-label" id="mobileRegionLabel">Tap a region or program to explore</span>
+    <div class="mobile-region-grid" id="mobileRegionGrid"></div>
+  </div>
+</div>
+
+<!-- Mobile Answer Panel (slides in after region selected) -->
+<div class="mobile-answer-panel" id="mobileAnswerPanel">
+  <div class="mobile-answer-header">
+    <button class="mobile-answer-back" type="button" id="mobileAnswerBack">
+      ← Back
+    </button>
+    <div style="flex:1; text-align:right;">
+      <span class="mobile-answer-kicker" id="mobileAnswerKicker">Educational starting point</span>
+      <h2 class="mobile-answer-title" id="mobileAnswerTitle"></h2>
+    </div>
+  </div>
+  <div class="mobile-answer-body">
+    <p class="mobile-answer-summary" id="mobileAnswerSummary"></p>
+    <div class="mobile-answer-pills" id="mobileAnswerPills"></div>
+    <span class="mobile-answer-section-label">What to understand first</span>
+    <p style="font:400 13px/1.7 Inter,sans-serif; color:#444; margin:0 0 16px;" id="mobileAnswerOverview"></p>
+    <span class="mobile-answer-section-label">Possible assistance paths</span>
+    <ul class="mobile-answer-list" id="mobileAnswerPaths"></ul>
+    <div class="mobile-answer-actions">
+      <button class="mobile-answer-btn-dossier" type="button" id="mobileOpenDossier">Open Full Program Details</button>
+      <a class="mobile-answer-btn-primary" href="/contact.html">Book a Free Hero Strategy Session</a>
+      <button class="mobile-answer-btn-secondary" type="button" onclick="hhmOpen()">Download Free Guide</button>
+    </div>
   </div>
 </div>
 
@@ -611,7 +891,7 @@
           <p>Hover or click any labeled area on the map to open the detail panel. This is a visual educational guide, not a boundary map, eligibility map, or program approval tool.</p>
         </div>
         <div class="tool-map-wrap">
-          <img src="/tools/colorado-dpa-map-optimized-q90.webp"
+          <img src="/tools/colorado-assistance-explorer/colorado-dpa-map-optimized-q90.webp"
                alt="Hero HomeReach Colorado homebuyer assistance map showing statewide, regional, rural, mountain, and local assistance resources across Colorado."
                loading="eager" draggable="false">
           <div class="map-hotspot-layer" id="mainHotspotLayer"></div>
@@ -634,33 +914,6 @@
         </div>
         <div class="tool-panel-body">
           <div class="tool-pill-row" id="panelPills"></div>
-          <div class="tool-tabs" role="tablist" aria-label="Detail tabs">
-            <button class="tool-drawer-tab active" type="button" role="tab" data-tab="overview">Overview</button>
-            <button class="tool-drawer-tab" type="button" role="tab" data-tab="paths">Paths</button>
-            <button class="tool-drawer-tab" type="button" role="tab" data-tab="questions">Questions</button>
-            <button class="tool-drawer-tab" type="button" role="tab" data-tab="watchouts">Watch-outs</button>
-            <button class="tool-drawer-tab" type="button" role="tab" data-tab="links">Links</button>
-          </div>
-          <div class="tool-drawer-section active" data-section="overview">
-            <h3>What to understand first</h3>
-            <p id="panelOverview"></p>
-          </div>
-          <div class="tool-drawer-section" data-section="paths">
-            <h3>Possible assistance paths</h3>
-            <ul id="panelPaths"></ul>
-          </div>
-          <div class="tool-drawer-section" data-section="questions">
-            <h3>Questions to ask</h3>
-            <ul id="panelQuestions"></ul>
-          </div>
-          <div class="tool-drawer-section" data-section="watchouts">
-            <h3>Watch-outs</h3>
-            <ul id="panelWatchouts"></ul>
-          </div>
-          <div class="tool-drawer-section" data-section="links">
-            <h3>Official and Hero HomeReach links</h3>
-            <div class="tool-link-list" id="panelLinks"></div>
-          </div>
           <!-- ── SITUATION CHIPS ── -->
           <div class="chips-section" id="chipsSection">
             <span class="chips-label">I am a&hellip;</span>
@@ -687,6 +940,33 @@
                 <div class="ai-response-text" id="aiResponseText"></div>
               </div>
             </div>
+          </div>
+          <div class="tool-tabs" role="tablist" aria-label="Detail tabs">
+            <button class="tool-drawer-tab active" type="button" role="tab" data-tab="overview">Overview</button>
+            <button class="tool-drawer-tab" type="button" role="tab" data-tab="paths">Paths</button>
+            <button class="tool-drawer-tab" type="button" role="tab" data-tab="questions">Questions</button>
+            <button class="tool-drawer-tab" type="button" role="tab" data-tab="watchouts">Watch-outs</button>
+            <button class="tool-drawer-tab" type="button" role="tab" data-tab="links">Links</button>
+          </div>
+          <div class="tool-drawer-section active" data-section="overview">
+            <h3>What to understand first</h3>
+            <p id="panelOverview"></p>
+          </div>
+          <div class="tool-drawer-section" data-section="paths">
+            <h3>Possible assistance paths</h3>
+            <ul id="panelPaths"></ul>
+          </div>
+          <div class="tool-drawer-section" data-section="questions">
+            <h3>Questions to ask</h3>
+            <ul id="panelQuestions"></ul>
+          </div>
+          <div class="tool-drawer-section" data-section="watchouts">
+            <h3>Watch-outs</h3>
+            <ul id="panelWatchouts"></ul>
+          </div>
+          <div class="tool-drawer-section" data-section="links">
+            <h3>Official and Hero HomeReach links</h3>
+            <div class="tool-link-list" id="panelLinks"></div>
           </div>
           <!-- ── PANEL ACTIONS ── -->
           <div class="tool-panel-actions">
@@ -821,7 +1101,7 @@
   </div>
   <div class="fs-map-wrap" id="fsMapWrap">
     <div class="fs-map-inner">
-      <img src="/tools/colorado-dpa-map-optimized-q90.webp"
+      <img src="/tools/colorado-assistance-explorer/colorado-dpa-map-optimized-q90.webp"
            alt="Colorado homebuyer assistance map full view"
            draggable="false" id="fsMapImg">
       <div class="fs-hotspot-layer" id="fsHotspotLayer"></div>
@@ -1745,20 +2025,25 @@ function initProfessionSelector(){
 
       // Short delay then transition to tool
       setTimeout(() => {
-        // Hide selector, show page header
+        // Hide selector
         selector.style.transition = 'opacity .3s ease';
         selector.style.opacity = '0';
         setTimeout(() => {
           selector.style.display = 'none';
-          pageHeader.style.display = 'block';
-          // Update h1 and p for their profession
-          const h1 = document.getElementById('toolPageH1');
-          const p = document.getElementById('toolPageP');
-          if(h1) h1.textContent = profToHeadline[prof];
-          if(p) p.textContent = 'Tap any labeled area on the map or choose a pathway card below. Program availability and eligibility vary.';
-          // Scroll to map
-          const mapSection = document.getElementById('interactive-map');
-          if(mapSection) mapSection.scrollIntoView({behavior:'smooth', block:'start'});
+
+          if(isMobile()) {
+            // MOBILE: show AI hero + region flow
+            showMobileFlow(prof);
+          } else {
+            // DESKTOP: show page header and scroll to map
+            pageHeader.style.display = 'block';
+            const h1 = document.getElementById('toolPageH1');
+            const p = document.getElementById('toolPageP');
+            if(h1) h1.textContent = profToHeadline[prof];
+            if(p) p.textContent = 'Tap any labeled area on the map or choose a pathway card below. Program availability and eligibility vary.';
+            const mapSection = document.getElementById('interactive-map');
+            if(mapSection) mapSection.scrollIntoView({behavior:'smooth', block:'start'});
+          }
         }, 300);
       }, 180);
     });
@@ -1767,9 +2052,13 @@ function initProfessionSelector(){
   if(skipBtn){
     skipBtn.addEventListener('click', () => {
       selector.style.display = 'none';
-      pageHeader.style.display = 'block';
-      const mapSection = document.getElementById('interactive-map');
-      if(mapSection) mapSection.scrollIntoView({behavior:'smooth', block:'start'});
+      if(isMobile()) {
+        showMobileFlow('veteran');
+      } else {
+        pageHeader.style.display = 'block';
+        const mapSection = document.getElementById('interactive-map');
+        if(mapSection) mapSection.scrollIntoView({behavior:'smooth', block:'start'});
+      }
     });
   }
 }
@@ -1860,6 +2149,218 @@ async function fireAiRequest(){
     btn.textContent = 'Ask';
   }
 }
+
+
+
+/* ══════════════════════════════════════════════════════
+   MOBILE EXPLORER FLOW
+   Separate from desktop. Runs only on ≤900px.
+══════════════════════════════════════════════════════ */
+
+// Mobile region definitions — ordered for hero audiences first
+const mobileRegions = [
+  // Hero-first
+  { id:'va-strategy',       badge:'Military',      title:'VA + Assistance Strategy',        desc:'Zero down plus closing cost strategies' },
+  { id:'denver-metro',      badge:'Front Range',   title:'Denver Metro / Front Range',       desc:'metroDPA, CHFA, VA stacking' },
+  { id:'pikes-peak',        badge:'Military Hub',  title:'Colorado Springs / Pikes Peak',    desc:'Fort Carson, Peterson SFB, CHFA, VA' },
+  { id:'chfa',              badge:'Statewide',     title:'CHFA Statewide Programs',          desc:"Colorado's main DPA resource" },
+  { id:'metrodpa',          badge:'Front Range',   title:'metroDPA',                         desc:'Front Range assistance and repayment rules' },
+  { id:'boulder-longmont',  badge:'Local',         title:'Boulder / Longmont',               desc:'Higher-price market paths' },
+  { id:'douglas-county',    badge:'Local',         title:'Douglas County',                   desc:'Castle Rock, Parker, Highlands Ranch' },
+  { id:'northern-colorado', badge:'Regional',      title:'Northern Colorado',                desc:'Fort Collins, Loveland, Greeley area' },
+  { id:'western-slope',     badge:'Southwest CO',  title:'HomesFund / Southwest Colorado',   desc:'Durango, Cortez, shared appreciation' },
+  { id:'mountain',          badge:'High-Cost',     title:'Mountain Communities',             desc:'Workforce housing, deed restrictions' },
+  { id:'rural-usda',        badge:'Rural',         title:'Rural Colorado / USDA',            desc:'Property eligibility first' },
+  { id:'southern-colorado', badge:'Regional',      title:'Southern Colorado / Pueblo',       desc:'Statewide, local, USDA paths' },
+  { id:'seller-credits',    badge:'Strategy',      title:'Seller Credit Strategies',         desc:'Reduce cash to close at contract' },
+  { id:'education',         badge:'Process',       title:'Homebuyer Education',              desc:'Which class, when, and who needs it' },
+  { id:'chac',              badge:'Statewide',     title:'CHAC Statewide Support',           desc:'Low-interest second mortgage' },
+  { id:'chenoa',            badge:'National DPA',  title:'Chenoa Fund',                      desc:'Ask your lender about this path' },
+];
+
+const profToMobileHeadline = {
+  veteran:    'What do you want to know about Colorado VA and closing cost strategies?',
+  educator:   'What do you want to know about Colorado teacher homebuyer assistance?',
+  responder:  'What do you want to know about first responder home buying in Colorado?',
+  healthcare: 'What do you want to know about Colorado assistance for healthcare workers?',
+};
+
+let mobileCurrentRegionId = null;
+let mobileActiveProfession = 'veteran';
+
+function isMobile() { return window.innerWidth <= 900; }
+
+function buildMobileRegionGrid(profFilter) {
+  const grid = document.getElementById('mobileRegionGrid');
+  if (!grid) return;
+  grid.innerHTML = '';
+  mobileRegions.forEach(region => {
+    const btn = document.createElement('button');
+    btn.className = 'mobile-region-card';
+    btn.type = 'button';
+    btn.dataset.id = region.id;
+    btn.innerHTML = `
+      <div class="mobile-region-card-left">
+        <span class="mobile-region-card-badge">${region.badge}</span>
+        <div class="mobile-region-card-title">${region.title}</div>
+        <div class="mobile-region-card-desc">${region.desc}</div>
+      </div>
+      <span class="mobile-region-card-arrow">›</span>
+    `;
+    btn.addEventListener('click', () => openMobileAnswer(region.id));
+    grid.appendChild(btn);
+  });
+}
+
+function openMobileAnswer(id) {
+  const d = explorerData[id];
+  if (!d) return;
+  mobileCurrentRegionId = id;
+
+  // Populate answer panel
+  document.getElementById('mobileAnswerKicker').textContent = d.kicker;
+  document.getElementById('mobileAnswerTitle').textContent = d.title;
+  document.getElementById('mobileAnswerSummary').textContent = d.summary;
+  document.getElementById('mobileAnswerOverview').textContent = d.overview;
+
+  // Pills
+  const pillsEl = document.getElementById('mobileAnswerPills');
+  pillsEl.innerHTML = '';
+  (d.pills || []).forEach(p => {
+    const s = document.createElement('span');
+    s.className = 'mobile-answer-pill';
+    s.textContent = p;
+    pillsEl.appendChild(s);
+  });
+
+  // Paths
+  const pathsEl = document.getElementById('mobileAnswerPaths');
+  pathsEl.innerHTML = '';
+  (d.paths || []).slice(0, 4).forEach(t => {
+    const li = document.createElement('li');
+    li.textContent = t;
+    pathsEl.appendChild(li);
+  });
+
+  // Wire up dossier button
+  document.getElementById('mobileOpenDossier').onclick = () => {
+    // Also load desktop panel for dossier
+    loadPanel(id, false, false);
+    openDossier(id);
+  };
+
+  // Highlight selected card
+  document.querySelectorAll('.mobile-region-card').forEach(c => {
+    c.classList.toggle('active', c.dataset.id === id);
+  });
+
+  // Show answer panel, scroll to top
+  const panel = document.getElementById('mobileAnswerPanel');
+  panel.classList.add('open');
+  panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function closeMobileAnswer() {
+  const panel = document.getElementById('mobileAnswerPanel');
+  panel.classList.remove('open');
+  // Scroll back to region list
+  document.getElementById('mobileRegionFlow').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+async function fireMobileAiRequest() {
+  const question = document.getElementById('mobileAiQuestion').value.trim();
+  if (!question) return;
+
+  const btn = document.getElementById('mobileAiBtn');
+  const wrap = document.getElementById('mobileAiResponse');
+  const text = document.getElementById('mobileAiResponseText');
+
+  btn.disabled = true;
+  btn.textContent = '...';
+  wrap.classList.add('visible');
+  text.innerHTML = '<span style="color:rgba(255,255,255,.5);font-style:italic;">Reading your situation…</span>';
+
+  // Use statewide as default region for top-level mobile AI asks
+  const regionId = mobileCurrentRegionId || 'statewide';
+
+  try {
+    const payload = {
+      regionId,
+      regionTitle: explorerData[regionId] ? explorerData[regionId].title : 'Statewide Colorado',
+      professionChip: mobileActiveProfession,
+      situationChips: [],
+      question
+    };
+
+    const response = await fetch('/api/explorer-ai', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    });
+
+    if (!response.ok) throw new Error('API error');
+
+    const data = await response.json();
+    const result = data.result || '';
+    const paras = result.split('\n\n').filter(function(p){return p.trim();});
+    text.innerHTML = paras.map(function(p){return '<p style="margin:0 0 8px;color:rgba(255,255,255,.85);font:400 13px/1.7 Inter,sans-serif;">'+p.trim()+'</p>';}).join('');
+
+  } catch(err) {
+    text.innerHTML = '<p style="color:rgba(255,255,255,.6);font-style:italic;">Something went wrong. Try booking a Hero Strategy Session directly.</p>';
+  } finally {
+    btn.disabled = false;
+    btn.textContent = 'Ask';
+  }
+}
+
+function initMobileExplorer() {
+  // Wire up mobile AI
+  const mobileAiBtn = document.getElementById('mobileAiBtn');
+  const mobileInput = document.getElementById('mobileAiQuestion');
+  if (mobileAiBtn) mobileAiBtn.addEventListener('click', fireMobileAiRequest);
+  if (mobileInput) mobileInput.addEventListener('keydown', e => {
+    if (e.key === 'Enter') fireMobileAiRequest();
+  });
+
+  // Wire up back button
+  const backBtn = document.getElementById('mobileAnswerBack');
+  if (backBtn) backBtn.addEventListener('click', closeMobileAnswer);
+
+  // Wire up "View Map" button
+  const mapBtn = document.getElementById('mobileViewMapBtn');
+  if (mapBtn) mapBtn.addEventListener('click', () => {
+    // Show desktop map section temporarily on mobile
+    const featuredSection = document.getElementById('interactive-map');
+    if (featuredSection) {
+      featuredSection.style.display = 'block';
+      featuredSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+}
+
+function showMobileFlow(profession) {
+  mobileActiveProfession = profession;
+
+  const hero = document.getElementById('mobileAiHero');
+  const flow = document.getElementById('mobileRegionFlow');
+
+  if (hero) {
+    hero.style.display = 'block';
+    const headline = document.getElementById('mobileAiHeadline');
+    if (headline) headline.textContent = profToMobileHeadline[profession] || profToMobileHeadline.veteran;
+  }
+
+  if (flow) {
+    flow.style.display = 'block';
+    buildMobileRegionGrid(profession);
+  }
+
+  // Scroll to AI hero
+  if (hero) hero.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+// Initialize
+initMobileExplorer();
 
 /* ── INIT ─────────────────────────────────────────────── */
 renderMainHotspots();
