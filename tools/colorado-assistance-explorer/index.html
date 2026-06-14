@@ -372,6 +372,31 @@
     .dossier-nextstep p { font:400 14px/1.7 Inter,sans-serif; color:#555; margin:0 0 14px; }
     .dossier-actions { display:flex; flex-wrap:wrap; gap:10px; margin-top:18px; padding-top:18px; border-top:1px solid #ebebeb; }
 
+
+    /* ── SITUATION CHIPS + AI LAYER ──────────────────────── */
+    .chips-section { border-top:1px solid #ebebeb; padding-top:14px; margin-top:4px; }
+    .chips-label { font:700 10px/1 Inter,sans-serif; letter-spacing:.12em; text-transform:uppercase; color:#999; margin-bottom:8px; display:block; }
+    .chip-row { display:flex; flex-wrap:wrap; gap:6px; margin-bottom:10px; }
+    .chip { font:700 11px/1 Inter,sans-serif; letter-spacing:.03em; padding:7px 12px; border-radius:20px; border:1.5px solid #e0e0e0; background:#fff; color:#555; cursor:pointer; transition:all .18s ease; }
+    .chip:hover { border-color:var(--gold); color:var(--navy); }
+    .chip.active { background:var(--navy); color:#fff; border-color:var(--navy); }
+    .chip.active:hover { background:var(--mid-navy); border-color:var(--mid-navy); }
+    .ai-ask-wrap { margin-top:12px; }
+    .ai-ask-input-row { display:flex; gap:8px; }
+    .ai-ask-input { flex:1; height:40px; border:1.5px solid #e0e0e0; border-radius:8px; padding:0 12px; font:400 13px/1 Inter,sans-serif; color:var(--near-black); outline:none; transition:border-color .18s; }
+    .ai-ask-input:focus { border-color:var(--mid-navy); }
+    .ai-ask-input::placeholder { color:#aaa; }
+    .ai-ask-btn { height:40px; padding:0 14px; border-radius:8px; background:var(--navy); color:#fff; border:none; font:700 12px/1 Inter,sans-serif; letter-spacing:.04em; text-transform:uppercase; cursor:pointer; transition:background .18s,transform .18s; white-space:nowrap; flex-shrink:0; }
+    .ai-ask-btn:hover:not(:disabled) { background:var(--mid-navy); transform:translateY(-1px); }
+    .ai-ask-btn:disabled { opacity:.5; cursor:not-allowed; }
+    .ai-response-wrap { margin-top:12px; padding:14px 16px; background:var(--cool-white); border:1px solid var(--line); border-radius:10px; border-left:3px solid var(--gold); display:none; }
+    .ai-response-wrap.visible { display:block; }
+    .ai-response-label { font:800 10px/1 Inter,sans-serif; letter-spacing:.12em; text-transform:uppercase; color:var(--gold); margin-bottom:8px; display:block; }
+    .ai-response-text { font:400 13px/1.75 Inter,sans-serif; color:#444; }
+    .ai-response-text p { margin:0 0 8px; }
+    .ai-response-text p:last-child { margin:0; }
+    .ai-thinking { font:400 13px/1.5 Inter,sans-serif; color:#aaa; font-style:italic; }
+
     /* ── RESPONSIVE ───────────────────────────────────────── */
     @media (max-width:1100px) {
       .tool-grid { grid-template-columns:1fr; }
@@ -521,6 +546,34 @@
             <h3>Official and Hero HomeReach links</h3>
             <div class="tool-link-list" id="panelLinks"></div>
           </div>
+          <!-- ── SITUATION CHIPS ── -->
+          <div class="chips-section" id="chipsSection">
+            <span class="chips-label">I am a&hellip;</span>
+            <div class="chip-row" id="professionChips">
+              <button class="chip active" type="button" data-chip="veteran" data-group="profession">Veteran / Military</button>
+              <button class="chip" type="button" data-chip="educator" data-group="profession">Educator</button>
+              <button class="chip" type="button" data-chip="responder" data-group="profession">First Responder</button>
+              <button class="chip" type="button" data-chip="healthcare" data-group="profession">Healthcare</button>
+            </div>
+            <span class="chips-label">My situation&hellip;</span>
+            <div class="chip-row" id="situationChips">
+              <button class="chip" type="button" data-chip="cash-to-close" data-group="situation">Reduce cash to close</button>
+              <button class="chip" type="button" data-chip="va-loan" data-group="situation">Using VA loan</button>
+              <button class="chip" type="button" data-chip="first-time" data-group="situation">First-time buyer</button>
+              <button class="chip" type="button" data-chip="refinance" data-group="situation">May refinance in 5 years</button>
+            </div>
+            <div class="ai-ask-wrap">
+              <div class="ai-ask-input-row">
+                <input class="ai-ask-input" type="text" id="aiQuestion" placeholder="Ask a question about this region&hellip;" maxlength="200">
+                <button class="ai-ask-btn" type="button" id="aiAskBtn">Ask</button>
+              </div>
+              <div class="ai-response-wrap" id="aiResponseWrap">
+                <span class="ai-response-label">Explorer Intelligence</span>
+                <div class="ai-response-text" id="aiResponseText"></div>
+              </div>
+            </div>
+          </div>
+          <!-- ── PANEL ACTIONS ── -->
           <div class="tool-panel-actions">
             <button class="tool-btn tool-btn-navy" type="button" id="openDossierBtn">Open Full Details</button>
             <button class="tool-btn tool-btn-gold" type="button" onclick="hhmOpen()">Download Free Guide</button>
@@ -1523,10 +1576,99 @@ $('fsCardDismiss').addEventListener('click',hideFsCard);
 $('fsOverlay').addEventListener('click',e=>{ if(e.target===$('fsOverlay')) closeFullscreen(); });
 document.addEventListener('keydown',e=>{ if(e.key==='Escape'){ closeDossierModal(); closeFullscreen(); } });
 
+
+/* ── SITUATION CHIPS + AI ─────────────────────────────── */
+let activeProfession = 'veteran';
+let activeSituations = new Set();
+
+function initChips(){
+  document.querySelectorAll('.chip').forEach(chip => {
+    chip.addEventListener('click', () => {
+      const group = chip.dataset.group;
+      const val = chip.dataset.chip;
+      if(group === 'profession'){
+        document.querySelectorAll('[data-group="profession"]').forEach(c => c.classList.remove('active'));
+        chip.classList.add('active');
+        activeProfession = val;
+      } else {
+        chip.classList.toggle('active');
+        if(chip.classList.contains('active')){
+          activeSituations.add(val);
+        } else {
+          activeSituations.delete(val);
+        }
+      }
+      // clear previous AI response when chips change
+      hideAiResponse();
+    });
+  });
+
+  const askBtn = document.getElementById('aiAskBtn');
+  const questionInput = document.getElementById('aiQuestion');
+
+  askBtn.addEventListener('click', fireAiRequest);
+  questionInput.addEventListener('keydown', e => {
+    if(e.key === 'Enter') fireAiRequest();
+  });
+}
+
+function hideAiResponse(){
+  const wrap = document.getElementById('aiResponseWrap');
+  if(wrap){ wrap.classList.remove('visible'); }
+}
+
+async function fireAiRequest(){
+  const question = document.getElementById('aiQuestion').value.trim();
+  const btn = document.getElementById('aiAskBtn');
+  const wrap = document.getElementById('aiResponseWrap');
+  const text = document.getElementById('aiResponseText');
+
+  if(!currentId) return;
+
+  // Show loading state
+  btn.disabled = true;
+  btn.textContent = '...';
+  wrap.classList.add('visible');
+  text.innerHTML = '<span class="ai-thinking">Reading your situation&hellip;</span>';
+
+  try {
+    const payload = {
+      regionId: currentId,
+      regionTitle: document.getElementById('panelTitle').textContent,
+      professionChip: activeProfession,
+      situationChips: Array.from(activeSituations),
+      question: question
+    };
+
+    const response = await fetch('/api/explorer-ai', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    });
+
+    if(!response.ok) throw new Error('API error ' + response.status);
+
+    const data = await response.json();
+    const result = data.result || '';
+
+    // Format paragraphs
+    const paragraphs = result.split(/\n\n+/).filter(p => p.trim());
+    text.innerHTML = paragraphs.map(p => `<p>${p.trim()}</p>`).join('');
+
+  } catch(err) {
+    text.innerHTML = '<span class="ai-thinking">Something went wrong. Please try again or book a Hero Strategy Session directly.</span>';
+    console.error('Explorer AI error:', err);
+  } finally {
+    btn.disabled = false;
+    btn.textContent = 'Ask';
+  }
+}
+
 /* ── INIT ─────────────────────────────────────────────── */
 renderMainHotspots();
 renderMobileRegions();
-loadPanel('statewide',false,false); // false = don't highlight any hotspot on initial load
+loadPanel('statewide',false,false);
+initChips(); // false = don't highlight any hotspot on initial load
 </script>
 
 <script type="text/javascript" id="hs-script-loader" async defer src="//js-na2.hs-scripts.com/244185002.js"></script>
