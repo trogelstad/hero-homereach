@@ -46,33 +46,69 @@
    PAGE HERO
 ════════════════════════════════ */
 #page-hero {
-  background: var(--navy);
-  padding: calc(var(--nav-h) + 56px) 0 64px;
+  background-color: var(--navy);
+  background-image: url('hero-homereach-contact-zoom-consultation-1920.webp');
+  background-size: cover;
+  background-position: 65% center;
+  background-repeat: no-repeat;
+  padding: calc(var(--nav-h) + 64px) 0 72px;
   position: relative; overflow: hidden;
 }
 #page-hero::before {
   content: '';
   position: absolute; inset: 0;
-  background-image: repeating-linear-gradient(
-    45deg,
-    rgba(201,151,58,0.03) 0px, rgba(201,151,58,0.03) 1px,
-    transparent 1px, transparent 60px
+  background: linear-gradient(
+    90deg,
+    rgba(12,45,94,0.97) 0%,
+    rgba(12,45,94,0.95) 35%,
+    rgba(12,45,94,0.65) 55%,
+    rgba(12,45,94,0.20) 75%,
+    rgba(12,45,94,0.05) 100%
   );
 }
 #page-hero::after { display: none; }
 
 .page-hero-inner {
   position: relative; z-index: 2;
-  text-align: center; max-width: 700px; margin: 0 auto;
+  max-width: 680px;
 }
 .page-eyebrow {
   display: inline-flex; align-items: center; gap: 10px;
   font-size: 11px; font-weight: 700; letter-spacing: 0.2em;
-  text-transform: uppercase; color: var(--gold); margin-bottom: 5px;
+  text-transform: uppercase; color: var(--gold); margin-bottom: 20px;
 }
-.page-hero-inner h1      { color: #fff; font-size: clamp(32px, 4vw, 50px); margin-bottom: 8px; }
+.page-eyebrow::before { content: ''; display: block; width: 28px; height: 2px; background: var(--gold); }
+.page-hero-inner h1      { color: #fff; font-size: clamp(32px, 4vw, 52px); margin-bottom: 20px; }
 .page-hero-inner h1 span { color: var(--gold); font-style: italic; }
-.page-hero-inner p       { color: rgba(255,255,255,0.7); font-size: 18px; max-width: 560px; margin: 0 auto; }
+.page-hero-inner .lead   { color: rgba(255,255,255,0.72); font-size: 18px; max-width: 580px; margin-bottom: 36px; }
+
+.hero-stats {
+  display: flex; gap: 40px; flex-wrap: wrap;
+  padding-top: 32px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+.hero-stat-num {
+  font-family: var(--font-head); font-size: 34px; font-weight: 900;
+  color: var(--gold); line-height: 1;
+}
+.hero-stat-label { font-size: 13px; color: rgba(255,255,255,0.5); margin-top: 4px; }
+
+@media (max-width: 768px) {
+  #page-hero { background-position: 75% center; }
+  #page-hero::before {
+    background: linear-gradient(
+      90deg,
+      rgba(12,45,94,0.92) 0%,
+      rgba(12,45,94,0.88) 50%,
+      rgba(12,45,94,0.70) 100%
+    );
+  }
+}
+@media (max-width: 600px) {
+  #page-hero { background-position: 80% center; }
+  #page-hero::before { background: rgba(12,45,94,0.88); }
+  .hero-stats { gap: 24px; }
+}
 
 #reassurance {
   background: #fff;
@@ -335,9 +371,23 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <section id="page-hero">
   <div class="container">
     <div class="page-hero-inner">
-      <div class="page-eyebrow">Free · No Pressure · 30 Minutes</div>
-      <h1>Let's Find Out What<br> <span>You've Earned</span></h1>
-      <p>Book a free 30-minute consultation and walk away knowing every Colorado program you qualify for! <br>Zero obligation, zero cost.</p>
+      <div class="page-eyebrow">Free Strategy Session for Colorado Heroes</div>
+      <h1>Let's Find Out What<br><span>You've Earned.</span></h1>
+      <p class="lead">Book a free 30-minute Hero Strategy Session. Walk away with a clear picture of every Colorado program you qualify for, how they stack together, and what your real cash-to-close number looks like. No obligation, no cost, no lender pressure.</p>
+      <div class="hero-stats">
+        <div class="hero-stat-item">
+          <div class="hero-stat-num">30 Min</div>
+          <div class="hero-stat-label">Free Strategy Session</div>
+        </div>
+        <div class="hero-stat-item">
+          <div class="hero-stat-num">$0</div>
+          <div class="hero-stat-label">Always Free to Heroes</div>
+        </div>
+        <div class="hero-stat-item">
+          <div class="hero-stat-num">Clear</div>
+          <div class="hero-stat-label">Your Full Program Picture</div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
