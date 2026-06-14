@@ -304,11 +304,13 @@
 
     .tools-disclaimer strong { color:var(--navy); }
 
-    @media (max-width:900px) {
-      .tool-feature-card,
-      .future-tools { grid-template-columns:1fr; }
-      .tool-feature-image { border-left:0; border-top:1px solid rgba(234,184,74,.18); }
-    }
+@media (max-width:900px) {
+  .tool-feature-card,
+  .future-tools { grid-template-columns:1fr; }
+  .tool-feature-image { border-left:0; border-top:1px solid rgba(234,184,74,.18); }
+  .tool-feature-copy { order:2; }
+  .tool-feature-image { order:1; }
+}
 
     @media (max-width:560px) {
       .tools-main { padding:28px 18px 42px; }
