@@ -20,9 +20,9 @@
         <img src="${LOGO_URL}" alt="Hero HomeReach shield logo">
         <div class="hhm-wordmark">Hero <span>HomeReach</span>™</div>
       </div>
-      <div class="hhm-eyebrow">Free Colorado Guide</div>
-      <h2 class="hhm-title" id="hhm-modal-title">Your Hero Homebuyer Guide Is Ready</h2>
-      <p class="hhm-subtitle">Real Colorado assistance paths, grants, and strategies built for educators, first responders, healthcare workers, and veterans.</p>
+      <div class="hhm-eyebrow">Free Colorado Homebuyer Guide</div>
+      <h2 class="hhm-title" id="hhm-modal-title">Most Colorado heroes leave thousands on the table. This guide shows you what to ask instead.</h2>
+      <p class="hhm-subtitle">Plain-English breakdowns of CHFA, metroDPA, VA stacking strategies, seller credits, and the watch-outs most lenders never mention, written for Colorado educators, first responders, healthcare workers, and military buyers.</p>
     </div>
     <div class="hhm-body" id="hhm-form-wrap">
       <div class="hhm-guide-strip">
@@ -74,8 +74,8 @@
     <div class="hhm-success" id="hhm-success-wrap">
       <div class="hhm-success-icon">&#10003;</div>
       <div class="hhm-success-title">Check Your Inbox</div>
-      <p class="hhm-success-body">Your Hero HomeReach Advantage guide is on its way. Ready to go deeper? Book a free 30-minute strategy session and we will map your personal assistance path together.</p>
-      <a class="hhm-success-cta" href="https://calendly.com/trogelstad-herohomereach/30min" target="_blank" rel="noopener">Book My Free Call &rarr;</a>
+      <p class="hhm-success-body">Your Hero HomeReach Advantage guide is on its way. Ready to go deeper? Book a free Hero Strategy Session and we will map your personal assistance path together before your first lender call.</p>
+      <a class="hhm-success-cta" href="https://calendly.com/trogelstad-herohomereach/30min" target="_blank" rel="noopener">Book My Free Strategy Session &rarr;</a>
     </div>
   </div>
 </div>`;
