@@ -97,7 +97,8 @@
       border-color:rgba(201,151,58,.8);
       box-shadow:0 0 0 3px rgba(201,151,58,.2), 0 4px 16px rgba(12,45,94,.2);
     }
-    .map-hotspot[aria-current="true"] {
+    /* active state only shown inside fullscreen — never on the small embedded map */
+    .fs-hotspot-layer .map-hotspot[aria-current="true"] {
       background:rgba(234,184,74,.18);
       border-color:var(--bright-gold);
       box-shadow:0 0 0 3px rgba(234,184,74,.3), 0 4px 20px rgba(12,45,94,.25);
@@ -198,15 +199,16 @@
       background:rgba(7,18,38,.97);
       display:none;
       flex-direction:column;
-      align-items:center;
-      justify-content:center;
+      align-items:stretch;
+      justify-content:flex-start;
       padding:0;
+      overflow:hidden;
     }
     .fs-overlay.open { display:flex; }
 
     /* top bar */
     .fs-topbar {
-      position:absolute; top:0; left:0; right:0;
+      position:relative;
       height:52px;
       background:rgba(12,45,94,.95);
       border-bottom:1px solid rgba(201,151,58,.3);
@@ -239,26 +241,37 @@
     }
     .fs-close:hover { background:rgba(255,255,255,.16); border-color:rgba(255,255,255,.6); }
 
-    /* map container */
+    /* ── FULLSCREEN MAP CONTAINER ─────────────────────────── */
     .fs-map-wrap {
       position:relative;
-      width:100%;
-      max-width:calc((100vh - 52px - 160px) * 1.777);
-      margin:0 auto;
-      margin-top:52px;
-      line-height:0;
+      flex:1;
+      min-height:0;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      overflow:hidden;
+      padding:12px;
+    }
+    /* inner wrapper — map fills screen width first, height is derived from 16:9 ratio */
+    .fs-map-inner {
+      position:relative;
+      /* On wide screens: fill width minus small margin */
+      width:min(calc(100vw - 24px), calc((100vh - 52px - 24px) * 1.7768));
+      aspect-ratio:1672/941;
       flex-shrink:0;
     }
-    .fs-map-wrap img {
+    .fs-map-inner img {
       width:100%;
       height:auto;
       display:block;
-      border-radius:0;
       user-select:none;
       -webkit-user-drag:none;
+      border-radius:4px;
+      box-shadow:0 8px 40px rgba(0,0,0,.5);
     }
     .fs-hotspot-layer {
-      position:absolute; inset:0;
+      position:absolute;
+      inset:0;
       z-index:4;
       pointer-events:none;
     }
@@ -639,10 +652,12 @@
     <button class="fs-close" type="button" id="fsClose" aria-label="Close full map">&times;</button>
   </div>
   <div class="fs-map-wrap" id="fsMapWrap">
-    <img src="colorado-dpa-map-optimized-q90.webp"
-         alt="Colorado homebuyer assistance map full view"
-         draggable="false" id="fsMapImg">
-    <div class="fs-hotspot-layer" id="fsHotspotLayer"></div>
+    <div class="fs-map-inner">
+      <img src="colorado-dpa-map-optimized-q90.webp"
+           alt="Colorado homebuyer assistance map full view"
+           draggable="false" id="fsMapImg">
+      <div class="fs-hotspot-layer" id="fsHotspotLayer"></div>
+    </div>
   </div>
 </div>
 
@@ -1086,7 +1101,7 @@ function renderLinks(el, items){ el.innerHTML=''; (items||shared.fallbackLinks).
 
 /* ── PANEL ────────────────────────────────────────────── */
 function setActiveTab(name){ document.querySelectorAll('.tool-drawer-tab').forEach(t=>t.classList.toggle('active',t.dataset.tab===name)); document.querySelectorAll('.tool-drawer-section').forEach(s=>s.classList.toggle('active',s.dataset.section===name)); }
-function loadPanel(id, scrollToPanel){
+function loadPanel(id, scrollToPanel, setActive){
   const d=explorerData[id]; if(!d) return;
   currentId=id;
   $('panelKicker').textContent=d.kicker;
@@ -1099,7 +1114,10 @@ function loadPanel(id, scrollToPanel){
   renderList($('panelWatchouts'),d.watchouts);
   renderLinks($('panelLinks'),d.links);
   setActiveTab('overview');
-  allHotspotButtons.forEach(b=>b.dataset.id===id?b.setAttribute('aria-current','true'):b.removeAttribute('aria-current'));
+  // only highlight hotspot buttons when triggered by a real user click
+  if(setActive){
+    allHotspotButtons.forEach(b=>b.dataset.id===id?b.setAttribute('aria-current','true'):b.removeAttribute('aria-current'));
+  }
   if(scrollToPanel && window.innerWidth < 1100){ document.querySelector('.tool-panel').scrollIntoView({behavior:'smooth',block:'start'}); }
 }
 
@@ -1168,7 +1186,7 @@ function syncFsHotspots(){
     btn.style.setProperty('--w',spot.w);
     btn.style.setProperty('--h',spot.h);
     btn.addEventListener('click',()=>{
-      loadPanel(spot.id,false);
+      loadPanel(spot.id,false,true);
       showFsCard(spot.id);
       layer.querySelectorAll('.map-hotspot').forEach(b=>b.dataset.id===spot.id?b.setAttribute('aria-current','true'):b.removeAttribute('aria-current'));
     });
@@ -1188,7 +1206,7 @@ function renderMainHotspots(){
     btn.style.setProperty('--y',spot.y);
     btn.style.setProperty('--w',spot.w);
     btn.style.setProperty('--h',spot.h);
-    btn.addEventListener('click',()=>loadPanel(spot.id,true));
+    btn.addEventListener('click',()=>loadPanel(spot.id,true,true));
     layer.appendChild(btn);
     buttons.push(btn);
   });
@@ -1202,14 +1220,14 @@ function renderMobileRegions(){
     const d=explorerData[id]; if(!d) return;
     const btn=document.createElement('button'); btn.className='tool-region-button'; btn.type='button';
     btn.textContent=d.title;
-    btn.addEventListener('click',()=>{ loadPanel(id,true); });
+    btn.addEventListener('click',()=>{ loadPanel(id,true,true); });
     list.appendChild(btn);
   });
 }
 
 /* ── PATHWAY CARDS ────────────────────────────────────── */
 document.querySelectorAll('.tool-card').forEach(card=>{
-  card.addEventListener('click',()=>{ const id=card.dataset.id; loadPanel(id,false); openDossier(id); });
+  card.addEventListener('click',()=>{ const id=card.dataset.id; loadPanel(id,false,true); openDossier(id); });
 });
 
 /* ── PANEL TABS ───────────────────────────────────────── */
@@ -1232,7 +1250,7 @@ document.addEventListener('keydown',e=>{ if(e.key==='Escape'){ closeDossierModal
 /* ── INIT ─────────────────────────────────────────────── */
 renderMainHotspots();
 renderMobileRegions();
-loadPanel('statewide',false);
+loadPanel('statewide',false,false); // false = don't highlight any hotspot on initial load
 </script>
 
 <script type="text/javascript" id="hs-script-loader" async defer src="//js-na2.hs-scripts.com/244185002.js"></script>
