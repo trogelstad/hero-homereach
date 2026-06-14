@@ -16,6 +16,15 @@
           "value": "application/pdf"
         }
       ]
+    },
+    {
+      "source": "/(.*).webp",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "image/webp"
+        }
+      ]
     }
   ]
 }
