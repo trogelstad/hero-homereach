@@ -5,6 +5,26 @@
       "source": "/index.html",
       "destination": "/",
       "permanent": true
+    },
+    {
+      "source": "/quiz",
+      "destination": "/tools/quiz/",
+      "permanent": true
+    },
+    {
+      "source": "/quiz.html",
+      "destination": "/tools/quiz/",
+      "permanent": true
+    },
+    {
+      "source": "/faq",
+      "destination": "/faq.html",
+      "permanent": true
+    },
+    {
+      "source": "/faq/",
+      "destination": "/faq.html",
+      "permanent": true
     }
   ],
   "headers": [
