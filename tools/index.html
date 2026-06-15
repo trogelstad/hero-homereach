@@ -18,7 +18,60 @@
   <link rel="stylesheet" href="/css/main.css">
 
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"WebApplication","name":"Colorado Assistance Explorer","url":"https://www.herohomereach.com/tools/colorado-assistance-explorer/","applicationCategory":"EducationalApplication","operatingSystem":"Any","description":"An educational interactive tool helping Colorado homebuyers explore possible homebuyer assistance paths by region, program type, and buyer situation. Not an eligibility determination.","provider":{"@type":"Organization","name":"Hero HomeReach","url":"https://www.herohomereach.com/"},"areaServed":{"@type":"State","name":"Colorado"},"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": "https://www.herohomereach.com/tools/",
+        "url": "https://www.herohomereach.com/tools/",
+        "name": "Colorado Assistance Explorer | Interactive Homebuyer Tool | Hero HomeReach",
+        "description": "Explore possible Colorado homebuyer assistance paths by region, program type, and buyer situation. Educational starting points for CHFA, CHAC, metroDPA, VA strategies, seller credits, homebuyer education, rural options, and local assistance paths.",
+        "inLanguage": "en-US",
+        "isPartOf": {"@id": "https://www.herohomereach.com/"},
+        "breadcrumb": {"@id": "https://www.herohomereach.com/tools/#breadcrumb"}
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://www.herohomereach.com/tools/#breadcrumb",
+        "itemListElement": [
+          {"@type":"ListItem","position":1,"name":"Home","item":"https://www.herohomereach.com/"},
+          {"@type":"ListItem","position":2,"name":"Colorado Assistance Explorer","item":"https://www.herohomereach.com/tools/"}
+        ]
+      },
+      {
+        "@type": "WebApplication",
+        "@id": "https://www.herohomereach.com/tools/#app",
+        "name": "Colorado Assistance Explorer",
+        "url": "https://www.herohomereach.com/tools/",
+        "applicationCategory": "EducationalApplication",
+        "operatingSystem": "Any",
+        "description": "An interactive educational tool helping Colorado public service workers explore possible homebuyer assistance paths by region, program type, and buyer situation. For educators, first responders, healthcare workers, veterans, active-duty military, and military spouses. Not an eligibility determination.",
+        "provider": {
+          "@type": "Organization",
+          "@id": "https://www.herohomereach.com/#organization",
+          "name": "Hero HomeReach",
+          "url": "https://www.herohomereach.com/",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://www.herohomereach.com/logo-mark_transparent.png"
+          },
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+17206196342",
+            "contactType": "customer service",
+            "areaServed": "US-CO"
+          }
+        },
+        "areaServed": {"@type": "State", "name": "Colorado"},
+        "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+        "audience": {
+          "@type": "Audience",
+          "audienceType": "Colorado educators, first responders, healthcare workers, veterans, active-duty military, and military spouses"
+        }
+      }
+    ]
+  }
   </script>
 
   <style>
