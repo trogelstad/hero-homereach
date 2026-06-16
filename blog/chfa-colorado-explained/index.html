@@ -461,6 +461,21 @@
     margin-bottom: 12px;
     color: var(--navy);
   }
+    @media (max-width: 768px) {
+  .post-article,
+  .post-body {
+    min-width: 0;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+}
+    @media (max-width: 768px) {
+  .chfa-comparison {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}
   </style>
 
   <!-- Calendly popup -->
