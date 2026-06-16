@@ -15,16 +15,6 @@
       "source": "/quiz.html",
       "destination": "/tools/quiz/",
       "permanent": true
-    },
-    {
-      "source": "/faq",
-      "destination": "/faq.html",
-      "permanent": true
-    },
-    {
-      "source": "/faq/",
-      "destination": "/faq.html",
-      "permanent": true
     }
   ],
   "headers": [
