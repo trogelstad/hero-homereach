@@ -542,3 +542,44 @@
 @media (max-width: 600px) {
   .post-sidebar { grid-template-columns: 1fr; }
 }
+
+/* ════════════════════════════════════════════════════
+   APPEND THESE TWO BLOCKS TO THE BOTTOM OF blog.css
+   ════════════════════════════════════════════════════ */
+
+
+/* ── Callout link fix ──────────────────────────────
+   Links inside navy .post-callout boxes need gold
+   color so they are readable against the dark bg.
+   Also applies to the light-gold variant callouts —
+   gold links remain consistent and on-brand there.
+   ─────────────────────────────────────────────────── */
+.post-callout a {
+  color: var(--gold);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.post-callout a:hover {
+  color: var(--bright-gold);
+}
+
+
+/* ── Sidebar card mobile utility ───────────────────
+   Add class="sidebar-card sidebar-card-hide-mobile"
+   to any sidebar card that should be hidden on mobile
+   because its CTA duplicates one already visible in
+   the article body or post-cta-strip above the fold.
+
+   Desktop (> 768px): card is visible as normal.
+   Mobile (≤ 768px): card is hidden entirely.
+
+   Usage:
+   <div class="sidebar-card sidebar-card-hide-mobile">
+     ...
+   </div>
+   ─────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .sidebar-card-hide-mobile {
+    display: none;
+  }
+}
