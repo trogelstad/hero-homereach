@@ -114,6 +114,28 @@ body { padding-top: var(--nav-h); }
   position: relative;
   overflow: hidden;
 }
+/* Compact modifier — tighter hero for resource/partner pages */
+.cp-hero--compact {
+  padding: 44px 0 38px;
+}
+.cp-hero--compact h1 {
+  font-size: clamp(1.5rem, 3.5vw, 2.3rem);
+  margin-bottom: 14px;
+}
+.cp-hero-eyebrow {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 14px;
+}
+.cp-hero-trust-line {
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.5);
+  margin: 0 auto 28px;
+  max-width: 480px;
+}
 .cp-hero::before {
   content: '';
   position: absolute;
@@ -628,20 +650,204 @@ body { padding-top: var(--nav-h); }
 .cp-disclaimer-block a { color: var(--mid-navy); }
 
 /* ════════════════════════════════════════════════════════════
+   PARTNER INTRO SECTION
+   ════════════════════════════════════════════════════════════ */
+.cp-body-graf {
+  font-size: 0.97rem;
+  color: var(--text-body);
+  line-height: 1.75;
+  max-width: 620px;
+  margin-bottom: 16px;
+}
+.cp-partner-note-sm {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  font-style: italic;
+  max-width: 620px;
+  margin-top: 20px;
+  line-height: 1.65;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+}
+
+/* ════════════════════════════════════════════════════════════
+   WHAT VISITORS CAN LEARN — TOPIC CARDS
+   ════════════════════════════════════════════════════════════ */
+.cp-topics-learn-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+.cp-learn-card {
+  background: var(--white, #fff);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px 20px;
+  display: flex;
+  flex-direction: column;
+  transition: var(--transition);
+}
+.cp-learn-card:hover {
+  border-color: var(--gold);
+  box-shadow: 0 4px 18px rgba(12,45,94,0.08);
+  transform: translateY(-2px);
+}
+.cp-learn-icon {
+  font-size: 1.7rem;
+  margin-bottom: 12px;
+  line-height: 1;
+}
+.cp-learn-card h3 {
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.35;
+  margin-bottom: 8px;
+}
+.cp-learn-card p {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  flex: 1;
+  margin-bottom: 14px;
+}
+.cp-learn-link {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--mid-navy);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.cp-learn-link:hover { color: var(--gold); }
+
+/* ════════════════════════════════════════════════════════════
+   MATH SECTION
+   ════════════════════════════════════════════════════════════ */
+.cp-math-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  margin-bottom: 20px;
+}
+.cp-math-card {
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(201,151,58,0.25);
+  border-radius: var(--radius);
+  padding: 22px 18px;
+  text-align: center;
+}
+.cp-math-type {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 10px;
+}
+.cp-math-pct {
+  font-family: var(--font-head);
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+.cp-math-amount {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--gold);
+  margin-bottom: 12px;
+}
+.cp-math-desc {
+  font-size: 0.77rem;
+  color: rgba(255,255,255,0.65);
+  line-height: 1.55;
+}
+.cp-math-note {
+  font-size: 0.77rem;
+  color: rgba(255,255,255,0.45);
+  font-style: italic;
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* ════════════════════════════════════════════════════════════
+   FAQ SECTION
+   ════════════════════════════════════════════════════════════ */
+.cp-faq-list {
+  max-width: 680px;
+}
+.cp-faq-item {
+  border-bottom: 1px solid var(--border);
+}
+.cp-faq-item:first-child {
+  border-top: 1px solid var(--border);
+}
+.cp-faq-q {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px 0;
+  font-family: var(--font-body);
+  font-size: 0.94rem;
+  font-weight: 600;
+  color: var(--navy);
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  transition: color 0.2s;
+}
+.cp-faq-q:hover { color: var(--gold); }
+.cp-faq-icon {
+  font-size: 1.2rem;
+  font-weight: 300;
+  color: var(--gold);
+  flex-shrink: 0;
+  line-height: 1;
+  transition: transform 0.2s;
+}
+.cp-faq-q[aria-expanded="true"] .cp-faq-icon {
+  transform: rotate(45deg);
+}
+.cp-faq-a {
+  padding: 0 0 18px 0;
+}
+.cp-faq-a p {
+  font-size: 0.9rem;
+  color: var(--text-body);
+  line-height: 1.72;
+  max-width: 620px;
+}
+
+/* ════════════════════════════════════════════════════════════
    RESPONSIVE
    ════════════════════════════════════════════════════════════ */
+@media (max-width: 900px) {
+  .cp-math-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
 @media (max-width: 768px) {
+  .cp-hero--compact { padding: 36px 0 30px; }
   .cp-hero { padding: 52px 0 44px; }
   .cp-identity-grid { grid-template-columns: 1fr; }
   .cp-audience-grid { grid-template-columns: repeat(2, 1fr); }
   .cp-partner-facts { grid-template-columns: 1fr; }
   .cp-resources-grid { grid-template-columns: 1fr; }
   .cp-topics-grid { grid-template-columns: 1fr; }
+  .cp-topics-learn-grid { grid-template-columns: repeat(2, 1fr); }
   .cp-cta-box { padding: 36px 24px; }
   .cp-trust-item { border-right: none; padding: 4px 10px; font-size: 0.72rem; }
 }
 
 @media (max-width: 540px) {
+  .cp-topics-learn-grid { grid-template-columns: 1fr; }
+  .cp-math-grid { grid-template-columns: 1fr 1fr; }
   .cp-audience-grid { grid-template-columns: repeat(2, 1fr); }
   .cp-blurb-tabs { flex-direction: column; }
   .cp-blurb-tab { text-align: center; }
