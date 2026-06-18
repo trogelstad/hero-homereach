@@ -852,3 +852,450 @@ body { padding-top: var(--nav-h); }
   .cp-blurb-tabs { flex-direction: column; }
   .cp-blurb-tab { text-align: center; }
 }
+
+/* ════════════════════════════════════════════════════════════
+   HUB PAGE — COMPACT PARTNER BRIEF (two-column intro)
+   ════════════════════════════════════════════════════════════ */
+.cp-hub-intro {
+  padding: 36px 0 32px;
+  background: var(--white, #fff);
+  border-bottom: 1px solid var(--border);
+}
+.cp-hub-intro-grid {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 40px;
+  align-items: start;
+}
+.cp-hub-eyebrow {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 10px;
+}
+.cp-hub-intro h1 {
+  font-family: var(--font-head);
+  font-size: clamp(1.5rem, 3vw, 2.1rem);
+  color: var(--navy);
+  line-height: 1.2;
+  margin-bottom: 14px;
+}
+.cp-hub-intro-sub {
+  font-size: 0.97rem;
+  color: var(--text-body);
+  line-height: 1.75;
+  margin-bottom: 22px;
+  max-width: 520px;
+}
+.cp-hub-intro-btns {
+  display: flex;
+  gap: 11px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.cp-hub-tertiary {
+  display: inline-block;
+  margin-top: 12px;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.cp-hub-tertiary:hover { color: var(--mid-navy); text-decoration: underline; }
+
+/* Resource Brief Card */
+.cp-brief-card {
+  background: var(--off-white);
+  border: 1px solid var(--border);
+  border-top: 3px solid var(--gold);
+  border-radius: var(--radius);
+  padding: 22px;
+}
+.cp-brief-card-title {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 14px;
+}
+.cp-brief-row {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: 8px;
+  padding: 9px 0;
+  border-bottom: 1px solid var(--border);
+  align-items: baseline;
+}
+.cp-brief-row:last-of-type { border-bottom: none; padding-bottom: 0; }
+.cp-brief-label {
+  font-weight: 700;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--navy);
+  line-height: 1.5;
+}
+.cp-brief-value {
+  font-size: 0.83rem;
+  color: var(--text-body);
+  line-height: 1.55;
+}
+.cp-brief-value strong { color: var(--navy); font-weight: 700; }
+.cp-brief-footer-note {
+  margin-top: 14px;
+  font-size: 0.76rem;
+  color: var(--text-muted);
+  font-style: italic;
+  text-align: center;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+}
+
+/* ════════════════════════════════════════════════════════════
+   HUB — MISSION SECTION CARDS (3-up)
+   ════════════════════════════════════════════════════════════ */
+.cp-mission-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 36px;
+}
+.cp-mission-card {
+  background: var(--white, #fff);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 22px 18px;
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+.cp-mission-icon {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+  margin-top: 1px;
+  line-height: 1;
+}
+.cp-mission-card h3 {
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 5px;
+  line-height: 1.3;
+}
+.cp-mission-card p {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* ════════════════════════════════════════════════════════════
+   HUB — SECTOR CARDS (Choose a Resource)
+   ════════════════════════════════════════════════════════════ */
+.cp-sector-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+.cp-sector-card {
+  background: var(--white, #fff);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 22px 18px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.cp-sector-card--available {
+  border-top: 3px solid var(--gold);
+}
+.cp-sector-card--soon {
+  border-top: 3px solid var(--border);
+}
+.cp-sector-badge {
+  display: inline-block;
+  font-size: 0.63rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border-radius: 100px;
+  margin-bottom: 12px;
+  width: fit-content;
+}
+.cp-sector-badge--available {
+  background: rgba(26,107,74,0.09);
+  color: #16593d;
+  border: 1px solid rgba(26,107,74,0.22);
+}
+.cp-sector-badge--soon {
+  background: var(--off-white);
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+}
+.cp-sector-icon { font-size: 1.5rem; margin-bottom: 8px; line-height: 1; }
+.cp-sector-card h3 {
+  font-family: var(--font-body);
+  font-size: 0.91rem;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 7px;
+  line-height: 1.3;
+}
+.cp-sector-card p {
+  font-size: 0.79rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  flex: 1;
+  margin-bottom: 16px;
+}
+.cp-sector-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--mid-navy);
+  text-decoration: none;
+  transition: color 0.2s, gap 0.2s;
+}
+.cp-sector-link:hover { color: var(--gold); gap: 8px; }
+.cp-sector-soon-label {
+  display: inline-block;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  font-style: italic;
+}
+.cp-sector-footer-note {
+  margin-top: 20px;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  font-style: italic;
+  text-align: center;
+  padding: 14px 20px;
+  background: var(--off-white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+/* ════════════════════════════════════════════════════════════
+   HUB — WAYS TO SHARE (6-card grid)
+   ════════════════════════════════════════════════════════════ */
+.cp-share-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+.cp-share-card {
+  background: var(--white, #fff);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 18px 16px;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+.cp-share-bullet {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: rgba(201,151,58,0.1);
+  border: 1px solid rgba(201,151,58,0.28);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 1px;
+  color: var(--gold);
+  font-size: 0.72rem;
+  font-weight: 700;
+  line-height: 1;
+}
+.cp-share-card h4 {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 3px;
+  line-height: 1.3;
+}
+.cp-share-card p {
+  font-size: 0.77rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* ════════════════════════════════════════════════════════════
+   HUB — READY-TO-USE LISTING COPY BLOCKS
+   ════════════════════════════════════════════════════════════ */
+.cp-listing-intro {
+  font-size: 0.92rem;
+  color: var(--text-body);
+  line-height: 1.7;
+  margin-bottom: 28px;
+}
+.cp-listing-blocks {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.cp-listing-block {
+  background: var(--off-white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.cp-listing-block-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 9px 16px;
+  background: var(--white, #fff);
+  border-bottom: 1px solid var(--border);
+}
+.cp-listing-block-label {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.cp-listing-copy-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 11px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  background: var(--navy);
+  color: var(--white);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s;
+  font-family: var(--font-body);
+  flex-shrink: 0;
+}
+.cp-listing-copy-btn:hover { background: var(--mid-navy); }
+.cp-listing-copy-btn.copied { background: #16593d; }
+.cp-listing-block-text {
+  padding: 14px 16px;
+  font-size: 0.87rem;
+  color: var(--text-body);
+  line-height: 1.7;
+  font-family: var(--font-body);
+  white-space: pre-wrap;
+  cursor: text;
+  user-select: all;
+}
+
+/* ════════════════════════════════════════════════════════════
+   HUB — TOPIC CHIPS (What visitors can learn)
+   ════════════════════════════════════════════════════════════ */
+.cp-topic-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+.cp-topic-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--white, #fff);
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  padding: 7px 16px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--navy);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.cp-topic-chip:hover {
+  border-color: var(--gold);
+  box-shadow: 0 2px 8px rgba(12,45,94,0.07);
+}
+.cp-topic-chip-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--gold);
+  flex-shrink: 0;
+}
+.cp-topic-closing-note {
+  font-size: 0.9rem;
+  color: var(--text-body);
+  line-height: 1.75;
+  max-width: 580px;
+  border-left: 3px solid var(--gold);
+  padding-left: 16px;
+  font-style: italic;
+}
+
+/* ════════════════════════════════════════════════════════════
+   HUB — PARTNERSHIP CONTACT SECTION
+   ════════════════════════════════════════════════════════════ */
+.cp-partner-cta-box {
+  background: var(--off-white);
+  border: 1px solid var(--border);
+  border-top: 3px solid var(--gold);
+  border-radius: var(--radius-lg);
+  padding: 40px 36px;
+  text-align: center;
+}
+.cp-partner-cta-box h2 {
+  font-family: var(--font-head);
+  font-size: clamp(1.2rem, 2.5vw, 1.7rem);
+  color: var(--navy);
+  margin-bottom: 12px;
+}
+.cp-partner-cta-box p {
+  font-size: 0.94rem;
+  color: var(--text-body);
+  max-width: 520px;
+  margin: 0 auto 28px;
+  line-height: 1.75;
+}
+.cp-partner-cta-btns {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+.cp-partner-cta-whisper {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+.cp-partner-cta-whisper a {
+  color: var(--mid-navy);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.cp-partner-cta-whisper a:hover { color: var(--gold); }
+
+/* ════════════════════════════════════════════════════════════
+   HUB RESPONSIVE
+   ════════════════════════════════════════════════════════════ */
+@media (max-width: 900px) {
+  .cp-hub-intro-grid { grid-template-columns: 1fr; gap: 24px; }
+  .cp-brief-card { max-width: 480px; }
+  .cp-sector-grid { grid-template-columns: repeat(2, 1fr); }
+  .cp-share-grid { grid-template-columns: repeat(2, 1fr); }
+  .cp-mission-cards { grid-template-columns: 1fr; }
+}
+@media (max-width: 620px) {
+  .cp-hub-intro-btns { flex-direction: column; align-items: flex-start; }
+  .cp-sector-grid { grid-template-columns: 1fr; }
+  .cp-share-grid { grid-template-columns: 1fr; }
+  .cp-mission-cards { grid-template-columns: 1fr; }
+  .cp-partner-cta-box { padding: 28px 20px; }
+  .cp-listing-block-header { flex-direction: column; align-items: flex-start; gap: 6px; }
+  .cp-topic-chips { gap: 8px; }
+}
