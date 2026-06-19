@@ -11,22 +11,22 @@
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Colorado Homebuyer Assistance for Teachers, First Responders, Healthcare Workers & Veterans | Hero HomeReach</title>
-<meta name="description" content="Plain-English Colorado homebuyer assistance guidance for educators, first responders, healthcare workers, military families, public servants and first-time buyers exploring DPA, grants, seller credits, VA loan planning and next steps.">
-<meta name="keywords" content="Colorado homebuyer assistance, teacher homebuyer programs Colorado, first responder mortgage assistance Colorado, nurse homebuyer assistance, veteran homebuyer programs Colorado, Colorado DPA">
+  <title>Colorado Homebuyer Assistance for Teachers, First Responders, Healthcare Workers & Veterans | Hero HomeReach</title>
+  <meta name="description" content="Plain-English Colorado homebuyer assistance guidance for educators, first responders, healthcare workers, military families, public servants and first-time buyers exploring DPA, grants, seller credits, VA loan planning and next steps.">
+  <meta name="keywords" content="Colorado homebuyer assistance, teacher homebuyer programs Colorado, first responder mortgage assistance Colorado, nurse homebuyer assistance, veteran homebuyer programs Colorado, Colorado DPA">
 
-<link rel="canonical" href="https://www.herohomereach.com/who-we-serve" />
+  <link rel="canonical" href="https://www.herohomereach.com/who-we-serve" />
 
-<!-- Favicons -->
+  <!-- Favicons -->
   <link rel="icon" type="image/png" href="favicon.png">
   <link rel="apple-touch-icon" sizes="180x180" href="favicon-180x180.png">
   <link rel="icon" type="image/png" sizes="192x192" href="favicon-192x192.png">
 
-<!-- Open Graph -->
-<meta property="og:title" content="Who We Serve | Hero HomeReach">
-<meta property="og:description" content="Plain-English Colorado homebuyer assistance guidance for educators, first responders, healthcare workers, military families, public servants and first-time buyers.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://www.herohomereach.com/who-we-serve">
+  <!-- Open Graph -->
+  <meta property="og:title" content="Who We Serve | Hero HomeReach">
+  <meta property="og:description" content="Plain-English Colorado homebuyer assistance guidance for educators, first responders, healthcare workers, military families, public servants and first-time buyers.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.herohomereach.com/who-we-serve">
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -35,6 +35,63 @@
 
   <!-- Shared styles -->
   <link rel="stylesheet" href="css/main.css">
+
+  <!-- Calendly popup -->
+  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+  <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+
+  <!-- Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": "https://www.herohomereach.com/who-we-serve#webpage",
+        "url": "https://www.herohomereach.com/who-we-serve",
+        "name": "Colorado Homebuyer Assistance for Teachers, First Responders, Healthcare Workers & Veterans | Hero HomeReach",
+        "description": "Plain-English Colorado homebuyer assistance guidance for educators, first responders, healthcare workers, military families, public servants and first-time buyers.",
+        "isPartOf": {
+          "@id": "https://www.herohomereach.com/#website"
+        },
+        "about": {
+          "@id": "https://www.herohomereach.com/#organization"
+        }
+      },
+      {
+        "@type": "ItemList",
+        "@id": "https://www.herohomereach.com/who-we-serve#audience-list",
+        "name": "Hero HomeReach Audience Paths",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Educators",
+            "url": "https://www.herohomereach.com/who-we-serve#educators"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "First Responders",
+            "url": "https://www.herohomereach.com/who-we-serve#first-responders"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Healthcare Workers",
+            "url": "https://www.herohomereach.com/who-we-serve#healthcare"
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "name": "Military Members and Families",
+            "url": "https://www.herohomereach.com/who-we-serve#military"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
 
 <style>
 /* who-we-serve.html — page-specific styles only */
@@ -56,25 +113,43 @@ p:last-child { margin-bottom: 0; }
   background-position: center center;
   background-repeat: no-repeat;
   padding: calc(var(--nav-h) + 64px) 0 80px;
-  position: relative; overflow: hidden;
+  position: relative;
+  overflow: hidden;
 }
 #page-hero::before {
   content: '';
-  position: absolute; inset: 0;
+  position: absolute;
+  inset: 0;
   background: rgba(12,45,94,0.78);
 }
 #page-hero::after { display: none; }
 
 .page-hero-inner {
-  position: relative; z-index: 2;
-  text-align: center; max-width: 760px; margin: 0 auto;
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto;
 }
 .page-eyebrow {
-  display: inline-flex; align-items: center; gap: 10px; justify-content: center;
-  font-size: 11px; font-weight: 700; letter-spacing: 0.2em;
-  text-transform: uppercase; color: var(--gold); margin-bottom: 20px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 20px;
 }
-.page-eyebrow::before { content: ''; display: block; width: 28px; height: 2px; background: var(--gold); }
+.page-eyebrow::before {
+  content: '';
+  display: block;
+  width: 28px;
+  height: 2px;
+  background: var(--gold);
+}
 .page-hero-inner h1      { color: #fff; font-size: clamp(32px, 4.5vw, 54px); margin-bottom: 20px; }
 .page-hero-inner h1 span { color: var(--gold); font-style: italic; }
 .page-hero-inner .lead   { color: rgba(255,255,255,0.72); font-size: 18px; max-width: 580px; margin: 0 auto 40px; }
@@ -97,9 +172,12 @@ p:last-child { margin-bottom: 0; }
   background: #fff;
   border: 2px solid var(--warm-gray);
   border-radius: var(--radius);
-  padding: 28px 20px; text-align: center;
-  cursor: pointer; transition: var(--transition);
-  text-decoration: none; display: block;
+  padding: 28px 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: var(--transition);
+  text-decoration: none;
+  display: block;
 }
 .select-card:hover {
   border-color: var(--gold);
@@ -108,14 +186,22 @@ p:last-child { margin-bottom: 0; }
 }
 .select-emoji { font-size: 40px; margin-bottom: 12px; display: block; }
 .select-title {
-  font-family: var(--font-head); font-size: 18px; font-weight: 700;
-  color: var(--navy); margin-bottom: 6px;
+  font-family: var(--font-head);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 6px;
 }
 .select-sub   { font-size: 12px; color: #888; line-height: 1.5; }
 .select-arrow {
-  display: inline-flex; align-items: center; gap: 4px;
-  margin-top: 14px; font-size: 12px; font-weight: 700;
-  color: var(--gold); transition: gap 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 14px;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--gold);
+  transition: gap 0.2s;
 }
 .select-card:hover .select-arrow { gap: 8px; }
 
@@ -129,7 +215,8 @@ p:last-child { margin-bottom: 0; }
 
 .audience-section.dark::before {
   content: '';
-  position: absolute; inset: 0;
+  position: absolute;
+  inset: 0;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: left center;
@@ -163,43 +250,57 @@ p:last-child { margin-bottom: 0; }
 }
 
 .audience-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
-.audience-grid.reverse         { direction: rtl; }
-.audience-grid.reverse > *     { direction: ltr; }
+.audience-grid.reverse     { direction: rtl; }
+.audience-grid.reverse > * { direction: ltr; }
 
 .audience-label {
-  display: inline-flex; align-items: center; gap: 10px;
-  font-size: 11px; font-weight: 700; letter-spacing: 0.2em;
-  text-transform: uppercase; margin-bottom: 16px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
 }
-.audience-label.gold           { color: var(--gold); }
-.audience-label.gold::before   { content: ''; display: block; width: 28px; height: 2px; background: var(--gold); }
-.audience-label.white          { color: rgba(255,255,255,0.6); }
-.audience-label.white::before  { content: ''; display: block; width: 28px; height: 2px; background: rgba(255,255,255,0.4); }
+.audience-label.gold         { color: var(--gold); }
+.audience-label.gold::before { content: ''; display: block; width: 28px; height: 2px; background: var(--gold); }
+.audience-label.white         { color: rgba(255,255,255,0.6); }
+.audience-label.white::before { content: ''; display: block; width: 28px; height: 2px; background: rgba(255,255,255,0.4); }
 
 .audience-content h2       { font-size: clamp(28px, 3.5vw, 42px); margin-bottom: 16px; }
 .audience-content h2.white { color: #fff; }
-.audience-content .lead       { font-size: 17px; color: #555; margin-bottom: 24px; }
-.audience-content .lead.white { color: rgba(255,255,255,0.72); }
+.audience-content .lead        { font-size: 17px; color: #555; margin-bottom: 24px; }
+.audience-content .lead.white  { color: rgba(255,255,255,0.72); }
 
 .who-qualifies {
   background: rgba(12,45,94,0.04);
   border: 1px solid var(--warm-gray);
-  border-radius: 8px; padding: 16px 20px; margin-bottom: 24px;
+  border-radius: 8px;
+  padding: 16px 20px;
+  margin-bottom: 24px;
 }
 .who-qualifies.dark-bg {
   background: rgba(255,255,255,0.05);
   border-color: rgba(201,151,58,0.2);
 }
 .wq-title {
-  font-size: 11px; font-weight: 700; letter-spacing: 0.14em;
-  text-transform: uppercase; color: var(--gold); margin-bottom: 10px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 10px;
 }
 .wq-list { display: flex; flex-wrap: wrap; gap: 8px; }
 .wq-tag {
-  font-size: 12px; font-weight: 600;
-  background: #fff; color: var(--navy);
+  font-size: 12px;
+  font-weight: 600;
+  background: #fff;
+  color: var(--navy);
   border: 1px solid var(--warm-gray);
-  border-radius: 20px; padding: 4px 12px;
+  border-radius: 20px;
+  padding: 4px 12px;
 }
 .wq-tag.dark {
   background: rgba(255,255,255,0.08);
@@ -207,26 +308,45 @@ p:last-child { margin-bottom: 0; }
   border-color: rgba(255,255,255,0.15);
 }
 
-.hero-quote {
+.common-question {
   position: relative;
   padding: 20px 20px 20px 28px;
   border-left: 4px solid var(--gold);
   background: rgba(201,151,58,0.06);
   border-radius: 0 8px 8px 0;
-  font-size: 16px; font-style: italic;
-  color: var(--near-black); margin-bottom: 24px; line-height: 1.6;
+  font-size: 15px;
+  font-style: italic;
+  color: var(--near-black);
+  margin-bottom: 24px;
+  line-height: 1.6;
 }
-.hero-quote.dark-bg {
+.common-question.dark-bg {
   background: rgba(201,151,58,0.08);
   color: rgba(255,255,255,0.85);
+}
+.common-question .cq-sub {
+  font-style: normal;
+  font-size: 13px;
+  color: #888;
+  margin-top: 8px;
+  font-weight: 600;
+}
+.common-question.dark-bg .cq-sub {
+  color: rgba(255,255,255,0.45);
 }
 
 .program-pills { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 28px; }
 .prog-pill {
-  display: flex; align-items: center; gap: 6px;
-  background: #fff; border: 1px solid var(--warm-gray);
-  border-radius: 20px; padding: 6px 14px;
-  font-size: 12px; font-weight: 600; color: var(--navy);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #fff;
+  border: 1px solid var(--warm-gray);
+  border-radius: 20px;
+  padding: 6px 14px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--navy);
   box-shadow: 0 1px 4px rgba(12,45,94,0.06);
 }
 .prog-pill::before { content: '✓'; color: var(--green); font-weight: 800; }
@@ -239,7 +359,8 @@ p:last-child { margin-bottom: 0; }
 
 .audience-stats {
   background: rgba(12,45,94,0.70);
-  border-radius: var(--radius); padding: 32px;
+  border-radius: var(--radius);
+  padding: 32px;
   box-shadow: 0 8px 40px rgba(12,45,94,0.2);
   backdrop-filter: blur(4px);
 }
@@ -250,8 +371,11 @@ p:last-child { margin-bottom: 0; }
 }
 .audience-stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 24px; }
 .stat-num {
-  font-family: var(--font-head); font-size: 36px; font-weight: 900;
-  color: var(--gold); line-height: 1;
+  font-family: var(--font-head);
+  font-size: 36px;
+  font-weight: 900;
+  color: var(--gold);
+  line-height: 1;
 }
 .audience-stats.light .stat-num  { color: var(--navy); }
 .stat-label                       { font-size: 12px; color: rgba(255,255,255,0.55); margin-top: 4px; }
@@ -260,8 +384,12 @@ p:last-child { margin-bottom: 0; }
 .objection-list { margin-top: 20px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); }
 .audience-stats.light .objection-list { border-top-color: var(--warm-gray); }
 .objection-title {
-  font-size: 11px; font-weight: 700; letter-spacing: 0.14em;
-  text-transform: uppercase; color: var(--gold); margin-bottom: 12px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 12px;
 }
 .objection-item { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 10px; font-size: 13px; }
 .obj-myth  { color: rgba(255,255,255,0.45); text-decoration: line-through; flex: 1; }
@@ -305,14 +433,18 @@ p:last-child { margin-bottom: 0; }
 #final-cta { background: var(--navy); padding: 96px 0; position: relative; overflow: hidden; text-align: center; }
 #final-cta::before {
   content: '';
-  position: absolute; top: -100px; right: -100px;
-  width: 500px; height: 500px; border-radius: 50%;
+  position: absolute;
+  top: -100px;
+  right: -100px;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
   background: radial-gradient(circle, rgba(201,151,58,0.1) 0%, transparent 70%);
 }
-.final-cta-inner              { position: relative; z-index: 2; }
-.final-cta-inner h2           { color: #fff; font-size: clamp(28px, 3.5vw, 44px); margin-bottom: 16px; }
-.final-cta-inner h2 span      { color: var(--gold); font-style: italic; }
-.final-cta-inner p            { color: rgba(255,255,255,0.7); font-size: 18px; max-width: 520px; margin: 0 auto 40px; }
+.final-cta-inner         { position: relative; z-index: 2; }
+.final-cta-inner h2      { color: #fff; font-size: clamp(28px, 3.5vw, 44px); margin-bottom: 16px; }
+.final-cta-inner h2 span { color: var(--gold); font-style: italic; }
+.final-cta-inner p       { color: rgba(255,255,255,0.7); font-size: 18px; max-width: 520px; margin: 0 auto 40px; }
 .cta-reassurance              { display: flex; align-items: center; justify-content: center; gap: 28px; flex-wrap: wrap; margin-top: 28px; }
 .cta-reassurance-item         { display: flex; align-items: center; gap: 6px; font-size: 13px; color: rgba(255,255,255,0.55); }
 .cta-reassurance-item::before { content: '✓'; color: var(--green); font-weight: 800; }
@@ -335,71 +467,17 @@ p:last-child { margin-bottom: 0; }
   }
 }
 @media (max-width: 500px) {
-  .select-grid         { grid-template-columns: 1fr 1fr; }
-  .audience-stat-grid  { grid-template-columns: 1fr 1fr; }
+  .select-grid        { grid-template-columns: 1fr 1fr; }
+  .audience-stat-grid { grid-template-columns: 1fr 1fr; }
 }
 </style>
-  <!-- Calendly popup -->
-<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
-<script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
-
-  <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "WebPage",
-      "@id": "https://www.herohomereach.com/who-we-serve#webpage",
-      "url": "https://www.herohomereach.com/who-we-serve",
-      "name": "Colorado Homebuyer Assistance for Teachers, First Responders, Healthcare Workers & Veterans | Hero HomeReach",
-      "description": "Plain-English Colorado homebuyer assistance guidance for educators, first responders, healthcare workers, military families, public servants and first-time buyers.",
-      "isPartOf": {
-        "@id": "https://www.herohomereach.com/#website"
-      },
-      "about": {
-        "@id": "https://www.herohomereach.com/#organization"
-      }
-    },
-    {
-      "@type": "ItemList",
-      "@id": "https://www.herohomereach.com/who-we-serve#audience-list",
-      "name": "Hero HomeReach Audience Paths",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Educators",
-          "url": "https://www.herohomereach.com/who-we-serve#educators"
-        },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "name": "First Responders",
-          "url": "https://www.herohomereach.com/who-we-serve#first-responders"
-        },
-        {
-          "@type": "ListItem",
-          "position": 3,
-          "name": "Healthcare Workers",
-          "url": "https://www.herohomereach.com/who-we-serve#healthcare"
-        },
-        {
-          "@type": "ListItem",
-          "position": 4,
-          "name": "Military Members and Families",
-          "url": "https://www.herohomereach.com/who-we-serve#military"
-        }
-      ]
-    }
-  ]
-}
-</script>
 </head>
 <body>
   <!-- Google Tag Manager (noscript) -->
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5ZQKN4LM"
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
+
 
 <!-- ════════════ NAVIGATION ════════════ -->
 <nav id="nav" class="nav-solid">
@@ -443,7 +521,9 @@ p:last-child { margin-bottom: 0; }
 <section id="page-hero">
   <div class="container">
     <div class="page-hero-inner">
-      <div class="page-eyebrow">Your Profession. Your Questions. Your Next Steps.</div> <h1>Built for the People Who <span>Show Up Every Day</span></h1> <p class="lead">Colorado homebuyer assistance can look different for educators, first responders, healthcare workers, military families and public servants. Choose your lane below to understand which paths may be worth reviewing before you talk to a lender or program provider.</p>
+      <div class="page-eyebrow">Your Profession. Your Questions. Your Next Steps.</div>
+      <h1>Built for the People Who <span>Show Up Every Day</span></h1>
+      <p class="lead">Colorado homebuyer assistance can look different for educators, first responders, healthcare workers, military families and public servants. Choose your lane below to understand which paths may be worth reviewing and when it makes sense to schedule a free Hero HomeReach consultation.</p>
       <div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
         <a href="#educators" class="btn btn-gold btn-sm">🎓 Educators</a>
         <a href="#first-responders" class="btn btn-white btn-sm">🚒 First Responders</a>
@@ -478,7 +558,7 @@ p:last-child { margin-bottom: 0; }
       <a href="#healthcare" class="select-card fade-up delay-2">
         <span class="select-emoji">🏥</span>
         <div class="select-title">Healthcare Workers</div>
-        <div class="select-sub">Nurses · Doctors · Technicians · Hospital & Clinic Staff</div>
+        <div class="select-sub">Nurses · Doctors · Technicians · Hospital &amp; Clinic Staff</div>
         <div class="select-arrow">See your programs →</div>
       </a>
       <a href="#military" class="select-card fade-up delay-3">
@@ -500,7 +580,7 @@ p:last-child { margin-bottom: 0; }
       <div class="audience-content fade-up">
         <div class="audience-label gold">🎓 Educators</div>
         <h2>You Shape Every Future.<br>Let's Secure Yours.</h2>
-        <p class="lead">Colorado teachers are among the most underserved homebuyers in the state and among the most eligible for assistance. The programs exist. Most educators just don't know they qualify.</p>
+        <p class="lead">Colorado educators often face a difficult gap between public service income and home prices. Some statewide, local and educator-focused assistance paths may be worth reviewing before you assume homeownership is out of reach.</p>
 
         <div class="who-qualifies">
           <div class="wq-title">Who Qualifies</div>
@@ -514,9 +594,20 @@ p:last-child { margin-bottom: 0; }
           </div>
         </div>
 
-<div class="hero-quote"> Common educator question: “Do I make too much to qualify for help, or are there still Colorado assistance paths worth exploring?” <div style="font-style:normal; font-size:13px; color:#888; margin-top:8px; font-weight:600;">Hero HomeReach helps translate the options before you choose a lender path.</div>
+        <div class="common-question">
+          Common educator question: "Do I make too much to qualify for help, or are there still Colorado assistance paths worth exploring?"
+          <div class="cq-sub">Hero HomeReach helps translate the options and identify what to review on a free consultation.</div>
+        </div>
 
-<div class="program-pills"> <span class="prog-pill dark">Colorado Champions / SB26-053</span> <span class="prog-pill dark">metroDPA · 3% or 4% deferred second</span> <span class="prog-pill dark">HUD Good Neighbor Next Door · limited inventory</span> <span class="prog-pill dark">CHFA Loan Programs</span> <span class="prog-pill dark">Seller Concessions</span> </div>
+        <div class="program-pills">
+          <span class="prog-pill">CHFA Grant · up to 3% / $25K cap</span>
+          <span class="prog-pill">CHFA Second Mortgage · up to 4% / $25K cap</span>
+          <span class="prog-pill">CHFA FirstGeneration · up to $25K</span>
+          <span class="prog-pill">Schools To Home · launching July 2026</span>
+          <span class="prog-pill">metroDPA · 3% or 4% deferred second</span>
+          <span class="prog-pill">HUD Good Neighbor Next Door · limited inventory</span>
+          <span class="prog-pill">Seller Credits · up to 6% FHA</span>
+        </div>
 
         <div style="display:flex; gap:12px; flex-wrap:wrap;">
           <a href="" onclick="Calendly.initPopupWidget({url:'https://calendly.com/trogelstad-herohomereach/30min?hide_gdpr_banner=1&primary_color=0C2D5E'});return false;" class="btn btn-gold btn-arrow">Book Free Educator Consultation</a>
@@ -525,11 +616,46 @@ p:last-child { margin-bottom: 0; }
       </div>
 
       <div class="fade-up delay-2">
-       <div class="program-callout navy-bg"> <div class="pc-title">Example Assistance Paths — Colorado Educator · $500K FHA</div> <div class="pc-row"> <div class="pc-name">metroDPA Path<small>Standard assisted options may offer 3% or 4% of the first mortgage note amount</small></div> <div class="pc-val">$15,000–$20,000</div> <div class="pc-row"> <div class="pc-name">CHFA or FirstGeneration Path<small>Up to $25,000 depending on eligibility, program and loan type</small></div> <div class="pc-val">$25,000</div> <div class="pc-row" style="border-bottom:none;"> <div class="pc-name">Seller Concessions (6% FHA max)<small>May offset allowable closing costs depending on offer and lender approval</small></div> <div class="pc-val">$30,000</div> <div class="pc-total"> <div class="pc-total-label">Potential Planning Range</div> <div class="pc-total-val">$44K–$55K</div> <div class="pc-note">These are example paths, not one combined stack. metroDPA, CHFA and Chenoa are generally best reviewed as alternative DPA options tied to specific loan and lender rules. Seller concessions may help offset allowable costs, depending on the offer, loan type, actual costs and lender approval. Final eligibility depends on program rules, credit, income, property, available funding and lender review.</div>
+        <div class="program-callout navy-bg">
+          <div class="pc-title">Example Assistance Paths — Colorado Educator · $500K FHA</div>
+
+          <div class="pc-row">
+            <div class="pc-name">
+              metroDPA Path
+              <small>Standard assisted options may offer 3% or 4% of the first mortgage note amount</small>
+            </div>
+            <div class="pc-val">$15,000–$20,000</div>
+          </div>
+
+          <div class="pc-row">
+            <div class="pc-name">
+              CHFA or FirstGeneration Path
+              <small>Up to $25,000 depending on eligibility, program and loan type</small>
+            </div>
+            <div class="pc-val">$25,000</div>
+          </div>
+
+          <div class="pc-row" style="border-bottom:none;">
+            <div class="pc-name">
+              Seller Concessions (6% FHA max)
+              <small>May offset allowable closing costs depending on offer and lender approval</small>
+            </div>
+            <div class="pc-val">$30,000</div>
+          </div>
+
+          <div class="pc-total">
+            <div class="pc-total-label">Potential Planning Range</div>
+            <div class="pc-total-val">$44K–$55K</div>
+          </div>
+
+          <div class="pc-note">
+            These are example paths, not one combined stack. metroDPA, CHFA and Chenoa are generally best reviewed as alternative DPA options tied to specific loan and lender rules. Seller concessions may help offset allowable costs, depending on the offer, loan type, actual costs and lender approval. Final eligibility depends on program rules, credit, income, property, available funding and lender review.
+          </div>
+        </div>
 
         <div style="background:rgba(26,107,74,0.08); border:1px solid rgba(26,107,74,0.2); border-radius:8px; padding:16px 20px; margin-top:16px;">
           <div style="font-size:12px; font-weight:700; color:var(--green); text-transform:uppercase; letter-spacing:0.12em; margin-bottom:6px;">Income Limit Note</div>
-       <div style="font-size:13px; color:#555;">Income limits vary by program, county, household size, loan type and current guidelines. metroDPA has published income limits as high as <strong>$216,000</strong> in some scenarios, while CHFA limits vary by program. Schedule a free Hero HomeReach consultation to review which income rules may matter for your situation.</div>
+          <div style="font-size:13px; color:#555;">Income limits vary by program, county, household size, loan type and current guidelines. metroDPA has published income limits as high as <strong>$216,000</strong> in some scenarios, while CHFA limits vary by program. Schedule a free Hero HomeReach consultation to review which income rules may matter for your situation.</div>
         </div>
       </div>
 
@@ -537,9 +663,11 @@ p:last-child { margin-bottom: 0; }
   </div>
 </section>
 
+
+<!-- ════════════ DIVIDER BANNER ════════════ -->
 <div class="section-divider-banner">
   <div class="container">
-    <p>Every hero profession has a different combination of programs. Book a free consultation to find your exact path. →</p>
+    <p>Every hero profession has different assistance questions. Book a free Hero HomeReach consultation to compare your likely paths. →</p>
   </div>
 </div>
 
@@ -552,7 +680,7 @@ p:last-child { margin-bottom: 0; }
       <div class="audience-content fade-up">
         <div class="audience-label white">🚒 First Responders</div>
         <h2 class="white">You Run Toward the Fire.<br><span style="color:var(--gold); font-style:italic;">We'll Run the Numbers.</span></h2>
-        <p class="lead white">You don't have time to research 12 different programs. That's exactly why Hero HomeReach™ exists. We find your options, you pick a time for a call.</p>
+        <p class="lead white">First responders may have several Colorado assistance paths worth reviewing, including CHFA, metroDPA, seller credits and the new Colorado Champions expansion. Hero HomeReach helps translate the options so you can ask better questions and decide whether a free consultation makes sense.</p>
 
         <div class="who-qualifies dark-bg">
           <div class="wq-title">Who Qualifies</div>
@@ -567,10 +695,18 @@ p:last-child { margin-bottom: 0; }
           </div>
         </div>
 
-<div class="hero-quote dark-bg"> Common first responder question: “Does my role open different homebuyer assistance options, or do I still have to fit the same income and credit rules as everyone else?” <div style="font-style:normal; font-size:13px; color:rgba(255,255,255,0.45); margin-top:8px; font-weight:600;">Hero HomeReach helps explain the difference between expanded access, actual eligibility and final lender approval.</div> style="font-style:normal; font-size:13px; color:rgba(255,255,255,0.45); margin-top:8px; font-weight:600;">— Police Officer, Colorado Springs CO</div>
+        <div class="common-question dark-bg">
+          Common first responder question: "Does my role open different homebuyer assistance options, or do I still have to fit the same income and credit rules as everyone else?"
+          <div class="cq-sub">Hero HomeReach helps explain the difference between expanded access, actual eligibility and what to review on a free consultation.</div>
         </div>
 
-<div class="program-pills"> <span class="prog-pill">Chenoa Fund · FHA assistance path</span> <span class="prog-pill">metroDPA · 3% or 4% deferred second</span> <span class="prog-pill">CHFA Programs · FICO 620+ in many cases</span> <span class="prog-pill">Seller Credits · up to 6% FHA</span> <span class="prog-pill">Student loan and DTI planning</span> </div>
+        <div class="program-pills">
+          <span class="prog-pill dark">Colorado Champions / SB26-053</span>
+          <span class="prog-pill dark">metroDPA · 3% or 4% deferred second</span>
+          <span class="prog-pill dark">HUD Good Neighbor Next Door · limited inventory</span>
+          <span class="prog-pill dark">CHFA Loan Programs</span>
+          <span class="prog-pill dark">Seller Concessions</span>
+        </div>
 
         <a href="" onclick="Calendly.initPopupWidget({url:'https://calendly.com/trogelstad-herohomereach/30min?hide_gdpr_banner=1&primary_color=0C2D5E'});return false;" class="btn btn-gold btn-arrow">Book Free First Responder Consultation</a>
       </div>
@@ -578,18 +714,21 @@ p:last-child { margin-bottom: 0; }
       <div class="fade-up delay-2">
         <div class="audience-stats">
           <div class="audience-stat-grid">
-<div class="audience-stat"> <div class="stat-num">3–4%</div> <div class="stat-label">metroDPA standard assisted options may offer 3% or 4% as a deferred second mortgage</div>
+            <div class="audience-stat">
+              <div class="stat-num">3–4%</div>
+              <div class="stat-label">metroDPA standard assisted options may offer 3% or 4% as a deferred second mortgage</div>
+            </div>
             <div class="audience-stat">
               <div class="stat-num">2026</div>
-              <div class="stat-label">Colorado Champions / SB26-053 — new first responder CHFA eligibility expansion</div>
+              <div class="stat-label">Colorado Champions / SB26-053 expands CHFA access for eligible first responders, effective August 12, 2026</div>
             </div>
             <div class="audience-stat">
               <div class="stat-num">50%</div>
-              <div class="stat-label">HUD GNND discount on eligible HUD homes — only $100 down</div>
+              <div class="stat-label">HUD GNND discount on eligible HUD homes, with limited inventory and occupancy rules</div>
             </div>
             <div class="audience-stat">
               <div class="stat-num">620+</div>
-              <div class="stat-label">Minimum FICO for most CHFA programs</div>
+              <div class="stat-label">Minimum FICO for many CHFA paths</div>
             </div>
           </div>
           <div class="objection-list">
@@ -608,7 +747,7 @@ p:last-child { margin-bottom: 0; }
             </div>
             <div class="objection-item">
               <span class="obj-icon">✓</span>
-              <span class="obj-truth" style="color:var(--bright-gold);">One 30-minute call — we do all the research</span>
+              <span class="obj-truth" style="color:var(--bright-gold);">One 30-minute Hero HomeReach consultation can help you sort the next questions to ask</span>
             </div>
           </div>
         </div>
@@ -627,7 +766,7 @@ p:last-child { margin-bottom: 0; }
       <div class="audience-content fade-up">
         <div class="audience-label gold">🏥 Healthcare Workers</div>
         <h2>You Spend Every Day<br>Taking Care of Others.</h2>
-        <p class="lead">It's time someone took care of you. Colorado healthcare professionals are often surprised to find out how many programs apply directly to their profession, even if they recently moved here.</p>
+        <p class="lead">Healthcare workers often face unique homebuying questions, including student loans, shift income, overtime and rising Colorado prices. Several assistance paths may be worth reviewing, even if the program is not healthcare-only.</p>
 
         <div class="who-qualifies">
           <div class="wq-title">Who Qualifies</div>
@@ -643,14 +782,17 @@ p:last-child { margin-bottom: 0; }
           </div>
         </div>
 
-<div class="hero-quote"> Common healthcare question: “Will student loans, shift income or a recent move make it harder to qualify for a mortgage or assistance?” <div style="font-style:normal; font-size:13px; color:#888; margin-top:8px; font-weight:600;">Hero HomeReach helps healthcare workers understand the questions to ask before they start shopping.</div>
+        <div class="common-question">
+          Common healthcare question: "Will student loans, shift income or a recent move make it harder to qualify for a mortgage or assistance?"
+          <div class="cq-sub">Hero HomeReach helps healthcare workers understand the questions to ask and what to review on a free consultation.</div>
+        </div>
 
         <div class="program-pills">
-          <span class="prog-pill">Chenoa Fund — no income limits</span>
-          <span class="prog-pill">metroDPA — up to 6% forgiven</span>
-          <span class="prog-pill">CHFA Programs (FICO 620+)</span>
-          <span class="prog-pill">HUD Good Neighbor Next Door</span>
+          <span class="prog-pill">Chenoa Fund · FHA assistance path</span>
+          <span class="prog-pill">metroDPA · 3% or 4% deferred second</span>
+          <span class="prog-pill">CHFA Programs · FICO 620+ in many cases</span>
           <span class="prog-pill">Seller Credits · up to 6% FHA</span>
+          <span class="prog-pill">Student loan and DTI planning</span>
         </div>
 
         <div style="display:flex; gap:12px; flex-wrap:wrap;">
@@ -663,15 +805,15 @@ p:last-child { margin-bottom: 0; }
           <div class="audience-stat-grid">
             <div class="audience-stat">
               <div class="stat-num" style="color:var(--navy);">No</div>
-              <div class="stat-label" style="color:#666;">Income limits on Chenoa Fund</div>
+              <div class="stat-label" style="color:#666;">Published income cap on Chenoa Fund in many scenarios</div>
             </div>
             <div class="audience-stat">
               <div class="stat-num" style="color:var(--navy);">600+</div>
-              <div class="stat-label" style="color:#666;">Minimum FICO for Chenoa Fund</div>
+              <div class="stat-label" style="color:#666;">Minimum FICO for Chenoa Fund in many scenarios</div>
             </div>
             <div class="audience-stat">
-              <div class="stat-num" style="color:var(--navy);">36</div>
-              <div class="stat-label" style="color:#666;">On-time payments to fully forgive Chenoa Fund assistance</div>
+              <div class="stat-num" style="color:var(--navy);">DTI</div>
+              <div class="stat-label" style="color:#666;">Student loans do not automatically disqualify buyers, but DTI rules must be reviewed carefully</div>
             </div>
             <div class="audience-stat">
               <div class="stat-num" style="color:var(--navy);">620+</div>
@@ -694,7 +836,7 @@ p:last-child { margin-bottom: 0; }
             </div>
             <div class="objection-item">
               <span class="obj-icon">✓</span>
-              <span class="obj-truth">Many programs work around student debt DTI</span>
+              <span class="obj-truth">Student loans do not automatically disqualify buyers, but DTI rules must be reviewed carefully</span>
             </div>
           </div>
         </div>
@@ -712,7 +854,8 @@ p:last-child { margin-bottom: 0; }
 
       <div class="audience-content fade-up">
         <div class="audience-label white">🎖️ Military Members</div>
-       <h2 class="white">You May Have the VA Loan.<br><span style="color:var(--gold); font-style:italic;">Now Understand the Closing Cost Strategy.</span></h2> <p class="lead white">VA loans can be powerful, but zero down does not always mean zero cash needed at closing. Colorado assistance paths and seller credits may help reduce upfront costs depending on eligibility, loan type, property and lender rules.</p>
+        <h2 class="white">You May Have the VA Loan.<br><span style="color:var(--gold); font-style:italic;">Now Understand the Closing Cost Strategy.</span></h2>
+        <p class="lead white">VA loans can be powerful, but zero down does not always mean zero cash needed at closing. Colorado assistance paths and seller credits may help reduce upfront costs depending on eligibility, loan type, property and program rules.</p>
 
         <div class="who-qualifies dark-bg">
           <div class="wq-title">Who Qualifies</div>
@@ -726,9 +869,18 @@ p:last-child { margin-bottom: 0; }
           </div>
         </div>
 
-<div class="hero-quote dark-bg"> Common military question: “If VA allows zero down, why do I still need to plan for closing costs, escrow, inspections and seller credits?” <div style="font-style:normal; font-size:13px; color:rgba(255,255,255,0.45); margin-top:8px; font-weight:600;">Hero HomeReach helps military buyers understand how VA planning may work alongside Colorado assistance options.</div>
+        <div class="common-question dark-bg">
+          Common military question: "If VA allows zero down, why do I still need to plan for closing costs, escrow, inspections and seller credits?"
+          <div class="cq-sub">Hero HomeReach helps military buyers understand how VA planning may work alongside Colorado assistance options on a free consultation.</div>
+        </div>
 
-<div class="program-pills"> <span class="prog-pill dark">VA Loan · may allow 0% down</span> <span class="prog-pill dark">CHFA Programs · verify VA compatibility</span> <span class="prog-pill dark">metroDPA · 3% or 4% deferred second</span> <span class="prog-pill dark">Seller Concessions · VA up to 4%</span> <span class="prog-pill dark">Closing cost and funding fee planning</span> </div>
+        <div class="program-pills">
+          <span class="prog-pill dark">VA Loan · may allow 0% down</span>
+          <span class="prog-pill dark">CHFA Programs · verify compatibility</span>
+          <span class="prog-pill dark">metroDPA · 3% or 4% deferred second</span>
+          <span class="prog-pill dark">Seller Concessions · VA up to 4%</span>
+          <span class="prog-pill dark">Closing cost and funding fee planning</span>
+        </div>
 
         <a href="" onclick="Calendly.initPopupWidget({url:'https://calendly.com/trogelstad-herohomereach/30min?hide_gdpr_banner=1&primary_color=0C2D5E'});return false;" class="btn btn-gold btn-arrow">Book Free Military Consultation</a>
       </div>
@@ -738,14 +890,20 @@ p:last-child { margin-bottom: 0; }
           <div class="audience-stat-grid">
             <div class="audience-stat">
               <div class="stat-num">0%</div>
-              <div class="stat-label">Down payment required with VA loan for eligible buyers</div>
+              <div class="stat-label">Down payment may be required with VA loan for eligible buyers</div>
             </div>
             <div class="audience-stat">
               <div class="stat-num">4%</div>
               <div class="stat-label">Max seller concessions on VA loans</div>
             </div>
-<div class="audience-stat"> <div class="stat-num">$20K</div> <div class="stat-label">Example VA seller concessions at 4% on a $500,000 purchase</div>
-<div class="audience-stat"> <div class="stat-num">Plan</div> <div class="stat-label">VA benefits, assistance and seller credits should be reviewed together before making an offer</div>
+            <div class="audience-stat">
+              <div class="stat-num">$20K</div>
+              <div class="stat-label">Example VA seller concessions at 4% on a $500,000 purchase</div>
+            </div>
+            <div class="audience-stat">
+              <div class="stat-num">Plan</div>
+              <div class="stat-label">VA benefits, assistance and seller credits should be reviewed together before making an offer</div>
+            </div>
           </div>
           <div class="objection-list">
             <div class="objection-title">Common Myths — Busted</div>
@@ -763,7 +921,7 @@ p:last-child { margin-bottom: 0; }
             </div>
             <div class="objection-item">
               <span class="obj-icon">✓</span>
-              <span class="obj-truth" style="color:var(--bright-gold);">If Colorado is your base — programs may be waiting for you</span>
+              <span class="obj-truth" style="color:var(--bright-gold);">If Colorado is your base, assistance paths may be worth reviewing before you assume buying is out of reach</span>
             </div>
           </div>
         </div>
@@ -774,7 +932,28 @@ p:last-child { margin-bottom: 0; }
 </section>
 
 
-<!-- ════════════ FINAL CTA ════════════ --> <section id="final-cta"> <div class="container"> <div class="final-cta-inner fade-up"> <div style="font-size:11px; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:var(--bright-gold); margin-bottom:16px;"> Free Guide. Free Consultation. Plain English. </div> <h2>Understand <span>Your Colorado Homebuying Options</span></h2> <p>Start with the free Hero HomeReach guide, then book a free consultation when you are ready to talk through your role, your questions and the assistance paths that may be worth reviewing.</p> <div style="display:flex; justify-content:center; gap:14px; flex-wrap:wrap;"> <a href="https://guide.herohomereach.com" target="_blank" class="btn btn-gold btn-arrow" style="font-size:17px; padding:18px 40px;">Get the Free Guide</a> <a href="" onclick="Calendly.initPopupWidget({url:'https://calendly.com/trogelstad-herohomereach/30min?hide_gdpr_banner=1&primary_color=0C2D5E'});return false;" class="btn btn-white" style="font-size:17px; padding:18px 40px;">Book Free Consultation</a> </div> <div class="cta-reassurance"> <div class="cta-reassurance-item">Free guide first</div> <div class="cta-reassurance-item">No lender pressure</div> <div class="cta-reassurance-item">Colorado-specific guidance</div> <div class="cta-reassurance-item">Plain-English next steps</div> </div> </div> </div> </section>
+<!-- ════════════ FINAL CTA ════════════ -->
+<section id="final-cta">
+  <div class="container">
+    <div class="final-cta-inner fade-up">
+      <div style="font-size:11px; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:var(--bright-gold); margin-bottom:16px;">
+        Free Guide. Free Consultation. Plain English.
+      </div>
+      <h2>Understand <span>Your Colorado Homebuying Options</span></h2>
+      <p>Start with the free Hero HomeReach guide, then book a free consultation when you are ready to talk through your role, your questions and the assistance paths that may be worth reviewing.</p>
+      <div style="display:flex; justify-content:center; gap:14px; flex-wrap:wrap;">
+        <a href="https://guide.herohomereach.com" target="_blank" class="btn btn-gold btn-arrow" style="font-size:17px; padding:18px 40px;">Get the Free Guide</a>
+        <a href="" onclick="Calendly.initPopupWidget({url:'https://calendly.com/trogelstad-herohomereach/30min?hide_gdpr_banner=1&primary_color=0C2D5E'});return false;" class="btn btn-white" style="font-size:17px; padding:18px 40px;">Book Free Consultation</a>
+      </div>
+      <div class="cta-reassurance">
+        <div class="cta-reassurance-item">Free guide first</div>
+        <div class="cta-reassurance-item">No lender pressure</div>
+        <div class="cta-reassurance-item">Colorado-specific guidance</div>
+        <div class="cta-reassurance-item">Plain-English next steps</div>
+      </div>
+    </div>
+  </div>
+</section>
 
 
 <!-- ════════════ FOOTER ════════════ -->
@@ -836,9 +1015,11 @@ const observer = new IntersectionObserver(entries => {
 }, { threshold: 0.1 });
 fadeEls.forEach(el => observer.observe(el));
 </script>
+
 <!-- Start of HubSpot Embed Code -->
 <script type="text/javascript" id="hs-script-loader" async defer src="//js-na2.hs-scripts.com/244185002.js"></script>
 <!-- End of HubSpot Embed Code -->
+
 <link rel="stylesheet" href="/css/ebook-modal.css">
 <script src="/js/ebook-modal.js"></script>
 </body>
