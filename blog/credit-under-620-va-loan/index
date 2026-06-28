@@ -1,1 +1,1033 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
 
+  <meta charset="UTF-8">
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-5ZQKN4LM');</script>
+  <!-- End Google Tag Manager -->
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Credit Under 620? Your VA Loan Path May Not Be Over — Hero HomeReach™</title>
+  <meta name="description" content="VA does not set a 620 credit score minimum. Learn how lender overlays, manual underwriting, residual income and CHFA rules affect Colorado veterans and military families.">
+
+  <link rel="canonical" href="https://www.herohomereach.com/blog/credit-under-620-va-loan/">
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/png" href="../../favicon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../../favicon-180x180.png">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Credit Under 620? Your VA Loan Path May Not Be Over — Hero HomeReach™">
+  <meta property="og:description" content="VA does not set a 620 credit score minimum. Learn how lender overlays, manual underwriting, residual income and CHFA rules affect Colorado veterans and military families.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://www.herohomereach.com/blog/credit-under-620-va-loan/">
+  <meta property="og:image" content="https://www.herohomereach.com/blog/credit-under-620-va-loan/hero.webp">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Credit Under 620? Your VA Loan Path May Not Be Over — Hero HomeReach™">
+  <meta name="twitter:description" content="VA does not set a 620 credit score minimum. Learn how lender overlays, manual underwriting and CHFA rules affect Colorado veterans.">
+  <meta name="twitter:image" content="https://www.herohomereach.com/blog/credit-under-620-va-loan/hero.webp">
+
+  <!-- ═══════════════════════════════════════════════
+       SCHEMA BLOCK 1 — Article
+  ════════════════════════════════════════════════ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Credit Under 620? Your VA Loan Path May Not Be Over",
+    "description": "VA does not set a 620 credit score minimum. Learn how lender overlays, manual underwriting, residual income and CHFA rules affect Colorado veterans and military families.",
+    "image": {
+      "@type": "ImageObject",
+      "url": "https://www.herohomereach.com/blog/credit-under-620-va-loan/hero.webp",
+      "width": 1456,
+      "height": 816
+    },
+    "datePublished": "2026-06-28",
+    "dateModified": "2026-06-28",
+    "author": {
+      "@type": "Person",
+      "name": "Trent Rogelstad",
+      "url": "https://www.herohomereach.com/about.html"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Hero HomeReach",
+      "url": "https://www.herohomereach.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.herohomereach.com/logo-mark_transparent.png",
+        "width": 512,
+        "height": 512
+      }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://www.herohomereach.com/blog/credit-under-620-va-loan/"
+    },
+    "about": [
+      { "@type": "Thing", "name": "VA Home Loan", "sameAs": "https://www.va.gov/housing-assistance/home-loans/" },
+      { "@type": "Thing", "name": "Credit Score" },
+      { "@type": "Thing", "name": "Manual Underwriting" }
+    ],
+    "audience": { "@type": "Audience", "audienceType": "Colorado veterans, active-duty service members, Guard and Reserve members, military spouses" },
+    "keywords": "VA loan credit score minimum, VA loan under 620, VA loan Colorado, manual underwriting VA loan, lender overlay, CHFA credit score, residual income VA loan",
+    "articleSection": "VA Loans",
+    "wordCount": "3800",
+    "inLanguage": "en-US"
+  }
+  </script>
+
+  <!-- ═══════════════════════════════════════════════
+       SCHEMA BLOCK 2 — BreadcrumbList
+  ════════════════════════════════════════════════ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.herohomereach.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Learning Center", "item": "https://www.herohomereach.com/blog/" },
+      { "@type": "ListItem", "position": 3, "name": "Credit Under 620? Your VA Loan Path May Not Be Over", "item": "https://www.herohomereach.com/blog/credit-under-620-va-loan/" }
+    ]
+  }
+  </script>
+
+  <!-- ═══════════════════════════════════════════════
+       SCHEMA BLOCK 3 — FAQPage
+  ════════════════════════════════════════════════ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "Does the VA require a 620 credit score?", "acceptedAnswer": { "@type": "Answer", "text": "No. The VA does not set a minimum credit score for VA-backed home loans. Many lenders set their own minimums, and 620 is common. That is usually a lender overlay, not a VA rule." } },
+      { "@type": "Question", "name": "Can I get a VA loan with a 600 credit score?", "acceptedAnswer": { "@type": "Answer", "text": "Possibly, depending on the lender and the full file. Some lenders may review VA borrowers below 620, while others will not. Income, debt, residual income, payment history and recent credit events all matter." } },
+      { "@type": "Question", "name": "Is being denied by one lender the same as being denied by VA?", "acceptedAnswer": { "@type": "Answer", "text": "No. A denial from one lender may be based on that lender's overlays, not the VA program itself. Ask whether the issue was a VA rule, an automated underwriting result or the lender's internal requirement." } },
+      { "@type": "Question", "name": "What is a lender overlay?", "acceptedAnswer": { "@type": "Answer", "text": "A lender overlay is an extra rule a lender adds on top of the base program guidelines. For example, VA may not require 620, but a lender may set 620 as its own minimum." } },
+      { "@type": "Question", "name": "What is manual underwriting?", "acceptedAnswer": { "@type": "Answer", "text": "Manual underwriting is a human review of your loan file when the automated system does not give a clean green light. It may consider payment history, residual income, rent history, savings, debts and explanation letters. It is not automatic." } },
+      { "@type": "Question", "name": "Is my free credit app score the same score a mortgage lender uses?", "acceptedAnswer": { "@type": "Answer", "text": "Not necessarily. Free credit apps may show a different score than a mortgage lender uses. Mortgage lenders often review scores from all three major credit bureaus and commonly use the middle score." } },
+      { "@type": "Question", "name": "What if I have no credit score?", "acceptedAnswer": { "@type": "Answer", "text": "If you have no credit score or a thin credit file, some lenders may consider alternative credit in manual underwriting. That could include rent, utilities, phone bills or insurance payments. Not all lenders allow this." } },
+      { "@type": "Question", "name": "Can a rapid credit update process help me get over 620?", "acceptedAnswer": { "@type": "Answer", "text": "Sometimes, but only in the right situation. A mortgage lender may have a process for updating documented credit-report changes, such as paid-down balances. It does not promise a score increase." } },
+      { "@type": "Question", "name": "Can I use CHFA with a VA loan if my credit is under 620?", "acceptedAnswer": { "@type": "Answer", "text": "Usually not. CHFA generally requires a 620 mid-credit score for its homeownership programs. A VA lender may review a lower score, but CHFA has its own separate rules." } },
+      { "@type": "Question", "name": "Can CHAC help if I do not meet CHFA's 620 rule?", "acceptedAnswer": { "@type": "Answer", "text": "CHAC may be worth asking about, especially for some borrowers who need counseling or have alternative credit questions. But CHAC is not a guaranteed workaround. It still depends on first mortgage lender approval and CHAC program requirements." } },
+      { "@type": "Question", "name": "Where can I learn more about Colorado homebuyer assistance?", "acceptedAnswer": { "@type": "Answer", "text": "Start with the Hero HomeReach homebuyer assistance FAQ or explore the Colorado homebuyer assistance programs page at herohomereach.com for plain-English guidance." } }
+    ]
+  }
+  </script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Shared + Blog styles -->
+  <link rel="stylesheet" href="../../css/main.css">
+  <link rel="stylesheet" href="../../css/blog.css">
+
+  <style>
+  /* ── Post Hero ── */
+  .post-hero {
+    background: var(--navy);
+    padding: calc(var(--nav-h) + 56px) 0 64px;
+    position: relative;
+    overflow: hidden;
+    border-bottom: 4px solid var(--gold);
+  }
+  .post-hero::before {
+    content: '';
+    position: absolute;
+    top: -80px; right: -80px;
+    width: 500px; height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(201,151,58,0.07) 0%, transparent 70%);
+  }
+  .post-hero-inner {
+    position: relative; z-index: 2;
+    max-width: 780px;
+  }
+  .post-hero-inner h1 {
+    color: #fff;
+    font-size: clamp(28px, 4vw, 46px);
+    line-height: 1.15;
+    margin-bottom: 20px;
+  }
+  .post-hero-meta {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+  .post-hero-tag {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--gold); background: rgba(201,151,58,0.15); padding: 4px 12px; border-radius: 20px;
+  }
+  .post-hero-audience {
+    font-size: 11px; font-weight: 600; color: rgba(255,255,255,0.8);
+    background: rgba(255,255,255,0.1); padding: 4px 12px; border-radius: 20px;
+  }
+  .post-hero-date, .post-hero-read-time { font-size: 13px; color: rgba(255,255,255,0.45); }
+  .post-hero-dot { width: 3px; height: 3px; border-radius: 50%; background: rgba(255,255,255,0.3); flex-shrink: 0; }
+
+  /* ── Breadcrumb ── */
+  .breadcrumb { display: flex; align-items: center; gap: 8px; margin-bottom: 20px; font-size: 13px; }
+  .breadcrumb a { color: rgba(255,255,255,0.5); transition: color 0.2s; }
+  .breadcrumb a:hover { color: var(--gold); }
+  .breadcrumb-sep { color: rgba(255,255,255,0.25); }
+  .breadcrumb-current { color: rgba(255,255,255,0.4); }
+
+  /* ── Share buttons ── */
+  .post-share { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+  .post-share-label { font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; }
+  .post-share-top .post-share-label { color: rgba(255,255,255,0.45); }
+  .post-share-bottom .post-share-label { color: #999; }
+  .share-btn { display: inline-flex; align-items: center; justify-content: center; width: 34px; height: 34px; border-radius: 50%; border: none; cursor: pointer; transition: transform 0.2s, opacity 0.2s; text-decoration: none; flex-shrink: 0; }
+  .share-btn:hover { transform: translateY(-2px); opacity: 0.85; }
+  .share-btn svg { width: 16px; height: 16px; fill: #fff; }
+  .share-btn-facebook { background: #1877F2; }
+  .share-btn-x { background: #000; }
+  .share-btn-linkedin { background: #0A66C2; }
+  .share-btn-copy { background: var(--gold); position: relative; }
+  .share-btn-copy svg { fill: var(--navy); }
+  .share-btn-copy.copied::after { content: 'Copied!'; position: absolute; bottom: 110%; left: 50%; transform: translateX(-50%); background: var(--navy); color: #fff; font-size: 11px; font-weight: 600; padding: 4px 8px; border-radius: 4px; white-space: nowrap; pointer-events: none; }
+  .post-share-top { margin-top: 24px; }
+  .post-share-bottom { display: flex; align-items: center; gap: 12px; padding: 24px 0; border-top: 1px solid rgba(12,45,94,0.1); border-bottom: 1px solid rgba(12,45,94,0.1); margin-bottom: 40px; flex-wrap: wrap; }
+
+  /* ── Hero image inside post body ── */
+  .post-hero-img {
+    width: 100%;
+    border-radius: var(--radius);
+    overflow: hidden;
+    margin-bottom: 36px;
+    box-shadow: 0 8px 32px rgba(12,45,94,0.12);
+  }
+  .post-hero-img img {
+    width: 100%;
+    height: auto;
+    display: block;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+  }
+
+  /* ── Quick answer box ── */
+  .quick-answer-box {
+    background: rgba(12,45,94,0.04);
+    border-left: 4px solid var(--gold);
+    border-radius: 0 8px 8px 0;
+    padding: 24px 28px;
+    margin: 32px 0;
+  }
+  .quick-answer-box h2 {
+    font-size: 17px; margin-bottom: 12px; color: var(--navy);
+  }
+  .quick-answer-box a {
+    color: var(--navy);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  .quick-answer-box a:hover { color: var(--gold); }
+
+  /* ── Links inside navy callout boxes ── */
+  .post-callout a {
+    color: var(--gold);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+  .post-callout a:hover { color: var(--bright-gold); }
+
+  /* ── Related post thumbnails ── */
+  .related-post-thumb-link { flex-shrink: 0; display: block; width: 64px; height: 56px; border-radius: 5px; overflow: hidden; }
+  .related-post-thumb-img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.2s; }
+  .related-post-item:hover .related-post-thumb-img { transform: scale(1.05); }
+
+  /* ── Mobile ── */
+  @media (max-width: 768px) {
+    .post-article, .post-body { min-width: 0; max-width: 100%; overflow-x: hidden; }
+    .sidebar-card-hide-mobile { display: none; }
+  }
+  </style>
+
+  <!-- Calendly popup -->
+  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+  <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+
+</head>
+<body>
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5ZQKN4LM"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<!-- ════════════ NAVIGATION ════════════ -->
+<nav id="nav" class="nav-solid">
+  <div class="nav-inner">
+    <a href="../../" class="nav-logo">
+      <img src="../../logo-mark_transparent.png" alt="Hero HomeReach Shield" style="width:50px;height:50px;object-fit:contain;">
+      <div>
+        <div class="nav-wordmark">Hero <span>HomeReach</span><sup class="nav-tm">™</sup></div>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="../../programs.html">Programs</a></li>
+      <li><a href="../../who-we-serve.html">Who We Serve</a></li>
+      <li><a href="../../blog/" class="active">Learning Center</a></li>
+      <li><a href="../../tools/">Tools</a></li>
+      <li><a href="../../faq.html">DPA FAQ</a></li>
+      <li><a href="https://guide.herohomereach.com" target="_blank" style="color:var(--bright-gold);font-weight:700;">Free Guide</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="../../contact.html" class="btn btn-gold btn-arrow">Book Free Consultation</a>
+    </div>
+    <div class="nav-hamburger" id="hamburger" onclick="toggleMobileNav()">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile Nav -->
+<div id="mobile-nav">
+  <a href="../../programs.html" onclick="toggleMobileNav()">Programs</a>
+  <a href="../../who-we-serve.html" onclick="toggleMobileNav()">Who We Serve</a>
+  <a href="../../blog/" onclick="toggleMobileNav()">Learning Center</a>
+  <a href="../../tools/" onclick="toggleMobileNav()">Tools</a>
+  <a href="../../faq.html" onclick="toggleMobileNav()">DPA FAQ</a>
+  <a href="https://guide.herohomereach.com" target="_blank" onclick="toggleMobileNav()" style="color:var(--bright-gold);">Free Guide</a>
+  <a href="../../contact.html" class="btn btn-gold" style="margin-top:16px;font-size:16px;">Book Free Consultation</a>
+</div>
+
+<!-- ════════════ POST HERO ════════════ -->
+<div class="post-hero">
+  <div class="container">
+    <div class="post-hero-inner">
+
+      <div class="breadcrumb">
+        <a href="../../">Home</a>
+        <span class="breadcrumb-sep">›</span>
+        <a href="../../blog/">Learning Center</a>
+        <span class="breadcrumb-sep">›</span>
+        <span class="breadcrumb-current">Credit Under 620? Your VA Loan Path May Not Be Over</span>
+      </div>
+
+      <h1>Credit Under 620? Your VA Loan Path May Not Be Over</h1>
+
+      <div class="post-hero-meta">
+        <span class="post-hero-tag">VA Loans</span>
+        <span class="post-hero-audience">Veterans &amp; Military Families</span>
+        <span class="post-hero-dot"></span>
+        <span class="post-hero-date">June 2026</span>
+        <span class="post-hero-dot"></span>
+        <span class="post-hero-read-time">14 min read</span>
+      </div>
+
+      <div class="post-share post-share-top">
+        <span class="post-share-label">Share</span>
+        <a class="share-btn share-btn-facebook" id="share-fb-top" href="#" target="_blank" rel="noopener" aria-label="Share on Facebook">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.413c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/></svg>
+        </a>
+        <a class="share-btn share-btn-x" id="share-x-top" href="#" target="_blank" rel="noopener" aria-label="Share on X">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.253 5.622 5.911-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        </a>
+        <a class="share-btn share-btn-linkedin" id="share-li-top" href="#" target="_blank" rel="noopener" aria-label="Share on LinkedIn">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        </a>
+        <button class="share-btn share-btn-copy" id="copy-top" aria-label="Copy link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 00-6.364-6.364l-4.5 4.5a4.5 4.5 0 001.242 7.244"/></svg>
+        </button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ════════════ POST BODY ════════════ -->
+<section class="section">
+  <div class="container">
+    <div class="post-layout">
+
+      <!-- ── LEFT: Article ── -->
+      <article class="post-article">
+        <div class="post-body">
+
+          <!-- Hero image -->
+          <div class="post-hero-img">
+            <img
+              src="hero.webp"
+              alt="A Colorado veteran couple seated with a Hero HomeReach advisor in front of a whiteboard showing VA loan options and credit score guidance"
+              width="1456"
+              height="816"
+              loading="eager"
+            >
+          </div>
+
+          <p>If your credit score is under 620, it can feel like the VA loan door has already closed.</p>
+
+          <p>And not in a gentle way. More like the door shut, locked itself and left a sticky note that says, "Try again when you're more responsible."</p>
+
+          <p>But let's slow that down.</p>
+
+          <p>A credit score under 620 does <strong>not</strong> automatically mean the VA loan program said no. In many cases, 620 is not a VA rule at all. It is a lender rule.</p>
+
+          <p>That distinction matters.</p>
+
+          <p>It may be the difference between "this is impossible" and "we need to find out which path actually fits your file."</p>
+
+          <p><a href="https://www.herohomereach.com/">Hero HomeReach</a> is an educational resource, not a lender or mortgage broker. This guide is here to help Colorado veterans, active-duty service members, Guard/Reserve members and military spouses understand the moving parts before they give up too early.</p>
+
+          <!-- Quick Answer Box -->
+          <div class="quick-answer-box">
+            <h2>Quick Answer: Does VA Require a 620 Credit Score?</h2>
+            <p><strong>No. The VA does not set a minimum credit score for VA-backed home loans.</strong></p>
+            <p>The <a href="https://www.benefits.va.gov/homeloans/documents/docs/VA_Buyers_Guide.pdf" target="_blank" rel="noopener">VA Home Loan Guaranty Buyer's Guide</a> explains that VA does not require a minimum credit score. Many lenders, however, set their own score requirements. A common one is 620.</p>
+            <p>That lender rule is often called an <strong>overlay</strong> — an extra requirement a lender adds on top of VA program guidelines.</p>
+            <p>Some borrowers below 620 may still have options. That could involve a VA lender with different overlays, manual underwriting, strong residual income, alternative credit history or a short-term readiness plan.</p>
+            <p>But this is not automatic. Final eligibility depends on your full credit file, income, debts, residual income, recent payment history, lender rules and current VA requirements.</p>
+          </div>
+
+          <p>Think of it this way:</p>
+
+          <p>The VA gives the broad rulebook.</p>
+
+          <p>The lender decides how strict their own classroom rules are.</p>
+
+          <p>Some classrooms let you retake the quiz. Others point to the door after one wrong answer.</p>
+
+          <h2 id="the-myth">The 620 Credit Score Myth</h2>
+
+          <p>The 620 number is everywhere.</p>
+
+          <p>You see it on lender websites. You hear it from loan officers. You see it in Facebook groups. Someone's cousin's neighbor bought a house once and now speaks in mortgage commandments.</p>
+
+          <p>So it makes sense that a veteran with a 610 score might think: "Well, that's it. I'm out."</p>
+
+          <p>But the real answer is more layered.</p>
+
+          <h3>What VA Actually Says</h3>
+
+          <p>The VA does not say every borrower must have a 620 score.</p>
+
+          <p>Instead, the VA expects lenders to evaluate whether the borrower has a reasonable ability to repay the loan. That review includes credit history, income, debts, residual income, employment, property requirements and occupancy rules.</p>
+
+          <p>The <a href="https://www.va.gov/housing-assistance/home-loans/eligibility/" target="_blank" rel="noopener">VA home loan eligibility page</a> explains that borrowers must meet credit, income and occupancy requirements from both VA and the lender.</p>
+
+          <p>So the better question is not: "Does the VA require 620?"</p>
+
+          <p>The better question is: "Is 620 this lender's rule?"</p>
+
+          <p>That is the first chalkboard moment. Once you see it, the rest of the problem starts to make more sense.</p>
+
+          <h3>Why So Many Lenders Say 620</h3>
+
+          <p>A <strong>lender overlay</strong> is an extra requirement a lender adds to reduce risk.</p>
+
+          <p>Here is a plain-English example.</p>
+
+          <p>The VA may not require a 620 credit score. But a lender may say: "For our company, we only review VA loans at 620 and above." Another lender may use a different number. Another may review lower scores only when the rest of the file is strong.</p>
+
+          <p>Same VA program. Different lender rules.</p>
+
+          <p>That is why one lender's no is not always the end of the story. It may simply mean that lender's rules do not fit your file right now.</p>
+
+          <h2 id="app-score">The Score on Your App May Not Be Your Mortgage Score</h2>
+
+          <p>This one catches a lot of people.</p>
+
+          <p>You check a free credit app. You see 604. Your stomach drops. You assume that number is the one a mortgage lender will use.</p>
+
+          <p>Maybe it is close. Maybe it is not.</p>
+
+          <p>The <a href="https://www.consumerfinance.gov/ask-cfpb/does-my-credit-score-affect-my-ability-to-get-a-mortgage-loan-or-the-mortgage-rate-i-pay-en-319/" target="_blank" rel="noopener">Consumer Financial Protection Bureau</a> explains that you have many credit scores, mortgage lenders often use FICO scores and most mortgage lenders look at scores from all three major credit reporting companies. They commonly use the middle score.</p>
+
+          <p>Here is the simple version:</p>
+
+          <ul>
+            <li>Experian: 638</li>
+            <li>Equifax: 612</li>
+            <li>TransUnion: 595</li>
+          </ul>
+
+          <p>Your middle score is <strong>612</strong>.</p>
+
+          <p>Not the highest. Not the lowest. The middle.</p>
+
+          <p>That middle score matters a lot when you are near 620. A few points can decide whether one path is open now or needs more work first.</p>
+
+          <p>So do not self-disqualify based only on a free app score. Those apps can be useful for tracking trends, but they may not show the exact mortgage score a lender uses. Before you decide the door is closed, find out what score is actually being used.</p>
+
+          <h2 id="eligibility-vs-approval">VA Eligibility Is Not the Same as Lender Approval</h2>
+
+          <p>This is where a lot of confusion lives.</p>
+
+          <p>You may be eligible for the VA home loan benefit and still have a lender say no today. Those are different issues.</p>
+
+          <p><strong>VA eligibility</strong> usually means you meet service requirements and can get a Certificate of Eligibility, often called a <strong>COE</strong>.</p>
+
+          <p><strong>Lender approval</strong> means a lender has reviewed your credit, income, debts, assets, property and overall ability to repay.</p>
+
+          <p>Both matter. Having VA eligibility does not mean every lender will say yes. But one lender saying no does not automatically mean the VA program rejected you.</p>
+
+          <p>The clean question to ask is: "Was this because of a VA rule, an automated underwriting result or your company's lender overlay?"</p>
+
+          <p>That question is not fancy. It is just sharp. It cuts through fog.</p>
+
+          <h2 id="one-lenders-no">One Lender's No Is Not Always the VA Saying No</h2>
+
+          <p>Getting turned down can feel personal. Especially when you already feel embarrassed about your credit. A denial can sound like: "You are not ready." "You waited too long." "You messed this up."</p>
+
+          <p>But lending is not a moral judgment. It is a file review.</p>
+
+          <p>A lender may say no because:</p>
+
+          <ul>
+            <li>their company requires 620</li>
+            <li>they do not manually underwrite VA loans</li>
+            <li>your automated underwriting result did not pass their rules</li>
+            <li>recent late payments created concern</li>
+            <li>debt-to-income ratio was too high</li>
+            <li>residual income was not strong enough</li>
+            <li>collections or charge-offs need more explanation</li>
+            <li>they simply do not work with your type of file</li>
+          </ul>
+
+          <p>That does not mean every VA lender would review it the same way.</p>
+
+          <p>It also does not mean you should run around applying everywhere. That can turn into a paperwork tornado. The smarter move is to ask better questions before the next conversation.</p>
+
+          <h2 id="below-620">Can You Get a VA Loan Below 620?</h2>
+
+          <p>Sometimes, possibly. That is the honest answer.</p>
+
+          <p>A score between <strong>590 and 619</strong> is not a green light. It is not a stop sign either. It is a yellow light.</p>
+
+          <p>That means slow down, look both ways and understand the road before moving.</p>
+
+          <p>A borrower in this range may need a VA-experienced lender with different credit overlays. They may need manual underwriting. They may need stronger documentation. They may need a short-term plan to get above 620.</p>
+
+          <p>The rest of the file matters. A lower-score file may be stronger when the borrower has:</p>
+
+          <ul>
+            <li>stable income</li>
+            <li>clean recent payment history</li>
+            <li>strong rent history</li>
+            <li>manageable debt</li>
+            <li>strong residual income</li>
+            <li>savings left after closing</li>
+            <li>a clear explanation for past credit problems</li>
+            <li>no recent major credit events</li>
+          </ul>
+
+          <p>A lower-score file may be harder when there are:</p>
+
+          <ul>
+            <li>recent late payments</li>
+            <li>unpaid collections</li>
+            <li>high credit card balances</li>
+            <li>recent bankruptcy</li>
+            <li>recent foreclosure</li>
+            <li>unstable income</li>
+            <li>high debt-to-income ratio</li>
+            <li>very little money left after monthly bills</li>
+          </ul>
+
+          <p>The score matters. But the story behind the score matters too.</p>
+
+          <h2 id="below-580">Why Below 580 Usually Gets Harder</h2>
+
+          <p>Below 580, the path often gets narrower.</p>
+
+          <p>Not because the VA suddenly drops a trapdoor. It is because fewer lenders may be willing to review the file, and automated underwriting may be harder to get through.</p>
+
+          <p>At that point, the best question may not be: "Can I buy today?" It may be: "What would make this file stronger in the next 30, 60 or 90 days?"</p>
+
+          <p>That shift matters. Because "not today" is very different from "never."</p>
+
+          <p>Sometimes the best move is not pushing harder on the locked door. Sometimes it is finding the right key and coming back with a better file.</p>
+
+          <h2 id="manual-underwriting">Manual Underwriting in Plain English</h2>
+
+          <p><strong>Manual underwriting</strong> means a human underwriter reviews your file when the automated system does not give a clean green light.</p>
+
+          <p>The automated system is like the calculator. Manual underwriting is the teacher looking at your work.</p>
+
+          <p>That does not mean the teacher gives you the answer. It means they look at the full problem instead of just the final number.</p>
+
+          <p>Manual underwriting may consider:</p>
+
+          <ul>
+            <li>your last 12 months of payment history</li>
+            <li>whether you paid rent on time</li>
+            <li>your income stability</li>
+            <li>your debt-to-income ratio</li>
+            <li>your residual income</li>
+            <li>your savings or reserves</li>
+            <li>your explanation for past credit issues</li>
+            <li>whether the problem that hurt your credit has been fixed</li>
+          </ul>
+
+          <p>This can help when a score does not tell the whole story. But manual underwriting is not magic. It is not automatic. It is not available at every lender.</p>
+
+          <h3>What a Human Underwriter Looks At</h3>
+
+          <p>A human underwriter wants to know whether the file makes sense.</p>
+
+          <p>For example: Did your credit drop because of a temporary job loss, medical issue, divorce or deployment-related disruption? Have you had clean payment history since then? Is your income stable now? Do you have enough money left after monthly obligations? Do your bank statements support the story?</p>
+
+          <p>A strong explanation does not erase the past. But it can help connect the dots. The underwriter is not looking for perfection. They are looking for a pattern that says the risk is understood and the situation has improved.</p>
+
+          <h3>No Credit Score? Alternative Credit May Matter</h3>
+
+          <p>Some borrowers do not have a low score because they missed payments. They have a low or missing score because they have not used much traditional credit. This is called a <strong>thin credit file</strong>.</p>
+
+          <p>Maybe you avoided credit cards. Maybe you paid cash. Maybe you have rent and utility history but not many traditional loans.</p>
+
+          <p>In some manual underwriting situations, a lender may consider <strong>alternative credit</strong>. That can include proof of on-time payments for things like:</p>
+
+          <ul>
+            <li>rent</li>
+            <li>utilities</li>
+            <li>cell phone bills</li>
+            <li>insurance</li>
+            <li>other recurring monthly obligations</li>
+          </ul>
+
+          <p>Not every lender allows this. Not every file can use it. But if you have little traditional credit and strong real-world payment history, it is worth asking: "Do you manually underwrite VA loans using alternative credit?"</p>
+
+          <p>That question may save you from being judged only by a score that never had much data behind it.</p>
+
+          <h2 id="what-manual-is-not">What Manual Underwriting Is Not</h2>
+
+          <p>Manual underwriting is not a promise. It is not a secret back door. It is not "my score does not matter." It is a more detailed review.</p>
+
+          <p>A lender can still say no. The underwriter can still decide the risk is too high. The file can still need more time. But for the right borrower, manual underwriting may provide a more complete review than a score alone.</p>
+
+          <h2 id="residual-income">Residual Income: The VA Factor Many Buyers Miss</h2>
+
+          <p>Most buyers hear about <strong>DTI</strong>, or debt-to-income ratio.</p>
+
+          <p>DTI asks: "How much of your income is already committed to debt?"</p>
+
+          <p>But VA loans also care about <strong>residual income</strong>.</p>
+
+          <p>Residual income asks: "After the major bills are counted, is there enough money left to live?"</p>
+
+          <p>That is a very practical question. Because a mortgage payment is not the only thing in your life. You still need groceries, gas, car repairs, school supplies, medical costs, pet food and the occasional appliance that chooses violence on a Tuesday.</p>
+
+          <p>Residual income is about breathing room.</p>
+
+          <h3>Residual Income vs. DTI</h3>
+
+          <p>Here is the simplest way to separate them:</p>
+
+          <p><strong>DTI</strong> looks at how much debt you carry compared with your income.</p>
+
+          <p><strong>Residual income</strong> looks at how much money is left after major obligations.</p>
+
+          <p>A borrower can have a decent DTI but weak residual income. Another borrower can have a lower credit score but strong residual income.</p>
+
+          <p>For VA loans, strong residual income may help tell a better story. It does not erase credit issues, but it can become a meaningful part of the review.</p>
+
+          <h2 id="colorado-assistance">Colorado Assistance Changes the Picture</h2>
+
+          <p>Now we bring this home to Colorado.</p>
+
+          <p>A VA loan path and a Colorado down payment assistance path are not always the same path. This is where many buyers get tripped up.</p>
+
+          <p>They hear: "VA does not require 620." Then they hear: "CHFA requires 620." Both can be true. Different programs. Different rules.</p>
+
+          <h3>CHFA Usually Has Its Own 620 Rule</h3>
+
+          <p><a href="https://www.chfainfo.com/homeownership/how-to-get-a-chfa-program-loan" target="_blank" rel="noopener">CHFA</a> is one of Colorado's most important homebuyer assistance resources. But CHFA generally requires a <strong>mid-credit score of 620 or higher</strong> for its homeownership programs. Its <a href="https://www.chfainfo.com/homeownership/faqs" target="_blank" rel="noopener">homeownership FAQ</a> also states that borrowers must have a mid-credit score of 620, with possible exceptions for borrowers with no credit score.</p>
+
+          <p>That means a Colorado veteran with a 615 mortgage score may still have a possible VA conversation with the right lender, but may not be able to stack CHFA assistance until reaching CHFA's separate threshold.</p>
+
+          <p>This is the classroom example:</p>
+
+          <p><strong>VA loan path:</strong> Maybe possible below 620 with the right lender and full-file review.</p>
+          <p><strong>CHFA assistance path:</strong> Generally needs 620.</p>
+
+          <p>Those are not the same path. And knowing that prevents a lot of disappointment.</p>
+
+          <h3>MetroDPA May Also Have Separate Credit Rules</h3>
+
+          <p>MetroDPA may be another Colorado assistance option, depending on location, loan type, lender participation and current program rules. But like CHFA, MetroDPA has its own requirements.</p>
+
+          <p>A VA lender reviewing your file does not automatically mean a down payment assistance program will fit too.</p>
+
+          <p>Always verify:</p>
+
+          <ul>
+            <li>credit score rules</li>
+            <li>income limits</li>
+            <li>property rules</li>
+            <li>homebuyer education requirements</li>
+            <li>lender participation</li>
+            <li>repayment terms</li>
+          </ul>
+
+          <p>You can compare broader Colorado options on the <a href="../../programs.html">Hero HomeReach programs page</a>.</p>
+
+          <p>Do not assume every program stacks cleanly. Mortgage programs are more like puzzle pieces than Lego bricks. Some fit. Some almost fit. Some look like they fit until you try to close the box.</p>
+
+          <h3>CHAC and Alternative Colorado Assistance</h3>
+
+          <p>CHAC, the Colorado Housing Assistance Corporation, is another Colorado resource worth knowing. CHAC provides second mortgage assistance for down payment and closing cost support. It is not the same as CHFA, and it should not be treated as a guaranteed workaround for a low credit score.</p>
+
+          <p>The careful way to think about CHAC is this: it may be worth asking about, especially if your file involves thin credit, alternative credit history or a need for counseling. But CHAC still depends on first mortgage lender approval, CHAC program rules and borrower counseling.</p>
+
+          <p>So CHAC may be part of the conversation. It is not a magic button.</p>
+
+          <h2 id="va-and-dpa">VA Path and DPA Path Are Not Always the Same Path</h2>
+
+          <p>This may be the most important Colorado takeaway.</p>
+
+          <p>A veteran could have a possible VA loan path before they have a stackable down payment assistance path. That can feel frustrating. But it can also be useful.</p>
+
+          <p>If your score is 610 today, the first goal may be understanding whether a VA-experienced lender can review your file now. The second goal may be building a plan to reach 620 so CHFA or another assistance program becomes more realistic later.</p>
+
+          <p>That is not failure. That is sequencing.</p>
+
+          <p>Algebra works the same way. You do not solve step four before step one. You simplify the problem, isolate the variable and move one clean step at a time.</p>
+
+          <h2 id="questions-to-ask">What to Ask a VA Lender If Your Score Is 590 to 619</h2>
+
+          <p>Before you assume you are disqualified, ask better questions. Bring these to a VA-experienced lender:</p>
+
+          <ul>
+            <li>Is 620 your lender overlay or a VA rule?</li>
+            <li>Do you manually underwrite VA loans?</li>
+            <li>What happens if my file does not get an automated green light?</li>
+            <li>Which mortgage credit score are you using?</li>
+            <li>Do you accept alternative credit if I have no score or thin credit?</li>
+            <li>How do you evaluate residual income?</li>
+            <li>How important is my last 12 months of rent history?</li>
+            <li>Do recent late payments automatically stop the file?</li>
+            <li>Can a VA loan be paired with CHFA, MetroDPA or CHAC at my current score?</li>
+            <li>If I am not ready today, what would need to change in 30, 60 or 90 days?</li>
+            <li>If I pay down revolving debt, is there a lender process to update documented credit-report changes quickly?</li>
+          </ul>
+
+          <p>These questions change the conversation. Instead of asking, "Am I rejected?" you are asking, "What rule is stopping this, and what is the next move?" That is a much better seat to sit in.</p>
+
+          <h2 id="not-ready-today">If You Are Not Ready Today, That Is Not the Same as Never</h2>
+
+          <p>A lot of buyers hear "not right now" as "not for you." Those are different sentences.</p>
+
+          <p>If your score is below 620, the goal is not to panic. The goal is to find the fastest honest path forward.</p>
+
+          <h3>30-Day Readiness Steps</h3>
+
+          <p>Start with the real file.</p>
+
+          <ul>
+            <li>Ask a lender or trusted mortgage-credit source what your actual mortgage scores are.</li>
+            <li>Review credit reports from all three bureaus.</li>
+            <li>Use the <a href="https://www.consumerfinance.gov/ask-cfpb/how-do-i-get-a-free-copy-of-my-credit-reports-en-5/" target="_blank" rel="noopener">CFPB's credit report guidance</a> to find the federally authorized source for free credit reports.</li>
+            <li>Look for true errors and dispute them.</li>
+            <li>List every late payment, collection, charge-off, bankruptcy or foreclosure.</li>
+            <li>Pay down revolving credit balances if possible.</li>
+            <li>Avoid opening new accounts.</li>
+            <li>Keep every bill current.</li>
+            <li>Ask whether a lender process for updating documented credit-report changes quickly makes sense after balances or errors are corrected.</li>
+          </ul>
+
+          <p>A rapid credit update process is not something you do yourself. It does not promise a score increase. But near 620, it may be worth asking a lender whether updated documentation could be reflected faster than the normal reporting cycle.</p>
+
+          <h3>60-Day Readiness Steps</h3>
+
+          <p>Now strengthen the story.</p>
+
+          <ul>
+            <li>Gather pay stubs, W-2s and tax returns if needed.</li>
+            <li>Document VA disability income, BAH, BAS or other income sources if applicable.</li>
+            <li>Build a written rent payment history.</li>
+            <li>Draft short explanation letters for past credit issues.</li>
+            <li>Keep credit card balances moving down.</li>
+            <li>Do not finance furniture, vehicles or large purchases.</li>
+            <li>Ask a qualified professional before paying collections randomly.</li>
+          </ul>
+
+          <p>The goal is not random credit repair. The goal is mortgage readiness. Those are not always the same thing.</p>
+
+          <h3>90-Day Readiness Steps</h3>
+
+          <p>Now recheck the path.</p>
+
+          <ul>
+            <li>Compare VA-experienced lenders.</li>
+            <li>Ask specifically about manual underwriting.</li>
+            <li>Review whether you are close to 620 for CHFA or another Colorado assistance program.</li>
+            <li>Confirm whether homebuyer education is needed.</li>
+            <li>Recalculate your debt-to-income ratio.</li>
+            <li>Recalculate your residual income.</li>
+            <li>Decide whether now, soon or later is the safest buying timeline.</li>
+          </ul>
+
+          <p>Sometimes 90 days of focused action can change the entire conversation. Not because you became a different person. Because the file became easier to understand.</p>
+
+          <h2 id="next-steps">The Safe Next Step for Colorado Veterans</h2>
+
+          <p>If your score is under 620, do not let one number write the whole story.</p>
+
+          <p>The better question is not just: "Is my credit score high enough?"</p>
+
+          <p>The better question is: "What does my full file look like, which lender rules apply and what Colorado assistance options may fit once I understand the path?"</p>
+
+          <p>You may still have options. You may need a different lender conversation. You may need manual underwriting. You may need to reach 620 before stacking CHFA. You may need a 30-60-90 day readiness plan.</p>
+
+          <p>But you do not have to guess alone.</p>
+
+          <p>Hero HomeReach helps Colorado veterans and military families understand the homebuyer assistance landscape in plain English. Start with the <a href="https://va.herohomereach.com/">Colorado VA Homebuyer Readiness Guide</a> or request a <a href="../../contact.html">free 30-minute Hero HomeReach consultation</a> to clarify your situation, organize your questions and understand which next step may make the most sense before you talk with a lender.</p>
+
+          <!-- Official Sources Callout -->
+          <div class="post-callout">
+            <p><strong>Official Sources:</strong> For VA home loan eligibility and buyer guidance, visit the <a href="https://www.va.gov/housing-assistance/home-loans/" target="_blank" rel="noopener">VA Housing Assistance page</a> and the <a href="https://www.benefits.va.gov/homeloans/documents/docs/VA_Buyers_Guide.pdf" target="_blank" rel="noopener">VA Home Loan Guaranty Buyer's Guide</a> at va.gov. For CHFA credit requirements and program details, visit <a href="https://www.chfainfo.com/homeownership/how-to-get-a-chfa-program-loan" target="_blank" rel="noopener">chfainfo.com</a>. For credit score and report guidance, visit <a href="https://www.consumerfinance.gov/" target="_blank" rel="noopener">consumerfinance.gov</a>.</p>
+          </div>
+
+          <h2 id="faq">FAQ: VA Loans Under 620 Credit Score</h2>
+
+          <h3>Does the VA require a 620 credit score?</h3>
+          <p>No. The VA does not set a minimum credit score for VA-backed home loans. Many lenders set their own minimums, and 620 is common. That is usually a lender overlay, not a VA rule.</p>
+
+          <h3>Can I get a VA loan with a 600 credit score?</h3>
+          <p>Possibly, depending on the lender and the full file. Some lenders may review VA borrowers below 620, while others will not. Income, debt, residual income, payment history and recent credit events all matter.</p>
+
+          <h3>Is being denied by one lender the same as being denied by VA?</h3>
+          <p>No. A denial from one lender may be based on that lender's overlays, not the VA program itself. Ask whether the issue was a VA rule, an automated underwriting result or the lender's internal requirement.</p>
+
+          <h3>What is a lender overlay?</h3>
+          <p>A lender overlay is an extra rule a lender adds on top of the base program guidelines. For example, VA may not require 620, but a lender may set 620 as its own minimum.</p>
+
+          <h3>What is manual underwriting?</h3>
+          <p>Manual underwriting is a human review of your loan file when the automated system does not give a clean green light. It may consider payment history, residual income, rent history, savings, debts and explanation letters. It is not automatic.</p>
+
+          <h3>Is my free credit app score the same score a mortgage lender uses?</h3>
+          <p>Not necessarily. Free credit apps may show a different score than a mortgage lender uses. Mortgage lenders often review scores from all three major credit bureaus and commonly use the middle score.</p>
+
+          <h3>What if I have no credit score?</h3>
+          <p>If you have no credit score or a thin credit file, some lenders may consider alternative credit in manual underwriting. That could include rent, utilities, phone bills or insurance payments. Not all lenders allow this.</p>
+
+          <h3>Can a rapid credit update process help me get over 620?</h3>
+          <p>Sometimes, but only in the right situation. A mortgage lender may have a process for updating documented credit-report changes, such as paid-down balances. It does not promise a score increase.</p>
+
+          <h3>Can I use CHFA with a VA loan if my credit is under 620?</h3>
+          <p>Usually not. CHFA generally requires a 620 mid-credit score for its homeownership programs. A VA lender may review a lower score, but CHFA has its own separate rules.</p>
+
+          <h3>Can CHAC help if I do not meet CHFA's 620 rule?</h3>
+          <p>CHAC may be worth asking about, especially for some borrowers who need counseling or have alternative credit questions. But CHAC is not a guaranteed workaround. It still depends on first mortgage lender approval and CHAC program requirements.</p>
+
+          <h3>Where can I learn more about Colorado homebuyer assistance?</h3>
+          <p>Start with the <a href="../../faq.html">Hero HomeReach homebuyer assistance FAQ</a> or explore the <a href="../../programs.html">Colorado homebuyer assistance programs</a> page for plain-English guidance.</p>
+
+        </div>
+        <!-- /post-body -->
+
+        <!-- Share — bottom -->
+        <div class="post-share post-share-bottom">
+          <span class="post-share-label">Found this helpful? Share it.</span>
+          <a class="share-btn share-btn-facebook" id="share-fb-bottom" href="#" target="_blank" rel="noopener" aria-label="Share on Facebook">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.413c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/></svg>
+          </a>
+          <a class="share-btn share-btn-x" id="share-x-bottom" href="#" target="_blank" rel="noopener" aria-label="Share on X">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.253 5.622 5.911-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a class="share-btn share-btn-linkedin" id="share-li-bottom" href="#" target="_blank" rel="noopener" aria-label="Share on LinkedIn">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </a>
+          <button class="share-btn share-btn-copy" id="copy-bottom" aria-label="Copy link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 00-6.364-6.364l-4.5 4.5a4.5 4.5 0 001.242 7.244"/></svg>
+          </button>
+        </div>
+
+        <!-- CTA Strip -->
+        <div class="post-cta-strip">
+          <div>
+            <h3>Not Sure If Your VA File Is Ready?</h3>
+            <p>Every veteran's situation is different. Book a free 30-minute call and we'll walk through which Colorado programs — including VA loan paths, CHFA, and other assistance options — may apply to your specific credit, income, and county.</p>
+          </div>
+          <a href="../../contact.html" class="btn btn-gold btn-arrow">Book My Free Consultation</a>
+        </div>
+
+      </article>
+      <!-- /post-article -->
+
+      <!-- ── RIGHT: Sidebar ── -->
+      <aside class="post-sidebar">
+
+        <div class="sidebar-card sidebar-card-hide-mobile">
+          <div class="sidebar-card-title">Free Consultation</div>
+          <p>Not sure if your credit file is ready? Book a free 30-minute call. We'll walk through your situation — no obligation, no pressure.</p>
+          <a href="../../contact.html" class="btn btn-gold btn-arrow">Book My Free Call</a>
+        </div>
+
+        <div class="sidebar-card">
+          <div class="sidebar-card-title">In This Guide</div>
+          <ul class="toc-list">
+            <li><a href="#the-myth">The 620 Credit Score Myth</a></li>
+            <li><a href="#app-score">App Score vs. Mortgage Score</a></li>
+            <li><a href="#eligibility-vs-approval">Eligibility vs. Lender Approval</a></li>
+            <li><a href="#one-lenders-no">One Lender's No Is Not VA's No</a></li>
+            <li><a href="#below-620">Can You Get a VA Loan Below 620?</a></li>
+            <li><a href="#below-580">Why Below 580 Gets Harder</a></li>
+            <li><a href="#manual-underwriting">Manual Underwriting Explained</a></li>
+            <li><a href="#residual-income">Residual Income</a></li>
+            <li><a href="#colorado-assistance">Colorado Assistance &amp; CHFA Rules</a></li>
+            <li><a href="#va-and-dpa">VA Path vs. DPA Path</a></li>
+            <li><a href="#questions-to-ask">Questions to Ask a VA Lender</a></li>
+            <li><a href="#not-ready-today">30–60–90 Day Readiness Plan</a></li>
+            <li><a href="#next-steps">Safe Next Step</a></li>
+            <li><a href="#faq">FAQ</a></li>
+          </ul>
+        </div>
+
+        <div class="sidebar-card">
+          <div class="sidebar-card-title">Related Guides</div>
+          <div class="related-post-item">
+            <a href="/blog/chfa-colorado-explained/" class="related-post-thumb-link">
+              <img src="/blog/chfa-colorado-explained/hero.webp" alt="CHFA Colorado Down Payment Assistance Explained" class="related-post-thumb-img">
+            </a>
+            <div>
+              <a href="/blog/chfa-colorado-explained/" class="related-post-title">CHFA Colorado Down Payment Assistance Explained</a>
+              <div class="related-post-date">June 2026</div>
+            </div>
+          </div>
+          <div class="related-post-item">
+            <a href="/blog/chfa-loan-colorado-2026-guide/" class="related-post-thumb-link">
+              <img src="/blog/chfa-loan-colorado-2026-guide/hero.webp" alt="CHFA Loan Colorado Complete Guide" class="related-post-thumb-img">
+            </a>
+            <div>
+              <a href="/blog/chfa-loan-colorado-2026-guide/" class="related-post-title">CHFA Loan Colorado: The Complete Guide for Hero Homebuyers</a>
+              <div class="related-post-date">May 2026</div>
+            </div>
+          </div>
+          <div class="related-post-item">
+            <a href="/blog/colorado-down-payment-assistance-types/" class="related-post-thumb-link">
+              <img src="/blog/colorado-down-payment-assistance-types/hero.webp" alt="Colorado Down Payment Assistance Types" class="related-post-thumb-img">
+            </a>
+            <div>
+              <a href="/blog/colorado-down-payment-assistance-types/" class="related-post-title">Colorado Down Payment Assistance: 3 Types Explained</a>
+              <div class="related-post-date">May 2026</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="sidebar-card" style="background:var(--navy);border-color:rgba(201,151,58,0.3);">
+          <div class="sidebar-card-title" style="color:var(--gold);border-bottom-color:rgba(201,151,58,0.3);">Free VA Homebuyer Guide</div>
+          <p style="color:rgba(255,255,255,0.7);">Get the plain-English breakdown of VA loan planning, Colorado assistance options and what military families should understand before their first lender call.</p>
+          <a href="https://va.herohomereach.com/" class="btn btn-gold btn-arrow">Get the Free Guide</a>
+        </div>
+
+      </aside>
+
+    </div>
+  </div>
+</section>
+
+<!-- ════════════ FOOTER ════════════ -->
+<footer id="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="wordmark">Hero <span>HomeReach</span>™</div>
+        <p>Free homeownership guidance for Colorado's educators, first responders, healthcare workers and military members. No jargon. No pressure. Built for heroes.</p>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Site</div>
+        <a href="../../programs.html">Programs</a>
+        <a href="../../who-we-serve.html">Who We Serve</a>
+        <a href="../../about.html">About</a>
+        <a href="../../blog/">Learning Center</a>
+        <a href="../../contact.html">Contact</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Heroes</div>
+        <a href="../../who-we-serve.html#educators">Educators</a>
+        <a href="../../who-we-serve.html#first-responders">First Responders</a>
+        <a href="../../who-we-serve.html#healthcare">Healthcare Workers</a>
+        <a href="../../who-we-serve.html#military">Military Members</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Start Here</div>
+        <a href="../../contact.html">Book Free Consultation</a>
+        <a href="../../programs.html">Explore Programs</a>
+        <a href="../../blog/">Learning Center</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">&copy; 2026 Hero HomeReach&trade;. All rights reserved. Colorado Homeownership Guidance.</div>
+      <div class="footer-legal">
+        <a href="../../privacy.html">Privacy Policy</a>
+        <a href="../../terms.html">Terms of Use</a>
+        <a href="../../disclaimer.html">Disclaimer</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 40);
+}, { passive: true });
+
+function toggleMobileNav() {
+  document.getElementById('mobile-nav').classList.toggle('open');
+}
+
+const fadeEls = document.querySelectorAll('.fade-up');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12 });
+fadeEls.forEach(el => observer.observe(el));
+
+document.querySelectorAll('.toc-list a').forEach(link => {
+  link.addEventListener('click', e => {
+    e.preventDefault();
+    const target = document.querySelector(link.getAttribute('href'));
+    if (target) {
+      const offset = target.getBoundingClientRect().top + window.scrollY - 100;
+      window.scrollTo({ top: offset, behavior: 'smooth' });
+    }
+  });
+});
+
+(function() {
+  const url   = encodeURIComponent(window.location.href);
+  const title = encodeURIComponent(document.title);
+  const fb = 'https://www.facebook.com/sharer/sharer.php?u=' + url;
+  const x  = 'https://twitter.com/intent/tweet?url=' + url + '&text=' + title;
+  const li = 'https://www.linkedin.com/sharing/share-offsite/?url=' + url;
+  ['top', 'bottom'].forEach(function(pos) {
+    document.getElementById('share-fb-' + pos).href = fb;
+    document.getElementById('share-x-'  + pos).href  = x;
+    document.getElementById('share-li-' + pos).href = li;
+    document.getElementById('copy-' + pos).addEventListener('click', function() {
+      navigator.clipboard.writeText(window.location.href).then(function() {
+        var btn = document.getElementById('copy-' + pos);
+        btn.classList.add('copied');
+        setTimeout(function() { btn.classList.remove('copied'); }, 2000);
+      });
+    });
+  });
+})();
+</script>
+
+<!-- HubSpot Chatbot — Do not remove -->
+<script type="text/javascript" id="hs-script-loader" async defer src="//js-na2.hs-scripts.com/244185002.js"></script>
+
+<link rel="stylesheet" href="../../css/ebook-modal.css">
+<script src="../../js/ebook-modal.js"></script>
+
+</body>
+</html>
