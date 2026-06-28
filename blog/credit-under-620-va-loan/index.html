@@ -19,8 +19,8 @@
   <link rel="canonical" href="https://www.herohomereach.com/blog/credit-under-620-va-loan/">
 
   <!-- Favicons -->
-  <link rel="icon" type="image/png" href="../../favicon.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="../../favicon-180x180.png">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180x180.png">
 
   <!-- Open Graph -->
   <meta property="og:title" content="Credit Under 620? Your VA Loan Path May Not Be Over — Hero HomeReach™">
@@ -128,9 +128,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-  <!-- Shared + Blog styles -->
-  <link rel="stylesheet" href="../../css/main.css">
-  <link rel="stylesheet" href="../../css/blog.css">
+  <!-- Shared + Blog styles — absolute paths -->
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/blog.css">
 
   <style>
   /* ── Post Hero ── */
@@ -214,6 +214,7 @@
     display: block;
     aspect-ratio: 16 / 9;
     object-fit: cover;
+    object-position: center 20%;
   }
 
   /* ── Quick answer box ── */
@@ -224,22 +225,12 @@
     padding: 24px 28px;
     margin: 32px 0;
   }
-  .quick-answer-box h2 {
-    font-size: 17px; margin-bottom: 12px; color: var(--navy);
-  }
-  .quick-answer-box a {
-    color: var(--navy);
-    text-decoration: underline;
-    text-underline-offset: 3px;
-  }
+  .quick-answer-box h2 { font-size: 17px; margin-bottom: 12px; color: var(--navy); }
+  .quick-answer-box a { color: var(--navy); text-decoration: underline; text-underline-offset: 3px; }
   .quick-answer-box a:hover { color: var(--gold); }
 
   /* ── Links inside navy callout boxes ── */
-  .post-callout a {
-    color: var(--gold);
-    text-decoration: underline;
-    text-underline-offset: 2px;
-  }
+  .post-callout a { color: var(--gold); text-decoration: underline; text-underline-offset: 2px; }
   .post-callout a:hover { color: var(--bright-gold); }
 
   /* ── Related post thumbnails ── */
@@ -269,22 +260,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- ════════════ NAVIGATION ════════════ -->
 <nav id="nav" class="nav-solid">
   <div class="nav-inner">
-    <a href="../../" class="nav-logo">
-      <img src="../../logo-mark_transparent.png" alt="Hero HomeReach Shield" style="width:50px;height:50px;object-fit:contain;">
+    <a href="/" class="nav-logo">
+      <img src="/logo-mark_transparent.png" alt="Hero HomeReach Shield" style="width:50px;height:50px;object-fit:contain;">
       <div>
         <div class="nav-wordmark">Hero <span>HomeReach</span><sup class="nav-tm">™</sup></div>
       </div>
     </a>
     <ul class="nav-links">
-      <li><a href="../../programs.html">Programs</a></li>
-      <li><a href="../../who-we-serve.html">Who We Serve</a></li>
-      <li><a href="../../blog/" class="active">Learning Center</a></li>
-      <li><a href="../../tools/">Tools</a></li>
-      <li><a href="../../faq.html">DPA FAQ</a></li>
+      <li><a href="/programs.html">Programs</a></li>
+      <li><a href="/who-we-serve.html">Who We Serve</a></li>
+      <li><a href="/blog/" class="active">Learning Center</a></li>
+      <li><a href="/tools/">Tools</a></li>
+      <li><a href="/faq.html">DPA FAQ</a></li>
       <li><a href="https://guide.herohomereach.com" target="_blank" style="color:var(--bright-gold);font-weight:700;">Free Guide</a></li>
     </ul>
     <div class="nav-cta">
-      <a href="../../contact.html" class="btn btn-gold btn-arrow">Book Free Consultation</a>
+      <a href="/contact.html" class="btn btn-gold btn-arrow">Book Free Consultation</a>
     </div>
     <div class="nav-hamburger" id="hamburger" onclick="toggleMobileNav()">
       <span></span><span></span><span></span>
@@ -294,13 +285,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <!-- Mobile Nav -->
 <div id="mobile-nav">
-  <a href="../../programs.html" onclick="toggleMobileNav()">Programs</a>
-  <a href="../../who-we-serve.html" onclick="toggleMobileNav()">Who We Serve</a>
-  <a href="../../blog/" onclick="toggleMobileNav()">Learning Center</a>
-  <a href="../../tools/" onclick="toggleMobileNav()">Tools</a>
-  <a href="../../faq.html" onclick="toggleMobileNav()">DPA FAQ</a>
+  <a href="/programs.html" onclick="toggleMobileNav()">Programs</a>
+  <a href="/who-we-serve.html" onclick="toggleMobileNav()">Who We Serve</a>
+  <a href="/blog/" onclick="toggleMobileNav()">Learning Center</a>
+  <a href="/tools/" onclick="toggleMobileNav()">Tools</a>
+  <a href="/faq.html" onclick="toggleMobileNav()">DPA FAQ</a>
   <a href="https://guide.herohomereach.com" target="_blank" onclick="toggleMobileNav()" style="color:var(--bright-gold);">Free Guide</a>
-  <a href="../../contact.html" class="btn btn-gold" style="margin-top:16px;font-size:16px;">Book Free Consultation</a>
+  <a href="/contact.html" class="btn btn-gold" style="margin-top:16px;font-size:16px;">Book Free Consultation</a>
 </div>
 
 <!-- ════════════ POST HERO ════════════ -->
@@ -309,9 +300,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="post-hero-inner">
 
       <div class="breadcrumb">
-        <a href="../../">Home</a>
+        <a href="/">Home</a>
         <span class="breadcrumb-sep">›</span>
-        <a href="../../blog/">Learning Center</a>
+        <a href="/blog/">Learning Center</a>
         <span class="breadcrumb-sep">›</span>
         <span class="breadcrumb-current">Credit Under 620? Your VA Loan Path May Not Be Over</span>
       </div>
@@ -356,10 +347,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <article class="post-article">
         <div class="post-body">
 
-          <!-- Hero image -->
+          <!-- Hero image — absolute path, works with or without trailing slash -->
           <div class="post-hero-img">
             <img
-              src="hero.webp"
+              src="/blog/credit-under-620-va-loan/hero.webp"
               alt="A Colorado veteran couple seated with a Hero HomeReach advisor in front of a whiteboard showing VA loan options and credit score guidance"
               width="1456"
               height="816"
@@ -426,8 +417,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <h3>Why So Many Lenders Say 620</h3>
 
           <p>A <strong>lender overlay</strong> is an extra requirement a lender adds to reduce risk.</p>
-
-          <p>Here is a plain-English example.</p>
 
           <p>The VA may not require a 620 credit score. But a lender may say: "For our company, we only review VA loans at 620 and above." Another lender may use a different number. Another may review lower scores only when the rest of the file is strong.</p>
 
@@ -623,8 +612,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
           <h3>Residual Income vs. DTI</h3>
 
-          <p>Here is the simplest way to separate them:</p>
-
           <p><strong>DTI</strong> looks at how much debt you carry compared with your income.</p>
 
           <p><strong>Residual income</strong> looks at how much money is left after major obligations.</p>
@@ -634,8 +621,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <p>For VA loans, strong residual income may help tell a better story. It does not erase credit issues, but it can become a meaningful part of the review.</p>
 
           <h2 id="colorado-assistance">Colorado Assistance Changes the Picture</h2>
-
-          <p>Now we bring this home to Colorado.</p>
 
           <p>A VA loan path and a Colorado down payment assistance path are not always the same path. This is where many buyers get tripped up.</p>
 
@@ -647,8 +632,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
           <p>That means a Colorado veteran with a 615 mortgage score may still have a possible VA conversation with the right lender, but may not be able to stack CHFA assistance until reaching CHFA's separate threshold.</p>
 
-          <p>This is the classroom example:</p>
-
           <p><strong>VA loan path:</strong> Maybe possible below 620 with the right lender and full-file review.</p>
           <p><strong>CHFA assistance path:</strong> Generally needs 620.</p>
 
@@ -658,20 +641,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
           <p>MetroDPA may be another Colorado assistance option, depending on location, loan type, lender participation and current program rules. But like CHFA, MetroDPA has its own requirements.</p>
 
-          <p>A VA lender reviewing your file does not automatically mean a down payment assistance program will fit too.</p>
+          <p>Always verify credit score rules, income limits, property rules, homebuyer education requirements, lender participation and repayment terms before assuming any program fits.</p>
 
-          <p>Always verify:</p>
-
-          <ul>
-            <li>credit score rules</li>
-            <li>income limits</li>
-            <li>property rules</li>
-            <li>homebuyer education requirements</li>
-            <li>lender participation</li>
-            <li>repayment terms</li>
-          </ul>
-
-          <p>You can compare broader Colorado options on the <a href="../../programs.html">Hero HomeReach programs page</a>.</p>
+          <p>You can compare broader Colorado options on the <a href="/programs.html">Hero HomeReach programs page</a>.</p>
 
           <p>Do not assume every program stacks cleanly. Mortgage programs are more like puzzle pieces than Lego bricks. Some fit. Some almost fit. Some look like they fit until you try to close the box.</p>
 
@@ -679,13 +651,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
           <p>CHAC, the Colorado Housing Assistance Corporation, is another Colorado resource worth knowing. CHAC provides second mortgage assistance for down payment and closing cost support. It is not the same as CHFA, and it should not be treated as a guaranteed workaround for a low credit score.</p>
 
-          <p>The careful way to think about CHAC is this: it may be worth asking about, especially if your file involves thin credit, alternative credit history or a need for counseling. But CHAC still depends on first mortgage lender approval, CHAC program rules and borrower counseling.</p>
+          <p>CHAC may be worth asking about, especially if your file involves thin credit, alternative credit history or a need for counseling. But CHAC still depends on first mortgage lender approval, CHAC program rules and borrower counseling.</p>
 
           <p>So CHAC may be part of the conversation. It is not a magic button.</p>
 
           <h2 id="va-and-dpa">VA Path and DPA Path Are Not Always the Same Path</h2>
-
-          <p>This may be the most important Colorado takeaway.</p>
 
           <p>A veteran could have a possible VA loan path before they have a stackable down payment assistance path. That can feel frustrating. But it can also be useful.</p>
 
@@ -723,8 +693,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
           <h3>30-Day Readiness Steps</h3>
 
-          <p>Start with the real file.</p>
-
           <ul>
             <li>Ask a lender or trusted mortgage-credit source what your actual mortgage scores are.</li>
             <li>Review credit reports from all three bureaus.</li>
@@ -737,11 +705,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <li>Ask whether a lender process for updating documented credit-report changes quickly makes sense after balances or errors are corrected.</li>
           </ul>
 
-          <p>A rapid credit update process is not something you do yourself. It does not promise a score increase. But near 620, it may be worth asking a lender whether updated documentation could be reflected faster than the normal reporting cycle.</p>
-
           <h3>60-Day Readiness Steps</h3>
-
-          <p>Now strengthen the story.</p>
 
           <ul>
             <li>Gather pay stubs, W-2s and tax returns if needed.</li>
@@ -753,11 +717,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <li>Ask a qualified professional before paying collections randomly.</li>
           </ul>
 
-          <p>The goal is not random credit repair. The goal is mortgage readiness. Those are not always the same thing.</p>
-
           <h3>90-Day Readiness Steps</h3>
-
-          <p>Now recheck the path.</p>
 
           <ul>
             <li>Compare VA-experienced lenders.</li>
@@ -775,15 +735,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
           <p>If your score is under 620, do not let one number write the whole story.</p>
 
-          <p>The better question is not just: "Is my credit score high enough?"</p>
-
           <p>The better question is: "What does my full file look like, which lender rules apply and what Colorado assistance options may fit once I understand the path?"</p>
 
           <p>You may still have options. You may need a different lender conversation. You may need manual underwriting. You may need to reach 620 before stacking CHFA. You may need a 30-60-90 day readiness plan.</p>
 
           <p>But you do not have to guess alone.</p>
 
-          <p>Hero HomeReach helps Colorado veterans and military families understand the homebuyer assistance landscape in plain English. Start with the <a href="https://va.herohomereach.com/">Colorado VA Homebuyer Readiness Guide</a> or request a <a href="../../contact.html">free 30-minute Hero HomeReach consultation</a> to clarify your situation, organize your questions and understand which next step may make the most sense before you talk with a lender.</p>
+          <p>Hero HomeReach helps Colorado veterans and military families understand the homebuyer assistance landscape in plain English. Start with the <a href="https://va.herohomereach.com/">Colorado VA Homebuyer Readiness Guide</a> or request a <a href="/contact.html">free 30-minute Hero HomeReach consultation</a> to clarify your situation, organize your questions and understand which next step may make the most sense before you talk with a lender.</p>
 
           <!-- Official Sources Callout -->
           <div class="post-callout">
@@ -823,7 +781,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <p>CHAC may be worth asking about, especially for some borrowers who need counseling or have alternative credit questions. But CHAC is not a guaranteed workaround. It still depends on first mortgage lender approval and CHAC program requirements.</p>
 
           <h3>Where can I learn more about Colorado homebuyer assistance?</h3>
-          <p>Start with the <a href="../../faq.html">Hero HomeReach homebuyer assistance FAQ</a> or explore the <a href="../../programs.html">Colorado homebuyer assistance programs</a> page for plain-English guidance.</p>
+          <p>Start with the <a href="/faq.html">Hero HomeReach homebuyer assistance FAQ</a> or explore the <a href="/programs.html">Colorado homebuyer assistance programs</a> page for plain-English guidance.</p>
 
         </div>
         <!-- /post-body -->
@@ -851,7 +809,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <h3>Not Sure If Your VA File Is Ready?</h3>
             <p>Every veteran's situation is different. Book a free 30-minute call and we'll walk through which Colorado programs — including VA loan paths, CHFA, and other assistance options — may apply to your specific credit, income, and county.</p>
           </div>
-          <a href="../../contact.html" class="btn btn-gold btn-arrow">Book My Free Consultation</a>
+          <a href="/contact.html" class="btn btn-gold btn-arrow">Book My Free Consultation</a>
         </div>
 
       </article>
@@ -863,7 +821,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="sidebar-card sidebar-card-hide-mobile">
           <div class="sidebar-card-title">Free Consultation</div>
           <p>Not sure if your credit file is ready? Book a free 30-minute call. We'll walk through your situation — no obligation, no pressure.</p>
-          <a href="../../contact.html" class="btn btn-gold btn-arrow">Book My Free Call</a>
+          <a href="/contact.html" class="btn btn-gold btn-arrow">Book My Free Call</a>
         </div>
 
         <div class="sidebar-card">
@@ -898,21 +856,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
           </div>
           <div class="related-post-item">
-            <a href="/blog/chfa-loan-colorado-2026-guide/" class="related-post-thumb-link">
-              <img src="/blog/chfa-loan-colorado-2026-guide/hero.webp" alt="CHFA Loan Colorado Complete Guide" class="related-post-thumb-img">
+            <a href="/blog/va-loan-down-payment-assistance-colorado.html" class="related-post-thumb-link">
+              <img src="/blog/va-loan-down-payment-assistance-colorado.png" alt="VA Loan Plus Colorado Down Payment Assistance" class="related-post-thumb-img">
             </a>
             <div>
-              <a href="/blog/chfa-loan-colorado-2026-guide/" class="related-post-title">CHFA Loan Colorado: The Complete Guide for Hero Homebuyers</a>
-              <div class="related-post-date">May 2026</div>
+              <a href="/blog/va-loan-down-payment-assistance-colorado.html" class="related-post-title">VA Loan Plus Colorado Down Payment Assistance: Can You Use Both?</a>
+              <div class="related-post-date">2026</div>
             </div>
           </div>
           <div class="related-post-item">
-            <a href="/blog/colorado-down-payment-assistance-types/" class="related-post-thumb-link">
-              <img src="/blog/colorado-down-payment-assistance-types/hero.webp" alt="Colorado Down Payment Assistance Types" class="related-post-thumb-img">
+            <a href="/blog/colorado-champions-home-loan-program/" class="related-post-thumb-link">
+              <img src="/blog/chfa-loan-colorado-2026-guide.png" alt="Colorado Champions Home Loan Program" class="related-post-thumb-img">
             </a>
             <div>
-              <a href="/blog/colorado-down-payment-assistance-types/" class="related-post-title">Colorado Down Payment Assistance: 3 Types Explained</a>
-              <div class="related-post-date">May 2026</div>
+              <a href="/blog/colorado-champions-home-loan-program/" class="related-post-title">Colorado Champions Home Loan Program: Who Qualifies and How It Works</a>
+              <div class="related-post-date">2026</div>
             </div>
           </div>
         </div>
@@ -939,32 +897,32 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
       <div class="footer-col">
         <div class="footer-col-title">Site</div>
-        <a href="../../programs.html">Programs</a>
-        <a href="../../who-we-serve.html">Who We Serve</a>
-        <a href="../../about.html">About</a>
-        <a href="../../blog/">Learning Center</a>
-        <a href="../../contact.html">Contact</a>
+        <a href="/programs.html">Programs</a>
+        <a href="/who-we-serve.html">Who We Serve</a>
+        <a href="/about.html">About</a>
+        <a href="/blog/">Learning Center</a>
+        <a href="/contact.html">Contact</a>
       </div>
       <div class="footer-col">
         <div class="footer-col-title">Heroes</div>
-        <a href="../../who-we-serve.html#educators">Educators</a>
-        <a href="../../who-we-serve.html#first-responders">First Responders</a>
-        <a href="../../who-we-serve.html#healthcare">Healthcare Workers</a>
-        <a href="../../who-we-serve.html#military">Military Members</a>
+        <a href="/who-we-serve.html#educators">Educators</a>
+        <a href="/who-we-serve.html#first-responders">First Responders</a>
+        <a href="/who-we-serve.html#healthcare">Healthcare Workers</a>
+        <a href="/who-we-serve.html#military">Military Members</a>
       </div>
       <div class="footer-col">
         <div class="footer-col-title">Start Here</div>
-        <a href="../../contact.html">Book Free Consultation</a>
-        <a href="../../programs.html">Explore Programs</a>
-        <a href="../../blog/">Learning Center</a>
+        <a href="/contact.html">Book Free Consultation</a>
+        <a href="/programs.html">Explore Programs</a>
+        <a href="/blog/">Learning Center</a>
       </div>
     </div>
     <div class="footer-bottom">
       <div class="footer-copy">&copy; 2026 Hero HomeReach&trade;. All rights reserved. Colorado Homeownership Guidance.</div>
       <div class="footer-legal">
-        <a href="../../privacy.html">Privacy Policy</a>
-        <a href="../../terms.html">Terms of Use</a>
-        <a href="../../disclaimer.html">Disclaimer</a>
+        <a href="/privacy.html">Privacy Policy</a>
+        <a href="/terms.html">Terms of Use</a>
+        <a href="/disclaimer.html">Disclaimer</a>
       </div>
     </div>
   </div>
@@ -1026,8 +984,8 @@ document.querySelectorAll('.toc-list a').forEach(link => {
 <!-- HubSpot Chatbot — Do not remove -->
 <script type="text/javascript" id="hs-script-loader" async defer src="//js-na2.hs-scripts.com/244185002.js"></script>
 
-<link rel="stylesheet" href="../../css/ebook-modal.css">
-<script src="../../js/ebook-modal.js"></script>
+<link rel="stylesheet" href="/css/ebook-modal.css">
+<script src="/js/ebook-modal.js"></script>
 
 </body>
 </html>
