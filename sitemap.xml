@@ -9,47 +9,48 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://www.herohomereach.com/programs.html</loc>
+    <loc>https://www.herohomereach.com/programs</loc>
     <lastmod>2026-05-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.herohomereach.com/who-we-serve.html</loc>
+    <loc>https://www.herohomereach.com/who-we-serve</loc>
     <lastmod>2026-05-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.herohomereach.com/about.html</loc>
+    <loc>https://www.herohomereach.com/about</loc>
     <lastmod>2026-05-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.herohomereach.com/faq.html</loc>
+    <loc>https://www.herohomereach.com/faq</loc>
     <lastmod>2026-05-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.herohomereach.com/contact.html</loc>
+    <loc>https://www.herohomereach.com/contact</loc>
     <lastmod>2026-05-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+
+  <!-- ═══ TOOLS ═══ -->
   <url>
-    <loc>https://www.herohomereach.com/quiz.html</loc>
+    <loc>https://www.herohomereach.com/tools/quiz/</loc>
     <lastmod>2026-05-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <!-- ═══ BLOG INDEX ═══ -->
-  <!-- FIXED: was /blog.html — correct URL is /blog/ -->
   <url>
     <loc>https://www.herohomereach.com/blog/</loc>
-    <lastmod>2026-05-30</lastmod>
+    <lastmod>2026-06-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -93,51 +94,94 @@
   </url>
 
   <!-- ═══ BLOG POSTS — SUBFOLDERS ═══ -->
-  <!-- FIXED: CHFA was listed as .html — correct URL is subfolder -->
   <url>
-    <loc>https://www.herohomereach.com/blog/chfa-loan-colorado-2026-guide/</loc>
-    <lastmod>2026-05-30</lastmod>
+    <loc>https://www.herohomereach.com/blog/hero-homereach-learning-center/</loc>
+    <lastmod>2026-06-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-  <!-- NEW: Missing from sitemap -->
-  <url>
-    <loc>https://www.herohomereach.com/blog/colorado-champions-home-loan-program/</loc>
-    <lastmod>2026-05-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <!-- NEW: Missing from sitemap -->
   <url>
     <loc>https://www.herohomereach.com/blog/colorado-home-buying-programs-essential-workers-2026/</loc>
     <lastmod>2026-05-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-  <!-- NEW: Missing from sitemap -->
+  <url>
+    <loc>https://www.herohomereach.com/blog/colorado-champions-home-loan-program/</loc>
+    <lastmod>2026-05-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.herohomereach.com/blog/chfa-loan-colorado-2026-guide/</loc>
+    <lastmod>2026-05-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.herohomereach.com/blog/chfa-colorado-explained/</loc>
+    <lastmod>2026-06-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
   <url>
     <loc>https://www.herohomereach.com/blog/public-vs-private-home-buying-programs/</loc>
     <lastmod>2026-05-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+  <url>
+    <loc>https://www.herohomereach.com/blog/good-time-to-buy-home-colorado-2026/</loc>
+    <lastmod>2026-06-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.herohomereach.com/blog/homebuyer-education-colorado-dpa/</loc>
+    <lastmod>2026-06-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.herohomereach.com/blog/are-teacher-home-buying-grants-legitimate/</loc>
+    <lastmod>2026-06-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.herohomereach.com/blog/credit-under-620-va-loan/</loc>
+    <lastmod>2026-06-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.herohomereach.com/blog/can-nurses-buy-home-student-loans-colorado/</loc>
+    <lastmod>2026-06-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.herohomereach.com/blog/metrodpa-colorado-2026/</loc>
+    <lastmod>2026-06-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
 
   <!-- ═══ LEGAL PAGES ═══ -->
-  <!-- FIXED: were privacy-policy.html and terms-of-use.html — actual filenames are privacy.html and terms.html -->
   <url>
-    <loc>https://www.herohomereach.com/privacy.html</loc>
+    <loc>https://www.herohomereach.com/privacy</loc>
     <lastmod>2026-05-16</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://www.herohomereach.com/terms.html</loc>
+    <loc>https://www.herohomereach.com/terms</loc>
     <lastmod>2026-05-16</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://www.herohomereach.com/disclaimer.html</loc>
+    <loc>https://www.herohomereach.com/disclaimer</loc>
     <lastmod>2026-05-16</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
