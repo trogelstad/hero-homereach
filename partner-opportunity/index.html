@@ -249,9 +249,10 @@
     background: #0C2D5E;
     display: flex; align-items: center; justify-content: center;
   }
-  .pcp-media img {
+.pcp-media img {
     width: 100%; height: 100%;
-    object-fit: contain;   /* phone stays fully visible, never chopped */
+    object-fit: cover;         /* fills the frame so all three match */
+    object-position: center;
     display: block;
   }
 
