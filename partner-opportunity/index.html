@@ -344,15 +344,36 @@
   /* ================================
      SECTION 6 - PARTNER FIT (checklist)
   ================================ */
-  #partner-fit { background: #fff; }
+  #partner-fit {
+    position: relative;
+    overflow: hidden;
+    background:
+      linear-gradient(
+        90deg,
+        rgba(255, 252, 244, 0.90) 0%,
+        rgba(255, 252, 244, 0.86) 38%,
+        rgba(255, 252, 244, 0.82) 62%,
+        rgba(255, 252, 244, 0.88) 100%
+      ),
+      url('/partner-opportunity/honoring_service_and_community_heroes.webp');
+    background-size: cover;
+    background-position: center left;
+    background-repeat: no-repeat;
+  }
+  #partner-fit .container {
+    position: relative;
+    z-index: 2;
+  }
   .partner-fit-wrap { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 56px; align-items: start; }
   .partner-fit-intro h2 { margin-bottom: 18px; }
   .partner-fit-intro p { font-size: 17px; color: #555; line-height: 1.7; }
   .partner-fit-list { display: grid; gap: 14px; }
   .partner-fit-list li {
     display: flex; align-items: flex-start; gap: 14px;
-    background: var(--cream);
-    border: 1px solid var(--warm-gray);
+    background: rgba(255, 252, 244, 0.88);
+    backdrop-filter: blur(2px);
+    border: 1px solid rgba(201, 151, 58, 0.22);
+    box-shadow: 0 8px 24px rgba(12,45,94,0.05);
     border-radius: 10px;
     padding: 16px 18px;
     font-size: 15px; color: #333; line-height: 1.55;
@@ -502,6 +523,19 @@
     .pf-grid-2 { grid-template-columns: 1fr; gap: 0; }
     .pf-check-grid { grid-template-columns: 1fr; }
     .partner-hero__ctas .btn { width: 100%; justify-content: center; }
+    #partner-fit {
+      background:
+        linear-gradient(
+          180deg,
+          rgba(255, 252, 244, 0.94) 0%,
+          rgba(255, 252, 244, 0.90) 45%,
+          rgba(255, 252, 244, 0.94) 100%
+        ),
+        url('/partner-opportunity/honoring_service_and_community_heroes.webp');
+      background-size: cover;
+      background-position: center top;
+    }
+    .partner-fit-list li { background: rgba(255, 252, 244, 0.94); }
   }
   </style>
 
