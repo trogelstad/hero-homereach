@@ -40,8 +40,7 @@
   /* ============================================================
      partner-opportunity/index.html — PAGE-SPECIFIC STYLES ONLY
      Variables, reset, typography, nav, footer, buttons, fade-up
-     all live in /css/main.css. Nothing here needs to move into
-     main.css. This block is fully self-contained.
+     all live in /css/main.css. This block is fully self-contained.
      ============================================================ */
 
   /* Warm palette additions (not in main.css) */
@@ -53,7 +52,7 @@
   p { margin-bottom: 16px; }
   p:last-child { margin-bottom: 0; }
 
-  /* ── Local button variants ── */
+  /* -- Local button variants -- */
   .btn-line-navy {
     background: transparent;
     color: var(--navy);
@@ -68,7 +67,7 @@
   }
   .btn-line-light:hover { border-color: var(--gold); color: var(--gold); }
 
-  /* ── Shared section scaffolding ── */
+  /* -- Shared section scaffolding -- */
   .partner-section { padding: 96px 0; }
   .partner-section[id] { scroll-margin-top: calc(var(--nav-h) + 24px); }
 
@@ -84,9 +83,9 @@
   .partner-lead-intro h2 { margin-bottom: 16px; }
   .partner-lead-intro p { color: #555; font-size: 17px; }
 
-  /* ════════════════════════════════
-     SECTION 1 — HERO
-  ════════════════════════════════ */
+  /* ================================
+     SECTION 1 - HERO
+  ================================ */
   .partner-hero {
     background: var(--cream);
     padding: calc(var(--nav-h) + 64px) 0 88px;
@@ -140,13 +139,13 @@
     font-size: 15px; color: #333; line-height: 1.5;
   }
   .partner-hero__card li::before {
-    content: '✓'; color: var(--green); font-weight: 800;
+    content: '\2713'; color: var(--green); font-weight: 800;
     flex-shrink: 0; margin-top: 1px;
   }
 
-  /* ════════════════════════════════
-     SECTION 2 — POSSIBILITIES (editorial)
-  ════════════════════════════════ */
+  /* ================================
+     SECTION 2 - POSSIBILITIES (editorial)
+  ================================ */
   #possibilities { background: #fff; }
   .partner-editorial { max-width: 760px; }
   .partner-editorial h2 { margin-bottom: 24px; }
@@ -160,9 +159,9 @@
     margin: 30px 0;
   }
 
-  /* ════════════════════════════════
-     SECTION 3 — HOW IT WORKS
-  ════════════════════════════════ */
+  /* ================================
+     SECTION 3 - HOW IT WORKS
+  ================================ */
   #how-it-works { background: var(--blush); }
   .partner-card-grid {
     display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
@@ -202,9 +201,9 @@
     border-radius: 8px; padding: 18px 22px;
   }
 
-  /* ════════════════════════════════
-     SECTION 4 — CAMPAIGN PREVIEWS (navy spotlight)
-  ════════════════════════════════ */
+  /* ================================
+     SECTION 4 - CAMPAIGN PREVIEWS (navy spotlight)
+  ================================ */
   #campaign-previews {
     background: var(--navy);
     position: relative; overflow: hidden;
@@ -233,65 +232,37 @@
   }
   .partner-campaign-card:hover { transform: translateY(-6px); }
 
+  /* Label row: campaign name left, subtle "Concept Preview" tag right */
   .pcp-label {
+    display: flex; align-items: center; justify-content: space-between; gap: 10px;
     font-size: 10px; font-weight: 700; letter-spacing: 0.12em;
     text-transform: uppercase; color: #8B6020;
     background: rgba(201,151,58,0.12);
-    padding: 8px 20px; border-bottom: 1px solid rgba(201,151,58,0.18);
+    padding: 9px 18px; border-bottom: 1px solid rgba(201,151,58,0.18);
   }
+  .pcp-concept { color: #9a9a9a; font-weight: 600; }
 
-  /* Ad mock — reads like a social feed post */
-  .pcp-ad-head {
-    display: flex; align-items: center; gap: 10px;
-    padding: 14px 18px 10px;
-  }
-  .pcp-avatar {
-    width: 38px; height: 38px; border-radius: 50%;
-    background: var(--navy);
-    display: flex; align-items: center; justify-content: center;
-    flex-shrink: 0;
-  }
-  .pcp-avatar img { width: 24px; height: 24px; object-fit: contain; }
-  .pcp-brand-name { font-size: 13px; font-weight: 700; color: var(--navy); line-height: 1.2; }
-  .pcp-sponsored { font-size: 11px; color: #9a9a9a; }
-
-  .pcp-primary-text {
-    padding: 0 18px 12px; font-size: 13px; color: #444; line-height: 1.5;
-  }
-
+  /* Media holds the phone-mockup image, fully visible on navy */
   .pcp-media {
     aspect-ratio: 4 / 5;
-    background: linear-gradient(150deg, #0C2D5E 0%, #17427e 55%, #1A4A8A 100%);
+    padding: 0;
+    background: #0C2D5E;
     display: flex; align-items: center; justify-content: center;
-    padding: 22px; text-align: center; position: relative;
   }
-  /* ASSET SLOT: replace the gradient + label below with a real 1080x1350 (4:5)
-     Hero HomeReach ad creative. Either set a background-image on .pcp-media or
-     drop an <img> as the first child. Placeholder is intentionally clean. */
-  .pcp-media .pcp-audience {
-    font-family: var(--font-head); font-size: 15px; font-weight: 700;
-    color: rgba(255,255,255,0.92); line-height: 1.4;
-    letter-spacing: 0.02em;
-  }
-  .pcp-media .pcp-audience small {
-    display: block; margin-top: 8px; font-family: var(--font-body);
-    font-size: 11px; font-weight: 600; letter-spacing: 0.14em;
-    text-transform: uppercase; color: var(--bright-gold);
+  .pcp-media img {
+    width: 100%; height: 100%;
+    object-fit: contain;   /* phone stays fully visible, never chopped */
+    display: block;
   }
 
+  /* Footer: single centered headline bar */
   .pcp-footer {
-    display: flex; align-items: center; justify-content: space-between;
-    gap: 12px; padding: 14px 18px; background: #F5F7FA;
+    display: block; text-align: center;
+    padding: 16px 18px;
+    background: #F5F7FA;
     border-top: 1px solid #e6e9ef;
   }
-  .pcp-headline {
-    font-size: 13px; font-weight: 700; color: var(--navy); line-height: 1.35;
-  }
-  .pcp-learn {
-    flex-shrink: 0; font-size: 11px; font-weight: 700; color: var(--navy);
-    background: var(--gold); padding: 8px 14px; border-radius: 7px;
-    white-space: nowrap;
-  }
+  .pcp-headline { font-size: 13px; font-weight: 700; color: var(--navy); line-height: 1.4; }
 
   .pcp-caption {
     padding: 16px 18px 20px; font-size: 12.5px; color: #6a6a6a; line-height: 1.6;
@@ -303,9 +274,9 @@
   }
   .partner-campaign-cta { margin-top: 34px; }
 
-  /* ════════════════════════════════
-     SECTION 5 — WHAT PARTNER SUPPORT EXPANDS
-  ════════════════════════════════ */
+  /* ================================
+     SECTION 5 - WHAT PARTNER SUPPORT EXPANDS
+  ================================ */
   #support-expands { background: var(--cream); }
   .partner-expand-grid {
     display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
@@ -328,9 +299,9 @@
   }
   .partner-expand-item p { font-size: 13.5px; color: #666; line-height: 1.6; }
 
-  /* ════════════════════════════════
-     SECTION 6 — PARTNER FIT (checklist)
-  ════════════════════════════════ */
+  /* ================================
+     SECTION 6 - PARTNER FIT (checklist)
+  ================================ */
   #partner-fit { background: #fff; }
   .partner-fit-wrap { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 56px; align-items: start; }
   .partner-fit-intro h2 { margin-bottom: 18px; }
@@ -345,7 +316,7 @@
     font-size: 15px; color: #333; line-height: 1.55;
   }
   .partner-fit-list li::before {
-    content: '✓'; flex-shrink: 0;
+    content: '\2713'; flex-shrink: 0;
     width: 24px; height: 24px; border-radius: 50%;
     background: rgba(26,107,74,0.12); color: var(--green);
     font-weight: 800; font-size: 13px;
@@ -353,9 +324,9 @@
     margin-top: 1px;
   }
 
-  /* ════════════════════════════════
-     SECTION 7 — QUIET NEGATIVE FILTER
-  ════════════════════════════════ */
+  /* ================================
+     SECTION 7 - QUIET NEGATIVE FILTER
+  ================================ */
   #negative-filter { background: var(--blush); }
   .partner-filter-wrap { max-width: 720px; }
   .partner-filter-wrap h2 { margin-bottom: 22px; }
@@ -365,9 +336,9 @@
     font-size: clamp(19px, 2.2vw, 23px); line-height: 1.5;
   }
 
-  /* ════════════════════════════════
-     SECTION 8 — AVAILABILITY (navy band)
-  ════════════════════════════════ */
+  /* ================================
+     SECTION 8 - AVAILABILITY (navy band)
+  ================================ */
   #availability {
     background: var(--navy);
     position: relative; overflow: hidden;
@@ -382,9 +353,9 @@
   #availability p { color: rgba(255,255,255,0.72); font-size: 17px; line-height: 1.7; max-width: 620px; }
   #availability .availability-cta { margin-top: 30px; }
 
-  /* ════════════════════════════════
-     SECTION 9 — LEAD FORM
-  ════════════════════════════════ */
+  /* ================================
+     SECTION 9 - LEAD FORM
+  ================================ */
   #partner-review { background: var(--cream); }
   .partner-form-section .partner-lead-intro { margin-bottom: 40px; text-align: center; margin-left: auto; margin-right: auto; }
   .partner-form-section .partner-eyebrow { justify-content: center; }
@@ -468,9 +439,9 @@
   .partner-form-success h2 { margin-bottom: 12px; }
   .partner-form-success p { font-size: 16px; color: #555; max-width: 420px; margin: 0 auto 26px; }
 
-  /* ════════════════════════════════
+  /* ================================
      RESPONSIVE
-  ════════════════════════════════ */
+  ================================ */
   @media (max-width: 960px) {
     .partner-hero__grid { grid-template-columns: 1fr; gap: 40px; }
     .partner-card-grid,
@@ -510,13 +481,13 @@
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
 
-<!-- ════════════ NAVIGATION ════════════ -->
+<!-- ============ NAVIGATION ============ -->
 <nav id="nav" class="nav-solid">
   <div class="nav-inner">
     <a href="/" class="nav-logo">
       <img src="/logo-mark_transparent.png" alt="Hero HomeReach Shield" style="width:50px; height:50px; object-fit:contain;">
       <div>
-        <div class="nav-wordmark">Hero <span>HomeReach</span><sup class="nav-tm">™</sup></div>
+        <div class="nav-wordmark">Hero <span>HomeReach</span><sup class="nav-tm">&trade;</sup></div>
       </div>
     </a>
     <ul class="nav-links">
@@ -550,12 +521,12 @@
 
 <main>
 
-  <!-- ════════════ SECTION 1 — HERO ════════════ -->
+  <!-- ============ SECTION 1 - HERO ============ -->
   <section class="partner-hero">
     <div class="container">
       <div class="partner-hero__grid">
 
-        <div class="partner-hero__content partner-hero__content-wrap fade-up">
+        <div class="partner-hero__content fade-up">
           <div class="partner-eyebrow">Partner Opportunity</div>
           <h1>When Colorado heroes are ready for answers, <span class="accent">the right team matters.</span></h1>
           <p>Hero HomeReach creates plain-English homebuyer education for veterans, military families, educators, first responders, healthcare workers, public servants and first-time buyers.</p>
@@ -586,7 +557,7 @@
   </section>
 
 
-  <!-- ════════════ SECTION 2 — POSSIBILITIES ════════════ -->
+  <!-- ============ SECTION 2 - POSSIBILITIES ============ -->
   <section class="partner-section" id="possibilities">
     <div class="container">
       <div class="partner-editorial fade-up">
@@ -602,7 +573,7 @@
   </section>
 
 
-  <!-- ════════════ SECTION 3 — HOW IT WORKS ════════════ -->
+  <!-- ============ SECTION 3 - HOW IT WORKS ============ -->
   <section class="partner-section" id="how-it-works">
     <div class="container">
       <div class="partner-lead-intro fade-up">
@@ -636,7 +607,7 @@
   </section>
 
 
-  <!-- ════════════ SECTION 4 — CAMPAIGN PREVIEWS ════════════ -->
+  <!-- ============ SECTION 4 - CAMPAIGN PREVIEWS ============ -->
   <section class="partner-section" id="campaign-previews">
     <div class="container">
       <div class="partner-lead-intro fade-up">
@@ -647,70 +618,52 @@
 
       <div class="partner-campaign-preview fade-up">
 
-        <!-- Concept 1: Veterans & Military Families -->
+        <!-- Educator -->
         <div class="partner-campaign-card">
-          <div class="pcp-label">VA / Military Campaign</div>
-          <div class="pcp-ad-head">
-            <div class="pcp-avatar"><img src="/logo-mark_transparent.png" alt="Hero HomeReach"></div>
-            <div>
-              <div class="pcp-brand-name">Hero HomeReach</div>
-              <div class="pcp-sponsored">Sponsored</div>
-            </div>
+          <div class="pcp-label">
+            <span>Educator Campaign</span>
+            <span class="pcp-concept">Concept Preview</span>
           </div>
-          <div class="pcp-primary-text">A quick, plain-English look at how Colorado veterans can plan beyond the down payment.</div>
           <div class="pcp-media">
-            <!-- ASSET SLOT: replace with a real 1080x1350 (4:5) VA/military creative -->
-            <div class="pcp-audience">Colorado Veterans &amp; Military Families<small>Sample Creative</small></div>
-          </div>
-          <div class="pcp-footer">
-            <div class="pcp-headline">Zero down is powerful. Build the rest of the plan.</div>
-            <div class="pcp-learn">Learn More</div>
-          </div>
-          <div class="pcp-caption">Education-first campaign concept for Colorado veterans, military families and service members exploring VA homebuying options and closing cost strategy.</div>
-        </div>
-
-        <!-- Concept 2: Educators -->
-        <div class="partner-campaign-card">
-          <div class="pcp-label">Educator Campaign</div>
-          <div class="pcp-ad-head">
-            <div class="pcp-avatar"><img src="/logo-mark_transparent.png" alt="Hero HomeReach"></div>
-            <div>
-              <div class="pcp-brand-name">Hero HomeReach</div>
-              <div class="pcp-sponsored">Sponsored</div>
-            </div>
-          </div>
-          <div class="pcp-primary-text">Colorado educators, here is a clearer view of what may be possible.</div>
-          <div class="pcp-media">
-            <!-- ASSET SLOT: replace with a real 1080x1350 (4:5) educator creative -->
-            <div class="pcp-audience">Colorado Educators<small>Sample Creative</small></div>
+            <img src="/partner-opportunity/eduhero.webp" loading="lazy" decoding="async"
+                 alt="Sample Hero HomeReach educator campaign preview shown in a mobile Meta ad mockup">
           </div>
           <div class="pcp-footer">
             <div class="pcp-headline">Teaching in Colorado? Homebuyer help may be worth exploring.</div>
-            <div class="pcp-learn">Learn More</div>
           </div>
-          <div class="pcp-caption">Campaign concept for educators who need a clearer view of assistance options, closing costs and practical next steps.</div>
+          <div class="pcp-caption">Campaign concept for Colorado educators who want a clearer view of assistance options, closing costs and practical next steps.</div>
         </div>
 
-        <!-- Concept 3: Healthcare & First Responders -->
+        <!-- Veterans & Military -->
         <div class="partner-campaign-card">
-          <div class="pcp-label">Healthcare &amp; First Responder Campaign</div>
-          <div class="pcp-ad-head">
-            <div class="pcp-avatar"><img src="/logo-mark_transparent.png" alt="Hero HomeReach"></div>
-            <div>
-              <div class="pcp-brand-name">Hero HomeReach</div>
-              <div class="pcp-sponsored">Sponsored</div>
-            </div>
+          <div class="pcp-label">
+            <span>Veterans &amp; Military Campaign</span>
+            <span class="pcp-concept">Concept Preview</span>
           </div>
-          <div class="pcp-primary-text">For the people who serve Colorado, a calmer path to understanding the options.</div>
           <div class="pcp-media">
-            <!-- ASSET SLOT: replace with a real 1080x1350 (4:5) healthcare/first responder creative -->
-            <div class="pcp-audience">Healthcare Workers &amp; First Responders<small>Sample Creative</small></div>
+            <img src="/partner-opportunity/militaryhero.webp" loading="lazy" decoding="async"
+                 alt="Sample Hero HomeReach veterans and military campaign preview shown in a mobile Meta ad mockup">
           </div>
           <div class="pcp-footer">
-            <div class="pcp-headline">You serve Colorado. Let's make the path home clearer.</div>
-            <div class="pcp-learn">Learn More</div>
+            <div class="pcp-headline">Zero down is powerful. Build the rest of the plan.</div>
           </div>
-          <div class="pcp-caption">Campaign concept for healthcare workers and first responders navigating affordability, assistance and timing in the Colorado market.</div>
+          <div class="pcp-caption">Campaign concept for Colorado veterans, military families and service members exploring VA homebuying options and closing cost strategy.</div>
+        </div>
+
+        <!-- Hero Homebuyer Guide -->
+        <div class="partner-campaign-card">
+          <div class="pcp-label">
+            <span>Hero Homebuyer Guide Campaign</span>
+            <span class="pcp-concept">Concept Preview</span>
+          </div>
+          <div class="pcp-media">
+            <img src="/partner-opportunity/mckp5.png" loading="lazy" decoding="async"
+                 alt="Sample co-branded Hero HomeReach homebuyer guide campaign preview shown in a mobile Meta ad mockup">
+          </div>
+          <div class="pcp-footer">
+            <div class="pcp-headline">Questions about buying in Colorado? Start with the guide.</div>
+          </div>
+          <div class="pcp-caption">Co-branded campaign concept showing how a real estate or lending partner could support a Hero HomeReach education-first guide campaign.</div>
         </div>
 
       </div>
@@ -724,7 +677,7 @@
   </section>
 
 
-  <!-- ════════════ SECTION 5 — WHAT PARTNER SUPPORT EXPANDS ════════════ -->
+  <!-- ============ SECTION 5 - WHAT PARTNER SUPPORT EXPANDS ============ -->
   <section class="partner-section" id="support-expands">
     <div class="container">
       <div class="partner-lead-intro fade-up">
@@ -775,7 +728,7 @@
   </section>
 
 
-  <!-- ════════════ SECTION 6 — PARTNER FIT ════════════ -->
+  <!-- ============ SECTION 6 - PARTNER FIT ============ -->
   <section class="partner-section" id="partner-fit">
     <div class="container">
       <div class="partner-fit-wrap">
@@ -798,7 +751,7 @@
   </section>
 
 
-  <!-- ════════════ SECTION 7 — QUIET NEGATIVE FILTER ════════════ -->
+  <!-- ============ SECTION 7 - QUIET NEGATIVE FILTER ============ -->
   <section class="partner-section" id="negative-filter">
     <div class="container">
       <div class="partner-filter-wrap fade-up">
@@ -812,7 +765,7 @@
   </section>
 
 
-  <!-- ════════════ SECTION 8 — AVAILABILITY ════════════ -->
+  <!-- ============ SECTION 8 - AVAILABILITY ============ -->
   <section class="partner-section" id="availability">
     <div class="container">
       <div class="fade-up">
@@ -828,7 +781,7 @@
   </section>
 
 
-  <!-- ════════════ SECTION 9 — LEAD FORM ════════════ -->
+  <!-- ============ SECTION 9 - LEAD FORM ============ -->
   <section class="partner-section partner-form-section" id="partner-review">
     <div class="container">
 
@@ -838,9 +791,9 @@
         <p>Tell us a little about your team, your market and the buyers you are best prepared to serve.</p>
       </div>
 
-      <!-- ══════════════════════════════════════════════════════════════
+      <!-- ==============================================================
            FORM INTEGRATION
-           ────────────────────────────────────────────────────────────
+           --------------------------------------------------------------
            Default behavior: on submit, native validation runs, then the
            success panel shows. No lead is stored until a backend is wired.
 
@@ -855,7 +808,7 @@
            Do NOT place a MailerLite API key in this page. The serverless
            function holds the key server-side. That keeps the key private
            and keeps B2B partner contacts out of the consumer funnel.
-      ═══════════════════════════════════════════════════════════════ -->
+      ============================================================== -->
 
       <form class="partner-form fade-up" id="partnerForm" onsubmit="return partnerSubmit(event)">
 
@@ -963,12 +916,12 @@
 </main>
 
 
-<!-- ════════════ FOOTER ════════════ -->
+<!-- ============ FOOTER ============ -->
 <footer id="footer">
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <div class="wordmark">Hero <span>HomeReach</span>™</div>
+        <div class="wordmark">Hero <span>HomeReach</span>&trade;</div>
         <p>Free homeownership guidance for Colorado's educators, first responders, healthcare workers, and military members. No jargon. No pressure. Built for heroes.</p>
       </div>
       <div class="footer-col">
@@ -979,7 +932,7 @@
         <a href="/blog/">Learning Center</a>
         <a href="/contact.html">Contact</a>
         <a href="/community-partners/">Community Partners</a>
-       
+        <a href="/partner-opportunity/">For Real Estate &amp; Lending Teams</a>
       </div>
       <div class="footer-col">
         <div class="footer-col-title">Heroes</div>
@@ -987,7 +940,6 @@
         <a href="/who-we-serve.html#first-responders">First Responders</a>
         <a href="/who-we-serve.html#healthcare">Healthcare Workers</a>
         <a href="/who-we-serve.html#military">Military Members</a>
-        <a href="/partner-opportunity/">For Real Estate &amp; Lending Teams</a>
       </div>
       <div class="footer-col">
         <div class="footer-col-title">Start Here</div>
@@ -997,7 +949,7 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <div class="footer-copy">© 2026 Hero HomeReach™. All rights reserved. Colorado Homeownership Guidance.</div>
+      <div class="footer-copy">&copy; 2026 Hero HomeReach&trade;. All rights reserved. Colorado Homeownership Guidance.</div>
       <div class="footer-legal">
         <a href="/privacy.html">Privacy Policy</a>
         <a href="/terms.html">Terms of Use</a>
@@ -1023,7 +975,7 @@
   }, { threshold: 0.1 });
   fadeEls.forEach(function(el){ observer.observe(el); });
 
-  /* ── Partner form submit ── */
+  /* -- Partner form submit -- */
   var BACKEND_WIRED = false;  /* set to true after /api/partner-review.js is deployed */
 
   function partnerSubmit(e){
@@ -1045,12 +997,12 @@
       lead_type: 'Partner'
     };
 
-    /* Analytics hook — fires a dataLayer event you can map to GA4 / Meta in GTM */
+    /* Analytics hook - fires a dataLayer event you can map to GA4 / Meta in GTM */
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({ event: 'partner_review_submit', role: data.role, next_step: data.next_step });
 
     if (BACKEND_WIRED) {
-      /* ── LIVE PATH: POST to serverless function ── */
+      /* -- LIVE PATH: POST to serverless function -- */
       fetch('/api/partner-review', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -1059,7 +1011,7 @@
       .then(function(){ partnerShowSuccess(); })
       .catch(function(){ partnerShowSuccess(); }); /* never break UX on network error */
     } else {
-      /* ── PLACEHOLDER PATH: no backend yet ── */
+      /* -- PLACEHOLDER PATH: no backend yet -- */
       partnerShowSuccess();
     }
 
