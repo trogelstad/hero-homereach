@@ -201,7 +201,61 @@
     border-radius: 8px; padding: 18px 22px;
   }
 
-/* ================================
+  /* ================================
+     SECTION 3B - WHAT YOUR CAMPAIGN CAN INCLUDE
+  ================================ */
+  #campaign-includes { background: #fff; }
+  .ci-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+    margin-top: 44px;
+  }
+  .ci-card {
+    background: var(--blush); border: 1px solid var(--warm-gray);
+    border-radius: 14px; padding: 28px 26px;
+    box-shadow: 0 4px 20px rgba(12,45,94,0.06);
+    transition: var(--transition); position: relative; overflow: hidden;
+    display: flex; flex-direction: column;
+  }
+  .ci-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+    background: var(--gold);
+  }
+  .ci-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 14px 40px rgba(12,45,94,0.12);
+    border-color: rgba(201,151,58,0.35);
+  }
+  .ci-num {
+    font-family: var(--font-head); font-size: 13px; font-weight: 900;
+    color: var(--gold); letter-spacing: 0.1em; margin-bottom: 10px;
+  }
+  .ci-card h3 { font-size: 18px; margin-bottom: 8px; }
+  .ci-card p { font-size: 14px; color: #5c5c5c; line-height: 1.6; margin-bottom: 12px; }
+  .ci-best {
+    font-size: 12.5px; color: #8B6020; font-weight: 600; line-height: 1.55;
+    margin-top: auto; padding-top: 12px; border-top: 1px solid var(--warm-gray);
+  }
+
+  .campaign-flow {
+    display: flex; flex-wrap: wrap; align-items: center; justify-content: center;
+    gap: 4px; margin-top: 56px; padding-top: 36px;
+    border-top: 1px solid var(--warm-gray);
+  }
+  .cf-step {
+    display: flex; flex-direction: column; align-items: center;
+    text-align: center; width: 130px;
+  }
+  .cf-num {
+    width: 38px; height: 38px; border-radius: 50%;
+    background: var(--navy); color: var(--gold);
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--font-head); font-weight: 900; font-size: 14px;
+    margin-bottom: 10px;
+  }
+  .cf-label { font-size: 12px; font-weight: 700; color: var(--navy); line-height: 1.3; }
+  .cf-arrow { color: var(--gold); font-size: 18px; margin: 0 2px; }
+
+  /* ================================
      SECTION 4 - CAMPAIGN PREVIEWS (navy spotlight)
   ================================ */
   #campaign-previews {
@@ -252,46 +306,20 @@
   #campaign-previews .partner-lead-intro { position: relative; max-width: 760px; }
   #campaign-previews .partner-lead-intro p { color: rgba(255,255,255,0.78); }
 
-  /* -- Format switcher (tabs) -- */
-  .format-switcher {
-    display: flex; flex-wrap: wrap; gap: 10px;
-    margin-top: 40px; margin-bottom: 8px;
-  }
-  .format-tab {
-    background: rgba(255,255,255,0.06);
-    border: 1.5px solid rgba(201,151,58,0.3);
-    color: rgba(255,255,255,0.75);
-    font-family: var(--font-body); font-weight: 700; font-size: 13.5px;
-    letter-spacing: 0.02em;
-    padding: 11px 22px; border-radius: 30px;
-    cursor: pointer; transition: var(--transition);
-    display: inline-flex; align-items: center; gap: 8px;
-  }
-  .format-tab:hover { border-color: rgba(201,151,58,0.6); color: #fff; }
-  .format-tab.active {
-    background: var(--gold); border-color: var(--gold);
-    color: var(--navy);
-  }
-  .format-tab .format-tab-count {
-    font-size: 10.5px; font-weight: 700;
-    background: rgba(12,45,94,0.15); border-radius: 20px;
-    padding: 1px 8px;
-  }
-  .format-tab.active .format-tab-count { background: rgba(12,45,94,0.2); }
-
-  .format-panel { display: none; margin-top: 40px; }
-  .format-panel.active { display: block; }
-
-  /* -- Meta Feed Ads panel (existing 3-card layout, refined) -- */
   .partner-campaign-preview {
     display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+    margin-top: 46px;
   }
   .partner-campaign-card {
-    background: #fff; border-radius: 16px; overflow: hidden;
+    background: #fff;
+    border-radius: 16px;
+    overflow: hidden;
     box-shadow: 0 24px 64px rgba(0,0,0,0.34);
-    transition: var(--transition); display: flex; flex-direction: column;
+    transition: var(--transition);
+    display: flex; flex-direction: column;
   }
   .partner-campaign-card:hover { transform: translateY(-6px); }
+
   .pcp-label {
     display: flex; align-items: center; justify-content: space-between; gap: 10px;
     font-size: 10px; font-weight: 700; letter-spacing: 0.12em;
@@ -300,149 +328,30 @@
     padding: 9px 18px; border-bottom: 1px solid rgba(201,151,58,0.18);
   }
   .pcp-concept { color: #9a9a9a; font-weight: 600; }
+
   .pcp-media {
-    aspect-ratio: 4 / 5; padding: 0; background: #0C2D5E;
+    aspect-ratio: 4 / 5;
+    padding: 0;
+    background: #0C2D5E;
     display: flex; align-items: center; justify-content: center;
   }
-  .pcp-media img { width: 100%; height: 100%; object-fit: contain; display: block; }
+  .pcp-media img {
+    width: 100%; height: 100%;
+    object-fit: contain;
+    display: block;
+  }
+
   .pcp-footer {
-    display: block; text-align: center; padding: 16px 18px;
-    background: #F5F7FA; border-top: 1px solid #e6e9ef;
+    display: block; text-align: center;
+    padding: 16px 18px;
+    background: #F5F7FA;
+    border-top: 1px solid #e6e9ef;
   }
   .pcp-headline { font-size: 13px; font-weight: 700; color: var(--navy); line-height: 1.4; }
-  .pcp-caption { padding: 16px 18px 20px; font-size: 12.5px; color: #6a6a6a; line-height: 1.6; }
 
-  /* -- Carousel Ads panel (pure CSS device mockup) -- */
-  .device-wrap { display: flex; justify-content: center; }
-  .device-phone {
-    width: 300px; background: #0C2D5E; border-radius: 34px;
-    padding: 14px; box-shadow: 0 30px 70px rgba(0,0,0,0.4);
-    border: 2px solid rgba(255,255,255,0.08);
+  .pcp-caption {
+    padding: 16px 18px 20px; font-size: 12.5px; color: #6a6a6a; line-height: 1.6;
   }
-  .device-phone-notch {
-    width: 90px; height: 20px; background: #000; border-radius: 12px;
-    margin: 0 auto 10px;
-  }
-  .device-phone-screen {
-    background: #fff; border-radius: 20px; overflow: hidden;
-  }
-  .dp-post-header {
-    display: flex; align-items: center; gap: 8px; padding: 10px 12px;
-    border-bottom: 1px solid #eee;
-  }
-  .dp-post-avatar {
-    width: 30px; height: 30px; border-radius: 50%; background: var(--navy);
-    flex-shrink: 0;
-  }
-  .dp-post-meta { font-size: 10px; line-height: 1.3; }
-  .dp-post-meta strong { display: block; font-size: 11px; color: #222; }
-  .dp-post-meta span { color: #999; }
-  .dp-post-text {
-    padding: 8px 12px; font-size: 10.5px; color: #333; line-height: 1.45;
-  }
-  .carousel-track {
-    display: flex; gap: 8px; padding: 0 12px 12px; overflow: hidden;
-  }
-  .carousel-card {
-    flex: 0 0 72%; border-radius: 10px; padding: 16px 14px;
-    aspect-ratio: 1 / 1; display: flex; flex-direction: column;
-    justify-content: flex-end; color: #fff; position: relative;
-    overflow: hidden;
-  }
-  .carousel-card:nth-child(2) { flex: 0 0 20%; opacity: 0.55; }
-  .carousel-card::before {
-    content: ''; position: absolute; inset: 0;
-    background: linear-gradient(180deg, transparent 40%, rgba(12,45,94,0.85) 100%);
-  }
-  .carousel-card.cc-healthcare { background: linear-gradient(135deg, #1A4A8A, #0C2D5E); }
-  .carousel-card.cc-veteran   { background: linear-gradient(135deg, #1A6B4A, #0C2D5E); }
-  .carousel-card.cc-educator  { background: linear-gradient(135deg, #8B6020, #0C2D5E); }
-  .carousel-card-label {
-    position: relative; z-index: 1; font-size: 9px; font-weight: 700;
-    letter-spacing: 0.08em; text-transform: uppercase; color: var(--bright-gold);
-    margin-bottom: 4px;
-  }
-  .carousel-card-title {
-    position: relative; z-index: 1; font-family: var(--font-head);
-    font-weight: 700; font-size: 13px; line-height: 1.3;
-  }
-  .dp-dots { display: flex; justify-content: center; gap: 5px; padding: 10px 0 4px; }
-  .dp-dot { width: 5px; height: 5px; border-radius: 50%; background: #d8d8d8; }
-  .dp-dot.on { background: var(--gold); width: 14px; border-radius: 4px; }
-  .dp-cta-bar {
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 10px 14px 14px; font-size: 10px; color: #555;
-  }
-  .dp-cta-btn {
-    background: var(--navy); color: #fff; font-weight: 700; font-size: 10px;
-    padding: 6px 12px; border-radius: 6px;
-  }
-
-  /* -- Landing Page panel (pure CSS browser mockup) -- */
-  .device-browser {
-    max-width: 560px; margin: 0 auto; border-radius: 14px; overflow: hidden;
-    box-shadow: 0 30px 70px rgba(0,0,0,0.4); background: #fff;
-  }
-  .db-chrome {
-    background: #e9ecf2; padding: 10px 14px; display: flex; align-items: center; gap: 10px;
-  }
-  .db-dots { display: flex; gap: 6px; }
-  .db-dots span { width: 9px; height: 9px; border-radius: 50%; background: #c3c8d4; }
-  .db-url {
-    flex: 1; background: #fff; border-radius: 6px; padding: 5px 12px;
-    font-size: 11px; color: #667; font-family: var(--font-body);
-  }
-  .db-hero {
-    background: var(--navy); padding: 34px 28px 30px; text-align: center;
-    position: relative; overflow: hidden;
-  }
-  .db-hero::before {
-    content: ''; position: absolute; top: -60px; right: -60px;
-    width: 200px; height: 200px; border-radius: 50%;
-    background: radial-gradient(circle, rgba(201,151,58,0.18) 0%, transparent 70%);
-  }
-  .db-eyebrow {
-    position: relative; font-size: 10px; font-weight: 700; letter-spacing: 0.16em;
-    text-transform: uppercase; color: var(--bright-gold); margin-bottom: 10px;
-  }
-  .db-headline {
-    position: relative; font-family: var(--font-head); font-weight: 900;
-    color: #fff; font-size: 22px; line-height: 1.2; margin-bottom: 8px;
-  }
-  .db-headline .accent { color: var(--gold); font-style: italic; }
-  .db-sub { position: relative; color: rgba(255,255,255,0.7); font-size: 12.5px; margin-bottom: 18px; }
-  .db-cta {
-    position: relative; display: inline-block; background: var(--gold);
-    color: var(--navy); font-weight: 700; font-size: 12.5px;
-    padding: 11px 24px; border-radius: 8px;
-  }
-  .db-trust-row {
-    display: flex; justify-content: center; gap: 20px;
-    padding: 16px 20px; background: #F5F7FA; border-top: 1px solid #e6e9ef;
-  }
-  .db-trust-item { text-align: center; font-size: 9.5px; color: #667; }
-  .db-trust-item strong { display: block; font-size: 13px; color: var(--navy); font-family: var(--font-head); }
-
-  .device-caption {
-    text-align: center; max-width: 500px; margin: 22px auto 0;
-    font-size: 12.5px; color: rgba(255,255,255,0.55); line-height: 1.6;
-  }
-
-  /* -- Format strip (names all five, below panels) -- */
-  .format-strip {
-    display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px;
-    margin-top: 56px; padding-top: 32px; border-top: 1px solid rgba(255,255,255,0.1);
-  }
-  .format-strip-item {
-    text-align: center; padding: 14px 8px;
-  }
-  .format-strip-icon {
-    width: 38px; height: 38px; margin: 0 auto 10px; border-radius: 10px;
-    background: rgba(201,151,58,0.14); border: 1px solid rgba(201,151,58,0.3);
-    display: flex; align-items: center; justify-content: center;
-    font-size: 16px;
-  }
-  .format-strip-label { font-size: 11.5px; font-weight: 700; color: #fff; line-height: 1.3; }
 
   .partner-campaign-footnote {
     margin-top: 26px; font-size: 12.5px; color: rgba(255,255,255,0.5);
@@ -454,16 +363,15 @@
     font-size: clamp(18px, 2vw, 22px); line-height: 1.5;
     color: #fff;
   }
-  .partner-campaign-cta { margin-top: 26px; display: flex; flex-wrap: wrap; gap: 14px; }
+  .partner-campaign-cta {
+    margin-top: 26px;
+    display: flex; flex-wrap: wrap; gap: 14px;
+  }
   .partner-campaign-fitnote {
     margin-top: 22px; max-width: 620px;
     font-size: 13px; line-height: 1.65; color: rgba(255,255,255,0.55);
   }
 
-  @media (max-width: 640px) {
-    .format-strip { grid-template-columns: repeat(3, 1fr); }
-    .format-strip-item:nth-child(4), .format-strip-item:nth-child(5) { grid-column: span 1; }
-  }
   /* ================================
      SECTION 5 - WHERE TRUST BECOMES OPPORTUNITY
   ================================ */
@@ -485,33 +393,6 @@
   .partner-trust-copy p.trust-emphasis {
     font-family: var(--font-head); font-weight: 700; color: var(--navy);
     font-size: clamp(19px, 2.2vw, 23px); line-height: 1.5; margin-top: 28px;
-  }
-
-  .proof-strip {
-    margin-top: 46px;
-    background: var(--navy);
-    border-radius: 16px;
-    padding: 40px 40px 30px;
-    box-shadow: 0 18px 48px rgba(12,45,94,0.16);
-  }
-  .proof-strip__label {
-    font-size: 11px; font-weight: 700; letter-spacing: 0.18em;
-    text-transform: uppercase; color: var(--bright-gold);
-    margin-bottom: 26px;
-  }
-  .proof-strip__grid {
-    display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px 24px;
-  }
-  .proof-item { border-top: 2px solid rgba(201,151,58,0.4); padding-top: 14px; }
-  .proof-stat {
-    font-family: var(--font-head); font-weight: 900; color: #fff;
-    font-size: clamp(19px, 2vw, 24px); line-height: 1.15; margin-bottom: 8px;
-  }
-  .proof-desc { font-size: 12.5px; line-height: 1.55; color: rgba(255,255,255,0.68); }
-  .proof-strip__disclaimer {
-    margin-top: 28px; font-size: 11.5px; line-height: 1.6;
-    color: rgba(255,255,255,0.42); border-top: 1px solid rgba(255,255,255,0.12);
-    padding-top: 18px;
   }
 
   .partner-trust-cta {
@@ -685,24 +566,22 @@
   @media (max-width: 960px) {
     .partner-hero__grid { grid-template-columns: 1fr; gap: 40px; }
     .partner-card-grid,
+    .ci-grid,
     .partner-campaign-preview { grid-template-columns: repeat(2, 1fr); }
-    .proof-strip__grid { grid-template-columns: repeat(2, 1fr); }
     .partner-fit-wrap { grid-template-columns: 1fr; gap: 32px; }
- 
   }
   @media (max-width: 640px) {
     .partner-section { padding: 64px 0; }
     .partner-hero { padding-top: calc(var(--nav-h) + 40px); }
     .partner-card-grid,
+    .ci-grid,
     .partner-campaign-preview { grid-template-columns: 1fr; }
-    .proof-strip { padding: 30px 24px 24px; }
-    .proof-strip__grid { grid-template-columns: 1fr; }
     .partner-form { padding: 32px 22px 30px; }
-   
-    .device-phone { width: 100%; max-width: 300px; }
     .pf-grid-2 { grid-template-columns: 1fr; gap: 0; }
     .pf-check-grid { grid-template-columns: 1fr; }
     .partner-hero__ctas .btn { width: 100%; justify-content: center; }
+    .campaign-flow { flex-direction: column; }
+    .cf-arrow { transform: rotate(90deg); margin: 4px 0; }
     #partner-fit {
       background:
         linear-gradient(
@@ -841,7 +720,7 @@
   </section>
 
 
-<!-- ============ SECTION 3 - HOW IT WORKS ============ -->
+  <!-- ============ SECTION 3 - HOW IT WORKS ============ -->
   <section class="partner-section" id="how-it-works">
     <div class="container">
       <div class="partner-lead-intro fade-up">
@@ -873,6 +752,7 @@
       </div>
     </div>
   </section>
+
 
   <!-- ============ SECTION 3B - WHAT YOUR CAMPAIGN CAN INCLUDE ============ -->
   <section class="partner-section" id="campaign-includes">
@@ -947,7 +827,7 @@
   </section>
 
 
-<!-- ============ SECTION 4 - CAMPAIGN PREVIEWS ============ -->
+  <!-- ============ SECTION 4 - CAMPAIGN PREVIEWS ============ -->
   <section class="partner-section" id="campaign-previews">
     <div class="container">
       <div class="partner-lead-intro fade-up">
@@ -1029,46 +909,23 @@
 
       <div class="partner-trust-copy fade-up">
         <p>Hero HomeReach is built to help Colorado heroes and first-time buyers understand their options before they choose an agent, lender or path forward.</p>
-        <p>Buyers come to us with real questions:</p>
-        <p class="trust-questions">&ldquo;Can I afford to start?&rdquo; &ldquo;Is there help for my profession?&rdquo; &ldquo;What does VA zero down really cover?&rdquo; &ldquo;Can down payment assistance, seller concessions or closing cost help change the plan?&rdquo; &ldquo;Who can explain this without pushing me?&rdquo;</p>
-        <p>We answer those questions with practical, plain-English education around VA loan planning, down payment assistance, teacher and healthcare worker options, seller concessions, closing cost help and first-time buyer readiness.</p>
-        <p>That education builds trust.</p>
-        <p>And when a buyer starts to see a responsible path forward, they need more than another article. They need the right local professional to help them turn information into a real plan.</p>
-        <p>That is where partner opportunity lives.</p>
-        <p>Hero HomeReach is designed to connect education-ready buyers with real estate and lending professionals who can continue the conversation with clarity, patience and practical guidance.</p>
-        <p>The model is showing benchmark-backed response: landing page conversion reached 8%, which is 60% above the top end of the typical 2&ndash;5% real estate range. The most efficient campaign produced leads 31% lower than Facebook mortgage cost-per-lead benchmarks. Blended lead cost came in 57% lower than Google Search real estate benchmarks. Lead-to-consultation activity reached 11.1%, which is 39% above the top end of the typical 3&ndash;8% industry range. Subscriber conversion from captured leads was near 100%.</p>
+        <p>That education builds trust. And when a buyer starts to see a responsible path forward, they need more than another article. They need the right local professional to help them turn information into a real plan.</p>
         <p class="trust-emphasis">For the right partner, Hero HomeReach is not just traffic. It is a trust-first path into better buyer conversations.</p>
       </div>
 
-      <div class="proof-strip fade-up">
-        <div class="proof-strip__label">Benchmark-backed campaign signals</div>
-        <div class="proof-strip__grid">
-          <div class="proof-item">
-            <div class="proof-stat">8% landing page conversion</div>
-            <div class="proof-desc">60% above the top end of the typical real estate range</div>
-          </div>
-          <div class="proof-item">
-            <div class="proof-stat">31% lower</div>
-            <div class="proof-desc">Cost per lead than Facebook mortgage benchmarks</div>
-          </div>
-          <div class="proof-item">
-            <div class="proof-stat">57% lower</div>
-            <div class="proof-desc">Lead cost than Google Search real estate benchmarks</div>
-          </div>
-          <div class="proof-item">
-            <div class="proof-stat">11.1% lead-to-consultation</div>
-            <div class="proof-desc">39% above the top end of the typical industry range</div>
-          </div>
-          <div class="proof-item">
-            <div class="proof-stat">Near-100%</div>
-            <div class="proof-desc">Subscriber conversion from captured leads</div>
-          </div>
-          <div class="proof-item">
-            <div class="proof-stat">Buyers followed through</div>
-            <div class="proof-desc">People who booked consultations showed up</div>
-          </div>
+      <div class="partner-card-grid fade-up">
+        <div class="partner-card">
+          <h3>Education Earns Attention</h3>
+          <p>Buyers engage when the message answers a real question instead of asking for a decision they are not ready to make.</p>
         </div>
-        <p class="proof-strip__disclaimer">Performance comparisons are measured against third-party industry benchmarks from TheeDigital, LocaliQ, the Mortgage Bankers Association, the National Association of Realtors and LaunchCodex. Results vary by audience, budget, creative, market conditions, follow-up process and partner fit. No lead volume, consultation volume or transaction outcome is guaranteed.</p>
+        <div class="partner-card">
+          <h3>Trust Changes the Conversation</h3>
+          <p>A buyer who understands more is easier to guide, and easier to help make a confident decision.</p>
+        </div>
+        <div class="partner-card">
+          <h3>The Right Team Completes the Path</h3>
+          <p>When questions turn into next steps, partner fit is what determines whether that buyer moves forward well.</p>
+        </div>
       </div>
 
       <div class="partner-trust-cta fade-up">
@@ -1086,7 +943,7 @@
         <div class="partner-fit-intro fade-up">
           <div class="partner-eyebrow">Partner Fit</div>
           <h2>A strong fit usually looks like this</h2>
-          <p>Hero HomeReach partner opportunities are designed for teams that understand the difference between a buyer who is unqualified and a buyer who needs a better plan.</p>
+          <p>Hero HomeReach partner opportunities are designed for teams that understand the difference between a buyer who is unqualified and a buyer who needs a better plan. The checklist below is less about qualifying and more about knowing where your team already excels.</p>
         </div>
         <ul class="partner-fit-list fade-up">
           <li>Your team understands down payment assistance or knows how to coordinate around it.</li>
@@ -1109,7 +966,7 @@
         <div class="partner-eyebrow">Honest Alignment</div>
         <h2>This works best when the fit is real.</h2>
         <p>Hero HomeReach is not trying to create unlimited partner slots. The goal is to align with professionals who can protect the trust created by the education-first approach.</p>
-        <p>If your team only wants buyers who are ready to write offers today, or if assistance programs, closing cost strategy and first-time buyer planning are not conversations you want to have, this may not be the right lane.</p>
+        <p>This works best for teams that understand some of the best buyers need a clearer plan before they are ready to move.</p>
         <p>If your team sees opportunity in helping buyers understand the path others may miss, we should talk.</p>
       </div>
     </div>
@@ -1375,18 +1232,6 @@
     s.style.display = 'block';
     s.scrollIntoView({ behavior: 'smooth', block: 'center' });
   }
-  /* Format tab switcher */
-  var formatTabs = document.querySelectorAll('.format-tab');
-  formatTabs.forEach(function(tab){
-    tab.addEventListener('click', function(){
-      formatTabs.forEach(function(t){ t.classList.remove('active'); });
-      tab.classList.add('active');
-      var target = tab.getAttribute('data-format');
-      document.querySelectorAll('.format-panel').forEach(function(panel){
-        panel.classList.toggle('active', panel.getAttribute('data-panel') === target);
-      });
-    });
-  });
 </script>
 
 <!-- HubSpot embed (site-wide, matches other pages) -->
