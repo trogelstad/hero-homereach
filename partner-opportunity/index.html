@@ -15,35 +15,24 @@
   <title>Partner Opportunity | Hero HomeReach</title>
   <meta name="description" content="Explore Hero HomeReach partner opportunities for Colorado real estate and lending teams experienced in helping veterans, educators, first responders, healthcare workers, public servants and first-time buyers move from questions to a real plan.">
 
-  <!-- Favicons (absolute paths so they resolve from the subfolder) -->
   <link rel="icon" type="image/png" href="/favicon.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180x180.png">
   <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png">
 
   <link rel="canonical" href="https://www.herohomereach.com/partner-opportunity/" />
 
-  <!-- Open Graph -->
   <meta property="og:title" content="Hero HomeReach Partner Opportunity">
   <meta property="og:description" content="Partner opportunities for real estate and lending teams experienced in helping Colorado heroes and first-time buyers find a clearer path home.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.herohomereach.com/partner-opportunity/">
 
-  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-  <!-- Shared styles (absolute path from site root) -->
   <link rel="stylesheet" href="/css/main.css">
 
   <style>
-  /* ============================================================
-     partner-opportunity/index.html — PAGE-SPECIFIC STYLES ONLY
-     Variables, reset, typography, nav, footer, buttons, fade-up
-     all live in /css/main.css. This block is fully self-contained.
-     ============================================================ */
-
-  /* Warm palette additions (not in main.css) */
   :root {
     --cream: #FFFCF4;
     --blush: #F8F2ED;
@@ -52,7 +41,6 @@
   p { margin-bottom: 16px; }
   p:last-child { margin-bottom: 0; }
 
-  /* -- Local button variants -- */
   .btn-line-navy {
     background: transparent;
     color: var(--navy);
@@ -67,7 +55,6 @@
   }
   .btn-line-light:hover { border-color: var(--gold); color: var(--gold); }
 
-  /* -- Shared section scaffolding -- */
   .partner-section { padding: 96px 0; }
   .partner-section[id] { scroll-margin-top: calc(var(--nav-h) + 24px); }
 
@@ -83,9 +70,7 @@
   .partner-lead-intro h2 { margin-bottom: 16px; }
   .partner-lead-intro p { color: #555; font-size: 17px; }
 
-  /* ================================
-     SECTION 1 - HERO
-  ================================ */
+  /* SECTION 1 - HERO */
   .partner-hero {
     background: var(--cream);
     padding: calc(var(--nav-h) + 64px) 0 88px;
@@ -116,7 +101,6 @@
     background: var(--gold); flex-shrink: 0;
   }
 
-  /* Hero card (right column) */
   .partner-hero__card {
     background: #fff;
     border: 1px solid rgba(201,151,58,0.28);
@@ -143,9 +127,7 @@
     flex-shrink: 0; margin-top: 1px;
   }
 
-  /* ================================
-     SECTION 2 - POSSIBILITIES (editorial)
-  ================================ */
+  /* SECTION 2 - POSSIBILITIES */
   #possibilities { background: #fff; }
   .partner-editorial { max-width: 760px; }
   .partner-editorial h2 { margin-bottom: 24px; }
@@ -159,9 +141,7 @@
     margin: 30px 0;
   }
 
-  /* ================================
-     SECTION 3 - HOW IT WORKS
-  ================================ */
+  /* SECTION 3 - HOW IT WORKS */
   #how-it-works { background: var(--blush); }
   .partner-card-grid {
     display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
@@ -201,63 +181,144 @@
     border-radius: 8px; padding: 18px 22px;
   }
 
-  /* ================================
-     SECTION 3B - WHAT YOUR CAMPAIGN CAN INCLUDE
-  ================================ */
-  #campaign-includes { background: #fff; }
-  .ci-grid {
-    display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
-    margin-top: 44px;
-  }
-  .ci-card {
-    background: var(--blush); border: 1px solid var(--warm-gray);
-    border-radius: 14px; padding: 28px 26px;
-    box-shadow: 0 4px 20px rgba(12,45,94,0.06);
-    transition: var(--transition); position: relative; overflow: hidden;
-    display: flex; flex-direction: column;
-  }
-  .ci-card::before {
-    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
-    background: var(--gold);
-  }
-  .ci-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 14px 40px rgba(12,45,94,0.12);
-    border-color: rgba(201,151,58,0.35);
-  }
-  .ci-num {
-    font-family: var(--font-head); font-size: 13px; font-weight: 900;
-    color: var(--gold); letter-spacing: 0.1em; margin-bottom: 10px;
-  }
-  .ci-card h3 { font-size: 18px; margin-bottom: 8px; }
-  .ci-card p { font-size: 14px; color: #5c5c5c; line-height: 1.6; margin-bottom: 12px; }
-  .ci-best {
-    font-size: 12.5px; color: #8B6020; font-weight: 600; line-height: 1.55;
-    margin-top: auto; padding-top: 12px; border-top: 1px solid var(--warm-gray);
+  /* SECTION 3B - CAMPAIGN PATH */
+  #campaign-includes { background: #F5F7FA; }
+
+  .cp-intro-heading { max-width: 720px; margin-top: 44px; }
+  .cp-intro-heading h3 {
+    font-family: var(--font-head); font-size: clamp(22px,2.6vw,28px);
+    color: var(--navy); margin-bottom: 14px;
   }
 
-  .campaign-flow {
-    display: flex; flex-wrap: wrap; align-items: center; justify-content: center;
-    gap: 4px; margin-top: 56px; padding-top: 36px;
-    border-top: 1px solid var(--warm-gray);
+  .cp-track { margin-top: 40px; }
+  .cp-row {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px;
+    position: relative;
   }
-  .cf-step {
-    display: flex; flex-direction: column; align-items: center;
-    text-align: center; width: 130px;
+  .cp-row::before {
+    content: '';
+    position: absolute; top: 22px; left: calc(16.67% + 4px); right: calc(16.67% + 4px);
+    height: 2px;
+    background-image: repeating-linear-gradient(90deg, var(--gold) 0, var(--gold) 6px, transparent 6px, transparent 13px);
+    z-index: 0;
   }
-  .cf-num {
-    width: 38px; height: 38px; border-radius: 50%;
-    background: var(--navy); color: var(--gold);
+  .cp-row-connector {
+    display: flex; justify-content: center; align-items: center;
+    height: 44px; color: var(--gold); font-size: 20px; font-weight: 700;
+  }
+
+  .cp-node { position: relative; z-index: 1; display: flex; flex-direction: column; }
+  .cp-marker {
+    width: 44px; height: 44px; border-radius: 50%;
+    background: var(--navy); border: 3px solid var(--gold);
+    color: var(--gold); font-family: var(--font-head); font-weight: 900; font-size: 16px;
     display: flex; align-items: center; justify-content: center;
-    font-family: var(--font-head); font-weight: 900; font-size: 14px;
-    margin-bottom: 10px;
+    margin: 0 auto 18px; box-shadow: 0 4px 16px rgba(12,45,94,0.18);
   }
-  .cf-label { font-size: 12px; font-weight: 700; color: var(--navy); line-height: 1.3; }
-  .cf-arrow { color: var(--gold); font-size: 18px; margin: 0 2px; }
 
-  /* ================================
-     SECTION 4 - CAMPAIGN PREVIEWS (navy spotlight)
-  ================================ */
+  .cp-mockup {
+    background: #fff; border-radius: 14px; padding: 20px;
+    min-height: 200px; display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 10px 32px rgba(12,45,94,0.10); border: 1px solid var(--warm-gray);
+    position: relative; overflow: hidden;
+  }
+
+  .cp-label {
+    text-align: center; font-family: var(--font-head); font-weight: 700;
+    font-size: 15px; color: var(--navy); margin-top: 18px;
+  }
+  .cp-caption {
+    text-align: center; font-size: 12.5px; color: #6a6a6a; line-height: 1.55;
+    margin-top: 6px; padding: 0 6px;
+  }
+
+  .mockup-phone {
+    width: 130px; background: var(--navy); border-radius: 20px; padding: 10px;
+    box-shadow: 0 14px 30px rgba(0,0,0,0.28);
+  }
+  .mockup-phone-screen { background: #fff; border-radius: 12px; padding: 10px 9px; }
+  .mp-avatar-row { display: flex; align-items: center; gap: 6px; margin-bottom: 8px; }
+  .mp-avatar { width: 16px; height: 16px; border-radius: 50%; background: var(--gold); flex-shrink: 0; }
+  .mp-name { font-size: 7px; font-weight: 700; color: #222; }
+  .mp-headline { font-family: var(--font-head); font-weight: 700; font-size: 9.5px; color: var(--navy); line-height: 1.25; margin-bottom: 6px; }
+  .mp-body { font-size: 6.5px; color: #666; line-height: 1.4; margin-bottom: 8px; }
+  .mp-cta { background: var(--gold); color: var(--navy); font-size: 7px; font-weight: 700; text-align: center; border-radius: 5px; padding: 5px; }
+
+  .mockup-carousel { position: relative; height: 170px; width: 100%; }
+  .mc-card {
+    position: absolute; top: 18px; width: 108px; height: 130px; border-radius: 10px;
+    padding: 12px 10px; color: #fff; display: flex; flex-direction: column; justify-content: flex-end;
+    box-shadow: 0 10px 24px rgba(0,0,0,0.22);
+  }
+  .mc-card:nth-child(1) { left: 6%; transform: rotate(-7deg); background: linear-gradient(135deg,#1A4A8A,#0C2D5E); z-index: 1; }
+  .mc-card:nth-child(2) { left: 33%; transform: rotate(0deg); background: linear-gradient(135deg,#0C2D5E,#08203f); z-index: 2; }
+  .mc-card:nth-child(3) { left: 60%; transform: rotate(7deg); background: linear-gradient(135deg,#8B6020,#0C2D5E); z-index: 1; }
+  .mc-title { font-family: var(--font-head); font-weight: 700; font-size: 10.5px; margin-bottom: 3px; }
+  .mc-sub { font-size: 7px; color: rgba(255,255,255,0.75); line-height: 1.3; }
+
+  .mockup-browser { width: 100%; border-radius: 10px; overflow: hidden; box-shadow: 0 10px 26px rgba(0,0,0,0.18); }
+  .mb-chrome { background: #e9ecf2; padding: 5px 8px; display: flex; align-items: center; gap: 6px; }
+  .mb-dots { display: flex; gap: 3px; }
+  .mb-dots span { width: 5px; height: 5px; border-radius: 50%; background: #c3c8d4; }
+  .mb-url { flex: 1; background: #fff; border-radius: 3px; padding: 2px 8px; font-size: 7px; color: #778; }
+  .mb-hero { background: var(--navy); padding: 14px 12px 10px; text-align: center; }
+  .mb-headline { font-family: var(--font-head); font-weight: 800; color: #fff; font-size: 10px; line-height: 1.25; margin-bottom: 8px; }
+  .mb-field { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); border-radius: 4px; font-size: 6.5px; color: rgba(255,255,255,0.6); padding: 4px 6px; margin-bottom: 4px; text-align: left; }
+  .mb-cta { background: var(--gold); color: var(--navy); font-weight: 700; font-size: 7.5px; border-radius: 5px; padding: 5px; margin-top: 6px; }
+
+  .mockup-guide { position: relative; width: 110px; height: 150px; }
+  .mg-shadow1, .mg-shadow2 {
+    position: absolute; inset: 0; border-radius: 8px; background: var(--warm-gray);
+  }
+  .mg-shadow1 { transform: rotate(-6deg) translate(4px, 3px); opacity: 0.5; }
+  .mg-shadow2 { transform: rotate(4deg) translate(-3px, 2px); opacity: 0.5; }
+  .mg-cover {
+    position: relative; width: 100%; height: 100%; border-radius: 8px;
+    background: linear-gradient(160deg, var(--navy), #08203f);
+    border-left: 5px solid var(--gold);
+    padding: 16px 12px; display: flex; flex-direction: column; justify-content: center;
+    box-shadow: 0 14px 30px rgba(0,0,0,0.25);
+  }
+  .mg-title { font-family: var(--font-head); font-weight: 800; color: #fff; font-size: 10.5px; line-height: 1.3; margin-bottom: 6px; }
+  .mg-sub { font-size: 7px; color: rgba(255,255,255,0.65); line-height: 1.4; }
+
+  .mockup-email { width: 100%; border-radius: 10px; overflow: hidden; box-shadow: 0 10px 26px rgba(0,0,0,0.14); border: 1px solid #e6e9ef; }
+  .me-topbar { background: var(--navy); color: var(--bright-gold); font-size: 8px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 6px 10px; }
+  .me-msg { padding: 10px; border-bottom: 1px solid #eee; }
+  .me-msg:last-child { border-bottom: none; }
+  .me-subject { font-size: 9.5px; font-weight: 700; color: var(--navy); margin-bottom: 3px; line-height: 1.3; }
+  .me-snippet { font-size: 7.5px; color: #777; line-height: 1.4; }
+
+  .mockup-partner {
+    background: linear-gradient(150deg, var(--navy), #08203f);
+    border-radius: 12px; padding: 18px 16px; text-align: center; width: 100%;
+    box-shadow: 0 14px 30px rgba(0,0,0,0.22);
+  }
+  .mpc-title { font-family: var(--font-head); font-weight: 800; color: #fff; font-size: 12px; margin-bottom: 6px; line-height: 1.3; }
+  .mpc-sub { font-size: 8px; color: rgba(255,255,255,0.65); line-height: 1.4; margin-bottom: 12px; }
+  .mpc-tags { display: flex; flex-wrap: wrap; justify-content: center; gap: 5px; }
+  .mpc-tag { background: rgba(201,151,58,0.18); border: 1px solid rgba(201,151,58,0.4); color: var(--bright-gold); font-size: 7px; font-weight: 700; padding: 3px 8px; border-radius: 20px; }
+
+  .cp-closing {
+    margin-top: 56px; text-align: center; background: #fff;
+    border: 1px solid var(--warm-gray); border-radius: 16px; padding: 40px 32px;
+    box-shadow: 0 8px 28px rgba(12,45,94,0.06);
+  }
+  .cp-closing h3 { font-size: clamp(20px,2.4vw,26px); color: var(--navy); margin-bottom: 10px; }
+  .cp-closing p { font-size: 15.5px; color: #555; max-width: 520px; margin: 0 auto 22px; }
+  .cp-closing-ctas { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; }
+
+  @media (max-width: 960px) {
+    .cp-row { grid-template-columns: 1fr 1fr; }
+    .cp-row::before { display: none; }
+    .cp-row-connector { display: none; }
+  }
+  @media (max-width: 640px) {
+    .cp-row { grid-template-columns: 1fr; gap: 40px; }
+    .mockup-carousel { height: 150px; }
+  }
+
+  /* SECTION 4 - CAMPAIGN PREVIEWS */
   #campaign-previews {
     background: var(--navy);
     position: relative;
@@ -269,18 +330,8 @@
     inset: 0;
     z-index: 0;
     background-image:
-      linear-gradient(
-        90deg,
-        rgba(12, 45, 94, 0.98) 0%,
-        rgba(12, 45, 94, 0.94) 32%,
-        rgba(12, 45, 94, 0.82) 56%,
-        rgba(12, 45, 94, 0.74) 100%
-      ),
-      linear-gradient(
-        180deg,
-        rgba(12, 45, 94, 0.18) 0%,
-        rgba(12, 45, 94, 0.72) 100%
-      ),
+      linear-gradient(90deg, rgba(12, 45, 94, 0.98) 0%, rgba(12, 45, 94, 0.94) 32%, rgba(12, 45, 94, 0.82) 56%, rgba(12, 45, 94, 0.74) 100%),
+      linear-gradient(180deg, rgba(12, 45, 94, 0.18) 0%, rgba(12, 45, 94, 0.72) 100%),
       url('/partner-opportunity/journey_through_mist_and_light_bg.webp');
     background-size: cover;
     background-position: center center;
@@ -293,13 +344,7 @@
     inset: 0;
     z-index: 1;
     pointer-events: none;
-    background-image: repeating-linear-gradient(
-      45deg,
-      rgba(201,151,58,0.035) 0px,
-      rgba(201,151,58,0.035) 1px,
-      transparent 1px,
-      transparent 68px
-    );
+    background-image: repeating-linear-gradient(45deg, rgba(201,151,58,0.035) 0px, rgba(201,151,58,0.035) 1px, transparent 1px, transparent 68px);
   }
   #campaign-previews .container { position: relative; z-index: 2; }
   #campaign-previews h2 { color: #fff; margin-bottom: 16px; }
@@ -372,9 +417,7 @@
     font-size: 13px; line-height: 1.65; color: rgba(255,255,255,0.55);
   }
 
-  /* ================================
-     SECTION 5 - WHERE TRUST BECOMES OPPORTUNITY
-  ================================ */
+  /* SECTION 5 - WHERE TRUST BECOMES OPPORTUNITY */
   #support-expands { background: var(--cream); }
   .trust-subhead {
     font-family: var(--font-head); font-weight: 700; font-style: italic;
@@ -386,10 +429,6 @@
   .partner-trust-copy p {
     font-size: 17px; line-height: 1.75; color: #444; margin-bottom: 18px;
   }
-  .partner-trust-copy p.trust-questions {
-    font-style: italic; color: #555;
-    padding-left: 20px; border-left: 3px solid var(--gold);
-  }
   .partner-trust-copy p.trust-emphasis {
     font-family: var(--font-head); font-weight: 700; color: var(--navy);
     font-size: clamp(19px, 2.2vw, 23px); line-height: 1.5; margin-top: 28px;
@@ -399,20 +438,12 @@
     margin-top: 34px; display: flex; flex-wrap: wrap; gap: 14px;
   }
 
-  /* ================================
-     SECTION 6 - PARTNER FIT (checklist)
-  ================================ */
+  /* SECTION 6 - PARTNER FIT */
   #partner-fit {
     position: relative;
     overflow: hidden;
     background:
-      linear-gradient(
-        90deg,
-        rgba(255, 252, 244, 0.90) 0%,
-        rgba(255, 252, 244, 0.86) 38%,
-        rgba(255, 252, 244, 0.82) 62%,
-        rgba(255, 252, 244, 0.88) 100%
-      ),
+      linear-gradient(90deg, rgba(255, 252, 244, 0.90) 0%, rgba(255, 252, 244, 0.86) 38%, rgba(255, 252, 244, 0.82) 62%, rgba(255, 252, 244, 0.88) 100%),
       url('/partner-opportunity/honoring_service_and_community_heroes.webp');
     background-size: cover;
     background-position: center left;
@@ -445,9 +476,7 @@
     margin-top: 1px;
   }
 
-  /* ================================
-     SECTION 7 - QUIET NEGATIVE FILTER
-  ================================ */
+  /* SECTION 7 - QUIET NEGATIVE FILTER */
   #negative-filter { background: var(--blush); }
   .partner-filter-wrap { max-width: 720px; }
   .partner-filter-wrap h2 { margin-bottom: 22px; }
@@ -457,9 +486,7 @@
     font-size: clamp(19px, 2.2vw, 23px); line-height: 1.5;
   }
 
-  /* ================================
-     SECTION 8 - AVAILABILITY (navy band)
-  ================================ */
+  /* SECTION 8 - AVAILABILITY */
   #availability {
     background: var(--navy);
     position: relative; overflow: hidden;
@@ -474,9 +501,7 @@
   #availability p { color: rgba(255,255,255,0.72); font-size: 17px; line-height: 1.7; max-width: 620px; }
   #availability .availability-cta { margin-top: 30px; }
 
-  /* ================================
-     SECTION 9 - LEAD FORM
-  ================================ */
+  /* SECTION 9 - LEAD FORM */
   #partner-review { background: var(--cream); }
   .partner-form-section .partner-lead-intro { margin-bottom: 40px; text-align: center; margin-left: auto; margin-right: auto; }
   .partner-form-section .partner-eyebrow { justify-content: center; }
@@ -514,7 +539,6 @@
     padding-right: 36px; cursor: pointer;
   }
 
-  /* Checkbox / radio groups */
   .pf-fieldset { border: none; margin-bottom: 22px; }
   .pf-legend {
     font-size: 13px; font-weight: 600; color: var(--navy);
@@ -542,7 +566,6 @@
     text-align: center; line-height: 1.6;
   }
 
-  /* Success state */
   .partner-form-success {
     display: none;
     background: #fff; border: 1px solid var(--warm-gray);
@@ -560,13 +583,10 @@
   .partner-form-success h2 { margin-bottom: 12px; }
   .partner-form-success p { font-size: 16px; color: #555; max-width: 420px; margin: 0 auto 26px; }
 
-  /* ================================
-     RESPONSIVE
-  ================================ */
+  /* RESPONSIVE */
   @media (max-width: 960px) {
     .partner-hero__grid { grid-template-columns: 1fr; gap: 40px; }
     .partner-card-grid,
-    .ci-grid,
     .partner-campaign-preview { grid-template-columns: repeat(2, 1fr); }
     .partner-fit-wrap { grid-template-columns: 1fr; gap: 32px; }
   }
@@ -574,22 +594,14 @@
     .partner-section { padding: 64px 0; }
     .partner-hero { padding-top: calc(var(--nav-h) + 40px); }
     .partner-card-grid,
-    .ci-grid,
     .partner-campaign-preview { grid-template-columns: 1fr; }
     .partner-form { padding: 32px 22px 30px; }
     .pf-grid-2 { grid-template-columns: 1fr; gap: 0; }
     .pf-check-grid { grid-template-columns: 1fr; }
     .partner-hero__ctas .btn { width: 100%; justify-content: center; }
-    .campaign-flow { flex-direction: column; }
-    .cf-arrow { transform: rotate(90deg); margin: 4px 0; }
     #partner-fit {
       background:
-        linear-gradient(
-          180deg,
-          rgba(255, 252, 244, 0.94) 0%,
-          rgba(255, 252, 244, 0.90) 45%,
-          rgba(255, 252, 244, 0.94) 100%
-        ),
+        linear-gradient(180deg, rgba(255, 252, 244, 0.94) 0%, rgba(255, 252, 244, 0.90) 45%, rgba(255, 252, 244, 0.94) 100%),
         url('/partner-opportunity/honoring_service_and_community_heroes.webp');
       background-size: cover;
       background-position: center top;
@@ -597,19 +609,13 @@
     .partner-fit-list li { background: rgba(255, 252, 244, 0.94); }
     #campaign-previews::before {
       background-image:
-        linear-gradient(
-          180deg,
-          rgba(12, 45, 94, 0.98) 0%,
-          rgba(12, 45, 94, 0.94) 48%,
-          rgba(12, 45, 94, 0.90) 100%
-        ),
+        linear-gradient(180deg, rgba(12, 45, 94, 0.98) 0%, rgba(12, 45, 94, 0.94) 48%, rgba(12, 45, 94, 0.90) 100%),
         url('/partner-opportunity/journey_through_mist_and_light_bg.webp');
       background-position: center top;
     }
   }
   </style>
 
-  <!-- Structured data -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -623,12 +629,9 @@
   </script>
 </head>
 <body>
-  <!-- Google Tag Manager (noscript) -->
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5ZQKN4LM"
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-  <!-- End Google Tag Manager (noscript) -->
 
-<!-- ============ NAVIGATION ============ -->
 <nav id="nav" class="nav-solid">
   <div class="nav-inner">
     <a href="/" class="nav-logo">
@@ -654,7 +657,6 @@
   </div>
 </nav>
 
-<!-- Mobile Nav -->
 <div id="mobile-nav">
   <a href="/programs.html" onclick="toggleMobileNav()">Programs</a>
   <a href="/who-we-serve.html" onclick="toggleMobileNav()">Who We Serve</a>
@@ -668,7 +670,6 @@
 
 <main>
 
-  <!-- ============ SECTION 1 - HERO ============ -->
   <section class="partner-hero">
     <div class="container">
       <div class="partner-hero__grid">
@@ -704,7 +705,6 @@
   </section>
 
 
-  <!-- ============ SECTION 2 - POSSIBILITIES ============ -->
   <section class="partner-section" id="possibilities">
     <div class="container">
       <div class="partner-editorial fade-up">
@@ -720,7 +720,6 @@
   </section>
 
 
-  <!-- ============ SECTION 3 - HOW IT WORKS ============ -->
   <section class="partner-section" id="how-it-works">
     <div class="container">
       <div class="partner-lead-intro fade-up">
@@ -754,80 +753,144 @@
   </section>
 
 
-  <!-- ============ SECTION 3B - WHAT YOUR CAMPAIGN CAN INCLUDE ============ -->
   <section class="partner-section" id="campaign-includes">
     <div class="container">
       <div class="partner-lead-intro fade-up">
         <div class="partner-eyebrow">Campaign System</div>
         <h2>What your campaign can include</h2>
-        <p>A Hero HomeReach campaign is not a single ad. It is a system built to move a buyer from a real question to a real conversation with your team.</p>
+        <p>A Hero HomeReach partner campaign is not just an ad. It is a path from buyer question to buyer action, built around education, trust and practical next steps.</p>
+        <p>The right campaign gives buyers a clear first step, then guides them toward a more useful conversation when they are ready.</p>
       </div>
 
-      <div class="ci-grid fade-up">
+      <div class="cp-intro-heading fade-up">
+        <h3>The Campaign Path</h3>
+      </div>
 
-        <div class="ci-card">
-          <div class="ci-num">01</div>
-          <h3>Audience-Specific Meta Ads</h3>
-          <p>Facebook and Instagram campaigns built around real buyer questions, not generic &ldquo;call me today&rdquo; messaging.</p>
-          <div class="ci-best">Best for reaching veterans, educators, healthcare workers, first responders, public servants and first-time buyers directly.</div>
+      <div class="cp-track fade-up">
+
+        <div class="cp-row">
+
+          <div class="cp-node">
+            <div class="cp-marker">1</div>
+            <div class="cp-mockup">
+              <div class="mockup-phone">
+                <div class="mockup-phone-screen">
+                  <div class="mp-avatar-row"><div class="mp-avatar"></div><div class="mp-name">Hero HomeReach</div></div>
+                  <div class="mp-headline">Colorado heroes deserve a clearer path home.</div>
+                  <div class="mp-body">Explore assistance, closing cost help and smart next steps before you start guessing.</div>
+                  <div class="mp-cta">Get the Guide</div>
+                </div>
+              </div>
+            </div>
+            <div class="cp-label">Audience-Specific Meta Ad</div>
+            <div class="cp-caption">Campaigns start with the questions buyers are already asking, not generic &ldquo;call me today&rdquo; ads.</div>
+          </div>
+
+          <div class="cp-node">
+            <div class="cp-marker">2</div>
+            <div class="cp-mockup">
+              <div class="mockup-carousel">
+                <div class="mc-card"><div class="mc-title">Down Payment Help</div><div class="mc-sub">What assistance may cover</div></div>
+                <div class="mc-card"><div class="mc-title">Closing Costs</div><div class="mc-sub">How seller credits can change the plan</div></div>
+                <div class="mc-card"><div class="mc-title">First Steps</div><div class="mc-sub">What to ask before you apply</div></div>
+              </div>
+            </div>
+            <div class="cp-label">Carousel Campaign</div>
+            <div class="cp-caption">Carousel ads can show multiple buyer paths in one campaign, helping people self-identify by question or need.</div>
+          </div>
+
+          <div class="cp-node">
+            <div class="cp-marker">3</div>
+            <div class="cp-mockup">
+              <div class="mockup-browser">
+                <div class="mb-chrome"><div class="mb-dots"><span></span><span></span><span></span></div><div class="mb-url">guide.herohomereach.com</div></div>
+                <div class="mb-hero">
+                  <div class="mb-headline">Start With the Colorado Homebuyer Guide</div>
+                  <div class="mb-field">Name</div>
+                  <div class="mb-field">Email</div>
+                  <div class="mb-field">Buyer Type</div>
+                  <div class="mb-cta">Get the Free Guide</div>
+                </div>
+              </div>
+            </div>
+            <div class="cp-label">Dedicated Landing Page</div>
+            <div class="cp-caption">Focused landing pages keep the buyer in the same conversation they clicked on instead of sending them to a generic homepage.</div>
+          </div>
+
         </div>
 
-        <div class="ci-card">
-          <div class="ci-num">02</div>
-          <h3>Carousel Campaigns</h3>
-          <p>Swipeable education ads that let buyers self-identify by audience, question or need.</p>
-          <div class="ci-best">One campaign can show multiple paths, closing cost help, down payment assistance, VA planning, educator options or first-time buyer readiness.</div>
-        </div>
+        <div class="cp-row-connector">&darr;</div>
 
-        <div class="ci-card">
-          <div class="ci-num">03</div>
-          <h3>Dedicated Landing Pages</h3>
-          <p>Landing pages matched to the ad message, so buyers do not land on a generic homepage.</p>
-          <div class="ci-best">A focused page keeps the buyer in the same conversation they clicked on and gives them a clearer next step.</div>
-        </div>
+        <div class="cp-row">
 
-        <div class="ci-card">
-          <div class="ci-num">04</div>
-          <h3>Guide or Resource Funnel</h3>
-          <p>A plain-English guide, checklist or readiness resource gives buyers a low-pressure reason to raise their hand.</p>
-          <div class="ci-best">The buyer starts with education, not pressure. That creates a warmer first conversation later.</div>
-        </div>
+          <div class="cp-node">
+            <div class="cp-marker">4</div>
+            <div class="cp-mockup">
+              <div class="mockup-guide">
+                <div class="mg-shadow1"></div>
+                <div class="mg-shadow2"></div>
+                <div class="mg-cover">
+                  <div class="mg-title">Colorado Homebuyer Readiness Guide</div>
+                  <div class="mg-sub">Assistance, closing costs and next steps in plain English</div>
+                </div>
+              </div>
+            </div>
+            <div class="cp-label">Guide or Resource Funnel</div>
+            <div class="cp-caption">A plain-English resource gives buyers a low-pressure reason to raise their hand and keep learning.</div>
+          </div>
 
-        <div class="ci-card">
-          <div class="ci-num">05</div>
-          <h3>Email Follow-Up</h3>
-          <p>Helpful follow-up keeps buyers learning after the first click.</p>
-          <div class="ci-best">Follow-up keeps the path warm while buyers think through affordability, timing, assistance and next steps.</div>
-        </div>
+          <div class="cp-node">
+            <div class="cp-marker">5</div>
+            <div class="cp-mockup">
+              <div class="mockup-email">
+                <div class="me-topbar">Inbox</div>
+                <div class="me-msg">
+                  <div class="me-subject">Your guide is ready. Here is what to look at first.</div>
+                  <div class="me-snippet">Start with the sections on assistance, closing costs and timing. Those usually shape the next best step.</div>
+                </div>
+                <div class="me-msg">
+                  <div class="me-subject">What to ask before choosing your path</div>
+                  <div class="me-snippet">A short follow-up to keep things moving at your pace.</div>
+                </div>
+              </div>
+            </div>
+            <div class="cp-label">Email Follow-Up</div>
+            <div class="cp-caption">Helpful follow-up keeps the path warm while buyers think through affordability, timing and options.</div>
+          </div>
 
-        <div class="ci-card">
-          <div class="ci-num">06</div>
-          <h3>Partner Review &amp; Routing</h3>
-          <p>When a buyer is ready for help beyond education, the right local professional matters.</p>
-          <div class="ci-best">The goal is not random lead handoff. The goal is a better path from education to the right real estate or lending conversation.</div>
+          <div class="cp-node">
+            <div class="cp-marker">6</div>
+            <div class="cp-mockup">
+              <div class="mockup-partner">
+                <div class="mpc-title">Ready for a real conversation?</div>
+                <div class="mpc-sub">When a buyer is ready for guidance beyond education, the right local professional matters.</div>
+                <div class="mpc-tags">
+                  <span class="mpc-tag">Lender Path</span>
+                  <span class="mpc-tag">Agent Path</span>
+                  <span class="mpc-tag">Referral Path</span>
+                </div>
+              </div>
+            </div>
+            <div class="cp-label">Partner Review &amp; Routing</div>
+            <div class="cp-caption">The goal is not random lead handoff. The goal is a better path from education to the right real estate or lending conversation.</div>
+          </div>
+
         </div>
 
       </div>
 
-      <div class="campaign-flow fade-up">
-        <div class="cf-step"><div class="cf-num">1</div><div class="cf-label">Ad Concept</div></div>
-        <div class="cf-arrow">&rarr;</div>
-        <div class="cf-step"><div class="cf-num">2</div><div class="cf-label">Meta or Carousel Ad</div></div>
-        <div class="cf-arrow">&rarr;</div>
-        <div class="cf-step"><div class="cf-num">3</div><div class="cf-label">Landing Page</div></div>
-        <div class="cf-arrow">&rarr;</div>
-        <div class="cf-step"><div class="cf-num">4</div><div class="cf-label">Guide or Resource</div></div>
-        <div class="cf-arrow">&rarr;</div>
-        <div class="cf-step"><div class="cf-num">5</div><div class="cf-label">Email Follow-Up</div></div>
-        <div class="cf-arrow">&rarr;</div>
-        <div class="cf-step"><div class="cf-num">6</div><div class="cf-label">Partner Conversation</div></div>
+      <div class="cp-closing fade-up">
+        <h3>Want to see what this could look like for your team?</h3>
+        <p>Tell us who you serve and we can review whether a Hero HomeReach campaign path makes sense for your market.</p>
+        <div class="cp-closing-ctas">
+          <a href="#partner-review" class="btn btn-gold btn-arrow">Explore Partner Availability</a>
+          <a href="#partner-review" class="btn btn-line-navy">Request Campaign Examples</a>
+        </div>
       </div>
-
     </div>
   </section>
 
 
-  <!-- ============ SECTION 4 - CAMPAIGN PREVIEWS ============ -->
   <section class="partner-section" id="campaign-previews">
     <div class="container">
       <div class="partner-lead-intro fade-up">
@@ -898,7 +961,6 @@
   </section>
 
 
-  <!-- ============ SECTION 5 - WHERE TRUST BECOMES OPPORTUNITY ============ -->
   <section class="partner-section" id="support-expands">
     <div class="container">
       <div class="partner-lead-intro fade-up">
@@ -936,7 +998,6 @@
   </section>
 
 
-  <!-- ============ SECTION 6 - PARTNER FIT ============ -->
   <section class="partner-section" id="partner-fit">
     <div class="container">
       <div class="partner-fit-wrap">
@@ -959,7 +1020,6 @@
   </section>
 
 
-  <!-- ============ SECTION 7 - QUIET NEGATIVE FILTER ============ -->
   <section class="partner-section" id="negative-filter">
     <div class="container">
       <div class="partner-filter-wrap fade-up">
@@ -973,7 +1033,6 @@
   </section>
 
 
-  <!-- ============ SECTION 8 - AVAILABILITY ============ -->
   <section class="partner-section" id="availability">
     <div class="container">
       <div class="fade-up">
@@ -989,7 +1048,6 @@
   </section>
 
 
-  <!-- ============ SECTION 9 - LEAD FORM ============ -->
   <section class="partner-section partner-form-section" id="partner-review">
     <div class="container">
 
@@ -998,25 +1056,6 @@
         <h2>Explore Partner Availability</h2>
         <p>Tell us a little about your team, your market and the buyers you are best prepared to serve.</p>
       </div>
-
-      <!-- ==============================================================
-           FORM INTEGRATION
-           --------------------------------------------------------------
-           Default behavior: on submit, native validation runs, then the
-           success panel shows. No lead is stored until a backend is wired.
-
-           RECOMMENDED (single reliable method):
-           1. Create a Vercel serverless function at /api/partner-review.js
-              (mirror the pattern in /api/guide-download.js).
-           2. Have it POST the payload to a NEW MailerLite group
-              "Partner Leads" (do NOT reuse the consumer eBook group).
-           3. Zapier: MailerLite "Partner Leads" -> HubSpot, Lead Type = Partner.
-           4. In the script below, set  BACKEND_WIRED = true.
-
-           Do NOT place a MailerLite API key in this page. The serverless
-           function holds the key server-side. That keeps the key private
-           and keeps B2B partner contacts out of the consumer funnel.
-      ============================================================== -->
 
       <form class="partner-form fade-up" id="partnerForm" onsubmit="return partnerSubmit(event)">
 
@@ -1110,7 +1149,6 @@
         <p class="pf-fineprint">Hero HomeReach is a homebuyer education platform, not a lender, brokerage or government agency. Partner review is based on fit.</p>
       </form>
 
-      <!-- Success panel (shown after submit) -->
       <div class="partner-form-success" id="partnerSuccess">
         <div class="pfs-icon">&#10003;</div>
         <h2>Thanks. We'll review the fit.</h2>
@@ -1124,7 +1162,6 @@
 </main>
 
 
-<!-- ============ FOOTER ============ -->
 <footer id="footer">
   <div class="container">
     <div class="footer-grid">
@@ -1169,12 +1206,10 @@
 
 
 <script>
-  /* Mobile nav */
   function toggleMobileNav() {
     document.getElementById('mobile-nav').classList.toggle('open');
   }
 
-  /* Scroll reveal */
   var fadeEls = document.querySelectorAll('.fade-up');
   var observer = new IntersectionObserver(function(entries){
     entries.forEach(function(entry){
@@ -1183,14 +1218,12 @@
   }, { threshold: 0.1 });
   fadeEls.forEach(function(el){ observer.observe(el); });
 
-  /* -- Partner form submit -- */
-  var BACKEND_WIRED = false;  /* set to true after /api/partner-review.js is deployed */
+  var BACKEND_WIRED = false;
 
   function partnerSubmit(e){
     e.preventDefault();
     var form = document.getElementById('partnerForm');
 
-    /* Gather payload (ready for the serverless function) */
     var data = {
       name:      form.name.value.trim(),
       company:   form.company.value.trim(),
@@ -1205,21 +1238,18 @@
       lead_type: 'Partner'
     };
 
-    /* Analytics hook - fires a dataLayer event you can map to GA4 / Meta in GTM */
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({ event: 'partner_review_submit', role: data.role, next_step: data.next_step });
 
     if (BACKEND_WIRED) {
-      /* -- LIVE PATH: POST to serverless function -- */
       fetch('/api/partner-review', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data)
       })
       .then(function(){ partnerShowSuccess(); })
-      .catch(function(){ partnerShowSuccess(); }); /* never break UX on network error */
+      .catch(function(){ partnerShowSuccess(); });
     } else {
-      /* -- PLACEHOLDER PATH: no backend yet -- */
       partnerShowSuccess();
     }
 
@@ -1234,7 +1264,6 @@
   }
 </script>
 
-<!-- HubSpot embed (site-wide, matches other pages) -->
 <script type="text/javascript" id="hs-script-loader" async defer src="//js-na2.hs-scripts.com/244185002.js"></script>
 
 </body>
