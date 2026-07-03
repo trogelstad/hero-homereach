@@ -354,6 +354,41 @@
   position: relative;
   z-index: 2;
 }
+
+  .audience-card-photo-military {
+  background-image: url('/audience-military-members.webp');
+  background-size: cover;
+  background-position: center 35%;
+  background-repeat: no-repeat;
+  border: 0px solid transparent !important;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.06);
+}
+.audience-card-photo-military::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(12,45,94,0.55) 0%, rgba(12,45,94,0.72) 55%, rgba(12,45,94,0.88) 100%);
+  z-index: 1;
+  transition: background 0.3s ease;
+  border-radius: inherit;
+}
+.audience-card-photo-military:hover {
+  background-image: url('/audience-military-members.webp');
+  background-size: cover;
+  background-position: center 35%;
+  background-repeat: no-repeat;
+  border: 0px solid transparent !important;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.15);
+}
+.audience-card-photo-military:hover::after {
+  background: linear-gradient(180deg, rgba(12,45,94,0.45) 0%, rgba(12,45,94,0.62) 55%, rgba(12,45,94,0.82) 100%);
+}
+.audience-card-photo-military::before { z-index: 3; }
+.audience-card-photo-military h3,
+.audience-card-photo-military p,
+.audience-card-photo-military .audience-link {
+  position: relative;
+  z-index: 2;
+}
   
 
 /* ════════════════════════════════
@@ -749,12 +784,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <p>Nurses, technicians and hospital staff. Healthcare heroes often qualify for more than they realize.</p>
   <a href="who-we-serve.html#healthcare" class="audience-link">See healthcare programs →</a>
 </div>
-      <div class="audience-card fade-up delay-3">
-        <span class="audience-emoji">🎖️</span>
-        <h3>Military Members</h3>
-        <p><p>Active duty, veterans and military spouses. Learn how VA loan planning, seller credits and Colorado assistance options may work together.</p>
-        <a href="who-we-serve.html#military" class="audience-link">See military programs →</a>
-      </div>
+<div class="audience-card audience-card-photo-military fade-up delay-3">
+  <h3>Military Members</h3>
+  <p>Active duty, veterans and military spouses. Learn how VA loan planning, seller credits and Colorado assistance options may work together.</p>
+  <a href="who-we-serve.html#military" class="audience-link">See military programs →</a>
+</div>
     </div>
   </div>
 </section>
