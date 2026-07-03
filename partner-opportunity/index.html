@@ -131,12 +131,44 @@
   }
 
   /* SECTION 2 - POSSIBILITIES */
-  #possibilities { background: #fff; }
-  .partner-editorial { max-width: 760px; }
-  .partner-editorial h2 { margin-bottom: 24px; }
-  .partner-editorial p {
-    font-size: 18px; line-height: 1.75; color: #444; margin-bottom: 20px;
+#possibilities {
+  position: relative;
+  overflow: hidden;
+  background:
+    linear-gradient(90deg, rgba(12,45,94,0.92) 0%, rgba(12,45,94,0.82) 42%, rgba(12,45,94,0.60) 72%, rgba(12,45,94,0.40) 100%),
+    url('/partner-opportunity/hero-homereach-mountain-path-full-color.webp') center center / cover no-repeat;
+}
+#possibilities .container { position: relative; z-index: 2; }
+
+.partner-editorial { max-width: 760px; }
+.partner-editorial--light {
+  padding: 40px 44px;
+  border-radius: 20px;
+  background: rgba(12,45,94,0.68);
+  border: 1px solid rgba(234,184,74,0.28);
+  box-shadow: 0 24px 60px rgba(0,0,0,0.22);
+  backdrop-filter: blur(3px);
+}
+.partner-editorial--light .partner-eyebrow { color: var(--bright-gold); }
+.partner-editorial--light h2 { color: #fff; margin-bottom: 24px; }
+.partner-editorial--light p {
+  font-size: 18px; line-height: 1.75; color: rgba(245,247,250,0.88); margin-bottom: 20px;
+}
+.partner-editorial--light p.emphasis {
+  font-family: var(--font-head); font-size: clamp(20px, 2.4vw, 26px);
+  color: #fff; font-weight: 700; line-height: 1.45;
+  padding-left: 22px; border-left: 3px solid var(--gold);
+  margin: 30px 0;
+}
+
+@media (max-width: 640px) {
+  #possibilities {
+    background:
+      linear-gradient(180deg, rgba(12,45,94,0.94) 0%, rgba(12,45,94,0.88) 58%, rgba(12,45,94,0.80) 100%),
+      url('/partner-opportunity/hero-homereach-mountain-path-full-color.webp') center center / cover no-repeat;
   }
+  .partner-editorial--light { padding: 28px 22px; border-radius: 16px; }
+}
   .partner-editorial p.emphasis {
     font-family: var(--font-head); font-size: clamp(20px, 2.4vw, 26px);
     color: var(--navy); font-weight: 700; line-height: 1.45;
@@ -708,9 +740,9 @@
   </section>
 
 
-  <section class="partner-section" id="possibilities">
+<section class="partner-section" id="possibilities">
     <div class="container">
-      <div class="partner-editorial fade-up">
+      <div class="partner-editorial partner-editorial--light fade-up">
         <div class="partner-eyebrow">The Right Fit</div>
         <h2>Some teams see possibilities others miss.</h2>
         <p>Hero HomeReach is built for Colorado heroes and first-time buyers who are trying to understand how homeownership can work in a market that often feels out of reach.</p>
