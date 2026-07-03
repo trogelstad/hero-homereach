@@ -688,6 +688,7 @@
     .partner-campaign-preview { grid-template-columns: repeat(2, 1fr); }
     .proof-strip__grid { grid-template-columns: repeat(2, 1fr); }
     .partner-fit-wrap { grid-template-columns: 1fr; gap: 32px; }
+    .partner-campaign-preview { grid-template-columns: repeat(2, 1fr); }
   }
   @media (max-width: 640px) {
     .partner-section { padding: 64px 0; }
@@ -697,6 +698,8 @@
     .proof-strip { padding: 30px 24px 24px; }
     .proof-strip__grid { grid-template-columns: 1fr; }
     .partner-form { padding: 32px 22px 30px; }
+    .partner-campaign-preview { grid-template-columns: 1fr; }
+    .device-phone { width: 100%; max-width: 300px; }
     .pf-grid-2 { grid-template-columns: 1fr; gap: 0; }
     .pf-check-grid { grid-template-columns: 1fr; }
     .partner-hero__ctas .btn { width: 100%; justify-content: center; }
@@ -872,7 +875,7 @@
   </section>
 
 
-  <!-- ============ SECTION 4 - CAMPAIGN PREVIEWS ============ -->
+<!-- ============ SECTION 4 - CAMPAIGN PREVIEWS ============ -->
   <section class="partner-section" id="campaign-previews">
     <div class="container">
       <div class="partner-lead-intro fade-up">
@@ -882,59 +885,146 @@
         <p>For Colorado heroes and first-time buyers, that question is often not &ldquo;Which house should I buy?&rdquo; It is &ldquo;Can I even afford to start?&rdquo; &ldquo;What assistance programs are real?&rdquo; &ldquo;Is there help for my profession?&rdquo; &ldquo;Who understands VA, CHFA, MetroDPA, seller concessions and closing cost planning?&rdquo; &ldquo;Who can help me make sense of this without pushing me?&rdquo;</p>
         <p>Hero HomeReach campaigns are designed to meet that buyer earlier, with plain-English education that builds trust before the first conversation.</p>
         <p>For the right real estate or lending partner, that creates a different kind of advertising opportunity. Not just another click, but a warmer, smarter entry point into a buyer conversation your team is equipped to handle.</p>
-        <p>These sample concepts show how a partner-aligned campaign can make your team visible where clarity begins.</p>
+        <p>Hero HomeReach builds across formats, not just a single ad type. Explore what a partner-aligned campaign can look like.</p>
       </div>
 
-      <div class="partner-campaign-preview fade-up">
+      <!-- Format switcher -->
+      <div class="format-switcher fade-up">
+        <button class="format-tab active" data-format="meta">Meta Feed Ads <span class="format-tab-count">3</span></button>
+        <button class="format-tab" data-format="carousel">Carousel Ads</button>
+        <button class="format-tab" data-format="landing">Landing Pages</button>
+      </div>
 
-        <!-- Healthcare -->
-        <div class="partner-campaign-card">
-          <div class="pcp-label">
-            <span>Healthcare<br>Campaign</span>
-            <span class="pcp-concept">Concept Preview</span>
+      <!-- Meta Feed Ads panel -->
+      <div class="format-panel active" data-panel="meta">
+        <div class="partner-campaign-preview">
+
+          <div class="partner-campaign-card">
+            <div class="pcp-label">
+              <span>Healthcare<br>Campaign</span>
+              <span class="pcp-concept">Concept Preview</span>
+            </div>
+            <div class="pcp-media">
+              <img src="/partner-opportunity/eduhero.webp" loading="lazy" decoding="async"
+                   alt="Sample Hero HomeReach healthcare worker campaign preview shown in a mobile Meta ad mockup">
+            </div>
+            <div class="pcp-footer">
+              <div class="pcp-headline">Working in Colorado healthcare? Homebuyer help may be worth exploring.</div>
+            </div>
+            <div class="pcp-caption">Campaign concept for Colorado healthcare workers who want a clearer view of assistance options, closing costs and practical next steps.</div>
           </div>
-          <div class="pcp-media">
-            <img src="/partner-opportunity/eduhero.webp" loading="lazy" decoding="async"
-                 alt="Sample Hero HomeReach healthcare worker campaign preview shown in a mobile Meta ad mockup">
+
+          <div class="partner-campaign-card">
+            <div class="pcp-label">
+              <span>Veterans &amp; Military Campaign</span>
+              <span class="pcp-concept">Concept Preview</span>
+            </div>
+            <div class="pcp-media">
+              <img src="/partner-opportunity/eduhero2.webp" loading="lazy" decoding="async"
+                   alt="Sample Hero HomeReach veterans and military campaign preview shown in a mobile Meta ad mockup">
+            </div>
+            <div class="pcp-footer">
+              <div class="pcp-headline">Zero down is powerful. Build the rest of the plan.</div>
+            </div>
+            <div class="pcp-caption">Campaign concept for Colorado veterans, military families and service members exploring VA homebuying options and closing cost strategy.</div>
           </div>
-          <div class="pcp-footer">
-            <div class="pcp-headline">Working in Colorado healthcare? Homebuyer help may be worth exploring.</div>
+
+          <div class="partner-campaign-card">
+            <div class="pcp-label">
+              <span>Educator<br>Campaign</span>
+              <span class="pcp-concept">Concept Preview</span>
+            </div>
+            <div class="pcp-media">
+              <img src="/partner-opportunity/eduhero3.webp" loading="lazy" decoding="async"
+                   alt="Sample Hero HomeReach educator campaign preview shown in a mobile Meta ad mockup">
+            </div>
+            <div class="pcp-footer">
+              <div class="pcp-headline">Teaching in Colorado? Homebuyer help may be worth exploring.</div>
+            </div>
+            <div class="pcp-caption">Campaign concept for Colorado educators who want a clearer view of assistance options, closing costs and practical next steps.</div>
           </div>
-          <div class="pcp-caption">Campaign concept for Colorado healthcare workers who want a clearer view of assistance options, closing costs and practical next steps.</div>
+
         </div>
+      </div>
 
-        <!-- Veterans & Military -->
-        <div class="partner-campaign-card">
-          <div class="pcp-label">
-            <span>Veterans &amp; Military Campaign</span>
-            <span class="pcp-concept">Concept Preview</span>
+      <!-- Carousel Ads panel -->
+      <div class="format-panel" data-panel="carousel">
+        <div class="device-wrap">
+          <div class="device-phone">
+            <div class="device-phone-notch"></div>
+            <div class="device-phone-screen">
+              <div class="dp-post-header">
+                <div class="dp-post-avatar"></div>
+                <div class="dp-post-meta"><strong>Hero HomeReach</strong><span>Sponsored</span></div>
+              </div>
+              <div class="dp-post-text">One campaign, three buyer stories. Swipe to see which one is yours.</div>
+              <div class="carousel-track">
+                <div class="carousel-card cc-healthcare">
+                  <div class="carousel-card-label">Healthcare</div>
+                  <div class="carousel-card-title">Homebuyer help for Colorado healthcare workers.</div>
+                </div>
+                <div class="carousel-card cc-veteran">
+                  <div class="carousel-card-label">Veterans</div>
+                  <div class="carousel-card-title">Zero down is powerful.</div>
+                </div>
+              </div>
+              <div class="dp-dots">
+                <span class="dp-dot on"></span><span class="dp-dot"></span><span class="dp-dot"></span>
+              </div>
+              <div class="dp-cta-bar">
+                <span>heroHomeReach.com</span>
+                <span class="dp-cta-btn">Learn More</span>
+              </div>
+            </div>
           </div>
-          <div class="pcp-media">
-            <img src="/partner-opportunity/eduhero2.webp" loading="lazy" decoding="async"
-                 alt="Sample Hero HomeReach veterans and military campaign preview shown in a mobile Meta ad mockup">
-          </div>
-          <div class="pcp-footer">
-            <div class="pcp-headline">Zero down is powerful. Build the rest of the plan.</div>
-          </div>
-          <div class="pcp-caption">Campaign concept for Colorado veterans, military families and service members exploring VA homebuying options and closing cost strategy.</div>
         </div>
+        <p class="device-caption">Carousel format lets one campaign speak to multiple hero audiences at once, healthcare, veteran and educator, in a single swipeable unit. Buyers self-select into the story that fits them.</p>
+      </div>
 
-        <!-- Educator -->
-        <div class="partner-campaign-card">
-          <div class="pcp-label">
-            <span>Educator<br>Campaign</span>
-            <span class="pcp-concept">Concept Preview</span>
+      <!-- Landing Pages panel -->
+      <div class="format-panel" data-panel="landing">
+        <div class="device-browser">
+          <div class="db-chrome">
+            <div class="db-dots"><span></span><span></span><span></span></div>
+            <div class="db-url">guide.herohomereach.com</div>
           </div>
-          <div class="pcp-media">
-            <img src="/partner-opportunity/eduhero3.webp" loading="lazy" decoding="async"
-                 alt="Sample Hero HomeReach educator campaign preview shown in a mobile Meta ad mockup">
+          <div class="db-hero">
+            <div class="db-eyebrow">Colorado Homeownership Guidance</div>
+            <div class="db-headline">You've Earned This. <span class="accent">Now Let's Get You Home.</span></div>
+            <div class="db-sub">A clear, plain-English guide to Colorado homebuyer assistance built for your profession.</div>
+            <div class="db-cta">Get the Free Guide</div>
           </div>
-          <div class="pcp-footer">
-            <div class="pcp-headline">Teaching in Colorado? Homebuyer help may be worth exploring.</div>
+          <div class="db-trust-row">
+            <div class="db-trust-item"><strong>8%</strong>Conversion</div>
+            <div class="db-trust-item"><strong>No pressure</strong>Education first</div>
+            <div class="db-trust-item"><strong>Colorado</strong>Local focus</div>
           </div>
-          <div class="pcp-caption">Campaign concept for Colorado educators who want a clearer view of assistance options, closing costs and practical next steps.</div>
         </div>
+        <p class="device-caption">Every campaign can route to a dedicated landing page built to match the ad, not a generic homepage. This is what turns a click into a captured, education-ready lead.</p>
+      </div>
 
+      <!-- Format strip, names all formats -->
+      <div class="format-strip fade-up">
+        <div class="format-strip-item">
+          <div class="format-strip-icon">&#128241;</div>
+          <div class="format-strip-label">Meta Feed Ads</div>
+        </div>
+        <div class="format-strip-item">
+          <div class="format-strip-icon">&#128257;</div>
+          <div class="format-strip-label">Carousel Ads</div>
+        </div>
+        <div class="format-strip-item">
+          <div class="format-strip-icon">&#128187;</div>
+          <div class="format-strip-label">Landing Pages</div>
+        </div>
+        <div class="format-strip-item">
+          <div class="format-strip-icon">&#9993;</div>
+          <div class="format-strip-label">Email Campaigns</div>
+        </div>
+        <div class="format-strip-item">
+          <div class="format-strip-icon">&#127919;</div>
+          <div class="format-strip-label">Retargeting</div>
+        </div>
       </div>
 
       <p class="partner-campaign-footnote fade-up">Examples are shown for format and positioning. Campaigns may vary by audience, market, partner category and campaign goals.</p>
@@ -1308,6 +1398,18 @@
     s.style.display = 'block';
     s.scrollIntoView({ behavior: 'smooth', block: 'center' });
   }
+  /* Format tab switcher */
+  var formatTabs = document.querySelectorAll('.format-tab');
+  formatTabs.forEach(function(tab){
+    tab.addEventListener('click', function(){
+      formatTabs.forEach(function(t){ t.classList.remove('active'); });
+      tab.classList.add('active');
+      var target = tab.getAttribute('data-format');
+      document.querySelectorAll('.format-panel').forEach(function(panel){
+        panel.classList.toggle('active', panel.getAttribute('data-panel') === target);
+      });
+    });
+  });
 </script>
 
 <!-- HubSpot embed (site-wide, matches other pages) -->
