@@ -250,22 +250,31 @@
 .audience-card:hover .audience-link { gap: 10px; }
 @media (max-width: 900px) { .audiences-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 500px) { .audiences-grid { grid-template-columns: 1fr; } }
-  /* Photo variant for audience cards, faded hero-style treatment */
+ /* Photo variant for audience cards, faded hero-style treatment */
 .audience-card-photo {
   background-image: url('/audience-educators.webp');
   background-size: cover;
   background-position: center 35%;
   background-repeat: no-repeat;
+  border-color: rgba(201,151,58,0.35);
 }
 .audience-card-photo::after {
   content: '';
   position: absolute; inset: 0;
-  background: linear-gradient(180deg, rgba(12,45,94,0.90) 0%, rgba(12,45,94,0.94) 60%, rgba(12,45,94,0.98) 100%);
+  background: linear-gradient(180deg, rgba(12,45,94,0.55) 0%, rgba(12,45,94,0.72) 55%, rgba(12,45,94,0.88) 100%);
   z-index: 1;
   transition: background 0.3s ease;
+  border-radius: inherit;
+}
+.audience-card-photo:hover {
+  background-image: url('/audience-educators.webp');
+  background-size: cover;
+  background-position: center 35%;
+  background-repeat: no-repeat;
+  border-color: rgba(201,151,58,0.7);
 }
 .audience-card-photo:hover::after {
-  background: linear-gradient(180deg, rgba(12,45,94,0.80) 0%, rgba(12,45,94,0.86) 60%, rgba(12,45,94,0.94) 100%);
+  background: linear-gradient(180deg, rgba(12,45,94,0.45) 0%, rgba(12,45,94,0.62) 55%, rgba(12,45,94,0.82) 100%);
 }
 .audience-card-photo::before { z-index: 3; }
 .audience-card-photo h3,
