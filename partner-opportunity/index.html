@@ -190,6 +190,44 @@
   }
   /* SECTION 3B - PARTNERSHIP PROVIDES */
   #partnership-provides { background: var(--white); }
+  .pv-asset-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 44px;
+  }
+  .pv-asset-card {
+    background: #fff;
+    border: 1px solid var(--warm-gray);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 8px 28px rgba(12,45,94,0.08);
+    transition: var(--transition);
+    display: flex; flex-direction: column;
+  }
+  .pv-asset-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 16px 40px rgba(12,45,94,0.14);
+  }
+  .pv-label {
+    display: flex; align-items: center; justify-content: space-between; gap: 10px;
+    font-size: 10px; font-weight: 700; letter-spacing: 0.12em;
+    text-transform: uppercase; color: #8B6020;
+    background: rgba(201,151,58,0.12);
+    padding: 9px 16px; border-bottom: 1px solid rgba(201,151,58,0.18);
+  }
+  .pv-tag { color: #9a9a9a; font-weight: 600; }
+  .pv-media {
+    aspect-ratio: 4 / 5;
+    background: var(--white);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .pv-media img { width: 100%; height: 100%; object-fit: contain; display: block; }
+  .pv-body { padding: 20px 22px 24px; }
+  .pv-body h3 { font-size: 17px; margin-bottom: 8px; color: var(--navy); }
+  .pv-body p { font-size: 13.5px; color: #5c5c5c; line-height: 1.6; }
+  @media (max-width: 960px) { .pv-asset-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 640px) { .pv-asset-grid { grid-template-columns: 1fr; } }
   .partnership-closing {
     margin-top: 40px;
     text-align: center;
@@ -767,26 +805,66 @@
         <h2>What a Hero HomeReach partnership provides</h2>
         <p>Hero HomeReach is built to do more than place another ad in front of another buyer. The platform helps the right local team step into a buyer conversation after trust has already started through education.</p>
       </div>
-      <div class="partner-card-grid fade-up">
-        <div class="partner-card">
-          <h3>Targeted buyer visibility</h3>
-          <p>Reach Colorado veterans, military families, educators, healthcare workers, first responders, public servants and first-time buyers who are already looking for practical homebuyer guidance.</p>
+      <div class="pv-asset-grid fade-up">
+        <div class="pv-asset-card">
+          <div class="pv-label"><span>Audience-Specific Meta Ad</span><span class="pv-tag">Campaign Asset</span></div>
+          <div class="pv-media">
+            <!-- TODO: replace with real asset. Suggested file: /partner-opportunity/pv-audience-ad.webp -->
+            <img src="/partner-opportunity/pv-audience-ad.webp" loading="lazy" decoding="async"
+                 alt="Mockup of an audience-specific Meta ad co-branded with a partner real estate or lending team and Hero HomeReach">
+          </div>
+          <div class="pv-body">
+            <h3>Targeted buyer visibility</h3>
+            <p>Reach Colorado veterans, military families, educators, healthcare workers, first responders, public servants and first-time buyers who are already looking for practical homebuyer guidance.</p>
+          </div>
         </div>
-        <div class="partner-card">
-          <h3>Trust-first positioning</h3>
-          <p>Hero HomeReach educates first, so the right partner is introduced after the buyer already feels guided, not pressured.</p>
+        <div class="pv-asset-card">
+          <div class="pv-label"><span>Co-Branded Landing Page</span><span class="pv-tag">Campaign Asset</span></div>
+          <div class="pv-media">
+            <!-- TODO: replace with real asset. Suggested file: /partner-opportunity/pv-trust-landing.webp -->
+            <img src="/partner-opportunity/pv-trust-landing.webp" loading="lazy" decoding="async"
+                 alt="Mockup of a co-branded educational landing page introducing the partner team after Hero HomeReach content builds trust">
+          </div>
+          <div class="pv-body">
+            <h3>Trust-first positioning</h3>
+            <p>Hero HomeReach educates first, so the right partner is introduced after the buyer already feels guided, not pressured.</p>
+          </div>
         </div>
-        <div class="partner-card">
-          <h3>Audience-specific campaigns</h3>
-          <p>Campaigns can be shaped around VA loan planning, teacher down payment assistance, healthcare worker homebuyer help, first responder options, seller concessions, closing-cost strategy and first-time buyer readiness.</p>
+        <div class="pv-asset-card">
+          <div class="pv-label"><span>Multi-Audience Ad Set</span><span class="pv-tag">Campaign Asset</span></div>
+          <div class="pv-media">
+            <!-- TODO: replace with real asset. Suggested file: /partner-opportunity/pv-audience-collage.webp -->
+            <img src="/partner-opportunity/pv-audience-collage.webp" loading="lazy" decoding="async"
+                 alt="Collage of Meta ad concepts for different Hero HomeReach buyer audiences including veterans, educators, healthcare workers and first responders">
+          </div>
+          <div class="pv-body">
+            <h3>Audience-specific campaigns</h3>
+            <p>Campaigns can be shaped around VA loan planning, teacher down payment assistance, healthcare worker homebuyer help, first responder options, seller concessions, closing-cost strategy and first-time buyer readiness.</p>
+          </div>
         </div>
-        <div class="partner-card">
-          <h3>Warmer buyer conversations</h3>
-          <p>Buyers enter through useful education and practical next steps, not generic home-search ads or crowded portal lead paths.</p>
+        <div class="pv-asset-card">
+          <div class="pv-label"><span>Warm Buyer Conversation</span><span class="pv-tag">Campaign Asset</span></div>
+          <div class="pv-media">
+            <!-- TODO: replace with real asset. Suggested file: /partner-opportunity/pv-warm-conversation.webp -->
+            <img src="/partner-opportunity/pv-warm-conversation.webp" loading="lazy" decoding="async"
+                 alt="Mockup of a warm follow-up conversation between a buyer and a partner team after education-first content">
+          </div>
+          <div class="pv-body">
+            <h3>Warmer buyer conversations</h3>
+            <p>Buyers enter through useful education and practical next steps, not generic home-search ads or crowded portal lead paths.</p>
+          </div>
         </div>
-        <div class="partner-card">
-          <h3>Benchmark-backed response</h3>
-          <p>Campaign performance is measured against third-party industry benchmarks, giving partners a clearer business case than &ldquo;just trust us.&rdquo;</p>
+        <div class="pv-asset-card">
+          <div class="pv-label"><span>Partner Performance Snapshot</span><span class="pv-tag">Campaign Asset</span></div>
+          <div class="pv-media">
+            <!-- TODO: replace with real asset. Suggested file: /partner-opportunity/pv-benchmark-snapshot.webp -->
+            <img src="/partner-opportunity/pv-benchmark-snapshot.webp" loading="lazy" decoding="async"
+                 alt="Mockup of a partner performance snapshot card comparing campaign results to industry benchmarks">
+          </div>
+          <div class="pv-body">
+            <h3>Benchmark-backed response</h3>
+            <p>Campaign performance is measured against third-party industry benchmarks, giving partners a clearer business case than &ldquo;just trust us.&rdquo;</p>
+          </div>
         </div>
       </div>
       <p class="partnership-closing fade-up">For the right team, the value is not just being seen. It is being introduced after trust has already started.</p>
