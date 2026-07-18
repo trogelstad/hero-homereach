@@ -213,10 +213,73 @@
   .post-callout a:hover {
     color: var(--bright-gold);
   }
+  /* ── FAQ Accordion ── */
+  .faq-accordion {
+    margin: 20px 0 36px;
+    border: 1px solid rgba(12,45,94,0.12);
+    border-radius: 12px;
+    overflow: hidden;
+    background: #fff;
+  }
+  .faq-item { border-bottom: 1px solid rgba(12,45,94,0.1); }
+  .faq-item:last-child { border-bottom: none; }
+  .faq-question {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    background: #fff;
+    border: none;
+    margin: 0;
+    text-align: left;
+    cursor: pointer;
+    padding: 18px 22px;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 17px;
+    font-weight: 700;
+    line-height: 1.4;
+    color: var(--navy);
+    transition: background 0.2s;
+  }
+  .faq-question:hover { background: rgba(12,45,94,0.03); }
+  .faq-question:focus-visible { outline: 2px solid var(--gold); outline-offset: -2px; }
+  .faq-question[aria-expanded="true"] { background: rgba(12,45,94,0.045); }
+  .faq-icon {
+    position: relative;
+    flex-shrink: 0;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: rgba(201,151,58,0.15);
+    transition: background 0.2s, transform 0.3s;
+  }
+  .faq-icon::before,
+  .faq-icon::after {
+    content: '';
+    position: absolute;
+    background: var(--gold);
+    border-radius: 2px;
+    transition: background 0.2s, opacity 0.2s;
+  }
+  .faq-icon::before { top: 50%; left: 7px; right: 7px; height: 2px; transform: translateY(-50%); }
+  .faq-icon::after { left: 50%; top: 7px; bottom: 7px; width: 2px; transform: translateX(-50%); }
+  .faq-question[aria-expanded="true"] .faq-icon { background: var(--gold); transform: rotate(180deg); }
+  .faq-question[aria-expanded="true"] .faq-icon::before { background: #fff; }
+  .faq-question[aria-expanded="true"] .faq-icon::after { opacity: 0; }
+  .faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    background: #fff;
+    transition: max-height 0.3s ease;
+  }
+  .faq-answer-inner { padding: 0 22px 20px; }
+  .faq-answer-inner p { margin: 0; color: #374151; line-height: 1.7; font-size: 15px; }
   /* ── Mobile ── */
   @media (max-width: 768px) {
     .post-article, .post-body { min-width: 0; max-width: 100%; overflow-x: hidden; }
     .chfa-comparison { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    .faq-question { font-size: 16px; padding: 16px 18px; }
   }
   @media (max-width: 768px) {
     .sidebar-card-hide-mobile { display: none; }
@@ -393,14 +456,52 @@
           <p>To summarize the sequence a real buyer would move through: get pre-qualified with a CHFA-participating lender for HomeAccess and HomeAccess Plus, apply separately to Aurora's Prop 123 program while confirming the current DTI rules with your lender, close on the home, and only then start the clock toward eligibility for Brothers Redevelopment's Minor Home Repair program. For more on how Colorado buyers generally approach layering more than one assistance source, see our guide to <a href="/blog/how-to-stack-down-payment-programs-colorado/" target="_blank" rel="noopener">stacking Colorado down payment programs</a>.</p>
           <p>None of these three programs owes you a spot on their timeline, and none of them coordinate with each other automatically. A CHFA-approved participating lender who has actually closed HomeAccess loans in Aurora, together with direct conversations with the city's housing team and Brothers Redevelopment, is the difference between a smooth path and a buyer discovering these gaps for the first time mid-transaction.</p>
           <h2 id="faq">Frequently Asked Questions</h2>
-          <h3>Do these three programs stack automatically at closing?</h3>
-          <p>No. They are separate programs run by separate entities, CHFA, the City of Aurora, and Brothers Redevelopment, with separate applications. You may be able to use more than one, but each requires its own approval.</p>
-          <h3>Is the $25,000 CHFA HomeAccess Plus second mortgage a grant?</h3>
-          <p>No, it's a zero percent interest, deferred loan. It must be repaid when you sell, refinance, or move out.</p>
-          <h3>Can I use the Brothers Redevelopment Minor Home Repair grant toward my down payment or closing costs?</h3>
-          <p>No. It is strictly a post-closing repair and modification program and cannot be applied to purchase costs.</p>
-          <h3>How soon after closing can I apply for accessibility modification funding?</h3>
-          <p>Brothers Redevelopment's Aurora Minor Home Repair program generally requires 12 months of mortgage payment history before you're eligible to apply, and the program is currently paused, with applications expected to reopen in November 2026.</p>
+          <div class="faq-accordion" id="faq-accordion">
+            <div class="faq-item">
+              <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-answer-1" id="faq-trigger-1">
+                <span>Do these three programs stack automatically at closing?</span>
+                <span class="faq-icon" aria-hidden="true"></span>
+              </button>
+              <div class="faq-answer" id="faq-answer-1" role="region" aria-labelledby="faq-trigger-1">
+                <div class="faq-answer-inner">
+                  <p>No. They are separate programs run by separate entities, CHFA, the City of Aurora, and Brothers Redevelopment, with separate applications. You may be able to use more than one, but each requires its own approval.</p>
+                </div>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-answer-2" id="faq-trigger-2">
+                <span>Is the $25,000 CHFA HomeAccess Plus second mortgage a grant?</span>
+                <span class="faq-icon" aria-hidden="true"></span>
+              </button>
+              <div class="faq-answer" id="faq-answer-2" role="region" aria-labelledby="faq-trigger-2">
+                <div class="faq-answer-inner">
+                  <p>No, it's a zero percent interest, deferred loan. It must be repaid when you sell, refinance, or move out.</p>
+                </div>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-answer-3" id="faq-trigger-3">
+                <span>Can I use the Brothers Redevelopment Minor Home Repair grant toward my down payment or closing costs?</span>
+                <span class="faq-icon" aria-hidden="true"></span>
+              </button>
+              <div class="faq-answer" id="faq-answer-3" role="region" aria-labelledby="faq-trigger-3">
+                <div class="faq-answer-inner">
+                  <p>No. It is strictly a post-closing repair and modification program and cannot be applied to purchase costs.</p>
+                </div>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-answer-4" id="faq-trigger-4">
+                <span>How soon after closing can I apply for accessibility modification funding?</span>
+                <span class="faq-icon" aria-hidden="true"></span>
+              </button>
+              <div class="faq-answer" id="faq-answer-4" role="region" aria-labelledby="faq-trigger-4">
+                <div class="faq-answer-inner">
+                  <p>Brothers Redevelopment's Aurora Minor Home Repair program generally requires 12 months of mortgage payment history before you're eligible to apply, and the program is currently paused, with applications expected to reopen in November 2026.</p>
+                </div>
+              </div>
+            </div>
+          </div>
           <div class="post-callout">
             <p><strong>Official Sources:</strong> <a href="https://www.chfainfo.com/getattachment/4d5eaa5e-ba08-4bd2-8729-46d2d2cd1512/CHFA-HomeAccess-Program-Matrix.pdf" target="_blank" rel="noopener">CHFA HomeAccess Program Matrix</a>, <a href="https://www.chfainfo.com/getattachment/0d14dd17-fdaa-4cc8-8cb1-b1407d7beca9/CHFA_Income_Limits.pdf" target="_blank" rel="noopener">CHFA Statewide Income Limits</a>, <a href="https://www.auroragov.org/residents/community_development/down_payment_assistance" target="_blank" rel="noopener">City of Aurora Down Payment Assistance</a>, <a href="https://www.auroragov.org/residents/community_development/housing_rehabilitation_programs" target="_blank" rel="noopener">City of Aurora Housing Rehabilitation Programs</a>, <a href="https://brothersredevelopment.org/aurora-minor-home-repair/" target="_blank" rel="noopener">Brothers Redevelopment Aurora Minor Home Repair</a>, and the <a href="https://brothersredevelopment.org/wp-content/uploads/2024/04/Minor-Home-Repair-Program-Application-Final.pdf" target="_blank" rel="noopener">Brothers Redevelopment MHR Application</a>.</p>
             <p><small>Hero HomeReach is an educational resource. It is not a mortgage company, government agency, or financial adviser.</small></p>
@@ -570,6 +671,33 @@ document.querySelectorAll('.toc-list a').forEach(link => {
         btn.classList.add('copied');
         setTimeout(function() { btn.classList.remove('copied'); }, 2000);
       });
+    });
+  });
+})();
+/* ── FAQ Accordion ── */
+(function() {
+  const accordion = document.getElementById('faq-accordion');
+  if (!accordion) return;
+  const questions = accordion.querySelectorAll('.faq-question');
+  questions.forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      const expanded = btn.getAttribute('aria-expanded') === 'true';
+      const answer = document.getElementById(btn.getAttribute('aria-controls'));
+      // Close any other open item so only one is expanded at a time
+      questions.forEach(function(otherBtn) {
+        if (otherBtn !== btn && otherBtn.getAttribute('aria-expanded') === 'true') {
+          otherBtn.setAttribute('aria-expanded', 'false');
+          const otherAnswer = document.getElementById(otherBtn.getAttribute('aria-controls'));
+          if (otherAnswer) otherAnswer.style.maxHeight = null;
+        }
+      });
+      if (expanded) {
+        btn.setAttribute('aria-expanded', 'false');
+        answer.style.maxHeight = null;
+      } else {
+        btn.setAttribute('aria-expanded', 'true');
+        answer.style.maxHeight = answer.scrollHeight + 'px';
+      }
     });
   });
 })();
