@@ -6,14 +6,6 @@
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
   new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
   j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <!-- Google Tag Manager -->
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
   })(window,document,'script','dataLayer','GTM-5ZQKN4LM');</script>
   <!-- End Google Tag Manager -->
@@ -116,7 +108,8 @@
       { "@type": "Question", "name": "Can a new homeowner apply immediately?", "acceptedAnswer": { "@type": "Answer", "text": "Generally no. The City requires 12 months of current mortgage payment history, so a recent buyer may need to wait before meeting that requirement." } },
       { "@type": "Question", "name": "Can renters apply for Minor Home Repair?", "acceptedAnswer": { "@type": "Answer", "text": "No. The applicant must own and occupy the Aurora property as a primary residence." } },
       { "@type": "Question", "name": "Can the program cover storm or disaster damage?", "acceptedAnswer": { "@type": "Answer", "text": "Disaster related repairs, such as storm damage, structural flooding, and sewer backups, may be excluded. Homeowners with disaster related damage should contact FEMA directly." } },
-      { "@type": "Question", "name": "What should I prepare now, before applications return?", "acceptedAnswer": { "@type": "Answer", "text": "Homeowners can gather mortgage and insurance records, tax returns, bank statements, and a defined repair scope, and can join the Hero HomeReach Aurora Home Repair Alert List for updates and a preparation checklist." } }
+      { "@type": "Question", "name": "What should I prepare now, before applications return?", "acceptedAnswer": { "@type": "Answer", "text": "Homeowners can gather mortgage and insurance records, tax returns, bank statements, and a defined repair scope, and can join the Hero HomeReach Aurora Home Repair Alert List for updates and a preparation checklist." } },
+      { "@type": "Question", "name": "Can I choose my own contractor for the repairs?", "acceptedAnswer": { "@type": "Answer", "text": "Likely not by default. Because this is federal CDBG funding, Brothers Redevelopment generally manages contractor selection through its own staff and vetted subcontractor network rather than a contractor the homeowner brings in independently. Confirm directly with Aurora and Brothers Redevelopment whether you can propose your own licensed contractor before you plan around a specific price or provider." } }
     ]
   }
   </script>
@@ -371,6 +364,36 @@
     line-height: 1.5;
   }
   .lead-capture-hero .lead-capture-disclaimer { color: rgba(255,255,255,0.55); }
+  .lead-capture-status {
+    display: none;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 12px 14px;
+    border-radius: 6px;
+    margin-top: 14px;
+  }
+  .lead-capture-status-success {
+    display: block;
+    background: rgba(198,161,91,0.15);
+    color: var(--navy);
+    border: 1px solid var(--gold);
+  }
+  .lead-capture-hero .lead-capture-status-success {
+    background: rgba(198,161,91,0.22);
+    color: #fff;
+  }
+  .lead-capture-status-error {
+    display: block;
+    background: rgba(185,28,28,0.08);
+    color: #991b1b;
+    border: 1px solid rgba(185,28,28,0.3);
+  }
+  .lead-capture-hero .lead-capture-status-error {
+    background: rgba(255,255,255,0.1);
+    color: #fecaca;
+    border-color: rgba(254,202,202,0.4);
+  }
   .lead-capture-compact {
     background: rgba(12,45,94,0.03);
     border: 1px solid rgba(12,45,94,0.1);
@@ -529,8 +552,9 @@
       <div class="lead-capture lead-capture-hero">
         <div class="lead-capture-title">Join the Aurora Home Repair Alert List</div>
         <p class="lead-capture-support">Get public reopening updates, current income limits, a document checklist, and the questions worth asking before applications return.</p>
-        <!-- TODO (Trent): wire this form to your actual form handler (HubSpot Forms, since the HubSpot chatbot script already loads on this page, or whatever ESP you use). Markup below is structural only, no submission handler is connected. -->
-        <form class="lead-capture-form" action="#" method="post">
+        <!-- Submits via fetch() to /api/aurora-mhr-subscribe, a Vercel serverless function that adds the subscriber to MailerLite. See MHR_LEAD_CAPTURE_SETUP.md for the env vars this needs before it will work. -->
+        <form class="lead-capture-form" action="#" method="post" data-lead-source="hero_alert_list">
+          <input type="text" name="website" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;width:1px;height:1px;" aria-hidden="true">
           <div class="lead-capture-fields">
             <div class="lead-capture-field"><label for="hero-fname">First name</label><input type="text" id="hero-fname" name="first_name" required></div>
             <div class="lead-capture-field"><label for="hero-email">Email</label><input type="email" id="hero-email" name="email" required></div>
@@ -555,6 +579,7 @@
           </label>
           <button type="submit" class="lead-capture-submit">Join the Aurora Home Repair Alert List</button>
         </form>
+        <div class="lead-capture-status" aria-live="polite"></div>
         <p class="lead-capture-disclaimer">Hero HomeReach is an independent educational resource. Joining this list does not create priority, reserve City funding, or guarantee program eligibility. Hero HomeReach is not affiliated with the City of Aurora or Brothers Redevelopment.</p>
       </div>
     </div>
@@ -580,22 +605,22 @@
           <div class="lead-capture-compact">
             <strong style="color:var(--navy);font-family:'Playfair Display',serif;font-size:16px;">Get Reopening Updates</strong>
             <p style="font-size:13px;color:#4b5563;margin:6px 0 0;">Hero HomeReach is independently monitoring public Aurora updates. Get notified if the status above changes.</p>
-            <form class="lead-capture-compact-row" action="#" method="post">
+            <form class="lead-capture-compact-row" action="#" method="post" data-lead-source="reopening_updates">
+              <input type="text" name="website" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;width:1px;height:1px;" aria-hidden="true">
               <input type="text" name="first_name" placeholder="First name" required>
               <input type="email" name="email" placeholder="Email address" required>
               <button type="submit">Get Reopening Updates</button>
             </form>
+            <div class="lead-capture-status" aria-live="polite"></div>
             <p class="lead-capture-disclaimer" style="margin-top:10px;">Hero HomeReach is an independent educational resource. Joining this list does not create priority, reserve City funding, or guarantee program eligibility.</p>
           </div>
 
-          <h2 id="why-this-matters">Why This Opportunity Matters</h2>
+          <h2 id="reality-check">The Reality Check: The Pause and the 12-Month Rule</h2>
           <p>Up to $15,000 in repair assistance could materially change what an Aurora homeowner can afford to fix. A roll-in shower conversion or a wheelchair ramp. A panel upgrade so a home's electrical system passes inspection. A failing water heater or a furnace that will not survive another Colorado winter. A roof nearing the end of its life. For a homeowner facing one or more of these repairs, this is exactly the kind of opportunity worth preparing for now.</p>
-          <p>None of this is promised to any individual applicant, and the City's own page does not confirm $15,000 as an official cap. But the potential is real enough, and the preparation work is involved enough, that waiting until reopening day to start is the biggest mistake a homeowner can make.</p>
-
-          <h2 id="why-prepare-now">Why Preparing Now Creates an Advantage</h2>
-          <p>The application is not a quick sign up. Aurora's process may ask for mortgage statements, insurance records, tax returns, months of bank statements, identification, and proof of income for every adult in the household. Gathering all of that after applications reopen puts a homeowner behind everyone who started early.</p>
-          <p>Participation is also limited to one time per applicant, which means the scope of a first application matters. A homeowner who has already thought through their full repair need, not just the most urgent item, is in a stronger position than one figuring it out in real time.</p>
-          <p>Treat the months before reopening as a head start, not paperwork to dread. Everything gathered now is one less thing standing between a homeowner and a completed application later.</p>
+          <p>Here is the honest part. The City of Aurora currently pauses new Minor Home Repair applications, and the projected return is November 2026. That date is not guaranteed. It is the timeline the City currently asks residents to plan around, and it could shift.</p>
+          <p>There is a second rule that matters just as much as the pause itself, and almost nobody explains it clearly: the 12-month mortgage history requirement. To qualify, Aurora requires 12 months of current, on-time mortgage payment history on the property. Not six months. Not "mostly on time." A full year, current the whole way through.</p>
+          <p>Think about what that means for a homeowner buying in Aurora right now, including one using <a href="/blog/chfa-homeaccess-colorado-disability-homebuyer-help/" target="_blank" rel="noopener">CHFA HomeAccess</a> to finance an accessible home today. Even if Minor Home Repair reopens exactly on schedule, a brand new homeowner cannot touch that repair money until they have logged a full year of payments. So a buyer closing this fall would not be eligible until roughly a year after closing regardless of when the program reopens.</p>
+          <p>That is not a reason to feel discouraged. It is the reason the current pause is actually useful. The clock on both timelines, the City's reopening window and your own 12-month mortgage history, is running whether you prepare or not. The only question is whether your documents, your repair scope, and your questions for Aurora are ready when both clocks finish counting.</p>
 
           <h2 id="two-15000-numbers">The Two $15,000 Numbers</h2>
           <p>Here is a detail worth understanding closely, because it is easy to misread.</p>
@@ -610,12 +635,28 @@
           <div class="lead-capture-compact">
             <strong style="color:var(--navy);font-family:'Playfair Display',serif;font-size:16px;">Send Me the Readiness Checklist</strong>
             <p style="font-size:13px;color:#4b5563;margin:6px 0 0;">Get the Aurora Home Repair Readiness Checklist: current income limits, reserve questions, the document list, and a repair scope worksheet.</p>
-            <form class="lead-capture-compact-row" action="#" method="post">
+            <form class="lead-capture-compact-row" action="#" method="post" data-lead-source="readiness_checklist">
+              <input type="text" name="website" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;width:1px;height:1px;" aria-hidden="true">
               <input type="text" name="first_name" placeholder="First name" required>
               <input type="email" name="email" placeholder="Email address" required>
               <button type="submit">Send Me the Checklist</button>
             </form>
+            <div class="lead-capture-status" aria-live="polite"></div>
             <p class="lead-capture-disclaimer" style="margin-top:10px;">Hero HomeReach is an independent educational resource. Joining this list does not create priority, reserve City funding, or guarantee program eligibility.</p>
+          </div>
+
+          <h2 id="income-shield">The CHFA HomeAccess "Income Shield"</h2>
+          <p>Here is something worth understanding before you even buy the home, especially for multi-generational households.</p>
+          <p>Municipal repair programs like Minor Home Repair generally count income the way Aurora's own application does: gross income for every adult 18 or older living in the household, not just the homeowner. That definition can quietly work against exactly the households these programs are meant to help. A disabled homeowner who lives with an adult child who helps with caregiving, or a live-in aide, or a grown grandchild paying rent to help out, can find that person's income counted toward the household total, even though it is not the homeowner's own money and was never meant to fund home repairs.</p>
+          <p>Buying the home with <a href="/blog/chfa-homeaccess-colorado-disability-homebuyer-help/" target="_blank" rel="noopener">CHFA HomeAccess</a> works differently, and the difference matters. Based on CHFA's published income limits guidance, HomeAccess qualifying income counts only the borrower and co-borrower on the loan, plus any spouse or civil union partner residing in the home, plus anyone who is expected to live in the home and be secondarily liable on the mortgage. An adult child, a live-in aide, or another occupant who is not on the mortgage and not secondarily liable is not counted toward CHFA's $178,920 statewide qualifying income limit.</p>
+          <p>In plain English: the mortgage you choose today can shield the rest of your household's income from counting against you tomorrow, at least for CHFA's own limit. This is exactly the kind of detail worth discussing with a CHFA-participating lender before you buy, not after. It does not change how Aurora's Minor Home Repair program will count income for its own limits, and that separate question still needs its own confirmation. See our guide to <a href="/blog/accessible-home-aurora-colorado/" target="_blank" rel="noopener">financing and modifying an accessible home in Aurora</a> for how these pieces fit together across the full purchase and repair timeline.</p>
+
+          <h2 id="federal-red-tape">The Federal Red Tape: Why You Can't Just Hire a Handyman</h2>
+          <p>One more thing worth knowing before you get your hopes up about a quick fix: this is federal money, and federal money comes with strings attached.</p>
+          <p>Minor Home Repair is funded through a federal Community Development Block Grant, administered by the City of Aurora with Brothers Redevelopment handling delivery. CDBG funding generally requires the administering organization to manage contractor selection, licensing verification, and compliance steps like lead-safe work practices for homes built before 1978, rather than simply handing a homeowner a check to spend with any contractor of their choosing.</p>
+          <p>Based on Brothers Redevelopment's own published information, its Home Modification and Repair program uses vetted, background-checked staff and a network of subcontractors it selects through its own proposal process, not a contractor a homeowner brings in independently. That is a reasonable, common way CDBG-funded repair programs operate, and it is generally a good thing for quality control, but it also means you should not assume you can simply hire your nephew's contractor friend at a discount and get reimbursed.</p>
+          <div class="post-callout">
+            <p>Ask Aurora and Brothers Redevelopment directly: will I be able to choose my own licensed contractor, or does the work have to go through Brothers Redevelopment's own crew or approved subcontractor network? Get the answer before you plan around a specific contractor or price.</p>
           </div>
 
           <h2 id="what-may-cover">What the Program May Cover</h2>
@@ -797,6 +838,17 @@
                 </div>
               </div>
             </div>
+            <div class="faq-item">
+              <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-answer-11" id="faq-trigger-11">
+                <span>Can I choose my own contractor for the repairs?</span>
+                <span class="faq-icon" aria-hidden="true"></span>
+              </button>
+              <div class="faq-answer" id="faq-answer-11" role="region" aria-labelledby="faq-trigger-11">
+                <div class="faq-answer-inner">
+                  <p>Likely not by default. Because this is federal CDBG funding, Brothers Redevelopment generally manages contractor selection through its own staff and vetted subcontractor network rather than a contractor the homeowner brings in independently. Confirm directly with Aurora and Brothers Redevelopment whether you can propose your own licensed contractor before you plan around a specific price or provider.</p>
+                </div>
+              </div>
+            </div>
           </div>
 
           <div class="post-callout">
@@ -857,9 +909,10 @@
         <div class="sidebar-card">
           <div class="sidebar-card-title">In This Guide</div>
           <ul class="toc-list">
-            <li><a href="#why-this-matters" target="_blank" rel="noopener">Why This Opportunity Matters</a></li>
-            <li><a href="#why-prepare-now" target="_blank" rel="noopener">Why Preparing Now Helps</a></li>
+            <li><a href="#reality-check" target="_blank" rel="noopener">The Pause and the 12-Month Rule</a></li>
             <li><a href="#two-15000-numbers" target="_blank" rel="noopener">Two $15,000 Numbers</a></li>
+            <li><a href="#income-shield" target="_blank" rel="noopener">The CHFA Income Shield</a></li>
+            <li><a href="#federal-red-tape" target="_blank" rel="noopener">Federal Red Tape on Contractors</a></li>
             <li><a href="#what-may-cover" target="_blank" rel="noopener">What It May Cover</a></li>
             <li><a href="#who-eligible" target="_blank" rel="noopener">Who May Be Eligible</a></li>
             <li><a href="#what-to-gather" target="_blank" rel="noopener">What to Gather Now</a></li>
@@ -1011,844 +1064,58 @@ document.querySelectorAll('.toc-list a').forEach(link => {
     });
   });
 })();
-</script>
-<!-- HubSpot Chatbot — Do not remove -->
-<script type="text/javascript" id="hs-script-loader" async defer src="//js-na2.hs-scripts.com/244185002.js"></script>
-<link rel="stylesheet" href="../../css/ebook-modal.css">
-<script src="../../js/ebook-modal.js"></script>
-</body>
-</html>
-  })(window,document,'script','dataLayer','GTM-5ZQKN4LM');</script>
-  <!-- End Google Tag Manager -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Aurora Minor Home Repair Program: What to Know Before You Apply — Hero HomeReach™</title>
-  <meta name="description" content="Aurora's Minor Home Repair Program is paused until November 2026. Learn what it may cover, who may be eligible, and what to verify first.">
-  <link rel="canonical" href="https://www.herohomereach.com/blog/aurora-minor-home-repair-program/">
-  <!-- Favicons -->
-  <link rel="icon" type="image/png" href="../../favicon.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="../../favicon-180x180.png">
-  <!-- Open Graph -->
-  <meta property="og:title" content="Aurora Minor Home Repair Program: What to Know Before You Apply — Hero HomeReach™">
-  <meta property="og:description" content="Aurora's Minor Home Repair Program is paused until November 2026. Learn what it may cover, who may be eligible, and what to verify first.">
-  <meta property="og:type" content="article">
-  <meta property="og:url" content="https://www.herohomereach.com/blog/aurora-minor-home-repair-program/">
-  <!-- TODO (Trent): confirm the exact hero image filename before this goes live. Using the {slug}-hero.webp convention below, matching the CHFA HomeAccess post, but the Aurora accessible-home post's real file did NOT follow this convention (it's aurora-accessible-home-hero-1600x900.webp), so don't trust this path without checking the repo. -->
-  <meta property="og:image" content="https://www.herohomereach.com/blog/aurora-minor-home-repair-program/aurora-minor-home-repair-program-hero.webp">
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Aurora Minor Home Repair Program: What to Know Before You Apply — Hero HomeReach™">
-  <meta name="twitter:description" content="Aurora's Minor Home Repair Program is paused until November 2026. Learn what it may cover, who may be eligible, and what to verify first.">
-  <meta name="twitter:image" content="https://www.herohomereach.com/blog/aurora-minor-home-repair-program/aurora-minor-home-repair-program-hero.webp">
-  <!-- ═══════════════════════════════════════════════
-       SCHEMA BLOCK 1 — Article
-  ════════════════════════════════════════════════ -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "headline": "Aurora Minor Home Repair Program: What to Know Before You Apply",
-    "description": "Aurora's Minor Home Repair Program is paused until November 2026. Learn what it may cover, who may be eligible, and what to verify first.",
-    "image": {
-      "@type": "ImageObject",
-      "url": "https://www.herohomereach.com/blog/aurora-minor-home-repair-program/aurora-minor-home-repair-program-hero.webp",
-      "width": 1200,
-      "height": 630
-    },
-    "datePublished": "2026-07-18",
-    "dateModified": "2026-07-18",
-    "author": {
-      "@type": "Person",
-      "name": "Trent Rogelstad",
-      "url": "https://www.herohomereach.com/about.html"
-    },
-    "publisher": {
-      "@type": "Organization",
-      "name": "Hero HomeReach",
-      "url": "https://www.herohomereach.com",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://www.herohomereach.com/logo-mark_transparent.png",
-        "width": 512,
-        "height": 512
+/* ── Lead Capture Forms → MailerLite via /api/aurora-mhr-subscribe ── */
+(function() {
+  var endpoint = '/api/aurora-mhr-subscribe';
+  document.querySelectorAll('form[data-lead-source]').forEach(function(form) {
+    var statusEl = form.parentElement.querySelector('.lead-capture-status');
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      var submitBtn = form.querySelector('button[type="submit"]');
+      var originalText = submitBtn.textContent;
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Submitting…';
+      if (statusEl) {
+        statusEl.className = 'lead-capture-status';
+        statusEl.textContent = '';
       }
-    },
-    "mainEntityOfPage": {
-      "@type": "WebPage",
-      "@id": "https://www.herohomereach.com/blog/aurora-minor-home-repair-program/"
-    },
-    "about": [
-      { "@type": "Thing", "name": "Aurora Minor Home Repair Program" },
-      { "@type": "Thing", "name": "Brothers Redevelopment", "sameAs": "https://brothersredevelopment.org" },
-      { "@type": "Thing", "name": "Community Development Block Grant" }
-    ],
-    "audience": { "@type": "Audience", "audienceType": "Income-eligible Aurora, Colorado homeowners considering accessibility, electrical, plumbing, roofing, or HVAC repair assistance" },
-    "keywords": "Aurora Minor Home Repair Program, Brothers Redevelopment Aurora, Aurora CDBG home repair, Aurora home repair grant, Aurora housing rehabilitation programs, City of Aurora repair assistance",
-    "articleSection": "Program Guide",
-    "wordCount": "1900",
-    "inLanguage": "en-US"
-  }
-  </script>
-  <!-- ═══════════════════════════════════════════════
-       SCHEMA BLOCK 2 — BreadcrumbList
-  ════════════════════════════════════════════════ -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.herohomereach.com/" },
-      { "@type": "ListItem", "position": 2, "name": "Learning Center", "item": "https://www.herohomereach.com/blog/" },
-      { "@type": "ListItem", "position": 3, "name": "Aurora Minor Home Repair Program", "item": "https://www.herohomereach.com/blog/aurora-minor-home-repair-program/" }
-    ]
-  }
-  </script>
-  <!-- ═══════════════════════════════════════════════
-       SCHEMA BLOCK 3 — FAQPage
-  ════════════════════════════════════════════════ -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      { "@type": "Question", "name": "Is Aurora Minor Home Repair open now?", "acceptedAnswer": { "@type": "Answer", "text": "The City currently says applications are paused and asks residents to return in November 2026. Confirm the status directly because reopening dates can change." } },
-      { "@type": "Question", "name": "Does the program provide up to $15,000?", "acceptedAnswer": { "@type": "Answer", "text": "Brothers Redevelopment currently describes up to $15,000 in rehabilitation services. The City's live Minor Home Repair description does not publish that cap, so confirm the current amount before relying on it." } },
-      { "@type": "Question", "name": "Is it a grant?", "acceptedAnswer": { "@type": "Answer", "text": "The City's public Minor Home Repair description does not clearly label it as a grant or loan. Ask Aurora whether repayment or a lien applies before accepting assistance." } },
-      { "@type": "Question", "name": "Can renters apply?", "acceptedAnswer": { "@type": "Answer", "text": "No. The applicant must own and occupy the Aurora property as a primary residence." } },
-      { "@type": "Question", "name": "Can a new homeowner apply immediately?", "acceptedAnswer": { "@type": "Answer", "text": "The City requires 12 months of current mortgage payment history. A recent buyer may need to wait before meeting that rule." } },
-      { "@type": "Question", "name": "Can the program repair storm damage?", "acceptedAnswer": { "@type": "Answer", "text": "Aurora excludes disaster related repairs from its housing rehabilitation programs and directs homeowners toward FEMA." } }
-    ]
-  }
-  </script>
-  <!-- No FinancialProduct schema block on this post. Per the established rule, that block is reserved for a program whose financial terms (amount, repayment structure) are confirmed. This entire post's point is that the City has not confirmed whether Minor Home Repair is a grant or a repayable obligation, so asserting structured financial-product data here would contradict the post's own accuracy standard. -->
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <!-- Shared + Blog styles -->
-  <link rel="stylesheet" href="../../css/main.css">
-  <link rel="stylesheet" href="../../css/blog.css">
-  <style>
-  .post-hero {
-    background: var(--navy);
-    padding: calc(var(--nav-h) + 56px) 0 64px;
-    position: relative;
-    overflow: hidden;
-    border-bottom: 4px solid var(--gold);
-  }
-  .post-hero::before {
-    content: '';
-    position: absolute;
-    top: -80px; right: -80px;
-    width: 500px; height: 500px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(201,151,58,0.07) 0%, transparent 70%);
-  }
-  .post-hero-inner {
-    position: relative; z-index: 2;
-    max-width: 780px;
-  }
-  .post-hero-inner h1 {
-    color: #fff;
-    font-size: clamp(28px, 4vw, 46px);
-    line-height: 1.15;
-    margin-bottom: 20px;
-  }
-  .post-hero-meta {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    flex-wrap: wrap;
-  }
-  .post-hero-tag {
-    font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
-    color: var(--gold); background: rgba(201,151,58,0.15); padding: 4px 12px; border-radius: 20px;
-  }
-  .post-hero-date, .post-hero-read-time { font-size: 13px; color: rgba(255,255,255,0.45); }
-  .post-hero-dot { width: 3px; height: 3px; border-radius: 50%; background: rgba(255,255,255,0.3); flex-shrink: 0; }
-  .breadcrumb { display: flex; align-items: center; gap: 8px; margin-bottom: 20px; font-size: 13px; }
-  .breadcrumb a { color: rgba(255,255,255,0.5); transition: color 0.2s; }
-  .breadcrumb a:hover { color: var(--gold); }
-  .breadcrumb-sep { color: rgba(255,255,255,0.25); }
-  .breadcrumb-current { color: rgba(255,255,255,0.4); }
-  .post-share { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
-  .post-share-label { font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; }
-  .post-share-top .post-share-label { color: rgba(255,255,255,0.45); }
-  .post-share-bottom .post-share-label { color: #999; }
-  .share-btn { display: inline-flex; align-items: center; justify-content: center; width: 34px; height: 34px; border-radius: 50%; border: none; cursor: pointer; transition: transform 0.2s, opacity 0.2s; text-decoration: none; flex-shrink: 0; }
-  .share-btn:hover { transform: translateY(-2px); opacity: 0.85; }
-  .share-btn svg { width: 16px; height: 16px; fill: #fff; }
-  .share-btn-facebook { background: #1877F2; }
-  .share-btn-x { background: #000; }
-  .share-btn-linkedin { background: #0A66C2; }
-  .share-btn-copy { background: var(--gold); position: relative; }
-  .share-btn-copy svg { fill: var(--navy); }
-  .share-btn-copy.copied::after { content: 'Copied!'; position: absolute; bottom: 110%; left: 50%; transform: translateX(-50%); background: var(--navy); color: #fff; font-size: 11px; font-weight: 600; padding: 4px 8px; border-radius: 4px; white-space: nowrap; pointer-events: none; }
-  .post-share-top { margin-top: 24px; }
-  .post-share-bottom { display: flex; align-items: center; gap: 12px; padding: 24px 0; border-top: 1px solid rgba(12,45,94,0.1); border-bottom: 1px solid rgba(12,45,94,0.1); margin-bottom: 40px; flex-wrap: wrap; }
-  /* ── Three-program comparison table (reused pattern) ── */
-  .chfa-comparison {
-    width: 100%; border-collapse: collapse; margin: 28px 0; font-size: 14px;
-  }
-  .chfa-comparison th {
-    background: var(--navy); color: #fff; padding: 12px 16px; text-align: left;
-    font-size: 12px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase;
-  }
-  .chfa-comparison th:first-child { border-radius: 8px 0 0 0; }
-  .chfa-comparison th:last-child { border-radius: 0 8px 0 0; }
-  .chfa-comparison td {
-    padding: 12px 16px; border-bottom: 1px solid rgba(0,0,0,0.07);
-    color: #374151; vertical-align: top; line-height: 1.55;
-  }
-  .chfa-comparison tr:nth-child(even) td { background: rgba(12,45,94,0.025); }
-  .chfa-comparison tr:last-child td { border-bottom: none; }
-  .chfa-comparison td:first-child { font-weight: 600; color: var(--navy); }
-  /* ── Related post thumbnails ── */
-  .related-post-thumb-link { flex-shrink: 0; display: block; width: 64px; height: 56px; border-radius: 5px; overflow: hidden; }
-  .related-post-thumb-img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.2s; }
-  .related-post-item:hover .related-post-thumb-img { transform: scale(1.05); }
-  /* ── Quick answer box ── */
-  .quick-answer-box {
-    background: rgba(12,45,94,0.04);
-    border-left: 4px solid var(--gold);
-    border-radius: 0 8px 8px 0;
-    padding: 24px 28px;
-    margin: 32px 0;
-  }
-  .quick-answer-box h2 { font-size: 17px; margin-bottom: 12px; color: var(--navy); }
-  /* ── FIX: links inside navy callout boxes ── */
-  .post-callout a {
-    color: var(--gold);
-    text-decoration: underline;
-    text-underline-offset: 2px;
-  }
-  .post-callout a:hover {
-    color: var(--bright-gold);
-  }
-  /* ── FAQ Accordion ── */
-  .faq-accordion {
-    margin: 20px 0 36px;
-    border: 1px solid rgba(12,45,94,0.12);
-    border-radius: 12px;
-    overflow: hidden;
-    background: #fff;
-  }
-  .faq-item { border-bottom: 1px solid rgba(12,45,94,0.1); }
-  .faq-item:last-child { border-bottom: none; }
-  .faq-question {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 18px;
-    background: #fff;
-    border: none;
-    margin: 0;
-    text-align: left;
-    cursor: pointer;
-    padding: 18px 22px;
-    font-family: 'Playfair Display', Georgia, serif;
-    font-size: 17px;
-    font-weight: 700;
-    line-height: 1.4;
-    color: var(--navy);
-    transition: background 0.2s;
-  }
-  .faq-question:hover { background: rgba(12,45,94,0.03); }
-  .faq-question:focus-visible { outline: 2px solid var(--gold); outline-offset: -2px; }
-  .faq-question[aria-expanded="true"] { background: rgba(12,45,94,0.045); }
-  .faq-icon {
-    position: relative;
-    flex-shrink: 0;
-    width: 28px;
-    height: 28px;
-    border-radius: 50%;
-    background: rgba(201,151,58,0.15);
-    transition: background 0.2s, transform 0.3s;
-  }
-  .faq-icon::before,
-  .faq-icon::after {
-    content: '';
-    position: absolute;
-    background: var(--gold);
-    border-radius: 2px;
-    transition: background 0.2s, opacity 0.2s;
-  }
-  .faq-icon::before { top: 50%; left: 7px; right: 7px; height: 2px; transform: translateY(-50%); }
-  .faq-icon::after { left: 50%; top: 7px; bottom: 7px; width: 2px; transform: translateX(-50%); }
-  .faq-question[aria-expanded="true"] .faq-icon { background: var(--gold); transform: rotate(180deg); }
-  .faq-question[aria-expanded="true"] .faq-icon::before { background: #fff; }
-  .faq-question[aria-expanded="true"] .faq-icon::after { opacity: 0; }
-  .faq-answer {
-    max-height: 0;
-    overflow: hidden;
-    background: #fff;
-    transition: max-height 0.3s ease;
-  }
-  .faq-answer-inner { padding: 0 22px 20px; }
-  .faq-answer-inner p { margin: 0; color: #374151; line-height: 1.7; font-size: 15px; }
-  /* ── Mobile ── */
-  @media (max-width: 768px) {
-    .post-article, .post-body { min-width: 0; max-width: 100%; overflow-x: hidden; }
-    .chfa-comparison { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
-    .faq-question { font-size: 16px; padding: 16px 18px; }
-  }
-  @media (max-width: 768px) {
-    .sidebar-card-hide-mobile { display: none; }
-  }
-  </style>
-  <!-- Calendly popup -->
-  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
-  <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
-</head>
-<body>
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5ZQKN4LM" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- ════════════ NAVIGATION ════════════ -->
-<nav id="nav" class="nav-solid">
-  <div class="nav-inner">
-    <a href="../../" class="nav-logo" target="_blank" rel="noopener">
-      <img src="../../logo-mark_transparent.png" alt="Hero HomeReach Shield" style="width:50px;height:50px;object-fit:contain;">
-      <div>
-        <div class="nav-wordmark">Hero <span>HomeReach</span><sup class="nav-tm">™</sup></div>
-      </div>
-    </a>
-    <ul class="nav-links">
-      <li><a href="../../programs.html" target="_blank" rel="noopener">Programs</a></li>
-      <li><a href="../../who-we-serve.html" target="_blank" rel="noopener">Who We Serve</a></li>
-      <li><a href="../../blog/" class="active" target="_blank" rel="noopener">Learning Center</a></li>
-      <li><a href="../../tools/" target="_blank" rel="noopener">Tools</a></li>
-      <li><a href="/faq" target="_blank" rel="noopener">DPA FAQ</a></li>
-      <li><a href="https://guide.herohomereach.com" target="_blank" rel="noopener" style="color:var(--bright-gold);font-weight:700;">Free Guide</a></li>
-    </ul>
-    <div class="nav-cta">
-      <a href="../../contact.html" class="btn btn-gold btn-arrow" target="_blank" rel="noopener">Book Free Consultation</a>
-    </div>
-    <div class="nav-hamburger" id="hamburger" onclick="toggleMobileNav()">
-      <span></span><span></span><span></span>
-    </div>
-  </div>
-</nav>
-<!-- Mobile Nav -->
-<div id="mobile-nav">
-  <a href="../../programs.html" onclick="toggleMobileNav()" target="_blank" rel="noopener">Programs</a>
-  <a href="../../who-we-serve.html" onclick="toggleMobileNav()" target="_blank" rel="noopener">Who We Serve</a>
-  <a href="../../blog/" onclick="toggleMobileNav()" target="_blank" rel="noopener">Learning Center</a>
-  <a href="../../tools/" onclick="toggleMobileNav()" target="_blank" rel="noopener">Tools</a>
-  <a href="/faq" onclick="toggleMobileNav()" target="_blank" rel="noopener">DPA FAQ</a>
-  <a href="https://guide.herohomereach.com" target="_blank" rel="noopener" onclick="toggleMobileNav()" style="color:var(--bright-gold);">Free Guide</a>
-  <a href="../../contact.html" class="btn btn-gold" style="margin-top:16px;font-size:16px;" target="_blank" rel="noopener">Book Free Consultation</a>
-</div>
-<!-- ════════════ POST HERO ════════════ -->
-<div class="post-hero">
-  <div class="container">
-    <div class="post-hero-inner">
-      <div class="breadcrumb">
-        <a href="../../" target="_blank" rel="noopener">Home</a>
-        <span class="breadcrumb-sep">›</span>
-        <a href="../../blog/" target="_blank" rel="noopener">Learning Center</a>
-        <span class="breadcrumb-sep">›</span>
-        <span class="breadcrumb-current">Aurora Minor Home Repair Program</span>
-      </div>
-      <h1>Aurora Minor Home Repair Program: What to Know Before You Apply</h1>
-      <div class="post-hero-meta">
-        <span class="post-hero-tag">Program Guide</span>
-        <span class="post-hero-dot"></span>
-        <span class="post-hero-date">July 2026</span>
-        <span class="post-hero-dot"></span>
-        <span class="post-hero-read-time">8 min read</span>
-      </div>
-      <div class="post-share post-share-top">
-        <span class="post-share-label">Share</span>
-        <a class="share-btn share-btn-facebook" id="share-fb-top" href="#" target="_blank" rel="noopener" aria-label="Share on Facebook">
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.413c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/></svg>
-        </a>
-        <a class="share-btn share-btn-x" id="share-x-top" href="#" target="_blank" rel="noopener" aria-label="Share on X">
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.253 5.622 5.911-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-        </a>
-        <a class="share-btn share-btn-linkedin" id="share-li-top" href="#" target="_blank" rel="noopener" aria-label="Share on LinkedIn">
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-        </a>
-        <button class="share-btn share-btn-copy" id="copy-top" aria-label="Copy link">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 00-6.364-6.364l-4.5 4.5a4.5 4.5 0 001.242 7.244"/></svg>
-        </button>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- ════════════ POST BODY ════════════ -->
-<section class="section">
-  <div class="container">
-    <div class="post-layout">
-      <!-- ── LEFT: Article ── -->
-      <article class="post-article">
-        <div class="post-body">
-          <p>Aurora homeowners may have heard there is help for accessibility work, plumbing, electrical repairs, roofing, or HVAC problems. But before you count on that help, there are three details that could completely change your plan.</p>
-          <p>The program is currently paused. The widely repeated <strong>$15,000</strong> figure has two different meanings. And the City's public materials do not clearly say whether Minor Home Repair assistance is a grant or a repayable obligation.</p>
-          <p>That does not mean the program is not worth exploring. It means you need a clearer map before you gather documents, delay an urgent repair, or assume help will be available.</p>
-          <div class="quick-answer-box">
-            <h2>Quick Answer</h2>
-            <p>Aurora's Minor Home Repair Program may help income eligible owner occupants with accessibility, electrical, plumbing, roofing, and HVAC work. The program is temporarily paused, and the City directs homeowners to return in November 2026. The application also includes income, mortgage history, insurance, lien, and reserve requirements. Confirm the current repair cap and repayment structure directly with Aurora before relying on either.</p>
-          </div>
-          <h2 id="surprise-one-you-cannot-apply-right-now">Surprise One: You Cannot Apply Right Now</h2>
-          <p>The City of Aurora currently says the <strong>Minor Home Repair Program is temporarily pausing applications</strong> and directs residents to return in <strong>November 2026</strong>.</p>
-          <p>That status matters because older <a href="https://www.brothersredevelopment.org/aurora-minor-home-repair/" target="_blank" rel="noopener">Brothers Redevelopment</a> pages still describe the program without mentioning the pause.</p>
-          <p>A homeowner could read an older page, begin collecting documents, and believe an application is moving forward today. The City's live page controls the current status.</p>
-          <p>Before doing anything else, call Aurora Housing and Community Development at <strong>303 739 7900</strong> or check the official <a href="https://www.auroragov.org/residents/community_development/housing_rehabilitation_programs" target="_blank" rel="noopener">Aurora housing rehabilitation programs page</a>.</p>
-          <p>Program pauses can change. Treat November as the City's current direction, not a guaranteed reopening date.</p>
-          <h2 id="surprise-two-there-are-two-different-15000-numbers">Surprise Two: There Are Two Different $15,000 Numbers</h2>
-          <p>This is the detail most likely to trip up a careful homeowner.</p>
-          <p><a href="https://www.brothersredevelopment.org/help-for-homes-local-government-partnerships/" target="_blank" rel="noopener">Brothers Redevelopment describes</a> the Aurora Minor Home Repair Program as providing <strong>up to $15,000</strong> in home rehabilitation services.</p>
-          <p>But the <a href="https://www.auroragov.org/residents/community_development/housing_rehabilitation_programs" target="_blank" rel="noopener">current City program summary</a> does not publish a repair benefit cap.</p>
-          <p>The official application packet uses <strong>another $15,000 figure</strong> for something completely different. It generally limits combined bank and savings reserves for people on title to $15,000.</p>
-          <p>Certain applicants who are age 62 or older, live with a qualifying disability, or receive fixed income may be permitted up to $30,000 in combined savings.</p>
-          <p>So there may be two separate questions:</p>
-          <ol>
-            <li>How much repair work may the program cover?</li>
-            <li>How much money may the household hold in bank and savings accounts?</li>
-          </ol>
-          <p>Those numbers should never be treated as interchangeable.</p>
-          <p>A homeowner with $16,000 saved for medical care, tuition, or emergencies could hear "up to $15,000" and assume it describes only the repair benefit. The reserve test may become the more important number in their application.</p>
-          <p>Before applying, ask Aurora:</p>
-          <div class="post-callout">
-            <p>Does the current $15,000 figure describe the repair benefit, the reserve limit, or both?</p>
-          </div>
-          <p>Get the answer in writing when possible.</p>
-          <h2 id="surprise-three-repair-assistance-does-not-automatically-mean-grant">Surprise Three: Repair Assistance Does Not Automatically Mean Grant</h2>
-          <p>Aurora operates three separate housing rehabilitation programs using federal Community Development Block Grant funding.</p>
-          <p>The City clearly describes:</p>
-          <ul>
-            <li><strong>Essential Home Repair</strong> as a grant</li>
-            <li><strong>Home Repair Loan</strong> as a zero percent deferred loan</li>
-            <li><strong>Minor Home Repair</strong> without clearly stating whether it is a grant or loan</li>
-          </ul>
-          <p>That silence matters.</p>
-          <p>Federal CDBG money can be delivered through grants, loans, or other financing structures. The federal funding source alone does not tell you whether repayment or a lien may apply.</p>
-          <p>Until Aurora confirms the current Minor Home Repair structure, avoid assuming:</p>
-          <ul>
-            <li>The work never has to be repaid</li>
-            <li>No lien will be recorded</li>
-            <li>The assistance is automatically a grant</li>
-            <li>Selling or refinancing will have no effect</li>
-          </ul>
-          <p>Ask this directly:</p>
-          <div class="post-callout">
-            <p>Is the Minor Home Repair Program a grant, or could it create a deferred repayment obligation or lien on my home?</p>
-          </div>
-          <p>That one question could prevent a painful surprise years later.</p>
-          <h2 id="what-may-cover">What the Program May Cover</h2>
-          <p>The City lists repairs related to:</p>
-          <ul>
-            <li>Accessibility</li>
-            <li>Electrical systems</li>
-            <li>Plumbing</li>
-            <li>Roofing</li>
-            <li>Heating, ventilation, and air conditioning</li>
-          </ul>
-          <p>Brothers Redevelopment also describes accessibility modifications, deferred maintenance, and general rehabilitation services for income qualified Aurora homeowners.</p>
-          <p>The exact project scope still depends on inspection, current funding, and program approval.</p>
-          <p>Do not sign a contract or begin work because a repair sounds eligible. Work completed before written approval may not be covered.</p>
-          <h2 id="what-not-cover">What the Program Does Not Cover</h2>
-          <p>Aurora says its housing rehabilitation programs cannot assist with disaster relief items such as:</p>
-          <ul>
-            <li>Leaking roofs tied to disaster damage</li>
-            <li>Structural flooding</li>
-            <li>Standing water</li>
-            <li>Broken or leaking windows caused by a disaster</li>
-            <li>Sewer line backups</li>
-            <li>Basement repairs related to disaster conditions</li>
-          </ul>
-          <p>Homeowners with disaster related damage are directed to FEMA.</p>
-          <p>This distinction is easy to miss. A roof may be a covered repair in one situation and excluded in another because the cause was storm or disaster damage.</p>
-          <p>If the repair is urgent, ask the City which program or agency fits <strong>before waiting for Minor Home Repair to reopen</strong>.</p>
-          <h2 id="who-may-be-eligible">Who May Be Eligible</h2>
-          <p>The City's current published requirements say an applicant must:</p>
-          <ul>
-            <li>Own the property</li>
-            <li>Live in the property as a primary residence</li>
-            <li>Have a home inside Aurora city limits</li>
-            <li>Meet current HUD household income limits</li>
-            <li>Be current on all debt secured by the property</li>
-            <li>Have no liens or judgments</li>
-            <li>Carry current homeowners insurance</li>
-            <li>Show 12 months of current mortgage payment history</li>
-            <li>Have a property that needs eligible home repairs</li>
-          </ul>
-          <p>Participation is limited to <strong>one time per applicant</strong>.</p>
-          <p>That one time rule deserves attention. Do not assume you can submit a small request now and return next year for a second repair.</p>
-          <p>Ask the program specialist whether all related eligible work should be evaluated in one application.</p>
-          <h2 id="current-2026-income-limits">Current 2026 Income Limits</h2>
-          <p>Aurora uses HUD income limits for its housing rehabilitation programs. The City lists the following maximum gross annual income figures, effective June 1, 2026:</p>
-          <table class="chfa-comparison">
-            <thead>
-              <tr><th>Household Size</th><th>Maximum Gross Annual Income</th></tr>
-            </thead>
-            <tbody>
-              <tr><td>1</td><td>$74,800</td></tr>
-              <tr><td>2</td><td>$85,450</td></tr>
-              <tr><td>3</td><td>$96,150</td></tr>
-              <tr><td>4</td><td>$106,800</td></tr>
-              <tr><td>5</td><td>$115,350</td></tr>
-              <tr><td>6</td><td>$123,900</td></tr>
-              <tr><td>7</td><td>$132,450</td></tr>
-              <tr><td>8</td><td>$141,000</td></tr>
-            </tbody>
-          </table>
-          <p><small>Source: <a href="https://www.auroragov.org/residents/community_development/housing_rehabilitation_programs" target="_blank" rel="noopener">City of Aurora, Housing Rehabilitation Programs</a>, HUD FY2026 income limits effective June 1, 2026.</small></p>
-          <p>Household income is broader than one person's salary.</p>
-          <p>The application asks about wages, overtime, bonuses, commissions, Social Security, disability benefits, pensions, unemployment, worker's compensation, alimony, child support, and other income for adults in the household.</p>
-          <p>Use the live City table before applying. Older online articles may still show previous years' limits.</p>
-          <h2 id="application-is-serious">The Application Is More Serious Than It Looks</h2>
-          <p>This is not a five minute city sign up.</p>
-          <p>The application packet may require:</p>
-          <ul>
-            <li>Homeowners insurance declarations</li>
-            <li>Current mortgage statements</li>
-            <li>Information about every lien on the property</li>
-            <li>Three months of complete bank and savings statements</li>
-            <li>The most recent federal tax return</li>
-            <li>W2 and 1099 forms</li>
-            <li>Current benefit statements</li>
-            <li>Three months of pay stubs</li>
-            <li>Colorado identification</li>
-            <li>Divorce or support documents when applicable</li>
-            <li>Signed affidavits and authorizations</li>
-            <li>Social Security Numbers for the applicant and co applicant</li>
-            <li>Lead safety acknowledgments for homes built before 1978</li>
-          </ul>
-          <p>The City is not only checking whether the repair looks necessary. It is verifying ownership, occupancy, income, reserves, insurance, mortgage history, and property debt.</p>
-          <p>A missing bank statement page or unexplained account can slow the process.</p>
-          <h2 id="everything-right-still-surprised">A Homeowner Could Do Everything Right and Still Be Surprised</h2>
-          <p>Imagine an Aurora homeowner who needs a safer shower after surgery.</p>
-          <p>They find an older article saying the program may provide up to $15,000. They assume it is open. They assume the work is a grant. Then they learn:</p>
-          <ul>
-            <li>Applications are paused</li>
-            <li>Three months of bank statements are required</li>
-            <li>Household savings may affect eligibility</li>
-            <li>The repair amount needs current confirmation</li>
-            <li>The repayment structure is not clearly stated online</li>
-          </ul>
-          <p>That homeowner did not fail to research. The information was scattered.</p>
-          <p>Hero HomeReach exists for that gap.</p>
-          <h2 id="what-to-do-before-november">What to Do Before November</h2>
-          <h3 id="first-confirm-status">First, confirm the program status</h3>
-          <p>Call the City before relying on the reopening date.</p>
-          <h3 id="second-ask-two-questions">Second, ask the two questions nobody should skip</h3>
-          <ol>
-            <li>What is the current maximum repair benefit?</li>
-            <li>Is the assistance a grant, or can it create a lien or repayment obligation?</li>
-          </ol>
-          <h3 id="third-check-income-reserves">Third, check income and reserves</h3>
-          <p>Compare your household's gross income with the current City table.</p>
-          <p>Review bank and savings balances for everyone whose finances may be counted. If you are near the $15,000 or $30,000 reserve threshold, ask what accounts count before assuming the answer.</p>
-          <h3 id="fourth-document-folder">Fourth, start your document folder</h3>
-          <p>Gather:</p>
-          <ul>
-            <li>Tax return</li>
-            <li>Mortgage statement</li>
-            <li>Insurance declarations</li>
-            <li>Three months of bank statements</li>
-            <li>Pay stubs</li>
-            <li>Benefit letters</li>
-            <li>IDs</li>
-          </ul>
-          <h3 id="fifth-define-repair-need">Fifth, define the full repair need</h3>
-          <p>Because participation is one time only, ask whether related accessibility and safety work should be evaluated together.</p>
-          <h2 id="buying-first-repairing-later">Buying First, Repairing Later</h2>
-          <p>The Minor Home Repair Program is not purchase assistance.</p>
-          <p>If you are still planning to buy, start with our guide to <a href="/blog/accessible-home-aurora-colorado/" target="_blank" rel="noopener">financing and modifying an accessible home in Aurora</a>. It explains why purchase financing and later repair assistance must be planned on separate timelines.</p>
-          <p>Households connected to a permanent disability may also want to review <a href="/blog/chfa-homeaccess-colorado-disability-homebuyer-help/" target="_blank" rel="noopener">CHFA HomeAccess and HomeAccess Plus</a>. Those programs apply to the purchase side, not the repair application described here.</p>
-          <h2 id="questions-to-ask-aurora">Questions to Ask Aurora Before You Apply</h2>
-          <p>Take this list into your first call:</p>
-          <ul>
-            <li>Is Minor Home Repair accepting applications today?</li>
-            <li>What is the current maximum repair benefit?</li>
-            <li>Is the assistance a grant or a repayable obligation?</li>
-            <li>Could a lien be recorded against the home?</li>
-            <li>What counts toward the reserve limit?</li>
-            <li>Are retirement or earmarked accounts included?</li>
-            <li>Does my repair fall under Minor, Essential, or the Home Repair Loan Program?</li>
-            <li>Can accessibility and safety repairs be reviewed together?</li>
-            <li>What happens if my income changes while I wait?</li>
-            <li>How long does review and inspection usually take?</li>
-          </ul>
-          <h2 id="faq">Frequently Asked Questions</h2>
-          <div class="faq-accordion" id="faq-accordion">
-            <div class="faq-item">
-              <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-answer-1" id="faq-trigger-1">
-                <span>Is Aurora Minor Home Repair open now?</span>
-                <span class="faq-icon" aria-hidden="true"></span>
-              </button>
-              <div class="faq-answer" id="faq-answer-1" role="region" aria-labelledby="faq-trigger-1">
-                <div class="faq-answer-inner">
-                  <p>The City currently says applications are paused and asks residents to return in November 2026. Confirm the status directly because reopening dates can change.</p>
-                </div>
-              </div>
-            </div>
-            <div class="faq-item">
-              <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-answer-2" id="faq-trigger-2">
-                <span>Does the program provide up to $15,000?</span>
-                <span class="faq-icon" aria-hidden="true"></span>
-              </button>
-              <div class="faq-answer" id="faq-answer-2" role="region" aria-labelledby="faq-trigger-2">
-                <div class="faq-answer-inner">
-                  <p>Brothers Redevelopment currently describes up to $15,000 in rehabilitation services. The City's live Minor Home Repair description does not publish that cap, so confirm the current amount before relying on it.</p>
-                </div>
-              </div>
-            </div>
-            <div class="faq-item">
-              <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-answer-3" id="faq-trigger-3">
-                <span>Is it a grant?</span>
-                <span class="faq-icon" aria-hidden="true"></span>
-              </button>
-              <div class="faq-answer" id="faq-answer-3" role="region" aria-labelledby="faq-trigger-3">
-                <div class="faq-answer-inner">
-                  <p>The City's public Minor Home Repair description does not clearly label it as a grant or loan. Ask Aurora whether repayment or a lien applies before accepting assistance.</p>
-                </div>
-              </div>
-            </div>
-            <div class="faq-item">
-              <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-answer-4" id="faq-trigger-4">
-                <span>Can renters apply?</span>
-                <span class="faq-icon" aria-hidden="true"></span>
-              </button>
-              <div class="faq-answer" id="faq-answer-4" role="region" aria-labelledby="faq-trigger-4">
-                <div class="faq-answer-inner">
-                  <p>No. The applicant must own and occupy the Aurora property as a primary residence.</p>
-                </div>
-              </div>
-            </div>
-            <div class="faq-item">
-              <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-answer-5" id="faq-trigger-5">
-                <span>Can a new homeowner apply immediately?</span>
-                <span class="faq-icon" aria-hidden="true"></span>
-              </button>
-              <div class="faq-answer" id="faq-answer-5" role="region" aria-labelledby="faq-trigger-5">
-                <div class="faq-answer-inner">
-                  <p>The City requires 12 months of current mortgage payment history. A recent buyer may need to wait before meeting that rule.</p>
-                </div>
-              </div>
-            </div>
-            <div class="faq-item">
-              <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-answer-6" id="faq-trigger-6">
-                <span>Can the program repair storm damage?</span>
-                <span class="faq-icon" aria-hidden="true"></span>
-              </button>
-              <div class="faq-answer" id="faq-answer-6" role="region" aria-labelledby="faq-trigger-6">
-                <div class="faq-answer-inner">
-                  <p>Aurora excludes disaster related repairs from its housing rehabilitation programs and directs homeowners toward FEMA.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <h2 id="before-you-spend-weeks">Before You Spend Weeks on the Wrong Application</h2>
-          <p>The Aurora Minor Home Repair Program may be worth exploring. But the program's current pause, reserve rules, one time participation limit, and unclear repayment language make preparation important.</p>
-          <p>You do not need another generic list of benefits. You need to know:</p>
-          <ul>
-            <li>Which Aurora repair program fits the problem</li>
-            <li>Whether the program is open</li>
-            <li>Which income and reserve rules may apply</li>
-            <li>What documents to gather</li>
-            <li>Which questions still require a direct answer</li>
-          </ul>
-          <p><a href="../../contact.html" target="_blank" rel="noopener">Book Your Free Hero Strategy Session</a> before you spend weeks applying to the wrong program. We can help you organize the facts, prepare your questions, and understand which details need confirmation from Aurora or Brothers Redevelopment.</p>
-          <p>You can also <a href="../../programs.html" target="_blank" rel="noopener">compare your Colorado home buying options</a> and review <a href="../../faq.html" target="_blank" rel="noopener">answers to common Colorado assistance questions</a>.</p>
-          <div class="post-callout">
-            <p><strong>Official Sources:</strong> <a href="https://www.auroragov.org/residents/community_development/housing_rehabilitation_programs" target="_blank" rel="noopener">City of Aurora, Housing Rehabilitation Programs</a>, <a href="https://www.brothersredevelopment.org/aurora-minor-home-repair/" target="_blank" rel="noopener">Brothers Redevelopment, Aurora Minor Home Repair Program</a>, <a href="https://www.brothersredevelopment.org/help-for-homes-local-government-partnerships/" target="_blank" rel="noopener">Brothers Redevelopment, Help for Homes</a>, and the <a href="https://brothersredevelopment.org/wp-content/uploads/2024/04/Minor-Home-Repair-Program-Application-Final.pdf" target="_blank" rel="noopener">official Minor Home Repair Program application packet</a>.</p>
-            <p><small>Hero HomeReach is an educational resource. It is not a lender, contractor, government agency, or financial or legal advisor. Program status, funding, income limits, repair scope, and application requirements can change. Confirm current information directly with the City of Aurora and the program administrator.</small></p>
-            <p><small>Accessibility note: Hero HomeReach welcomes feedback about screen-reader compatibility, image descriptions, language clarity, and other accessibility improvements.</small></p>
-            <p><small>For Colorado community organizations: Hero HomeReach created this guide as a plain-English educational resource for Colorado individuals, families, and caregivers navigating home repair assistance in Aurora. Community organizations may share this article with the people they serve. We also welcome corrections and suggestions for future explainers, especially around Aurora program timelines and the application experience.</small></p>
-          </div>
-        </div>
-        <!-- /post-body -->
-        <!-- Share — bottom -->
-        <div class="post-share post-share-bottom">
-          <span class="post-share-label">Found this helpful? Share it.</span>
-          <a class="share-btn share-btn-facebook" id="share-fb-bottom" href="#" target="_blank" rel="noopener" aria-label="Share on Facebook">
-            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.413c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/></svg>
-          </a>
-          <a class="share-btn share-btn-x" id="share-x-bottom" href="#" target="_blank" rel="noopener" aria-label="Share on X">
-            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.253 5.622 5.911-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-          </a>
-          <a class="share-btn share-btn-linkedin" id="share-li-bottom" href="#" target="_blank" rel="noopener" aria-label="Share on LinkedIn">
-            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-          </a>
-          <button class="share-btn share-btn-copy" id="copy-bottom" aria-label="Copy link">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 00-6.364-6.364l-4.5 4.5a4.5 4.5 0 001.242 7.244"/></svg>
-          </button>
-        </div>
-        <!-- CTA Strip -->
-        <div class="post-cta-strip">
-          <div>
-            <h3>Not Sure Which Aurora Program Fits Your Repair?</h3>
-            <p>Every homeowner's situation is different. Book a free 30-minute call and we'll walk through which Aurora and Colorado programs, including this one, may apply to your specific income, repair need, and timeline.</p>
-          </div>
-          <a href="../../contact.html" class="btn btn-gold btn-arrow" target="_blank" rel="noopener">Book My Free Consultation</a>
-        </div>
-      </article>
-      <!-- /post-article -->
-      <!-- ── RIGHT: Sidebar ── -->
-      <aside class="post-sidebar">
-        <div class="sidebar-card sidebar-card-hide-mobile">
-          <div class="sidebar-card-title">Free Consultation</div>
-          <p>Not sure which programs apply to you? Book a free 30-minute call. We'll walk through your specific situation, no obligation, no pressure.</p>
-          <a href="../../contact.html" class="btn btn-gold btn-arrow" target="_blank" rel="noopener">Book My Free Call</a>
-        </div>
-        <div class="sidebar-card">
-          <div class="sidebar-card-title">In This Guide</div>
-          <ul class="toc-list">
-            <li><a href="#surprise-one-you-cannot-apply-right-now" target="_blank" rel="noopener">You Cannot Apply Right Now</a></li>
-            <li><a href="#surprise-two-there-are-two-different-15000-numbers" target="_blank" rel="noopener">Two Different $15,000 Numbers</a></li>
-            <li><a href="#surprise-three-repair-assistance-does-not-automatically-mean-grant" target="_blank" rel="noopener">Grant or Repayable?</a></li>
-            <li><a href="#what-may-cover" target="_blank" rel="noopener">What It May Cover</a></li>
-            <li><a href="#what-not-cover" target="_blank" rel="noopener">What It Does Not Cover</a></li>
-            <li><a href="#who-may-be-eligible" target="_blank" rel="noopener">Who May Be Eligible</a></li>
-            <li><a href="#current-2026-income-limits" target="_blank" rel="noopener">2026 Income Limits</a></li>
-            <li><a href="#application-is-serious" target="_blank" rel="noopener">The Application</a></li>
-            <li><a href="#what-to-do-before-november" target="_blank" rel="noopener">What To Do Before November</a></li>
-            <li><a href="#questions-to-ask-aurora" target="_blank" rel="noopener">Questions to Ask Aurora</a></li>
-            <li><a href="#faq" target="_blank" rel="noopener">FAQ</a></li>
-          </ul>
-        </div>
-        <div class="sidebar-card">
-          <div class="sidebar-card-title">Related Guides</div>
-          <div class="related-post-item">
-            <a href="/blog/accessible-home-aurora-colorado/" class="related-post-thumb-link" target="_blank" rel="noopener">
-              <img src="/blog/accessible-home-aurora-colorado/aurora-accessible-home-hero-1600x900.webp" alt="Financing and Modifying an Accessible Home in Aurora" class="related-post-thumb-img">
-            </a>
-            <div>
-              <a href="/blog/accessible-home-aurora-colorado/" class="related-post-title" target="_blank" rel="noopener">Financing and Modifying an Accessible Home in Aurora</a>
-              <div class="related-post-date">July 2026</div>
-            </div>
-          </div>
-          <div class="related-post-item">
-            <a href="/blog/chfa-homeaccess-colorado-disability-homebuyer-help/" class="related-post-thumb-link" target="_blank" rel="noopener">
-              <img src="/blog/chfa-homeaccess-colorado-disability-homebuyer-help/chfa-homeaccess-colorado-disability-homebuyer-help-hero.webp" alt="CHFA HomeAccess: Colorado Disability Homebuyer Help" class="related-post-thumb-img">
-            </a>
-            <div>
-              <a href="/blog/chfa-homeaccess-colorado-disability-homebuyer-help/" class="related-post-title" target="_blank" rel="noopener">CHFA HomeAccess: Colorado Disability Homebuyer Help</a>
-              <div class="related-post-date">July 2026</div>
-            </div>
-          </div>
-        </div>
-        <div class="sidebar-card" style="background:var(--navy);border-color:rgba(201,151,58,0.3);">
-          <div class="sidebar-card-title" style="color:var(--gold);border-bottom-color:rgba(201,151,58,0.3);">Free Hero Homebuyer Guide</div>
-          <p style="color:rgba(255,255,255,0.7);">Get the complete breakdown of every Colorado program available to heroes. Free download, no strings attached.</p>
-          <a href="https://guide.herohomereach.com" target="_blank" rel="noopener" class="btn btn-gold btn-arrow">Get the Free Guide</a>
-        </div>
-      </aside>
-    </div>
-  </div>
-</section>
-<!-- ════════════ FOOTER ════════════ -->
-<footer id="footer">
-  <div class="container">
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <div class="wordmark">Hero <span>HomeReach</span>™</div>
-        <p>Free homeownership guidance for Colorado's educators, first responders, healthcare workers and military members. No jargon. No pressure. Built for heroes.</p>
-      </div>
-      <div class="footer-col">
-        <div class="footer-col-title">Site</div>
-        <a href="../../programs.html" target="_blank" rel="noopener">Programs</a>
-        <a href="../../who-we-serve.html" target="_blank" rel="noopener">Who We Serve</a>
-        <a href="../../about.html" target="_blank" rel="noopener">About</a>
-        <a href="../../blog/" target="_blank" rel="noopener">Learning Center</a>
-        <a href="../../contact.html" target="_blank" rel="noopener">Contact</a>
-      </div>
-      <div class="footer-col">
-        <div class="footer-col-title">Heroes</div>
-        <a href="../../who-we-serve.html#educators" target="_blank" rel="noopener">Educators</a>
-        <a href="../../who-we-serve.html#first-responders" target="_blank" rel="noopener">First Responders</a>
-        <a href="../../who-we-serve.html#healthcare" target="_blank" rel="noopener">Healthcare Workers</a>
-        <a href="../../who-we-serve.html#military" target="_blank" rel="noopener">Military Members</a>
-      </div>
-      <div class="footer-col">
-        <div class="footer-col-title">Start Here</div>
-        <a href="../../contact.html" target="_blank" rel="noopener">Book Free Consultation</a>
-        <a href="../../programs.html" target="_blank" rel="noopener">Explore Programs</a>
-        <a href="../../blog/" target="_blank" rel="noopener">Learning Center</a>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <div class="footer-copy">&copy; 2026 Hero HomeReach&trade;. All rights reserved. Colorado Homeownership Guidance.</div>
-      <div class="footer-legal">
-        <a href="../../privacy.html" target="_blank" rel="noopener">Privacy Policy</a>
-        <a href="../../terms.html" target="_blank" rel="noopener">Terms of Use</a>
-        <a href="../../disclaimer.html" target="_blank" rel="noopener">Disclaimer</a>
-      </div>
-    </div>
-  </div>
-</footer>
-<script>
-const nav = document.getElementById('nav');
-window.addEventListener('scroll', () => {
-  nav.classList.toggle('scrolled', window.scrollY > 40);
-}, { passive: true });
-function toggleMobileNav() {
-  document.getElementById('mobile-nav').classList.toggle('open');
-}
-const fadeEls = document.querySelectorAll('.fade-up');
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-      observer.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.12 });
-fadeEls.forEach(el => observer.observe(el));
-document.querySelectorAll('.toc-list a').forEach(link => {
-  link.addEventListener('click', e => {
-    e.preventDefault();
-    const target = document.querySelector(link.getAttribute('href'));
-    if (target) {
-      const offset = target.getBoundingClientRect().top + window.scrollY - 100;
-      window.scrollTo({ top: offset, behavior: 'smooth' });
-    }
-  });
-});
-(function() {
-  const url   = encodeURIComponent(window.location.href);
-  const title = encodeURIComponent(document.title);
-  const fb = 'https://www.facebook.com/sharer/sharer.php?u=' + url;
-  const x  = 'https://twitter.com/intent/tweet?url=' + url + '&text=' + title;
-  const li = 'https://www.linkedin.com/sharing/share-offsite/?url=' + url;
-  ['top', 'bottom'].forEach(function(pos) {
-    document.getElementById('share-fb-' + pos).href = fb;
-    document.getElementById('share-x-'  + pos).href = x;
-    document.getElementById('share-li-' + pos).href = li;
-    document.getElementById('copy-' + pos).addEventListener('click', function() {
-      navigator.clipboard.writeText(window.location.href).then(function() {
-        var btn = document.getElementById('copy-' + pos);
-        btn.classList.add('copied');
-        setTimeout(function() { btn.classList.remove('copied'); }, 2000);
-      });
-    });
-  });
-})();
-/* ── FAQ Accordion ── */
-(function() {
-  const accordion = document.getElementById('faq-accordion');
-  if (!accordion) return;
-  const questions = accordion.querySelectorAll('.faq-question');
-  questions.forEach(function(btn) {
-    btn.addEventListener('click', function() {
-      const expanded = btn.getAttribute('aria-expanded') === 'true';
-      const answer = document.getElementById(btn.getAttribute('aria-controls'));
-      questions.forEach(function(otherBtn) {
-        if (otherBtn !== btn && otherBtn.getAttribute('aria-expanded') === 'true') {
-          otherBtn.setAttribute('aria-expanded', 'false');
-          const otherAnswer = document.getElementById(otherBtn.getAttribute('aria-controls'));
-          if (otherAnswer) otherAnswer.style.maxHeight = null;
+      var fname = form.querySelector('[name="first_name"]');
+      var email = form.querySelector('[name="email"]');
+      var zip = form.querySelector('[name="zip"]');
+      var repairType = form.querySelector('[name="repair_type"]');
+      var phone = form.querySelector('[name="phone"]');
+      var website = form.querySelector('[name="website"]');
+      var payload = {
+        source: form.getAttribute('data-lead-source'),
+        first_name: fname ? fname.value : '',
+        email: email ? email.value : '',
+        zip: zip ? zip.value : '',
+        repair_type: repairType ? repairType.value : '',
+        phone: phone ? phone.value : '',
+        page_url: window.location.href,
+        website: website ? website.value : ''
+      };
+      fetch(endpoint, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      }).then(function(res) {
+        if (!res.ok) throw new Error('Request failed');
+        return res.json();
+      }).then(function() {
+        form.style.display = 'none';
+        if (statusEl) {
+          statusEl.textContent = "You're on the list. Check your inbox for a confirmation email.";
+          statusEl.className = 'lead-capture-status lead-capture-status-success';
+        }
+      }).catch(function() {
+        submitBtn.disabled = false;
+        submitBtn.textContent = originalText;
+        if (statusEl) {
+          statusEl.textContent = 'Something went wrong. Please try again, or email us directly.';
+          statusEl.className = 'lead-capture-status lead-capture-status-error';
         }
       });
-      if (expanded) {
-        btn.setAttribute('aria-expanded', 'false');
-        answer.style.maxHeight = null;
-      } else {
-        btn.setAttribute('aria-expanded', 'true');
-        answer.style.maxHeight = answer.scrollHeight + 'px';
-      }
     });
   });
 })();
