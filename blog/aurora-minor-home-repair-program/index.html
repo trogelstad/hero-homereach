@@ -21,7 +21,6 @@
   <meta property="og:description" content="Aurora homeowners may soon access up to $15,000 for eligible repairs. Get income limits, a prep checklist, and free reopening updates today.">
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://www.herohomereach.com/blog/aurora-minor-home-repair-program/">
-  <!-- TODO (Trent): confirm the exact hero image filename before this goes live. Using the {slug}-hero.webp convention below, matching the CHFA HomeAccess post, but the Aurora accessible-home post's real file did NOT follow this convention, so don't trust this path without checking the repo. -->
   <meta property="og:image" content="https://www.herohomereach.com/blog/aurora-minor-home-repair-program/aurora-minor-home-repair-program-hero.webp">
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
@@ -123,7 +122,13 @@
   <link rel="stylesheet" href="../../css/blog.css">
   <style>
   .post-hero {
-    background: var(--navy);
+    background-color: var(--navy);
+    background-image:
+      linear-gradient(90deg, rgba(12,45,94,0.96) 0%, rgba(12,45,94,0.90) 40%, rgba(12,45,94,0.68) 100%),
+      url('/blog/aurora-minor-home-repair-program/aurora-minor-home-repair-program-hero.webp');
+    background-size: cover;
+    background-position: center 38%;
+    background-repeat: no-repeat;
     padding: calc(var(--nav-h) + 56px) 0 64px;
     position: relative;
     overflow: hidden;
@@ -557,6 +562,7 @@
           <input type="text" name="website" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;width:1px;height:1px;" aria-hidden="true">
           <div class="lead-capture-fields">
             <div class="lead-capture-field"><label for="hero-fname">First name</label><input type="text" id="hero-fname" name="first_name" required></div>
+            <div class="lead-capture-field"><label for="hero-lname">Last name</label><input type="text" id="hero-lname" name="last_name" required></div>
             <div class="lead-capture-field"><label for="hero-email">Email</label><input type="email" id="hero-email" name="email" required></div>
             <div class="lead-capture-field"><label for="hero-zip">Aurora ZIP code</label><input type="text" id="hero-zip" name="zip" inputmode="numeric" pattern="[0-9]*" required></div>
             <div class="lead-capture-field"><label for="hero-repair">Repair type</label>
@@ -1080,6 +1086,7 @@ document.querySelectorAll('.toc-list a').forEach(link => {
         statusEl.textContent = '';
       }
       var fname = form.querySelector('[name="first_name"]');
+      var lname = form.querySelector('[name="last_name"]');
       var email = form.querySelector('[name="email"]');
       var zip = form.querySelector('[name="zip"]');
       var repairType = form.querySelector('[name="repair_type"]');
@@ -1088,6 +1095,7 @@ document.querySelectorAll('.toc-list a').forEach(link => {
       var payload = {
         source: form.getAttribute('data-lead-source'),
         first_name: fname ? fname.value : '',
+        last_name: lname ? lname.value : '',
         email: email ? email.value : '',
         zip: zip ? zip.value : '',
         repair_type: repairType ? repairType.value : '',
