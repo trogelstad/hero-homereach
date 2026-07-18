@@ -126,8 +126,8 @@
     background-image:
       linear-gradient(90deg, rgba(12,45,94,0.96) 0%, rgba(12,45,94,0.90) 40%, rgba(12,45,94,0.68) 100%),
       url('/blog/aurora-minor-home-repair-program/aurora-minor-home-repair-hero.webp');
-    background-size: cover;
-    background-position: center 38%;
+    background-size: auto 100%;
+    background-position: top right;
     background-repeat: no-repeat;
     padding: calc(var(--nav-h) + 56px) 0 64px;
     position: relative;
@@ -470,6 +470,10 @@
     .faq-question { font-size: 16px; padding: 16px 18px; }
     .lead-capture-fields { grid-template-columns: 1fr; }
     .final-conversion-options { grid-template-columns: 1fr; }
+    .post-hero {
+      background-size: cover;
+      background-position: center 30%;
+    }
   }
   @media (max-width: 768px) {
     .sidebar-card-hide-mobile { display: none; }
