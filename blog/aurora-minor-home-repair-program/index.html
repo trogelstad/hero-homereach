@@ -458,6 +458,15 @@
   .final-conversion-option a.btn-gold, .final-conversion-option a.btn-outline-light {
     display: inline-block; width: 100%; text-align: center; font-size: 13px; padding: 10px 12px;
   }
+  .final-conversion-form { display: flex; flex-direction: column; gap: 8px; margin-top: 4px; }
+  .final-conversion-form input {
+    font-family: 'Inter', sans-serif; font-size: 13px; padding: 9px 11px;
+    border: 1px solid rgba(255,255,255,0.25); border-radius: 6px;
+    background: rgba(255,255,255,0.08); color: #fff;
+  }
+  .final-conversion-form input::placeholder { color: rgba(255,255,255,0.5); }
+  .final-conversion-form input:focus { outline: none; border-color: var(--gold); background: rgba(255,255,255,0.12); }
+  .final-conversion-option .lead-capture-status { margin-top: 10px; }
   .btn-outline-light {
     background: transparent; border: 1px solid rgba(255,255,255,0.4); color: #fff;
     border-radius: 6px; text-decoration: none; font-weight: 600;
@@ -874,12 +883,24 @@
               <div class="final-conversion-option">
                 <h3>1. Join the Alert List</h3>
                 <p>Get notified the moment something meaningful changes with public Aurora updates.</p>
-                <a href="#" target="_blank" rel="noopener" class="btn-gold" style="display:inline-block;padding:10px 12px;border-radius:6px;text-decoration:none;font-weight:700;">Help Me Prepare Before Applications Return</a>
+                <form class="final-conversion-form" data-lead-source="final_cta_alert_list">
+                  <input type="text" name="website" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;width:1px;height:1px;" aria-hidden="true">
+                  <input type="text" name="first_name" placeholder="Name" required>
+                  <input type="email" name="email" placeholder="Email address" required>
+                  <button type="submit" class="btn-gold" style="display:inline-block;width:100%;box-sizing:border-box;padding:10px 12px;border-radius:6px;font-weight:700;font-size:13px;border:none;cursor:pointer;">Help Me Prepare Before Applications Return</button>
+                </form>
+                <div class="lead-capture-status" aria-live="polite"></div>
               </div>
               <div class="final-conversion-option">
                 <h3>2. Download the Checklist</h3>
                 <p>The Aurora Home Repair Readiness Checklist covers income limits, reserve questions, and documents to gather.</p>
-                <a href="#" target="_blank" rel="noopener" class="btn-outline-light" style="display:inline-block;width:100%;box-sizing:border-box;text-align:center;padding:10px 12px;border-radius:6px;text-decoration:none;font-weight:700;font-size:13px;background:transparent;border:1px solid rgba(255,255,255,0.45);color:#fff;">Send Me the Readiness Checklist</a>
+                <form class="final-conversion-form" data-lead-source="final_cta_checklist">
+                  <input type="text" name="website" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;width:1px;height:1px;" aria-hidden="true">
+                  <input type="text" name="first_name" placeholder="Name" required>
+                  <input type="email" name="email" placeholder="Email address" required>
+                  <button type="submit" class="btn-outline-light" style="display:inline-block;width:100%;box-sizing:border-box;text-align:center;padding:10px 12px;border-radius:6px;font-weight:700;font-size:13px;background:transparent;border:1px solid rgba(255,255,255,0.45);color:#fff;cursor:pointer;">Send Me the Readiness Checklist</button>
+                </form>
+                <div class="lead-capture-status" aria-live="polite"></div>
               </div>
               <div class="final-conversion-option">
                 <h3>3. Book a Prep Call</h3>
