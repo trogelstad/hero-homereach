@@ -2,19 +2,22 @@
 /**
  * check-links.js
  *
- * Guards against the Hero HomeReach ".html vs clean URL" bug ever coming back.
- * Scans built HTML output for any internal href, canonical link, or og:url
- * that still points at a *.html URL, and fails the build (non-zero exit) if
- * one is found.
+ * Guards against three link-hygiene bugs coming back, all the same shape of
+ * problem: the site linking to itself using a URL that Vercel will silently
+ * redirect away from, instead of the true clean URL. Scans every HTML file
+ * and fails the build (non-zero exit) if it finds any of:
  *
- * What counts as a violation:
- *   - <a href="...something.html">      (internal links)
- *   - <link rel="canonical" href="...something.html">
- *   - <meta property="og:url" content="...something.html">
- *   - JSON-LD "url" / "@id" / "item" fields ending in .html
+ *   1. A ".html" URL in an href, canonical tag, og:url, or JSON-LD field.
+ *      (vercel.json cleanUrls:true means the real address has no extension.)
+ *   2. A trailing slash on a folder-style page's URL (e.g. "/blog/foo/").
+ *      (vercel.json trailingSlash:false means the real address has no
+ *      trailing slash, even for folder/index.html pages.)
+ *   3. A bare "herohomereach.com" domain instead of "www.herohomereach.com"
+ *      in a canonical tag, og:url, or JSON-LD field.
  *
  * What is explicitly NOT a violation (must stay untouched):
  *   - Third-party URLs, e.g. https://www.googletagmanager.com/ns.html
+ *   - The site root "/" itself (the one URL allowed to end in "/")
  *   - vercel.json redirect "source" entries (that file isn't scanned at all —
  *     those .html sources must keep working so old backlinks/bookmarks still
  *     redirect correctly)
@@ -56,22 +59,72 @@ function walk(dir, files = []) {
   return files;
 }
 
+// Discover every folder-style clean URL on the site (any directory that
+// contains an index.html), so the trailing-slash check stays accurate as
+// new blog posts or sections get added -- no hardcoded list to maintain.
+function findFolderPaths(root) {
+  const folders = new Set();
+  function scan(dir) {
+    for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+      if (!entry.isDirectory()) continue;
+      if (SKIP_DIRS.has(entry.name)) continue;
+      const full = path.join(dir, entry.name);
+      if (fs.existsSync(path.join(full, 'index.html'))) {
+        folders.add(path.relative(root, full).split(path.sep).join('/'));
+      }
+      scan(full);
+    }
+  }
+  scan(root);
+  return folders;
+}
+
+const FOLDER_PATHS = findFolderPaths(ROOT);
+
 // Matches quoted attribute/JSON-LD values ending in .html (optionally
 // followed by a #fragment or ?query before the closing quote).
 const HTML_VALUE_RE = /"([^"\n]*?\.html(?:[#?][^"\n]*)?)"/g;
 
-// Which HTML attribute / JSON-LD key produced the match, for reporting.
+// Matches any quoted value at all, for the trailing-slash and bare-domain checks.
+const QUOTED_VALUE_RE = /"([^"\n]*)"/g;
+
 const CONTEXT_PATTERNS = [
-  { name: 'href', re: /\bhref\s*=\s*"[^"]*\.html[^"]*"/ },
-  { name: 'og:url (content=)', re: /\bcontent\s*=\s*"[^"]*\.html[^"]*"/ },
-  { name: 'JSON-LD url/@id/item', re: /"(?:url|@id|item)"\s*:\s*"[^"]*\.html[^"]*"/ },
+  { name: 'href', re: /\bhref\s*=\s*"[^"]*"/ },
+  { name: 'og:url/og:image (content=)', re: /\bcontent\s*=\s*"[^"]*"/ },
+  { name: 'JSON-LD url/@id/item', re: /"(?:url|@id|item)"\s*:\s*"[^"]*"/ },
 ];
 
 function classify(line) {
   for (const { name, re } of CONTEXT_PATTERNS) {
     if (re.test(line)) return name;
   }
-  return 'other .html reference';
+  return 'other reference';
+}
+
+function pathAndSuffix(value) {
+  let idx = -1;
+  for (const ch of ['#', '?']) {
+    const i = value.indexOf(ch);
+    if (i !== -1 && (idx === -1 || i < idx)) idx = i;
+  }
+  return idx === -1 ? [value, ''] : [value.slice(0, idx), value.slice(idx)];
+}
+
+function checkTrailingSlash(value) {
+  const [p] = pathAndSuffix(value);
+  if (!p.endsWith('/') || p === '/') return null;
+  if (p.startsWith('http') && isThirdParty(p)) return null;
+
+  const m = p.match(/^https?:\/\/[^/]+(\/.*)$/);
+  const relPath = m ? m[1] : p.startsWith('/') ? p : '/' + p;
+  const slug = relPath.replace(/^\/+|\/+$/g, '');
+  return FOLDER_PATHS.has(slug) ? 'trailing-slash' : null;
+}
+
+function checkBareDomain(value) {
+  return value.startsWith('https://herohomereach.com') || value.startsWith('http://herohomereach.com')
+    ? 'bare-domain'
+    : null;
 }
 
 function scanFile(filePath) {
@@ -80,17 +133,25 @@ function scanFile(filePath) {
   const violations = [];
 
   lines.forEach((line, idx) => {
+    // .html check
     let match;
     HTML_VALUE_RE.lastIndex = 0;
     while ((match = HTML_VALUE_RE.exec(line)) !== null) {
       const value = match[1];
-      if (isThirdParty(value)) continue; // e.g. googletagmanager.com/ns.html
-      violations.push({
-        file: filePath,
-        line: idx + 1,
-        value,
-        context: classify(line),
-      });
+      if (isThirdParty(value)) continue;
+      violations.push({ file: filePath, line: idx + 1, value, kind: '.html URL', context: classify(line) });
+    }
+
+    // trailing-slash + bare-domain checks
+    QUOTED_VALUE_RE.lastIndex = 0;
+    while ((match = QUOTED_VALUE_RE.exec(line)) !== null) {
+      const value = match[1];
+      if (checkTrailingSlash(value)) {
+        violations.push({ file: filePath, line: idx + 1, value, kind: 'trailing slash on folder URL', context: classify(line) });
+      }
+      if (checkBareDomain(value)) {
+        violations.push({ file: filePath, line: idx + 1, value, kind: 'bare domain (missing www)', context: classify(line) });
+      }
     }
   });
 
@@ -111,17 +172,20 @@ function main() {
   }
 
   if (allViolations.length === 0) {
-    console.log(`check-links: OK — scanned ${files.length} HTML files, no .html references found in hrefs, canonical tags, og:url, or JSON-LD.`);
+    console.log(`check-links: OK — scanned ${files.length} HTML files, no .html URLs, trailing-slash mismatches, or bare-domain references found.`);
     process.exit(0);
   }
 
-  console.error(`check-links: FAILED — found ${allViolations.length} disallowed .html reference(s):\n`);
+  console.error(`check-links: FAILED — found ${allViolations.length} issue(s):\n`);
   for (const v of allViolations) {
     const rel = path.relative(ROOT, v.file);
-    console.error(`  ${rel}:${v.line}  [${v.context}]  "${v.value}"`);
+    console.error(`  ${rel}:${v.line}  [${v.kind} / ${v.context}]  "${v.value}"`);
   }
-  console.error(`\nFix: use the extensionless clean URL instead (e.g. "/blog/${'{slug}'}" not "/blog/${'{slug}'}.html").`);
-  console.error(`The .html -> clean-URL redirect rule in vercel.json should stay in place for old backlinks — this check only guards against the SITE linking to itself with .html.`);
+  console.error(`\nFixes:`);
+  console.error(`  .html URL             -> use the extensionless clean URL (e.g. "/blog/{slug}" not "/blog/{slug}.html")`);
+  console.error(`  trailing slash        -> drop the trailing slash (e.g. "/blog/{slug}" not "/blog/{slug}/")`);
+  console.error(`  bare domain           -> use "https://www.herohomereach.com" not "https://herohomereach.com"`);
+  console.error(`\nThe .html -> clean-URL redirect rule in vercel.json should stay in place for old backlinks — these checks only guard against the SITE linking to itself the wrong way.`);
   process.exit(1);
 }
 

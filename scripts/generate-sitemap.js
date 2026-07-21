@@ -36,13 +36,22 @@ const STATIC_PAGES = [
   { loc: '/about', changefreq: 'monthly', priority: '0.7' },
   { loc: '/faq', changefreq: 'monthly', priority: '0.8' },
   { loc: '/contact', changefreq: 'monthly', priority: '0.8' },
-  { loc: '/tools/', changefreq: 'monthly', priority: '0.7' },
-  { loc: '/tools/quiz/', changefreq: 'monthly', priority: '0.7' },
-  { loc: '/tools/colorado-assistance-explorer/', changefreq: 'monthly', priority: '0.7' },
-  { loc: '/tools/class-finder/', changefreq: 'monthly', priority: '0.6' },
-  { loc: '/community-partners/', changefreq: 'monthly', priority: '0.6' },
-  { loc: '/partner-opportunity/', changefreq: 'monthly', priority: '0.5' },
+  { loc: '/tools', changefreq: 'monthly', priority: '0.7' },
+  { loc: '/tools/quiz', changefreq: 'monthly', priority: '0.7' },
+  { loc: '/tools/colorado-assistance-explorer', changefreq: 'monthly', priority: '0.7' },
+  { loc: '/tools/class-finder', changefreq: 'monthly', priority: '0.6' },
+  { loc: '/community-partners', changefreq: 'monthly', priority: '0.6' },
+  { loc: '/partner-opportunity', changefreq: 'monthly', priority: '0.5' },
 ];
+
+// vercel.json has "trailingSlash": false, meaning the canonical form of every
+// clean URL on this site has NO trailing slash -- even for folder/index.html
+// pages. A trailing slash gets 308-redirected away by Vercel. Every loc this
+// script emits must never end in "/" (except the homepage itself, "/").
+function stripTrailingSlash(loc) {
+  if (loc === '/') return loc;
+  return loc.endsWith('/') ? loc.slice(0, -1) : loc;
+}
 
 function lastmodFor(filePath) {
   try {
@@ -68,7 +77,7 @@ function findBlogPosts() {
       const indexPath = path.join(BLOG_DIR, entry.name, 'index.html');
       if (fs.existsSync(indexPath)) {
         posts.push({
-          loc: `/blog/${entry.name}/`,
+          loc: `/blog/${entry.name}`,
           lastmod: lastmodFor(indexPath),
         });
       }
@@ -85,9 +94,10 @@ function findBlogPosts() {
 }
 
 function urlEntry({ loc, changefreq = 'monthly', priority = '0.8', lastmod = TODAY }) {
+  const cleanLoc = stripTrailingSlash(loc);
   return (
     `  <url>\n` +
-    `    <loc>${SITE}${loc}</loc>\n` +
+    `    <loc>${SITE}${cleanLoc}</loc>\n` +
     `    <lastmod>${lastmod}</lastmod>\n` +
     `    <changefreq>${changefreq}</changefreq>\n` +
     `    <priority>${priority}</priority>\n` +
@@ -107,7 +117,7 @@ function main() {
   const entries = [
     ...STATIC_PAGES.map(urlEntry),
     urlEntry({
-      loc: '/blog/',
+      loc: '/blog',
       changefreq: 'weekly',
       priority: '0.9',
       lastmod: fs.existsSync(blogIndexPath) ? lastmodFor(blogIndexPath) : TODAY,
