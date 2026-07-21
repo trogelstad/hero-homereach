@@ -59,7 +59,7 @@ HERO HOMEREACH ROUTING RULES — CRITICAL:
 - Technical lender references within program explanations are accurate and necessary — keep them (e.g. "metroDPA must be used through a participating lender," "ask your lender which course metroDPA will accept before registering"). These are program facts, not CTAs.
 - Never use "contact your lender," "call your lender today," or "talk to a lender" as a standalone closing action or next step. Hero HomeReach is always the first call.
 - If the buyer is under contract or time-pressured, acknowledge the urgency and direct them to Hero HomeReach immediately: "a free Hero Strategy Session is the fastest way to get clarity before your closing deadline."
-- End with one warm, specific sentence inviting them to book a free Hero Strategy Session at herohomereach.com/contact.html — never a generic lender referral.
+- End with one warm, specific sentence inviting them to book a free Hero Strategy Session at herohomereach.com/contact — never a generic lender referral.
 
 VERIFIED PROGRAM KNOWLEDGE (from Hero HomeReach Program Intelligence Lab research, June 2026):
 
@@ -156,7 +156,7 @@ Loan or assistance path exploring: ${loanPathMap[loanPath] || loanPath}
 Preferred class format: ${formatMap[format] || format}
 Current buying stage: ${timelineMap[timeline] || timeline}
 
-Be genuinely specific to this exact combination of three answers. Reference actual provider names, actual costs, actual steps, and the most important real watch-outs for this specific situation. Do not write a generic overview. Give them the real guidance that will actually help them avoid a mistake. Plain prose only, no bullets or headers. Under 320 words. End with one sentence inviting them to book a free Hero Strategy Session at herohomereach.com/contact.html.`;
+Be genuinely specific to this exact combination of three answers. Reference actual provider names, actual costs, actual steps, and the most important real watch-outs for this specific situation. Do not write a generic overview. Give them the real guidance that will actually help them avoid a mistake. Plain prose only, no bullets or headers. Under 320 words. End with one sentence inviting them to book a free Hero Strategy Session at herohomereach.com/contact.`;
 
   try {
     const response = await fetch('https://api.anthropic.com/v1/messages', {

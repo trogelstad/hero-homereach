@@ -1,0 +1,9 @@
+{
+  "name": "hero-homereach",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Hero HomeReach — static site (HTML/CSS/JS), deployed via Vercel.",
+  "scripts": {
+    "check-links": "node scripts/check-links.js"
+  }
+}
