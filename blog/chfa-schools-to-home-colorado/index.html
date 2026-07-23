@@ -80,7 +80,7 @@
     "audience": { "@type": "Audience", "audienceType": "Colorado public school employees, teachers, paraprofessionals, school staff" },
     "keywords": "CHFA Schools To Home, chfa schools to home, colorado school employee down payment assistance, teacher home buying colorado, shared appreciation loan colorado, CHFA second mortgage",
     "articleSection": "Program Guide",
-    "wordCount": "1780",
+    "wordCount": "1950",
     "inLanguage": "en-US"
   }
   </script>
@@ -237,6 +237,7 @@
   .post-example th { color: var(--navy); font-weight: 600; width: 55%; }
   .post-example tr:last-child th, .post-example tr:last-child td { border-bottom: none; }
   .post-example p.example-note { font-size: 13px; color: #777; margin: 14px 0 0; }
+  .post-example p.example-emphasis { font-size: 15px; color: var(--navy); font-weight: 700; margin: 14px 0 0; }
 
   /* ── Accessibility: visually-hidden text for icon-only links ── */
   .visually-hidden {
@@ -244,10 +245,216 @@
     overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
   }
 
+  /* ── Focus visibility (accessibility) ── */
+  .snapshot-tool a:focus-visible,
+  .snapshot-tool button:focus-visible,
+  .snapshot-tool input:focus-visible,
+  .calc-tool a:focus-visible,
+  .calc-tool button:focus-visible,
+  .calc-tool input:focus-visible,
+  .checklist-tool a:focus-visible,
+  .mobile-sticky-cta a:focus-visible,
+  .mobile-sticky-cta button:focus-visible {
+    outline: 3px solid var(--bright-gold);
+    outline-offset: 2px;
+  }
+
+  /* ══════════════════════════════════════════════
+     BUILD 1 — Opportunity Snapshot
+  ══════════════════════════════════════════════ */
+  .snapshot-tool {
+    margin: 36px 0;
+    padding: 32px;
+    border-radius: 14px;
+    background: #FAFBFD;
+    border: 1px solid var(--warm-gray);
+  }
+  .snapshot-tool h2 { margin-top: 0; }
+  .snapshot-intro { color: #444; }
+  .snapshot-progress {
+    height: 6px;
+    background: rgba(12,45,94,0.08);
+    border-radius: 6px;
+    overflow: hidden;
+    margin: 20px 0 8px;
+  }
+  .snapshot-progress-bar {
+    height: 100%;
+    background: var(--gold);
+    transition: width 0.3s ease;
+  }
+  .snapshot-step-label {
+    font-size: 13px;
+    color: #888;
+    font-weight: 600;
+    margin: 0 0 20px;
+  }
+  .snapshot-question { border: none; padding: 0; margin: 0 0 20px; }
+  .snapshot-question legend {
+    font-family: var(--font-head, 'Playfair Display', Georgia, serif);
+    font-size: 18px;
+    color: var(--navy);
+    padding: 0;
+    margin-bottom: 14px;
+    font-weight: 700;
+  }
+  .snapshot-option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 16px;
+    margin-bottom: 8px;
+    border: 1px solid var(--warm-gray);
+    border-radius: 8px;
+    background: #fff;
+    cursor: pointer;
+    font-size: 15px;
+    transition: border-color 0.15s, background 0.15s;
+  }
+  .snapshot-option:hover { border-color: var(--gold); }
+  .snapshot-option input { width: 16px; height: 16px; flex-shrink: 0; accent-color: var(--navy); }
+  .snapshot-option:has(input:checked) { border-color: var(--navy); background: rgba(12,45,94,0.05); font-weight: 600; }
+  .snapshot-nav { display: flex; gap: 12px; margin-top: 8px; }
+  .snapshot-btn-primary, .snapshot-btn-secondary {
+    font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 700;
+    padding: 12px 22px; border-radius: 8px; border: none; cursor: pointer;
+  }
+  .snapshot-btn-primary { background: var(--navy); color: #fff; }
+  .snapshot-btn-primary:hover { background: var(--mid-navy); }
+  .snapshot-btn-secondary { background: #fff; color: var(--navy); border: 1px solid var(--warm-gray); }
+  .snapshot-btn-secondary:hover { border-color: var(--navy); }
+  .snapshot-hint { font-size: 13px; color: #b45309; margin: -6px 0 14px; }
+  .snapshot-result-card {
+    padding: 26px 28px;
+    border-radius: 12px;
+    background: var(--navy);
+    color: #fff;
+  }
+  .snapshot-result-card h3 { color: #fff; margin-top: 0; }
+  .snapshot-result-card p { color: rgba(255,255,255,0.8); }
+  .snapshot-result-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 16px; }
+  .snapshot-restart {
+    background: none; border: 1px solid rgba(255,255,255,0.3); color: #fff;
+    font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 600;
+    padding: 10px 18px; border-radius: 8px; cursor: pointer;
+  }
+  .snapshot-restart:hover { border-color: var(--bright-gold); color: var(--bright-gold); }
+
+  /* ══════════════════════════════════════════════
+     BUILD 2 — Possibility Calculator
+  ══════════════════════════════════════════════ */
+  .calc-tool {
+    margin: 36px 0;
+    padding: 32px;
+    border-radius: 14px;
+    background: #FAFBFD;
+    border: 1px solid var(--warm-gray);
+  }
+  .calc-tool h2 { margin-top: 0; }
+  .calc-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 18px;
+    margin: 24px 0;
+  }
+  .calc-field label {
+    display: block; font-size: 13px; font-weight: 700; color: var(--navy);
+    margin-bottom: 8px;
+  }
+  .calc-field-wrap { position: relative; }
+  .calc-field-wrap .calc-prefix {
+    position: absolute; left: 14px; top: 50%; transform: translateY(-50%);
+    color: #888; font-size: 15px; pointer-events: none;
+  }
+  .calc-field input {
+    width: 100%; padding: 12px 14px 12px 26px; border: 1px solid var(--warm-gray);
+    border-radius: 8px; font-size: 16px; font-family: 'Inter', sans-serif; color: var(--near-black);
+  }
+  .calc-field input:focus { border-color: var(--navy); }
+  .calc-hint { display: block; font-size: 12px; color: #888; margin-top: 6px; }
+  .calc-actions { margin: 8px 0 24px; }
+  .btn-outline {
+    display: inline-block; background: transparent; color: var(--navy);
+    border: 2px solid var(--navy); font-family: 'Inter', sans-serif; font-weight: 700;
+    font-size: 14px; padding: 12px 22px; border-radius: 8px; cursor: pointer;
+  }
+  .btn-outline:hover { background: var(--navy); color: #fff; }
+  .calc-results {
+    padding: 24px 26px; border-radius: 12px; background: #fff; border: 1px solid var(--warm-gray);
+    margin-bottom: 24px;
+  }
+  .calc-result-row {
+    display: flex; justify-content: space-between; gap: 12px;
+    padding: 10px 0; border-bottom: 1px solid rgba(0,0,0,0.06); font-size: 15px;
+  }
+  .calc-result-row:last-of-type { border-bottom: none; }
+  .calc-result-row span:first-child { color: #555; }
+  .calc-result-row span:last-child { font-weight: 700; color: var(--navy); }
+  .calc-interpretation, .calc-repayment-note {
+    font-size: 14px; color: #444; margin-top: 14px; line-height: 1.7;
+  }
+  .calc-cta-buttons { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+
+  /* ══════════════════════════════════════════════
+     BUILD 3 — Readiness Checklist
+  ══════════════════════════════════════════════ */
+  .checklist-tool {
+    margin: 36px 0 20px;
+    padding: 28px 32px;
+    border-radius: 14px;
+    background: var(--cream, #FFFCF4);
+    border: 1px solid var(--warm-gray);
+  }
+  .checklist-tool h2 { margin-top: 0; }
+  .checklist-list { margin: 16px 0 20px 20px; }
+  .checklist-list li { margin-bottom: 8px; }
+
+  /* ══════════════════════════════════════════════
+     BUILD 4 — Mobile Sticky CTA
+  ══════════════════════════════════════════════ */
+  .mobile-sticky-cta {
+    display: none;
+    position: fixed;
+    left: 0; right: 0; bottom: 0;
+    z-index: 200;
+    background: var(--navy);
+    border-top: 3px solid var(--gold);
+    padding: 12px 14px;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 -4px 20px rgba(0,0,0,0.2);
+  }
+  .mobile-sticky-cta[hidden] { display: none !important; }
+  .mobile-sticky-text {
+    flex: 1; color: #fff; font-size: 13px; font-weight: 600; line-height: 1.3;
+  }
+  .mobile-sticky-btn {
+    background: var(--gold); color: #fff; font-size: 13px; font-weight: 700;
+    padding: 10px 14px; border-radius: 8px; text-decoration: none; white-space: nowrap; flex-shrink: 0;
+  }
+  .mobile-sticky-close {
+    background: none; border: none; color: rgba(255,255,255,0.6); font-size: 22px;
+    line-height: 1; cursor: pointer; padding: 4px 6px; flex-shrink: 0;
+  }
+  .mobile-sticky-close:hover { color: #fff; }
+  @media (max-width: 640px) {
+    .mobile-sticky-cta:not([hidden]) { display: flex; }
+    body.mobile-cta-visible .post-cta-strip:last-of-type { margin-bottom: 76px; }
+  }
+
+  /* ── Print ── */
+  @media print {
+    body * { visibility: hidden; }
+    #print-area, #print-area * { visibility: visible; }
+    #print-area { position: absolute; left: 0; top: 0; width: 100%; margin: 0; padding: 0; }
+    .no-print { display: none !important; }
+  }
+
   /* ── Mobile ── */
   @media (max-width: 768px) {
     .post-article, .post-body { min-width: 0; max-width: 100%; overflow-x: hidden; }
     .post-example { padding: 20px; }
+    .snapshot-tool, .calc-tool, .checklist-tool { padding: 22px 18px; }
   }
   @media (max-width: 768px) {
     .sidebar-card-hide-mobile { display: none; }
@@ -280,10 +487,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <li><a href="../../blog/" class="active">Learning Center</a></li>
       <li><a href="../../tools/">Tools</a></li>
       <li><a href="/faq">DPA FAQ</a></li>
-      <li><a href="https://guide.herohomereach.com" target="_blank" style="color:var(--bright-gold);font-weight:700;">Free Guide</a></li>
+      <li><a href="https://guide.herohomereach.com" target="_blank" data-cta-location="nav-guide" style="color:var(--bright-gold);font-weight:700;">Free Guide</a></li>
     </ul>
     <div class="nav-cta">
-      <a href="../../contact" class="btn btn-gold btn-arrow">Book Free Consultation</a>
+      <a href="../../contact" class="btn btn-gold btn-arrow" data-cta-location="nav">Book Free Consultation</a>
     </div>
     <div class="nav-hamburger" id="hamburger" onclick="toggleMobileNav()">
       <span></span><span></span><span></span>
@@ -298,8 +505,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <a href="../../blog/" onclick="toggleMobileNav()">Learning Center</a>
   <a href="../../tools/" onclick="toggleMobileNav()">Tools</a>
   <a href="/faq" onclick="toggleMobileNav()">DPA FAQ</a>
-  <a href="https://guide.herohomereach.com" target="_blank" onclick="toggleMobileNav()" style="color:var(--bright-gold);">Free Guide</a>
-  <a href="../../contact" class="btn btn-gold" style="margin-top:16px;font-size:16px;">Book Free Consultation</a>
+  <a href="https://guide.herohomereach.com" target="_blank" data-cta-location="mobile-nav-guide" onclick="toggleMobileNav()" style="color:var(--bright-gold);">Free Guide</a>
+  <a href="../../contact" class="btn btn-gold" data-cta-location="mobile-nav" style="margin-top:16px;font-size:16px;">Book Free Consultation</a>
 </div>
 
 <!-- ════════════ POST HERO ════════════ -->
@@ -323,7 +530,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <span class="post-hero-dot"></span>
         <span class="post-hero-date">July 2026</span>
         <span class="post-hero-dot"></span>
-        <span class="post-hero-read-time">9 min read</span>
+        <span class="post-hero-read-time">10 min read</span>
       </div>
 
       <div class="post-share post-share-top">
@@ -363,9 +570,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
           <p>Colorado just changed that math.</p>
 
-          <p>A new program called <strong>CHFA Schools To Home</strong> was built specifically for public-school employees, and it may be one of the more significant homebuyer opportunities to reach Colorado's school communities in years. It is not only for classroom teachers. It may include roles you would never expect.</p>
-
-          <p>Hero HomeReach is the simplest place to start exploring what this could mean for you.</p>
+          <p>A new program called <strong>CHFA Schools To Home</strong> was built specifically for public-school employees. It is not only for classroom teachers. It may include roles you would never expect.</p>
 
           <div class="quick-answer-box">
             <h2>Quick Answer</h2>
@@ -373,10 +578,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <p>There is no scheduled monthly payment on the assistance. It is structured as a deferred second mortgage with a shared-appreciation component, meaning it is repaid later, along with an agreed share of the home's future value. Hero HomeReach can help you understand the numbers and the next step.</p>
           </div>
 
-          <p>For many Colorado school employees, the dream of owning a home has not disappeared. It has simply been trapped behind the hardest part of the purchase: the money needed before the keys ever reach your hand.</p>
-          <p>You may already have stable employment. You may already be paying rent that feels suspiciously mortgage-sized. You may even be able to handle a monthly home payment.</p>
-          <p>The missing bridge may be the down payment and closing costs.</p>
-          <p>That is where <strong>CHFA Schools To Home</strong> enters the picture.</p>
+          <p>The missing piece for most school employees is not the monthly payment. It is the upfront cash needed to get to closing, and that is where CHFA Schools To Home enters the picture.</p>
 
           <div class="post-callout">
             <p><strong>You may be closer than you think.</strong> For a qualifying school employee with stable income and a real desire to put down roots, this program could change the starting math in a powerful way.</p>
@@ -402,12 +604,68 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <p>Your exact eligibility depends on your employer and how your position is classified. If two people are applying together, only one borrower needs to meet the full-time public-school employment requirement.</p>
           <p>The program is also <strong>not restricted to first-time homebuyers</strong>. A previous homeowner may still have a path if the other program requirements are met.</p>
 
+          <!-- ══════════ BUILD 1: OPPORTUNITY SNAPSHOT ══════════ -->
+          <section class="snapshot-tool" id="opportunity-snapshot" aria-labelledby="snapshot-heading">
+            <h2 id="snapshot-heading">Could Schools To Home Be Worth Exploring?</h2>
+            <p class="snapshot-intro">Answer four quick questions to see which part of the program may deserve a closer look. This snapshot does not make an eligibility or lending decision. It simply helps you identify the most useful next conversation.</p>
+
+            <div class="snapshot-progress"><div class="snapshot-progress-bar" id="snapshot-progress-bar" style="width:25%"></div></div>
+            <p class="snapshot-step-label" id="snapshot-step-label">Question 1 of 4</p>
+
+            <form id="snapshot-form" novalidate>
+              <fieldset class="snapshot-question" id="snapshot-q1" data-step="1" tabindex="-1">
+                <legend>Do you work full time for a Colorado public-school organization?</legend>
+                <label class="snapshot-option"><input type="radio" name="q1" value="yes"> Yes</label>
+                <label class="snapshot-option"><input type="radio" name="q1" value="no"> No</label>
+                <label class="snapshot-option"><input type="radio" name="q1" value="unsure"> I am not sure how my employer is classified</label>
+              </fieldset>
+
+              <fieldset class="snapshot-question" id="snapshot-q2" data-step="2" tabindex="-1" hidden>
+                <legend>Which best describes your school role?</legend>
+                <label class="snapshot-option"><input type="radio" name="q2" value="teacher"> Teacher</label>
+                <label class="snapshot-option"><input type="radio" name="q2" value="para"> Paraprofessional</label>
+                <label class="snapshot-option"><input type="radio" name="q2" value="transport"> Transportation or bus driver</label>
+                <label class="snapshot-option"><input type="radio" name="q2" value="facilities"> Facilities or custodial</label>
+                <label class="snapshot-option"><input type="radio" name="q2" value="food"> Food services</label>
+                <label class="snapshot-option"><input type="radio" name="q2" value="counseling"> Counseling or student services</label>
+                <label class="snapshot-option"><input type="radio" name="q2" value="admin"> Administration</label>
+                <label class="snapshot-option"><input type="radio" name="q2" value="other"> Other school role</label>
+              </fieldset>
+
+              <fieldset class="snapshot-question" id="snapshot-q3" data-step="3" tabindex="-1" hidden>
+                <legend>Which household-income range feels closest?</legend>
+                <label class="snapshot-option"><input type="radio" name="q3" value="under100"> Under $100,000</label>
+                <label class="snapshot-option"><input type="radio" name="q3" value="100-140"> $100,000 to $140,000</label>
+                <label class="snapshot-option"><input type="radio" name="q3" value="140-178920"> $140,001 to $178,920</label>
+                <label class="snapshot-option"><input type="radio" name="q3" value="above178920"> Above $178,920</label>
+                <label class="snapshot-option"><input type="radio" name="q3" value="unsure"> I am not sure which income is counted</label>
+              </fieldset>
+
+              <fieldset class="snapshot-question" id="snapshot-q4" data-step="4" tabindex="-1" hidden>
+                <legend>Which credit-score range feels closest?</legend>
+                <label class="snapshot-option"><input type="radio" name="q4" value="660plus"> 660 or higher</label>
+                <label class="snapshot-option"><input type="radio" name="q4" value="620-659"> 620 to 659</label>
+                <label class="snapshot-option"><input type="radio" name="q4" value="under620"> Below 620</label>
+                <label class="snapshot-option"><input type="radio" name="q4" value="unknown"> I do not know</label>
+              </fieldset>
+
+              <p class="snapshot-hint" id="snapshot-hint" hidden>Please choose an option to continue.</p>
+
+              <div class="snapshot-nav">
+                <button type="button" class="snapshot-btn-secondary" id="snapshot-back" hidden>Back</button>
+                <button type="button" class="snapshot-btn-primary" id="snapshot-next">Next</button>
+              </div>
+            </form>
+
+            <div class="snapshot-result" id="snapshot-result" role="region" aria-live="polite" hidden></div>
+          </section>
+
           <div class="post-cta-strip">
             <div>
               <h3>Could This Program Include You?</h3>
               <p>Your school role may open a homebuyer path you did not know existed. A free Hero HomeReach consultation can help you explore the program, understand the current guidelines and see what questions matter for your situation.</p>
             </div>
-            <a href="../../contact" class="btn btn-gold btn-arrow">See What This Could Look Like for Me</a>
+            <a href="../../contact" class="btn btn-gold btn-arrow" data-cta-location="cta-role-grid">See What This Could Look Like for Me</a>
           </div>
 
           <h2 id="assistance-amount">What Up to 25% Assistance Could Change</h2>
@@ -427,14 +685,84 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </div>
 
           <p>At this scale, the difference is not just financial. Assistance like this could shrink the years spent saving toward a down payment. It could open up communities you had ruled out, including neighborhoods closer to the school where you work. It could be the difference between staying in a rental that keeps climbing in price and finally settling into a home that is yours.</p>
+          <p><strong>That could represent years of saving compressed into one homebuying strategy.</strong></p>
 
-          <div class="post-cta-strip">
-            <div>
-              <h3>See What This Could Look Like for Your Home</h3>
-              <p>Every school employee's situation is different. A free Hero HomeReach consultation can help you see what this assistance could mean for your income, your credit and the Colorado communities you are considering.</p>
+          <!-- ══════════ BUILD 2: POSSIBILITY CALCULATOR ══════════ -->
+          <div id="print-area">
+          <section class="calc-tool" id="possibility-calculator" aria-labelledby="calc-heading">
+            <h2 id="calc-heading">What Could Schools To Home Change?</h2>
+            <p>Use your own example to see the possible scale of the assistance and how shared appreciation could work over time.</p>
+
+            <div class="calc-grid">
+              <div class="calc-field">
+                <label for="calc-purchase-price">Estimated purchase price</label>
+                <div class="calc-field-wrap"><span class="calc-prefix">$</span>
+                  <input type="text" inputmode="decimal" id="calc-purchase-price" value="500,000" aria-describedby="">
+                </div>
+              </div>
+              <div class="calc-field">
+                <label for="calc-first-mortgage">Estimated first-mortgage amount</label>
+                <div class="calc-field-wrap"><span class="calc-prefix">$</span>
+                  <input type="text" inputmode="decimal" id="calc-first-mortgage" value="400,000">
+                </div>
+              </div>
+              <div class="calc-field">
+                <label for="calc-assistance">Assistance amount to model</label>
+                <div class="calc-field-wrap"><span class="calc-prefix">$</span>
+                  <input type="text" inputmode="decimal" id="calc-assistance" value="100,000" aria-describedby="calc-assistance-hint">
+                </div>
+                <span class="calc-hint" id="calc-assistance-hint">Capped at 25% of your first-mortgage amount (currently $100,000)</span>
+              </div>
+              <div class="calc-field">
+                <label for="calc-future-value">Illustrative future home value</label>
+                <div class="calc-field-wrap"><span class="calc-prefix">$</span>
+                  <input type="text" inputmode="decimal" id="calc-future-value" value="600,000">
+                </div>
+              </div>
             </div>
-            <a href="../../contact" class="btn btn-gold btn-arrow">Book My Free School Employee Consultation</a>
+
+            <div class="calc-actions no-print">
+              <button type="button" class="btn btn-gold btn-arrow" id="calc-calculate">Calculate My Example</button>
+            </div>
+
+            <div class="calc-results" id="calc-results" aria-live="polite" hidden>
+              <div class="calc-result-row"><span>Potential maximum assistance</span><span id="calc-r-max"></span></div>
+              <div class="calc-result-row"><span>Assistance amount modeled</span><span id="calc-r-assistance"></span></div>
+              <div class="calc-result-row"><span>Assistance as a percentage of purchase price</span><span id="calc-r-pct"></span></div>
+              <div class="calc-result-row"><span>Illustrative increase in home value</span><span id="calc-r-appreciation"></span></div>
+              <div class="calc-result-row"><span>Estimated shared-appreciation amount</span><span id="calc-r-shared"></span></div>
+              <div class="calc-result-row"><span>Estimated total program payoff</span><span id="calc-r-payoff"></span></div>
+              <p class="calc-interpretation" id="calc-interpretation"></p>
+              <p class="calc-repayment-note" id="calc-repayment-note"></p>
+            </div>
+
+            <div class="post-cta-strip no-print" id="calc-cta">
+              <div>
+                <h3>Want Help Understanding These Numbers?</h3>
+                <p>A free Hero HomeReach consultation can help you look at this example alongside your school role, income, credit picture and preferred Colorado communities.</p>
+              </div>
+              <div class="calc-cta-buttons">
+                <a href="../../contact" class="btn btn-gold btn-arrow" data-cta-location="calculator">Book My Free School Employee Consultation</a>
+                <button type="button" class="btn-outline" id="calc-print">Print My Example</button>
+              </div>
+            </div>
+          </section>
+
+          <!-- ══════════ BUILD 3: PRINTABLE READINESS CHECKLIST ══════════ -->
+          <section class="checklist-tool" id="readiness-checklist" aria-labelledby="checklist-heading">
+            <h2 id="checklist-heading">Bring These Five Things to Your Consultation</h2>
+            <ul class="checklist-list">
+              <li>Your school employer and job role</li>
+              <li>Approximate household income</li>
+              <li>Approximate credit-score range</li>
+              <li>Current savings and monthly debts</li>
+              <li>Preferred Colorado city, county and purchase timeline</li>
+            </ul>
+            <p>You do not need perfect numbers before scheduling. A rough snapshot is enough to begin a useful conversation.</p>
+            <a href="../../contact" class="btn btn-gold btn-arrow no-print" data-cta-location="checklist">Schedule My Free Consultation</a>
+          </section>
           </div>
+          <!-- /print-area -->
 
           <h2 id="how-it-works">How the Assistance Works</h2>
           <p>Schools To Home pairs a CHFA first mortgage with a second mortgage.</p>
@@ -476,7 +804,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <p>The $87,500 assistance equals 25% of the $350,000 first mortgage, and 20% of the $437,500 purchase price. In this example, the appreciation share is 20%.</p>
           <p>Hero HomeReach can help you understand which numbers to request, what they mean and how they may affect your longer-term plan.</p>
 
-          <h2 id="repayment-triggers">When Would the Second Mortgage Be Repaid?</h2>
+          <h2 id="repayment-triggers">How the Long-Term Homeownership Plan Works</h2>
           <p>The second mortgage is deferred, but it does not disappear. Repayment can be triggered when:</p>
           <ul>
             <li>You sell or transfer the home</li>
@@ -521,7 +849,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <li>Would I be comfortable with the future appreciation-sharing terms?</li>
           </ol>
           <p>The program will not look the same for every household. The fastest way to understand its real potential is to look at your goals, income, credit picture and preferred Colorado market together.</p>
-          <p>Or it may reveal that the home you have been picturing is closer than you believed.</p>
+          <p>A closer look may reveal that the home you have been picturing is nearer than you believed.</p>
 
           <h2 id="faq">Frequently Asked Questions</h2>
 
@@ -586,7 +914,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <h3>Your Path Home May Be Worth Exploring Now</h3>
             <p>Every school employee's situation is different. A free Hero HomeReach consultation can help you see whether this path fits your income, credit, school role and preferred Colorado communities.</p>
           </div>
-          <a href="../../contact" class="btn btn-gold btn-arrow">Explore My Next Step</a>
+          <a href="../../contact" class="btn btn-gold btn-arrow" data-cta-location="cta-final">Explore My Next Step</a>
         </div>
 
       </article>
@@ -598,20 +926,23 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="sidebar-card sidebar-card-hide-mobile">
           <div class="sidebar-card-title">Free Consultation</div>
           <p>Your school role may open a path you did not know existed. Book a free 30-minute call, no obligation, no pressure.</p>
-          <a href="../../contact" class="btn btn-gold btn-arrow">Book My Free Call</a>
+          <a href="../../contact" class="btn btn-gold btn-arrow" data-cta-location="sidebar">Book My Free Call</a>
         </div>
 
         <div class="sidebar-card">
           <div class="sidebar-card-title">In This Guide</div>
           <ul class="toc-list">
             <li><a href="#who-qualifies-role">Who Actually Qualifies</a></li>
+            <li><a href="#opportunity-snapshot">Could This Include You?</a></li>
             <li><a href="#assistance-amount">How Much Assistance</a></li>
+            <li><a href="#possibility-calculator">Try the Calculator</a></li>
             <li><a href="#how-it-works">How the Second Mortgage Works</a></li>
             <li><a href="#appreciation-math">The Shared-Appreciation Math</a></li>
-            <li><a href="#repayment-triggers">When Repayment Is Triggered</a></li>
+            <li><a href="#repayment-triggers">How the Long-Term Plan Works</a></li>
             <li><a href="#requirements">A Few Starting Points to Explore</a></li>
             <li><a href="#is-it-right-for-you">Is This Right for You</a></li>
             <li><a href="#first-steps">Your First Step</a></li>
+            <li><a href="#readiness-checklist">Consultation Checklist</a></li>
             <li><a href="#faq">FAQ</a></li>
           </ul>
         </div>
@@ -650,7 +981,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="sidebar-card" style="background:var(--navy);border-color:rgba(201,151,58,0.3);">
           <div class="sidebar-card-title" style="color:var(--gold);border-bottom-color:rgba(201,151,58,0.3);">Free Hero Homebuyer Guide</div>
           <p style="color:rgba(255,255,255,0.7);">Get the complete breakdown of every Colorado program available to heroes. Free download, no strings attached.</p>
-          <a href="https://guide.herohomereach.com" target="_blank" class="btn btn-gold btn-arrow">Get the Free Guide</a>
+          <a href="https://guide.herohomereach.com" target="_blank" class="btn btn-gold btn-arrow" data-cta-location="sidebar-guide">Get the Free Guide</a>
         </div>
 
       </aside>
@@ -684,7 +1015,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
       <div class="footer-col">
         <div class="footer-col-title">Start Here</div>
-        <a href="../../contact">Book Free Consultation</a>
+        <a href="../../contact" data-cta-location="footer">Book Free Consultation</a>
         <a href="../../programs">Explore Programs</a>
         <a href="../../blog/">Learning Center</a>
       </div>
@@ -699,6 +1030,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </div>
 </footer>
+
+<!-- ════════════ BUILD 4: MOBILE STICKY CTA ════════════ -->
+<div id="mobile-sticky-cta" class="mobile-sticky-cta no-print" hidden>
+  <span class="mobile-sticky-text">School employee? Explore this program.</span>
+  <a href="../../contact" class="mobile-sticky-btn" id="mobile-sticky-link">Free Consultation</a>
+  <button type="button" class="mobile-sticky-close" id="mobile-sticky-close" aria-label="Close">&times;</button>
+</div>
 
 <script>
 const nav = document.getElementById('nav');
@@ -750,6 +1088,392 @@ document.querySelectorAll('.toc-list a').forEach(link => {
       });
     });
   });
+})();
+</script>
+
+<!-- ════════════ INTERACTIVE TOOLS SCRIPT ════════════ -->
+<script>
+(function() {
+  'use strict';
+  window.dataLayer = window.dataLayer || [];
+
+  /* ───────────────────────────────────────────────
+     BUILD 1: OPPORTUNITY SNAPSHOT
+  ─────────────────────────────────────────────── */
+  var snapshotSteps = [1, 2, 3, 4];
+  var snapshotCurrentStep = 1;
+  var snapshotAnswers = { q1: null, q2: null, q3: null, q4: null };
+  var snapshotStarted = false;
+  var snapshotCompleted = false;
+
+  var snapshotForm = document.getElementById('snapshot-form');
+  var snapshotNext = document.getElementById('snapshot-next');
+  var snapshotBack = document.getElementById('snapshot-back');
+  var snapshotProgressBar = document.getElementById('snapshot-progress-bar');
+  var snapshotStepLabel = document.getElementById('snapshot-step-label');
+  var snapshotHint = document.getElementById('snapshot-hint');
+  var snapshotResult = document.getElementById('snapshot-result');
+
+  function snapshotFieldset(step) {
+    return document.getElementById('snapshot-q' + step);
+  }
+
+  function snapshotFireStarted() {
+    if (snapshotStarted) return;
+    snapshotStarted = true;
+    dataLayer.push({ event: 'schools_to_home_snapshot_started' });
+  }
+
+  if (snapshotForm) {
+    snapshotForm.addEventListener('change', function(e) {
+      if (e.target && e.target.type === 'radio') {
+        snapshotFireStarted();
+        snapshotHint.hidden = true;
+      }
+    });
+
+    snapshotNext.addEventListener('click', function() {
+      var current = snapshotFieldset(snapshotCurrentStep);
+      var checked = current.querySelector('input[type="radio"]:checked');
+      if (!checked) {
+        snapshotHint.hidden = false;
+        return;
+      }
+      snapshotAnswers['q' + snapshotCurrentStep] = checked.value;
+
+      if (snapshotCurrentStep < 4) {
+        current.hidden = true;
+        snapshotCurrentStep += 1;
+        var nextFieldset = snapshotFieldset(snapshotCurrentStep);
+        nextFieldset.hidden = false;
+        nextFieldset.focus();
+        snapshotProgressBar.style.width = (snapshotCurrentStep * 25) + '%';
+        snapshotStepLabel.textContent = 'Question ' + snapshotCurrentStep + ' of 4';
+        snapshotBack.hidden = false;
+        if (snapshotCurrentStep === 4) {
+          snapshotNext.textContent = 'See My Snapshot';
+        }
+      } else {
+        snapshotShowResult();
+      }
+    });
+
+    snapshotBack.addEventListener('click', function() {
+      if (snapshotCurrentStep <= 1) return;
+      snapshotFieldset(snapshotCurrentStep).hidden = true;
+      snapshotCurrentStep -= 1;
+      var prevFieldset = snapshotFieldset(snapshotCurrentStep);
+      prevFieldset.hidden = false;
+      prevFieldset.focus();
+      snapshotProgressBar.style.width = (snapshotCurrentStep * 25) + '%';
+      snapshotStepLabel.textContent = 'Question ' + snapshotCurrentStep + ' of 4';
+      snapshotNext.textContent = 'Next';
+      if (snapshotCurrentStep === 1) snapshotBack.hidden = true;
+      snapshotHint.hidden = true;
+    });
+  }
+
+  function snapshotComputeResult(a) {
+    if (a.q1 === 'no') return 'C';
+    if (a.q1 === 'unsure') return 'B';
+    if (a.q3 === 'above178920') return 'B';
+    if (a.q3 === 'unsure') return 'B';
+    if (a.q4 === 'under620') return 'B';
+    if (a.q4 === 'unknown') return 'B';
+    return 'A';
+  }
+
+  var snapshotResultContent = {
+    A: {
+      heading: 'This Program May Deserve a Closer Look',
+      copy: 'Several parts of your snapshot line up with the current starting guidelines. The next step is not decoding more program documents. It is looking at your school role, income, credit picture and homebuying goals together.',
+      button: 'Explore What This Could Mean for Me'
+    },
+    B: {
+      heading: 'One Part of the Picture Needs Clarification',
+      copy: 'Your school role or financial snapshot may still create an opportunity, but one guideline deserves a closer look. Hero HomeReach can help you understand which question matters and what your safest next step may be.',
+      button: 'Talk Through My Situation'
+    },
+    C: {
+      heading: 'Another Colorado Path May Be Worth Exploring',
+      copy: 'Schools To Home may not be the only homebuyer path connected to your situation. Hero HomeReach can help you look at the broader Colorado assistance landscape and organize a practical next step.',
+      button: 'Explore My Colorado Options'
+    }
+  };
+
+  function snapshotShowResult() {
+    var resultKey = snapshotComputeResult(snapshotAnswers);
+    var content = snapshotResultContent[resultKey];
+
+    snapshotForm.hidden = true;
+    document.querySelector('.snapshot-progress').hidden = true;
+    snapshotStepLabel.hidden = true;
+
+    snapshotResult.innerHTML =
+      '<div class="snapshot-result-card">' +
+      '<h3>' + content.heading + '</h3>' +
+      '<p>' + content.copy + '</p>' +
+      '<div class="snapshot-result-actions">' +
+      '<a href="../../contact" class="btn btn-gold btn-arrow" data-cta-location="snapshot-result">' + content.button + '</a>' +
+      '<button type="button" class="snapshot-restart" id="snapshot-restart">Start Over</button>' +
+      '</div></div>';
+    snapshotResult.hidden = false;
+
+    if (!snapshotCompleted) {
+      snapshotCompleted = true;
+      dataLayer.push({
+        event: 'schools_to_home_snapshot_completed',
+        school_employment_answer: snapshotAnswers.q1,
+        school_role_category: snapshotAnswers.q2,
+        income_range: snapshotAnswers.q3,
+        credit_range: snapshotAnswers.q4,
+        snapshot_result: resultKey
+      });
+    }
+
+    var resultCta = snapshotResult.querySelector('a[data-cta-location="snapshot-result"]');
+    if (resultCta) {
+      resultCta.addEventListener('click', function() {
+        dataLayer.push({ event: 'schools_to_home_consultation_clicked', link_location: 'snapshot-result' });
+      });
+    }
+
+    document.getElementById('snapshot-restart').addEventListener('click', snapshotReset);
+  }
+
+  function snapshotReset() {
+    snapshotAnswers = { q1: null, q2: null, q3: null, q4: null };
+    snapshotCurrentStep = 1;
+    snapshotCompleted = false;
+
+    document.querySelectorAll('#snapshot-form input[type="radio"]').forEach(function(input) {
+      input.checked = false;
+    });
+    for (var i = 2; i <= 4; i++) { snapshotFieldset(i).hidden = true; }
+    snapshotFieldset(1).hidden = false;
+    snapshotForm.hidden = false;
+    document.querySelector('.snapshot-progress').hidden = false;
+    snapshotStepLabel.hidden = false;
+    snapshotProgressBar.style.width = '25%';
+    snapshotStepLabel.textContent = 'Question 1 of 4';
+    snapshotNext.textContent = 'Next';
+    snapshotBack.hidden = true;
+    snapshotHint.hidden = true;
+    snapshotResult.hidden = true;
+    snapshotResult.innerHTML = '';
+    snapshotFieldset(1).focus();
+
+    dataLayer.push({ event: 'schools_to_home_snapshot_restarted' });
+  }
+
+  /* ───────────────────────────────────────────────
+     BUILD 2: POSSIBILITY CALCULATOR
+  ─────────────────────────────────────────────── */
+  var calcPurchase = document.getElementById('calc-purchase-price');
+  var calcMortgage = document.getElementById('calc-first-mortgage');
+  var calcAssistance = document.getElementById('calc-assistance');
+  var calcFuture = document.getElementById('calc-future-value');
+  var calcAssistanceHint = document.getElementById('calc-assistance-hint');
+  var calcCalculateBtn = document.getElementById('calc-calculate');
+  var calcResults = document.getElementById('calc-results');
+  var calcPrintBtn = document.getElementById('calc-print');
+  var calcStarted = false;
+  var assistanceManuallyEdited = false;
+
+  var currencyFmt = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 });
+  var numberFmt = new Intl.NumberFormat('en-US', { maximumFractionDigits: 0 });
+
+  function parseCurrency(el) {
+    var raw = (el.value || '').replace(/[^0-9.]/g, '');
+    var n = parseFloat(raw);
+    if (isNaN(n) || n < 0) n = 0;
+    return n;
+  }
+
+  function formatFieldValue(el, n) {
+    el.value = numberFmt.format(Math.round(n));
+  }
+
+  function calcFireStarted() {
+    if (calcStarted) return;
+    calcStarted = true;
+    dataLayer.push({ event: 'schools_to_home_calculator_started' });
+  }
+
+  [calcPurchase, calcMortgage, calcAssistance, calcFuture].forEach(function(el) {
+    if (!el) return;
+    el.addEventListener('focus', calcFireStarted);
+  });
+
+  if (calcAssistance) {
+    calcAssistance.addEventListener('input', function() { assistanceManuallyEdited = true; });
+  }
+
+  function calcUpdateAssistanceCap() {
+    var mortgage = parseCurrency(calcMortgage);
+    var maxAssistance = mortgage * 0.25;
+    calcAssistanceHint.textContent = 'Capped at 25% of your first-mortgage amount (currently ' + currencyFmt.format(Math.round(maxAssistance)) + ')';
+
+    var currentAssistance = parseCurrency(calcAssistance);
+    if (!assistanceManuallyEdited) {
+      formatFieldValue(calcAssistance, maxAssistance);
+    } else if (currentAssistance > maxAssistance) {
+      formatFieldValue(calcAssistance, maxAssistance);
+    }
+  }
+
+  if (calcMortgage) {
+    calcMortgage.addEventListener('change', calcUpdateAssistanceCap);
+    calcMortgage.addEventListener('blur', function() { formatFieldValue(calcMortgage, parseCurrency(calcMortgage)); calcUpdateAssistanceCap(); });
+  }
+  if (calcAssistance) {
+    calcAssistance.addEventListener('blur', function() {
+      var mortgage = parseCurrency(calcMortgage);
+      var maxAssistance = mortgage * 0.25;
+      var val = parseCurrency(calcAssistance);
+      if (val > maxAssistance) val = maxAssistance;
+      formatFieldValue(calcAssistance, val);
+    });
+  }
+  if (calcPurchase) {
+    calcPurchase.addEventListener('blur', function() { formatFieldValue(calcPurchase, parseCurrency(calcPurchase)); });
+  }
+  if (calcFuture) {
+    calcFuture.addEventListener('blur', function() { formatFieldValue(calcFuture, parseCurrency(calcFuture)); });
+  }
+
+  function calcRunCalculation() {
+    var purchasePrice = parseCurrency(calcPurchase);
+    var firstMortgage = parseCurrency(calcMortgage);
+    var futureValue = parseCurrency(calcFuture);
+    var potentialMax = firstMortgage * 0.25;
+    var assistanceUsed = parseCurrency(calcAssistance);
+    if (assistanceUsed > potentialMax) assistanceUsed = potentialMax;
+
+    var assistancePct = purchasePrice > 0 ? (assistanceUsed / purchasePrice) : 0;
+    var appreciation = Math.max(futureValue - purchasePrice, 0);
+    var sharedAppreciation = assistancePct * appreciation;
+    var totalPayoff = assistanceUsed + sharedAppreciation;
+
+    document.getElementById('calc-r-max').textContent = currencyFmt.format(Math.round(potentialMax));
+    document.getElementById('calc-r-assistance').textContent = currencyFmt.format(Math.round(assistanceUsed));
+    document.getElementById('calc-r-pct').textContent = (assistancePct * 100).toFixed(1) + '%';
+    document.getElementById('calc-r-appreciation').textContent = currencyFmt.format(Math.round(appreciation));
+    document.getElementById('calc-r-shared').textContent = currencyFmt.format(Math.round(sharedAppreciation));
+    document.getElementById('calc-r-payoff').textContent = currencyFmt.format(Math.round(totalPayoff));
+
+    var interpretation = 'At this example, assistance of ' + currencyFmt.format(Math.round(assistanceUsed)) + ' could represent a major change in the upfront-cost conversation. It may shorten the time needed to save, expand the communities worth exploring or make buying closer to work feel more realistic.';
+    document.getElementById('calc-interpretation').textContent = interpretation;
+
+    var repaymentNote;
+    if (appreciation <= 0) {
+      repaymentNote = 'In this example, there is no positive appreciation to share. The original assistance remains part of the long-term repayment plan.';
+    } else {
+      repaymentNote = 'In return, the original assistance remains part of the long-term repayment plan, along with the estimated shared-appreciation amount shown above.';
+    }
+    document.getElementById('calc-repayment-note').textContent = repaymentNote;
+
+    calcResults.hidden = false;
+
+    dataLayer.push({
+      event: 'schools_to_home_calculator_completed',
+      purchase_price: Math.round(purchasePrice / 1000) * 1000,
+      first_mortgage: Math.round(firstMortgage / 1000) * 1000,
+      modeled_assistance: Math.round(assistanceUsed / 1000) * 1000,
+      future_value: Math.round(futureValue / 1000) * 1000,
+      estimated_appreciation_share: Math.round(sharedAppreciation / 100) * 100
+    });
+
+    return { calculated: true };
+  }
+
+  if (calcCalculateBtn) {
+    calcCalculateBtn.addEventListener('click', function() {
+      calcUpdateAssistanceCap();
+      calcRunCalculation();
+    });
+  }
+
+  if (calcPrintBtn) {
+    calcPrintBtn.addEventListener('click', function() {
+      if (calcResults.hidden) {
+        calcUpdateAssistanceCap();
+        calcRunCalculation();
+      }
+      dataLayer.push({ event: 'schools_to_home_estimate_printed' });
+      window.print();
+    });
+  }
+
+  // initialize default cap/hint on load
+  calcUpdateAssistanceCap();
+
+  /* ───────────────────────────────────────────────
+     BUILD 4: MOBILE STICKY CTA
+  ─────────────────────────────────────────────── */
+  var mobileCta = document.getElementById('mobile-sticky-cta');
+  var mobileCtaClose = document.getElementById('mobile-sticky-close');
+  var mobileCtaLink = document.getElementById('mobile-sticky-link');
+  var mobileCtaShown = false;
+  var DISMISS_KEY = 'hh_schools_to_home_mobile_cta_dismissed';
+
+  function mobileCtaCheckScroll() {
+    if (mobileCtaShown) return;
+    if (sessionStorage.getItem(DISMISS_KEY) === '1') return;
+
+    var scrollableHeight = document.documentElement.scrollHeight - window.innerHeight;
+    if (scrollableHeight <= 0) return;
+    var scrolledPct = (window.scrollY / scrollableHeight) * 100;
+
+    if (scrolledPct >= 25) {
+      mobileCta.hidden = false;
+      mobileCtaShown = true;
+      document.body.classList.add('mobile-cta-visible');
+      dataLayer.push({ event: 'schools_to_home_mobile_cta_shown' });
+    }
+  }
+
+  if (mobileCta && sessionStorage.getItem(DISMISS_KEY) !== '1') {
+    window.addEventListener('scroll', mobileCtaCheckScroll, { passive: true });
+  }
+
+  if (mobileCtaClose) {
+    mobileCtaClose.addEventListener('click', function() {
+      mobileCta.hidden = true;
+      document.body.classList.remove('mobile-cta-visible');
+      try { sessionStorage.setItem(DISMISS_KEY, '1'); } catch (e) { /* storage unavailable */ }
+      dataLayer.push({ event: 'schools_to_home_mobile_cta_closed' });
+    });
+  }
+
+  if (mobileCtaLink) {
+    mobileCtaLink.addEventListener('click', function() {
+      dataLayer.push({ event: 'schools_to_home_mobile_cta_clicked' });
+    });
+  }
+
+  /* ───────────────────────────────────────────────
+     BUILD 5: GTM EVENTS — remaining consultation/guide links
+  ─────────────────────────────────────────────── */
+  document.querySelectorAll('a[href="../../contact"]').forEach(function(el) {
+    if (el.closest('#mobile-sticky-cta') || el.closest('#snapshot-result')) return;
+    el.addEventListener('click', function() {
+      dataLayer.push({
+        event: 'schools_to_home_consultation_clicked',
+        link_location: el.getAttribute('data-cta-location') || 'unspecified'
+      });
+    });
+  });
+
+  document.querySelectorAll('a[href="https://guide.herohomereach.com"]').forEach(function(el) {
+    el.addEventListener('click', function() {
+      dataLayer.push({
+        event: 'schools_to_home_guide_clicked',
+        link_location: el.getAttribute('data-cta-location') || 'unspecified'
+      });
+    });
+  });
+
 })();
 </script>
 
