@@ -213,7 +213,8 @@
     margin: 24px 0;
   }
   .role-card {
-    padding: 14px 16px;
+    position: relative;
+    padding: 18px 16px 14px;
     border: 1px solid var(--warm-gray);
     border-radius: 8px;
     background: #fff;
@@ -221,6 +222,19 @@
     font-size: 14px;
     color: var(--navy);
     text-align: center;
+    box-shadow: 0 1px 3px rgba(12,45,94,0.06);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .role-card::before {
+    content: '';
+    position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+    width: 28px; height: 3px; border-radius: 0 0 3px 3px;
+    background: var(--gold);
+  }
+  .role-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(12,45,94,0.12);
+    border-color: var(--gold);
   }
 
   /* ── Worked-example box ── */
@@ -230,6 +244,7 @@
     border: 1px solid var(--warm-gray);
     border-radius: var(--radius);
     background: #FAFBFD;
+    box-shadow: 0 4px 20px rgba(12,45,94,0.05);
   }
   .post-example h3 { margin-top: 0; }
   .post-example table { width: 100%; border-collapse: collapse; font-size: 14px; }
@@ -253,10 +268,6 @@
   .calc-tool button:focus-visible,
   .calc-tool input:focus-visible,
   .checklist-tool a:focus-visible,
-  .local-snapshot-tool a:focus-visible,
-  .local-snapshot-tool button:focus-visible,
-  .local-snapshot-tool input:focus-visible,
-  .local-snapshot-tool select:focus-visible,
   .mobile-sticky-cta a:focus-visible,
   .mobile-sticky-cta button:focus-visible {
     outline: 3px solid var(--bright-gold);
@@ -272,6 +283,7 @@
     border-radius: 14px;
     background: #FAFBFD;
     border: 1px solid var(--warm-gray);
+    box-shadow: 0 4px 20px rgba(12,45,94,0.06);
   }
   .snapshot-tool h2 { margin-top: 0; }
   .snapshot-intro { color: #444; }
@@ -288,10 +300,15 @@
     transition: width 0.3s ease;
   }
   .snapshot-step-label {
-    font-size: 13px;
-    color: #888;
-    font-weight: 600;
+    display: inline-block;
+    font-size: 12px;
+    color: var(--navy);
+    font-weight: 700;
+    letter-spacing: 0.02em;
     margin: 0 0 20px;
+    padding: 4px 12px;
+    border-radius: 999px;
+    background: rgba(201,151,58,0.15);
   }
   .snapshot-question { border: none; padding: 0; margin: 0 0 20px; }
   .snapshot-question legend {
@@ -328,11 +345,33 @@
   .snapshot-btn-secondary { background: #fff; color: var(--navy); border: 1px solid var(--warm-gray); }
   .snapshot-btn-secondary:hover { border-color: var(--navy); }
   .snapshot-hint { font-size: 13px; color: #b45309; margin: -6px 0 14px; }
+  .snapshot-question-contact .calc-field { margin-bottom: 16px; }
+  .snapshot-question-contact select {
+    width: 100%; padding: 12px 14px; border: 1px solid var(--warm-gray);
+    border-radius: 8px; font-size: 15px; font-family: 'Inter', sans-serif; color: var(--near-black);
+    background: #fff;
+  }
+  .snapshot-question-contact select:focus, .snapshot-question-contact input:focus { border-color: var(--navy); }
+  .snapshot-fineprint { font-size: 12px; color: #888; margin: 0; }
+  .snapshot-result-local-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin: 18px 0;
+  }
+  .snapshot-result-local-card {
+    display: flex; flex-direction: column; gap: 4px;
+    padding: 16px; border-radius: 10px; background: rgba(255,255,255,0.08);
+  }
+  .snapshot-result-local-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.03em; color: rgba(255,255,255,0.6); }
+  .snapshot-result-local-value { font-family: var(--font-head, 'Playfair Display', Georgia, serif); font-size: 20px; font-weight: 700; color: #fff; }
+  .snapshot-result-local-note { font-size: 11px; color: rgba(255,255,255,0.55); line-height: 1.5; }
   .snapshot-result-card {
     padding: 26px 28px;
     border-radius: 12px;
-    background: var(--navy);
+    background: linear-gradient(155deg, var(--navy) 0%, var(--mid-navy, #1A4A8A) 100%);
     color: #fff;
+    box-shadow: 0 10px 30px rgba(12,45,94,0.25);
   }
   .snapshot-result-card h3 { color: #fff; margin-top: 0; }
   .snapshot-result-card p { color: rgba(255,255,255,0.8); }
@@ -354,6 +393,7 @@
     border-radius: 14px;
     background: #FAFBFD;
     border: 1px solid var(--warm-gray);
+    box-shadow: 0 4px 20px rgba(12,45,94,0.06);
   }
   .calc-tool h2 { margin-top: 0; }
   .calc-grid {
@@ -398,7 +438,16 @@
   .calc-interpretation, .calc-repayment-note {
     font-size: 14px; color: #444; margin-top: 14px; line-height: 1.7;
   }
-  .calc-print-row { margin-top: 18px; }
+  .calc-print-row {
+    margin-top: 22px;
+    padding-top: 18px;
+    border-top: 1px solid rgba(0,0,0,0.06);
+    display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+  }
+  .calc-print-row::before {
+    content: 'Want a copy to bring with you?';
+    font-size: 13px; color: #888; font-style: italic;
+  }
 
   /* ══════════════════════════════════════════════
      BUILD 3 — Readiness Checklist
@@ -409,10 +458,27 @@
     border-radius: 14px;
     background: var(--cream, #FFFCF4);
     border: 1px solid var(--warm-gray);
+    box-shadow: 0 4px 20px rgba(12,45,94,0.05);
   }
   .checklist-tool h2 { margin-top: 0; }
-  .checklist-list { margin: 16px 0 20px 20px; }
-  .checklist-list li { margin-bottom: 8px; }
+  .checklist-list { margin: 20px 0 22px; padding: 0; list-style: none; }
+  .checklist-list li {
+    position: relative;
+    margin-bottom: 12px;
+    padding-left: 34px;
+    font-size: 15px;
+  }
+  .checklist-list li::before {
+    content: '\2713';
+    position: absolute; left: 0; top: -1px;
+    width: 22px; height: 22px;
+    border-radius: 50%;
+    background: var(--gold);
+    color: #fff;
+    font-size: 12px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+    line-height: 1;
+  }
 
   /* ══════════════════════════════════════════════
      BUILD 4 — Mobile Sticky CTA
@@ -447,67 +513,6 @@
     body.mobile-cta-visible .post-cta-strip:last-of-type { margin-bottom: 76px; }
   }
 
-  /* ══════════════════════════════════════════════
-     BUILD 6 — Local Snapshot Lead Form
-  ══════════════════════════════════════════════ */
-  .local-snapshot-tool {
-    margin: 36px 0;
-    padding: 32px;
-    border-radius: 14px;
-    background: #FAFBFD;
-    border: 1px solid var(--warm-gray);
-  }
-  .local-snapshot-tool h2 { margin-top: 0; }
-  .local-snapshot-intro { color: #444; }
-  .ls-form-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 18px;
-    margin: 20px 0 18px;
-  }
-  .ls-form-grid select {
-    width: 100%; padding: 12px 14px; border: 1px solid var(--warm-gray);
-    border-radius: 8px; font-size: 15px; font-family: 'Inter', sans-serif; color: var(--near-black);
-    background: #fff;
-  }
-  .ls-form-grid select:focus, .ls-form-grid input:focus { border-color: var(--navy); }
-  .ls-fineprint { font-size: 12px; color: #888; margin: 10px 0 0; }
-  .ls-loading { margin-top: 18px; font-size: 14px; color: #666; font-style: italic; }
-  .ls-error {
-    margin-top: 18px; padding: 14px 16px; border-radius: 8px;
-    background: #FDF2F2; border: 1px solid #F0C6C6; color: #7A2E2E; font-size: 14px;
-  }
-  .ls-results { margin-top: 24px; }
-  .ls-results h3 { color: var(--navy); margin-top: 0; }
-  .ls-result-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 16px;
-    margin: 18px 0 22px;
-  }
-  .ls-result-card {
-    display: flex; flex-direction: column; gap: 6px;
-    padding: 20px; border-radius: 10px; background: #fff; border: 1px solid var(--warm-gray);
-  }
-  .ls-result-label { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.03em; color: #888; }
-  .ls-result-value { font-family: var(--font-head, 'Playfair Display', Georgia, serif); font-size: 24px; font-weight: 700; color: var(--navy); }
-  .ls-result-note { font-size: 12px; color: #888; line-height: 1.5; }
-  .ls-results-cta-lead { font-weight: 600; color: var(--navy); margin: 0 0 14px; }
-
-  /* Subtle variant for disclaimers/notices — the base .post-callout
-     styling (defined in the main site CSS) stays bold for emphasis
-     moments; this override is scoped to this modifier class only. */
-  .post-callout--subtle {
-    background: #F7F6F2 !important;
-    border: 1px solid var(--warm-gray) !important;
-    color: #555 !important;
-    padding: 14px 18px !important;
-    border-radius: 8px !important;
-    font-size: 13px !important;
-  }
-  .post-callout--subtle p { color: #555 !important; margin: 0 !important; }
-  .post-callout--subtle strong { color: #444 !important; }
-
   /* ── Print ── */
   @media print {
     body * { visibility: hidden; }
@@ -520,7 +525,7 @@
   @media (max-width: 768px) {
     .post-article, .post-body { min-width: 0; max-width: 100%; overflow-x: hidden; }
     .post-example { padding: 20px; }
-    .snapshot-tool, .calc-tool, .checklist-tool, .local-snapshot-tool { padding: 22px 18px; }
+    .snapshot-tool, .calc-tool, .checklist-tool { padding: 22px 18px; }
   }
   @media (max-width: 768px) {
     .sidebar-card-hide-mobile { display: none; }
@@ -675,8 +680,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <h2 id="snapshot-heading">Could Schools To Home Be Worth Exploring?</h2>
             <p class="snapshot-intro">Answer four quick questions to see which part of the program may deserve a closer look. This snapshot does not make an eligibility or lending decision. It simply helps you identify the most useful next conversation.</p>
 
-            <div class="snapshot-progress"><div class="snapshot-progress-bar" id="snapshot-progress-bar" style="width:25%"></div></div>
-            <p class="snapshot-step-label" id="snapshot-step-label">Question 1 of 4</p>
+            <div class="snapshot-progress"><div class="snapshot-progress-bar" id="snapshot-progress-bar" style="width:20%"></div></div>
+            <p class="snapshot-step-label" id="snapshot-step-label">Question 1 of 5</p>
 
             <form id="snapshot-form" novalidate>
               <fieldset class="snapshot-question" id="snapshot-q1" data-step="1" tabindex="-1">
@@ -715,34 +720,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <label class="snapshot-option"><input type="radio" name="q4" value="unknown"> I do not know</label>
               </fieldset>
 
-              <p class="snapshot-hint" id="snapshot-hint" hidden>Please choose an option to continue.</p>
-
-              <div class="snapshot-nav">
-                <button type="button" class="snapshot-btn-secondary" id="snapshot-back" hidden>Back</button>
-                <button type="button" class="snapshot-btn-primary" id="snapshot-next">Next</button>
-              </div>
-            </form>
-
-            <div class="snapshot-result" id="snapshot-result" role="region" aria-live="polite" hidden></div>
-          </section>
-
-          <section class="local-snapshot-tool" id="local-snapshot" aria-labelledby="local-snapshot-heading">
-            <h2 id="local-snapshot-heading">See What This Looks Like Where You Actually Live</h2>
-            <p class="local-snapshot-intro">Every published program example uses a hypothetical home price. Yours does not have to stay hypothetical. Share your name, email and county, and you will get your county's real average home value alongside three more numbers worth knowing before you go further.</p>
-
-            <form id="local-snapshot-form" class="local-snapshot-form" novalidate>
-              <div class="ls-form-grid">
+              <fieldset class="snapshot-question snapshot-question-contact" id="snapshot-q5" data-step="5" tabindex="-1" hidden>
+                <legend>Last step: where should we send your personalized snapshot?</legend>
                 <div class="calc-field">
-                  <label for="ls-name">First name</label>
-                  <input type="text" id="ls-name" name="name" autocomplete="given-name" required>
+                  <label for="snapshot-name">First name</label>
+                  <input type="text" id="snapshot-name" name="name" autocomplete="given-name" required>
                 </div>
                 <div class="calc-field">
-                  <label for="ls-email">Email address</label>
-                  <input type="email" id="ls-email" name="email" autocomplete="email" required>
+                  <label for="snapshot-email">Email address</label>
+                  <input type="email" id="snapshot-email" name="email" autocomplete="email" required>
                 </div>
                 <div class="calc-field">
-                  <label for="ls-county">County or school system</label>
-                  <select id="ls-county" name="county" required>
+                  <label for="snapshot-county">County or school system</label>
+                  <select id="snapshot-county" name="county" required>
                     <option value="" disabled selected>Choose your county</option>
                     <option value="denver">Denver County</option>
                     <option value="jefferson">Jefferson County</option>
@@ -757,42 +747,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     <option value="other">Somewhere else in Colorado</option>
                   </select>
                 </div>
+                <p class="snapshot-fineprint">No spam. Just your personalized snapshot, and the option of a follow-up from Hero HomeReach.</p>
+              </fieldset>
+
+              <p class="snapshot-hint" id="snapshot-hint" hidden>Please choose an option to continue.</p>
+
+              <div class="snapshot-nav">
+                <button type="button" class="snapshot-btn-secondary" id="snapshot-back" hidden>Back</button>
+                <button type="button" class="snapshot-btn-primary" id="snapshot-next">Next</button>
               </div>
-              <button type="submit" class="snapshot-btn-primary" id="ls-submit-btn">Get My Local Snapshot</button>
-              <p class="ls-fineprint">No spam. Just your local numbers, and the option of a follow-up from Hero HomeReach.</p>
             </form>
 
-            <div id="ls-loading" class="ls-loading" hidden role="status">Pulling your local numbers&hellip;</div>
-            <div id="ls-error" class="ls-error" hidden role="alert"></div>
-
-            <div id="ls-results" class="ls-results" hidden aria-live="polite">
-              <h3 id="ls-results-heading">Your Local Schools To Home Snapshot</h3>
-              <div class="ls-result-grid">
-                <div class="ls-result-card">
-                  <span class="ls-result-label">Average home value</span>
-                  <span class="ls-result-value" id="ls-r-price"></span>
-                  <span class="ls-result-note" id="ls-r-price-note"></span>
-                </div>
-                <div class="ls-result-card">
-                  <span class="ls-result-label">Potential assistance at that price</span>
-                  <span class="ls-result-value" id="ls-r-assist"></span>
-                  <span class="ls-result-note">Up to 25% of a typical first mortgage. Illustrative only, not a loan offer.</span>
-                </div>
-                <div class="ls-result-card">
-                  <span class="ls-result-label">Program guardrails</span>
-                  <span class="ls-result-value" id="ls-r-guardrails"></span>
-                  <span class="ls-result-note">Statewide income limit and minimum credit score, regardless of county.</span>
-                </div>
-                <div class="ls-result-card">
-                  <span class="ls-result-label">If your home gains value later</span>
-                  <span class="ls-result-value" id="ls-r-appreciation"></span>
-                  <span class="ls-result-note">Illustrative example only. Appreciation is never guaranteed.</span>
-                </div>
-              </div>
-              <p class="ls-results-cta-lead">That is four real numbers for your area. The next step is understanding what they actually mean for you.</p>
-              <a href="" class="btn btn-gold btn-arrow" data-cta-location="local-snapshot-result" onclick="hhOpenConsultation('local-snapshot-result');return false;">Book My Free Local Consultation</a>
-            </div>
+            <div class="snapshot-result" id="snapshot-result" role="region" aria-live="polite" hidden></div>
           </section>
+
+
 
           <h2 id="assistance-amount">What Up to 25% Assistance Could Change</h2>
           <p>Schools To Home may provide a second mortgage worth up to <strong>25% of the CHFA first-mortgage amount</strong>. That assistance may help cover eligible down payment costs, closing costs, prepaid expenses or principal reduction. The assistance supports eligible purchase costs and is not paid to the buyer as leftover cash.</p>
@@ -1054,7 +1023,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <ul class="toc-list">
             <li><a href="#who-qualifies-role">Who Actually Qualifies</a></li>
             <li><a href="#opportunity-snapshot">Could This Include You?</a></li>
-            <li><a href="#local-snapshot">Your Local Snapshot</a></li>
             <li><a href="#assistance-amount">How Much Assistance</a></li>
             <li><a href="#possibility-calculator">Try the Calculator</a></li>
             <li><a href="#how-it-works">How the Second Mortgage Works</a></li>
@@ -1248,7 +1216,7 @@ document.querySelectorAll('.toc-list a').forEach(link => {
   /* ───────────────────────────────────────────────
      BUILD 1: OPPORTUNITY SNAPSHOT
   ─────────────────────────────────────────────── */
-  var snapshotSteps = [1, 2, 3, 4];
+  var snapshotSteps = [1, 2, 3, 4, 5];
   var snapshotCurrentStep = 1;
   var snapshotAnswers = { q1: null, q2: null, q3: null, q4: null };
   var snapshotStarted = false;
@@ -1282,27 +1250,35 @@ document.querySelectorAll('.toc-list a').forEach(link => {
 
     snapshotNext.addEventListener('click', function() {
       var current = snapshotFieldset(snapshotCurrentStep);
-      var checked = current.querySelector('input[type="radio"]:checked');
-      if (!checked) {
-        snapshotHint.hidden = false;
-        return;
-      }
-      snapshotAnswers['q' + snapshotCurrentStep] = checked.value;
 
-      if (snapshotCurrentStep < 4) {
+      // Steps 1-4 are radio questions. Step 5 is the contact-info step
+      // that unlocks the combined result — validated and handled separately.
+      if (snapshotCurrentStep <= 4) {
+        var checked = current.querySelector('input[type="radio"]:checked');
+        if (!checked) {
+          snapshotHint.hidden = false;
+          snapshotHint.textContent = 'Please choose an option to continue.';
+          return;
+        }
+        snapshotAnswers['q' + snapshotCurrentStep] = checked.value;
+        snapshotHint.hidden = true;
+
         current.hidden = true;
         snapshotCurrentStep += 1;
         var nextFieldset = snapshotFieldset(snapshotCurrentStep);
         nextFieldset.hidden = false;
         nextFieldset.focus();
-        snapshotProgressBar.style.width = (snapshotCurrentStep * 25) + '%';
-        snapshotStepLabel.textContent = 'Question ' + snapshotCurrentStep + ' of 4';
+        snapshotProgressBar.style.width = (snapshotCurrentStep * 20) + '%';
         snapshotBack.hidden = false;
-        if (snapshotCurrentStep === 4) {
-          snapshotNext.textContent = 'See My Snapshot';
+
+        if (snapshotCurrentStep === 5) {
+          snapshotStepLabel.textContent = 'Last step';
+          snapshotNext.textContent = 'Get My Personalized Snapshot';
+        } else {
+          snapshotStepLabel.textContent = 'Question ' + snapshotCurrentStep + ' of 5';
         }
       } else {
-        snapshotShowResult();
+        snapshotSubmitFinal();
       }
     });
 
@@ -1313,8 +1289,8 @@ document.querySelectorAll('.toc-list a').forEach(link => {
       var prevFieldset = snapshotFieldset(snapshotCurrentStep);
       prevFieldset.hidden = false;
       prevFieldset.focus();
-      snapshotProgressBar.style.width = (snapshotCurrentStep * 25) + '%';
-      snapshotStepLabel.textContent = 'Question ' + snapshotCurrentStep + ' of 4';
+      snapshotProgressBar.style.width = (snapshotCurrentStep * 20) + '%';
+      snapshotStepLabel.textContent = 'Question ' + snapshotCurrentStep + ' of 5';
       snapshotNext.textContent = 'Next';
       if (snapshotCurrentStep === 1) snapshotBack.hidden = true;
       snapshotHint.hidden = true;
@@ -1335,7 +1311,7 @@ document.querySelectorAll('.toc-list a').forEach(link => {
     A: {
       heading: 'You Look Like Who This Program Was Built For',
       copy: 'Your school role, income range and credit picture all line up with the current starting guidelines. That is not a guarantee, but it is a real starting position, and most people in your shoes are closer to a home than they realize. The next step is turning these answers into your actual numbers.',
-      button: 'Turn This Into My Real Numbers'
+      button: 'Book My Free Consultation'
     },
     B: {
       heading: 'One Part of the Picture Needs Clarification',
@@ -1349,14 +1325,34 @@ document.querySelectorAll('.toc-list a').forEach(link => {
     }
   };
 
-  function snapshotShowResult() {
+  // County home-price lookup used only for the client-side "as of" label
+  // fallback text; the authoritative numbers always come from the API.
+  var COUNTY_LABELS = {
+    denver: 'Denver County', jefferson: 'Jefferson County', arapahoe: 'Arapahoe County',
+    douglas: 'Douglas County', boulder: 'Boulder County', elpaso: 'El Paso County',
+    larimer: 'Larimer County', weld: 'Weld County', adams: 'Adams County',
+    broomfield: 'Broomfield County', other: 'Colorado (statewide average)'
+  };
+
+  function snapshotSubmitFinal() {
+    var name = document.getElementById('snapshot-name').value.trim();
+    var email = document.getElementById('snapshot-email').value.trim();
+    var county = document.getElementById('snapshot-county').value;
+    var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!name || !email || !county || !emailPattern.test(email)) {
+      snapshotHint.hidden = false;
+      snapshotHint.textContent = 'Please fill in your name, a valid email and your county to continue.';
+      return;
+    }
+    snapshotHint.hidden = true;
+
     var resultKey = snapshotComputeResult(snapshotAnswers);
 
     snapshotForm.hidden = true;
     document.querySelector('.snapshot-progress').hidden = true;
     snapshotStepLabel.hidden = true;
 
-    // Loading state while the personalized snapshot is generated.
     snapshotResult.innerHTML =
       '<div class="snapshot-result-card snapshot-result-loading">' +
       '<p>Preparing your personalized snapshot…</p>' +
@@ -1371,13 +1367,17 @@ document.querySelectorAll('.toc-list a').forEach(link => {
         school_role_category: snapshotAnswers.q2,
         income_range: snapshotAnswers.q3,
         credit_range: snapshotAnswers.q4,
+        county: county,
         snapshot_result: resultKey
       });
     }
 
-    // Ask the Schools To Home AI snapshot endpoint for personalized prose.
-    // No name or email is sent — only the four categorical answers.
-    fetch('/api/schools-to-home-snapshot', {
+    // Fire both endpoints in parallel: the AI personalized read (categorical
+    // answers only, no PII) and the local-numbers + MailerLite lead capture
+    // (name, email, county). Neither call blocks the other — whichever
+    // succeeds gets rendered; if one fails, the result still degrades
+    // gracefully instead of breaking the tool.
+    var aiPromise = fetch('/api/schools-to-home-snapshot', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -1387,23 +1387,34 @@ document.querySelectorAll('.toc-list a').forEach(link => {
         creditRange: snapshotAnswers.q4,
         resultHint: resultKey
       })
-    })
-      .then(function(response) {
-        if (!response.ok) throw new Error('Snapshot API ' + response.status);
-        return response.json();
-      })
-      .then(function(data) {
-        snapshotRenderResult(resultKey, data && data.result);
-      })
-      .catch(function(err) {
-        // AI endpoint unavailable (not deployed yet, network issue, etc.)
-        // Fall back to the static, pre-approved copy so the tool never breaks.
-        console.error('[Schools To Home Snapshot] Falling back to static copy:', err);
-        snapshotRenderResult(resultKey, null);
-      });
+    }).then(function(r) { if (!r.ok) throw new Error('AI snapshot API ' + r.status); return r.json(); });
+
+    var localPromise = fetch('/api/schools-to-home-local-snapshot', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name: name, email: email, county: county })
+    }).then(function(r) { if (!r.ok) throw new Error('Local snapshot API ' + r.status); return r.json(); });
+
+    Promise.allSettled([aiPromise, localPromise]).then(function(results) {
+      var aiResult = results[0];
+      var localResult = results[1];
+
+      var aiText = (aiResult.status === 'fulfilled' && aiResult.value && aiResult.value.result) || null;
+      var localData = (localResult.status === 'fulfilled') ? localResult.value : null;
+
+      if (aiResult.status === 'rejected') {
+        console.error('[Schools To Home Snapshot] AI endpoint failed, using static copy:', aiResult.reason);
+      }
+      if (localResult.status === 'rejected') {
+        console.error('[Schools To Home Snapshot] Local snapshot endpoint failed:', localResult.reason);
+      }
+
+      dataLayer.push({ event: 'schools_to_home_snapshot_revealed', county: county });
+      snapshotRenderResult(resultKey, aiText, localData);
+    });
   }
 
-  function snapshotRenderResult(resultKey, aiText) {
+  function snapshotRenderResult(resultKey, aiText, localData) {
     var content = snapshotResultContent[resultKey];
     var bodyHtml;
 
@@ -1414,10 +1425,40 @@ document.querySelectorAll('.toc-list a').forEach(link => {
       bodyHtml = '<p>' + content.copy + '</p>';
     }
 
+    var localHtml;
+    if (localData) {
+      localHtml =
+        '<div class="snapshot-result-local-grid">' +
+        '<div class="snapshot-result-local-card">' +
+        '<span class="snapshot-result-local-label">Average home value</span>' +
+        '<span class="snapshot-result-local-value">' + currencyFmt.format(localData.avgHomePrice) + '</span>' +
+        '<span class="snapshot-result-local-note">' + (localData.countyLabel || COUNTY_LABELS.other) + ' — ' + localData.asOf + '</span>' +
+        '</div>' +
+        '<div class="snapshot-result-local-card">' +
+        '<span class="snapshot-result-local-label">Potential assistance at that price</span>' +
+        '<span class="snapshot-result-local-value">' + currencyFmt.format(localData.estimatedAssistanceLow) + ' – ' + currencyFmt.format(localData.estimatedAssistanceHigh) + '</span>' +
+        '<span class="snapshot-result-local-note">Up to 25% of a typical first mortgage. Illustrative only.</span>' +
+        '</div>' +
+        '<div class="snapshot-result-local-card">' +
+        '<span class="snapshot-result-local-label">Program guardrails</span>' +
+        '<span class="snapshot-result-local-value">' + currencyFmt.format(localData.incomeLimit) + ' / ' + localData.creditMin + '</span>' +
+        '<span class="snapshot-result-local-note">Statewide income limit and minimum credit score.</span>' +
+        '</div>' +
+        '<div class="snapshot-result-local-card">' +
+        '<span class="snapshot-result-local-label">If your home gains value later</span>' +
+        '<span class="snapshot-result-local-value">' + currencyFmt.format(localData.appreciationExample.shareOwed) + '</span>' +
+        '<span class="snapshot-result-local-note">Illustrative example only. Never guaranteed.</span>' +
+        '</div>' +
+        '</div>';
+    } else {
+      localHtml = '<p style="color:rgba(255,255,255,0.75);font-size:13px;">We could not load your local county numbers just now, but we have your information. A Hero HomeReach consultation can walk through them with you directly.</p>';
+    }
+
     snapshotResult.innerHTML =
       '<div class="snapshot-result-card">' +
       '<h3>' + content.heading + '</h3>' +
       bodyHtml +
+      localHtml +
       '<div class="snapshot-result-actions">' +
       '<a href="" class="btn btn-gold btn-arrow" onclick="hhOpenConsultation(\'snapshot-result\');return false;">' + content.button + '</a>' +
       '<button type="button" class="snapshot-restart" id="snapshot-restart">Start Over</button>' +
@@ -1434,13 +1475,17 @@ document.querySelectorAll('.toc-list a').forEach(link => {
     document.querySelectorAll('#snapshot-form input[type="radio"]').forEach(function(input) {
       input.checked = false;
     });
-    for (var i = 2; i <= 4; i++) { snapshotFieldset(i).hidden = true; }
+    document.getElementById('snapshot-name').value = '';
+    document.getElementById('snapshot-email').value = '';
+    document.getElementById('snapshot-county').value = '';
+
+    for (var i = 2; i <= 5; i++) { snapshotFieldset(i).hidden = true; }
     snapshotFieldset(1).hidden = false;
     snapshotForm.hidden = false;
     document.querySelector('.snapshot-progress').hidden = false;
     snapshotStepLabel.hidden = false;
-    snapshotProgressBar.style.width = '25%';
-    snapshotStepLabel.textContent = 'Question 1 of 4';
+    snapshotProgressBar.style.width = '20%';
+    snapshotStepLabel.textContent = 'Question 1 of 5';
     snapshotNext.textContent = 'Next';
     snapshotBack.hidden = true;
     snapshotHint.hidden = true;
@@ -1655,80 +1700,6 @@ document.querySelectorAll('.toc-list a').forEach(link => {
       });
     });
   });
-
-  /* ───────────────────────────────────────────────
-     BUILD 6: LOCAL SNAPSHOT LEAD FORM
-  ─────────────────────────────────────────────── */
-  var lsForm = document.getElementById('local-snapshot-form');
-  var lsLoading = document.getElementById('ls-loading');
-  var lsError = document.getElementById('ls-error');
-  var lsResults = document.getElementById('ls-results');
-  var lsSubmitBtn = document.getElementById('ls-submit-btn');
-  var lsStarted = false;
-
-  if (lsForm) {
-    lsForm.addEventListener('focusin', function() {
-      if (lsStarted) return;
-      lsStarted = true;
-      dataLayer.push({ event: 'schools_to_home_local_snapshot_started' });
-    });
-
-    lsForm.addEventListener('submit', function(e) {
-      e.preventDefault();
-
-      var name = document.getElementById('ls-name').value.trim();
-      var email = document.getElementById('ls-email').value.trim();
-      var county = document.getElementById('ls-county').value;
-
-      if (!name || !email || !county) {
-        lsError.hidden = false;
-        lsError.textContent = 'Please fill in your name, email and county.';
-        return;
-      }
-
-      lsError.hidden = true;
-      lsResults.hidden = true;
-      lsLoading.hidden = false;
-      lsSubmitBtn.disabled = true;
-
-      dataLayer.push({ event: 'schools_to_home_local_snapshot_submitted', county: county });
-
-      fetch('/api/schools-to-home-local-snapshot', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name: name, email: email, county: county })
-      })
-        .then(function(r) {
-          if (!r.ok) throw new Error('Request failed');
-          return r.json();
-        })
-        .then(function(data) {
-          lsLoading.hidden = true;
-          lsSubmitBtn.disabled = false;
-
-          document.getElementById('ls-r-price').textContent = currencyFmt.format(data.avgHomePrice);
-          document.getElementById('ls-r-price-note').textContent = data.countyLabel + ' \u2014 ' + data.asOf;
-          document.getElementById('ls-r-assist').textContent =
-            currencyFmt.format(data.estimatedAssistanceLow) + ' \u2013 ' + currencyFmt.format(data.estimatedAssistanceHigh);
-          document.getElementById('ls-r-guardrails').textContent =
-            currencyFmt.format(data.incomeLimit) + ' / ' + data.creditMin;
-          document.getElementById('ls-r-appreciation').textContent =
-            currencyFmt.format(data.appreciationExample.shareOwed) + ' shared appreciation';
-
-          lsResults.hidden = false;
-          lsResults.scrollIntoView({ behavior: 'smooth', block: 'start' });
-
-          dataLayer.push({ event: 'schools_to_home_local_snapshot_revealed', county: county });
-        })
-        .catch(function() {
-          lsLoading.hidden = true;
-          lsSubmitBtn.disabled = false;
-          lsError.hidden = false;
-          lsError.textContent = "We could not load your local numbers just now, but we have your information. A Hero HomeReach consultation can walk through this with you directly.";
-          dataLayer.push({ event: 'schools_to_home_local_snapshot_error', county: county });
-        });
-    });
-  }
 
 })();
 </script>
