@@ -494,6 +494,20 @@
   .ls-result-note { font-size: 12px; color: #888; line-height: 1.5; }
   .ls-results-cta-lead { font-weight: 600; color: var(--navy); margin: 0 0 14px; }
 
+  /* Subtle variant for disclaimers/notices — the base .post-callout
+     styling (defined in the main site CSS) stays bold for emphasis
+     moments; this override is scoped to this modifier class only. */
+  .post-callout--subtle {
+    background: #F7F6F2 !important;
+    border: 1px solid var(--warm-gray) !important;
+    color: #555 !important;
+    padding: 14px 18px !important;
+    border-radius: 8px !important;
+    font-size: 13px !important;
+  }
+  .post-callout--subtle p { color: #555 !important; margin: 0 !important; }
+  .post-callout--subtle strong { color: #444 !important; }
+
   /* ── Print ── */
   @media print {
     body * { visibility: hidden; }
@@ -712,6 +726,74 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div class="snapshot-result" id="snapshot-result" role="region" aria-live="polite" hidden></div>
           </section>
 
+          <section class="local-snapshot-tool" id="local-snapshot" aria-labelledby="local-snapshot-heading">
+            <h2 id="local-snapshot-heading">See What This Looks Like Where You Actually Live</h2>
+            <p class="local-snapshot-intro">Every published program example uses a hypothetical home price. Yours does not have to stay hypothetical. Share your name, email and county, and you will get your county's real average home value alongside three more numbers worth knowing before you go further.</p>
+
+            <form id="local-snapshot-form" class="local-snapshot-form" novalidate>
+              <div class="ls-form-grid">
+                <div class="calc-field">
+                  <label for="ls-name">First name</label>
+                  <input type="text" id="ls-name" name="name" autocomplete="given-name" required>
+                </div>
+                <div class="calc-field">
+                  <label for="ls-email">Email address</label>
+                  <input type="email" id="ls-email" name="email" autocomplete="email" required>
+                </div>
+                <div class="calc-field">
+                  <label for="ls-county">County or school system</label>
+                  <select id="ls-county" name="county" required>
+                    <option value="" disabled selected>Choose your county</option>
+                    <option value="denver">Denver County</option>
+                    <option value="jefferson">Jefferson County</option>
+                    <option value="arapahoe">Arapahoe County</option>
+                    <option value="douglas">Douglas County</option>
+                    <option value="boulder">Boulder County</option>
+                    <option value="elpaso">El Paso County</option>
+                    <option value="larimer">Larimer County</option>
+                    <option value="weld">Weld County</option>
+                    <option value="adams">Adams County</option>
+                    <option value="broomfield">Broomfield County</option>
+                    <option value="other">Somewhere else in Colorado</option>
+                  </select>
+                </div>
+              </div>
+              <button type="submit" class="snapshot-btn-primary" id="ls-submit-btn">Get My Local Snapshot</button>
+              <p class="ls-fineprint">No spam. Just your local numbers, and the option of a follow-up from Hero HomeReach.</p>
+            </form>
+
+            <div id="ls-loading" class="ls-loading" hidden role="status">Pulling your local numbers&hellip;</div>
+            <div id="ls-error" class="ls-error" hidden role="alert"></div>
+
+            <div id="ls-results" class="ls-results" hidden aria-live="polite">
+              <h3 id="ls-results-heading">Your Local Schools To Home Snapshot</h3>
+              <div class="ls-result-grid">
+                <div class="ls-result-card">
+                  <span class="ls-result-label">Average home value</span>
+                  <span class="ls-result-value" id="ls-r-price"></span>
+                  <span class="ls-result-note" id="ls-r-price-note"></span>
+                </div>
+                <div class="ls-result-card">
+                  <span class="ls-result-label">Potential assistance at that price</span>
+                  <span class="ls-result-value" id="ls-r-assist"></span>
+                  <span class="ls-result-note">Up to 25% of a typical first mortgage. Illustrative only, not a loan offer.</span>
+                </div>
+                <div class="ls-result-card">
+                  <span class="ls-result-label">Program guardrails</span>
+                  <span class="ls-result-value" id="ls-r-guardrails"></span>
+                  <span class="ls-result-note">Statewide income limit and minimum credit score, regardless of county.</span>
+                </div>
+                <div class="ls-result-card">
+                  <span class="ls-result-label">If your home gains value later</span>
+                  <span class="ls-result-value" id="ls-r-appreciation"></span>
+                  <span class="ls-result-note">Illustrative example only. Appreciation is never guaranteed.</span>
+                </div>
+              </div>
+              <p class="ls-results-cta-lead">That is four real numbers for your area. The next step is understanding what they actually mean for you.</p>
+              <a href="" class="btn btn-gold btn-arrow" data-cta-location="local-snapshot-result" onclick="hhOpenConsultation('local-snapshot-result');return false;">Book My Free Local Consultation</a>
+            </div>
+          </section>
+
           <h2 id="assistance-amount">What Up to 25% Assistance Could Change</h2>
           <p>Schools To Home may provide a second mortgage worth up to <strong>25% of the CHFA first-mortgage amount</strong>. That assistance may help cover eligible down payment costs, closing costs, prepaid expenses or principal reduction. The assistance supports eligible purchase costs and is not paid to the buyer as leftover cash.</p>
 
@@ -735,7 +817,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div id="print-area">
           <section class="calc-tool" id="possibility-calculator" aria-labelledby="calc-heading">
             <h2 id="calc-heading">What Could Schools To Home Change?</h2>
-            <p>Use your own example to see the possible scale of the assistance and how shared appreciation could work over time.</p>
+            <p>You just saw your county's average numbers. Now try your own: enter your expected purchase price, mortgage amount and assistance to see how shared appreciation could work for your exact situation.</p>
 
             <div class="calc-grid">
               <div class="calc-field">
@@ -842,74 +924,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <p>The "later home value" is measured differently depending on how repayment is triggered. For a sale, it is based on the contract sales price. For a refinance, payoff without a sale, or other maturity event, CHFA uses the home's appraised or fair market value at that time instead.</p>
           <p>Hero HomeReach can help you understand which numbers to request, what they mean and how they may affect your longer-term plan.</p>
 
-          <section class="local-snapshot-tool" id="local-snapshot" aria-labelledby="local-snapshot-heading">
-            <h2 id="local-snapshot-heading">See What This Looks Like Where You Actually Live</h2>
-            <p class="local-snapshot-intro">CHFA's published example uses a $437,500 home. Your county's numbers are probably different. Share your name, email and county, and you will get your county's average home value alongside three more numbers worth knowing before you go further.</p>
-
-            <form id="local-snapshot-form" class="local-snapshot-form" novalidate>
-              <div class="ls-form-grid">
-                <div class="calc-field">
-                  <label for="ls-name">First name</label>
-                  <input type="text" id="ls-name" name="name" autocomplete="given-name" required>
-                </div>
-                <div class="calc-field">
-                  <label for="ls-email">Email address</label>
-                  <input type="email" id="ls-email" name="email" autocomplete="email" required>
-                </div>
-                <div class="calc-field">
-                  <label for="ls-county">County or school system</label>
-                  <select id="ls-county" name="county" required>
-                    <option value="" disabled selected>Choose your county</option>
-                    <option value="denver">Denver County</option>
-                    <option value="jefferson">Jefferson County</option>
-                    <option value="arapahoe">Arapahoe County</option>
-                    <option value="douglas">Douglas County</option>
-                    <option value="boulder">Boulder County</option>
-                    <option value="elpaso">El Paso County</option>
-                    <option value="larimer">Larimer County</option>
-                    <option value="weld">Weld County</option>
-                    <option value="adams">Adams County</option>
-                    <option value="broomfield">Broomfield County</option>
-                    <option value="other">Somewhere else in Colorado</option>
-                  </select>
-                </div>
-              </div>
-              <button type="submit" class="snapshot-btn-primary" id="ls-submit-btn">Get My Local Snapshot</button>
-              <p class="ls-fineprint">No spam. Just your local numbers, and the option of a follow-up from Hero HomeReach.</p>
-            </form>
-
-            <div id="ls-loading" class="ls-loading" hidden role="status">Pulling your local numbers&hellip;</div>
-            <div id="ls-error" class="ls-error" hidden role="alert"></div>
-
-            <div id="ls-results" class="ls-results" hidden aria-live="polite">
-              <h3 id="ls-results-heading">Your Local Schools To Home Snapshot</h3>
-              <div class="ls-result-grid">
-                <div class="ls-result-card">
-                  <span class="ls-result-label">Average home value</span>
-                  <span class="ls-result-value" id="ls-r-price"></span>
-                  <span class="ls-result-note" id="ls-r-price-note"></span>
-                </div>
-                <div class="ls-result-card">
-                  <span class="ls-result-label">Potential assistance at that price</span>
-                  <span class="ls-result-value" id="ls-r-assist"></span>
-                  <span class="ls-result-note">Up to 25% of a typical first mortgage. Illustrative only, not a loan offer.</span>
-                </div>
-                <div class="ls-result-card">
-                  <span class="ls-result-label">Program guardrails</span>
-                  <span class="ls-result-value" id="ls-r-guardrails"></span>
-                  <span class="ls-result-note">Statewide income limit and minimum credit score, regardless of county.</span>
-                </div>
-                <div class="ls-result-card">
-                  <span class="ls-result-label">If your home gains value later</span>
-                  <span class="ls-result-value" id="ls-r-appreciation"></span>
-                  <span class="ls-result-note">Illustrative example only. Appreciation is never guaranteed.</span>
-                </div>
-              </div>
-              <p class="ls-results-cta-lead">That is four real numbers for your area. The next step is understanding what they actually mean for you.</p>
-              <a href="" class="btn btn-gold btn-arrow" data-cta-location="local-snapshot-result" onclick="hhOpenConsultation('local-snapshot-result');return false;">Book My Free Local Consultation</a>
-            </div>
-          </section>
-
           <h2 id="repayment-triggers">How the Long-Term Homeownership Plan Works</h2>
           <p>The second mortgage is deferred, but it does not disappear. Repayment can be triggered when:</p>
           <ul>
@@ -986,7 +1000,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <h3>How do I take the first step?</h3>
           <p>Start with a free Hero HomeReach consultation. We will help you understand the program, organize the right questions and guide you through the next step without asking you to decode the process alone.</p>
 
-          <div class="post-callout">
+          <div class="post-callout post-callout--subtle">
             <p><strong>Educational notice:</strong> Hero HomeReach is an independent Colorado homebuyer education resource. Program terms, availability and individual results may change. A Hero HomeReach consultation is designed to help you understand current information, organize your questions and explore the safest next step for your situation.</p>
           </div>
 
@@ -1040,6 +1054,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <ul class="toc-list">
             <li><a href="#who-qualifies-role">Who Actually Qualifies</a></li>
             <li><a href="#opportunity-snapshot">Could This Include You?</a></li>
+            <li><a href="#local-snapshot">Your Local Snapshot</a></li>
             <li><a href="#assistance-amount">How Much Assistance</a></li>
             <li><a href="#possibility-calculator">Try the Calculator</a></li>
             <li><a href="#how-it-works">How the Second Mortgage Works</a></li>
@@ -1066,7 +1081,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </div>
           <div class="related-post-item">
             <a href="/blog/colorado-champions-home-loan-program/" class="related-post-thumb-link">
-              <img src="/blog/colorado-champions-home-loan-program.png" alt="Colorado Champions Home Loan Program" class="related-post-thumb-img">
+              <img src="/blog/colorado-champions-home-loan-program/hero-social.jpg" alt="Colorado Champions Home Loan Program" class="related-post-thumb-img">
             </a>
             <div>
               <a href="/blog/colorado-champions-home-loan-program/" class="related-post-title">Colorado Champions Home Loan Program Explained</a>
@@ -1075,7 +1090,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </div>
           <div class="related-post-item">
             <a href="/blog/chfa-homeaccess-colorado-disability-homebuyer-help/" class="related-post-thumb-link">
-              <img src="/blog/chfa-homeaccess-colorado-disability-homebuyer-help.png" alt="CHFA HomeAccess Colorado Disability Homebuyer Help" class="related-post-thumb-img">
+              <img src="/blog/chfa-homeaccess-colorado-disability-homebuyer-help/chfa-homeaccess-colorado-disability-homebuyer-help-hero.webp" alt="CHFA HomeAccess Colorado Disability Homebuyer Help" class="related-post-thumb-img">
             </a>
             <div>
               <a href="/blog/chfa-homeaccess-colorado-disability-homebuyer-help/" class="related-post-title">CHFA HomeAccess: Disability Homebuyer Help in Colorado</a>
@@ -1318,9 +1333,9 @@ document.querySelectorAll('.toc-list a').forEach(link => {
 
   var snapshotResultContent = {
     A: {
-      heading: 'This Program May Deserve a Closer Look',
-      copy: 'Several parts of your snapshot line up with the current starting guidelines. The next step is not decoding more program documents. It is looking at your school role, income, credit picture and homebuying goals together.',
-      button: 'Explore What This Could Mean for Me'
+      heading: 'You Look Like Who This Program Was Built For',
+      copy: 'Your school role, income range and credit picture all line up with the current starting guidelines. That is not a guarantee, but it is a real starting position, and most people in your shoes are closer to a home than they realize. The next step is turning these answers into your actual numbers.',
+      button: 'Turn This Into My Real Numbers'
     },
     B: {
       heading: 'One Part of the Picture Needs Clarification',
