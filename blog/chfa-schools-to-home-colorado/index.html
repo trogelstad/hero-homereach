@@ -398,7 +398,7 @@
   .calc-interpretation, .calc-repayment-note {
     font-size: 14px; color: #444; margin-top: 14px; line-height: 1.7;
   }
-  .calc-cta-buttons { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+  .calc-print-row { margin-top: 18px; }
 
   /* ══════════════════════════════════════════════
      BUILD 3 — Readiness Checklist
@@ -712,14 +712,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div class="snapshot-result" id="snapshot-result" role="region" aria-live="polite" hidden></div>
           </section>
 
-          <div class="post-cta-strip">
-            <div>
-              <h3>Could This Program Include You?</h3>
-              <p>Your school role may open a homebuyer path you did not know existed. A free Hero HomeReach consultation can help you explore the program, understand the current guidelines and see what questions matter for your situation.</p>
-            </div>
-            <a href="" class="btn btn-gold btn-arrow" data-cta-location="cta-role-grid" onclick="hhOpenConsultation('cta-role-grid');return false;">See What This Could Look Like for Me</a>
-          </div>
-
           <h2 id="assistance-amount">What Up to 25% Assistance Could Change</h2>
           <p>Schools To Home may provide a second mortgage worth up to <strong>25% of the CHFA first-mortgage amount</strong>. That assistance may help cover eligible down payment costs, closing costs, prepaid expenses or principal reduction. The assistance supports eligible purchase costs and is not paid to the buyer as leftover cash.</p>
 
@@ -788,15 +780,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <p class="calc-repayment-note" id="calc-repayment-note"></p>
             </div>
 
-            <div class="post-cta-strip no-print" id="calc-cta">
-              <div>
-                <h3>Want Help Understanding These Numbers?</h3>
-                <p>A free Hero HomeReach consultation can help you look at this example alongside your school role, income, credit picture and preferred Colorado communities.</p>
-              </div>
-              <div class="calc-cta-buttons">
-                <a href="" class="btn btn-gold btn-arrow" data-cta-location="calculator" onclick="hhOpenConsultation('calculator');return false;">Book My Free School Employee Consultation</a>
-                <button type="button" class="btn-outline" id="calc-print">Print My Example</button>
-              </div>
+            <div class="calc-print-row no-print">
+              <button type="button" class="btn-outline" id="calc-print">Print My Example</button>
             </div>
           </section>
 
@@ -933,7 +918,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <li>The home is no longer your primary residence</li>
             <li>The second mortgage reaches the end of its term</li>
           </ul>
-          <p>Refinancing can trigger repayment of the assistance and the applicable appreciation share. Because the CHFA DPA Second Mortgage Loan generally does not allow subordinate financing, a refinance of the first mortgage typically requires paying off the second mortgage and any shared-appreciation amount at that time, rather than leaving it in place. That makes future plans worth understanding before you move forward, and Hero HomeReach can help you organize those questions.</p>
+          <p>Refinancing can trigger repayment of the assistance and the applicable appreciation share. Because the CHFA DPA Second Mortgage Loan generally does not allow subordinate financing, a refinance of the first mortgage typically requires paying off the second mortgage and any shared-appreciation amount at that time, rather than leaving it in place.</p>
           <p>If the home's value stays flat or declines, any negative appreciation is treated as 0% appreciation, so no shared-appreciation amount is added on top of the original assistance. The original assistance itself still remains part of the long-term repayment plan.</p>
 
           <h2 id="requirements">A Few Starting Points to Explore</h2>
@@ -946,7 +931,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <li>Each borrower completes CHFA-approved homebuyer education and the additional <strong>Understanding Your Financial Commitment</strong> course.</li>
             <li>A minimum $1,000 financial contribution is required, and an eligible gift may be used.</li>
           </ul>
-          <p>Unsure how these pieces apply to you? That is exactly what the free Hero HomeReach consultation is designed to help you explore.</p>
+          <p>These are starting points, not a final answer. A short conversation is usually faster than trying to piece it together alone.</p>
 
           <h2 id="is-it-right-for-you">When This Program May Be Worth Exploring</h2>
           <p>Schools To Home may be especially compelling when:</p>
@@ -957,7 +942,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <li>The assistance meaningfully changes the homes you can consider</li>
             <li>You understand the future repayment and appreciation-sharing terms</li>
           </ul>
-          <p>Every household's picture is different, and Hero HomeReach can help you weigh this alongside your specific goals, income and credit picture.</p>
+          <p>Every household's picture is different, and none of this is a guess you have to make alone.</p>
 
           <h2 id="first-steps">Your First Step Does Not Have to Be Complicated</h2>
           <p>You do not need to master every mortgage rule before allowing yourself to imagine a home.</p>
