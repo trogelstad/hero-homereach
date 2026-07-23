@@ -332,6 +332,7 @@
   }
   .snapshot-result-card h3 { color: #fff; margin-top: 0; }
   .snapshot-result-card p { color: rgba(255,255,255,0.8); }
+  .snapshot-result-loading p { margin: 0; color: rgba(255,255,255,0.85); font-style: italic; }
   .snapshot-result-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 16px; }
   .snapshot-restart {
     background: none; border: 1px solid rgba(255,255,255,0.3); color: #fff;
@@ -665,7 +666,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <h3>Could This Program Include You?</h3>
               <p>Your school role may open a homebuyer path you did not know existed. A free Hero HomeReach consultation can help you explore the program, understand the current guidelines and see what questions matter for your situation.</p>
             </div>
-            <a href="../../contact" class="btn btn-gold btn-arrow" data-cta-location="cta-role-grid">See What This Could Look Like for Me</a>
+            <a href="" class="btn btn-gold btn-arrow" data-cta-location="cta-role-grid" onclick="hhOpenConsultation('cta-role-grid');return false;">See What This Could Look Like for Me</a>
           </div>
 
           <h2 id="assistance-amount">What Up to 25% Assistance Could Change</h2>
@@ -742,7 +743,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <p>A free Hero HomeReach consultation can help you look at this example alongside your school role, income, credit picture and preferred Colorado communities.</p>
               </div>
               <div class="calc-cta-buttons">
-                <a href="../../contact" class="btn btn-gold btn-arrow" data-cta-location="calculator">Book My Free School Employee Consultation</a>
+                <a href="" class="btn btn-gold btn-arrow" data-cta-location="calculator" onclick="hhOpenConsultation('calculator');return false;">Book My Free School Employee Consultation</a>
                 <button type="button" class="btn-outline" id="calc-print">Print My Example</button>
               </div>
             </div>
@@ -759,7 +760,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <li>Preferred Colorado city, county and purchase timeline</li>
             </ul>
             <p>You do not need perfect numbers before scheduling. A rough snapshot is enough to begin a useful conversation.</p>
-            <a href="../../contact" class="btn btn-gold btn-arrow no-print" data-cta-location="checklist">Schedule My Free Consultation</a>
+            <a href="" class="btn btn-gold btn-arrow no-print" data-cta-location="checklist" onclick="hhOpenConsultation('checklist');return false;">Schedule My Free Consultation</a>
           </section>
           </div>
           <!-- /print-area -->
@@ -914,7 +915,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <h3>Your Path Home May Be Worth Exploring Now</h3>
             <p>Every school employee's situation is different. A free Hero HomeReach consultation can help you see whether this path fits your income, credit, school role and preferred Colorado communities.</p>
           </div>
-          <a href="../../contact" class="btn btn-gold btn-arrow" data-cta-location="cta-final">Explore My Next Step</a>
+          <a href="" class="btn btn-gold btn-arrow" data-cta-location="cta-final" onclick="hhOpenConsultation('cta-final');return false;">Explore My Next Step</a>
         </div>
 
       </article>
@@ -926,7 +927,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="sidebar-card sidebar-card-hide-mobile">
           <div class="sidebar-card-title">Free Consultation</div>
           <p>Your school role may open a path you did not know existed. Book a free 30-minute call, no obligation, no pressure.</p>
-          <a href="../../contact" class="btn btn-gold btn-arrow" data-cta-location="sidebar">Book My Free Call</a>
+          <a href="" class="btn btn-gold btn-arrow" data-cta-location="sidebar" onclick="hhOpenConsultation('sidebar');return false;">Book My Free Call</a>
         </div>
 
         <div class="sidebar-card">
@@ -1034,7 +1035,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- ════════════ BUILD 4: MOBILE STICKY CTA ════════════ -->
 <div id="mobile-sticky-cta" class="mobile-sticky-cta no-print" hidden>
   <span class="mobile-sticky-text">School employee? Explore this program.</span>
-  <a href="../../contact" class="mobile-sticky-btn" id="mobile-sticky-link">Free Consultation</a>
+  <a href="" class="mobile-sticky-btn" id="mobile-sticky-link" onclick="hhOpenMobileConsultation();return false;">Free Consultation</a>
   <button type="button" class="mobile-sticky-close" id="mobile-sticky-close" aria-label="Close">&times;</button>
 </div>
 
@@ -1096,6 +1097,33 @@ document.querySelectorAll('.toc-list a').forEach(link => {
 (function() {
   'use strict';
   window.dataLayer = window.dataLayer || [];
+
+  var CALENDLY_URL = 'https://calendly.com/trogelstad-herohomereach/30min?hide_gdpr_banner=1&primary_color=0C2D5E';
+
+  /* ───────────────────────────────────────────────
+     CONSULTATION CTAs — open Calendly popup instead
+     of navigating to /contact. Exposed on window so
+     inline onclick="" attributes can reach them.
+  ─────────────────────────────────────────────── */
+  window.hhOpenConsultation = function(location) {
+    dataLayer.push({ event: 'schools_to_home_consultation_clicked', link_location: location || 'unspecified' });
+    if (window.Calendly && typeof window.Calendly.initPopupWidget === 'function') {
+      window.Calendly.initPopupWidget({ url: CALENDLY_URL });
+    } else {
+      window.location.href = '../../contact';
+    }
+    return false;
+  };
+
+  window.hhOpenMobileConsultation = function() {
+    dataLayer.push({ event: 'schools_to_home_mobile_cta_clicked' });
+    if (window.Calendly && typeof window.Calendly.initPopupWidget === 'function') {
+      window.Calendly.initPopupWidget({ url: CALENDLY_URL });
+    } else {
+      window.location.href = '../../contact';
+    }
+    return false;
+  };
 
   /* ───────────────────────────────────────────────
      BUILD 1: OPPORTUNITY SNAPSHOT
@@ -1203,20 +1231,16 @@ document.querySelectorAll('.toc-list a').forEach(link => {
 
   function snapshotShowResult() {
     var resultKey = snapshotComputeResult(snapshotAnswers);
-    var content = snapshotResultContent[resultKey];
 
     snapshotForm.hidden = true;
     document.querySelector('.snapshot-progress').hidden = true;
     snapshotStepLabel.hidden = true;
 
+    // Loading state while the personalized snapshot is generated.
     snapshotResult.innerHTML =
-      '<div class="snapshot-result-card">' +
-      '<h3>' + content.heading + '</h3>' +
-      '<p>' + content.copy + '</p>' +
-      '<div class="snapshot-result-actions">' +
-      '<a href="../../contact" class="btn btn-gold btn-arrow" data-cta-location="snapshot-result">' + content.button + '</a>' +
-      '<button type="button" class="snapshot-restart" id="snapshot-restart">Start Over</button>' +
-      '</div></div>';
+      '<div class="snapshot-result-card snapshot-result-loading">' +
+      '<p>Preparing your personalized snapshot…</p>' +
+      '</div>';
     snapshotResult.hidden = false;
 
     if (!snapshotCompleted) {
@@ -1231,12 +1255,53 @@ document.querySelectorAll('.toc-list a').forEach(link => {
       });
     }
 
-    var resultCta = snapshotResult.querySelector('a[data-cta-location="snapshot-result"]');
-    if (resultCta) {
-      resultCta.addEventListener('click', function() {
-        dataLayer.push({ event: 'schools_to_home_consultation_clicked', link_location: 'snapshot-result' });
+    // Ask the Schools To Home AI snapshot endpoint for personalized prose.
+    // No name or email is sent — only the four categorical answers.
+    fetch('/api/schools-to-home-snapshot', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        schoolEmployment: snapshotAnswers.q1,
+        roleCategory: snapshotAnswers.q2,
+        incomeRange: snapshotAnswers.q3,
+        creditRange: snapshotAnswers.q4,
+        resultHint: resultKey
+      })
+    })
+      .then(function(response) {
+        if (!response.ok) throw new Error('Snapshot API ' + response.status);
+        return response.json();
+      })
+      .then(function(data) {
+        snapshotRenderResult(resultKey, data && data.result);
+      })
+      .catch(function(err) {
+        // AI endpoint unavailable (not deployed yet, network issue, etc.)
+        // Fall back to the static, pre-approved copy so the tool never breaks.
+        console.error('[Schools To Home Snapshot] Falling back to static copy:', err);
+        snapshotRenderResult(resultKey, null);
       });
+  }
+
+  function snapshotRenderResult(resultKey, aiText) {
+    var content = snapshotResultContent[resultKey];
+    var bodyHtml;
+
+    if (aiText && aiText.trim()) {
+      bodyHtml = aiText.trim().split(/\n\n+/).filter(function(p) { return p.trim(); })
+        .map(function(p) { return '<p>' + p.trim() + '</p>'; }).join('');
+    } else {
+      bodyHtml = '<p>' + content.copy + '</p>';
     }
+
+    snapshotResult.innerHTML =
+      '<div class="snapshot-result-card">' +
+      '<h3>' + content.heading + '</h3>' +
+      bodyHtml +
+      '<div class="snapshot-result-actions">' +
+      '<a href="" class="btn btn-gold btn-arrow" onclick="hhOpenConsultation(\'snapshot-result\');return false;">' + content.button + '</a>' +
+      '<button type="button" class="snapshot-restart" id="snapshot-restart">Start Over</button>' +
+      '</div></div>';
 
     document.getElementById('snapshot-restart').addEventListener('click', snapshotReset);
   }
@@ -1446,11 +1511,8 @@ document.querySelectorAll('.toc-list a').forEach(link => {
     });
   }
 
-  if (mobileCtaLink) {
-    mobileCtaLink.addEventListener('click', function() {
-      dataLayer.push({ event: 'schools_to_home_mobile_cta_clicked' });
-    });
-  }
+  // mobile-sticky-link click (open Calendly + fire event) is handled by
+  // window.hhOpenMobileConsultation() via inline onclick, defined above.
 
   /* ───────────────────────────────────────────────
      BUILD 5: GTM EVENTS — remaining consultation/guide links
