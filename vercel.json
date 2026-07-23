@@ -7,8 +7,8 @@
     { "source": "/who-we-serve.html", "destination": "/who-we-serve", "permanent": true },
     { "source": "/about.html", "destination": "/about", "permanent": true },
     { "source": "/contact.html", "destination": "/contact", "permanent": true },
-    { "source": "/quiz", "destination": "/tools/quiz/", "permanent": true },
-    { "source": "/quiz.html", "destination": "/tools/quiz/", "permanent": true }
+    { "source": "/quiz", "destination": "/tools/quiz", "permanent": true },
+    { "source": "/quiz.html", "destination": "/tools/quiz", "permanent": true }
   ],
   "headers": [
     {
