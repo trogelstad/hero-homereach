@@ -253,6 +253,10 @@
   .calc-tool button:focus-visible,
   .calc-tool input:focus-visible,
   .checklist-tool a:focus-visible,
+  .local-snapshot-tool a:focus-visible,
+  .local-snapshot-tool button:focus-visible,
+  .local-snapshot-tool input:focus-visible,
+  .local-snapshot-tool select:focus-visible,
   .mobile-sticky-cta a:focus-visible,
   .mobile-sticky-cta button:focus-visible {
     outline: 3px solid var(--bright-gold);
@@ -443,6 +447,53 @@
     body.mobile-cta-visible .post-cta-strip:last-of-type { margin-bottom: 76px; }
   }
 
+  /* ══════════════════════════════════════════════
+     BUILD 6 — Local Snapshot Lead Form
+  ══════════════════════════════════════════════ */
+  .local-snapshot-tool {
+    margin: 36px 0;
+    padding: 32px;
+    border-radius: 14px;
+    background: #FAFBFD;
+    border: 1px solid var(--warm-gray);
+  }
+  .local-snapshot-tool h2 { margin-top: 0; }
+  .local-snapshot-intro { color: #444; }
+  .ls-form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 18px;
+    margin: 20px 0 18px;
+  }
+  .ls-form-grid select {
+    width: 100%; padding: 12px 14px; border: 1px solid var(--warm-gray);
+    border-radius: 8px; font-size: 15px; font-family: 'Inter', sans-serif; color: var(--near-black);
+    background: #fff;
+  }
+  .ls-form-grid select:focus, .ls-form-grid input:focus { border-color: var(--navy); }
+  .ls-fineprint { font-size: 12px; color: #888; margin: 10px 0 0; }
+  .ls-loading { margin-top: 18px; font-size: 14px; color: #666; font-style: italic; }
+  .ls-error {
+    margin-top: 18px; padding: 14px 16px; border-radius: 8px;
+    background: #FDF2F2; border: 1px solid #F0C6C6; color: #7A2E2E; font-size: 14px;
+  }
+  .ls-results { margin-top: 24px; }
+  .ls-results h3 { color: var(--navy); margin-top: 0; }
+  .ls-result-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+    margin: 18px 0 22px;
+  }
+  .ls-result-card {
+    display: flex; flex-direction: column; gap: 6px;
+    padding: 20px; border-radius: 10px; background: #fff; border: 1px solid var(--warm-gray);
+  }
+  .ls-result-label { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.03em; color: #888; }
+  .ls-result-value { font-family: var(--font-head, 'Playfair Display', Georgia, serif); font-size: 24px; font-weight: 700; color: var(--navy); }
+  .ls-result-note { font-size: 12px; color: #888; line-height: 1.5; }
+  .ls-results-cta-lead { font-weight: 600; color: var(--navy); margin: 0 0 14px; }
+
   /* ── Print ── */
   @media print {
     body * { visibility: hidden; }
@@ -455,7 +506,7 @@
   @media (max-width: 768px) {
     .post-article, .post-body { min-width: 0; max-width: 100%; overflow-x: hidden; }
     .post-example { padding: 20px; }
-    .snapshot-tool, .calc-tool, .checklist-tool { padding: 22px 18px; }
+    .snapshot-tool, .calc-tool, .checklist-tool, .local-snapshot-tool { padding: 22px 18px; }
   }
   @media (max-width: 768px) {
     .sidebar-card-hide-mobile { display: none; }
@@ -805,6 +856,74 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <p>The $87,500 assistance equals 25% of the $350,000 first mortgage, and 20% of the $437,500 purchase price. In this example, the appreciation share is 20%.</p>
           <p>The "later home value" is measured differently depending on how repayment is triggered. For a sale, it is based on the contract sales price. For a refinance, payoff without a sale, or other maturity event, CHFA uses the home's appraised or fair market value at that time instead.</p>
           <p>Hero HomeReach can help you understand which numbers to request, what they mean and how they may affect your longer-term plan.</p>
+
+          <section class="local-snapshot-tool" id="local-snapshot" aria-labelledby="local-snapshot-heading">
+            <h2 id="local-snapshot-heading">See What This Looks Like Where You Actually Live</h2>
+            <p class="local-snapshot-intro">CHFA's published example uses a $437,500 home. Your county's numbers are probably different. Share your name, email and county, and you will get your county's average home value alongside three more numbers worth knowing before you go further.</p>
+
+            <form id="local-snapshot-form" class="local-snapshot-form" novalidate>
+              <div class="ls-form-grid">
+                <div class="calc-field">
+                  <label for="ls-name">First name</label>
+                  <input type="text" id="ls-name" name="name" autocomplete="given-name" required>
+                </div>
+                <div class="calc-field">
+                  <label for="ls-email">Email address</label>
+                  <input type="email" id="ls-email" name="email" autocomplete="email" required>
+                </div>
+                <div class="calc-field">
+                  <label for="ls-county">County or school system</label>
+                  <select id="ls-county" name="county" required>
+                    <option value="" disabled selected>Choose your county</option>
+                    <option value="denver">Denver County</option>
+                    <option value="jefferson">Jefferson County</option>
+                    <option value="arapahoe">Arapahoe County</option>
+                    <option value="douglas">Douglas County</option>
+                    <option value="boulder">Boulder County</option>
+                    <option value="elpaso">El Paso County</option>
+                    <option value="larimer">Larimer County</option>
+                    <option value="weld">Weld County</option>
+                    <option value="adams">Adams County</option>
+                    <option value="broomfield">Broomfield County</option>
+                    <option value="other">Somewhere else in Colorado</option>
+                  </select>
+                </div>
+              </div>
+              <button type="submit" class="snapshot-btn-primary" id="ls-submit-btn">Get My Local Snapshot</button>
+              <p class="ls-fineprint">No spam. Just your local numbers, and the option of a follow-up from Hero HomeReach.</p>
+            </form>
+
+            <div id="ls-loading" class="ls-loading" hidden role="status">Pulling your local numbers&hellip;</div>
+            <div id="ls-error" class="ls-error" hidden role="alert"></div>
+
+            <div id="ls-results" class="ls-results" hidden aria-live="polite">
+              <h3 id="ls-results-heading">Your Local Schools To Home Snapshot</h3>
+              <div class="ls-result-grid">
+                <div class="ls-result-card">
+                  <span class="ls-result-label">Average home value</span>
+                  <span class="ls-result-value" id="ls-r-price"></span>
+                  <span class="ls-result-note" id="ls-r-price-note"></span>
+                </div>
+                <div class="ls-result-card">
+                  <span class="ls-result-label">Potential assistance at that price</span>
+                  <span class="ls-result-value" id="ls-r-assist"></span>
+                  <span class="ls-result-note">Up to 25% of a typical first mortgage. Illustrative only, not a loan offer.</span>
+                </div>
+                <div class="ls-result-card">
+                  <span class="ls-result-label">Program guardrails</span>
+                  <span class="ls-result-value" id="ls-r-guardrails"></span>
+                  <span class="ls-result-note">Statewide income limit and minimum credit score, regardless of county.</span>
+                </div>
+                <div class="ls-result-card">
+                  <span class="ls-result-label">If your home gains value later</span>
+                  <span class="ls-result-value" id="ls-r-appreciation"></span>
+                  <span class="ls-result-note">Illustrative example only. Appreciation is never guaranteed.</span>
+                </div>
+              </div>
+              <p class="ls-results-cta-lead">That is four real numbers for your area. The next step is understanding what they actually mean for you.</p>
+              <a href="" class="btn btn-gold btn-arrow" data-cta-location="local-snapshot-result" onclick="hhOpenConsultation('local-snapshot-result');return false;">Book My Free Local Consultation</a>
+            </div>
+          </section>
 
           <h2 id="repayment-triggers">How the Long-Term Homeownership Plan Works</h2>
           <p>The second mortgage is deferred, but it does not disappear. Repayment can be triggered when:</p>
@@ -1536,6 +1655,80 @@ document.querySelectorAll('.toc-list a').forEach(link => {
       });
     });
   });
+
+  /* ───────────────────────────────────────────────
+     BUILD 6: LOCAL SNAPSHOT LEAD FORM
+  ─────────────────────────────────────────────── */
+  var lsForm = document.getElementById('local-snapshot-form');
+  var lsLoading = document.getElementById('ls-loading');
+  var lsError = document.getElementById('ls-error');
+  var lsResults = document.getElementById('ls-results');
+  var lsSubmitBtn = document.getElementById('ls-submit-btn');
+  var lsStarted = false;
+
+  if (lsForm) {
+    lsForm.addEventListener('focusin', function() {
+      if (lsStarted) return;
+      lsStarted = true;
+      dataLayer.push({ event: 'schools_to_home_local_snapshot_started' });
+    });
+
+    lsForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      var name = document.getElementById('ls-name').value.trim();
+      var email = document.getElementById('ls-email').value.trim();
+      var county = document.getElementById('ls-county').value;
+
+      if (!name || !email || !county) {
+        lsError.hidden = false;
+        lsError.textContent = 'Please fill in your name, email and county.';
+        return;
+      }
+
+      lsError.hidden = true;
+      lsResults.hidden = true;
+      lsLoading.hidden = false;
+      lsSubmitBtn.disabled = true;
+
+      dataLayer.push({ event: 'schools_to_home_local_snapshot_submitted', county: county });
+
+      fetch('/api/schools-to-home-local-snapshot', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name: name, email: email, county: county })
+      })
+        .then(function(r) {
+          if (!r.ok) throw new Error('Request failed');
+          return r.json();
+        })
+        .then(function(data) {
+          lsLoading.hidden = true;
+          lsSubmitBtn.disabled = false;
+
+          document.getElementById('ls-r-price').textContent = currencyFmt.format(data.avgHomePrice);
+          document.getElementById('ls-r-price-note').textContent = data.countyLabel + ' \u2014 ' + data.asOf;
+          document.getElementById('ls-r-assist').textContent =
+            currencyFmt.format(data.estimatedAssistanceLow) + ' \u2013 ' + currencyFmt.format(data.estimatedAssistanceHigh);
+          document.getElementById('ls-r-guardrails').textContent =
+            currencyFmt.format(data.incomeLimit) + ' / ' + data.creditMin;
+          document.getElementById('ls-r-appreciation').textContent =
+            currencyFmt.format(data.appreciationExample.shareOwed) + ' shared appreciation';
+
+          lsResults.hidden = false;
+          lsResults.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+          dataLayer.push({ event: 'schools_to_home_local_snapshot_revealed', county: county });
+        })
+        .catch(function() {
+          lsLoading.hidden = true;
+          lsSubmitBtn.disabled = false;
+          lsError.hidden = false;
+          lsError.textContent = "We could not load your local numbers just now, but we have your information. A Hero HomeReach consultation can walk through this with you directly.";
+          dataLayer.push({ event: 'schools_to_home_local_snapshot_error', county: county });
+        });
+    });
+  }
 
 })();
 </script>
