@@ -1,12 +1,12 @@
 /* ============================================================
-   HERO HOMEREACH — blog.css
+   HERO HOMEREACH  -  blog.css
    Blog index (blog/index.html) and individual post pages.
    Always load AFTER main.css.
    Last updated: 2026-05-30
    ============================================================ */
 
 /* ════════════════════════════════
-   BLOG INDEX — Post Grid
+   BLOG INDEX  -  Post Grid
 ════════════════════════════════ */
 .blog-grid {
   display: grid;
@@ -359,7 +359,7 @@
 .post-callout p:last-of-type { margin-bottom: 0; }
 .post-callout strong { color: var(--gold); }
 
-/* Subtle modifier — for fine-print / legal-adjacent notes that should read
+/* Subtle modifier  -  for fine-print / legal-adjacent notes that should read
    as a quiet footnote, not a highlighted box competing with real content. */
 .post-callout--subtle {
   background: transparent;
@@ -568,7 +568,7 @@
 /* ── Callout link fix ──────────────────────────────
    Links inside navy .post-callout boxes need gold
    color so they are readable against the dark bg.
-   Also applies to the light-gold variant callouts —
+   Also applies to the light-gold variant callouts  - 
    gold links remain consistent and on-brand there.
    ─────────────────────────────────────────────────── */
 .post-callout a {
