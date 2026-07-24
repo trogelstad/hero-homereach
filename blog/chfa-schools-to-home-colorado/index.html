@@ -264,10 +264,8 @@
   .snapshot-tool a:focus-visible,
   .snapshot-tool button:focus-visible,
   .snapshot-tool input:focus-visible,
-  .calc-tool a:focus-visible,
-  .calc-tool button:focus-visible,
-  .calc-tool input:focus-visible,
   .checklist-tool a:focus-visible,
+  .checklist-tool button:focus-visible,
   .mobile-sticky-cta a:focus-visible,
   .mobile-sticky-cta button:focus-visible {
     outline: 3px solid var(--bright-gold);
@@ -366,17 +364,42 @@
   .snapshot-result-local-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.03em; color: rgba(255,255,255,0.6); }
   .snapshot-result-local-value { font-family: var(--font-head, 'Playfair Display', Georgia, serif); font-size: 20px; font-weight: 700; color: #fff; }
   .snapshot-result-local-note { font-size: 11px; color: rgba(255,255,255,0.55); line-height: 1.5; }
+  @keyframes snapshotResultPop {
+    0% { opacity: 0; transform: translateY(14px) scale(0.98); }
+    100% { opacity: 1; transform: translateY(0) scale(1); }
+  }
   .snapshot-result-card {
-    padding: 26px 28px;
-    border-radius: 12px;
+    padding: 36px 34px;
+    border-radius: 16px;
     background: linear-gradient(155deg, var(--navy) 0%, var(--mid-navy, #1A4A8A) 100%);
     color: #fff;
-    box-shadow: 0 10px 30px rgba(12,45,94,0.25);
+    box-shadow: 0 18px 46px rgba(12,45,94,0.32);
+    animation: snapshotResultPop 0.5s cubic-bezier(0.22,1,0.36,1);
   }
-  .snapshot-result-card h3 { color: #fff; margin-top: 0; }
-  .snapshot-result-card p { color: rgba(255,255,255,0.8); }
+  .snapshot-result-eyebrow {
+    display: inline-block;
+    font-size: 11px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--bright-gold, #EAB84A);
+    background: rgba(234,184,74,0.14);
+    border: 1px solid rgba(234,184,74,0.35);
+    padding: 6px 14px; border-radius: 999px;
+    margin-bottom: 16px;
+  }
+  .snapshot-result-card h3 {
+    color: #fff; margin-top: 0; margin-bottom: 14px;
+    font-size: clamp(24px, 3.4vw, 32px);
+    line-height: 1.2;
+    background: linear-gradient(90deg, #ffffff 55%, var(--bright-gold, #EAB84A) 100%);
+    -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; color: transparent;
+  }
+  .snapshot-result-card p { color: rgba(255,255,255,0.85); font-size: 16px; line-height: 1.65; }
   .snapshot-result-loading p { margin: 0; color: rgba(255,255,255,0.85); font-style: italic; }
-  .snapshot-result-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 16px; }
+  .snapshot-result-numbers-label {
+    font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em;
+    color: rgba(255,255,255,0.55); margin: 22px 0 10px;
+  }
+  .snapshot-result-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 22px; }
+  .snapshot-result-actions .btn-gold { font-size: 16px; padding: 15px 26px; }
   .snapshot-restart {
     background: none; border: 1px solid rgba(255,255,255,0.3); color: #fff;
     font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 600;
@@ -384,73 +407,25 @@
   }
   .snapshot-restart:hover { border-color: var(--bright-gold); color: var(--bright-gold); }
 
-  /* ══════════════════════════════════════════════
-     BUILD 2 — Possibility Calculator
-  ══════════════════════════════════════════════ */
-  .calc-tool {
-    margin: 36px 0;
-    padding: 32px;
-    border-radius: 14px;
-    background: #FAFBFD;
-    border: 1px solid var(--warm-gray);
-    box-shadow: 0 4px 20px rgba(12,45,94,0.06);
-  }
-  .calc-tool h2 { margin-top: 0; }
-  .calc-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 18px;
-    margin: 24px 0;
-  }
+  /* Shared field styling reused by the quiz's final contact step */
   .calc-field label {
     display: block; font-size: 13px; font-weight: 700; color: var(--navy);
     margin-bottom: 8px;
   }
-  .calc-field-wrap { position: relative; }
-  .calc-field-wrap .calc-prefix {
-    position: absolute; left: 14px; top: 50%; transform: translateY(-50%);
-    color: #888; font-size: 15px; pointer-events: none;
-  }
   .calc-field input {
-    width: 100%; padding: 12px 14px 12px 26px; border: 1px solid var(--warm-gray);
+    width: 100%; padding: 12px 14px; border: 1px solid var(--warm-gray);
     border-radius: 8px; font-size: 16px; font-family: 'Inter', sans-serif; color: var(--near-black);
   }
   .calc-field input:focus { border-color: var(--navy); }
-  .calc-hint { display: block; font-size: 12px; color: #888; margin-top: 6px; }
-  .calc-actions { margin: 8px 0 24px; }
   .btn-outline {
     display: inline-block; background: transparent; color: var(--navy);
     border: 2px solid var(--navy); font-family: 'Inter', sans-serif; font-weight: 700;
     font-size: 14px; padding: 12px 22px; border-radius: 8px; cursor: pointer;
   }
   .btn-outline:hover { background: var(--navy); color: #fff; }
-  .calc-results {
-    padding: 24px 26px; border-radius: 12px; background: #fff; border: 1px solid var(--warm-gray);
-    margin-bottom: 24px;
-  }
-  .calc-result-row {
-    display: flex; justify-content: space-between; gap: 12px;
-    padding: 10px 0; border-bottom: 1px solid rgba(0,0,0,0.06); font-size: 15px;
-  }
-  .calc-result-row:last-of-type { border-bottom: none; }
-  .calc-result-row span:first-child { color: #555; }
-  .calc-result-row span:last-child { font-weight: 700; color: var(--navy); }
-  .calc-interpretation, .calc-repayment-note {
-    font-size: 14px; color: #444; margin-top: 14px; line-height: 1.7;
-  }
-  .calc-print-row {
-    margin-top: 22px;
-    padding-top: 18px;
-    border-top: 1px solid rgba(0,0,0,0.06);
-    display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
-  }
-  .calc-print-row::before {
-    content: 'Want a copy to bring with you?';
-    font-size: 13px; color: #888; font-style: italic;
-  }
 
   /* ══════════════════════════════════════════════
-     BUILD 3 — Readiness Checklist
+     Readiness Checklist
   ══════════════════════════════════════════════ */
   .checklist-tool {
     margin: 36px 0 20px;
@@ -461,6 +436,7 @@
     box-shadow: 0 4px 20px rgba(12,45,94,0.05);
   }
   .checklist-tool h2 { margin-top: 0; }
+  .checklist-actions { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; margin-top: 20px; }
   .checklist-list { margin: 20px 0 22px; padding: 0; list-style: none; }
   .checklist-list li {
     position: relative;
@@ -525,7 +501,7 @@
   @media (max-width: 768px) {
     .post-article, .post-body { min-width: 0; max-width: 100%; overflow-x: hidden; }
     .post-example { padding: 20px; }
-    .snapshot-tool, .calc-tool, .checklist-tool { padding: 22px 18px; }
+    .snapshot-tool, .checklist-tool { padding: 22px 18px; }
   }
   @media (max-width: 768px) {
     .sidebar-card-hide-mobile { display: none; }
@@ -724,15 +700,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <legend>Last step: where should we send your personalized snapshot?</legend>
                 <div class="calc-field">
                   <label for="snapshot-name">First name</label>
-                  <input type="text" id="snapshot-name" name="name" autocomplete="given-name" required>
+                  <input type="text" id="snapshot-name" name="name" autocomplete="off" required>
                 </div>
                 <div class="calc-field">
                   <label for="snapshot-email">Email address</label>
-                  <input type="email" id="snapshot-email" name="email" autocomplete="email" required>
+                  <input type="email" id="snapshot-email" name="email" autocomplete="off" required>
                 </div>
                 <div class="calc-field">
                   <label for="snapshot-county">County or school system</label>
-                  <select id="snapshot-county" name="county" required>
+                  <select id="snapshot-county" name="county" autocomplete="off" required>
                     <option value="" disabled selected>Choose your county</option>
                     <option value="denver">Denver County</option>
                     <option value="jefferson">Jefferson County</option>
@@ -782,96 +758,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <p>At this scale, the difference is not just financial. Assistance like this could shrink the years spent saving toward a down payment. It could open up communities you had ruled out, including neighborhoods closer to the school where you work. It could be the difference between staying in a rental that keeps climbing in price and finally settling into a home that is yours.</p>
           <p><strong>That could represent years of saving compressed into one homebuying strategy.</strong></p>
 
-          <!-- ══════════ BUILD 2: POSSIBILITY CALCULATOR ══════════ -->
-          <div id="print-area">
-          <section class="calc-tool" id="possibility-calculator" aria-labelledby="calc-heading">
-            <h2 id="calc-heading">What Could Schools To Home Change?</h2>
-            <p>You just saw your county's average numbers. Now try your own: enter your expected purchase price, mortgage amount and assistance to see how shared appreciation could work for your exact situation.</p>
-
-            <div class="calc-grid">
-              <div class="calc-field">
-                <label for="calc-purchase-price">Estimated purchase price</label>
-                <div class="calc-field-wrap"><span class="calc-prefix">$</span>
-                  <input type="text" inputmode="decimal" id="calc-purchase-price" value="500,000" aria-describedby="">
-                </div>
-              </div>
-              <div class="calc-field">
-                <label for="calc-first-mortgage">Estimated first-mortgage amount</label>
-                <div class="calc-field-wrap"><span class="calc-prefix">$</span>
-                  <input type="text" inputmode="decimal" id="calc-first-mortgage" value="400,000">
-                </div>
-              </div>
-              <div class="calc-field">
-                <label for="calc-assistance">Assistance amount to model</label>
-                <div class="calc-field-wrap"><span class="calc-prefix">$</span>
-                  <input type="text" inputmode="decimal" id="calc-assistance" value="100,000" aria-describedby="calc-assistance-hint">
-                </div>
-                <span class="calc-hint" id="calc-assistance-hint">Capped at 25% of your first-mortgage amount (currently $100,000)</span>
-              </div>
-              <div class="calc-field">
-                <label for="calc-future-value">Illustrative future home value</label>
-                <div class="calc-field-wrap"><span class="calc-prefix">$</span>
-                  <input type="text" inputmode="decimal" id="calc-future-value" value="600,000">
-                </div>
-              </div>
-            </div>
-
-            <div class="calc-actions no-print">
-              <button type="button" class="btn btn-gold btn-arrow" id="calc-calculate">Calculate My Example</button>
-            </div>
-
-            <div class="calc-results" id="calc-results" aria-live="polite" hidden>
-              <div class="calc-result-row"><span>Potential maximum assistance</span><span id="calc-r-max"></span></div>
-              <div class="calc-result-row"><span>Assistance amount modeled</span><span id="calc-r-assistance"></span></div>
-              <div class="calc-result-row"><span>Assistance as a percentage of purchase price</span><span id="calc-r-pct"></span></div>
-              <div class="calc-result-row"><span>Illustrative increase in home value</span><span id="calc-r-appreciation"></span></div>
-              <div class="calc-result-row"><span>Estimated shared-appreciation amount</span><span id="calc-r-shared"></span></div>
-              <div class="calc-result-row"><span>Estimated total program payoff</span><span id="calc-r-payoff"></span></div>
-              <p class="calc-interpretation" id="calc-interpretation"></p>
-              <p class="calc-repayment-note" id="calc-repayment-note"></p>
-            </div>
-
-            <div class="calc-print-row no-print">
-              <button type="button" class="btn-outline" id="calc-print">Print My Example</button>
-            </div>
-          </section>
-
-          <!-- ══════════ BUILD 3: PRINTABLE READINESS CHECKLIST ══════════ -->
-          <section class="checklist-tool" id="readiness-checklist" aria-labelledby="checklist-heading">
-            <h2 id="checklist-heading">Bring These Five Things to Your Consultation</h2>
-            <ul class="checklist-list">
-              <li>Your school employer and job role</li>
-              <li>Approximate household income</li>
-              <li>Approximate credit-score range</li>
-              <li>Current savings and monthly debts</li>
-              <li>Preferred Colorado city, county and purchase timeline</li>
-            </ul>
-            <p>You do not need perfect numbers before scheduling. A rough snapshot is enough to begin a useful conversation.</p>
-            <a href="" class="btn btn-gold btn-arrow no-print" data-cta-location="checklist" onclick="hhOpenConsultation('checklist');return false;">Schedule My Free Consultation</a>
-          </section>
-          </div>
-          <!-- /print-area -->
-
-          <h2 id="how-it-works">How the Assistance Works</h2>
-          <p>Schools To Home pairs a CHFA first mortgage with a second mortgage.</p>
-          <p>The second mortgage has:</p>
-          <ul>
-            <li><strong>0% interest</strong></li>
-            <li><strong>No scheduled monthly payment</strong></li>
-            <li><strong>A deferred 30-year term</strong></li>
-            <li><strong>A shared-appreciation component</strong></li>
-          </ul>
-          <p>In plain English, the program helps with the purchase now. Later, when a repayment event occurs, the buyer repays the original second-mortgage balance plus the program's share of any qualifying increase in the home's value.</p>
-          <p>That is the trade:</p>
+          <h2 id="how-it-works">How the Assistance Actually Works</h2>
+          <p>Schools To Home pairs a CHFA first mortgage with a second mortgage that carries <strong>0% interest</strong>, <strong>no scheduled monthly payment</strong> and a deferred term with a shared-appreciation component. It helps with the purchase now. Later, when a repayment event occurs, you repay the original second-mortgage balance plus the program's agreed share of any qualifying increase in the home's value.</p>
 
           <blockquote>
             <p><strong>More buying power today in exchange for sharing part of tomorrow's appreciation.</strong></p>
           </blockquote>
-
-          <p>For someone who could not otherwise cross the upfront-cost gap, that may be a worthwhile path to explore.</p>
-
-          <h2 id="appreciation-math">What the Shared-Appreciation Math Looks Like</h2>
-          <p>The program helps with the purchase now. Later, the original assistance is repaid along with a defined share of any increase in the home's value.</p>
 
           <div class="post-example">
             <h3>CHFA's published example</h3>
@@ -879,19 +771,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <tbody>
                 <tr><th scope="row">Original purchase price</th><td>$437,500</td></tr>
                 <tr><th scope="row">First mortgage</th><td>$350,000</td></tr>
-                <tr><th scope="row">Schools To Home assistance</th><td>$87,500</td></tr>
-                <tr><th scope="row">Assistance as percentage of purchase price</th><td>20%</td></tr>
+                <tr><th scope="row">Schools To Home assistance</th><td>$87,500 &mdash; 25% of the first mortgage, 20% of the purchase price</td></tr>
                 <tr><th scope="row">Later home value</th><td>$480,000</td></tr>
                 <tr><th scope="row">Increase in value</th><td>$42,500</td></tr>
                 <tr><th scope="row">20% share of appreciation</th><td>$8,500</td></tr>
                 <tr><th scope="row">Illustrative total program payoff</th><td>$96,000</td></tr>
               </tbody>
             </table>
+            <p class="example-note">"Later home value" depends on how repayment is triggered. A sale uses the contract sales price; a refinance, payoff or other maturity event uses the home's appraised or fair market value at that time instead.</p>
           </div>
 
-          <p>The $87,500 assistance equals 25% of the $350,000 first mortgage, and 20% of the $437,500 purchase price. In this example, the appreciation share is 20%.</p>
-          <p>The "later home value" is measured differently depending on how repayment is triggered. For a sale, it is based on the contract sales price. For a refinance, payoff without a sale, or other maturity event, CHFA uses the home's appraised or fair market value at that time instead.</p>
-          <p>Hero HomeReach can help you understand which numbers to request, what they mean and how they may affect your longer-term plan.</p>
+          <p>For someone who could not otherwise cross the upfront-cost gap, that trade may be worth exploring. Hero HomeReach can help you understand which numbers to request and how they affect your longer-term plan.</p>
 
           <h2 id="repayment-triggers">How the Long-Term Homeownership Plan Works</h2>
           <p>The second mortgage is deferred, but it does not disappear. Repayment can be triggered when:</p>
@@ -969,8 +859,27 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <h3>How do I take the first step?</h3>
           <p>Start with a free Hero HomeReach consultation. We will help you understand the program, organize the right questions and guide you through the next step without asking you to decode the process alone.</p>
 
+          <div id="print-area">
+          <section class="checklist-tool" id="readiness-checklist" aria-labelledby="checklist-heading">
+            <h2 id="checklist-heading">Ready to Book? Bring These Five Things</h2>
+            <ul class="checklist-list">
+              <li>Your school employer and job role</li>
+              <li>Approximate household income</li>
+              <li>Approximate credit-score range</li>
+              <li>Current savings and monthly debts</li>
+              <li>Preferred Colorado city, county and purchase timeline</li>
+            </ul>
+            <p>You do not need perfect numbers before scheduling. A rough snapshot is enough to begin a useful conversation.</p>
+            <div class="checklist-actions no-print">
+              <a href="" class="btn btn-gold btn-arrow" data-cta-location="checklist" onclick="hhOpenConsultation('checklist');return false;">Schedule My Free Consultation</a>
+              <button type="button" class="btn-outline" id="checklist-print">Print This Checklist</button>
+            </div>
+          </section>
+          </div>
+          <!-- /print-area -->
+
           <div class="post-callout post-callout--subtle">
-            <p><strong>Educational notice:</strong> Hero HomeReach is an independent Colorado homebuyer education resource. Program terms, availability and individual results may change. A Hero HomeReach consultation is designed to help you understand current information, organize your questions and explore the safest next step for your situation.</p>
+            <p><strong>A note on how this works:</strong> Hero HomeReach is an independent Colorado education resource, not a lender, broker or government agency. We teach the program first; when you are ready, a Hero HomeReach consultation connects you with the right next step. Program terms and availability can change.</p>
           </div>
 
         </div>
@@ -1022,17 +931,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="sidebar-card-title">In This Guide</div>
           <ul class="toc-list">
             <li><a href="#who-qualifies-role">Who Actually Qualifies</a></li>
-            <li><a href="#opportunity-snapshot">Could This Include You?</a></li>
+            <li><a href="#opportunity-snapshot">Get Your Personalized Snapshot</a></li>
             <li><a href="#assistance-amount">How Much Assistance</a></li>
-            <li><a href="#possibility-calculator">Try the Calculator</a></li>
-            <li><a href="#how-it-works">How the Second Mortgage Works</a></li>
-            <li><a href="#appreciation-math">The Shared-Appreciation Math</a></li>
+            <li><a href="#how-it-works">How the Assistance Works</a></li>
             <li><a href="#repayment-triggers">How the Long-Term Plan Works</a></li>
             <li><a href="#requirements">A Few Starting Points to Explore</a></li>
             <li><a href="#is-it-right-for-you">Is This Right for You</a></li>
             <li><a href="#first-steps">Your First Step</a></li>
-            <li><a href="#readiness-checklist">Consultation Checklist</a></li>
             <li><a href="#faq">FAQ</a></li>
+            <li><a href="#readiness-checklist">Consultation Checklist</a></li>
           </ul>
         </div>
 
@@ -1230,6 +1137,23 @@ document.querySelectorAll('.toc-list a').forEach(link => {
   var snapshotHint = document.getElementById('snapshot-hint');
   var snapshotResult = document.getElementById('snapshot-result');
 
+  // Chrome's back-forward cache (bfcache) silently restores whatever value
+  // a field had at the moment of navigation, including a placeholder like
+  // "Somewhere else in Colorado" that a visitor never actually selected.
+  // autocomplete="off" does NOT stop a bfcache restore, only normal browser
+  // autofill — so we also force these three fields empty on every load and
+  // on every bfcache restore (which fires the 'pageshow' event specifically).
+  function snapshotClearContactFields() {
+    var nameEl = document.getElementById('snapshot-name');
+    var emailEl = document.getElementById('snapshot-email');
+    var countyEl = document.getElementById('snapshot-county');
+    if (nameEl) nameEl.value = '';
+    if (emailEl) emailEl.value = '';
+    if (countyEl) countyEl.value = '';
+  }
+  snapshotClearContactFields();
+  window.addEventListener('pageshow', snapshotClearContactFields);
+
   function snapshotFieldset(step) {
     return document.getElementById('snapshot-q' + step);
   }
@@ -1309,16 +1233,19 @@ document.querySelectorAll('.toc-list a').forEach(link => {
 
   var snapshotResultContent = {
     A: {
+      eyebrow: 'Your Snapshot Is Ready',
       heading: 'You Look Like Who This Program Was Built For',
       copy: 'Your school role, income range and credit picture all line up with the current starting guidelines. That is not a guarantee, but it is a real starting position, and most people in your shoes are closer to a home than they realize. The next step is turning these answers into your actual numbers.',
       button: 'Book My Free Consultation'
     },
     B: {
+      eyebrow: 'Your Snapshot Is Ready',
       heading: 'One Part of the Picture Needs Clarification',
       copy: 'Your school role or financial snapshot may still create an opportunity, but one guideline deserves a closer look. Hero HomeReach can help you understand which question matters and what your safest next step may be.',
       button: 'Talk Through My Situation'
     },
     C: {
+      eyebrow: 'Your Snapshot Is Ready',
       heading: 'Another Colorado Path May Be Worth Exploring',
       copy: 'Schools To Home may not be the only homebuyer path connected to your situation. Hero HomeReach can help you look at the broader Colorado assistance landscape and organize a practical next step.',
       button: 'Explore My Colorado Options'
@@ -1381,6 +1308,7 @@ document.querySelectorAll('.toc-list a').forEach(link => {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
+        firstName: name,
         schoolEmployment: snapshotAnswers.q1,
         roleCategory: snapshotAnswers.q2,
         incomeRange: snapshotAnswers.q3,
@@ -1410,11 +1338,11 @@ document.querySelectorAll('.toc-list a').forEach(link => {
       }
 
       dataLayer.push({ event: 'schools_to_home_snapshot_revealed', county: county });
-      snapshotRenderResult(resultKey, aiText, localData);
+      snapshotRenderResult(resultKey, aiText, localData, name);
     });
   }
 
-  function snapshotRenderResult(resultKey, aiText, localData) {
+  function snapshotRenderResult(resultKey, aiText, localData, name) {
     var content = snapshotResultContent[resultKey];
     var bodyHtml;
 
@@ -1425,17 +1353,28 @@ document.querySelectorAll('.toc-list a').forEach(link => {
       bodyHtml = '<p>' + content.copy + '</p>';
     }
 
+    // The headline is the "reveal" moment — lead with the reader's own name
+    // when we have it, styled as a direct, personal address rather than a
+    // form response read back to them.
+    var displayName = (name || '').trim();
+    var headingHtml = displayName ? (displayName + ', ' + content.heading) : content.heading;
+
+    // This grid is the calculator, fully folded into the reveal: instead of
+    // a second, blank tool asking the reader to re-enter numbers by hand,
+    // their own county average and their own quiz answers drive every figure
+    // here automatically.
     var localHtml;
     if (localData) {
       localHtml =
+        '<p class="snapshot-result-numbers-label">What this could look like with ' + (localData.countyLabel || 'your') + ' numbers &mdash; no typing required, this is already yours</p>' +
         '<div class="snapshot-result-local-grid">' +
         '<div class="snapshot-result-local-card">' +
-        '<span class="snapshot-result-local-label">Average home value</span>' +
+        '<span class="snapshot-result-local-label">Typical purchase price</span>' +
         '<span class="snapshot-result-local-value">' + currencyFmt.format(localData.avgHomePrice) + '</span>' +
         '<span class="snapshot-result-local-note">' + (localData.countyLabel || COUNTY_LABELS.other) + ' — ' + localData.asOf + '</span>' +
         '</div>' +
         '<div class="snapshot-result-local-card">' +
-        '<span class="snapshot-result-local-label">Potential assistance at that price</span>' +
+        '<span class="snapshot-result-local-label">Your potential assistance</span>' +
         '<span class="snapshot-result-local-value">' + currencyFmt.format(localData.estimatedAssistanceLow) + ' – ' + currencyFmt.format(localData.estimatedAssistanceHigh) + '</span>' +
         '<span class="snapshot-result-local-note">Up to 25% of a typical first mortgage. Illustrative only.</span>' +
         '</div>' +
@@ -1447,7 +1386,7 @@ document.querySelectorAll('.toc-list a').forEach(link => {
         '<div class="snapshot-result-local-card">' +
         '<span class="snapshot-result-local-label">If your home gains value later</span>' +
         '<span class="snapshot-result-local-value">' + currencyFmt.format(localData.appreciationExample.shareOwed) + '</span>' +
-        '<span class="snapshot-result-local-note">Illustrative example only. Never guaranteed.</span>' +
+        '<span class="snapshot-result-local-note">On a ' + localData.appreciationExample.assumedAppreciationPct + '% illustrative gain. Never guaranteed.</span>' +
         '</div>' +
         '</div>';
     } else {
@@ -1456,7 +1395,8 @@ document.querySelectorAll('.toc-list a').forEach(link => {
 
     snapshotResult.innerHTML =
       '<div class="snapshot-result-card">' +
-      '<h3>' + content.heading + '</h3>' +
+      '<span class="snapshot-result-eyebrow">' + content.eyebrow + '</span>' +
+      '<h3>' + headingHtml + '</h3>' +
       bodyHtml +
       localHtml +
       '<div class="snapshot-result-actions">' +
@@ -1496,147 +1436,19 @@ document.querySelectorAll('.toc-list a').forEach(link => {
     dataLayer.push({ event: 'schools_to_home_snapshot_restarted' });
   }
 
-  /* ───────────────────────────────────────────────
-     BUILD 2: POSSIBILITY CALCULATOR
-  ─────────────────────────────────────────────── */
-  var calcPurchase = document.getElementById('calc-purchase-price');
-  var calcMortgage = document.getElementById('calc-first-mortgage');
-  var calcAssistance = document.getElementById('calc-assistance');
-  var calcFuture = document.getElementById('calc-future-value');
-  var calcAssistanceHint = document.getElementById('calc-assistance-hint');
-  var calcCalculateBtn = document.getElementById('calc-calculate');
-  var calcResults = document.getElementById('calc-results');
-  var calcPrintBtn = document.getElementById('calc-print');
-  var calcStarted = false;
-  var assistanceManuallyEdited = false;
-
   var currencyFmt = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 });
   var numberFmt = new Intl.NumberFormat('en-US', { maximumFractionDigits: 0 });
 
-  function parseCurrency(el) {
-    var raw = (el.value || '').replace(/[^0-9.]/g, '');
-    var n = parseFloat(raw);
-    if (isNaN(n) || n < 0) n = 0;
-    return n;
-  }
-
-  function formatFieldValue(el, n) {
-    el.value = numberFmt.format(Math.round(n));
-  }
-
-  function calcFireStarted() {
-    if (calcStarted) return;
-    calcStarted = true;
-    dataLayer.push({ event: 'schools_to_home_calculator_started' });
-  }
-
-  [calcPurchase, calcMortgage, calcAssistance, calcFuture].forEach(function(el) {
-    if (!el) return;
-    el.addEventListener('focus', calcFireStarted);
-  });
-
-  if (calcAssistance) {
-    calcAssistance.addEventListener('input', function() { assistanceManuallyEdited = true; });
-  }
-
-  function calcUpdateAssistanceCap() {
-    var mortgage = parseCurrency(calcMortgage);
-    var maxAssistance = mortgage * 0.25;
-    calcAssistanceHint.textContent = 'Capped at 25% of your first-mortgage amount (currently ' + currencyFmt.format(Math.round(maxAssistance)) + ')';
-
-    var currentAssistance = parseCurrency(calcAssistance);
-    if (!assistanceManuallyEdited) {
-      formatFieldValue(calcAssistance, maxAssistance);
-    } else if (currentAssistance > maxAssistance) {
-      formatFieldValue(calcAssistance, maxAssistance);
-    }
-  }
-
-  if (calcMortgage) {
-    calcMortgage.addEventListener('change', calcUpdateAssistanceCap);
-    calcMortgage.addEventListener('blur', function() { formatFieldValue(calcMortgage, parseCurrency(calcMortgage)); calcUpdateAssistanceCap(); });
-  }
-  if (calcAssistance) {
-    calcAssistance.addEventListener('blur', function() {
-      var mortgage = parseCurrency(calcMortgage);
-      var maxAssistance = mortgage * 0.25;
-      var val = parseCurrency(calcAssistance);
-      if (val > maxAssistance) val = maxAssistance;
-      formatFieldValue(calcAssistance, val);
-    });
-  }
-  if (calcPurchase) {
-    calcPurchase.addEventListener('blur', function() { formatFieldValue(calcPurchase, parseCurrency(calcPurchase)); });
-  }
-  if (calcFuture) {
-    calcFuture.addEventListener('blur', function() { formatFieldValue(calcFuture, parseCurrency(calcFuture)); });
-  }
-
-  function calcRunCalculation() {
-    var purchasePrice = parseCurrency(calcPurchase);
-    var firstMortgage = parseCurrency(calcMortgage);
-    var futureValue = parseCurrency(calcFuture);
-    var potentialMax = firstMortgage * 0.25;
-    var assistanceUsed = parseCurrency(calcAssistance);
-    if (assistanceUsed > potentialMax) assistanceUsed = potentialMax;
-
-    var assistancePct = purchasePrice > 0 ? (assistanceUsed / purchasePrice) : 0;
-    var appreciation = Math.max(futureValue - purchasePrice, 0);
-    var sharedAppreciation = assistancePct * appreciation;
-    var totalPayoff = assistanceUsed + sharedAppreciation;
-
-    document.getElementById('calc-r-max').textContent = currencyFmt.format(Math.round(potentialMax));
-    document.getElementById('calc-r-assistance').textContent = currencyFmt.format(Math.round(assistanceUsed));
-    document.getElementById('calc-r-pct').textContent = (assistancePct * 100).toFixed(1) + '%';
-    document.getElementById('calc-r-appreciation').textContent = currencyFmt.format(Math.round(appreciation));
-    document.getElementById('calc-r-shared').textContent = currencyFmt.format(Math.round(sharedAppreciation));
-    document.getElementById('calc-r-payoff').textContent = currencyFmt.format(Math.round(totalPayoff));
-
-    var interpretation = 'At this example, assistance of ' + currencyFmt.format(Math.round(assistanceUsed)) + ' could represent a major change in the upfront-cost conversation. It may shorten the time needed to save, expand the communities worth exploring or make buying closer to work feel more realistic.';
-    document.getElementById('calc-interpretation').textContent = interpretation;
-
-    var repaymentNote;
-    if (appreciation <= 0) {
-      repaymentNote = 'In this example, there is no positive appreciation to share. The original assistance remains part of the long-term repayment plan.';
-    } else {
-      repaymentNote = 'In return, the original assistance remains part of the long-term repayment plan, along with the estimated shared-appreciation amount shown above.';
-    }
-    document.getElementById('calc-repayment-note').textContent = repaymentNote;
-
-    calcResults.hidden = false;
-
-    dataLayer.push({
-      event: 'schools_to_home_calculator_completed',
-      purchase_price: Math.round(purchasePrice / 1000) * 1000,
-      first_mortgage: Math.round(firstMortgage / 1000) * 1000,
-      modeled_assistance: Math.round(assistanceUsed / 1000) * 1000,
-      future_value: Math.round(futureValue / 1000) * 1000,
-      estimated_appreciation_share: Math.round(sharedAppreciation / 100) * 100
-    });
-
-    return { calculated: true };
-  }
-
-  if (calcCalculateBtn) {
-    calcCalculateBtn.addEventListener('click', function() {
-      calcUpdateAssistanceCap();
-      calcRunCalculation();
-    });
-  }
-
-  if (calcPrintBtn) {
-    calcPrintBtn.addEventListener('click', function() {
-      if (calcResults.hidden) {
-        calcUpdateAssistanceCap();
-        calcRunCalculation();
-      }
-      dataLayer.push({ event: 'schools_to_home_estimate_printed' });
+  /* ───────────────────────────────────────────────
+     READINESS CHECKLIST — print button
+  ─────────────────────────────────────────────── */
+  var checklistPrintBtn = document.getElementById('checklist-print');
+  if (checklistPrintBtn) {
+    checklistPrintBtn.addEventListener('click', function() {
+      dataLayer.push({ event: 'schools_to_home_checklist_printed' });
       window.print();
     });
   }
-
-  // initialize default cap/hint on load
-  calcUpdateAssistanceCap();
 
   /* ───────────────────────────────────────────────
      BUILD 4: MOBILE STICKY CTA
