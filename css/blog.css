@@ -359,6 +359,23 @@
 .post-callout p:last-of-type { margin-bottom: 0; }
 .post-callout strong { color: var(--gold); }
 
+/* Subtle modifier — for fine-print / legal-adjacent notes that should read
+   as a quiet footnote, not a highlighted box competing with real content. */
+.post-callout--subtle {
+  background: transparent;
+  border: none;
+  border-top: 1px solid rgba(12,45,94,0.12);
+  border-radius: 0;
+  padding: 18px 0 0;
+  margin: 32px 0 0;
+}
+.post-callout--subtle p {
+  color: #8A8A85;
+  font-size: 13px;
+  line-height: 1.6;
+}
+.post-callout--subtle strong { color: #8A8A85; font-weight: 600; }
+
 /* ── Sidebar ── */
 .post-sidebar {
   position: sticky;
