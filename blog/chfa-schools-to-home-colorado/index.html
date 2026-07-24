@@ -700,11 +700,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <legend>Last step: where should we send your personalized snapshot?</legend>
                 <div class="calc-field">
                   <label for="snapshot-name">First name</label>
-                  <input type="text" id="snapshot-name" name="name" autocomplete="off" required>
+                  <input type="text" id="snapshot-name" name="hh-fname-no-fill" autocomplete="off" readonly required>
                 </div>
                 <div class="calc-field">
                   <label for="snapshot-email">Email address</label>
-                  <input type="email" id="snapshot-email" name="email" autocomplete="off" required>
+                  <input type="email" id="snapshot-email" name="hh-email-no-fill" autocomplete="off" readonly required>
                 </div>
                 <div class="calc-field">
                   <label for="snapshot-county">County or school system</label>
@@ -1153,6 +1153,20 @@ document.querySelectorAll('.toc-list a').forEach(link => {
   }
   snapshotClearContactFields();
   window.addEventListener('pageshow', snapshotClearContactFields);
+
+  // Chrome ignores autocomplete="off" on purpose for fields it profiles as
+  // name/email/address. The one reliable countermeasure: mark the field
+  // readonly so Chrome has nothing to fill on load, then drop readonly the
+  // instant the visitor actually interacts with it — invisible to a real
+  // person, but it starves Chrome's autofill of a target.
+  ['snapshot-name', 'snapshot-email'].forEach(function(fieldId) {
+    var el = document.getElementById(fieldId);
+    if (!el) return;
+    var unlock = function() { el.removeAttribute('readonly'); };
+    el.addEventListener('focus', unlock, { once: true });
+    el.addEventListener('touchstart', unlock, { once: true });
+    el.addEventListener('mousedown', unlock, { once: true });
+  });
 
   function snapshotFieldset(step) {
     return document.getElementById('snapshot-q' + step);
