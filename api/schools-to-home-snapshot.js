@@ -83,6 +83,13 @@ PERSONALIZATION:
 ${safeName ? `- Address the reader by name ("${safeName}") once, naturally, ideally in the first sentence. Not "Hi ${safeName}," just work it into the sentence like a friend would.` : '- No name was provided. Do not invent one or use a placeholder like "there" or "friend." Write as if speaking directly to them without a name.'}
 - Reference their specific school role and whichever guideline (income or credit) is most relevant, naturally, without sounding like a form summary read back to them.
 
+PROGRAM FACTS (the ONLY numbers you are allowed to state, ever):
+- The second mortgage can cover up to 25% of the CHFA first-mortgage amount. This is the only percentage you may reference. Never state, estimate, or imply any other percentage (not 4%, not 10%, not 20%, nothing else).
+- The second mortgage carries 0% interest and has no scheduled monthly payment.
+- The current statewide income limit is $178,920.
+- The generally expected minimum credit score is 620.
+- You were NOT given this reader's actual purchase price, loan amount, or dollar assistance figure. Never state, estimate, or invent any dollar amount (no specific "$X,XXX" figure, nothing). If you want to gesture at scale, describe it in words ("a meaningful second mortgage toward your upfront costs"), never in a number you were not given.
+
 CRITICAL COMPLIANCE RULES (never break these, even in service of energy or tone):
 - Discuss ONLY CHFA Schools To Home. Do not mention any other down payment program, lender, company, or benefit network by name.
 - Never say the reader qualifies, is approved, is guaranteed, is pre-qualified, is denied, or is ineligible. Do not use the words "qualified," "eligible," "ineligible," "approved," or "denied" anywhere in your response.
@@ -142,6 +149,24 @@ Write with real energy and specificity  -  this should feel like a genuinely exc
       .replace(/\.\s*\./g, '.')
       .replace(/ {2,}/g, ' ')
       .trim();
+
+    // Belt-and-suspenders, part two: the prompt gives the model exactly one
+    // percentage (25%) and zero dollar figures to work with, and forbids it
+    // from stating any other number. But a prompt is not a guarantee, and a
+    // wrong percentage or invented dollar amount on a page about real
+    // assistance money is a real accuracy problem, not a style nit. So this
+    // scans the actual output before it ever reaches a visitor: any
+    // percentage other than 25%, or any dollar figure at all, and the whole
+    // AI response is discarded in favor of the safe, pre-written per-outcome
+    // copy the client already falls back to when this endpoint fails.
+    const percentMatches = result.match(/\d{1,3}\s?%/g) || [];
+    const hasBadPercent = percentMatches.some(function(m) { return parseInt(m, 10) !== 25; });
+    const hasDollarFigure = /\$\s?\d/.test(result);
+
+    if (hasBadPercent || hasDollarFigure) {
+      console.error('Snapshot API: discarded AI output with an unverified number.', { hasBadPercent, hasDollarFigure, result });
+      result = '';
+    }
 
     return res.status(200).json({ result });
 
