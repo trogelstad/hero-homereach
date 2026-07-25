@@ -401,6 +401,58 @@
     0% { opacity: 0; transform: translateY(14px) scale(0.98); }
     100% { opacity: 1; transform: translateY(0) scale(1); }
   }
+  /* ══════════════════════════════════════════════
+     Snapshot reveal as a modal, not an inline block.
+     Guarantees the "big reveal" moment is centered in
+     whatever part of the viewport the reader is
+     actually looking at, regardless of scroll position.
+  ══════════════════════════════════════════════ */
+  @keyframes snapshotOverlayFadeIn { 0% { opacity: 0; } 100% { opacity: 1; } }
+  @keyframes snapshotModalPop {
+    0% { opacity: 0; transform: translateY(24px) scale(0.96); }
+    100% { opacity: 1; transform: translateY(0) scale(1); }
+  }
+  .snapshot-modal-overlay {
+    position: fixed; inset: 0; z-index: 9999;
+    background: rgba(8,20,40,0.72);
+    display: flex; align-items: center; justify-content: center;
+    padding: 24px;
+    animation: snapshotOverlayFadeIn 0.25s ease-out;
+  }
+  .snapshot-modal-overlay[hidden] { display: none; }
+  .snapshot-modal {
+    position: relative;
+    width: 100%; max-width: 640px;
+    max-height: 88vh;
+    overflow-y: auto;
+    animation: snapshotModalPop 0.4s cubic-bezier(0.22,1,0.36,1);
+    border-radius: 16px;
+  }
+  .snapshot-modal .snapshot-result-card { animation: none; }
+  .snapshot-modal-close {
+    position: absolute; top: 14px; right: 14px; z-index: 2;
+    width: 36px; height: 36px; border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.3);
+    background: rgba(255,255,255,0.08);
+    color: #fff; font-size: 22px; line-height: 1;
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: background 0.2s, border-color 0.2s;
+  }
+  .snapshot-modal-close:hover { background: rgba(255,255,255,0.2); border-color: var(--bright-gold, #EAB84A); }
+  .snapshot-recall {
+    margin-top: 18px;
+    padding: 20px 24px;
+    border-radius: 12px;
+    background: var(--cream, #FFFCF4);
+    border: 1px solid var(--warm-gray);
+    display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap;
+  }
+  .snapshot-recall p { margin: 0; font-weight: 600; color: var(--navy); }
+  @media (max-width: 640px) {
+    .snapshot-modal-overlay { padding: 12px; }
+    .snapshot-recall { flex-direction: column; align-items: stretch; text-align: center; }
+  }
   @keyframes snapshotStaggerIn {
     0% { opacity: 0; transform: translateY(10px); }
     100% { opacity: 1; transform: translateY(0); }
@@ -659,6 +711,20 @@
     body * { visibility: hidden; }
     #print-area, #print-area *, #snapshot-result, #snapshot-result * { visibility: visible; }
     #print-area { position: absolute; left: 0; top: 0; width: 100%; margin: 0; padding: 0; }
+    /* The reveal now lives inside a fixed, viewport-clamped modal overlay
+       for screen use. None of that should survive to print: collapse the
+       overlay and modal box back to normal flow so #snapshot-result's own
+       absolute positioning (below) is what actually controls the printed
+       page, with nothing clipped by max-height or hidden by the backdrop. */
+    .snapshot-modal-overlay {
+      position: static !important; background: none !important;
+      padding: 0 !important; display: block !important;
+    }
+    .snapshot-modal {
+      position: static !important; max-width: none !important;
+      max-height: none !important; overflow: visible !important;
+    }
+    .snapshot-modal-close { display: none !important; }
     #snapshot-result { position: absolute; left: 0; top: 0; width: 100%; margin: 0; padding: 0; }
     #snapshot-result .snapshot-result-card { background: #fff !important; color: #000 !important; box-shadow: none !important; }
     #snapshot-result .snapshot-result-card h3 { -webkit-text-fill-color: initial !important; background: none !important; color: #0C2D5E !important; }
@@ -946,8 +1012,23 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               </div>
             </form>
 
-            <div class="snapshot-result" id="snapshot-result" role="region" aria-live="polite" hidden></div>
+            <div class="snapshot-recall" id="snapshot-recall" hidden>
+              <p>Your personalized snapshot is ready.</p>
+              <button type="button" class="btn btn-gold btn-arrow" id="snapshot-recall-btn">View My Snapshot Again</button>
+            </div>
           </section>
+
+          <!-- The reveal renders inside this overlay instead of inline, so it
+               always appears centered in whatever part of the viewport the
+               reader is currently looking at, rather than wherever the quiz
+               section happens to sit on the page. position:fixed means DOM
+               position here doesn't matter for where it actually displays. -->
+          <div class="snapshot-modal-overlay" id="snapshot-modal-overlay" hidden>
+            <div class="snapshot-modal">
+              <button type="button" class="snapshot-modal-close" id="snapshot-modal-close" aria-label="Close">&times;</button>
+              <div class="snapshot-result" id="snapshot-result" role="region" aria-live="polite" aria-label="Your personalized Schools To Home snapshot" hidden></div>
+            </div>
+          </div>
 
 
 
@@ -1467,6 +1548,49 @@ document.querySelectorAll('.toc-list a').forEach(link => {
   var snapshotResult = document.getElementById('snapshot-result');
   var snapshotQ1Clarifier = document.getElementById('snapshot-q1-clarifier');
   var snapshotQ5Legend = document.getElementById('snapshot-q5-legend');
+  var snapshotModalOverlay = document.getElementById('snapshot-modal-overlay');
+  var snapshotModalClose = document.getElementById('snapshot-modal-close');
+  var snapshotRecall = document.getElementById('snapshot-recall');
+  var snapshotRecallBtn = document.getElementById('snapshot-recall-btn');
+  var snapshotLastFocused = null;
+
+  function snapshotOpenModal() {
+    snapshotLastFocused = document.activeElement;
+    snapshotModalOverlay.hidden = false;
+    document.body.style.overflow = 'hidden';
+    snapshotRecall.hidden = true;
+    if (snapshotModalClose) snapshotModalClose.focus();
+  }
+
+  function snapshotCloseModal() {
+    snapshotModalOverlay.hidden = true;
+    document.body.style.overflow = '';
+    if (snapshotResult.innerHTML.trim()) snapshotRecall.hidden = false;
+    if (snapshotLastFocused && typeof snapshotLastFocused.focus === 'function') {
+      snapshotLastFocused.focus();
+    }
+  }
+
+  if (snapshotModalClose) snapshotModalClose.addEventListener('click', snapshotCloseModal);
+  if (snapshotModalOverlay) {
+    snapshotModalOverlay.addEventListener('click', function(e) {
+      if (e.target === snapshotModalOverlay) snapshotCloseModal();
+    });
+  }
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && snapshotModalOverlay && !snapshotModalOverlay.hidden) {
+      snapshotCloseModal();
+    }
+  });
+  if (snapshotRecallBtn) {
+    snapshotRecallBtn.addEventListener('click', function() {
+      snapshotModalOverlay.hidden = false;
+      document.body.style.overflow = 'hidden';
+      snapshotRecall.hidden = true;
+      if (snapshotModalClose) snapshotModalClose.focus();
+      dataLayer.push({ event: 'schools_to_home_snapshot_recalled' });
+    });
+  }
 
   var SNAPSHOT_PAYOFF_LINES = {
     default: 'Stick with it, your real numbers are on the other side of this.',
@@ -1682,6 +1806,7 @@ document.querySelectorAll('.toc-list a').forEach(link => {
       '<p>Preparing your personalized snapshot…</p>' +
       '</div>';
     snapshotResult.hidden = false;
+    snapshotOpenModal();
 
     if (!snapshotCompleted) {
       snapshotCompleted = true;
@@ -1874,6 +1999,9 @@ document.querySelectorAll('.toc-list a').forEach(link => {
     snapshotHint.hidden = true;
     snapshotResult.hidden = true;
     snapshotResult.innerHTML = '';
+    snapshotModalOverlay.hidden = true;
+    document.body.style.overflow = '';
+    snapshotRecall.hidden = true;
     snapshotFieldset(1).focus();
 
     dataLayer.push({ event: 'schools_to_home_snapshot_restarted' });
