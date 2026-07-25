@@ -3,6 +3,23 @@
 <head>
 
   <meta charset="UTF-8">
+  <script>
+  // Ad-landing mode: the SAME page and SAME URL serve both organic search
+  // traffic and paid ad traffic. A query param on the ad's destination link
+  // (?mode=ad) switches presentation only, nothing about the underlying
+  // content, URL, or indexing changes, so there is no duplicate-content
+  // concern and no second file to maintain or confuse with this one.
+  // This runs synchronously, before <body> renders, so ad visitors never
+  // see a flash of the full nav/sidebar before it gets hidden.
+  (function() {
+    var params = new URLSearchParams(window.location.search);
+    if (params.get('mode') === 'ad') {
+      document.documentElement.classList.add('hh-ad-mode');
+    }
+    var hook = params.get('hook');
+    if (hook) { document.documentElement.setAttribute('data-hh-hook', hook); }
+  })();
+  </script>
   <!-- Google Tag Manager -->
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
   new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -567,6 +584,33 @@
     .no-print { display: none !important; }
   }
 
+  /* ══════════════════════════════════════════════
+     AD-LANDING MODE (?mode=ad)
+     Same page, same URL, presentation only. Every rule
+     here only fires inside html.hh-ad-mode, so organic
+     search visitors see the page exactly as before.
+  ══════════════════════════════════════════════ */
+  .hh-ad-mode .nav-links,
+  .hh-ad-mode .nav-cta,
+  .hh-ad-mode .nav-hamburger,
+  .hh-ad-mode #mobile-nav,
+  .hh-ad-mode .breadcrumb,
+  .hh-ad-mode .post-share,
+  .hh-ad-mode .post-sidebar {
+    display: none !important;
+  }
+  .hh-ad-mode .post-layout {
+    grid-template-columns: 1fr !important;
+    max-width: 780px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .hh-ad-mode .nav-inner { justify-content: flex-start; }
+  /* The quiz gets physically moved up by JS in ad-mode; this just makes
+     sure it reads as a clear, separated "start here" moment once it lands
+     near the top instead of mid-article. */
+  .hh-ad-mode #opportunity-snapshot { margin-top: 28px; }
+
   /* ── Mobile ── */
   @media (max-width: 768px) {
     .post-article, .post-body { min-width: 0; max-width: 100%; overflow-x: hidden; }
@@ -647,7 +691,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <span class="breadcrumb-current">CHFA Schools To Home</span>
       </div>
 
-      <h1>Colorado School Employees Have a New Path Home</h1>
+      <h1 id="post-h1">Colorado School Employees Have a New Path Home</h1>
 
       <div class="post-hero-meta">
         <span class="post-hero-tag">New Program Launch</span>
@@ -691,7 +735,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <article class="post-article">
         <div class="post-body">
 
-          <p>Maybe you can already picture it: a little more space, a shorter drive to the school where you work, a neighborhood where you finally feel settled instead of just renting in place. For many Colorado school employees, that picture has felt out of reach, not because the monthly payment is impossible, but because the upfront cash never seems to add up.</p>
+          <p id="post-intro-line">Maybe you can already picture it: a little more space, a shorter drive to the school where you work, a neighborhood where you finally feel settled instead of just renting in place. For many Colorado school employees, that picture has felt out of reach, not because the monthly payment is impossible, but because the upfront cash never seems to add up.</p>
 
           <p>Colorado just changed that math.</p>
 
@@ -1191,6 +1235,21 @@ document.querySelectorAll('.toc-list a').forEach(link => {
   };
 
   window.hhOpenMobileConsultation = function() {
+    // In ad-mode, the persistent mobile CTA is the one early exit that isn't
+    // already hidden by CSS (it lives outside the nav and sidebar). Rather
+    // than let paid traffic skip straight past the quiz, redirect this one
+    // tap into the quiz itself, where the actual lead capture and
+    // personalization happen.
+    if (document.documentElement.classList.contains('hh-ad-mode')) {
+      dataLayer.push({ event: 'schools_to_home_mobile_cta_clicked', ad_mode_redirect: 'quiz' });
+      var quizEl = document.getElementById('opportunity-snapshot');
+      if (quizEl) {
+        quizEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        var firstInput = document.querySelector('#snapshot-q1 input[type="radio"]');
+        if (firstInput) firstInput.focus();
+      }
+      return false;
+    }
     dataLayer.push({ event: 'schools_to_home_mobile_cta_clicked' });
     if (window.Calendly && typeof window.Calendly.initPopupWidget === 'function') {
       window.Calendly.initPopupWidget({ url: CALENDLY_URL });
@@ -1199,6 +1258,52 @@ document.querySelectorAll('.toc-list a').forEach(link => {
     }
     return false;
   };
+
+  /* ───────────────────────────────────────────────
+     AD-LANDING MODE ENHANCEMENTS (?mode=ad, ?hook=)
+     Presentation and ordering changes only. Nothing here touches the
+     content an organic visitor sees; it all gates on the class set by the
+     early detection script in <head>.
+  ─────────────────────────────────────────────── */
+  var AD_HOOKS = {
+    downpayment: {
+      h1: 'The Down Payment Wall Just Moved for Colorado School Employees',
+      intro: 'If the only thing standing between you and a home is the cash to get to closing, Colorado just built a program specifically for people like you.'
+    },
+    rent: {
+      h1: 'Stop Renting Near the School You Teach At',
+      intro: 'A new Colorado program was built for public-school employees who are tired of watching rent climb with nothing to show for it.'
+    },
+    aware: {
+      h1: 'Most Colorado School Employees Have Never Heard of This Program',
+      intro: 'CHFA Schools To Home is new, specific to public-school employees, and most people who qualify do not know it exists yet.'
+    }
+  };
+
+  if (document.documentElement.classList.contains('hh-ad-mode')) {
+    // Move the quiz up so it lands within the first screen or two of
+    // scrolling instead of after several sections of reading. Paid traffic
+    // has far less patience than someone who searched their way here.
+    var quizSection = document.getElementById('opportunity-snapshot');
+    var quickAnswerBox = document.querySelector('.quick-answer-box');
+    if (quizSection && quickAnswerBox && quickAnswerBox.parentNode) {
+      quickAnswerBox.parentNode.insertBefore(quizSection, quickAnswerBox.nextSibling);
+    }
+
+    // Swap headline and intro line to match whichever ad angle drove the
+    // click, when a matching preset exists. Unrecognized or missing hooks
+    // fall back to the default copy untouched.
+    var hookKey = document.documentElement.getAttribute('data-hh-hook');
+    var hookContent = hookKey && AD_HOOKS[hookKey];
+    if (hookContent) {
+      var h1El = document.getElementById('post-h1');
+      var introEl = document.getElementById('post-intro-line');
+      if (h1El) h1El.textContent = hookContent.h1;
+      if (introEl) introEl.textContent = hookContent.intro;
+    }
+
+    dataLayer.push({ event: 'schools_to_home_ad_mode_active', ad_hook: hookKey || 'default' });
+  }
 
   /* ───────────────────────────────────────────────
      BUILD 1: OPPORTUNITY SNAPSHOT
@@ -1719,11 +1824,42 @@ document.querySelectorAll('.toc-list a').forEach(link => {
 })();
 </script>
 
-<!-- HubSpot Chatbot  -  Do not remove -->
-<script type="text/javascript" id="hs-script-loader" async defer src="//js-na2.hs-scripts.com/244185002.js"></script>
+<!-- HubSpot Chatbot and ebook modal  -  Do not remove -->
+<!-- Both are non-critical to first paint or the quiz itself, so both wait
+     until the page has settled (window load + a short delay) before
+     fetching anything. This matters most for mobile paid traffic, where
+     every script competing for bandwidth in the first few seconds directly
+     costs conversions on money you already spent per click. -->
+<script>
+(function() {
+  function loadDeferredAssets() {
+    var hs = document.createElement('script');
+    hs.type = 'text/javascript';
+    hs.id = 'hs-script-loader';
+    hs.async = true;
+    hs.defer = true;
+    hs.src = '//js-na2.hs-scripts.com/244185002.js';
+    document.body.appendChild(hs);
 
-<link rel="stylesheet" href="../../css/ebook-modal.css">
-<script src="../../js/ebook-modal.js"></script>
+    var ebookCss = document.createElement('link');
+    ebookCss.rel = 'stylesheet';
+    ebookCss.href = '../../css/ebook-modal.css';
+    document.head.appendChild(ebookCss);
+
+    var ebookJs = document.createElement('script');
+    ebookJs.src = '../../js/ebook-modal.js';
+    document.body.appendChild(ebookJs);
+  }
+
+  if (document.readyState === 'complete') {
+    setTimeout(loadDeferredAssets, 1500);
+  } else {
+    window.addEventListener('load', function() {
+      setTimeout(loadDeferredAssets, 1500);
+    });
+  }
+})();
+</script>
 
 </body>
 </html>
