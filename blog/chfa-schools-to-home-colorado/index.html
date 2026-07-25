@@ -534,6 +534,94 @@
   }
 
   /* ══════════════════════════════════════════════
+     TOC active state
+  ══════════════════════════════════════════════ */
+  .toc-list a.toc-active { color: var(--gold); font-weight: 700; }
+  .toc-list a.toc-active::before { width: 9px; height: 9px; box-shadow: 0 0 0 3px rgba(201,151,58,0.2); }
+
+  /* ══════════════════════════════════════════════
+     FAQ Accordion
+  ══════════════════════════════════════════════ */
+  .faq-list { margin: 8px 0 0; }
+  .faq-accordion {
+    border: 1px solid var(--warm-gray);
+    border-radius: 10px;
+    margin-bottom: 12px;
+    padding: 0 20px;
+    background: #fff;
+    transition: box-shadow 0.2s, border-color 0.2s;
+  }
+  .faq-accordion:hover { border-color: var(--gold); box-shadow: 0 4px 16px rgba(12,45,94,0.06); }
+  .faq-accordion summary {
+    cursor: pointer;
+    list-style: none;
+    padding: 18px 32px 18px 0;
+    position: relative;
+    font-family: var(--font-head, 'Playfair Display', Georgia, serif);
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--navy);
+  }
+  .faq-accordion summary::-webkit-details-marker { display: none; }
+  .faq-accordion summary::after {
+    content: '+';
+    position: absolute; right: 0; top: 50%; transform: translateY(-50%);
+    width: 26px; height: 26px; border-radius: 50%;
+    background: var(--cream, #FFFCF4); border: 1px solid var(--warm-gray);
+    color: var(--navy); font-size: 16px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+    transition: transform 0.25s, background 0.2s;
+  }
+  .faq-accordion[open] summary::after {
+    content: '+';
+    transform: translateY(-50%) rotate(135deg);
+    background: var(--gold); color: #fff; border-color: var(--gold);
+  }
+  .faq-accordion-body { padding: 0 0 20px; }
+  .faq-accordion-body p { margin: 0; color: #333; }
+
+  /* ══════════════════════════════════════════════
+     Stat-card grid  -  light-mode version of the
+     reveal's numbers grid, for static example data
+     that lives outside the navy quiz card.
+  ══════════════════════════════════════════════ */
+  .stat-card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 14px;
+    margin: 20px 0;
+  }
+  .stat-card {
+    padding: 18px 16px;
+    border-radius: 12px;
+    background: #fff;
+    border: 1px solid var(--warm-gray);
+    box-shadow: 0 4px 16px rgba(12,45,94,0.05);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .stat-card:hover { transform: translateY(-3px); box-shadow: 0 10px 26px rgba(12,45,94,0.1); }
+  .stat-card-icon { width: 20px; height: 20px; color: var(--gold); margin-bottom: 8px; display: block; }
+  .stat-card-label { display: block; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.03em; color: #888; margin-bottom: 4px; }
+  .stat-card-value { display: block; font-family: var(--font-head, 'Playfair Display', Georgia, serif); font-size: 20px; font-weight: 700; color: var(--navy); }
+  .stat-card--highlight { background: var(--cream, #FFFCF4); border-color: var(--gold); }
+
+  /* ══════════════════════════════════════════════
+     Section rhythm  -  alternating background tint
+     so the page reads as visual chapters instead of
+     one continuous flat scroll.
+  ══════════════════════════════════════════════ */
+  .post-body > h2 { position: relative; }
+  .section-tint {
+    background: #FAFBFD;
+    margin: 40px -28px;
+    padding: 8px 28px 32px;
+    border-radius: 16px;
+  }
+  @media (max-width: 640px) {
+    .section-tint { margin: 32px -16px; padding: 4px 16px 24px; }
+  }
+
+  /* ══════════════════════════════════════════════
      BUILD 4  -  Mobile Sticky CTA
   ══════════════════════════════════════════════ */
   .mobile-sticky-cta {
@@ -863,24 +951,25 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
 
+          <div class="section-tint">
           <h2 id="assistance-amount">What Up to 25% Assistance Could Change</h2>
           <p>Schools To Home may provide a second mortgage worth up to <strong>25% of the CHFA first-mortgage amount</strong>. That assistance may help cover eligible down payment costs, closing costs, prepaid expenses or principal reduction. The assistance supports eligible purchase costs and is not paid to the buyer as leftover cash.</p>
 
           <div class="post-example">
             <h3>A simple $500,000 illustration</h3>
-            <table>
-              <tbody>
-                <tr><th scope="row">Purchase price</th><td>$500,000</td></tr>
-                <tr><th scope="row">Illustrative first mortgage</th><td>$400,000</td></tr>
-                <tr><th scope="row">25% of first mortgage</th><td>$100,000</td></tr>
-                <tr><th scope="row">Potential second mortgage</th><td>Up to $100,000</td></tr>
-              </tbody>
-            </table>
+            <div class="stat-card-grid">
+              <div class="stat-card"><svg class="stat-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11.5 12 4l9 7.5"/><path d="M5 10v9a1 1 0 0 0 1 1h4v-6h4v6h4a1 1 0 0 0 1-1v-9"/></svg><span class="stat-card-label">Purchase price</span><span class="stat-card-value">$500,000</span></div>
+              <div class="stat-card"><svg class="stat-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11.5 12 4l9 7.5"/><path d="M5 10v9a1 1 0 0 0 1 1h4v-6h4v6h4a1 1 0 0 0 1-1v-9"/></svg><span class="stat-card-label">Illustrative first mortgage</span><span class="stat-card-value">$400,000</span></div>
+              <div class="stat-card"><svg class="stat-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="3"/></svg><span class="stat-card-label">25% of first mortgage</span><span class="stat-card-value">$100,000</span></div>
+              <div class="stat-card stat-card--highlight"><svg class="stat-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="3"/></svg><span class="stat-card-label">Potential second mortgage</span><span class="stat-card-value">Up to $100,000</span></div>
+            </div>
             <p class="example-note">Actual assistance and purchase terms depend on the complete financial picture and current program requirements.</p>
           </div>
 
           <p>At this scale, the difference is not just financial. Assistance like this could shrink the years spent saving toward a down payment. It could open up communities you had ruled out, including neighborhoods closer to the school where you work. It could be the difference between staying in a rental that keeps climbing in price and finally settling into a home that is yours.</p>
           <p><strong>That could represent years of saving compressed into one homebuying strategy.</strong></p>
+
+          </div>
 
           <h2 id="how-it-works">How the Assistance Actually Works</h2>
           <p>Schools To Home pairs a CHFA first mortgage with a second mortgage that carries <strong>0% interest</strong>, <strong>no scheduled monthly payment</strong> and a deferred term with a shared-appreciation component. It helps with the purchase now. Later, when a repayment event occurs, you repay the original second-mortgage balance plus the program's agreed share of any qualifying increase in the home's value.</p>
@@ -891,18 +980,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
           <div class="post-example">
             <h3>CHFA's published example</h3>
-            <table>
-              <tbody>
-                <tr><th scope="row">Original purchase price</th><td>$437,500</td></tr>
-                <tr><th scope="row">First mortgage</th><td>$350,000</td></tr>
-                <tr><th scope="row">Schools To Home assistance</th><td>$87,500 (25% of the first mortgage, 20% of the purchase price)</td></tr>
-                <tr><th scope="row">Later home value</th><td>$480,000</td></tr>
-                <tr><th scope="row">Increase in value</th><td>$42,500</td></tr>
-                <tr><th scope="row">20% share of appreciation</th><td>$8,500</td></tr>
-                <tr><th scope="row">Illustrative total program payoff</th><td>$96,000</td></tr>
-              </tbody>
-            </table>
-            <p class="example-note">"Later home value" depends on how repayment is triggered. A sale uses the contract sales price; a refinance, payoff or other maturity event uses the home's appraised or fair market value at that time instead.</p>
+            <div class="stat-card-grid">
+              <div class="stat-card"><svg class="stat-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11.5 12 4l9 7.5"/><path d="M5 10v9a1 1 0 0 0 1 1h4v-6h4v6h4a1 1 0 0 0 1-1v-9"/></svg><span class="stat-card-label">Original purchase price</span><span class="stat-card-value">$437,500</span></div>
+              <div class="stat-card"><svg class="stat-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11.5 12 4l9 7.5"/><path d="M5 10v9a1 1 0 0 0 1 1h4v-6h4v6h4a1 1 0 0 0 1-1v-9"/></svg><span class="stat-card-label">First mortgage</span><span class="stat-card-value">$350,000</span></div>
+              <div class="stat-card stat-card--highlight"><svg class="stat-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="3"/></svg><span class="stat-card-label">Schools To Home assistance</span><span class="stat-card-value">$87,500</span></div>
+              <div class="stat-card"><svg class="stat-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg><span class="stat-card-label">Later home value</span><span class="stat-card-value">$480,000</span></div>
+              <div class="stat-card"><svg class="stat-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg><span class="stat-card-label">Increase in value</span><span class="stat-card-value">$42,500</span></div>
+              <div class="stat-card"><svg class="stat-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="3"/></svg><span class="stat-card-label">20% share of appreciation</span><span class="stat-card-value">$8,500</span></div>
+              <div class="stat-card stat-card--highlight"><svg class="stat-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="3"/></svg><span class="stat-card-label">Illustrative total program payoff</span><span class="stat-card-value">$96,000</span></div>
+            </div>
+            <p class="example-note">The $87,500 assistance equals 25% of the first mortgage and 20% of the purchase price. "Later home value" depends on how repayment is triggered: a sale uses the contract sales price; a refinance, payoff, or other maturity event uses the home's appraised or fair market value at that time instead.</p>
           </div>
 
           <p>For someone who could not otherwise cross the upfront-cost gap, that trade may be worth exploring. Hero HomeReach can help you understand which numbers to request and how they affect your longer-term plan.</p>
@@ -918,6 +1005,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <p>Refinancing can trigger repayment of the assistance and the applicable appreciation share. Because the CHFA DPA Second Mortgage Loan generally does not allow subordinate financing, a refinance of the first mortgage typically requires paying off the second mortgage and any shared-appreciation amount at that time, rather than leaving it in place.</p>
           <p>If the home's value stays flat or declines, any negative appreciation is treated as 0% appreciation, so no shared-appreciation amount is added on top of the original assistance. The original assistance itself still remains part of the long-term repayment plan.</p>
 
+          <div class="section-tint">
           <h2 id="requirements">A Few Starting Points to Explore</h2>
           <p>Current program guidelines include a few starting points worth knowing.</p>
           <ul>
@@ -930,6 +1018,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </ul>
           <p>These are starting points, not a final answer. A short conversation is usually faster than trying to piece it together alone.</p>
 
+          </div>
+
           <h2 id="is-it-right-for-you">When This Program May Be Worth Exploring</h2>
           <p>Schools To Home may be especially compelling when:</p>
           <ul>
@@ -941,6 +1031,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </ul>
           <p>Every household's picture is different, and none of this is a guess you have to make alone.</p>
 
+          <div class="section-tint">
           <h2 id="first-steps">Your First Step Does Not Have to Be Complicated</h2>
           <p>You do not need to master every mortgage rule before allowing yourself to imagine a home.</p>
           <p>Start with five questions:</p>
@@ -954,34 +1045,65 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <p>The program will not look the same for every household. The fastest way to understand its real potential is to look at your goals, income, credit picture and preferred Colorado market together.</p>
           <p>A closer look may reveal that the home you have been picturing is nearer than you believed.</p>
 
+          </div>
+
           <h2 id="faq">Frequently Asked Questions</h2>
-
-          <h3>Is CHFA Schools To Home only for teachers?</h3>
-          <p>No. Eligibility is based on qualifying full-time employment with an eligible public-school organization. That may include teachers, paraprofessionals, bus drivers, custodians, counselors, administrators and other staff.</p>
-
-          <h3>Is the assistance a grant?</h3>
-          <p>No. It is a deferred second mortgage with a shared-appreciation component. There is no scheduled monthly payment, but the assistance and applicable appreciation share are repaid when a repayment event occurs.</p>
-
-          <h3>How much assistance may be available?</h3>
-          <p>The program may provide up to 25% of the CHFA first-mortgage amount. The actual amount depends on your full financial picture and current program guidelines, and a Hero HomeReach consultation can help you explore what that could look like for you.</p>
-
-          <h3>Does every borrower need to work for a public school?</h3>
-          <p>No. When multiple borrowers apply, only one borrower must meet the qualifying full-time public-school employment requirement.</p>
-
-          <h3>Is this only for first-time buyers?</h3>
-          <p>No. The program is not restricted to first-time homebuyers, although every applicant must meet the full mortgage and program guidelines.</p>
-
-          <h3>What happens if I refinance?</h3>
-          <p>Refinancing can trigger repayment of the assistance and the applicable appreciation share, using the home's appraised or fair market value at that time rather than a sale price. Because the second mortgage generally cannot be subordinated, it typically must be paid off as part of the refinance rather than left in place. Hero HomeReach can help you organize those questions before you move forward.</p>
-
-          <h3>Can Schools To Home be combined with MetroDPA or regular CHFA assistance?</h3>
-          <p>Current program guidelines describe Schools To Home as a stand-alone assistance path. A Hero HomeReach consultation can help you understand how this fits alongside any other programs you are considering.</p>
-
-          <h3>Can Schools To Home assistance be used for an interest-rate buydown?</h3>
-          <p>Current program rules do not allow the Schools To Home assistance to fund a temporary or permanent interest-rate buydown. The assistance is intended for eligible purchase costs such as down payment, closing costs, prepaids and principal reduction.</p>
-
-          <h3>How do I take the first step?</h3>
-          <p>Start with a free Hero HomeReach consultation. We will help you understand the program, organize the right questions and guide you through the next step without asking you to decode the process alone.</p>
+          <div class="faq-list">
+            <details class="faq-accordion">
+              <summary>Is CHFA Schools To Home only for teachers?</summary>
+              <div class="faq-accordion-body">
+                <p>No. Eligibility is based on qualifying full-time employment with an eligible public-school organization. That may include teachers, paraprofessionals, bus drivers, custodians, counselors, administrators and other staff.</p>
+              </div>
+            </details>
+            <details class="faq-accordion">
+              <summary>Is the assistance a grant?</summary>
+              <div class="faq-accordion-body">
+                <p>No. It is a deferred second mortgage with a shared-appreciation component. There is no scheduled monthly payment, but the assistance and applicable appreciation share are repaid when a repayment event occurs.</p>
+              </div>
+            </details>
+            <details class="faq-accordion">
+              <summary>How much assistance may be available?</summary>
+              <div class="faq-accordion-body">
+                <p>The program may provide up to 25% of the CHFA first-mortgage amount. The actual amount depends on your full financial picture and current program guidelines, and a Hero HomeReach consultation can help you explore what that could look like for you.</p>
+              </div>
+            </details>
+            <details class="faq-accordion">
+              <summary>Does every borrower need to work for a public school?</summary>
+              <div class="faq-accordion-body">
+                <p>No. When multiple borrowers apply, only one borrower must meet the qualifying full-time public-school employment requirement.</p>
+              </div>
+            </details>
+            <details class="faq-accordion">
+              <summary>Is this only for first-time buyers?</summary>
+              <div class="faq-accordion-body">
+                <p>No. The program is not restricted to first-time homebuyers, although every applicant must meet the full mortgage and program guidelines.</p>
+              </div>
+            </details>
+            <details class="faq-accordion">
+              <summary>What happens if I refinance?</summary>
+              <div class="faq-accordion-body">
+                <p>Refinancing can trigger repayment of the assistance and the applicable appreciation share, using the home's appraised or fair market value at that time rather than a sale price. Because the second mortgage generally cannot be subordinated, it typically must be paid off as part of the refinance rather than left in place. Hero HomeReach can help you organize those questions before you move forward.</p>
+              </div>
+            </details>
+            <details class="faq-accordion">
+              <summary>Can Schools To Home be combined with MetroDPA or regular CHFA assistance?</summary>
+              <div class="faq-accordion-body">
+                <p>Current program guidelines describe Schools To Home as a stand-alone assistance path. A Hero HomeReach consultation can help you understand how this fits alongside any other programs you are considering.</p>
+              </div>
+            </details>
+            <details class="faq-accordion">
+              <summary>Can Schools To Home assistance be used for an interest-rate buydown?</summary>
+              <div class="faq-accordion-body">
+                <p>Current program rules do not allow the Schools To Home assistance to fund a temporary or permanent interest-rate buydown. The assistance is intended for eligible purchase costs such as down payment, closing costs, prepaids and principal reduction.</p>
+              </div>
+            </details>
+            <details class="faq-accordion">
+              <summary>How do I take the first step?</summary>
+              <div class="faq-accordion-body">
+                <p>Start with a free Hero HomeReach consultation. We will help you understand the program, organize the right questions and guide you through the next step without asking you to decode the process alone.</p>
+              </div>
+            </details>
+          </div>
 
           <div id="print-area">
           <section class="checklist-tool" id="readiness-checklist" aria-labelledby="checklist-heading">
@@ -1189,6 +1311,30 @@ document.querySelectorAll('.toc-list a').forEach(link => {
     }
   });
 });
+
+// Live "you are here" highlighting on the sidebar TOC as the reader scrolls,
+// so the list reads as a progress map instead of a static set of jump links.
+(function() {
+  const tocLinks = Array.from(document.querySelectorAll('.toc-list a'));
+  const tracked = tocLinks
+    .map(link => ({ link, el: document.getElementById(link.getAttribute('href').slice(1)) }))
+    .filter(item => item.el);
+  if (!tracked.length || !('IntersectionObserver' in window)) return;
+
+  const setActive = (id) => {
+    tocLinks.forEach(l => l.classList.remove('toc-active'));
+    const match = tracked.find(item => item.el.id === id);
+    if (match) match.link.classList.add('toc-active');
+  };
+
+  const tocObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) setActive(entry.target.id);
+    });
+  }, { rootMargin: '-15% 0px -70% 0px', threshold: 0 });
+
+  tracked.forEach(item => tocObserver.observe(item.el));
+})();
 
 (function() {
   const url   = encodeURIComponent(window.location.href);
