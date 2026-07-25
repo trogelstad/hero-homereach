@@ -45,13 +45,13 @@
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://www.herohomereach.com/blog/chfa-schools-to-home-colorado">
   <meta property="og:site_name" content="Hero HomeReach">
-  <meta property="og:image" content="https://www.herohomereach.com/blog/chfa-schools-to-home-coloradochfa-schools-to-home-colorado-hero-1200x630.webp">
+  <meta property="og:image" content="https://www.herohomereach.com/blog/chfa-schools-to-home-colorado/chfa-schools-to-home-colorado-hero-1200x630.webp">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="CHFA Schools To Home: Colorado School Staff Guide">
   <meta name="twitter:description" content="Not just for teachers. Colorado's new Schools To Home program may change the homebuying math for qualifying public-school employees.">
-  <meta name="twitter:image" content="https://www.herohomereach.com/blog/chfa-schools-to-home-coloradochfa-schools-to-home-colorado-hero-1200x630.webp">
+  <meta name="twitter:image" content="https://www.herohomereach.com/blog/chfa-schools-to-home-colorado/chfa-schools-to-home-colorado-hero-1200x630.webp">
 
   <!-- ═══════════════════════════════════════════════
        SCHEMA BLOCK 1  -  Article
@@ -64,7 +64,7 @@
     "description": "A new Colorado program may help full-time public-school employees move closer to homeownership. See what CHFA Schools To Home could mean for you.",
     "image": {
       "@type": "ImageObject",
-      "url": "https://www.herohomereach.com/blog/chfa-schools-to-home-coloradochfa-schools-to-home-colorado-hero-1200x630.webp",
+      "url": "https://www.herohomereach.com/blog/chfa-schools-to-home-colorado/chfa-schools-to-home-colorado-hero-1200x630.webp",
       "width": 1200,
       "height": 630
     },
@@ -165,7 +165,35 @@
   }
   .post-hero-inner {
     position: relative; z-index: 2;
-    max-width: 780px;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 400px;
+    gap: 48px;
+    align-items: center;
+  }
+  .post-hero-text { max-width: 680px; }
+  .post-hero-photo {
+    position: relative;
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid rgba(201,151,58,0.35);
+    box-shadow: 0 24px 48px -20px rgba(0,0,0,0.55);
+  }
+  .post-hero-photo img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    aspect-ratio: 1200 / 630;
+  }
+  .post-hero-photo::after {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(115deg, rgba(12,45,94,0.28) 0%, rgba(12,45,94,0) 45%);
+    pointer-events: none;
+  }
+  @media (max-width: 900px) {
+    .post-hero-inner { grid-template-columns: 1fr; gap: 28px; }
+    .post-hero-photo { order: -1; max-height: 240px; }
   }
   .post-hero-inner h1 {
     color: #fff;
@@ -843,6 +871,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div class="post-hero">
   <div class="container">
     <div class="post-hero-inner">
+      <div class="post-hero-text">
 
       <div class="breadcrumb">
         <a href="../../">Home</a>
@@ -881,6 +910,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 00-6.364-6.364l-4.5 4.5a4.5 4.5 0 001.242 7.244"/></svg>
           <span class="visually-hidden">Copy link</span>
         </button>
+      </div>
+
+      </div>
+
+      <div class="post-hero-photo">
+        <img src="chfa-schools-to-home-colorado-hero-1200x630.webp" alt="A Colorado public-school employee walking from the classroom toward a warmly lit home" width="1200" height="630">
       </div>
 
     </div>
