@@ -448,6 +448,13 @@
     border: 1px solid var(--warm-gray);
     display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap;
   }
+  /* The [hidden] attribute normally beats an element's own display rule,
+     but only when nothing in the author stylesheet also sets display on
+     that same element. .snapshot-recall's "display: flex" above ties with
+     the browser's built-in "[hidden] { display: none }" rule, and author
+     CSS always wins that tie, so without this line the card ignored the
+     hidden attribute entirely and showed on every page load. */
+  .snapshot-recall[hidden] { display: none !important; }
   .snapshot-recall p { margin: 0; font-weight: 600; color: var(--navy); }
   @media (max-width: 640px) {
     .snapshot-modal-overlay { padding: 12px; }
@@ -1584,6 +1591,12 @@ document.querySelectorAll('.toc-list a').forEach(link => {
   });
   if (snapshotRecallBtn) {
     snapshotRecallBtn.addEventListener('click', function() {
+      // Defensive guard: this button should only ever be reachable after a
+      // real result exists (the recall card is only meant to appear once
+      // there's something to show again). If it somehow gets clicked with
+      // nothing to show, do nothing instead of opening an empty modal that
+      // looks like the page has frozen.
+      if (!snapshotResult.innerHTML.trim()) { snapshotRecall.hidden = true; return; }
       snapshotModalOverlay.hidden = false;
       document.body.style.overflow = 'hidden';
       snapshotRecall.hidden = true;
