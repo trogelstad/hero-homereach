@@ -217,6 +217,64 @@
   .post-callout a:hover {
     color: var(--bright-gold);
   }
+  /* ── FAQ accordion ── */
+  .faq-accordion { margin: 20px 0 32px; }
+  .faq-item {
+    background: #fff;
+    border: 1px solid #e8e8e8;
+    border-radius: 10px;
+    margin-bottom: 12px;
+    overflow: hidden;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .faq-item[open] {
+    border-color: var(--gold);
+    box-shadow: 0 6px 20px rgba(12,45,94,0.07);
+  }
+  .faq-question {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 18px 22px;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--navy);
+    cursor: pointer;
+    list-style: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .faq-question::-webkit-details-marker { display: none; }
+  .faq-question:hover { color: var(--gold); }
+  .faq-icon {
+    flex-shrink: 0;
+    width: 26px; height: 26px;
+    border-radius: 50%;
+    background: rgba(12,45,94,0.06);
+    position: relative;
+    transition: background 0.2s, transform 0.25s;
+  }
+  .faq-icon::before, .faq-icon::after {
+    content: '';
+    position: absolute;
+    top: 50%; left: 50%;
+    background: var(--navy);
+    transition: transform 0.25s, background 0.2s;
+  }
+  .faq-icon::before { width: 10px; height: 2px; transform: translate(-50%, -50%); }
+  .faq-icon::after { width: 2px; height: 10px; transform: translate(-50%, -50%); }
+  .faq-item[open] .faq-icon { background: var(--gold); transform: rotate(180deg); }
+  .faq-item[open] .faq-icon::before,
+  .faq-item[open] .faq-icon::after { background: #fff; }
+  .faq-item[open] .faq-icon::after { transform: translate(-50%, -50%) scaleY(0); }
+  .faq-answer {
+    padding: 0 22px 20px;
+    font-size: 15px;
+    color: #444;
+    line-height: 1.7;
+  }
+  .faq-answer p { margin: 0; }
   /* ── Mobile ── */
   @media (max-width: 768px) {
     .post-article, .post-body { min-width: 0; max-width: 100%; overflow-x: hidden; }
@@ -467,18 +525,56 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </ol>
           <p>If you are still working toward homeownership, start with Hero HomeReach's guide to <a href="/blog/down-payment-assistance-teachers-colorado" target="_blank" rel="noopener">down payment assistance for Colorado teachers</a> or explore <a href="../../programs" target="_blank" rel="noopener">verified Colorado housing programs</a>. If you already own a home, the larger lesson is that equity can create choices, but every choice has a cost.</p>
           <h2 id="faq">Frequently Asked Questions About PERA and Home Equity</h2>
-          <h3>Can purchasing PERA service credit help a teacher retire earlier?</h3>
-          <p>It may. Colorado PERA says purchasing service credit may allow a member to retire earlier, receive a higher benefit or receive a larger PERACare subsidy. The actual result depends on the member's age, service history, membership date, division and benefit structure.</p>
-          <h3>Does purchasing two years of service mean retiring two years earlier?</h3>
-          <p>Not automatically. The purchase must change where the member falls within the applicable retirement eligibility rules. An official PERA estimate is needed.</p>
-          <h3>Can home equity be used to pay for a PERA purchase?</h3>
-          <p>Borrowed cash may be available for a purchase, but a cash-out refinance, home equity loan or HELOC is separate from PERA. PERA does not present these as endorsed funding methods.</p>
-          <h3>Can I make monthly payments directly to PERA?</h3>
-          <p>PERA currently permits monthly installments for eligible purchases. The payment period may generally equal twice the months being purchased, up to 120 months. Confirm the current terms for your purchase.</p>
-          <h3>Must the purchase be completed before I leave my PERA-covered job?</h3>
-          <p>Yes. PERA says service-credit purchases must be completed while you are an active member and before retirement or departure from PERA-covered employment.</p>
-          <h3>Is the mortgage interest tax deductible?</h3>
-          <p>Do not assume it is. Under current IRS guidance, interest on proceeds used for something other than buying, building or substantially improving the securing home generally does not qualify as deductible home mortgage interest. Ask a qualified tax professional about your specific loan.</p>
+          <div class="faq-accordion">
+            <details class="faq-item" open>
+              <summary class="faq-question">Can purchasing PERA service credit help a teacher retire earlier?
+                <span class="faq-icon" aria-hidden="true"></span>
+              </summary>
+              <div class="faq-answer">
+                <p>It may. Colorado PERA says purchasing service credit may allow a member to retire earlier, receive a higher benefit or receive a larger PERACare subsidy. The actual result depends on the member's age, service history, membership date, division and benefit structure.</p>
+              </div>
+            </details>
+            <details class="faq-item">
+              <summary class="faq-question">Does purchasing two years of service mean retiring two years earlier?
+                <span class="faq-icon" aria-hidden="true"></span>
+              </summary>
+              <div class="faq-answer">
+                <p>Not automatically. The purchase must change where the member falls within the applicable retirement eligibility rules. An official PERA estimate is needed.</p>
+              </div>
+            </details>
+            <details class="faq-item">
+              <summary class="faq-question">Can home equity be used to pay for a PERA purchase?
+                <span class="faq-icon" aria-hidden="true"></span>
+              </summary>
+              <div class="faq-answer">
+                <p>Borrowed cash may be available for a purchase, but a cash-out refinance, home equity loan or HELOC is separate from PERA. PERA does not present these as endorsed funding methods.</p>
+              </div>
+            </details>
+            <details class="faq-item">
+              <summary class="faq-question">Can I make monthly payments directly to PERA?
+                <span class="faq-icon" aria-hidden="true"></span>
+              </summary>
+              <div class="faq-answer">
+                <p>PERA currently permits monthly installments for eligible purchases. The payment period may generally equal twice the months being purchased, up to 120 months. Confirm the current terms for your purchase.</p>
+              </div>
+            </details>
+            <details class="faq-item">
+              <summary class="faq-question">Must the purchase be completed before I leave my PERA-covered job?
+                <span class="faq-icon" aria-hidden="true"></span>
+              </summary>
+              <div class="faq-answer">
+                <p>Yes. PERA says service-credit purchases must be completed while you are an active member and before retirement or departure from PERA-covered employment.</p>
+              </div>
+            </details>
+            <details class="faq-item">
+              <summary class="faq-question">Is the mortgage interest tax deductible?
+                <span class="faq-icon" aria-hidden="true"></span>
+              </summary>
+              <div class="faq-answer">
+                <p>Do not assume it is. Under current IRS guidance, interest on proceeds used for something other than buying, building or substantially improving the securing home generally does not qualify as deductible home mortgage interest. Ask a qualified tax professional about your specific loan.</p>
+              </div>
+            </details>
+          </div>
           <h2 id="your-first-move-is-clarity">Your First Move Is Clarity</h2>
           <p>Your home may hold more than equity. Under the right circumstances, it may help create a path toward time.</p>
           <p>But the first move is not choosing a loan. It is discovering whether purchasing service credit could meaningfully change your retirement path.</p>
