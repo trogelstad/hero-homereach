@@ -87,7 +87,7 @@
 
   <url>
     <loc>https://www.herohomereach.com/blog</loc>
-    <lastmod>2026-07-21</lastmod>
+    <lastmod>2026-07-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -270,6 +270,13 @@
   <url>
     <loc>https://www.herohomereach.com/blog/va-loan-down-payment-assistance-colorado</loc>
     <lastmod>2026-07-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.herohomereach.com/blog/whats-keeping-you-from-buying-a-home-colorado</loc>
+    <lastmod>2026-07-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
