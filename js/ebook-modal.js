@@ -1,7 +1,8 @@
 (function(){
   var ML_GROUP_ID='184754345036744568';
-  var ML_API_KEY="eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI0IiwianRpIjoiMDM2ODI2OTg4YTQ1M2ZkODE5ZjBkNTQ2NTZjNTA1ZGNkOWZlZDAxOThiOGRmOWI0MWFjMjQ1ZGM5MzU3NmY5NGMyMzY2MjFhZWQzZWNiYWUiLCJpYXQiOjE3ODAzMjU5MDYuMTMwMjA0LCJuYmYiOjE3ODAzMjU5MDYuMTMwMjA3LCJleHAiOjQ5MzU5OTk1MDYuMTI1MTcxLCJzdWIiOiIyMjg3NTQyIiwic2NvcGVzIjpbXX0.dEkrujT95mQqU6G1ROcm2Kg9mAwtcxHx6qO7mzSf9AMJkJ4rmN9OExjQaew1VUnE_NYHpY7ddKpfpvCKtci0Xf3s6cATnlx1JLP6U6NY9b_LBVuK01UFlWzRGnbJbra4sOoZmwwqG-zaZjoOVkqnEIeg8vUbcEAzWWOE6NxCnhaWlGMBFuIRdmXIMFeF1RuNNN2m84dC9h3mt-QPBV4eMiLCFbiAq7BmLYjLDPeN7zeaqHX_rwdjXppeG98uD_vMhpshD6aYfLRUOnBmMIum8GeKybBsonoI8bgNyGLoGwMy29CkfaHVLRz7P3ZUdC-4UzjRkikT24BKS2zN9vN9O-tD76eLNLNhPs2Vt8N-Hy5ekv1xRLLnGXyojxrRmduK0IGmdkPcOGUUnb4yBpRgHC57Z20HSc_rqCKhHWxHbhGJlvc8izdg4Dq-V30oJqo2PiZnD8vQs5lvL2mQnAISMoo0k4caQpBuTAuKvc58PC_GWPr7DEFCqreiUszwQzML9MnxCEXrHgJTDEecdDiYqAdaRavNScypYwsMB7CcwTTNG_8SwXA9BzMnPsiKRQVMt5qQqpCb71j_9x14bypcW6SNDxDzlwllTbtDDFvWYpTr4ZBkxsE-78a1xB5m8JrNhAj8Y3BVkUgKrHtGfH4sJ_n2RBCQyYUW8tczhOe90_k";
+  // ML_API_KEY removed — submissions now proxied through guide.herohomereach.com/api/ebook-lead
   var LOGO_URL='https://www.herohomereach.com/logo-mark_transparent.png';
+  var ENDPOINT='https://guide.herohomereach.com/api/ebook-lead';
 
   function inject(){
     if(document.getElementById('hhm-backdrop')) return;
@@ -73,9 +74,9 @@
     </div>
     <div class="hhm-success" id="hhm-success-wrap">
       <div class="hhm-success-icon">&#10003;</div>
-      <div class="hhm-success-title">Check Your Inbox</div>
-      <p class="hhm-success-body">Your Hero HomeReach Advantage guide is on its way. Ready to go deeper? Book a free Hero Strategy Session and we will map your personal assistance path together before your first lender call.</p>
-      <a class="hhm-success-cta" href="https://calendly.com/trogelstad-herohomereach/30min" target="_blank" rel="noopener">Book My Free Strategy Session &rarr;</a>
+      <div class="hhm-success-title">Your Guide Is Ready</div>
+      <p class="hhm-success-body">We also sent a copy to your email. You can download the guide now and start exploring your Colorado homebuyer assistance options. Keep an eye on your inbox for additional Colorado homebuyer tips and resources from Hero HomeReach.</p>
+      <a class="hhm-success-cta" href="https://guide.herohomereach.com/api/pdf-guide" target="_blank" rel="noopener">Download Your Guide &rarr;</a>
     </div>
   </div>
 </div>`;
@@ -141,27 +142,33 @@
     arrow.style.display='none';
     spinner.style.display='inline-block';
 
-    var fields={name:first+(last?' '+last:'')};
-    if(hero) fields['hero_type']=hero;
-
-    fetch('https://connect.mailerlite.com/api/subscribers',{
+    fetch(ENDPOINT,{
       method:'POST',
       headers:{
         'Content-Type':'application/json',
-        'Authorization':'Bearer '+ML_API_KEY,
         'Accept':'application/json'
       },
-      body:JSON.stringify({email:email,fields:fields,groups:[ML_GROUP_ID],status:'active'})
+      body:JSON.stringify({
+        first_name: first,
+        last_name: last || undefined,
+        email: email,
+        hero_type: hero || undefined
+      })
     })
     .then(function(res){
-      if(res.ok||res.status===200||res.status===201){
+      return res.json().then(function(data){ return {ok: res.ok, data: data}; });
+    })
+    .then(function(result){
+      if(result.ok && result.data && result.data.success){
+        // Fire GTM event only on confirmed success
         window.dataLayer=window.dataLayer||[];
-        window.dataLayer.push({event:'ebook_lead',hero_type:hero});
+        window.dataLayer.push({event:'ebook_lead', hero_type: hero});
         document.getElementById('hhm-form-wrap').style.display='none';
         document.getElementById('hhm-success-wrap').style.display='block';
       } else {
         hhmResetBtn();
-        alert('Something went wrong. Please try again.');
+        var msg=(result.data && result.data.error) || 'Something went wrong. Please try again.';
+        alert(msg);
       }
     })
     .catch(function(){
