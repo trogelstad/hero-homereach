@@ -93,6 +93,8 @@
 
     document.querySelectorAll('a').forEach(function(a){
       var href=a.getAttribute('href')||'';
+      // Skip any link inside the success screen — those must keep their real hrefs
+      if(a.closest('#hhm-success-wrap')) return;
       if(href.indexOf('guide.herohomereach.com')!==-1){
         a.setAttribute('href','#');
         a.addEventListener('click',function(e){e.preventDefault();hhmOpen();});
