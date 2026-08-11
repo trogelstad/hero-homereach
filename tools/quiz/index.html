@@ -22,7 +22,6 @@
   <!-- Calendly popup widget -->
   <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
   <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
-
 <style>
 /* ── VARIABLES ── */
 :root {
@@ -33,7 +32,6 @@
   --shadow:0 4px 24px rgba(12,45,94,0.10); --shadow-lg:0 12px 48px rgba(12,45,94,0.16);
   --transition:all 0.24s ease;
 }
-
 /* ── RESET ── */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;}
@@ -44,7 +42,6 @@ ul{list-style:none;}
 button{font-family:inherit;cursor:pointer;border:none;background:none;}
 h1,h2,h3,h4{font-family:var(--font-head);font-weight:700;color:var(--navy);line-height:1.15;}
 .container{max-width:860px;margin:0 auto;padding:0 24px;}
-
 /* ── BUTTONS ── */
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:var(--font-body);font-weight:700;font-size:16px;padding:16px 36px;border-radius:var(--radius);transition:var(--transition);cursor:pointer;border:none;}
 .btn-gold{background:var(--gold);color:var(--navy);box-shadow:0 4px 20px rgba(201,151,58,0.35);}
@@ -54,7 +51,6 @@ h1,h2,h3,h4{font-family:var(--font-head);font-weight:700;color:var(--navy);line-
 .btn-full{width:100%;}
 .btn-arrow::after{content:'→';transition:transform 0.2s;}
 .btn-arrow:hover::after{transform:translateX(4px);}
-
 /* ── NAV ── */
 #nav{position:fixed;top:0;left:0;right:0;z-index:999;height:var(--nav-h);background:rgba(12,45,94,0.97);backdrop-filter:blur(12px);border-bottom:1px solid rgba(201,151,58,0.2);box-shadow:0 2px 24px rgba(0,0,0,0.15);display:flex;align-items:center;}
 .nav-inner{width:100%;max-width:1140px;margin:0 auto;padding:0 32px;display:flex;align-items:center;justify-content:space-between;}
@@ -62,20 +58,16 @@ h1,h2,h3,h4{font-family:var(--font-head);font-weight:700;color:var(--navy);line-
 .nav-wordmark{font-family:var(--font-head);font-size:22px;font-weight:700;color:#fff;}
 .nav-wordmark span{color:var(--gold);}
 .nav-tm{font-size:12px;vertical-align:super;color:var(--gold);}
-
 /* Desktop nav links */
 .nav-links{display:flex;align-items:center;gap:18px;}
 .nav-links a{font-size:13px;font-weight:600;color:rgba(255,255,255,0.85);transition:color 0.2s;}
 .nav-links a:hover{color:var(--bright-gold);}
-
 /* Desktop CTA */
 .nav-cta{display:flex;align-items:center;}
 .nav-cta .btn{padding:11px 22px;font-size:14px;}
-
 /* Hamburger — hidden on desktop */
 .nav-hamburger{display:none;flex-direction:column;justify-content:center;gap:5px;cursor:pointer;padding:8px;background:none;border:none;}
 .nav-hamburger span{display:block;width:24px;height:2px;background:#fff;border-radius:2px;transition:var(--transition);}
-
 /* ── MOBILE NAV ── */
 #mobile-nav{
   position:fixed;
@@ -97,13 +89,11 @@ h1,h2,h3,h4{font-family:var(--font-head);font-weight:700;color:var(--navy);line-
 #mobile-nav.open{opacity:1;pointer-events:auto;}
 #mobile-nav a{font-size:18px;font-weight:600;color:rgba(255,255,255,0.85);transition:color 0.2s;}
 #mobile-nav a:hover{color:var(--bright-gold);}
-
 /* ── MOBILE BREAKPOINT ── */
 @media(max-width:1060px){
   .nav-links,.nav-cta{display:none;}
   .nav-hamburger{display:flex;}
 }
-
 /* ── QUIZ HEADER ── */
 #quiz-header{background:var(--navy);padding:calc(var(--nav-h) + 52px) 0 52px;position:relative;overflow:hidden;text-align:center;}
 #quiz-header::before{content:'';position:absolute;inset:0;background-image:repeating-linear-gradient(45deg,rgba(201,151,58,0.04) 0px,rgba(201,151,58,0.04) 1px,transparent 1px,transparent 56px);}
@@ -117,27 +107,22 @@ h1,h2,h3,h4{font-family:var(--font-head);font-weight:700;color:var(--navy);line-
 .trust-strip{display:flex;align-items:center;justify-content:center;gap:24px;flex-wrap:wrap;font-size:13px;color:rgba(255,255,255,0.5);}
 .trust-item{display:flex;align-items:center;gap:6px;}
 .trust-item::before{content:'✓';color:var(--green);font-weight:800;font-size:14px;}
-
 /* ── QUIZ WRAP ── */
 #quiz-wrap{padding:48px 0 96px;background:var(--white);}
-
 /* ── PROGRESS ── */
 .prog-wrap{margin-bottom:36px;}
 .prog-meta{display:flex;justify-content:space-between;font-size:13px;font-weight:600;color:#888;margin-bottom:10px;}
 .prog-meta .step-lbl{color:var(--navy);}
 .prog-bar{height:6px;background:var(--warm-gray);border-radius:3px;overflow:hidden;}
 .prog-fill{height:100%;background:linear-gradient(90deg,var(--navy),var(--mid-navy));border-radius:3px;transition:width 0.5s cubic-bezier(0.4,0,0.2,1);}
-
 /* ── CARD ── */
 .quiz-card{background:#fff;border:1px solid var(--warm-gray);border-radius:var(--radius-lg);padding:48px;box-shadow:var(--shadow-lg);}
-
 /* ── STEPS ── */
 .quiz-step{display:none;}
 .quiz-step.active{display:block;animation:stepIn 0.32s ease forwards;}
 @keyframes stepIn{from{opacity:0;transform:translateX(18px);}to{opacity:1;transform:translateX(0);}}
 .step-q{font-family:var(--font-head);font-size:clamp(19px,2.5vw,26px);font-weight:700;color:var(--navy);margin-bottom:6px;line-height:1.3;}
 .step-sub{font-size:14px;color:#888;margin-bottom:26px;}
-
 /* ── OPTIONS ── */
 .opt-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:28px;}
 .opt-grid.col1{grid-template-columns:1fr;}
@@ -150,7 +135,6 @@ h1,h2,h3,h4{font-family:var(--font-head);font-weight:700;color:var(--navy);line-
 .opt-emoji{font-size:22px;flex-shrink:0;}
 .opt-lbl{font-weight:600;font-size:14px;color:var(--navy);display:block;line-height:1.3;}
 .opt-sub{font-size:12px;color:#888;margin-top:1px;}
-
 /* ── STEP NAV ── */
 .step-nav{display:flex;align-items:center;justify-content:space-between;gap:12px;}
 .btn-prev{font-size:13px;font-weight:600;color:#888;display:flex;align-items:center;gap:5px;padding:10px 16px;border-radius:8px;transition:var(--transition);}
@@ -158,7 +142,6 @@ h1,h2,h3,h4{font-family:var(--font-head);font-weight:700;color:var(--navy);line-
 .btn-prev:hover{color:var(--navy);background:rgba(12,45,94,0.05);}
 .btn-prev:disabled{opacity:0.3;cursor:default;}
 .microcopy{font-size:12px;color:#bbb;text-align:center;margin-top:10px;}
-
 /* ── GATE ── */
 .gate-badge{background:rgba(26,107,74,0.08);border:1px solid rgba(26,107,74,0.2);border-radius:8px;padding:14px 18px;margin-bottom:24px;display:flex;align-items:center;gap:12px;}
 .gate-badge-icon{font-size:28px;flex-shrink:0;}
@@ -173,7 +156,6 @@ h1,h2,h3,h4{font-family:var(--font-head);font-weight:700;color:var(--navy);line-
 .form-ctrl::placeholder{color:#bbb;}
 .form-ctrl.error{border-color:#e03;}
 .gate-privacy{font-size:12px;color:#aaa;text-align:center;margin-top:12px;line-height:1.5;}
-
 /* ── LOADING ── */
 #step-loading{text-align:center;padding:40px 0;}
 .load-icon{font-size:52px;margin-bottom:20px;animation:pulse 1.5s ease-in-out infinite;}
@@ -191,7 +173,6 @@ h1,h2,h3,h4{font-family:var(--font-head);font-weight:700;color:var(--navy);line-
 .load-step:nth-child(3){animation-delay:2s;}
 @keyframes fadeUp{to{opacity:1;}}
 .load-step::before{content:'·';color:var(--gold);font-size:18px;font-weight:900;flex-shrink:0;line-height:1.3;margin-top:1px;}
-
 /* ── RESULT CARDS ── */
 .result-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(201,151,58,0.08);border:1px solid rgba(201,151,58,0.25);border-radius:20px;padding:6px 16px;margin-bottom:16px;font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#8B6020;}
 .result-header-card{background:var(--navy);border-radius:var(--radius);padding:26px 30px;margin-bottom:12px;position:relative;overflow:hidden;}
@@ -234,7 +215,6 @@ h1,h2,h3,h4{font-family:var(--font-head);font-weight:700;color:var(--navy);line-
 .result-error p{font-size:15px;color:#666;margin-bottom:20px;}
 .restart-btn{font-size:13px;color:#bbb;text-decoration:underline;text-underline-offset:3px;display:block;text-align:center;background:none;border:none;cursor:pointer;font-family:var(--font-body);}
 .restart-btn:hover{color:var(--navy);}
-
 /* ── RESPONSIVE ── */
 @media(max-width:700px){
   .quiz-card{padding:28px 20px;}
@@ -247,49 +227,26 @@ h1,h2,h3,h4{font-family:var(--font-head);font-weight:700;color:var(--navy);line-
   .btn-next,.btn-full{width:100%;}
   .trust-strip{flex-direction:column;gap:10px;}
 }
-  <footer id="footer">
-  <div class="container">
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <div class="wordmark">Hero <span>HomeReach</span>&trade;</div>
-        <p>Free homeownership guidance for Colorado educators, first responders, healthcare workers, military families, public servants and first-time buyers. No jargon. No pressure. Built for heroes.</p>
-      </div>
-      <div class="footer-col">
-        <div class="footer-col-title">Site</div>
-        <a href="/programs">Programs</a>
-        <a href="/who-we-serve">Who We Serve</a>
-        <a href="/about">About</a>
-        <a href="/blog">Learning Center</a>
-        <a href="/contact">Contact</a>
-        <a href="/community-partners">Community Partners</a>
-      </div>
-      <div class="footer-col">
-        <div class="footer-col-title">Heroes</div>
-        <a href="/who-we-serve#educators">Educators</a>
-        <a href="/who-we-serve#first-responders">First Responders</a>
-        <a href="/who-we-serve#healthcare">Healthcare Workers</a>
-        <a href="/who-we-serve#military">Military Members</a>
-      </div>
-      <div class="footer-col">
-        <div class="footer-col-title">Start Here</div>
-        <a href="/contact">Book Free Consultation</a>
-        <a href="/programs">Explore Programs</a>
-        <a href="/blog">Learning Center</a>
-        <a href="https://guide.herohomereach.com">Free Guide</a>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <div class="footer-copy">&copy; 2026 Hero HomeReach&trade;. All rights reserved. Colorado Homeownership Guidance.</div>
-      <div class="footer-legal">
-        <a href="/privacy">Privacy Policy</a>
-        <a href="/terms">Terms of Use</a>
-        <a href="/disclaimer">Disclaimer</a>
-      </div>
-    </div>
-  </div>
-</footer>
+/* ── FOOTER (standard site footer) ── */
+#footer { background: #080f1c; padding: 64px 0 32px; border-top: 1px solid rgba(201, 151, 58, 0.15); }
+.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
+.footer-brand .wordmark { font-family: var(--font-head); font-size: 24px; font-weight: 700; color: #fff; margin-bottom: 16px; }
+.footer-brand .wordmark span { color: var(--gold); }
+.footer-brand p { font-size: 14px; color: rgba(255, 255, 255, 0.45); line-height: 1.7; max-width: 280px; }
+.footer-col-title { font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
+.footer-col a { display: block; font-size: 14px; color: rgba(255, 255, 255, 0.5); margin-bottom: 10px; transition: color 0.2s; }
+.footer-col a:hover { color: rgba(255, 255, 255, 0.85); }
+.footer-bottom { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; padding-top: 32px; border-top: 1px solid rgba(255, 255, 255, 0.06); }
+.footer-copy { font-size: 12px; color: rgba(255, 255, 255, 0.3); }
+.footer-legal { display: flex; gap: 24px; }
+.footer-legal a { font-size: 12px; color: rgba(255, 255, 255, 0.3); transition: color 0.2s; }
+.footer-legal a:hover { color: rgba(255, 255, 255, 0.6); }
+@media (max-width: 768px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 500px) {
+  .footer-grid { grid-template-columns: 1fr; }
+  .footer-bottom { flex-direction: column; text-align: center; }
+}
 </style>
-
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -343,7 +300,6 @@ h1,h2,h3,h4{font-family:var(--font-head);font-weight:700;color:var(--navy);line-
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5ZQKN4LM"
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
-
 <!-- ════════════ NAVIGATION ════════════ -->
 <nav id="nav" class="nav-solid">
   <div class="nav-inner">
@@ -370,7 +326,6 @@ h1,h2,h3,h4{font-family:var(--font-head);font-weight:700;color:var(--navy);line-
     </button>
   </div>
 </nav>
-
 <!-- ════════════ MOBILE NAV ════════════ -->
 <div id="mobile-nav">
   <a href="/programs" onclick="toggleMobileNav()">Programs</a>
@@ -381,7 +336,6 @@ h1,h2,h3,h4{font-family:var(--font-head);font-weight:700;color:var(--navy);line-
   <a href="https://guide.herohomereach.com" target="_blank" onclick="toggleMobileNav()" style="color:var(--bright-gold);">Free Guide</a>
   <a href="/contact" onclick="toggleMobileNav()" class="btn btn-gold" style="margin-top:16px;">Book Free Consultation</a>
 </div>
-
 <!-- ════════════ QUIZ HEADER ════════════ -->
 <section id="quiz-header">
   <div class="container">
@@ -398,11 +352,9 @@ h1,h2,h3,h4{font-family:var(--font-head);font-weight:700;color:var(--navy);line-
     </div>
   </div>
 </section>
-
 <!-- ════════════ QUIZ ════════════ -->
 <section id="quiz-wrap">
   <div class="container">
-
     <div class="prog-wrap" id="progWrap">
       <div class="prog-meta">
         <span class="step-lbl" id="stepLbl">Question 1 of 4</span>
@@ -410,9 +362,7 @@ h1,h2,h3,h4{font-family:var(--font-head);font-weight:700;color:var(--navy);line-
       </div>
       <div class="prog-bar"><div class="prog-fill" id="progFill" style="width:25%;"></div></div>
     </div>
-
     <div class="quiz-card">
-
       <!-- Q1 -->
       <div class="quiz-step active" id="step-1">
         <div class="step-q">What is your current profession?</div>
@@ -430,7 +380,6 @@ h1,h2,h3,h4{font-family:var(--font-head);font-weight:700;color:var(--navy);line-
         </div>
         <div class="microcopy">No wrong answers — all responses help tailor your result.</div>
       </div>
-
       <!-- Q2 -->
       <div class="quiz-step" id="step-2">
         <div class="step-q">What is your estimated credit score?</div>
@@ -448,7 +397,6 @@ h1,h2,h3,h4{font-family:var(--font-head);font-weight:700;color:var(--navy);line-
         </div>
         <div class="microcopy">Your score won't be pulled or affected by this quiz.</div>
       </div>
-
       <!-- Q3 -->
       <div class="quiz-step" id="step-3">
         <div class="step-q">What is your estimated total household income?</div>
@@ -465,7 +413,6 @@ h1,h2,h3,h4{font-family:var(--font-head);font-weight:700;color:var(--navy);line-
           <button class="btn btn-gold btn-arrow btn-next" onclick="goNext(3)" id="next3" disabled>Next</button>
         </div>
       </div>
-
       <!-- Q4 -->
       <div class="quiz-step" id="step-4">
         <div class="step-q">When are you hoping to buy a home?</div>
@@ -480,7 +427,6 @@ h1,h2,h3,h4{font-family:var(--font-head);font-weight:700;color:var(--navy);line-
           <button class="btn btn-gold btn-arrow btn-next" onclick="goNext(4)" id="next4" disabled>Next</button>
         </div>
       </div>
-
       <!-- GATE -->
       <div class="quiz-step" id="step-gate">
         <div class="gate-badge">
@@ -512,7 +458,6 @@ h1,h2,h3,h4{font-family:var(--font-head);font-weight:700;color:var(--navy);line-
         </form>
         <div class="step-nav" style="margin-top:16px;"><button class="btn-prev" onclick="goPrev()">Previous</button></div>
       </div>
-
       <!-- LOADING -->
       <div class="quiz-step" id="step-loading">
         <div class="load-icon">🏡</div>
@@ -525,17 +470,14 @@ h1,h2,h3,h4{font-family:var(--font-head);font-weight:700;color:var(--navy);line-
           <div class="load-step">Writing your personalized assessment</div>
         </div>
       </div>
-
       <!-- RESULT -->
       <div class="quiz-step" id="step-result">
         <div id="resultContent"></div>
         <button class="restart-btn" onclick="restart()">Start over</button>
       </div>
-
     </div><!-- /quiz-card -->
   </div>
 </section>
-
 <!-- ════════════ FOOTER ════════════ -->
 <footer id="footer">
   <div class="container">
@@ -578,13 +520,11 @@ h1,h2,h3,h4{font-family:var(--font-head);font-weight:700;color:var(--navy);line-
     </div>
   </div>
 </footer>
-
 <script>
 // ── MOBILE NAV TOGGLE ──
 function toggleMobileNav() {
   document.getElementById('mobile-nav').classList.toggle('open');
 }
-
 // ── GTM TRACKING ──
 window.dataLayer = window.dataLayer || [];
 function trackQuizStarted() {
@@ -602,11 +542,9 @@ window.addEventListener('message', function(e) {
     window.dataLayer.push({ event: 'consultation_booked', event_category: 'conversion' });
   }
 });
-
 // ── STATE ──
 const A = {q1:null,q2:null,q3:null,q4:null};
 let cur = 1;
-
 // ── SELECTION ──
 function pick(card, q, val) {
   document.getElementById(q+'-opts').querySelectorAll('.opt-card').forEach(c=>c.classList.remove('selected'));
@@ -619,11 +557,9 @@ function pick(card, q, val) {
 document.querySelectorAll('.opt-card').forEach(c=>{
   c.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();c.click();}});
 });
-
 // ── NAVIGATION ──
 function goNext(from) { if(!A['q'+from]) return; show(from+1); }
 function goPrev() { if(cur>1) show(cur-1); }
-
 function show(step) {
   document.querySelectorAll('.quiz-step').forEach(s=>s.classList.remove('active'));
   const id = step>4 ? 'step-gate' : 'step-'+step;
@@ -632,7 +568,6 @@ function show(step) {
   updateProg(step);
   document.getElementById('quiz-wrap').scrollIntoView({behavior:'smooth',block:'start'});
 }
-
 function updateProg(step) {
   const pw = document.getElementById('progWrap');
   if(step>4){pw.style.display='none';return;}
@@ -642,7 +577,6 @@ function updateProg(step) {
   document.getElementById('stepLbl').textContent = 'Question '+step+' of 4';
   document.getElementById('stepPct').textContent = pct+'%';
 }
-
 // ── GATE SUBMIT ──
 function submitGate(e) {
   e.preventDefault();
@@ -659,30 +593,26 @@ function submitGate(e) {
   const lf = document.getElementById('loadFill');
   lf.style.animation='none'; void lf.offsetWidth; lf.style.animation='';
   document.getElementById('quiz-wrap').scrollIntoView({behavior:'smooth',block:'start'});
-
   const nameParts = first.split(' ');
   const mlFirst = nameParts[0] || first;
   const mlLast = nameParts.slice(1).join(' ') || '';
   const phone = document.getElementById('gPhone').value.trim();
-
-  fetch('https://connect.mailerlite.com/api/subscribers', {
+  fetch('/api/quiz-subscribe', {
     method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'Accept': 'application/json',
-      'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI0IiwianRpIjoiMDJhMDg4ZWMyNDQ5MmNjOGFjODJmZDg4YzNlYTQ2ZDlmNDliYzM0YmU5ZTdhZjI5MmNmNDI1NmNmN2QzMWY5NDNlMzUxOTQ0ZGZhOTk4ZWUiLCJpYXQiOjE3NzY5NTYxMTIuMTMwMzUyLCJuYmYiOjE3NzY5NTYxMTIuMTMwMzU0LCJleHAiOjQ5MzI2Mjk3MTIuMTI1OTE2LCJzdWIiOiIyMjg3NTQyIiwic2NvcGVzIjpbXX0.MB8WJnwZ5lG35JACvXlS_2oXjBPpRODveds6iG7e4lfdSH1TjNKBhkkbs-AZZux35lr9PbDSp7HwxwdpebCMH3zb_m8nQl7MRh4aN2j4ucPbcUFtwWwbnnL59Om_t8mD7IBF8gXcmgDGVNhnCzMRrcJn4_1y6y-9ba6wizpfPDG98YvFVIeSk8Jcl_pXiljER8ZgOUaWEr8AP5AJ9fNo3zUrYK54fc9KOoyQ9s36Mz46FYEpehsaTKoZ3WsR3NA18xWLfzhX2Elt3Bkv8NGaN2zFtnAh6vRntHiBIVyxH2xmGg4mUKQjjXMzKbYK7YjRe03vAveGGrKGNLBPidZgORZX_TyhfqcG1iVl9Yuy7xqsufS2JuXTzCcEkB9VHSFQ6lGsYBU3JJJesVxcFMUcVg8POKlGj-NM7JXR2SFYAxt-ziWVo6p3yNHIdb1tY6mTlvRY-96nPiIfNtrfYabSWhUfHcE8bw75IudWHRswypaapYfGLHxYzLFgQuAoCdNNYkMj_vHouQ7yOguAO5HYjADQqPhbBAq2-2UYZtPiCPNW7i_F8TFbwl1TzxmTRC36b7G7vDfbnavInmIgJj2NVlGS2UFn432xzFG600xVwcFUFQI9LHykOhUYHB0Bsu-6BW_OuY5jpCkYiypRpqbPxaSgUMvAAPv45ydTSi27wCQ'
-    },
+    headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
       email: email,
-      fields: { name: mlFirst, last_name: mlLast, phone: phone, profession: A.q1, credit_range: A.q2, income_range: A.q3, buying_timeline: A.q4 },
-      groups: ['186468881171220415'],
-      status: 'active'
+      firstName: mlFirst,
+      lastName: mlLast,
+      phone: phone,
+      profession: A.q1,
+      creditRange: A.q2,
+      incomeRange: A.q3,
+      buyingTimeline: A.q4
     })
-  }).catch(err => console.error('[Quiz] MailerLite error:', err));
-
+  }).catch(err => console.error('[Quiz] Subscribe error:', err));
   callAPI(first, email);
 }
-
 // ── CLAUDE API CALL ──
 async function callAPI(firstName, email) {
   try {
@@ -699,7 +629,6 @@ async function callAPI(firstName, email) {
     setTimeout(()=>showError(), 700);
   }
 }
-
 // ── SHOW RESULT ──
 function showResult(name, text) {
   const paras = text.split(/\n\n+/).filter(p=>p.trim()).map(p=>`<p>${p.trim()}</p>`).join('');
@@ -708,7 +637,6 @@ function showResult(name, text) {
   const cMap = {'660plus':'Credit 660+','620to659':'Credit 620–659','600to619':'Credit 600–619','under600':'Credit Under 600','unsure':'Credit Unknown'};
   const iMap = {'under126':'Under $126K','126to174':'$126–$174K','174to210':'$174–$210K','over210':'Over $210K','unsure':'Unknown'};
   const tMap = {'asap':'Ready Now 🚀','3to6':'3–6 Months 📅','research':'Researching 🔍'};
-
   document.getElementById('resultContent').innerHTML = `
     <span class="result-badge">✦ Your Personalized Assessment</span>
     <div class="result-header-card">
@@ -770,12 +698,10 @@ function showResult(name, text) {
     <div class="result-secondary"><a href="/programs">Explore all Colorado hero programs →</a></div>
     <div class="result-disclaimer"><strong>Important:</strong> This assessment is an educational estimate only — it is not a lending decision, prequalification, or guarantee of program funding. Final eligibility depends on lender review, current program guidelines, property details, income verification, and available funding. A licensed mortgage professional must confirm all program eligibility. Hero HomeReach™ is a homeownership education and guidance service, not a lender or broker.</div>
   `;
-
   document.querySelectorAll('.quiz-step').forEach(s=>s.classList.remove('active'));
   document.getElementById('step-result').classList.add('active');
   document.getElementById('quiz-wrap').scrollIntoView({behavior:'smooth',block:'start'});
 }
-
 function showError() {
   document.getElementById('resultContent').innerHTML = `
     <div class="result-error">
@@ -786,7 +712,6 @@ function showError() {
   document.querySelectorAll('.quiz-step').forEach(s=>s.classList.remove('active'));
   document.getElementById('step-result').classList.add('active');
 }
-
 // ── RESTART ──
 function restart() {
   A.q1=A.q2=A.q3=A.q4=null;
@@ -799,7 +724,5 @@ function restart() {
 </script>
 <link rel="stylesheet" href="/css/ebook-modal.css">
 <script src="/js/ebook-modal.js"></script>
-</body>
-</html>
 </body>
 </html>
