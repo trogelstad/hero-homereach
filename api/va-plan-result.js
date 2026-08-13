@@ -12,19 +12,20 @@ module.exports = async function handler(req, res) {
     if (req.method === 'OPTIONS') return res.status(200).end();
     if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
 
-    const {
-          firstName,
-          lastName,
-          email,
-          phone,
-          region,
-          priceRange,
-          firstUse,
-          disability,
-          cashAvailable,
-          priorities,
-          lenderStatus
-    } = req.body;
+const {
+    firstName,
+    lastName,
+    email,
+    phone,
+    region,
+    priceRange,
+    firstUse,
+    disability,
+    cashAvailable,
+    priorities,
+    priorityOther,
+    lenderStatus
+  } = req.body;
 
     if (!firstName || !email || !region || !priceRange || !firstUse || !disability || !cashAvailable || !lenderStatus) {
           return res.status(400).json({ error: 'Missing required fields' });
