@@ -8,7 +8,7 @@
     { "source": "/about.html", "destination": "/about", "permanent": true },
     { "source": "/contact.html", "destination": "/contact", "permanent": true },
     { "source": "/quiz", "destination": "/tools/quiz", "permanent": true },
-    { "source": "/quiz.html", "destination": "/tools/quiz", "permanent": true }
+    { "source": "/quiz.html", "destination": "/tools/quiz", "permanent": true },
     { "source": "/blog/nurse-healthcare-worker-home-grants-colorado-2026", "destination": "/blog/healthcare-worker-home-grants-colorado-2026", "permanent": true }
   ],
   "headers": [
