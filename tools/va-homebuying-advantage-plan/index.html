@@ -214,6 +214,13 @@
     }
     .hhr-result-row-inner { position: relative; z-index: 2; }
     .hhr-result-row-label { font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 6px; }
+    .hhr-plan-sections { display: flex; flex-direction: column; gap: 12px; margin-bottom: 14px; }
+    .hhr-plan-section { background: #fff; border: 1px solid rgba(12,45,94,0.1); border-radius: 10px; padding: 18px 20px; }
+    .hhr-plan-section-head { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+    .hhr-plan-icon { width: 30px; height: 30px; border-radius: 50%; background: rgba(201,151,58,0.12); display: flex; align-items: center; justify-content: center; font-size: 15px; flex-shrink: 0; }
+    .hhr-plan-label { font: 700 11px/1 Inter, sans-serif; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); }
+    .hhr-plan-text { font-size: 15px; line-height: 1.7; color: #374151; margin: 0; }
+    .hhr-plan-text strong { color: var(--navy); font-weight: 700; }
     .hhr-result-ctas { display: flex; gap: 10px; flex-wrap: wrap; }
     .hhr-cta-primary {
       display: inline-block; background: var(--gold); color: var(--navy); font-family: 'Inter', sans-serif;
@@ -659,10 +666,33 @@ function toggleMobileNav() {
     });
   }
 
+  var HHR_SECTION_META = [
+    { icon: '🎖️', label: 'Your Zero-Down Advantage' },
+    { icon: '💵', label: 'Cash To Plan For' },
+    { icon: '🏛️', label: 'Programs Worth Reviewing' },
+    { icon: '🤝', label: 'Your Next Step' }
+  ];
+
+  function highlightPlanText(escapedText) {
+    var t = escapedText.replace(/(\$[\d,]+(?:\.\d+)?|\b\d+(?:\.\d+)?%)/g, '<strong>$1</strong>');
+    var terms = ['CHFA', 'metroDPA', 'Douglas County Housing Partnership', 'DCHP', 'Chenoa Fund', 'VA loan', 'Certificate of Eligibility'];
+    terms.forEach(function(term) {
+      var re = new RegExp('\\b(' + term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')\\b', 'g');
+      t = t.replace(re, '<strong>$1</strong>');
+    });
+    return t;
+  }
+
   function showAIResult(text, first) {
-    var paras = text.split(/\n\n+/).filter(function(p) { return p.trim(); })
-      .map(function(p) { return '<p style="margin:0 0 14px;font-size:15px;line-height:1.7;color:#374151;">' + p.trim() + '</p>'; })
-      .join('');
+    var paras = text.split(/\n\n+/).filter(function(p) { return p.trim(); });
+    var sectionsHtml = paras.map(function(p, i) {
+      var meta = HHR_SECTION_META[i] || { icon: '✦', label: 'More To Know' };
+      var body = highlightPlanText(escapeHtml(p.trim()));
+      return '<div class="hhr-plan-section">' +
+        '<div class="hhr-plan-section-head"><span class="hhr-plan-icon">' + meta.icon + '</span><span class="hhr-plan-label">' + meta.label + '</span></div>' +
+        '<p class="hhr-plan-text">' + body + '</p>' +
+      '</div>';
+    }).join('');
     var regionLabels = { metro: 'Denver Metro / Front Range', douglas: 'Douglas County', rest: 'Rest of Colorado', unsure: 'Region Not Set' };
     var lenderLabels = { not_yet: 'No Lender Yet', talked: 'Comparing Options', active: '⚡ Working With a Lender' };
     document.getElementById('hhrResultContent').innerHTML =
@@ -676,9 +706,7 @@ function toggleMobileNav() {
           '</div>' +
         '</div>' +
       '</div>' +
-      '<div style="background:#fff;border:1px solid rgba(12,45,94,0.1);border-radius:10px;padding:22px 24px;margin-bottom:12px;">' +
-        paras +
-      '</div>' +
+      '<div class="hhr-plan-sections">' + sectionsHtml + '</div>' +
       '<div class="hhr-result-ctas">' +
         '<a href="/contact" class="hhr-cta-primary">Book a Free Strategy Session</a>' +
         '<a href="https://guide.herohomereach.com" target="_blank" rel="noopener" class="hhr-cta-secondary">Get the Free Guide</a>' +
