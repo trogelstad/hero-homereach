@@ -221,6 +221,11 @@
     .hhr-plan-label { font: 700 11px/1 Inter, sans-serif; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); }
     .hhr-plan-text { font-size: 15px; line-height: 1.7; color: #374151; margin: 0; }
     .hhr-plan-text strong { color: var(--navy); font-weight: 700; }
+    .hhr-calc-total { font-family: 'Playfair Display', Georgia, serif; font-size: 26px; font-weight: 700; color: var(--navy); margin: 2px 0 6px; }
+    .hhr-calc-sub { font-size: 13px; color: #666; line-height: 1.5; margin-bottom: 12px; }
+    .hhr-calc-list { margin: 0 0 12px; padding-left: 18px; }
+    .hhr-calc-list li { font-size: 13px; color: #374151; line-height: 1.65; }
+    .hhr-calc-disclaimer { font-size: 11px; color: #999; line-height: 1.5; border-top: 1px solid rgba(12,45,94,0.08); padding-top: 10px; }
     .hhr-result-ctas { display: flex; gap: 10px; flex-wrap: wrap; }
     .hhr-cta-primary {
       display: inline-block; background: var(--gold); color: var(--navy); font-family: 'Inter', sans-serif;
@@ -684,16 +689,48 @@ function toggleMobileNav() {
     return t;
   }
 
+  var HHR_PRICE_MIDPOINTS = {
+    under350: { price: 325000, label: 'a $325,000 example price' },
+    b350_450: { price: 400000, label: 'a $400,000 example price' },
+    b450_550: { price: 500000, label: 'a $500,000 example price' },
+    b550_700: { price: 625000, label: 'a $625,000 example price' },
+    over700:  { price: 750000, label: 'a $750,000 example price' }
+  };
+
+  function formatMoney(n) {
+    return '$' + Math.round(n).toLocaleString('en-US');
+  }
+
+  function buildCalculatorCard(priceRangeKey) {
+    var range = HHR_PRICE_MIDPOINTS[priceRangeKey] || HHR_PRICE_MIDPOINTS.b450_550;
+    var low = range.price * 0.02;
+    var high = range.price * 0.05;
+    return '<div class="hhr-plan-section">' +
+      '<div class="hhr-plan-section-head"><span class="hhr-plan-icon">🧮</span><span class="hhr-plan-label">Estimated Cash To Close</span></div>' +
+      '<div class="hhr-calc-total">' + formatMoney(low) + ' to ' + formatMoney(high) + '</div>' +
+      '<div class="hhr-calc-sub">A rough planning estimate using ' + range.label + ', the middle of your selected range, based on typical closing costs of 2% to 5% of the purchase price.</div>' +
+      '<ul class="hhr-calc-list">' +
+        '<li>Lender and title fees</li>' +
+        '<li>Prepaid property tax and insurance (escrow reserve)</li>' +
+        '<li>Home inspection and VA appraisal</li>' +
+        '<li>Earnest money (usually credited back toward this total, not stacked on top)</li>' +
+      '</ul>' +
+      '<div class="hhr-calc-disclaimer">This is an educational planning estimate only, not a quote or a guarantee. Actual costs vary by lender, county, and transaction. Your lender provides the official Loan Estimate.</div>' +
+    '</div>';
+  }
+
   function showAIResult(text, first) {
     var paras = text.split(/\n\n+/).filter(function(p) { return p.trim(); });
-    var sectionsHtml = paras.map(function(p, i) {
+    var sectionsArr = paras.map(function(p, i) {
       var meta = HHR_SECTION_META[i] || { icon: '✦', label: 'More To Know' };
       var body = highlightPlanText(escapeHtml(p.trim()));
       return '<div class="hhr-plan-section">' +
         '<div class="hhr-plan-section-head"><span class="hhr-plan-icon">' + meta.icon + '</span><span class="hhr-plan-label">' + meta.label + '</span></div>' +
         '<p class="hhr-plan-text">' + body + '</p>' +
       '</div>';
-    }).join('');
+    });
+    sectionsArr.splice(2, 0, buildCalculatorCard(answers.s2));
+    var sectionsHtml = sectionsArr.join('');
     var regionLabels = { metro: 'Denver Metro / Front Range', douglas: 'Douglas County', rest: 'Rest of Colorado', unsure: 'Region Not Set' };
     var lenderLabels = { not_yet: 'No Lender Yet', talked: 'Comparing Options', active: '⚡ Working With a Lender' };
     document.getElementById('hhrResultContent').innerHTML =
