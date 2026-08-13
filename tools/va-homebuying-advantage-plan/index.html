@@ -644,7 +644,7 @@ function toggleMobileNav() {
     if (nextBtn) nextBtn.disabled = false;
   };
 
-  window.hhrToggle = function(card, step, val) {
+window.hhrToggle = function(card, step, val) {
     var list = answers[step] || [];
     var idx = list.indexOf(val);
     if (idx > -1) {
@@ -659,6 +659,10 @@ function toggleMobileNav() {
     answers[step] = list;
     var nextBtn = document.getElementById('hhrNext' + curStep);
     if (nextBtn) nextBtn.disabled = list.length === 0;
+    if (step === 's6' && val === 'other') {
+      var wrap = document.getElementById('hhr-s6-other-wrap');
+      if (wrap) wrap.style.display = list.indexOf('other') > -1 ? 'block' : 'none';
+    }
   };
 
   window.hhrCheckContact = function() {
