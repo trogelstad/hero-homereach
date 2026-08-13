@@ -721,7 +721,8 @@ window.hhrToggle = function(card, step, val) {
       firstUse: answers.s3,
       disability: answers.s4,
       cashAvailable: answers.s5,
-      priorities: answers.s6,
+priorities: answers.s6,
+      priorityOther: document.getElementById('hhrS6Other') ? document.getElementById('hhrS6Other').value.trim() : '',
       lenderStatus: answers.s7
     };
 
