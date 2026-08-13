@@ -132,6 +132,7 @@ CRITICAL RULES:
 - Be SPECIFIC. Reference actual program names and actual figures from the verified knowledge below, scaled to the buyer's own price range and region.
 - Do not imply Hero HomeReach is the VA, a government agency, or a lender.
 - Keep it under 380 words. Short paragraphs. Plain flowing prose only. No markdown, no bullet characters, no headers.
+- Structure your response as EXACTLY four paragraphs, separated by a single blank line, in this exact order and no other order: (1) their VA zero-down benefit and price range, with genuine enthusiasm, (2) cash they should still plan for given their price range and ways to potentially reduce it given what they have available, (3) which of the region-appropriate Colorado programs above are actually relevant to them, (4) a closing paragraph covering how their VA benefit status affects what to ask their lender, tailored to their lender status, ending with the invitation to book a free Hero Strategy Session. Do not add a fifth paragraph, do not merge these into fewer paragraphs, and do not add any paragraph before the first one.
 - Never use a dash character. Use a comma instead.
 
 HERO HOMEREACH ROUTING RULES:
@@ -180,7 +181,7 @@ Cash currently available for closing and moving costs: ${cashMap[cashAvailable] 
 What matters most right now: ${priorityList}
 Lender or agent status: ${lenderStatusMap[lenderStatus] || lenderStatus}
 
-Open with their first name and genuine enthusiasm about their VA zero down benefit, then cover what cash they may still want to plan for given their price range, ways to potentially reduce it given what they have available, which of the region appropriate Colorado programs above are actually relevant to them (only mention metroDPA if they are in the Denver Metro or Front Range area, only mention DCHP if they are in Douglas County), and how their VA benefit status (first use, disability compensation) affects what to ask their lender. Tailor the closing sentence to their lender status, if they already have a lender or agent, frame Hero HomeReach as a helpful second opinion rather than a replacement. Plain prose only, no bullets or headers. Under 380 words. End with one sentence inviting them to book a free Hero Strategy Session at herohomereach.com/contact.`;
+Write exactly four paragraphs, separated by a single blank line. Paragraph 1: open with their first name and genuine enthusiasm about their VA zero down benefit and price range. Paragraph 2: cover what cash they may still want to plan for given their price range, and ways to potentially reduce it given what they have available. Paragraph 3: which of the region appropriate Colorado programs above are actually relevant to them (only mention metroDPA if they are in the Denver Metro or Front Range area, only mention DCHP if they are in Douglas County). Paragraph 4: how their VA benefit status (first use, disability compensation) affects what to ask their lender, tailored to their lender status (if they already have a lender or agent, frame Hero HomeReach as a helpful second opinion rather than a replacement), ending with one sentence inviting them to book a free Hero Strategy Session at herohomereach.com/contact. Plain prose only, no bullets or headers, exactly four paragraphs. Under 380 words total.`;
 
   try {
     const response = await fetch('https://api.anthropic.com/v1/messages', {
