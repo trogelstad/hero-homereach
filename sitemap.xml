@@ -279,4 +279,39 @@
     <priority>0.8</priority>
   </url>
 
+
+  <url>
+    <loc>https://www.herohomereach.com/community-partners/colorado-educator-homebuyer-assistance</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.herohomereach.com/community-partners/colorado-first-responder-homebuyer-assistance</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.herohomereach.com/community-partners/colorado-healthcare-worker-homebuyer-assistance</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.herohomereach.com/community-partners/colorado-military-veteran-homebuyer-assistance</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.herohomereach.com/community-partners/colorado-public-servant-homebuyer-assistance</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
 </urlset>
