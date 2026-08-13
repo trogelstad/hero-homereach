@@ -810,7 +810,11 @@ priorities: answers.s6,
       var b = document.getElementById('hhrNext' + i);
       if (b) b.disabled = true;
     }
-    document.getElementById('hhrNext8').disabled = true;
+document.getElementById('hhrNext8').disabled = true;
+    var s6OtherInput = document.getElementById('hhrS6Other');
+    if (s6OtherInput) s6OtherInput.value = '';
+    var s6OtherWrap = document.getElementById('hhr-s6-other-wrap');
+    if (s6OtherWrap) s6OtherWrap.style.display = 'none';
     document.getElementById('vapFirstName').value = '';
     document.getElementById('vapLastName').value = '';
     document.getElementById('vapEmail').value = '';
