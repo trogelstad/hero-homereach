@@ -110,6 +110,53 @@ module.exports = async function handler(req, res) {
     active:  'is already working with a lender or agent'
   };
 
+  // ── "TAKE THIS WITH YOU": save the generated plan text to a MailerLite custom field ──
+  // so it can be included in the follow-up email via a merge tag, and the plan survives
+  // after the buyer closes the tab. Runs AFTER the Anthropic response, since the plan text
+  // has to exist first, as a second upsert call on the same subscriber (same email, same
+  // group, only the new field differs). This never blocks or fails the buyer's response.
+  //
+  // Requires two one-time steps in MailerLite, done by Trent, not by this code:
+  //   1. Create a custom field named exactly "va_plan" (Subscribers > Fields > New field).
+  //   2. Insert the {$va_plan} merge tag into Email 1's HTML in the "VA Homebuying Plan"
+  //      automation, wherever the plan body should appear.
+  // Timing note: this update call happens a few seconds after the base lead save above
+  // (it has to wait on the Anthropic response). If Email 1 in that automation is set to
+  // send with zero delay, it could theoretically send before this field is populated.
+  // Add a short delay (2 to 5 minutes) to Email 1 in the VA automation specifically to
+  // guarantee the field is set by the time it sends.
+  async function savePlanTextToMailerLite(planText) {
+    const apiKey = process.env.MAILERLITE_API_KEY;
+    const groupId = process.env.MAILERLITE_VA_GROUP_ID;
+    if (!apiKey || !groupId || !planText) return;
+    try {
+      const htmlPlan = planText
+        .split(/\n\n+/)
+        .filter(function (p) { return p.trim(); })
+        .map(function (p) { return p.trim(); })
+        .join('<br><br>');
+      const mlRes = await fetch('https://connect.mailerlite.com/api/subscribers', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+          'Authorization': 'Bearer ' + apiKey
+        },
+        body: JSON.stringify({
+          email: email,
+          fields: { va_plan: htmlPlan },
+          groups: [groupId]
+        })
+      });
+      if (!mlRes.ok) {
+        const mlErr = await mlRes.text();
+        console.error('MailerLite plan-field update error:', mlRes.status, mlErr);
+      }
+    } catch (mlErr) {
+      console.error('MailerLite plan-field update failed:', mlErr.message);
+    }
+  }
+
   const priorityLabels = Array.isArray(priorities)
     ? priorities.filter(function (p) { return p !== 'other'; }).map(function (p) { return priorityMap[p] || p; })
     : [];
@@ -218,6 +265,10 @@ Write exactly five paragraphs, separated by a single blank line. Paragraph 1: op
     // Make sure the lead save has finished before this function is frozen/terminated.
     // Its own try/catch above means a MailerLite failure never throws here.
     await saveLeadPromise;
+
+    // Save the generated plan text to MailerLite so the "Take This With You" follow-up
+    // email can include it. Never blocks or fails the buyer's response.
+    await savePlanTextToMailerLite(result).catch(function () {});
 
     return res.status(200).json({ result });
 
